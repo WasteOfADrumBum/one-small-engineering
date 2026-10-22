@@ -1,0 +1,16 @@
+{
+  "name": "one-small-engineering",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Central project registry, engineering standards, release governance and audit evidence for the One Small ecosystem.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "validate": "node scripts/validate-registry.mjs",
+    "test": "node --test scripts/validate-registry.test.mjs",
+    "check": "npm run validate && npm test"
+  }
+}

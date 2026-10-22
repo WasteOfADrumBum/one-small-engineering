@@ -1,0 +1,282 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/WasteOfADrumBum/one-small-engineering/projects/registry.schema.json",
+  "title": "One Small Engineering project registry",
+  "description": "Schema version 1.0.0. Structural rules for projects/registry.json. Cross-record rules (unique IDs, evidence references, gate completeness, release and approval rules, sensitive data) are enforced by scripts/validate-registry.mjs and documented in README.md. The validator supports only the keywords used here and fails on any other keyword, so this file stays the single structural definition.",
+  "type": "object",
+  "required": ["$schema", "schemaVersion", "lastUpdatedAt", "approvalOwner", "gateCatalog", "projects", "legacyRepositories", "otherRepositories"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string", "const": "./registry.schema.json" },
+    "schemaVersion": { "type": "string", "const": "1.0.0" },
+    "lastUpdatedAt": { "$ref": "#/$defs/timestamp" },
+    "approvalOwner": {
+      "description": "The only human who can give final release approval.",
+      "type": "string",
+      "const": "Joshua Small"
+    },
+    "gateCatalog": {
+      "description": "Required release gates for each Definition of Done tier. Must match standards/definition-of-done.md. Every project lists exactly the gates of its tier.",
+      "type": "object",
+      "required": ["showcase", "library", "application"],
+      "additionalProperties": false,
+      "properties": {
+        "showcase": { "$ref": "#/$defs/gateIdList" },
+        "library": { "$ref": "#/$defs/gateIdList" },
+        "application": { "$ref": "#/$defs/gateIdList" }
+      }
+    },
+    "projects": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/project" }
+    },
+    "legacyRepositories": {
+      "description": "Repositories the owner named as legacy or profile repositories. Inventory only; no release tracking.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/inventoryRepository" }
+    },
+    "otherRepositories": {
+      "description": "Other repositories discovered on the account that the owner has not classified yet.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/inventoryRepository" }
+    }
+  },
+  "$defs": {
+    "timestamp": {
+      "description": "ISO 8601 UTC timestamp, for example 2026-10-22T16:30:00Z.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "nullableTimestamp": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+    "nullableUrl": { "type": ["string", "null"], "format": "uri", "pattern": "^https://" },
+    "repositoryUrl": { "type": "string", "format": "uri", "pattern": "^https://github\\.com/WasteOfADrumBum/[A-Za-z0-9._-]+$" },
+    "sha": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "nullableSha": { "type": ["string", "null"], "pattern": "^[0-9a-f]{40}$" },
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "nonEmptyString": { "type": "string", "minLength": 1 },
+    "nullableVersion": {
+      "type": ["string", "null"],
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+    },
+    "stringList": { "type": "array", "items": { "$ref": "#/$defs/nonEmptyString" } },
+    "refList": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/slug" } },
+    "gateId": {
+      "type": "string",
+      "enum": [
+        "scope-complete",
+        "automated-checks",
+        "security-privacy-review",
+        "wcag-22-aa",
+        "keyboard-screen-reader",
+        "responsive-layouts",
+        "critical-workflows",
+        "production-deployment",
+        "documentation-accurate",
+        "no-release-blockers",
+        "package-metadata-exports",
+        "clean-consumer-install",
+        "runtime-compatibility",
+        "package-archive-inspection",
+        "supply-chain-review",
+        "ci-release-pipeline",
+        "versioning-changelog",
+        "distribution-verified",
+        "release-provenance",
+        "upgrade-rollback-uninstall-docs",
+        "public-docs-accurate",
+        "published-artifact-matches",
+        "authentication",
+        "authorization-boundaries",
+        "sensitive-data-handling",
+        "api-integration-security",
+        "integration-failure-handling",
+        "backup-recovery",
+        "audit-logging",
+        "deployment-rollback",
+        "e2e-critical-workflows",
+        "user-data-isolation"
+      ]
+    },
+    "gateIdList": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/gateId" } },
+    "repositorySnapshot": {
+      "description": "Facts read from GitHub at observedAt. A snapshot, not live data.",
+      "type": "object",
+      "required": ["defaultBranch", "headSha", "archived", "observedAt"],
+      "additionalProperties": false,
+      "properties": {
+        "defaultBranch": { "$ref": "#/$defs/nonEmptyString" },
+        "headSha": { "$ref": "#/$defs/nullableSha" },
+        "archived": { "type": ["boolean", "null"] },
+        "observedAt": { "$ref": "#/$defs/timestamp" }
+      }
+    },
+    "pullRequest": {
+      "type": "object",
+      "required": ["number", "url", "title", "headSha", "draft"],
+      "additionalProperties": false,
+      "properties": {
+        "number": { "type": "integer" },
+        "url": { "$ref": "#/$defs/url" },
+        "title": { "$ref": "#/$defs/nonEmptyString" },
+        "headSha": { "$ref": "#/$defs/sha" },
+        "draft": { "type": "boolean" }
+      }
+    },
+    "blocker": {
+      "type": "object",
+      "required": ["id", "description", "status", "evidenceRefs"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "description": { "$ref": "#/$defs/nonEmptyString" },
+        "status": { "type": "string", "enum": ["open", "resolved"] },
+        "evidenceRefs": { "$ref": "#/$defs/refList" }
+      }
+    },
+    "evidence": {
+      "description": "One piece of evidence. A chat summary is never evidence on its own: link the PR, commit, workflow run, artifact or committed test record.",
+      "type": "object",
+      "required": ["id", "type", "url", "commitSha", "verifiedAt", "result", "description", "recordedBy"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "type": {
+          "type": "string",
+          "enum": ["pull_request", "commit", "workflow_run", "release", "package", "deployment", "repository_metadata", "document", "manual_test", "audit"]
+        },
+        "url": { "$ref": "#/$defs/url" },
+        "commitSha": { "$ref": "#/$defs/nullableSha" },
+        "verifiedAt": { "$ref": "#/$defs/timestamp" },
+        "result": {
+          "description": "pass and fail are verification outcomes. builder_reported means the source records a result that nobody independent has re-checked. informational records a fact, not a test.",
+          "type": "string",
+          "enum": ["pass", "fail", "partial", "inconclusive", "builder_reported", "informational"]
+        },
+        "description": { "$ref": "#/$defs/nonEmptyString" },
+        "recordedBy": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "releaseGate": {
+      "type": "object",
+      "required": ["id", "status", "evidenceRefs", "verifiedAt", "notes"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/gateId" },
+        "status": { "type": "string", "enum": ["not_verified", "in_progress", "blocked", "verified", "not_applicable"] },
+        "evidenceRefs": { "$ref": "#/$defs/refList" },
+        "verifiedAt": { "$ref": "#/$defs/nullableTimestamp" },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "approval": {
+      "description": "Final human release approval for targetVersion. Only approvalOwner can approve, and only with linked evidence (for example an approving PR review or a signed-off comment).",
+      "type": "object",
+      "required": ["status", "approvedBy", "approvedAt", "evidenceRefs"],
+      "additionalProperties": false,
+      "properties": {
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+        "approvedBy": { "type": ["string", "null"] },
+        "approvedAt": { "$ref": "#/$defs/nullableTimestamp" },
+        "evidenceRefs": { "$ref": "#/$defs/refList" }
+      }
+    },
+    "modsPack": {
+      "description": "One Small ModsPack installation in this project. Presence of Claude Code instructions or older plugins does not count as installation.",
+      "type": "object",
+      "required": ["installedVersion", "integrationStatus", "adapters", "capabilities", "evidenceRefs", "limitations"],
+      "additionalProperties": false,
+      "properties": {
+        "installedVersion": { "$ref": "#/$defs/nullableVersion" },
+        "integrationStatus": {
+          "type": "string",
+          "enum": ["not_installed", "planned", "installed", "verified", "not_applicable", "not_verified"]
+        },
+        "adapters": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "enum": ["claude-code", "codex", "copilot", "gemini"] }
+        },
+        "capabilities": { "$ref": "#/$defs/stringList" },
+        "evidenceRefs": { "$ref": "#/$defs/refList" },
+        "limitations": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "project": {
+      "type": "object",
+      "required": [
+        "id", "name", "repository", "tier", "visibility", "lifecycle", "productionUrl",
+        "repositorySnapshot", "openPullRequests",
+        "release", "ownership", "approval",
+        "lastVerifiedAt", "evidence", "releaseGates",
+        "modsPack", "missingEvidence"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "repository": { "$ref": "#/$defs/repositoryUrl" },
+        "tier": { "type": "string", "enum": ["showcase", "library", "application", "legacy"] },
+        "visibility": { "type": "string", "enum": ["public", "private", "internal"] },
+        "lifecycle": { "type": "string", "enum": ["active", "maintenance", "archived", "planned"] },
+        "productionUrl": { "$ref": "#/$defs/nullableUrl" },
+        "repositorySnapshot": { "$ref": "#/$defs/repositorySnapshot" },
+        "openPullRequests": { "type": "array", "items": { "$ref": "#/$defs/pullRequest" } },
+        "release": {
+          "description": "currentVersion is what was historically published. releaseStatus describes targetVersion only.",
+          "type": "object",
+          "required": ["currentVersion", "currentVersionSource", "targetVersion", "releaseStatus", "scopeDocument", "blockers", "nextAction", "enhancements"],
+          "additionalProperties": false,
+          "properties": {
+            "currentVersion": { "$ref": "#/$defs/nullableVersion" },
+            "currentVersionSource": { "type": ["string", "null"] },
+            "targetVersion": { "$ref": "#/$defs/nullableVersion" },
+            "releaseStatus": { "type": "string", "enum": ["not_started", "in_progress", "blocked", "ready_for_review", "verified", "released"] },
+            "scopeDocument": { "$ref": "#/$defs/nullableUrl" },
+            "blockers": { "type": "array", "items": { "$ref": "#/$defs/blocker" } },
+            "nextAction": { "$ref": "#/$defs/nonEmptyString" },
+            "enhancements": {
+              "description": "Future, optional work. Never blocks the current release.",
+              "$ref": "#/$defs/stringList"
+            }
+          }
+        },
+        "ownership": {
+          "type": "object",
+          "required": ["builder", "verifier", "approvalOwner"],
+          "additionalProperties": false,
+          "properties": {
+            "builder": { "type": ["string", "null"] },
+            "verifier": { "type": ["string", "null"] },
+            "approvalOwner": { "type": "string", "const": "Joshua Small" }
+          }
+        },
+        "approval": { "$ref": "#/$defs/approval" },
+        "lastVerifiedAt": { "$ref": "#/$defs/nullableTimestamp" },
+        "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } },
+        "releaseGates": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/releaseGate" } },
+        "modsPack": { "$ref": "#/$defs/modsPack" },
+        "missingEvidence": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "inventoryRepository": {
+      "type": "object",
+      "required": ["name", "repository", "classification", "visibility", "archived", "defaultBranch", "lastPushedAt", "notes"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "repository": { "$ref": "#/$defs/repositoryUrl" },
+        "classification": { "type": "string", "enum": ["legacy", "profile", "superseded", "governance", "unclassified"] },
+        "visibility": { "type": "string", "enum": ["public", "private", "internal"] },
+        "archived": { "type": ["boolean", "null"] },
+        "defaultBranch": { "type": ["string", "null"] },
+        "lastPushedAt": { "$ref": "#/$defs/nullableTimestamp" },
+        "notes": { "type": ["string", "null"] }
+      }
+    }
+  }
+}
