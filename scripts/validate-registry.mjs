@@ -166,6 +166,9 @@ const FINAL_STATUSES = new Set(['verified', 'released'])
 const SATISFIED_GATES = new Set(['verified', 'not_applicable'])
 // Evidence types that can never prove a gate on their own: they describe a repository, they do not test it.
 const NON_PROVING_TYPES = new Set(['repository_metadata'])
+// A not_applicable rationale must be a sentence, not "n/a".
+const MIN_RATIONALE = 20
+const norm = name => (name || '').trim().toLowerCase()
 
 export function checkRules(registry, { now = new Date() } = {}) {
   const errors = []
@@ -243,12 +246,18 @@ export function checkRules(registry, { now = new Date() } = {}) {
         if (!g.verifiedAt) err(gp, 'a verified gate needs verifiedAt')
         if (g.evidenceRefs.length === 0) err(gp, 'a verified gate needs at least one evidence reference')
         else if (!refs.some(e => e.result === 'pass' && !NON_PROVING_TYPES.has(e.type))) err(gp, 'a verified gate needs evidence with result "pass" (repository metadata and builder-reported results do not count)')
+        // Independent verification: separate, named builder and verifier, and proof not recorded by the builder.
+        const builder = norm(p.ownership.builder)
+        const verifier = norm(p.ownership.verifier)
+        if (!builder || !verifier) err(gp, 'a verified gate needs both ownership.builder and ownership.verifier assigned')
+        else if (builder === verifier) err(gp, 'a verified gate needs a verifier different from the builder')
+        else if (!refs.some(e => e.result === 'pass' && !NON_PROVING_TYPES.has(e.type) && norm(e.recordedBy) !== builder)) err(gp, 'a verified gate needs "pass" evidence recorded by someone other than the builder (builder results stay builder_reported until independently re-checked)')
         if (g.verifiedAt && new Date(g.verifiedAt) > updated) err(gp, 'verifiedAt is later than registry lastUpdatedAt')
         if (g.id === 'no-release-blockers' && openBlockers.length) err(gp, `cannot be verified while ${openBlockers.length} blocker(s) are open`)
       } else if (g.verifiedAt !== null) {
         err(gp, `verifiedAt must be null unless the gate is verified (status is ${g.status})`)
       }
-      if (g.status === 'not_applicable' && !(g.notes && g.notes.trim())) err(gp, 'not_applicable needs a documented rationale in notes')
+      if (g.status === 'not_applicable' && !(g.notes && g.notes.trim().length >= MIN_RATIONALE)) err(gp, `not_applicable needs an explicit rationale in notes (at least ${MIN_RATIONALE} characters saying why the gate does not apply)`)
       if (g.status === 'blocked' && !(g.notes && g.notes.trim()) && g.evidenceRefs.length === 0) err(gp, 'a blocked gate needs notes or evidence explaining the block')
     })
 
@@ -266,7 +275,7 @@ export function checkRules(registry, { now = new Date() } = {}) {
       if (!own.builder || !own.verifier) err(`${at}.ownership`, `releaseStatus ${r.releaseStatus} needs both a builder and an independent verifier`)
       if (!p.lastVerifiedAt) err(at, `releaseStatus ${r.releaseStatus} needs lastVerifiedAt`)
     }
-    if (own.builder && own.verifier && own.builder.trim().toLowerCase() === own.verifier.trim().toLowerCase()) {
+    if (own.builder && own.verifier && norm(own.builder) === norm(own.verifier)) {
       err(`${at}.ownership`, 'builder and verifier must be different for independent acceptance')
     }
     if (r.releaseStatus === 'released') {

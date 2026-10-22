@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.0.0",
-  "lastUpdatedAt": "2026-10-22T16:33:00Z",
+  "lastUpdatedAt": "2026-10-22T17:20:00Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -299,7 +299,7 @@
           "status": "not_applicable",
           "evidenceRefs": [],
           "verifiedAt": null,
-          "notes": "ModsPack has no hosted service; release delivery is covered by distribution-verified and published-artifact-matches. Change to not_verified if the generated documentation site is hosted as part of 2.0.0."
+          "notes": "Owner decision 2026-10-22: ModsPack 2.0.0 ships as an npm library and a GitHub-hosted Claude Code plugin marketplace; there is no hosted service or website to deploy. Delivery is verified instead by the separate gates distribution-verified, release-provenance, clean-consumer-install, published-artifact-matches and public-docs-accurate, which stay required. Revisit if the generated documentation site is hosted as part of a release."
         },
         {
           "id": "documentation-accurate",
@@ -1714,6 +1714,236 @@
         "Security review of Drive, Todoist and Calendar integrations.",
         "Builder and independent verifier not assigned."
       ]
+    },
+    {
+      "id": "one-small-ai-workforce",
+      "name": "One Small AI Workforce",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "tier": "application",
+      "visibility": "private",
+      "lifecycle": "active",
+      "productionUrl": null,
+      "repositorySnapshot": {
+        "defaultBranch": "main",
+        "headSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+        "archived": false,
+        "observedAt": "2026-10-22T17:20:00Z"
+      },
+      "openPullRequests": [],
+      "release": {
+        "currentVersion": null,
+        "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder.",
+        "targetVersion": null,
+        "releaseStatus": "not_started",
+        "scopeDocument": null,
+        "blockers": [
+          {
+            "id": "scope-document-missing",
+            "description": "No release scope document. The README describes a Phase 1 deterministic simulation foundation; the first release scope has not been defined.",
+            "status": "open",
+            "evidenceRefs": [
+              "aiw-repo-metadata"
+            ]
+          }
+        ],
+        "nextAction": "Define and commit the first release scope (including its relationship to TaskForge), then confirm the Application tier and run the gates.",
+        "enhancements": []
+      },
+      "ownership": {
+        "builder": null,
+        "verifier": null,
+        "approvalOwner": "Joshua Small"
+      },
+      "approval": {
+        "status": "pending",
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidenceRefs": []
+      },
+      "lastVerifiedAt": "2026-10-22T17:20:00Z",
+      "evidence": [
+        {
+          "id": "aiw-repo-metadata",
+          "type": "repository_metadata",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+          "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+          "verifiedAt": "2026-10-22T17:20:00Z",
+          "result": "informational",
+          "description": "Private, not archived, default branch main at c70d8b1 (PR #1, Copilot-built foundation, 2026-10-13); no open PRs. Next.js, Prisma/PostgreSQL, Auth.js credentials demo mode, depends on @onesmall/ui ^0.1.0. README: Phase 1 deterministic persisted simulation with no paid model calls or external writes.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "aiw-ci-main",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ai-workforce/actions/runs/38429535639",
+          "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+          "verifiedAt": "2026-10-22T17:20:00Z",
+          "result": "pass",
+          "description": "CI job lint-test-build succeeded at c70d8b1.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        }
+      ],
+      "releaseGates": [
+        {
+          "id": "scope-complete",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "automated-checks",
+          "status": "not_verified",
+          "evidenceRefs": [
+            "aiw-ci-main"
+          ],
+          "verifiedAt": null,
+          "notes": "Default-branch CI passed at c70d8b1, but no release scope exists yet, so the gate stays not_verified."
+        },
+        {
+          "id": "security-privacy-review",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "wcag-22-aa",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "keyboard-screen-reader",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "responsive-layouts",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "critical-workflows",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "production-deployment",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "documentation-accurate",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "no-release-blockers",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "authentication",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "authorization-boundaries",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "sensitive-data-handling",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "api-integration-security",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "integration-failure-handling",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "backup-recovery",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "audit-logging",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "deployment-rollback",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "e2e-critical-workflows",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "user-data-isolation",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        }
+      ],
+      "modsPack": {
+        "installedVersion": null,
+        "integrationStatus": "not_installed",
+        "adapters": [],
+        "capabilities": [],
+        "evidenceRefs": [
+          "aiw-repo-metadata"
+        ],
+        "limitations": [
+          "No modspack.config.json, .claude/guardrail-mods/ config or ModsPack instruction block found on the default branch at c70d8b1. ModsPack 2.0 is unreleased (PR #3 draft)."
+        ]
+      },
+      "missingEvidence": [
+        "Release scope, target version and tier confirmation (Application assumed: authentication, database, approvals).",
+        "Production URL: none set on the repository; deployment records were not accessible to this inspection.",
+        "Builder and independent verifier not assigned."
+      ]
     }
   ],
   "legacyRepositories": [
@@ -1780,16 +2010,6 @@
       "notes": "This registry repository. Not a tracked project."
     },
     {
-      "name": "one-small-ai-workforce",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
-      "classification": "unclassified",
-      "visibility": "private",
-      "archived": false,
-      "defaultBranch": "main",
-      "lastPushedAt": "2026-10-13T16:19:18Z",
-      "notes": "Active-looking: README describes a Phase 1 AI-agent operations platform for TaskForge built on @onesmall/ui. Owner should decide whether it is an active project, part of TaskForge, or legacy."
-    },
-    {
       "name": "client",
       "repository": "https://github.com/WasteOfADrumBum/client",
       "classification": "unclassified",
@@ -1797,7 +2017,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2025-04-07T19:31:28Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "codecraft",
@@ -1807,7 +2027,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2023-05-22T01:07:44Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "sesame-street-actors",
@@ -1817,7 +2037,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2022-01-07T15:30:38Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "mern-review",
@@ -1827,7 +2047,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2022-01-07T15:16:11Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "mean-stack-crud-app",
@@ -1837,7 +2057,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2021-12-29T22:29:11Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "Sales-Automation-App",
@@ -1847,7 +2067,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2021-12-20T16:34:47Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "project-iii",
@@ -1857,7 +2077,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2021-09-28T01:05:20Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "Web-APIs-Code-Quiz",
@@ -1867,7 +2087,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2021-09-26T21:38:28Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "r0b",
@@ -1877,7 +2097,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-12-29T19:34:22Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "joshuamsmall",
@@ -1887,7 +2107,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-11-06T22:34:49Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "hw-19-employee-directory",
@@ -1897,7 +2117,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-10-27T15:40:11Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "HW-18-PWA-Online-Offline-Budget-Trackers",
@@ -1907,7 +2127,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-10-20T22:31:36Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "Fitness-Tracker",
@@ -1917,7 +2137,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-10-19T16:02:31Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "Team-Project-II",
@@ -1927,7 +2147,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-10-08T23:59:59Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "MySQL-Employee-Tracker",
@@ -1937,7 +2157,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-09-29T18:47:53Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "Node-Express-Handlebars",
@@ -1947,7 +2167,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-09-29T18:43:24Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "Reverse-Engineering-Code",
@@ -1957,7 +2177,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-09-24T21:34:38Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "Gallivant",
@@ -1967,7 +2187,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-09-20T17:22:32Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "Express-Note_Taker",
@@ -1977,7 +2197,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-09-10T21:08:33Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "Weather-Dashboard",
@@ -1987,7 +2207,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-09-10T21:01:24Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "Work-Day-Scheduler",
@@ -1997,7 +2217,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-09-10T20:48:23Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "Template-Engine-Employee-Summary",
@@ -2007,7 +2227,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-08-24T14:28:11Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "ny-times",
@@ -2017,7 +2237,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-07-28T23:36:49Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "JavaScript-Password-Generator",
@@ -2027,7 +2247,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-07-19T22:34:48Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "Responsive-Portfolio",
@@ -2037,7 +2257,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-06-29T03:47:12Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "Code-Refactor",
@@ -2047,7 +2267,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-06-19T02:41:58Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "Student-Bio",
@@ -2057,7 +2277,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-06-19T02:24:02Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     },
     {
       "name": "my-first-repo",
@@ -2067,7 +2287,7 @@
       "archived": null,
       "defaultBranch": null,
       "lastPushedAt": "2020-06-18T23:56:48Z",
-      "notes": "Discovered via the account repository listing; archived status and default branch not verified. Likely legacy coursework; owner to classify."
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
     }
   ]
 }

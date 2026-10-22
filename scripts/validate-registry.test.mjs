@@ -141,9 +141,33 @@ test('a verified gate needs verifiedAt, and other gates must not carry one', () 
   rejects(r2, 'verifiedAt must be null unless the gate is verified')
 })
 
-test('not_applicable without a rationale fails', () => {
-  const r = clone(); Object.assign(r.projects[0].releaseGates[0], { status: 'not_applicable', notes: '  ' })
-  rejects(r, 'not_applicable needs a documented rationale')
+test('not_applicable without an explicit rationale fails', () => {
+  const r1 = clone(); Object.assign(r1.projects[0].releaseGates[0], { status: 'not_applicable', notes: '  ' })
+  rejects(r1, 'not_applicable needs an explicit rationale')
+  const r2 = clone(); Object.assign(r2.projects[0].releaseGates[0], { status: 'not_applicable', notes: 'n/a' })
+  rejects(r2, 'not_applicable needs an explicit rationale')
+})
+
+test('every not_applicable gate in the committed registry has a rationale', () => {
+  for (const p of baseline.projects) {
+    for (const g of p.releaseGates.filter(g => g.status === 'not_applicable')) assert.ok(g.notes && g.notes.trim().length >= 20, `${p.id} ${g.id}`)
+  }
+})
+
+test('a verified gate needs separate, assigned builder and verifier', () => {
+  const { r: r1, p: p1 } = releasedFixture(); p1.ownership.builder = null
+  rejects(r1, 'needs both ownership.builder and ownership.verifier assigned')
+  const { r: r2, p: p2 } = releasedFixture(); p2.ownership.verifier = 'CLAUDE CODE '
+  rejects(r2, 'needs a verifier different from the builder')
+})
+
+test('builder-recorded results cannot verify a gate', () => {
+  const { r, p } = releasedFixture()
+  p.evidence.find(e => e.id === 'studio-qa-record').recordedBy = 'Claude Code'
+  rejects(r, 'recorded by someone other than the builder')
+  const { r: r2, p: p2 } = releasedFixture()
+  p2.evidence.find(e => e.id === 'studio-qa-record').result = 'builder_reported'
+  rejects(r2, 'needs evidence with result "pass"')
 })
 
 test('a project must list exactly its tier gates', () => {

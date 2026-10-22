@@ -10,7 +10,7 @@ How a One Small release moves from idea to maintenance, and how humans and AI as
 | Verifier | A different person or AI assistant | Independently re-checks the evidence and runs the checks the builder cannot judge. Never the builder for the same release. |
 | Approval owner | **Joshua Small** only | Gives final release approval. No AI assistant can approve, and none may write approval on his behalf without linked evidence of his decision. |
 
-Builder and verifier are recorded in the registry's `ownership` block. Different AI tools (for example Claude builds, Codex verifies) count as independent; two sessions of the same tool reviewing their own work do not.
+Builder and verifier are recorded in the registry's `ownership` block. Both stay `null` until the release is scoped, and both must be assigned (as different identities) before any gate can be marked verified. Different AI tools (for example Claude builds, Codex verifies) count as independent; two sessions of the same tool reviewing their own work do not.
 
 ## The release process
 

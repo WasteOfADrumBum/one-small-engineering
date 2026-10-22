@@ -26,8 +26,9 @@ The single source of truth for the status, release readiness and quality evidenc
 | One Small Photography | [one-small-photography](https://github.com/WasteOfADrumBum/one-small-photography) | Showcase |
 | TaskForge | [TaskForge](https://github.com/WasteOfADrumBum/TaskForge) | Application |
 | Cortex | [cortex-brain-task](https://github.com/WasteOfADrumBum/cortex-brain-task) | Application |
+| One Small AI Workforce | [one-small-ai-workforce](https://github.com/WasteOfADrumBum/one-small-ai-workforce) (private) | Application |
 
-Legacy and profile repositories (`one-small-photo`, `README-Generator`, `i18next_translation`, `react-flask-edu`, `WasteOfADrumBum`) are inventoried under `legacyRepositories`. Every other repository found on the account is listed under `otherRepositories` until the owner classifies it.
+Legacy and profile repositories (`one-small-photo`, `README-Generator`, `i18next_translation`, `react-flask-edu`, `WasteOfADrumBum`) are inventoried under `legacyRepositories`. Every other repository found on the account is listed under `otherRepositories` as `unclassified` until evidence supports a classification; none is assumed to be legacy.
 
 ## How the registry works
 
@@ -35,7 +36,7 @@ Each project entry records:
 
 - **Identity**: `id`, `name`, `repository`, `tier`, `visibility`, `lifecycle`, and a dated `repositorySnapshot` (default branch, head SHA, archived).
 - **Release**: `currentVersion` (what was historically published, with its source) is separate from `targetVersion` and `releaseStatus` (the next release only). Plus `scopeDocument`, `blockers`, `nextAction` and `enhancements` (future work that never blocks the current release).
-- **Ownership**: `builder`, `verifier` (must differ) and `approvalOwner` (always Joshua Small).
+- **Ownership**: `builder` and `verifier` (both `null` until the release is scoped; must be assigned and differ before any gate is verified) and `approvalOwner` (always Joshua Small, the only final release approver).
 - **Evidence**: `evidence` records (ID, type, URL, commit SHA, date, result, description) and `releaseGates` that reference them by ID. `lastVerifiedAt` is when the entry was last checked against GitHub.
 - **Approval**: Joshua Small's release approval, which needs linked evidence.
 - **ModsPack**: installed version, integration status, adapters, capabilities, evidence and limitations.
@@ -50,8 +51,8 @@ Beyond the schema (required fields, enums, UTC timestamps, https URLs, SHAs):
 1. Project IDs, evidence IDs and repository URLs are unique (URLs case-insensitively, across all three lists).
 2. Each project lists exactly the gates of its tier from `gateCatalog`.
 3. Every evidence reference resolves to an evidence record in the same project.
-4. A `verified` gate has a date and at least one `pass` evidence record that is not repository metadata or a builder-reported claim.
-5. A `not_applicable` gate has a written rationale.
+4. A `verified` gate has a date, an assigned builder and a different verifier, and at least one `pass` evidence record that is not repository metadata and was recorded by someone other than the builder. `builder_reported` evidence never verifies a gate.
+5. A `not_applicable` gate has an explicit rationale (at least 20 characters).
 6. `releaseStatus` `verified` or `released` requires every gate verified or not applicable, no open blockers, a scope document, and a different builder and verifier. `released` also requires approval and `currentVersion` equal to `targetVersion`.
 7. Approval can only be given by the approval owner, with evidence, after verification.
 8. ModsPack `installed`/`verified` needs a version, adapters and evidence.

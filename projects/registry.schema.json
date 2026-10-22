@@ -153,7 +153,7 @@
         "commitSha": { "$ref": "#/$defs/nullableSha" },
         "verifiedAt": { "$ref": "#/$defs/timestamp" },
         "result": {
-          "description": "pass and fail are verification outcomes. builder_reported means the source records a result that nobody independent has re-checked. informational records a fact, not a test.",
+          "description": "pass and fail are independent verification outcomes. builder_reported means the source records a result that nobody independent has re-checked; it is never promoted to pass without an independent re-check recorded by someone other than the builder. informational records a fact, not a test.",
           "type": "string",
           "enum": ["pass", "fail", "partial", "inconclusive", "builder_reported", "informational"]
         },
@@ -170,7 +170,10 @@
         "status": { "type": "string", "enum": ["not_verified", "in_progress", "blocked", "verified", "not_applicable"] },
         "evidenceRefs": { "$ref": "#/$defs/refList" },
         "verifiedAt": { "$ref": "#/$defs/nullableTimestamp" },
-        "notes": { "type": ["string", "null"] }
+        "notes": {
+          "description": "Required for not_applicable: an explicit rationale of at least 20 characters.",
+          "type": ["string", "null"]
+        }
       }
     },
     "approval": {
@@ -246,6 +249,7 @@
           }
         },
         "ownership": {
+          "description": "builder and verifier stay null until the release is scoped. A gate can only be verified once both are assigned and differ. approvalOwner is the only final release approver.",
           "type": "object",
           "required": ["builder", "verifier", "approvalOwner"],
           "additionalProperties": false,

@@ -16,14 +16,26 @@ Each gate has a stable ID. The IDs are the `gateCatalog` in [`projects/registry.
 | `verified` | Linked evidence with result `pass` shows the gate is met for the target release. |
 | `not_applicable` | The gate does not apply to this project. Requires a written rationale in `notes`. |
 
+### Builder-reported versus independently verified
+
+| Evidence result | Who records it | Can it verify a gate? |
+| --- | --- | --- |
+| `builder_reported` | Anyone relaying the builder's own results (test counts, manual runs, release notes) | **No.** It can move a gate to `in_progress` only. |
+| `pass` / `fail` | The verifier, after re-running or re-checking the result themselves | Yes (`pass`), if it applies to the target release. |
+| `informational` | Anyone recording a fact (repository metadata, a published version) | No. |
+
+Evidence is never promoted from `builder_reported` to `pass` by editing its result. The verifier records a new evidence record of their own after re-checking. The validator rejects a verified gate whose only `pass` evidence was recorded by the builder.
+
 A gate is **verified** only when:
 
-- it links at least one evidence record whose `result` is `pass`;
-- that evidence is not repository metadata and not a `builder_reported` claim;
-- the evidence applies to the target release (the commit or deployment being released), not an older one;
-- the verifier is not the builder (see [release.md](release.md#roles)).
+- `ownership.builder` and `ownership.verifier` are both assigned and are different identities (they stay `null` until the release is scoped);
+- it links at least one evidence record whose `result` is `pass`, recorded by someone other than the builder;
+- that evidence is not repository metadata;
+- the evidence applies to the target release (the commit or deployment being released), not an older one.
 
-"Applicable" means the gate covers something the project actually has. A site with no forms has no form workflows to test; a CLI with no hosted service has no production deployment. Use `not_applicable` with a one-line reason instead of inventing work.
+Joshua Small is the only final release approver ([release.md](release.md#roles)). Verification is not approval.
+
+"Applicable" means the gate covers something the project actually has. A site with no forms has no form workflows to test; a CLI with no hosted service has no production deployment. Use `not_applicable` instead of inventing work, and **always** give an explicit rationale in `notes` (at least a sentence: why the gate does not apply and which other gates cover the risk). Marking a gate not applicable never removes the other gates of the tier.
 
 ## Tier 1: Showcase
 
@@ -53,7 +65,7 @@ What Showcase does **not** require:
 
 Applies to One Small ModsPack and OneSmallUI.
 
-All ten Tier 1 gates apply where applicable (for example `wcag-22-aa` covers a documentation site or UI components; `production-deployment` is usually `not_applicable` for a package with no hosted service). In addition:
+All ten Tier 1 gates apply where applicable (for example `wcag-22-aa` covers a documentation site or UI components). `production-deployment` is `not_applicable` for a package distributed through npm with no hosted service, with that justification recorded; the distribution, provenance, installation and public-documentation gates below remain required. In addition:
 
 | # | Gate ID | Requirement |
 | --- | --- | --- |
@@ -72,7 +84,7 @@ All ten Tier 1 gates apply where applicable (for example `wcag-22-aa` covers a d
 
 ## Tier 3: Application
 
-Applies to TaskForge and Cortex.
+Applies to TaskForge, Cortex and One Small AI Workforce.
 
 All ten Tier 1 gates apply where applicable. In addition:
 
