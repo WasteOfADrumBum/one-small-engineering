@@ -12,6 +12,7 @@ import { dirname, resolve } from 'node:path'
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const DEFAULT_REGISTRY = resolve(ROOT, 'projects/registry.json')
 const DEFAULT_SCHEMA = resolve(ROOT, 'projects/registry.schema.json')
+const DEFAULT_DOD = resolve(ROOT, 'standards/definition-of-done.md')
 
 // ---------------------------------------------------------------------------
 // Minimal JSON Schema (2020-12 subset) evaluator. Only the keywords below are
@@ -159,6 +160,29 @@ function walkStrings(value, path, visit) {
 }
 
 // ---------------------------------------------------------------------------
+// Definition of Done: the authoritative gate list for each tier
+// ---------------------------------------------------------------------------
+
+// Reads the numbered gate tables under "## Tier 1/2/3" in standards/definition-of-done.md.
+// Library and application tiers include every Tier 1 gate plus their own.
+export function parseDefinitionOfDone(text) {
+  const section = n => {
+    const start = text.indexOf(`## Tier ${n}`)
+    if (start === -1) throw new SchemaError(`definition-of-done.md has no "## Tier ${n}" section`)
+    const next = text.indexOf('\n## ', start + 1)
+    return text.slice(start, next === -1 ? undefined : next)
+  }
+  const ids = n => [...section(n).matchAll(/^\|\s*\d+\s*\|\s*`([a-z0-9-]+)`\s*\|/gm)].map(m => m[1])
+  const base = ids(1)
+  return { showcase: base, library: [...base, ...ids(2)], application: [...base, ...ids(3)] }
+}
+
+function compareSets(expected, actual, path, label, err) {
+  for (const id of expected) if (!actual.includes(id)) err(path, `missing gate "${id}" required by ${label}`)
+  for (const id of actual) if (!expected.includes(id)) err(path, `gate "${id}" is not defined by ${label}`)
+}
+
+// ---------------------------------------------------------------------------
 // Governance rules that JSON Schema cannot express
 // ---------------------------------------------------------------------------
 
@@ -170,7 +194,7 @@ const NON_PROVING_TYPES = new Set(['repository_metadata'])
 const MIN_RATIONALE = 20
 const norm = name => (name || '').trim().toLowerCase()
 
-export function checkRules(registry, { now = new Date() } = {}) {
+export function checkRules(registry, { now = new Date(), dod = parseDefinitionOfDone(readFileSync(DEFAULT_DOD, 'utf8')) } = {}) {
   const errors = []
   const err = (path, msg) => errors.push(`${path}: ${msg}`)
   const owner = registry.approvalOwner
@@ -178,6 +202,11 @@ export function checkRules(registry, { now = new Date() } = {}) {
   const updated = new Date(registry.lastUpdatedAt)
   if (updated.getTime() > now.getTime() + 24 * 3600 * 1000) err('$.lastUpdatedAt', 'is in the future')
 
+  // The gate catalog must equal the Definition of Done for every tier, in both directions,
+  // so a required gate cannot disappear from the catalog and every project at once.
+  for (const tier of ['showcase', 'library', 'application']) {
+    compareSets(dod[tier], registry.gateCatalog[tier], `$.gateCatalog.${tier}`, `the ${tier} tier in standards/definition-of-done.md`, err)
+  }
   // Library and application tiers build on the showcase gates.
   for (const tier of ['library', 'application']) {
     for (const g of registry.gateCatalog.showcase) {
@@ -236,7 +265,14 @@ export function checkRules(registry, { now = new Date() } = {}) {
       const bp = `${at}.release.blockers[${j}]`
       if (blockerIds.has(b.id)) err(bp, `duplicate blocker id "${b.id}"`)
       blockerIds.add(b.id)
-      resolveRefs(b.evidenceRefs, bp)
+      const refs = resolveRefs(b.evidenceRefs, bp)
+      if (b.status === 'resolved') {
+        // A resolution needs its own proof: metadata, failures and builder claims do not show a blocker is gone.
+        if (!refs.some(e => !NON_PROVING_TYPES.has(e.type) && ['pass', 'informational'].includes(e.result))) {
+          err(bp, 'a resolved blocker needs evidence of the resolution (a pass or informational record that is not repository metadata)')
+        }
+        if (b.id === 'scope-document-missing' && !p.release.scopeDocument) err(bp, 'scope-document-missing cannot be resolved while release.scopeDocument is null')
+      }
     })
 
     p.releaseGates.forEach((g, j) => {
@@ -333,11 +369,15 @@ export function checkRules(registry, { now = new Date() } = {}) {
   return errors
 }
 
-export function validateRegistry(registry, schema, options) {
+export function validateRegistry(registry, schema, options = {}) {
+  const dod = options.dod || parseDefinitionOfDone(readFileSync(DEFAULT_DOD, 'utf8'))
+  // The schema's gate enum must list exactly the gates the Definition of Done defines.
+  const enumErrors = []
+  compareSets([...new Set([...dod.library, ...dod.application])], schema.$defs?.gateId?.enum || [], '$schema.$defs.gateId', 'standards/definition-of-done.md', (path, msg) => enumErrors.push(`${path}: ${msg}`))
   const errors = validateAgainstSchema(registry, schema)
   // Cross-record rules assume a structurally valid document.
-  if (errors.length) return errors
-  return checkRules(registry, options)
+  if (errors.length) return [...enumErrors, ...errors]
+  return [...enumErrors, ...checkRules(registry, { ...options, dod })]
 }
 
 export function validateText(registryText, schema, options) {
@@ -353,17 +393,18 @@ export function validateText(registryText, schema, options) {
 function main(argv) {
   const registryPath = resolve(argv[0] || DEFAULT_REGISTRY)
   const schemaPath = resolve(argv[1] || DEFAULT_SCHEMA)
-  let text, schema
+  let text, schema, dodText
   try {
     text = readFileSync(registryPath, 'utf8')
     schema = JSON.parse(readFileSync(schemaPath, 'utf8'))
+    dodText = readFileSync(DEFAULT_DOD, 'utf8')
   } catch (e) {
     console.error(`validate-registry: cannot read input: ${e.message}`)
     return 2
   }
   let errors
   try {
-    errors = validateText(text, schema)
+    errors = validateText(text, schema, { dod: parseDefinitionOfDone(dodText) })
   } catch (e) {
     if (e instanceof SchemaError) {
       console.error(`validate-registry: schema problem: ${e.message}`)

@@ -5,16 +5,18 @@ import { readFileSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
-import { validateRegistry, validateText, validateAgainstSchema, SchemaError, isUtcTimestamp } from './validate-registry.mjs'
+import { validateRegistry, validateText, validateAgainstSchema, SchemaError, isUtcTimestamp, parseDefinitionOfDone } from './validate-registry.mjs'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const schema = JSON.parse(readFileSync(resolve(ROOT, 'projects/registry.schema.json'), 'utf8'))
 const baseline = JSON.parse(readFileSync(resolve(ROOT, 'projects/registry.json'), 'utf8'))
+const dodText = readFileSync(resolve(ROOT, 'standards/definition-of-done.md'), 'utf8')
+const dod = parseDefinitionOfDone(dodText)
 const NOW = new Date('2030-01-01T00:00:00Z')
 
 const clone = () => structuredClone(baseline)
 const project = (r, id) => r.projects.find(p => p.id === id)
-const run = r => validateRegistry(r, schema, { now: NOW })
+const run = (r, options = {}) => validateRegistry(r, schema, { now: NOW, dod, ...options })
 
 // Asserts the registry fails and at least one error contains `fragment`.
 function rejects(r, fragment) {
@@ -248,9 +250,49 @@ test('unsupported schema keywords are refused', () => {
   assert.throws(() => validateAgainstSchema({}, { type: 'object', oneOf: [] }), SchemaError)
 })
 
-test('the gate catalog matches the Definition of Done', () => {
-  const dod = readFileSync(resolve(ROOT, 'standards/definition-of-done.md'), 'utf8')
-  for (const [tier, ids] of Object.entries(baseline.gateCatalog)) {
-    for (const id of ids) assert.ok(dod.includes('`' + id + '`'), `standards/definition-of-done.md does not document gate ${id} (${tier})`)
-  }
+test('the gate catalog equals the Definition of Done for every tier', () => {
+  assert.equal(dod.showcase.length, 10)
+  assert.equal(dod.library.length, 22)
+  assert.equal(dod.application.length, 20)
+  for (const tier of ['showcase', 'library', 'application']) assert.deepEqual([...baseline.gateCatalog[tier]].sort(), [...dod[tier]].sort(), tier)
+})
+
+test('a required gate cannot disappear from the catalog and every project together', () => {
+  const r = clone()
+  r.gateCatalog.application = r.gateCatalog.application.filter(id => id !== 'authentication')
+  for (const p of r.projects.filter(p => p.tier === 'application')) p.releaseGates = p.releaseGates.filter(g => g.id !== 'authentication')
+  rejects(r, '$.gateCatalog.application: missing gate "authentication" required by the application tier')
+})
+
+test('a catalog gate not defined for the tier fails', () => {
+  const r = clone()
+  r.gateCatalog.showcase.push('authentication')
+  for (const p of r.projects.filter(p => p.tier === 'showcase')) p.releaseGates.push({ id: 'authentication', status: 'not_verified', evidenceRefs: [], verifiedAt: null, notes: null })
+  rejects(r, '$.gateCatalog.showcase: gate "authentication" is not defined by the showcase tier')
+})
+
+test('a gate removed from the Definition of Done is caught in the catalog and schema', () => {
+  const trimmed = parseDefinitionOfDone(dodText.replace(/^\| 11 \| `authentication` .*\n/m, ''))
+  assert.ok(!trimmed.application.includes('authentication'))
+  const errors = run(clone(), { dod: trimmed })
+  assert.ok(errors.some(e => e.includes('gate "authentication" is not defined by the application tier')), errors.join('\n'))
+  assert.ok(errors.some(e => e.startsWith('$schema.$defs.gateId: gate "authentication" is not defined')), errors.join('\n'))
+})
+
+test('a resolved blocker needs evidence of the resolution', () => {
+  const r1 = clone(); const b1 = project(r1, 'one-small-ai-workforce').release.blockers[0]
+  Object.assign(b1, { status: 'resolved', evidenceRefs: [] })
+  rejects(r1, 'a resolved blocker needs evidence of the resolution')
+  const r2 = clone(); const b2 = project(r2, 'one-small-ai-workforce').release.blockers[0]
+  Object.assign(b2, { status: 'resolved', evidenceRefs: ['aiw-repo-metadata'] })
+  rejects(r2, 'a resolved blocker needs evidence of the resolution')
+})
+
+test('scope-document-missing cannot be resolved while the scope document is null', () => {
+  const r = clone(); const p = project(r, 'one-small-ai-workforce')
+  p.evidence.push({ id: 'aiw-scope-doc', type: 'document', url: 'https://github.com/WasteOfADrumBum/one-small-ai-workforce/blob/main/docs/scope.md', commitSha: null, verifiedAt: '2026-10-22T17:00:00Z', result: 'informational', description: 'Fixture: committed scope document.', recordedBy: 'Fixture verifier' })
+  Object.assign(p.release.blockers[0], { status: 'resolved', evidenceRefs: ['aiw-scope-doc'] })
+  rejects(r, 'scope-document-missing cannot be resolved while release.scopeDocument is null')
+  p.release.scopeDocument = 'https://github.com/WasteOfADrumBum/one-small-ai-workforce/blob/main/docs/scope.md'
+  assert.deepEqual(run(r), [])
 })

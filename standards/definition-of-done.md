@@ -4,7 +4,7 @@
 
 Next.js, Astro, Vite, plain HTML, Express, MongoDB, Postgres and the rest are deliberate portfolio choices. Nothing here asks a project to change its framework, language, hosting or architecture. Each gate says *what must be true*; the project decides *how* to show it.
 
-Each gate has a stable ID. The IDs are the `gateCatalog` in [`projects/registry.json`](../projects/registry.json), and every project lists exactly the gates of its tier. A test fails if this document and the catalog drift apart.
+Each gate has a stable ID. The IDs are the `gateCatalog` in [`projects/registry.json`](../projects/registry.json), and every project lists exactly the gates of its tier. The validator reads the gate tables below and fails if the catalog or the schema adds, drops or moves any gate, so this document is the authoritative gate list.
 
 ## How a gate is satisfied
 
