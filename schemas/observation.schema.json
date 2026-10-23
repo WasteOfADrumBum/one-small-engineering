@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/WasteOfADrumBum/one-small-engineering/schemas/observation.schema.json",
+  "title": "Normalized repository observation",
+  "description": "Version 1. What scripts/sync/collect.mjs read from GitHub for one project, after cleaning. The planner only accepts observations that match this schema. An event-driven trigger added later produces the same observation, so the planner and writer do not change.",
+  "type": "object",
+  "required": ["observationVersion", "projectId", "collectedAt", "repo", "head", "config", "template", "openPullRequests", "mergedPullRequests", "workflowRuns", "releases"],
+  "additionalProperties": false,
+  "properties": {
+    "observationVersion": { "type": "integer", "const": 1 },
+    "projectId": { "$ref": "#/$defs/slug" },
+    "collectedAt": { "$ref": "#/$defs/timestamp" },
+    "repo": {
+      "type": "object",
+      "required": ["id", "fullName", "owner", "private", "archived", "defaultBranch", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "integer", "minimum": 1 },
+        "fullName": { "type": "string", "minLength": 1 },
+        "owner": { "type": "string", "minLength": 1 },
+        "private": { "type": "boolean" },
+        "archived": { "type": "boolean" },
+        "defaultBranch": { "type": "string", "minLength": 1 },
+        "url": { "$ref": "#/$defs/url" }
+      }
+    },
+    "head": {
+      "type": "object",
+      "required": ["sha"],
+      "additionalProperties": false,
+      "properties": { "sha": { "$ref": "#/$defs/sha" } }
+    },
+    "config": {
+      "type": "object",
+      "required": ["source", "value", "commitSha"],
+      "additionalProperties": false,
+      "properties": {
+        "source": { "type": "string", "enum": ["defaults", "repository"] },
+        "value": { "type": ["object", "null"] },
+        "commitSha": { "$ref": "#/$defs/sha" }
+      }
+    },
+    "template": {
+      "type": "object",
+      "required": ["present", "version"],
+      "additionalProperties": false,
+      "properties": {
+        "present": { "type": "boolean" },
+        "version": { "type": ["integer", "null"] }
+      }
+    },
+    "openPullRequests": { "type": "array", "items": { "$ref": "#/$defs/pullRequest" } },
+    "mergedPullRequests": { "type": "array", "items": { "$ref": "#/$defs/mergedPullRequest" } },
+    "workflowRuns": { "type": "array", "items": { "$ref": "#/$defs/workflowRun" } },
+    "releases": { "type": "array", "items": { "$ref": "#/$defs/release" } }
+  },
+  "$defs": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "sha": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "nullableSha": { "type": ["string", "null"], "pattern": "^[0-9a-f]{40}$" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "url": { "type": "string", "format": "uri", "pattern": "^https://github\\.com/WasteOfADrumBum/" },
+    "text": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "pullRequest": {
+      "type": "object",
+      "required": ["number", "url", "title", "headSha", "draft"],
+      "additionalProperties": false,
+      "properties": {
+        "number": { "type": "integer", "minimum": 1 },
+        "url": { "$ref": "#/$defs/url" },
+        "title": { "$ref": "#/$defs/text" },
+        "headSha": { "$ref": "#/$defs/sha" },
+        "draft": { "type": "boolean" }
+      }
+    },
+    "mergedPullRequest": {
+      "type": "object",
+      "required": ["number", "url", "title", "mergeCommitSha", "mergedAt", "labels", "files"],
+      "additionalProperties": false,
+      "properties": {
+        "number": { "type": "integer", "minimum": 1 },
+        "url": { "$ref": "#/$defs/url" },
+        "title": { "$ref": "#/$defs/text" },
+        "mergeCommitSha": { "$ref": "#/$defs/sha" },
+        "mergedAt": { "$ref": "#/$defs/timestamp" },
+        "labels": { "type": "array", "items": { "type": "string" } },
+        "files": { "type": ["array", "null"], "items": { "type": "string" } }
+      }
+    },
+    "workflowRun": {
+      "type": "object",
+      "required": ["workflow", "name", "url", "headSha", "event", "conclusion", "completedAt"],
+      "additionalProperties": false,
+      "properties": {
+        "workflow": { "type": "string", "pattern": "^[A-Za-z0-9._-]+\\.ya?ml$" },
+        "name": { "$ref": "#/$defs/text" },
+        "url": { "$ref": "#/$defs/url" },
+        "headSha": { "$ref": "#/$defs/sha" },
+        "event": { "type": "string", "minLength": 1 },
+        "conclusion": { "type": "string", "enum": ["success", "failure", "cancelled", "skipped", "timed_out", "action_required", "neutral", "stale", "startup_failure"] },
+        "completedAt": { "$ref": "#/$defs/timestamp" }
+      }
+    },
+    "release": {
+      "type": "object",
+      "required": ["tag", "url", "prerelease", "publishedAt", "commitSha", "onDefaultBranch"],
+      "additionalProperties": false,
+      "properties": {
+        "tag": { "type": "string", "pattern": "^[A-Za-z0-9._/-]{1,100}$" },
+        "url": { "$ref": "#/$defs/url" },
+        "prerelease": { "type": "boolean" },
+        "publishedAt": { "$ref": "#/$defs/timestamp" },
+        "commitSha": { "$ref": "#/$defs/nullableSha" },
+        "onDefaultBranch": { "type": ["boolean", "null"] }
+      }
+    }
+  }
+}

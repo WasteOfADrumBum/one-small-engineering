@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/WasteOfADrumBum/one-small-engineering/schemas/project-config.schema.json",
+  "title": "One Small Engineering project configuration",
+  "description": "Version 1. Lives at .github/one-small-engineering.json in a project repository. It confirms which registry project the repository is and tunes reporting. It cannot choose the mapping: the hub's registry decides which repository belongs to which project, and a mismatching projectId fails closed. Every reporting key is optional; the hub defaults apply when it is absent.",
+  "type": "object",
+  "required": ["configVersion", "projectId"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "configVersion": { "type": "integer", "const": 1 },
+    "projectId": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "maxLength": 64 },
+    "registry": { "type": "string", "const": "WasteOfADrumBum/one-small-engineering" },
+    "reporting": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": { "description": "false pauses sync for this project without removing it.", "type": "boolean" },
+        "workflows": {
+          "description": "Workflow file names whose default-branch conclusions are recorded. Empty or absent records every workflow that ran on the default-branch head.",
+          "type": "array",
+          "maxItems": 20,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[A-Za-z0-9._-]+\\.ya?ml$", "maxLength": 100 }
+        },
+        "includeDraftPullRequests": { "type": "boolean" },
+        "releaseTagPattern": {
+          "description": "Regular expression with one capture group holding the semantic version.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "evidenceLabel": { "description": "A merged PR with this label is recorded as evidence.", "type": "string", "minLength": 1, "maxLength": 50 },
+        "materialPaths": {
+          "description": "Globs. A merged PR touching any of these paths is recorded as evidence.",
+          "type": "array",
+          "maxItems": 30,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1, "maxLength": 200 }
+        },
+        "lookbackDays": { "type": "integer", "minimum": 1 }
+      }
+    }
+  }
+}

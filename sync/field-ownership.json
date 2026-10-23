@@ -1,0 +1,15 @@
+{
+  "$comment": "Which registry fields automated sync may change. Enforced by scripts/sync/guard.mjs in the sync job before anything is pushed, and again by Validate registry on every sync/* branch. Everything not listed is manual and must be identical to main. Changing this file is a governance change that needs Joshua Small's approval.",
+  "version": 1,
+  "allowedPaths": ["projects/registry.json"],
+  "branchPattern": "^sync/[a-z0-9]+(?:-[a-z0-9]+)*$",
+  "registry": {
+    "topLevel": ["lastUpdatedAt"],
+    "project": {
+      "replace": ["repositorySnapshot", "openPullRequests"],
+      "evidence": "add or remove records with origin sync only; manual records unchanged and in order; removed records must not be cited",
+      "release": ["currentVersion", "currentVersionSource"],
+      "sync": ["lastSyncedAt", "lastSyncedHead", "configSource"]
+    }
+  }
+}

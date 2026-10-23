@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/WasteOfADrumBum/one-small-engineering/schemas/assessment.schema.json",
+  "title": "AI project assessment",
+  "description": "Version 1. Output of agents/project-assessor.md. Advisory only: an assessment never edits the registry and never verifies a gate. Recorded, if at all, as evidence with origin ai-assessment and result builder_reported or inconclusive through a normal pull request.",
+  "type": "object",
+  "required": ["assessmentVersion", "projectId", "repository", "commitSha", "registryCommitSha", "assessedAt", "assessedBy", "gates", "blockersObserved", "nextAction", "limitations"],
+  "additionalProperties": false,
+  "properties": {
+    "assessmentVersion": { "type": "integer", "const": 1 },
+    "projectId": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "repository": { "type": "string", "pattern": "^https://github\\.com/WasteOfADrumBum/[A-Za-z0-9._-]+$" },
+    "commitSha": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "registryCommitSha": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "assessedAt": { "type": "string", "format": "date-time" },
+    "assessedBy": { "description": "Tool and model, for example Claude Code or Codex.", "type": "string", "minLength": 1 },
+    "gates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "observation", "registryStatus", "citations", "gaps"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "observation": { "type": "string", "enum": ["appears_met", "partially_met", "not_met", "cannot_tell", "not_applicable_candidate"] },
+          "registryStatus": { "type": "string", "enum": ["not_verified", "in_progress", "blocked", "verified", "not_applicable"] },
+          "citations": {
+            "description": "URLs pinned to a commit SHA, PR, run or release. A claim with no citation must be cannot_tell.",
+            "type": "array",
+            "items": { "type": "string", "format": "uri", "pattern": "^https://" }
+          },
+          "gaps": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+        }
+      }
+    },
+    "blockersObserved": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "nextAction": { "type": "string", "minLength": 1 },
+    "limitations": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+  }
+}

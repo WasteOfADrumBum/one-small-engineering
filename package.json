@@ -10,7 +10,9 @@
   },
   "scripts": {
     "validate": "node scripts/validate-registry.mjs",
-    "test": "node --test scripts/validate-registry.test.mjs",
-    "check": "npm run validate && npm test"
+    "test": "node --test scripts/*.test.mjs scripts/sync/*.test.mjs",
+    "check": "npm run validate && npm test",
+    "onboard": "node scripts/sync/onboard.mjs",
+    "sync:preview": "node scripts/sync/run.mjs preview"
   }
 }

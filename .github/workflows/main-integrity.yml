@@ -1,0 +1,31 @@
+name: Main integrity
+
+# Branch protection is not enforced on this private repository (GitHub Free), so this
+# detects what it cannot prevent: a commit on main that did not arrive through a merged
+# pull request. It fails loudly; it never changes anything.
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Check that main moved only through merged pull requests
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.event.after }}
+          PUSHER: ${{ github.actor }}
+        run: node scripts/sync/main-integrity.mjs
