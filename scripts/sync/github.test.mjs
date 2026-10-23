@@ -66,3 +66,17 @@ test('rejects oversized responses and sends auth and API version headers', async
   assert.equal(calls[0].headers.authorization, 'Bearer abc')
   assert.equal(calls[0].headers['x-github-api-version'], '2022-11-28')
 })
+
+test('a POST is not retried after a 5xx or network error (it may have been applied), but is after a rate limit', async () => {
+  const a = scripted([{ status: 502, body: {} }, { status: 201, body: { number: 1 } }])
+  await assert.rejects(a.client.request('POST', '/repos/o/r/issues', { body: { title: 't' } }), e => e.status === 502)
+  assert.equal(a.calls.length, 1)
+  const b = scripted([new Error('reset'), { status: 201, body: { number: 1 } }])
+  await assert.rejects(b.client.request('POST', '/repos/o/r/issues', { body: { title: 't' } }), /network error after 1 attempts/)
+  assert.equal(b.calls.length, 1)
+  const c = scripted([{ status: 429, body: {}, headers: { 'retry-after': '1' } }, { status: 201, body: { number: 1 } }])
+  assert.deepEqual(await c.client.request('POST', '/repos/o/r/issues', { body: { title: 't' } }), { number: 1 })
+  assert.equal(c.calls.length, 2)
+  const d = scripted([{ status: 502, body: {} }, { status: 200, body: { ok: 1 } }])
+  assert.deepEqual(await d.client.request('PATCH', '/repos/o/r/issues/1', { body: { body: 'x' } }), { ok: 1 })
+})

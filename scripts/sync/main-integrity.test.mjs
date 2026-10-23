@@ -2,7 +2,7 @@
 // not trigger push workflows) are caught by the scheduled window scan.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { checkCommits, commitsInPush, windowScan, loadAcknowledged } from './main-integrity.mjs'
+import { checkCommits, commitsInPush, windowScan, loadAcknowledged, MAX_WINDOW_COMMITS } from './main-integrity.mjs'
 import { createClient } from './github.mjs'
 import { FakeGitHub, fakeSha } from '../../fixtures/sync/fake-github.mjs'
 
@@ -12,7 +12,10 @@ const direct = fakeSha('direct-push')
 function repo({ commits = [], activity = [], activityStatus = 200, compare = null } = {}) {
   const gh = new FakeGitHub()
   gh.on('GET', /\/commits\/([0-9a-f]{40})\/pulls$/, ({ m }) => (merged.includes(m[1]) ? [{ number: 5, html_url: 'https://github.com/x/pull/5', merged_at: '2026-10-23T00:00:00Z', base: { ref: 'main' } }] : m[1] === fakeSha('open-pr') ? [{ number: 6, merged_at: null, base: { ref: 'main' } }] : []))
-  gh.on('GET', /\/one-small-engineering\/commits$/, ({ q }) => (+(q.get('page') || 1) === 1 ? commits.map(sha => ({ sha })) : []))
+  gh.on('GET', /\/one-small-engineering\/commits$/, ({ q }) => {
+    const page = +(q.get('page') || 1)
+    return commits.slice((page - 1) * 100, page * 100).map(sha => ({ sha }))
+  })
   gh.on('GET', /\/one-small-engineering\/activity$/, () => (activityStatus === 200 ? activity : new Response(JSON.stringify({ message: 'Not Found' }), { status: activityStatus })))
   gh.on('GET', /\/compare\/([0-9a-f]{40})\.\.\.([0-9a-f]{40})$/, () => compare)
   const client = createClient({ token: 't', fetchImpl: gh.fetch, sleep: async () => {} })
@@ -58,10 +61,12 @@ test('scheduled window scan catches a GITHUB_TOKEN push that no push workflow sa
   assert.deepEqual(violations.map(v => v.sha), [direct])
 })
 
-test('without the activity log the commit check still catches the direct commit', async () => {
-  const { client } = repo({ commits: [direct, merged[0]], activityStatus: 404 })
+test('without the activity log the scan is reported incomplete, and the commit check still runs', async () => {
+  const { client } = repo({ commits: [direct, merged[0]], activityStatus: 403 })
   const scan = await windowScan({ client })
-  assert.match(scan.notes[0], /activity log unavailable/)
+  assert.equal(scan.problems.length, 1)
+  assert.equal(scan.problems[0].incomplete, true)
+  assert.match(scan.problems[0].reason, /activity log could not be read/)
   const { violations } = await checkCommits({ client, shas: scan.shas, ...quick })
   assert.deepEqual(violations.map(v => v.sha), [direct])
 })
@@ -75,4 +80,16 @@ test('acknowledged commits (the initial commit) are accepted in both checks', as
   assert.deepEqual(scan.problems, [])
   const { violations } = await checkCommits({ client, shas: scan.shas, acknowledged, ...quick })
   assert.deepEqual(violations, [])
+})
+
+test('a truncated window or a full activity page is reported incomplete, never silently passed', async () => {
+  const many = Array.from({ length: MAX_WINDOW_COMMITS + 50 }, (_, i) => fakeSha(`c${i}`))
+  const full = Array.from({ length: 100 }, (_, i) => ({ id: i, after: merged[0], activity_type: 'pr_merge', actor: { login: 'WasteOfADrumBum' }, timestamp: '2026-10-23T01:00:00Z' }))
+  const { client } = repo({ commits: many, activity: full })
+  const scan = await windowScan({ client })
+  assert.equal(scan.shas.length, MAX_WINDOW_COMMITS)
+  const incomplete = scan.problems.filter(p => p.incomplete)
+  assert.equal(incomplete.length, 2)
+  assert.match(incomplete[0].reason, /only the newest 1000 were checked/)
+  assert.match(incomplete[1].reason, /full page of 100/)
 })

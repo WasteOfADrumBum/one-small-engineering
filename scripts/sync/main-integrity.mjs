@@ -74,18 +74,25 @@ export async function commitsInPush({ client, before, after, forced }) {
 }
 
 // Every commit on main in the window, and every non-merge update of main in the activity log.
+// A scan that cannot see everything is itself a problem: a green run must mean "checked", not
+// "could not look". Those problems have no commit, and are reported as an incomplete check.
+export const MAX_WINDOW_COMMITS = 1000
+const ACTIVITY_PAGE = 100
 export async function windowScan({ client, now = new Date(), days = WINDOW_DAYS, acknowledged = new Set() }) {
   const since = new Date(now.getTime() - days * 86400_000).toISOString().replace(/\.\d{3}Z$/, 'Z')
-  const commits = await client.paginate(`${REPO}/commits?sha=${HUB_DEFAULT_BRANCH}&since=${since}`, { max: 500 })
+  const commits = await client.paginate(`${REPO}/commits?sha=${HUB_DEFAULT_BRANCH}&since=${since}`, { max: MAX_WINDOW_COMMITS })
   const problems = []
   const notes = []
+  if (commits.length >= MAX_WINDOW_COMMITS) problems.push({ sha: null, incomplete: true, reason: `main has at least ${MAX_WINDOW_COMMITS} commits since ${since}; only the newest ${MAX_WINDOW_COMMITS} were checked` })
   let activity = null
   try {
     // One page: this endpoint pages by cursor, and a week of main updates is far below 100.
-    activity = await client.get(`${REPO}/activity?ref=refs/heads/${HUB_DEFAULT_BRANCH}&time_period=week&per_page=100`)
+    activity = await client.get(`${REPO}/activity?ref=refs/heads/${HUB_DEFAULT_BRANCH}&time_period=week&per_page=${ACTIVITY_PAGE}`)
   } catch (e) {
-    notes.push(`repository activity log unavailable (${e.message}); relying on the commit check only`)
+    // Without the log a force push that removed commits, or a push since rewritten away, is invisible.
+    problems.push({ sha: null, incomplete: true, reason: `the repository activity log could not be read (${e.message}); force pushes and GITHUB_TOKEN pushes cannot be ruled out` })
   }
+  if (activity && activity.length >= ACTIVITY_PAGE) problems.push({ sha: null, incomplete: true, reason: `the activity log returned a full page of ${ACTIVITY_PAGE} updates to ${HUB_DEFAULT_BRANCH} this week; older entries were not checked` })
   for (const a of activity || []) {
     if (MERGE_ACTIVITIES.has(a.activity_type) || acknowledged.has(a.after)) continue
     const who = (a.actor && a.actor.login) || 'unknown'
@@ -99,7 +106,7 @@ function report({ mode, checked, violations, notes }) {
   lines.push('These checks detect changes; they do not prevent them. Branch protection is not enforced on this private repository on GitHub Free.', '')
   if (violations.length) {
     lines.push('| Commit | Problem |', '| --- | --- |')
-    for (const v of violations) lines.push(`| ${String(v.sha).slice(0, 7)} | ${v.reason} |`)
+    for (const v of violations) lines.push(`| ${v.sha ? v.sha.slice(0, 7) : 'check incomplete'} | ${v.reason} |`)
     lines.push('', 'If a change is legitimate (for example a deliberate direct push by the owner), add its SHA with a reason to sync/main-integrity-acknowledged.json through a PR. Otherwise disable Registry sync and review the commit.', '')
   }
   for (const n of notes) lines.push(`Note: ${n}`)
@@ -119,14 +126,17 @@ async function main() {
     ;({ shas, problems, notes } = await windowScan({ client, acknowledged }))
   }
   const { checked, violations } = await checkCommits({ client, shas, acknowledged })
-  const all = [...problems.filter(p => !acknowledged.has(p.sha)), ...violations]
+  const all = [...problems.filter(p => !p.sha || !acknowledged.has(p.sha)), ...violations]
   const text = report({ mode, checked, violations: all, notes })
   console.log(text)
   if (process.env.GITHUB_STEP_SUMMARY) {
     const { appendFileSync } = await import('node:fs')
     appendFileSync(process.env.GITHUB_STEP_SUMMARY, text)
   }
-  for (const v of all) console.error(`::error title=Change to main without a merged pull request::${String(v.sha).slice(0, 7)}: ${v.reason}`)
+  for (const v of all) {
+    if (v.incomplete) console.error(`::error title=Main integrity check incomplete::${v.reason}`)
+    else console.error(`::error title=Change to main without a merged pull request::${v.sha.slice(0, 7)}: ${v.reason}`)
+  }
   return all.length ? 1 : 0
 }
 

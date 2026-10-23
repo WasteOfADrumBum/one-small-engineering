@@ -10,6 +10,11 @@ export class GitHubError extends Error {
 }
 
 const MAX_WAIT_MS = 60_000
+// A network error or 5xx on a POST may still have been applied (an issue or comment would be
+// created twice), so only these methods are retried after one. Rate-limit refusals are
+// never applied, so they are retried for every method. The sync writer reconciles state on
+// the next run, so a write that is not retried is repaired rather than lost.
+const IDEMPOTENT = new Set(['GET', 'PATCH', 'PUT', 'DELETE'])
 
 export function createClient({
   token,
@@ -48,14 +53,14 @@ export function createClient({
       try {
         res = await fetchImpl(baseUrl + path, { method, headers, body: body === undefined ? undefined : JSON.stringify(body) })
       } catch (e) {
-        if (attempt < maxRetries) { await sleep(backoff(attempt)); continue }
+        if (attempt < maxRetries && IDEMPOTENT.has(method)) { await sleep(backoff(attempt)); continue }
         throw new GitHubError(`${method} ${path}: network error after ${attempt + 1} attempts (${e.message})`, 0, '')
       }
       const text = await res.text()
       if (text.length > maxBodyBytes) throw new GitHubError(`${method} ${path}: response larger than ${maxBodyBytes} bytes`, res.status, '')
       if (res.status === 404 && allow404) return null
       const rateLimited = res.status === 429 || (res.status === 403 && (res.headers.get('x-ratelimit-remaining') === '0' || /secondary rate limit/i.test(text)))
-      if ((res.status >= 500 || rateLimited) && attempt < maxRetries) {
+      if (((res.status >= 500 && IDEMPOTENT.has(method)) || rateLimited) && attempt < maxRetries) {
         const wait = serverWait(res) ?? backoff(attempt)
         // A reset far in the future is not worth holding the job for; the next scheduled run catches up.
         if (wait <= MAX_WAIT_MS) {
