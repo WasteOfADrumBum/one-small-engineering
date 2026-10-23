@@ -75,6 +75,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           SYNC_OBSERVATIONS: ${{ needs.collect.outputs.observations }}
+          # The same project filter as collect, so the writer knows which projects to expect.
+          SYNC_PROJECT: ${{ inputs.project }}
           SYNC_STATUS_ISSUE: 'true'
           SYNC_MODE: ${{ (vars.SYNC_WRITE_ENABLED == 'true' && !(github.event_name == 'workflow_dispatch' && inputs.dry_run)) && 'write' || 'dry-run' }}
         run: node scripts/sync/run.mjs write --mode "$SYNC_MODE"

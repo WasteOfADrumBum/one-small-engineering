@@ -11,7 +11,7 @@
 import { execFileSync } from 'node:child_process'
 import { pathToFileURL } from 'node:url'
 import { resolve } from 'node:path'
-import { readJson, deepEqual, compareSemver, REGISTRY_PATH, ROOT } from './lib.mjs'
+import { readJson, deepEqual, compareSemver, REGISTRY_PATH, ROOT, safeOutput } from './lib.mjs'
 
 const ownership = readJson('sync/field-ownership.json')
 const BRANCH = new RegExp(ownership.branchPattern)
@@ -132,7 +132,7 @@ function main(argv) {
   }
   if (errors.length) {
     console.error(`sync-guard: ${errors.length} problem(s) on ${branch}`)
-    for (const e of errors) console.error(`  - ${e}`)
+    for (const e of errors) console.error(`  - ${safeOutput(e)}`)
     return 1
   }
   console.log(`sync-guard: OK (${branch} changes only automation-owned fields of ${projectId})`)

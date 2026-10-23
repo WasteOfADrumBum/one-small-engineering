@@ -9,6 +9,22 @@ export class GitHubError extends Error {
   }
 }
 
+export class MalformedResponse extends GitHubError {}
+
+// Fail closed on a response that is not the documented shape: a missing list must never
+// read as an empty one. `what` names the call for the diagnostic; the body is not echoed.
+export function expectArray(data, what) {
+  if (!Array.isArray(data)) throw new MalformedResponse(`${what}: malformed response (expected a list, got ${data === null ? 'an empty body' : typeof data})`, 200, '')
+  return data
+}
+
+export function expectObject(data, what, keys = []) {
+  if (!data || typeof data !== 'object' || Array.isArray(data)) throw new MalformedResponse(`${what}: malformed response (expected an object, got ${data === null ? 'an empty body' : Array.isArray(data) ? 'a list' : typeof data})`, 200, '')
+  const missing = keys.filter(k => !(k in data))
+  if (missing.length) throw new MalformedResponse(`${what}: malformed response (missing ${missing.join(', ')})`, 200, '')
+  return data
+}
+
 const MAX_WAIT_MS = 60_000
 // A network error or 5xx on a POST may still have been applied (an issue or comment would be
 // created twice), so only these methods are retried after one. Rate-limit refusals are
@@ -73,17 +89,28 @@ export function createClient({
     }
   }
 
-  // Page-number pagination; stops at a short page or `max` items.
+  // Page-number pagination; stops at a short page or `max` items. Every page must be a
+  // list. When more items exist past `max`, the result carries truncated: true, so a caller
+  // can refuse to treat a partial list as complete.
   async function paginate(path, { max = 300, key } = {}) {
     const out = []
     const sep = path.includes('?') ? '&' : '?'
-    for (let page = 1; out.length < max; page++) {
+    let truncated = false
+    for (let page = 1; ; page++) {
       const data = await request('GET', `${path}${sep}per_page=100&page=${page}`)
-      const items = key ? data[key] : data
+      const items = expectArray(key ? expectObject(data, `GET ${path}`, [key])[key] : data, `GET ${path}`)
       out.push(...items)
       if (items.length < 100) break
+      if (out.length >= max) {
+        // One more page tells a list of exactly `max` from a longer one.
+        const more = expectArray(await request('GET', `${path}${sep}per_page=100&page=${page + 1}`), `GET ${path}`)
+        truncated = out.length > max || more.length > 0
+        break
+      }
     }
-    return out.slice(0, max)
+    const result = out.slice(0, max)
+    if (truncated || out.length > max) Object.defineProperty(result, 'truncated', { value: true })
+    return result
   }
 
   return {

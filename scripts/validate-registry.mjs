@@ -157,6 +157,18 @@ export function findSensitive(text) {
   return [...new Set(found)]
 }
 
+// Replaces anything findSensitive would flag with a marker, for text that leaves the process
+// (logs, annotations, issue and PR bodies). Long digit runs are kept: they are repository and
+// run IDs in diagnostics, not secrets.
+export function redactSensitive(text) {
+  let s = String(text ?? '')
+  // Whole assignments and URL credentials first, so the marker covers the key name too.
+  const ordered = [...SECRET_PATTERNS].sort(([a], [b]) => Number(b.startsWith('credential')) - Number(a.startsWith('credential')))
+  for (const [name, re] of ordered) s = s.replace(new RegExp(re.source, re.flags.includes('g') ? re.flags : re.flags + 'g'), `[redacted ${name}]`)
+  s = s.replace(/\b\d(?:[ -]?\d){12,18}\b/g, m => (luhn(m.replace(/[ -]/g, '')) ? '[redacted payment card number]' : m))
+  return s
+}
+
 function walkStrings(value, path, visit) {
   if (typeof value === 'string') visit(value, path)
   else if (Array.isArray(value)) value.forEach((v, i) => walkStrings(v, `${path}[${i}]`, visit))

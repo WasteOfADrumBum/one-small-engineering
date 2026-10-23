@@ -22,7 +22,7 @@ import { collect, SyncError } from './collect.mjs'
 import { plan } from './plan.mjs'
 import { writeSync, closeStale, listSyncPrs, upsertStatusIssue, readStatusIssueBody, checkProposal, WriteRefused } from './write.mjs'
 import { renderStatus, renderPrBody, parseState } from './status.mjs'
-import { ROOT, REGISTRY_PATH, SLUG, OWNER, HUB_REPO, readJson, serializeRegistry, isoSeconds } from './lib.mjs'
+import { ROOT, REGISTRY_PATH, SLUG, OWNER, HUB_REPO, readJson, serializeRegistry, isoSeconds, safeOutput, annotation } from './lib.mjs'
 
 function loadRegistry() {
   return JSON.parse(readFileSync(resolve(ROOT, REGISTRY_PATH), 'utf8'))
@@ -53,10 +53,47 @@ export async function collectAll({ registry, only, clients, now = new Date() }) 
       if (!client) throw new SyncError('needs-reader-token', 'private repository: the read-only reader credential is not configured')
       out.push({ projectId: project.id, ok: true, observation: await collect({ project, client, now }) })
     } catch (e) {
-      out.push({ projectId: project.id, ok: false, error: { code: e.code || 'collect-failed', message: e.message } })
+      out.push({ projectId: project.id, ok: false, error: { code: e.code || 'collect-failed', message: safeOutput(e.message) } })
     }
   }
   return out
+}
+
+// The write job's input. Missing, empty or malformed input is a failed collection, never
+// "nothing to do": only a well-formed list counts, and an empty list only when the registry
+// has no sync-enabled project to collect.
+export function loadObservations({ inFile, encoded }) {
+  let raw
+  if (inFile) raw = readFileSync(resolve(inFile), 'utf8')
+  else {
+    if (!encoded) throw new Error('no observations received: the collect job produced no output (did it fail or exceed the output size limit?)')
+    raw = Buffer.from(encoded, 'base64').toString('utf8')
+  }
+  let collected
+  try {
+    collected = JSON.parse(raw)
+  } catch {
+    throw new Error('observations are not valid JSON')
+  }
+  if (!Array.isArray(collected)) throw new Error('observations must be a list')
+  collected.forEach((c, i) => {
+    if (!c || typeof c !== 'object' || !SLUG.test(c.projectId || '') || typeof c.ok !== 'boolean') throw new Error(`observation ${i} is malformed (needs projectId and ok)`)
+    if (c.ok ? !c.observation : !(c.error && c.error.code)) throw new Error(`observation ${i} (${c.projectId}) has no ${c.ok ? 'observation' : 'error'}`)
+  })
+  return collected
+}
+
+// Matches the input to the projects this run must cover. A project with no entry is an
+// error for that project, so a silently dropped collection is reported, not passed.
+export function reconcileCollected({ registry, only, collected }) {
+  const expected = selectProjects(registry, only).map(p => p.id)
+  const byId = new Map()
+  for (const c of collected) {
+    if (byId.has(c.projectId)) throw new Error(`observations list ${c.projectId} twice`)
+    if (!expected.includes(c.projectId)) throw new Error(`observations include ${c.projectId}, which this run does not cover`)
+    byId.set(c.projectId, c)
+  }
+  return expected.map(id => byId.get(id) || { projectId: id, ok: false, error: { code: 'not-collected', message: 'no observation was received for this project; the collect job did not report it' } })
 }
 
 // Plans every collected project and, in write mode, writes. Returns per-project results.
@@ -67,7 +104,7 @@ export async function processAll({ registry, collected, mode, hubClient, mainSha
     results.push(r)
     if (!item.ok) {
       r.outcome = 'error'
-      r.errors.push(`${item.error.code}: ${item.error.message}`)
+      r.errors.push(safeOutput(`${item.error.code}: ${item.error.message}`))
       continue
     }
     try {
@@ -101,7 +138,7 @@ export async function processAll({ registry, collected, mode, hubClient, mainSha
       if (w.action === 'skipped' || w.action === 'declined') r.notes.push(w.reason)
     } catch (e) {
       r.outcome = 'error'
-      r.errors.push(`${e instanceof WriteRefused ? 'refused' : e.code || 'plan-failed'}: ${e.message}`)
+      r.errors.push(safeOutput(`${e instanceof WriteRefused ? 'refused' : e.code || 'plan-failed'}: ${e.message}`))
     }
   }
   return results
@@ -133,7 +170,7 @@ async function main(argv) {
       writeFileSync(resolve(outFile), JSON.stringify(collected, null, 2) + '\n')
     }
     if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `observations=${encode(collected)}\n`)
-    for (const c of collected) console.log(`collect ${c.projectId}: ${c.ok ? `ok at ${c.observation.head.sha.slice(0, 7)}` : `error ${c.error.code}: ${c.error.message}`}`)
+    for (const c of collected) console.log(annotation(`collect ${c.projectId}: ${c.ok ? `ok at ${c.observation.head.sha.slice(0, 7)}` : `error ${c.error.code}: ${c.error.message}`}`))
     return 0
   }
 
@@ -141,10 +178,7 @@ async function main(argv) {
     let collected
     if (cmd === 'preview') collected = await collectAll({ registry, only, clients: { publicReader, privateReader } })
     else {
-      const inFile = opt(argv, '--in', null)
-      const raw = inFile ? readFileSync(resolve(inFile), 'utf8') : Buffer.from(process.env.SYNC_OBSERVATIONS || '', 'base64').toString('utf8')
-      collected = JSON.parse(raw || '[]')
-      if (!Array.isArray(collected)) throw new Error('observations must be an array')
+      collected = reconcileCollected({ registry, only, collected: loadObservations({ inFile: opt(argv, '--in', null), encoded: process.env.SYNC_OBSERVATIONS || '' }) })
     }
     const mode = cmd === 'preview' ? 'dry-run' : opt(argv, '--mode', 'dry-run')
     if (!['dry-run', 'write'].includes(mode)) throw new Error(`unknown mode ${mode}`)
@@ -172,7 +206,7 @@ async function main(argv) {
       console.log(`status issue ${issue.action}: ${issue.url}`)
     }
     if (cmd === 'preview') console.log(markdown)
-    for (const r of results) console.log(`sync ${r.projectId}: ${r.outcome}${r.prAction ? ` (${r.prAction})` : ''}${r.errors.length ? ` - ${r.errors.join('; ')}` : ''}`)
+    for (const r of results) console.log(annotation(`sync ${r.projectId}: ${r.outcome}${r.prAction ? ` (${r.prAction})` : ''}${r.errors.length ? ` - ${r.errors.join('; ')}` : ''}`))
     return results.some(r => r.outcome === 'error') ? 1 : 0
   }
 
@@ -181,5 +215,5 @@ async function main(argv) {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
-  main(process.argv.slice(2)).then(code => { process.exitCode = code }, e => { console.error(`registry-sync: ${e.message}`); process.exitCode = 1 })
+  main(process.argv.slice(2)).then(code => { process.exitCode = code }, e => { console.error(`::error title=Registry sync failed::${annotation(e.message)}`); process.exitCode = 1 })
 }

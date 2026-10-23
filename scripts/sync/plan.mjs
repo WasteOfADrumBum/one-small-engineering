@@ -150,8 +150,13 @@ export function plan(registry, observation) {
     if (add(runEvidence(pid, branch, run))) changes.push(`Recorded CI: ${run.workflow} concluded ${run.conclusion} at ${short(run.headSha)}.`)
   }
   const failed = observation.workflowRuns.filter(r => r.conclusion !== 'success' && r.conclusion !== 'skipped' && r.conclusion !== 'neutral')
+  // Incomplete CI evidence never supports a positive conclusion, and never prunes older records.
+  const complete = observation.collection.complete
   if (failed.length) suggestions.push(`CI did not pass on ${short(observation.head.sha)} (${failed.map(r => `${r.workflow}: ${r.conclusion}`).join(', ')}); automated-checks must not be verified for this commit.`)
-  else if (observation.workflowRuns.length) {
+  if (!complete) {
+    suggestions.push(`CI evidence for ${short(observation.head.sha)} is incomplete (${observation.collection.gaps.join('; ')}); automated-checks must not be verified from this run.`)
+    notes.push('Incomplete CI collection: older automated CI records were kept, and no CI pass was reported.')
+  } else if (!failed.length && observation.workflowRuns.length) {
     const gate = p.releaseGates.find(g => g.id === 'automated-checks')
     if (gate && gate.status !== 'verified') suggestions.push(`CI passed on ${short(observation.head.sha)}. If this is the release commit, the verifier can re-check the run and record their own pass evidence for automated-checks; automation will not.`)
   }
@@ -160,7 +165,7 @@ export function plan(registry, observation) {
   const cited = referencedIds(p)
   const currentRunIds = new Set(observation.workflowRuns.map(r => runEvidence(pid, branch, r).id))
   const pruned = []
-  if (observation.workflowRuns.length) {
+  if (observation.workflowRuns.length && complete) {
     p.evidence = p.evidence.filter(e => {
       const stale = e.origin === 'sync' && e.type === 'workflow_run' && !currentRunIds.has(e.id) && !cited.has(e.id)
       if (stale) pruned.push(e.id)
@@ -169,7 +174,7 @@ export function plan(registry, observation) {
   }
   if (pruned.length) changes.push(`Superseded ${pruned.length} older automated CI record(s): ${pruned.join(', ')}.`)
   // A superseded record that something cites stays, but the citing owner should know it is no longer current.
-  const keptStale = p.evidence.filter(e => e.origin === 'sync' && e.type === 'workflow_run' && !currentRunIds.has(e.id) && cited.has(e.id) && observation.workflowRuns.length)
+  const keptStale = p.evidence.filter(e => e.origin === 'sync' && e.type === 'workflow_run' && !currentRunIds.has(e.id) && cited.has(e.id) && observation.workflowRuns.length && complete)
   for (const e of keptStale) suggestions.push(`${e.id} is cited but superseded by a newer CI run; check whether the citing gate, blocker or approval still holds.`)
 
   const tagRe = new RegExp(config.releaseTagPattern)

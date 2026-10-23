@@ -2,7 +2,7 @@
 // not trigger push workflows) are caught by the scheduled window scan.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { checkCommits, commitsInPush, windowScan, loadAcknowledged, MAX_WINDOW_COMMITS } from './main-integrity.mjs'
+import { checkCommits, commitsInPush, windowScan, integrityProblems, loadAcknowledged, loadAcknowledgedActivity, MAX_WINDOW_COMMITS } from './main-integrity.mjs'
 import { createClient } from './github.mjs'
 import { FakeGitHub, fakeSha } from '../../fixtures/sync/fake-github.mjs'
 
@@ -24,7 +24,7 @@ function repo({ commits = [], activity = [], activityStatus = 200, compare = nul
 const quick = { attempts: 1, sleep: async () => {} }
 
 test('push mode checks every commit between before and after, not just the head', async () => {
-  const { client } = repo({ compare: { total_commits: 3, commits: [{ sha: merged[1] }, { sha: direct }, { sha: merged[0] }] } })
+  const { client } = repo({ compare: { status: 'ahead', total_commits: 3, commits: [{ sha: merged[1] }, { sha: direct }, { sha: merged[0] }] } })
   const { shas, problems } = await commitsInPush({ client, before: fakeSha('old'), after: merged[0], forced: false })
   assert.deepEqual(shas, [merged[1], direct, merged[0]])
   assert.deepEqual(problems, [])
@@ -71,12 +71,14 @@ test('without the activity log the scan is reported incomplete, and the commit c
   assert.deepEqual(violations.map(v => v.sha), [direct])
 })
 
-test('acknowledged commits (the initial commit) are accepted in both checks', async () => {
+test('the initial commit and the creation of main are accepted, each by its own acknowledgement', async () => {
   const acknowledged = loadAcknowledged()
+  const acknowledgedActivity = loadAcknowledgedActivity()
   const initial = '954833cfe46ce807bc40faeca8781a31d27a20f9'
   assert.ok(acknowledged.has(initial))
-  const { client } = repo({ commits: [initial], activity: [{ id: 9, after: initial, activity_type: 'branch_creation', actor: { login: 'WasteOfADrumBum' }, timestamp: '2026-10-22T16:16:45Z' }] })
-  const scan = await windowScan({ client, acknowledged })
+  assert.ok(acknowledgedActivity.has('47413237880'))
+  const { client } = repo({ commits: [initial], activity: [{ id: 47413237880, before: '0'.repeat(40), after: initial, activity_type: 'branch_creation', actor: { login: 'WasteOfADrumBum' }, timestamp: '2026-10-22T16:16:45Z' }] })
+  const scan = await windowScan({ client, acknowledgedActivity })
   assert.deepEqual(scan.problems, [])
   const { violations } = await checkCommits({ client, shas: scan.shas, acknowledged, ...quick })
   assert.deepEqual(violations, [])
@@ -92,4 +94,66 @@ test('a truncated window or a full activity page is reported incomplete, never s
   assert.equal(incomplete.length, 2)
   assert.match(incomplete[0].reason, /only the newest 1000 were checked/)
   assert.match(incomplete[1].reason, /full page of 100/)
+})
+
+// F-01: an acknowledged commit must never excuse a later change to main's history.
+const initial = '954833cfe46ce807bc40faeca8781a31d27a20f9'
+const ack = () => ({ acknowledged: loadAcknowledged(), acknowledgedActivity: loadAcknowledgedActivity() })
+
+test('F-01: a force push of main back to an acknowledged commit is reported (window mode, repeated runs)', async () => {
+  const activity = [
+    { id: 47413237880, before: '0'.repeat(40), after: initial, activity_type: 'branch_creation', actor: { login: 'WasteOfADrumBum' }, timestamp: '2026-10-22T16:16:45Z' },
+    { id: 900, before: merged[0], after: initial, activity_type: 'force_push', actor: { login: 'github-actions[bot]' }, timestamp: '2026-10-23T03:00:00Z' }
+  ]
+  const { client } = repo({ commits: [initial], activity })
+  for (let run = 1; run <= 2; run++) {
+    const { problems } = await integrityProblems({ client, mode: 'window', ...ack(), ...quick, now: new Date('2026-10-23T06:47:00Z') })
+    assert.equal(problems.length, 1, `run ${run}`)
+    assert.match(problems[0].reason, /^force_push to main by github-actions\[bot\]/, `run ${run}`)
+  }
+})
+
+test('F-01: a direct push or branch re-creation onto an acknowledged commit is reported unless that exact activity id is acknowledged', async () => {
+  const activity = [
+    { id: 901, before: merged[0], after: initial, activity_type: 'push', actor: { login: 'someone' }, timestamp: '2026-10-23T04:00:00Z' },
+    { id: 902, before: '0'.repeat(40), after: initial, activity_type: 'branch_creation', actor: { login: 'someone' }, timestamp: '2026-10-23T05:00:00Z' }
+  ]
+  const { client } = repo({ commits: [initial], activity })
+  const { problems } = await integrityProblems({ client, mode: 'window', ...ack(), ...quick, now: new Date('2026-10-23T06:47:00Z') })
+  assert.deepEqual(problems.map(p => p.reason.split(' ')[0]), ['push', 'branch_creation'])
+})
+
+test('F-01: push mode reports a force push to an acknowledged commit', async () => {
+  const { client } = repo({ compare: { status: 'behind', total_commits: 0, commits: [] } })
+  const { problems } = await integrityProblems({ client, mode: 'push', before: merged[0], after: initial, forced: true, ...ack(), ...quick })
+  assert.ok(problems.some(p => p.reason.startsWith('force push')), JSON.stringify(problems))
+})
+
+test('F-01: push mode reports rewritten history even when the forced flag is missing', async () => {
+  for (const status of ['behind', 'diverged']) {
+    const { client } = repo({ compare: { status, total_commits: 1, commits: [{ sha: merged[1] }] } })
+    const { problems } = await integrityProblems({ client, mode: 'push', before: merged[0], after: merged[1], forced: false, ...ack(), ...quick })
+    assert.equal(problems.length, 1, status)
+    assert.match(problems[0].reason, new RegExp(`history rewritten: the new head is ${status}`))
+  }
+})
+
+// F-03: malformed responses fail closed.
+test('F-03: malformed integrity API responses fail closed with a clear diagnostic', async () => {
+  const empty = repo({ commits: [], activity: [] })
+  empty.gh.routes.unshift({ method: 'GET', re: /\/one-small-engineering\/activity$/, handler: () => new Response('', { status: 200 }) })
+  const scan = await windowScan({ client: empty.client })
+  assert.equal(scan.problems.length, 1)
+  assert.match(scan.problems[0].reason, /activity log could not be read \(repository activity log: malformed response/)
+
+  const obj = repo({ activity: [] })
+  obj.gh.routes.unshift({ method: 'GET', re: /\/one-small-engineering\/commits$/, handler: () => ({ message: 'not a list' }) })
+  await assert.rejects(windowScan({ client: obj.client }), /malformed response \(expected a list, got object\)/)
+
+  const cmp = repo({ compare: { message: 'odd' } })
+  await assert.rejects(commitsInPush({ client: cmp.client, before: merged[0], after: merged[1], forced: false }), /malformed response \(missing status, commits\)/)
+
+  const prs = repo()
+  prs.gh.routes.unshift({ method: 'GET', re: /\/commits\/([0-9a-f]{40})\/pulls$/, handler: () => ({}) })
+  await assert.rejects(checkCommits({ client: prs.client, shas: [merged[0]], ...quick }), /malformed response/)
 })

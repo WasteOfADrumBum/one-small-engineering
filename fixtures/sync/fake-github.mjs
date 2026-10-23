@@ -89,7 +89,10 @@ export function projectRepo(gh, state) {
     return all.filter(p => p.state === 'closed').map(p => pr(p))
   })
   gh.on('GET', R('/pulls/(\\d+)/files'), ({ m, q }) => (+(q.get('page') || 1) === 1 ? ((state.prFiles || {})[m[1]] || []).map(filename => ({ filename })) : []))
-  gh.on('GET', R('/actions/runs'), ({ q }) => ({ total_count: 0, workflow_runs: (state.runs || []).filter(r => r.head_sha === q.get('head_sha')).map(r => ({ html_url: `${html}/actions/runs/${r.id}`, head_branch: state.defaultBranch, status: 'completed', ...r })) }))
+  gh.on('GET', R('/actions/runs'), ({ q }) => {
+    const runs = (state.runs || []).filter(r => r.head_sha === q.get('head_sha')).map(r => ({ html_url: `${html}/actions/runs/${r.id}`, head_branch: state.defaultBranch, status: 'completed', ...r }))
+    return { total_count: state.runsTotal ?? runs.length, workflow_runs: runs }
+  })
   gh.on('GET', R('/releases'), () => (state.releases || []).map(r => ({ html_url: `${html}/releases/tag/${r.tag_name}`, draft: false, prerelease: false, ...r })))
   gh.on('GET', R('/git/ref/tags/(.+)'), ({ m }) => {
     const t = (state.tags || {})[decodeURIComponent(m[1])]

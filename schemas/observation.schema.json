@@ -4,7 +4,7 @@
   "title": "Normalized repository observation",
   "description": "Version 1. What scripts/sync/collect.mjs read from GitHub for one project, after cleaning. The planner only accepts observations that match this schema. An event-driven trigger added later produces the same observation, so the planner and writer do not change.",
   "type": "object",
-  "required": ["observationVersion", "projectId", "collectedAt", "repo", "head", "config", "template", "openPullRequests", "mergedPullRequests", "workflowRuns", "releases"],
+  "required": ["observationVersion", "projectId", "collectedAt", "repo", "head", "config", "template", "openPullRequests", "mergedPullRequests", "workflowRuns", "releases", "collection"],
   "additionalProperties": false,
   "properties": {
     "observationVersion": { "type": "integer", "const": 1 },
@@ -52,7 +52,17 @@
     "openPullRequests": { "type": "array", "items": { "$ref": "#/$defs/pullRequest" } },
     "mergedPullRequests": { "type": "array", "items": { "$ref": "#/$defs/mergedPullRequest" } },
     "workflowRuns": { "type": "array", "items": { "$ref": "#/$defs/workflowRun" } },
-    "releases": { "type": "array", "items": { "$ref": "#/$defs/release" } }
+    "releases": { "type": "array", "items": { "$ref": "#/$defs/release" } },
+    "collection": {
+      "description": "Whether the CI evidence read for the head commit is complete. Incomplete collection never yields a positive CI suggestion and never prunes older automated CI records.",
+      "type": "object",
+      "required": ["complete", "gaps"],
+      "additionalProperties": false,
+      "properties": {
+        "complete": { "type": "boolean" },
+        "gaps": { "type": "array", "maxItems": 50, "items": { "type": "string", "minLength": 1, "maxLength": 300 } }
+      }
+    }
   },
   "$defs": {
     "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },

@@ -14,6 +14,7 @@
 import { createHash } from 'node:crypto'
 import { OWNER, HUB_REPO, HUB_DEFAULT_BRANCH, REGISTRY_PATH, SLUG, SYNC_RECORDER, serializeRegistry } from './lib.mjs'
 import { guardPaths, guardRegistryChange } from './guard.mjs'
+import { expectArray, expectObject } from './github.mjs'
 import { materialView } from './plan.mjs'
 
 export class WriteRefused extends Error {}
@@ -65,7 +66,7 @@ export function syncBranch(projectId) {
 }
 
 async function findSyncPr(client, branch) {
-  const prs = await client.get(`${HUB}/pulls?state=open&head=${OWNER}:${encodeURIComponent(branch)}&per_page=10`)
+  const prs = expectArray(await client.get(`${HUB}/pulls?state=open&head=${OWNER}:${encodeURIComponent(branch)}&per_page=10`), 'open sync pull requests')
   return prs.find(pr => pr.head && pr.head.ref === branch) || null
 }
 
@@ -85,7 +86,8 @@ export function checkProposal({ baseRegistry, nextRegistry, projectId, validate 
 
 // Reconciles three things separately, so a run that failed half-way is repaired by the next:
 //   1. the branch sync/<id> holds the proposal on top of the current main;
-//   2. an open draft PR exists for it (unless the owner closed one for this exact commit);
+//   2. an open draft PR exists for it (unless the owner closed one for this exact commit),
+//      and its title and description describe the branch head (a hidden marker names it);
 //   3. Validate registry has run, or been dispatched, for the branch head.
 // Each step checks the current state before writing, so re-running is always safe.
 export async function writeSync({ client: raw, projectId, baseRegistry, nextRegistry, mainSha, title, body, validate }) {
@@ -94,7 +96,8 @@ export async function writeSync({ client: raw, projectId, baseRegistry, nextRegi
   checkProposal({ baseRegistry, nextRegistry, projectId, validate })
 
   // The plan was made against the checked-out main; refuse if main has moved since.
-  const main = await client.get(`${HUB}/git/ref/heads/${HUB_DEFAULT_BRANCH}`)
+  const main = expectObject(await client.get(`${HUB}/git/ref/heads/${HUB_DEFAULT_BRANCH}`), 'main ref', ['object'])
+  if (!main.object || typeof main.object.sha !== 'string') throw new WriteRefused('main ref: malformed response (no commit SHA)')
   if (main.object.sha !== mainSha) return { action: 'skipped', reason: `main moved to ${main.object.sha.slice(0, 7)} after this run started; the next run will rebuild from it`, steps: {} }
 
   const steps = {}
@@ -139,34 +142,37 @@ export async function writeSync({ client: raw, projectId, baseRegistry, nextRegi
     steps.branch = existing ? 'updated' : 'created'
   }
 
-  // 2. Pull request.
+  // 2. Pull request. The description is compared with what this head needs, not with
+  // whether the branch moved in this run, so a description update that failed is redone.
+  const marker = `<!-- sync-head: ${headSha} -->`
+  const fullBody = `${body.trimEnd()}\n\n${marker}\n`
   let pr = await findSyncPr(client, branch)
   if (pr) {
-    if (steps.branch !== 'unchanged') {
-      await client.request('PATCH', `${HUB}/pulls/${pr.number}`, { body: { title, body } })
+    if (pr.title !== title || !String(pr.body || '').includes(marker)) {
+      await client.request('PATCH', `${HUB}/pulls/${pr.number}`, { body: { title, body: fullBody } })
       steps.pr = 'updated'
     } else steps.pr = 'unchanged'
   } else {
     // An owner who closed the PR for this exact commit has declined it; a new commit reopens the question.
-    const closed = await client.get(`${HUB}/pulls?state=closed&head=${OWNER}:${encodeURIComponent(branch)}&per_page=10`)
+    const closed = expectArray(await client.get(`${HUB}/pulls?state=closed&head=${OWNER}:${encodeURIComponent(branch)}&per_page=10`), 'closed sync pull requests')
     const declined = closed.find(c => c.head && c.head.ref === branch && c.head.sha === headSha && !c.merged_at)
     if (declined) {
       steps.pr = 'declined'
       return { action: 'declined', reason: `PR #${declined.number} for ${headSha.slice(0, 7)} was closed without merging; waiting for new facts`, pr: { number: declined.number, url: declined.html_url }, steps }
     }
-    pr = await client.request('POST', `${HUB}/pulls`, { body: { title, head: branch, base: HUB_DEFAULT_BRANCH, body, draft: true } })
+    pr = await client.request('POST', `${HUB}/pulls`, { body: { title, head: branch, base: HUB_DEFAULT_BRANCH, body: fullBody, draft: true } })
     steps.pr = 'created'
   }
 
   // 3. Validation. PRs pushed with GITHUB_TOKEN do not trigger pull_request workflows; workflow_dispatch does.
-  const runs = await client.get(`${HUB}/actions/workflows/validate.yml/runs?branch=${encodeURIComponent(branch)}&head_sha=${headSha}&per_page=1`)
-  if (runs && runs.total_count > 0) steps.validation = 'already-ran'
+  const runs = expectObject(await client.get(`${HUB}/actions/workflows/validate.yml/runs?branch=${encodeURIComponent(branch)}&head_sha=${headSha}&per_page=1`), 'validation runs', ['total_count'])
+  if (runs.total_count > 0) steps.validation = 'already-ran'
   else {
     await client.request('POST', `${HUB}/actions/workflows/validate.yml/dispatches`, { body: { ref: branch } })
     steps.validation = 'dispatched'
   }
 
-  const action = steps.branch !== 'unchanged' ? (steps.pr === 'created' ? 'created' : 'updated') : (steps.pr === 'created' || steps.validation === 'dispatched' ? 'repaired' : 'unchanged')
+  const action = steps.branch !== 'unchanged' ? (steps.pr === 'created' ? 'created' : 'updated') : (steps.pr !== 'unchanged' || steps.validation === 'dispatched' ? 'repaired' : 'unchanged')
   return { action, commitSha: headSha, pr: { number: pr.number, url: pr.html_url }, steps }
 }
 
@@ -184,7 +190,7 @@ const STATUS_TITLE = 'Registry sync status'
 
 export async function upsertStatusIssue({ client: raw, body }) {
   const client = restrictWrites(raw)
-  const issues = await client.get(`${HUB}/issues?state=open&creator=${encodeURIComponent('github-actions[bot]')}&per_page=100`)
+  const issues = expectArray(await client.get(`${HUB}/issues?state=open&creator=${encodeURIComponent('github-actions[bot]')}&per_page=100`), 'status issues')
   const issue = issues.find(i => i.title === STATUS_TITLE && !i.pull_request)
   if (issue) {
     await client.request('PATCH', `${HUB}/issues/${issue.number}`, { body: { body } })
@@ -195,7 +201,7 @@ export async function upsertStatusIssue({ client: raw, body }) {
 }
 
 export async function readStatusIssueBody(client) {
-  const issues = await client.get(`${HUB}/issues?state=open&creator=${encodeURIComponent('github-actions[bot]')}&per_page=100`)
+  const issues = expectArray(await client.get(`${HUB}/issues?state=open&creator=${encodeURIComponent('github-actions[bot]')}&per_page=100`), 'status issues')
   const issue = issues.find(i => i.title === STATUS_TITLE && !i.pull_request)
   return issue ? issue.body || '' : ''
 }

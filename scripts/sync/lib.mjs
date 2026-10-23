@@ -3,7 +3,7 @@
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
-import { findSensitive, SYNC_RECORDER } from '../validate-registry.mjs'
+import { findSensitive, redactSensitive, SYNC_RECORDER } from '../validate-registry.mjs'
 
 export { SYNC_RECORDER }
 export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..')
@@ -60,6 +60,24 @@ export function cleanText(value, max = MAX_TITLE) {
   if (!s) return '(untitled)'
   if (findSensitive(s).length) return '[withheld: possible sensitive data]'
   return s
+}
+
+// Every string that leaves the process (console, job summary, workflow annotations, issue
+// and PR bodies, the status issue's hidden state) passes through here first.
+export function safeOutput(text) {
+  return redactSensitive(text)
+}
+
+// One workflow-command-safe line: redacted, newlines folded (so external text cannot start
+// its own "::" command), and % CR LF escaped as GitHub Actions expects.
+export function annotation(text) {
+  return safeOutput(text).replace(/\r?\n/g, ' ').replace(/%/g, '%25').replace(/\r/g, '%0D')
+}
+
+// Schema errors about external data, without the data: a rejected value is named by its
+// path only, then anything left that looks sensitive (a key name, say) is redacted.
+export function withholdValues(message) {
+  return safeOutput(String(message).replace(/: (?:"(?:[^"\\]|\\.)*"|-?\d[\d.eE+-]*|true|false|null) (does not match|is not one of|is not an ISO|is not a valid URL)/, ': (value withheld) $1'))
 }
 
 export function parseSemver(v) {

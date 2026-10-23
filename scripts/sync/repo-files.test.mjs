@@ -27,6 +27,8 @@ test('registry sync: schedule every six hours, empty default permissions, writes
     assert.match(text, /if: github\.ref == 'refs\/heads\/main'/, eol)
     assert.match(text, /cancel-in-progress: false/, eol)
     assert.match(text, /SYNC_WRITE_ENABLED == 'true'/, eol)
+    // The writer must expect the same projects collect read (F-06).
+    assert.equal(text.match(/SYNC_PROJECT: \$\{\{ inputs\.project \}\}/g).length, 2, eol)
     assert.doesNotMatch(text, /workflows: write|administration|secrets: write/, eol)
   }
 })

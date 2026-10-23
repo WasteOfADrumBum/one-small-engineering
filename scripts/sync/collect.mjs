@@ -3,9 +3,10 @@
 // project code: the hub only reads API JSON. Validation fails closed.
 
 import { validateAgainstSchema } from '../validate-registry.mjs'
+import { expectArray, expectObject } from './github.mjs'
 import {
   CONFIG_PATH, TEMPLATE_WORKFLOW_PATH, MAX_CONFIG_BYTES, SHA, OWNER,
-  readJson, repoFromUrl, isoSeconds, cleanText, effectiveConfig, workflowFile, slugify
+  readJson, repoFromUrl, isoSeconds, cleanText, effectiveConfig, workflowFile, slugify, withholdValues, safeOutput
 } from './lib.mjs'
 
 export class SyncError extends Error {
@@ -19,6 +20,7 @@ const observationSchema = readJson('schemas/observation.schema.json')
 const configSchema = readJson('schemas/project-config.schema.json')
 const MAX_MERGED = 30
 const MAX_RELEASES = 20
+const MAX_OPEN = 100
 
 const enc = encodeURIComponent
 
@@ -30,8 +32,9 @@ function decodeContent(file) {
 
 export function validateConfig(value, projectId) {
   const errors = validateAgainstSchema(value, configSchema)
-  if (errors.length) throw new SyncError('config-invalid', `${CONFIG_PATH}: ${errors.slice(0, 5).join('; ')}`)
-  if (value.projectId !== projectId) throw new SyncError('project-mismatch', `${CONFIG_PATH} says projectId "${value.projectId}" but the registry maps this repository to "${projectId}"`)
+  // The config is external data: diagnostics name the failing path, never the value.
+  if (errors.length) throw new SyncError('config-invalid', `${CONFIG_PATH}: ${errors.slice(0, 5).map(withholdValues).join('; ')}`)
+  if (value.projectId !== projectId) throw new SyncError('project-mismatch', safeOutput(`${CONFIG_PATH} says projectId "${value.projectId}" but the registry maps this repository to "${projectId}"`))
   try {
     new RegExp(effectiveConfig(value).releaseTagPattern)
   } catch {
@@ -58,13 +61,15 @@ export async function collect({ project, client, now = new Date() }) {
   // Identity first: everything else is only read once the repository is proven to be the registered one.
   const repo = await client.get(base, { allow404: true })
   if (!repo) throw new SyncError('repo-unreachable', `${owner}/${name} was not found or is not readable with the current token`)
+  expectObject(repo, 'repository', ['id', 'owner', 'full_name', 'default_branch', 'html_url'])
   if (repo.id !== sync.repositoryId) throw new SyncError('repo-id-mismatch', `repository id ${repo.id} does not match the pinned id ${sync.repositoryId}; the repository may have been deleted and recreated or transferred`)
   if (!repo.owner || repo.owner.login !== OWNER) throw new SyncError('owner-mismatch', `repository owner is ${repo.owner && repo.owner.login}, expected ${OWNER}`)
   if (repo.full_name.toLowerCase() !== `${owner}/${name}`.toLowerCase()) throw new SyncError('repo-renamed', `repository is now ${repo.full_name}; update the registry URL by hand before syncing`)
 
   const defaultBranch = repo.default_branch
-  const branch = await client.get(`${base}/branches/${enc(defaultBranch)}`)
-  const headSha = branch.commit.sha
+  const branch = expectObject(await client.get(`${base}/branches/${enc(defaultBranch)}`), 'default branch', ['commit'])
+  const headSha = branch.commit && branch.commit.sha
+  if (!SHA.test(headSha || '')) throw new SyncError('malformed-response', 'default branch: malformed response (no head commit SHA)')
 
   // Config at the exact head commit, so config and facts describe the same revision.
   const file = await client.get(`${base}/contents/${CONFIG_PATH}?ref=${headSha}`, { allow404: true })
@@ -93,14 +98,16 @@ export async function collect({ project, client, now = new Date() }) {
   const repoUrl = repo.html_url
   const inRepo = (url, kind) => typeof url === 'string' && url.toLowerCase().startsWith(`${project.repository.toLowerCase()}/${kind}/`)
 
-  const open = await client.paginate(`${base}/pulls?state=open&sort=created&direction=asc`, { max: 100 })
+  const open = await client.paginate(`${base}/pulls?state=open&sort=created&direction=asc`, { max: MAX_OPEN })
+  // openPullRequests replaces the registry's list, so a partial list would silently drop PRs.
+  if (open.truncated) throw new SyncError('incomplete-collection', `more than ${MAX_OPEN} open pull requests; the list would be incomplete, so nothing is proposed`)
   const openPullRequests = open
     .filter(pr => inRepo(pr.html_url, 'pull') && SHA.test(pr.head.sha))
     .map(pr => ({ number: pr.number, url: pr.html_url, title: cleanText(pr.title), headSha: pr.head.sha, draft: Boolean(pr.draft) }))
     .sort((a, b) => a.number - b.number)
 
   const since = now.getTime() - config.lookbackDays * 86400_000
-  const closed = await client.get(`${base}/pulls?state=closed&base=${enc(defaultBranch)}&sort=updated&direction=desc&per_page=50`)
+  const closed = expectArray(await client.get(`${base}/pulls?state=closed&base=${enc(defaultBranch)}&sort=updated&direction=desc&per_page=50`), 'closed pull requests')
   const mergedPullRequests = []
   for (const pr of closed) {
     if (mergedPullRequests.length >= MAX_MERGED) break
@@ -115,9 +122,14 @@ export async function collect({ project, client, now = new Date() }) {
   }
   mergedPullRequests.sort((a, b) => a.number - b.number)
 
-  const runs = await client.get(`${base}/actions/runs?branch=${enc(defaultBranch)}&head_sha=${headSha}&status=completed&per_page=100`)
+  // All runs for the head commit, in any status: a newer attempt still running supersedes
+  // the last completed one, so it must be seen, not filtered out.
+  const runs = expectObject(await client.get(`${base}/actions/runs?branch=${enc(defaultBranch)}&head_sha=${headSha}&per_page=100`), 'workflow runs', ['total_count', 'workflow_runs'])
+  const runList = expectArray(runs.workflow_runs, 'workflow runs')
+  const gaps = []
+  if (runs.total_count > runList.length) gaps.push(`GitHub reports ${runs.total_count} runs for ${headSha.slice(0, 7)} but returned ${runList.length}; later pages were not read`)
   const latest = new Map()
-  for (const run of runs.workflow_runs || []) {
+  for (const run of runList) {
     const wf = workflowFile(run.path)
     if (run.head_sha !== headSha || !inRepo(run.html_url, 'actions') || !/^[A-Za-z0-9._-]+\.ya?ml$/.test(wf)) continue
     if (config.workflows.length && !config.workflows.includes(wf)) continue
@@ -126,6 +138,13 @@ export async function collect({ project, client, now = new Date() }) {
     const attempt = run.run_attempt || 1
     if (!prev || run.id > prev.id || (run.id === prev.id && attempt > (prev.run_attempt || 1))) latest.set(wf, run)
   }
+  for (const [wf, run] of latest) {
+    if (run.status !== 'completed' || !run.conclusion) {
+      gaps.push(`${wf} run ${run.id} attempt ${run.run_attempt || 1} is ${run.status || 'in an unknown state'}`)
+      latest.delete(wf)
+    }
+  }
+  for (const wf of config.workflows) if (!latest.has(wf) && !gaps.some(g => g.startsWith(`${wf} `))) gaps.push(`${wf} is configured but has no completed run on ${headSha.slice(0, 7)}`)
   const workflowRuns = [...latest.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([wf, run]) => ({
     workflow: wf,
     name: cleanText(run.name || wf),
@@ -139,7 +158,7 @@ export async function collect({ project, client, now = new Date() }) {
   }))
 
   const known = new Set(project.evidence.map(e => e.eventKey).filter(Boolean))
-  const releaseList = await client.get(`${base}/releases?per_page=${MAX_RELEASES}`)
+  const releaseList = expectArray(await client.get(`${base}/releases?per_page=${MAX_RELEASES}`), 'releases')
   const releases = []
   for (const rel of releaseList) {
     if (rel.draft || !rel.published_at || !inRepo(rel.html_url, 'releases') || !/^[A-Za-z0-9._/-]{1,100}$/.test(rel.tag_name)) continue
@@ -169,7 +188,8 @@ export async function collect({ project, client, now = new Date() }) {
     openPullRequests,
     mergedPullRequests,
     workflowRuns,
-    releases
+    releases,
+    collection: { complete: gaps.length === 0, gaps }
   }
   checkObservation(project, observation)
   return observation
@@ -179,7 +199,7 @@ export async function collect({ project, client, now = new Date() }) {
 // so an observation handed over between jobs (or by a future event trigger) is never trusted blindly.
 export function checkObservation(project, obs) {
   const errors = validateAgainstSchema(obs, observationSchema)
-  if (errors.length) throw new SyncError('observation-invalid', errors.slice(0, 5).join('; '))
+  if (errors.length) throw new SyncError('observation-invalid', errors.slice(0, 5).map(withholdValues).join('; '))
   if (obs.projectId !== project.id) throw new SyncError('project-mismatch', `observation is for ${obs.projectId}, not ${project.id}`)
   if (!project.sync || obs.repo.id !== project.sync.repositoryId) throw new SyncError('repo-id-mismatch', 'observation repository id does not match the pinned id')
   if (obs.repo.owner !== OWNER) throw new SyncError('owner-mismatch', `observation owner is ${obs.repo.owner}`)
