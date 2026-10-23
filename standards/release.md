@@ -12,6 +12,8 @@ How a One Small release moves from idea to maintenance, and how humans and AI as
 
 Builder and verifier are recorded in the registry's `ownership` block. Both stay `null` until the release is scoped, and both must be assigned (as different identities) before any gate can be marked verified. Different AI tools (for example Claude builds, Codex verifies) count as independent; two sessions of the same tool reviewing their own work do not.
 
+Registry sync (`One Small Engineering Sync`) is automation, not a role. It records facts it reads from GitHub as `informational` or `builder_reported` evidence and proposes them in draft PRs; it can never be the builder or verifier, never verify a gate and never approve ([docs/sync.md](../docs/sync.md)).
+
 ## The release process
 
 1. **Freeze approved scope.** Commit a scope document in the project repository, set `targetVersion` and `scopeDocument` in the registry. Anything not in it is an enhancement.
