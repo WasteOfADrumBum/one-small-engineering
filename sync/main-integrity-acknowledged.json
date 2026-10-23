@@ -1,0 +1,6 @@
+{
+  "$comment": "Commits on main that Main integrity accepts without a merged pull request. Add an entry only through a reviewed PR, with the reason. Acknowledging a commit never changes it; it only stops the alert.",
+  "acknowledged": [
+    { "sha": "954833cfe46ce807bc40faeca8781a31d27a20f9", "reason": "Initial commit created with the repository by Joshua Small on 2026-10-22, before any pull request existed." }
+  ]
+}

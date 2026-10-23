@@ -35,7 +35,7 @@ test('first sync records CI as builder_reported and changes no manual field', as
   const e = p.evidence.find(x => x.origin === 'sync')
   assert.equal(e.result, 'builder_reported')
   assert.equal(e.recordedBy, 'One Small Engineering Sync')
-  assert.equal(e.eventKey, 'taskforge:workflow_run:ci.yml/11975d0')
+  assert.equal(e.eventKey, 'taskforge:workflow_run:ci.yml/11975d0/2t/1')
   assert.deepEqual(manualView(p), manualView(tf(registry)))
   assert.ok(r.suggestions.some(s => s.includes('automation will not')))
   assert.deepEqual(guardRegistryChange(registry, r.registry, 'taskforge'), [])
@@ -76,7 +76,7 @@ test('a new merge moves the snapshot and supersedes the older CI record', async 
   const p = tf(r.registry)
   assert.equal(p.repositorySnapshot.headSha, head2)
   const runs = p.evidence.filter(e => e.origin === 'sync' && e.type === 'workflow_run')
-  assert.deepEqual(runs.map(e => e.id), [`sync-taskforge-run-ci-yml-${head2.slice(0, 7)}`])
+  assert.deepEqual(runs.map(e => e.id), [`sync-taskforge-run-ci-yml-${head2.slice(0, 7)}-${(202).toString(36)}-1`])
   assert.ok(r.changes.some(c => c.includes('Superseded 1')))
   // An unlabelled merge with no material paths is reported in the snapshot only, not as evidence.
   assert.ok(!p.evidence.some(e => e.type === 'pull_request' && e.origin === 'sync'))
@@ -88,11 +88,11 @@ test('a cited automated record is never pruned', async () => {
   const reg = structuredClone(first.registry)
   const gate = tf(reg).releaseGates.find(g => g.id === 'automated-checks')
   gate.status = 'in_progress'
-  gate.evidenceRefs = ['sync-taskforge-run-ci-yml-11975d0']
+  gate.evidenceRefs = ['sync-taskforge-run-ci-yml-11975d0-2t-1']
   const head2 = fakeSha('tf-head-3')
   const s = taskforgeState({ headSha: head2, runs: [{ id: 303, name: 'CI', path: '.github/workflows/ci.yml', head_sha: head2, event: 'push', conclusion: 'success', updated_at: '2026-10-23T05:00:00Z' }] })
   const r = plan(reg, await observe(s, reg))
-  assert.ok(tf(r.registry).evidence.some(e => e.id === 'sync-taskforge-run-ci-yml-11975d0'))
+  assert.ok(tf(r.registry).evidence.some(e => e.id === 'sync-taskforge-run-ci-yml-11975d0-2t-1'))
   assert.deepEqual(guardRegistryChange(reg, r.registry, 'taskforge'), [])
 })
 
@@ -188,4 +188,60 @@ test('a tampered observation is rejected by the planner', async () => {
   const obs3 = await observe(taskforgeState())
   obs3.head.sha = TF_HEAD.slice(0, 10)
   assert.throws(() => plan(loadRegistry(), obs3), /does not match/)
+})
+
+// CI re-runs on the same commit: the newest attempt (or a newer run) must replace the old record.
+function rerun(conclusion, { id = 101, attempt = 2 } = {}) {
+  const s = taskforgeState()
+  s.runs = [{ ...s.runs[0], id, run_attempt: attempt, conclusion, updated_at: '2026-10-23T05:00:00Z' }]
+  return s
+}
+
+for (const [from, to] of [['success', 'failure'], ['failure', 'success']]) {
+  test(`a re-run on the same commit (${from} → ${to}) supersedes the old record`, async () => {
+    const first = taskforgeState()
+    first.runs[0].conclusion = from
+    const r1 = plan(loadRegistry(), await observe(first))
+    const old = tf(r1.registry).evidence.find(e => e.origin === 'sync')
+    assert.match(old.description, new RegExp(`concluded ${from}`))
+
+    const r2 = plan(r1.registry, await observe(rerun(to), r1.registry))
+    assert.equal(r2.changed, true, 'a changed conclusion on the same commit is material')
+    const runs = tf(r2.registry).evidence.filter(e => e.origin === 'sync' && e.type === 'workflow_run')
+    assert.deepEqual(runs.map(e => e.id), ['sync-taskforge-run-ci-yml-11975d0-2t-2'])
+    assert.match(runs[0].description, new RegExp(`concluded ${to}.*attempt 2`))
+    assert.equal(runs[0].eventKey, 'taskforge:workflow_run:ci.yml/11975d0/2t/2')
+    assert.ok(r2.changes.some(c => c.includes(`Superseded 1`) && c.includes(old.id)))
+    if (to === 'failure') assert.ok(r2.suggestions.some(s => s.includes('must not be verified')))
+    assert.deepEqual(guardRegistryChange(r1.registry, r2.registry, 'taskforge'), [])
+    valid(r2.registry)
+  })
+}
+
+test('a newer run id on the same commit also supersedes, and a cited old record is kept with a warning', async () => {
+  const r1 = plan(loadRegistry(), await observe(taskforgeState()))
+  const reg = structuredClone(r1.registry)
+  Object.assign(tf(reg).releaseGates.find(g => g.id === 'automated-checks'), { status: 'in_progress', evidenceRefs: ['sync-taskforge-run-ci-yml-11975d0-2t-1'] })
+  const r2 = plan(reg, await observe(rerun('failure', { id: 999, attempt: 1 }), reg))
+  const ids = tf(r2.registry).evidence.filter(e => e.origin === 'sync').map(e => e.id)
+  assert.deepEqual(ids, ['sync-taskforge-run-ci-yml-11975d0-2t-1', `sync-taskforge-run-ci-yml-11975d0-${(999).toString(36)}-1`])
+  assert.ok(r2.suggestions.some(s => s.includes('is cited but superseded')))
+  assert.deepEqual(guardRegistryChange(reg, r2.registry, 'taskforge'), [])
+  valid(r2.registry)
+})
+
+test('collect keeps the newest attempt of the same run', async () => {
+  const s = taskforgeState()
+  s.runs = [{ ...s.runs[0], run_attempt: 1, conclusion: 'success' }, { ...s.runs[0], run_attempt: 3, conclusion: 'failure' }]
+  const obs = await observe(s)
+  assert.deepEqual(obs.workflowRuns.map(r => [r.runId, r.attempt, r.conclusion]), [[101, 3, 'failure']])
+})
+
+test('run identity never puts an 8+ digit run in a registry string', async () => {
+  const s = taskforgeState()
+  s.runs = [{ ...s.runs[0], id: 37977747687 }]
+  const r = plan(loadRegistry(), await observe(s))
+  valid(r.registry)
+  const e = tf(r.registry).evidence.find(x => x.origin === 'sync')
+  assert.doesNotMatch(e.id + e.eventKey + e.description, /\d{8,}/)
 })

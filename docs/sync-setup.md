@@ -36,4 +36,5 @@ Until then a private project reports `needs-reader-token` in the status issue.
 
 ## Optional hardening
 
-- GitHub Pro (paid) would let branch protection on `main` be enforced. Not required; the code-level controls in [sync.md](sync.md#security-model-on-github-free) apply either way.
+- GitHub Pro (paid) would let branch protection on `main` be enforced at the token level. Not required, and not assumed: without it the controls in [sync.md](sync.md#security-model-on-github-free) are code restrictions plus detection, not protection.
+- If Main integrity ever fails, disable the Registry sync workflow first, then review the reported commit.

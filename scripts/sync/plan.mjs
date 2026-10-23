@@ -10,19 +10,26 @@ import { SYNC_RECORDER, effectiveConfig, slugify, globToRegExp, compareSemver, p
 
 const short = sha => sha.slice(0, 7)
 
+// Run identity is workflow + commit + run id + attempt, so a re-run on the same commit
+// (success then failure, or the reverse) is a new record, never a silent no-op. The run
+// id is written in base 36: registry strings may not hold 8+ digit runs (sensitive-data scan).
+export function runIdentity(run) {
+  return `${short(run.headSha)}-${run.runId.toString(36)}-${run.attempt}`
+}
+
 function runEvidence(pid, branch, run) {
   const wf = slugify(run.workflow)
   return {
-    id: `sync-${pid}-run-${wf}-${short(run.headSha)}`,
+    id: `sync-${pid}-run-${wf}-${runIdentity(run)}`,
     type: 'workflow_run',
     url: run.url,
     commitSha: run.headSha,
     verifiedAt: run.completedAt,
     result: 'builder_reported',
-    description: `Automated observation: workflow ${run.workflow} ("${run.name}") concluded ${run.conclusion} on ${branch} at ${short(run.headSha)} (${run.event} event). Project CI is builder evidence; a verifier must re-check before any gate is verified.`,
+    description: `Automated observation: workflow ${run.workflow} ("${run.name}") concluded ${run.conclusion} on ${branch} at ${short(run.headSha)} (${run.event} event, attempt ${run.attempt}). Project CI is builder evidence; a verifier must re-check before any gate is verified.`,
     recordedBy: SYNC_RECORDER,
     origin: 'sync',
-    eventKey: `${pid}:workflow_run:${run.workflow}/${short(run.headSha)}`
+    eventKey: `${pid}:workflow_run:${run.workflow}/${runIdentity(run).replace(/-/g, '/')}`
   }
 }
 
@@ -161,6 +168,9 @@ export function plan(registry, observation) {
     })
   }
   if (pruned.length) changes.push(`Superseded ${pruned.length} older automated CI record(s): ${pruned.join(', ')}.`)
+  // A superseded record that something cites stays, but the citing owner should know it is no longer current.
+  const keptStale = p.evidence.filter(e => e.origin === 'sync' && e.type === 'workflow_run' && !currentRunIds.has(e.id) && cited.has(e.id) && observation.workflowRuns.length)
+  for (const e of keptStale) suggestions.push(`${e.id} is cited but superseded by a newer CI run; check whether the citing gate, blocker or approval still holds.`)
 
   const tagRe = new RegExp(config.releaseTagPattern)
   for (const rel of observation.releases) {

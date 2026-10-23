@@ -102,7 +102,7 @@ npm run check      # both; this is what CI runs
 npm run sync:preview  # read-only: what registry sync would propose right now
 ```
 
-CI ([`.github/workflows/validate.yml`](.github/workflows/validate.yml)) runs `npm run check` on every pull request and on pushes to `main`, with read-only permissions, plus the field-ownership guard on `sync/*` branches. [Main integrity](.github/workflows/main-integrity.yml) flags any commit on `main` that did not come from a merged PR.
+CI ([`.github/workflows/validate.yml`](.github/workflows/validate.yml)) runs `npm run check` on every pull request and on pushes to `main`, with read-only permissions, plus the field-ownership guard on `sync/*` branches. [Main integrity](.github/workflows/main-integrity.yml) runs on push and every six hours and flags any change to `main` that did not come from a merged PR. These are detection and code-level controls, not branch protection, which GitHub Free does not enforce on this private repository.
 
 ## Proposing changes
 

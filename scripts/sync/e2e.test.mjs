@@ -101,7 +101,7 @@ test('a private project without the reader credential is reported, not silently 
 test('main integrity: a merge commit passes, a direct push is flagged', async () => {
   const gh = new FakeGitHub()
   const good = fakeSha('good')
-  gh.on('GET', /\/commits\/([0-9a-f]{40})\/pulls$/, ({ m }) => (m[1] === good ? [{ number: 5, html_url: 'https://github.com/x/pull/5', merged_at: '2026-10-23T00:00:00Z', base: { ref: 'main' }, merge_commit_sha: good }] : []))
+  gh.on('GET', /\/commits\/([0-9a-f]{40})\/pulls$/, ({ m }) => (m[1] === good ? [{ number: 5, html_url: 'https://github.com/x/pull/5', merged_at: '2026-10-23T00:00:00Z', base: { ref: 'main' } }] : []))
   const client = createClient({ token: 't', fetchImpl: gh.fetch, sleep: async () => {} })
   assert.equal((await checkMainCommit({ client, sha: good, sleep: async () => {} })).ok, true)
   assert.equal((await checkMainCommit({ client, sha: fakeSha('direct'), sleep: async () => {} })).ok, false)

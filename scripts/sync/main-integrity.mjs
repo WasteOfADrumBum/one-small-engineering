@@ -1,37 +1,133 @@
 #!/usr/bin/env node
-// Detects a commit on main that did not arrive through a merged pull request.
-// Without enforced branch protection this is the backstop for the sync writer's
-// code-level refusal to touch main. It only reads and reports.
+// Detects changes to main that did not arrive through a merged pull request.
+//
+// These are code-level and detection controls, NOT token-level branch protection: on
+// GitHub Free nothing at the GitHub level stops a token with contents: write from pushing
+// to main of this private repository. This script only reads and reports.
+//
+// Two modes, because a push made with GITHUB_TOKEN does not trigger push workflows:
+//   push      (on: push)              every commit in before..after, plus force pushes
+//   window    (on: schedule/dispatch) every commit on main in the look-back window, and
+//                                     every main ref update in GitHub's repository
+//                                     activity log (which also records GITHUB_TOKEN
+//                                     pushes and force pushes)
+// A commit is accepted when GitHub associates it with a PR merged into main (squash,
+// rebase and merge-commit merges all qualify), or when it is listed in
+// sync/main-integrity-acknowledged.json (for example the repository's initial commit).
 
 import { pathToFileURL } from 'node:url'
 import { resolve } from 'node:path'
 import { createClient } from './github.mjs'
-import { OWNER, HUB_REPO, HUB_DEFAULT_BRANCH, SHA } from './lib.mjs'
+import { OWNER, HUB_REPO, HUB_DEFAULT_BRANCH, SHA, readJson } from './lib.mjs'
 
-export async function checkMainCommit({ client, sha, attempts = 3, sleep = ms => new Promise(r => setTimeout(r, ms)) }) {
-  if (!SHA.test(sha || '')) throw new Error(`invalid commit sha ${sha}`)
+const REPO = `/repos/${OWNER}/${HUB_REPO}`
+const MERGE_ACTIVITIES = new Set(['pr_merge', 'merge_queue_merge'])
+export const WINDOW_DAYS = 7
+
+export function loadAcknowledged() {
+  return new Set(readJson('sync/main-integrity-acknowledged.json').acknowledged.map(a => a.sha))
+}
+
+async function mergedIntoMain(client, sha, attempts, sleep) {
   // GitHub links a merge commit to its PR asynchronously; allow a short delay.
   for (let i = 0; i < attempts; i++) {
-    const prs = await client.get(`/repos/${OWNER}/${HUB_REPO}/commits/${sha}/pulls`)
-    const pr = prs.find(p => p.merged_at && p.base && p.base.ref === HUB_DEFAULT_BRANCH && p.merge_commit_sha === sha)
-    if (pr) return { ok: true, pr: { number: pr.number, url: pr.html_url } }
+    const prs = await client.get(`${REPO}/commits/${sha}/pulls`)
+    const pr = prs.find(p => p.merged_at && p.base && p.base.ref === HUB_DEFAULT_BRANCH)
+    if (pr) return { number: pr.number, url: pr.html_url }
     if (i < attempts - 1) await sleep(10_000)
   }
-  return { ok: false }
+  return null
+}
+
+// Checks each commit; returns the ones with no merged PR and no acknowledgement.
+export async function checkCommits({ client, shas, acknowledged = new Set(), attempts = 3, sleep = ms => new Promise(r => setTimeout(r, ms)) }) {
+  const violations = []
+  const checked = []
+  for (const sha of shas) {
+    if (!SHA.test(sha || '')) throw new Error(`invalid commit sha ${sha}`)
+    if (acknowledged.has(sha)) { checked.push({ sha, via: 'acknowledged' }); continue }
+    const pr = await mergedIntoMain(client, sha, attempts, sleep)
+    if (pr) checked.push({ sha, via: `PR #${pr.number}` })
+    else violations.push({ sha, reason: 'no merged pull request into main contains this commit' })
+  }
+  return { checked, violations }
+}
+
+// Compatibility helper for a single commit.
+export async function checkMainCommit({ client, sha, attempts = 3, sleep }) {
+  const { violations, checked } = await checkCommits({ client, shas: [sha], attempts, sleep })
+  return violations.length ? { ok: false } : { ok: true, via: checked[0].via }
+}
+
+// Commits a push added to main. A force push, or a base GitHub no longer has, is itself a violation.
+export async function commitsInPush({ client, before, after, forced }) {
+  const problems = []
+  if (forced) problems.push({ sha: after, reason: `force push to ${HUB_DEFAULT_BRANCH} (history before ${String(before).slice(0, 7)} was rewritten)` })
+  if (!before || /^0+$/.test(before)) return { shas: [after], problems }
+  const cmp = await client.get(`${REPO}/compare/${before}...${after}`, { allow404: true })
+  if (!cmp) {
+    problems.push({ sha: after, reason: `cannot compare ${before.slice(0, 7)}...${after.slice(0, 7)}; the old head is gone (history rewrite?)` })
+    return { shas: [after], problems }
+  }
+  if (cmp.total_commits > (cmp.commits || []).length) problems.push({ sha: after, reason: `push of ${cmp.total_commits} commits is larger than the comparison lists; the scheduled check covers the rest` })
+  return { shas: (cmp.commits || []).map(c => c.sha), problems }
+}
+
+// Every commit on main in the window, and every non-merge update of main in the activity log.
+export async function windowScan({ client, now = new Date(), days = WINDOW_DAYS, acknowledged = new Set() }) {
+  const since = new Date(now.getTime() - days * 86400_000).toISOString().replace(/\.\d{3}Z$/, 'Z')
+  const commits = await client.paginate(`${REPO}/commits?sha=${HUB_DEFAULT_BRANCH}&since=${since}`, { max: 500 })
+  const problems = []
+  const notes = []
+  let activity = null
+  try {
+    // One page: this endpoint pages by cursor, and a week of main updates is far below 100.
+    activity = await client.get(`${REPO}/activity?ref=refs/heads/${HUB_DEFAULT_BRANCH}&time_period=week&per_page=100`)
+  } catch (e) {
+    notes.push(`repository activity log unavailable (${e.message}); relying on the commit check only`)
+  }
+  for (const a of activity || []) {
+    if (MERGE_ACTIVITIES.has(a.activity_type) || acknowledged.has(a.after)) continue
+    const who = (a.actor && a.actor.login) || 'unknown'
+    problems.push({ sha: a.after, reason: `${a.activity_type} to ${HUB_DEFAULT_BRANCH} by ${who} at ${a.timestamp}, not a pull request merge` })
+  }
+  return { shas: commits.map(c => c.sha), problems, notes, since }
+}
+
+function report({ mode, checked, violations, notes }) {
+  const lines = [`# Main integrity (${mode})`, '', `${checked.length} commit(s) accepted, ${violations.length} problem(s).`, '']
+  lines.push('These checks detect changes; they do not prevent them. Branch protection is not enforced on this private repository on GitHub Free.', '')
+  if (violations.length) {
+    lines.push('| Commit | Problem |', '| --- | --- |')
+    for (const v of violations) lines.push(`| ${String(v.sha).slice(0, 7)} | ${v.reason} |`)
+    lines.push('', 'If a change is legitimate (for example a deliberate direct push by the owner), add its SHA with a reason to sync/main-integrity-acknowledged.json through a PR. Otherwise disable Registry sync and review the commit.', '')
+  }
+  for (const n of notes) lines.push(`Note: ${n}`)
+  return lines.join('\n') + '\n'
 }
 
 async function main() {
-  const sha = process.env.AFTER_SHA
-  const pusher = process.env.PUSHER || 'unknown'
   const client = createClient({ token: process.env.GITHUB_TOKEN })
-  const result = await checkMainCommit({ client, sha })
-  if (result.ok) {
-    console.log(`main-integrity: OK (${sha.slice(0, 7)} is the merge of PR #${result.pr.number})`)
-    return 0
+  const acknowledged = loadAcknowledged()
+  const event = process.env.GITHUB_EVENT_NAME || 'workflow_dispatch'
+  let mode, shas, problems, notes = []
+  if (event === 'push') {
+    mode = 'push'
+    ;({ shas, problems } = await commitsInPush({ client, before: process.env.BEFORE_SHA, after: process.env.AFTER_SHA, forced: process.env.FORCED === 'true' }))
+  } else {
+    mode = `window, last ${WINDOW_DAYS} days`
+    ;({ shas, problems, notes } = await windowScan({ client, acknowledged }))
   }
-  const bot = /\[bot\]$/.test(pusher)
-  console.error(`::error title=Commit on main without a merged pull request::${sha.slice(0, 7)} was pushed to main by ${pusher} without a merged pull request.${bot ? ' The pusher is automation: disable Registry sync and review the commit immediately.' : ' Review it and revert if it was not intended.'}`)
-  return 1
+  const { checked, violations } = await checkCommits({ client, shas, acknowledged })
+  const all = [...problems.filter(p => !acknowledged.has(p.sha)), ...violations]
+  const text = report({ mode, checked, violations: all, notes })
+  console.log(text)
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    const { appendFileSync } = await import('node:fs')
+    appendFileSync(process.env.GITHUB_STEP_SUMMARY, text)
+  }
+  for (const v of all) console.error(`::error title=Change to main without a merged pull request::${String(v.sha).slice(0, 7)}: ${v.reason}`)
+  return all.length ? 1 : 0
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {

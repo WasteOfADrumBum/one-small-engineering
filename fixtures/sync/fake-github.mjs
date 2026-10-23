@@ -123,6 +123,7 @@ export function hubRepo(gh, { registryText, mainSha = sha('main-0') }) {
     issues: [],
     comments: [],
     dispatches: [],
+    validateRuns: [],
     n: 0
   }
   let counter = 0
@@ -162,12 +163,13 @@ export function hubRepo(gh, { registryText, mainSha = sha('main-0') }) {
     hub.refs[m[1]] = body.sha
     return { ref: `refs/${m[1]}` }
   })
-  const pull = p => ({ number: p.number, html_url: `${html}/pull/${p.number}`, title: p.title, body: p.body, draft: p.draft, state: p.state, head: { ref: p.head }, base: { ref: p.base }, updated_at: '2026-10-23T00:00:00Z' })
+  const pull = p => ({ number: p.number, html_url: `${html}/pull/${p.number}`, title: p.title, body: p.body, draft: p.draft, state: p.state, head: { ref: p.head, sha: p.state === 'open' ? hub.refs[`heads/${p.head}`] : p.closedHeadSha }, base: { ref: p.base }, merged_at: p.mergedAt || null, updated_at: '2026-10-23T00:00:00Z' })
   gh.on('GET', R('/pulls'), ({ q }) => {
     const head = q.get('head')
     const page = +(q.get('page') || 1)
     if (page > 1) return []
-    return hub.pulls.filter(p => p.state === 'open' && (!head || `${OWNER}:${p.head}` === head)).map(pull)
+    const state = q.get('state') || 'open'
+    return hub.pulls.filter(p => p.state === state && (!head || `${OWNER}:${p.head}` === head)).map(pull)
   })
   gh.on('POST', R('/pulls'), ({ body }) => {
     const p = { number: ++hub.n, ...body, state: 'open' }
@@ -176,6 +178,7 @@ export function hubRepo(gh, { registryText, mainSha = sha('main-0') }) {
   })
   gh.on('PATCH', R('/pulls/(\\d+)'), ({ m, body }) => {
     const p = hub.pulls.find(x => x.number === +m[1])
+    if (body.state === 'closed' && p.state === 'open') p.closedHeadSha = hub.refs[`heads/${p.head}`]
     Object.assign(p, body)
     return pull(p)
   })
@@ -196,7 +199,13 @@ export function hubRepo(gh, { registryText, mainSha = sha('main-0') }) {
   })
   gh.on('POST', R('/actions/workflows/validate\\.yml/dispatches'), ({ body }) => {
     hub.dispatches.push(body.ref)
+    // GitHub queues a run for the branch head; record it so later runs can see it.
+    hub.validateRuns.push({ branch: body.ref, head_sha: hub.refs[`heads/${body.ref}`] })
     return json(204, undefined)
+  })
+  gh.on('GET', R('/actions/workflows/validate\\.yml/runs'), ({ q }) => {
+    const runs = hub.validateRuns.filter(r => r.branch === q.get('branch') && r.head_sha === q.get('head_sha'))
+    return { total_count: runs.length, workflow_runs: runs }
   })
   return hub
 }

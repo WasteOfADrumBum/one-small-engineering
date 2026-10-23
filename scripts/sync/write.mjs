@@ -83,7 +83,11 @@ export function checkProposal({ baseRegistry, nextRegistry, projectId, validate 
   if (errors.length) throw new WriteRefused(`proposal for ${projectId} rejected:\n  - ${errors.join('\n  - ')}`)
 }
 
-// Creates or refreshes sync/<id> and its draft PR. Returns what happened.
+// Reconciles three things separately, so a run that failed half-way is repaired by the next:
+//   1. the branch sync/<id> holds the proposal on top of the current main;
+//   2. an open draft PR exists for it (unless the owner closed one for this exact commit);
+//   3. Validate registry has run, or been dispatched, for the branch head.
+// Each step checks the current state before writing, so re-running is always safe.
 export async function writeSync({ client: raw, projectId, baseRegistry, nextRegistry, mainSha, title, body, validate }) {
   const client = restrictWrites(raw)
   const branch = syncBranch(projectId)
@@ -91,51 +95,79 @@ export async function writeSync({ client: raw, projectId, baseRegistry, nextRegi
 
   // The plan was made against the checked-out main; refuse if main has moved since.
   const main = await client.get(`${HUB}/git/ref/heads/${HUB_DEFAULT_BRANCH}`)
-  if (main.object.sha !== mainSha) return { action: 'skipped', reason: `main moved to ${main.object.sha.slice(0, 7)} after this run started; the next run will rebuild from it` }
+  if (main.object.sha !== mainSha) return { action: 'skipped', reason: `main moved to ${main.object.sha.slice(0, 7)} after this run started; the next run will rebuild from it`, steps: {} }
 
+  const steps = {}
   const text = serializeRegistry(nextRegistry)
   const existing = await client.get(`${HUB}/git/ref/heads/${branch}`, { allow404: true })
-  let pr = await findSyncPr(client, branch)
 
+  // 1. Branch.
+  let headSha = null
   if (existing) {
     const head = await client.get(`${HUB}/git/commits/${existing.object.sha}`)
     // Never overwrite work someone else pushed to the bot branch.
     if (!head.author || head.author.name !== BOT_AUTHOR.name || head.parents.length !== 1) {
-      return { action: 'skipped', reason: `${branch} has a commit not made by sync (${existing.object.sha.slice(0, 7)}); leaving it alone`, pr: pr && { number: pr.number, url: pr.html_url } }
+      const pr = await findSyncPr(client, branch)
+      return { action: 'skipped', reason: `${branch} has a commit not made by sync (${existing.object.sha.slice(0, 7)}); leaving it alone`, pr: pr && { number: pr.number, url: pr.html_url }, steps }
     }
-    // Idempotency: same base and same material facts means nothing to push.
+    // Same base and same material facts: the branch is already right.
     if (head.parents[0].sha === mainSha) {
       const file = await client.get(`${HUB}/contents/${REGISTRY_PATH}?ref=${encodeURIComponent(branch)}`)
-      if (file.sha === gitBlobSha(text)) return { action: 'unchanged', pr: pr && { number: pr.number, url: pr.html_url } }
-      const current = JSON.parse(Buffer.from(file.content, 'base64').toString('utf8'))
-      const before = current.projects.find(p => p.id === projectId)
-      const after = nextRegistry.projects.find(p => p.id === projectId)
-      if (before && JSON.stringify(materialView(before)) === JSON.stringify(materialView(after)) && pr) {
-        return { action: 'unchanged', pr: { number: pr.number, url: pr.html_url } }
+      let same = file.sha === gitBlobSha(text)
+      if (!same) {
+        const current = JSON.parse(Buffer.from(file.content, 'base64').toString('utf8'))
+        const before = current.projects.find(p => p.id === projectId)
+        const after = nextRegistry.projects.find(p => p.id === projectId)
+        same = Boolean(before) && JSON.stringify(materialView(before)) === JSON.stringify(materialView(after))
+      }
+      if (same) {
+        headSha = existing.object.sha
+        steps.branch = 'unchanged'
       }
     }
   }
-
-  const baseCommit = await client.get(`${HUB}/git/commits/${mainSha}`)
-  const blob = await client.request('POST', `${HUB}/git/blobs`, { body: { content: text, encoding: 'utf-8' } })
-  const tree = await client.request('POST', `${HUB}/git/trees`, { body: { base_tree: baseCommit.tree.sha, tree: [{ path: REGISTRY_PATH, mode: '100644', type: 'blob', sha: blob.sha }] } })
-  const commit = await client.request('POST', `${HUB}/git/commits`, {
-    body: { message: `${title}\n\nAutomated registry sync. Changes only automation-owned fields; see sync/field-ownership.json.`, tree: tree.sha, parents: [mainSha], author: BOT_AUTHOR, committer: BOT_AUTHOR }
-  })
-  if (existing) await client.request('PATCH', `${HUB}/git/refs/heads/${branch}`, { body: { sha: commit.sha, force: true } })
-  else await client.request('POST', `${HUB}/git/refs`, { body: { ref: `refs/heads/${branch}`, sha: commit.sha } })
-
-  let action
-  if (pr) {
-    await client.request('PATCH', `${HUB}/pulls/${pr.number}`, { body: { title, body } })
-    action = 'updated'
-  } else {
-    pr = await client.request('POST', `${HUB}/pulls`, { body: { title, head: branch, base: HUB_DEFAULT_BRANCH, body, draft: true } })
-    action = 'created'
+  if (!headSha) {
+    const baseCommit = await client.get(`${HUB}/git/commits/${mainSha}`)
+    const blob = await client.request('POST', `${HUB}/git/blobs`, { body: { content: text, encoding: 'utf-8' } })
+    const tree = await client.request('POST', `${HUB}/git/trees`, { body: { base_tree: baseCommit.tree.sha, tree: [{ path: REGISTRY_PATH, mode: '100644', type: 'blob', sha: blob.sha }] } })
+    const commit = await client.request('POST', `${HUB}/git/commits`, {
+      body: { message: `${title}\n\nAutomated registry sync. Changes only automation-owned fields; see sync/field-ownership.json.`, tree: tree.sha, parents: [mainSha], author: BOT_AUTHOR, committer: BOT_AUTHOR }
+    })
+    if (existing) await client.request('PATCH', `${HUB}/git/refs/heads/${branch}`, { body: { sha: commit.sha, force: true } })
+    else await client.request('POST', `${HUB}/git/refs`, { body: { ref: `refs/heads/${branch}`, sha: commit.sha } })
+    headSha = commit.sha
+    steps.branch = existing ? 'updated' : 'created'
   }
-  // PRs pushed with GITHUB_TOKEN do not trigger pull_request workflows; workflow_dispatch does.
-  await client.request('POST', `${HUB}/actions/workflows/validate.yml/dispatches`, { body: { ref: branch } })
-  return { action, commitSha: commit.sha, pr: { number: pr.number, url: pr.html_url } }
+
+  // 2. Pull request.
+  let pr = await findSyncPr(client, branch)
+  if (pr) {
+    if (steps.branch !== 'unchanged') {
+      await client.request('PATCH', `${HUB}/pulls/${pr.number}`, { body: { title, body } })
+      steps.pr = 'updated'
+    } else steps.pr = 'unchanged'
+  } else {
+    // An owner who closed the PR for this exact commit has declined it; a new commit reopens the question.
+    const closed = await client.get(`${HUB}/pulls?state=closed&head=${OWNER}:${encodeURIComponent(branch)}&per_page=10`)
+    const declined = closed.find(c => c.head && c.head.ref === branch && c.head.sha === headSha && !c.merged_at)
+    if (declined) {
+      steps.pr = 'declined'
+      return { action: 'declined', reason: `PR #${declined.number} for ${headSha.slice(0, 7)} was closed without merging; waiting for new facts`, pr: { number: declined.number, url: declined.html_url }, steps }
+    }
+    pr = await client.request('POST', `${HUB}/pulls`, { body: { title, head: branch, base: HUB_DEFAULT_BRANCH, body, draft: true } })
+    steps.pr = 'created'
+  }
+
+  // 3. Validation. PRs pushed with GITHUB_TOKEN do not trigger pull_request workflows; workflow_dispatch does.
+  const runs = await client.get(`${HUB}/actions/workflows/validate.yml/runs?branch=${encodeURIComponent(branch)}&head_sha=${headSha}&per_page=1`)
+  if (runs && runs.total_count > 0) steps.validation = 'already-ran'
+  else {
+    await client.request('POST', `${HUB}/actions/workflows/validate.yml/dispatches`, { body: { ref: branch } })
+    steps.validation = 'dispatched'
+  }
+
+  const action = steps.branch !== 'unchanged' ? (steps.pr === 'created' ? 'created' : 'updated') : (steps.pr === 'created' || steps.validation === 'dispatched' ? 'repaired' : 'unchanged')
+  return { action, commitSha: headSha, pr: { number: pr.number, url: pr.html_url }, steps }
 }
 
 // main already holds these facts: close the now-redundant sync PR, if any.

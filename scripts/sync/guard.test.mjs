@@ -82,7 +82,7 @@ test('automated records are immutable, cannot pass, and cited ones cannot be rem
   rejects(base, head, 'cannot have result pass')
   ;({ base, head } = await legit())
   const b2 = structuredClone(head)
-  tf(b2).releaseGates[1].evidenceRefs = ['sync-taskforge-run-ci-yml-11975d0']
+  tf(b2).releaseGates[1].evidenceRefs = ['sync-taskforge-run-ci-yml-11975d0-2t-1']
   const h2 = structuredClone(b2)
   tf(h2).evidence = tf(h2).evidence.filter(e => e.origin !== 'sync')
   rejects(b2, h2, 'cited record cannot be removed')

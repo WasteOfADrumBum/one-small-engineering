@@ -17,14 +17,15 @@ Registry sync (schedule every 6 h, or Run workflow)
                                            dispatch Validate registry on it
                                   update the "Registry sync status" issue
 Validate registry               npm run check + guard on every sync/* branch
-Main integrity                  flags any commit on main that is not a merged PR
+Main integrity (push + every 6 h) flags any change to main that is not a merged PR
 You                             review, mark ready, merge (or close)
 ```
 
 - **Hub pull.** The hub reads each project. Project repositories hold no secrets and cannot write to the hub.
 - **Level-triggered.** Every run reconciles the current state with a 14-day look-back. A missed run, an outage or a duplicate trigger changes nothing; the next run catches up.
-- **Idempotent.** Evidence IDs and `eventKey`s are derived from the facts (`sync-taskforge-run-ci-yml-11975d0`, `taskforge:workflow_run:ci.yml/11975d0`). The same GitHub state always gives the same registry, so a re-run pushes nothing.
+- **Idempotent.** Evidence IDs and `eventKey`s are derived from the facts. A CI record's identity is workflow, commit, run ID (base 36) and attempt, for example `sync-taskforge-run-ci-yml-11975d0-hg2yxnr-2` / `taskforge:workflow_run:ci.yml/11975d0/hg2yxnr/2`, so a re-run on the same commit (success then failure, or the reverse) is a new record that supersedes the old one. Superseded records are removed only if nothing cites them; a cited one stays and the PR says it is no longer current. The same GitHub state always gives the same registry, so a re-run pushes nothing.
 - **One PR per project.** `sync/<project-id>` is rebuilt from the latest `main` each time, so a PR that conflicts after another merges is regenerated on the next run.
+- **Self-repairing writes.** The writer reconciles three things separately on every run: the branch content, the existence of an open draft PR, and a Validate registry run for the branch head. If a run pushed the branch but failed to open the PR or dispatch validation, the next run sees the branch is right and creates only what is missing. A PR you close without merging is not reopened for the same commit; a later change opens a new one.
 
 ## What automation may change
 
@@ -98,11 +99,15 @@ All triggers already end in `node scripts/sync/run.mjs collect|write [--project 
 
 Branch protection and rulesets are not enforced on this private repository, so nothing at the GitHub level stops a token with `contents: write` from pushing to `main`. The controls are:
 
+**These are code restrictions and detection, not token-level branch protection.** The job token itself can push to `main`; what stops it is the code below, which you merged and can review, and what catches a failure of that code is Main integrity.
+
 1. The write token is the job's own `GITHUB_TOKEN`: it exists only while the job runs, reaches only this repository, and cannot change workflow files.
 2. The write job runs only from `main` (code you merged), only on schedule or manual dispatch, never on a PR.
 3. `restrictWrites` in `scripts/sync/write.mjs` refuses every API write not on its allowlist: refs only under `refs/heads/sync/<slug>`, no merges, no contents API, no deletes, no reviews, PRs only as drafts into `main`, trees with exactly one path (`projects/registry.json`). Tested in `write.test.mjs`.
 4. Before any write, the proposal must pass the field-ownership guard and the full validator.
 5. `Validate registry` re-runs the guard on every sync branch.
-6. `Main integrity` fails loudly if a commit reaches `main` without a merged PR.
+6. `Main integrity` fails loudly if anything reaches `main` without a merged PR. A push made with `GITHUB_TOKEN` does not trigger push workflows, so it also runs on its own schedule (every 6 hours, offset from sync) and checks **every commit** on `main` in the last seven days plus every update of `main` in GitHub's repository activity log, which records `GITHUB_TOKEN` pushes and force pushes. On a push it checks every commit between the old and new head, not just the head. Legitimate exceptions (the repository's initial commit) are listed with a reason in `sync/main-integrity-acknowledged.json`.
+
+Limits of detection: it reports after the fact, it does not revert; a change older than seven days is outside the window if both the push run and every scheduled run were missed; and if the activity log is unavailable to the token, a force push that leaves only PR-merged commits on `main` would not be seen (the run says when the log was unavailable).
 
 Merging stays a manual act. On GitHub Free a required review cannot be enforced for this private repository either, so the rule "only Joshua Small merges registry PRs" is procedural, and every sync PR is opened as a draft.

@@ -271,13 +271,20 @@ test('a catalog gate not defined for the tier fails', () => {
   rejects(r, '$.gateCatalog.showcase: gate "authentication" is not defined by the showcase tier')
 })
 
-test('a gate removed from the Definition of Done is caught in the catalog and schema', () => {
-  const trimmed = parseDefinitionOfDone(dodText.replace(/^\| 11 \| `authentication` .*\n/m, ''))
-  assert.ok(!trimmed.application.includes('authentication'))
-  const errors = run(clone(), { dod: trimmed })
-  assert.ok(errors.some(e => e.includes('gate "authentication" is not defined by the application tier')), errors.join('\n'))
-  assert.ok(errors.some(e => e.startsWith('$schema.$defs.gateId: gate "authentication" is not defined')), errors.join('\n'))
-})
+// Runs on the file as checked out and on a CRLF copy, so a Windows checkout behaves the same.
+for (const [eol, text] of [['LF', dodText.replace(/\r\n/g, '\n')], ['CRLF', dodText.replace(/\r?\n/g, '\r\n')]]) {
+  test(`a gate removed from the Definition of Done is caught in the catalog and schema (${eol})`, () => {
+    assert.deepEqual(parseDefinitionOfDone(text), dod, 'line endings do not change the parsed gate lists')
+    const removed = text.replace(/^\| 11 \| `authentication` [^\r\n]*\r?\n/m, '')
+    assert.equal(removed.length < text.length, true, 'the authentication row was actually removed')
+    const trimmed = parseDefinitionOfDone(removed)
+    assert.ok(!trimmed.application.includes('authentication'))
+    assert.equal(trimmed.application.length, dod.application.length - 1)
+    const errors = run(clone(), { dod: trimmed })
+    assert.ok(errors.some(e => e.includes('gate "authentication" is not defined by the application tier')), errors.join('\n'))
+    assert.ok(errors.some(e => e.startsWith('$schema.$defs.gateId: gate "authentication" is not defined')), errors.join('\n'))
+  })
+}
 
 test('a resolved blocker needs evidence of the resolution', () => {
   const r1 = clone(); const b1 = project(r1, 'one-small-ai-workforce').release.blockers[0]
@@ -299,9 +306,9 @@ test('scope-document-missing cannot be resolved while the scope document is null
 
 // Schema 1.1.0: automated and AI records stay separate from independent verification.
 const syncRecord = (over = {}) => ({
-  id: 'sync-taskforge-run-ci-yml-11975d0', type: 'workflow_run', url: 'https://github.com/WasteOfADrumBum/TaskForge/actions/runs/1',
+  id: 'sync-taskforge-run-ci-yml-11975d0-2t-1', type: 'workflow_run', url: 'https://github.com/WasteOfADrumBum/TaskForge/actions/runs/1',
   commitSha: '11975d0278c7f04db5033c0461295c734e3b4134', verifiedAt: '2026-10-09T19:10:23Z', result: 'builder_reported',
-  description: 'Fixture: automated CI observation.', recordedBy: 'One Small Engineering Sync', origin: 'sync', eventKey: 'taskforge:workflow_run:ci.yml/11975d0', ...over
+  description: 'Fixture: automated CI observation.', recordedBy: 'One Small Engineering Sync', origin: 'sync', eventKey: 'taskforge:workflow_run:ci.yml/11975d0/2t/1', ...over
 }) // an override of undefined removes the field
 const withEvidence = (...records) => {
   const r = clone()
@@ -324,7 +331,7 @@ test('an automated record cannot verify a gate even when cited', () => {
   const r = withEvidence(syncRecord())
   const p = project(r, 'taskforge')
   p.ownership = { builder: 'Claude Code', verifier: 'ChatGPT Codex', approvalOwner: 'Joshua Small' }
-  Object.assign(p.releaseGates.find(g => g.id === 'automated-checks'), { status: 'verified', evidenceRefs: ['sync-taskforge-run-ci-yml-11975d0'], verifiedAt: '2026-10-22T00:00:00Z' })
+  Object.assign(p.releaseGates.find(g => g.id === 'automated-checks'), { status: 'verified', evidenceRefs: ['sync-taskforge-run-ci-yml-11975d0-2t-1'], verifiedAt: '2026-10-22T00:00:00Z' })
   rejects(r, 'a verified gate needs evidence with result "pass"')
 })
 

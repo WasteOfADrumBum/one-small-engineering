@@ -89,11 +89,13 @@
     },
     "workflowRun": {
       "type": "object",
-      "required": ["workflow", "name", "url", "headSha", "event", "conclusion", "completedAt"],
+      "required": ["workflow", "name", "runId", "attempt", "url", "headSha", "event", "conclusion", "completedAt"],
       "additionalProperties": false,
       "properties": {
         "workflow": { "type": "string", "pattern": "^[A-Za-z0-9._-]+\\.ya?ml$" },
         "name": { "$ref": "#/$defs/text" },
+        "runId": { "type": "integer", "minimum": 1 },
+        "attempt": { "description": "run_attempt: a re-run keeps the run id and increments this.", "type": "integer", "minimum": 1 },
         "url": { "$ref": "#/$defs/url" },
         "headSha": { "$ref": "#/$defs/sha" },
         "event": { "type": "string", "minLength": 1 },

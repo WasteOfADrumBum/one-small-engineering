@@ -129,3 +129,55 @@ test('status issue is created once and then updated in place', async () => {
 test('git blob sha matches git hash-object', () => {
   assert.equal(gitBlobSha('hello\n'), 'ce013625030ba8dba906f756967f9e9ca394464a')
 })
+
+// Partial failures: each step is reconciled on its own, so a retry repairs what is missing.
+test('PR creation fails after the branch was pushed; the retry creates the PR and dispatches validation', async () => {
+  const { args, hub, gh } = await setup()
+  gh.failNext(/\/one-small-engineering\/pulls$/, 422, { body: { message: 'Validation Failed' } })
+  await assert.rejects(writeSync(args), /HTTP 422/)
+  assert.ok(hub.refs['heads/sync/taskforge'], 'branch was pushed before the failure')
+  assert.equal(hub.pulls.length, 0)
+  assert.deepEqual(hub.dispatches, [])
+
+  const retry = await writeSync(args)
+  assert.equal(retry.action, 'repaired')
+  assert.deepEqual(retry.steps, { branch: 'unchanged', pr: 'created', validation: 'dispatched' })
+  assert.equal(hub.pulls.length, 1)
+  assert.equal(hub.pulls[0].draft, true)
+  assert.deepEqual(hub.dispatches, ['sync/taskforge'])
+})
+
+test('validation dispatch fails after the PR was opened; the retry dispatches it without touching the PR', async () => {
+  const { args, hub, gh } = await setup()
+  gh.failNext(/\/validate\.yml\/dispatches$/, 422, { body: { message: 'Workflow does not have workflow_dispatch trigger' } })
+  await assert.rejects(writeSync(args), /HTTP 422/)
+  assert.equal(hub.pulls.length, 1)
+  assert.deepEqual(hub.dispatches, [])
+
+  const writesBefore = gh.writes().length
+  const retry = await writeSync(args)
+  assert.equal(retry.action, 'repaired')
+  assert.deepEqual(retry.steps, { branch: 'unchanged', pr: 'unchanged', validation: 'dispatched' })
+  assert.equal(gh.writes().length, writesBefore + 1, 'only the dispatch is sent')
+  assert.equal(hub.pulls.length, 1)
+
+  const third = await writeSync(args)
+  assert.equal(third.action, 'unchanged')
+  assert.deepEqual(third.steps, { branch: 'unchanged', pr: 'unchanged', validation: 'already-ran' })
+})
+
+test('a PR the owner closed for this exact commit is not reopened until the facts change', async () => {
+  const { args, hub } = await setup()
+  await writeSync(args)
+  hub.pulls[0].closedHeadSha = hub.refs['heads/sync/taskforge']
+  hub.pulls[0].state = 'closed'
+  const again = await writeSync(args)
+  assert.equal(again.action, 'declined')
+  assert.equal(hub.pulls.length, 1)
+
+  const next = structuredClone(args.nextRegistry)
+  tf(next).openPullRequests = [{ number: 9, url: 'https://github.com/WasteOfADrumBum/TaskForge/pull/9', title: 'New', headSha: fakeSha('9'), draft: false }]
+  const fresh = await writeSync({ ...args, nextRegistry: next })
+  assert.equal(fresh.action, 'created')
+  assert.equal(hub.pulls.filter(p => p.state === 'open').length, 1)
+})

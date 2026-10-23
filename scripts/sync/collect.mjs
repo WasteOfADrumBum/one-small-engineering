@@ -121,12 +121,16 @@ export async function collect({ project, client, now = new Date() }) {
     const wf = workflowFile(run.path)
     if (run.head_sha !== headSha || !inRepo(run.html_url, 'actions') || !/^[A-Za-z0-9._-]+\.ya?ml$/.test(wf)) continue
     if (config.workflows.length && !config.workflows.includes(wf)) continue
+    // The newest run wins; for the same run, the newest attempt (a re-run keeps the id).
     const prev = latest.get(wf)
-    if (!prev || run.id > prev.id) latest.set(wf, run)
+    const attempt = run.run_attempt || 1
+    if (!prev || run.id > prev.id || (run.id === prev.id && attempt > (prev.run_attempt || 1))) latest.set(wf, run)
   }
   const workflowRuns = [...latest.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([wf, run]) => ({
     workflow: wf,
     name: cleanText(run.name || wf),
+    runId: run.id,
+    attempt: run.run_attempt || 1,
     url: run.html_url,
     headSha: run.head_sha,
     event: String(run.event),

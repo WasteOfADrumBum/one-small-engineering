@@ -98,7 +98,7 @@ export async function processAll({ registry, collected, mode, hubClient, mainSha
       const w = await writeSync({ client: hubClient, projectId: item.projectId, baseRegistry: registry, nextRegistry: planned.registry, mainSha, title, body, validate })
       r.pr = w.pr || null
       r.prAction = w.action
-      if (w.action === 'skipped') r.notes.push(w.reason)
+      if (w.action === 'skipped' || w.action === 'declined') r.notes.push(w.reason)
     } catch (e) {
       r.outcome = 'error'
       r.errors.push(`${e instanceof WriteRefused ? 'refused' : e.code || 'plan-failed'}: ${e.message}`)

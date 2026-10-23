@@ -1,20 +1,32 @@
 name: Main integrity
 
-# Branch protection is not enforced on this private repository (GitHub Free), so this
-# detects what it cannot prevent: a commit on main that did not arrive through a merged
-# pull request. It fails loudly; it never changes anything.
+# Detection, not prevention. Branch protection is not enforced on this private repository
+# (GitHub Free), and the code restrictions in scripts/sync/write.mjs are not token-level
+# protection either: a token with contents: write could still push to main. This workflow
+# reports any change to main that did not arrive through a merged pull request.
+#
+# A push made with GITHUB_TOKEN does not trigger push workflows, so the scheduled run is
+# the independent check: it re-examines every commit on main in the last seven days and
+# every main ref update in GitHub's repository activity log, which records those pushes.
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '47 */6 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: read
   pull-requests: read
 
+concurrency:
+  group: main-integrity
+  cancel-in-progress: false
+
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
         with:
@@ -27,5 +39,5 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           BEFORE_SHA: ${{ github.event.before }}
           AFTER_SHA: ${{ github.event.after }}
-          PUSHER: ${{ github.actor }}
+          FORCED: ${{ github.event.forced }}
         run: node scripts/sync/main-integrity.mjs
