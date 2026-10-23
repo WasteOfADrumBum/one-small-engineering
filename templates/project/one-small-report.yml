@@ -30,13 +30,15 @@ jobs:
         run: |
           node --input-type=module -e '
           import { readFileSync } from "node:fs"
+          // Messages name keys by position only and never quote the file, so a value cannot reach the log.
           const fail = m => { console.error(`::error file=.github/one-small-engineering.json::${m}`); process.exit(1) }
           let c
-          try { c = JSON.parse(readFileSync(".github/one-small-engineering.json", "utf8")) } catch (e) { fail(`not valid JSON: ${e.message}`) }
+          try { c = JSON.parse(readFileSync(".github/one-small-engineering.json", "utf8")) } catch { fail("not valid JSON") }
+          if (!c || typeof c !== "object" || Array.isArray(c)) fail("must be a JSON object")
           const top = new Set(["$schema", "configVersion", "projectId", "registry", "reporting"])
           const rep = new Set(["enabled", "workflows", "includeDraftPullRequests", "releaseTagPattern", "evidenceLabel", "materialPaths", "lookbackDays"])
-          for (const k of Object.keys(c)) if (!top.has(k)) fail(`unknown key ${k}`)
-          for (const k of Object.keys(c.reporting || {})) if (!rep.has(k)) fail(`unknown key reporting.${k}`)
+          Object.keys(c).forEach((k, i) => { if (!top.has(k)) fail(`unknown top-level key (key ${i + 1}; name not shown)`) })
+          Object.keys(c.reporting || {}).forEach((k, i) => { if (!rep.has(k)) fail(`unknown key in reporting (key ${i + 1}; name not shown)`) })
           if (c.configVersion !== 1) fail("configVersion must be 1")
           if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(c.projectId || "")) fail("projectId must be a lowercase slug")
           if (c.registry !== undefined && c.registry !== "WasteOfADrumBum/one-small-engineering") fail("registry must be WasteOfADrumBum/one-small-engineering")

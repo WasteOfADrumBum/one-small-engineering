@@ -4,7 +4,7 @@
 // symbols alone. Per-project history is carried in a hidden comment so the report
 // needs no extra file or storage.
 
-import { safeOutput } from './lib.mjs'
+import { safeOutput, withholdValues, SLUG } from './lib.mjs'
 
 const STATE_MARK = 'registry-sync-state:'
 const OUTCOME_TEXT = {
@@ -15,25 +15,54 @@ const OUTCOME_TEXT = {
   skipped: 'Skipped'
 }
 
+const TIMESTAMP = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/
+const MAX_ERROR = 500
+
+// One project's persisted history, rebuilt from known fields only. The hidden state is read
+// back from an issue anyone with write access can edit, and older runs wrote it before
+// redaction existed, so nothing in it is trusted: unknown fields are dropped, bad dates and
+// counts are cleared, and the stored error is withheld and redacted again before it is kept.
+function cleanEntry(s) {
+  if (!s || typeof s !== 'object' || Array.isArray(s)) return null
+  const date = v => (typeof v === 'string' && TIMESTAMP.test(v) ? v : null)
+  const n = s.consecutiveFailures
+  return {
+    lastSuccessAt: date(s.lastSuccessAt),
+    lastErrorAt: date(s.lastErrorAt),
+    lastError: typeof s.lastError === 'string' ? withholdValues(s.lastError).slice(0, MAX_ERROR) : null,
+    consecutiveFailures: Number.isInteger(n) && n >= 0 ? n : 0
+  }
+}
+
+function cleanProjects(projects) {
+  const out = {}
+  if (!projects || typeof projects !== 'object' || Array.isArray(projects)) return out
+  for (const [id, entry] of Object.entries(projects)) {
+    const e = SLUG.test(id) ? cleanEntry(entry) : null
+    if (e) out[id] = e
+  }
+  return out
+}
+
 export function parseState(body) {
   const m = new RegExp(`<!-- ${STATE_MARK}([A-Za-z0-9+/=]+) -->`).exec(body || '')
   if (!m) return { projects: {} }
   try {
     const s = JSON.parse(Buffer.from(m[1], 'base64').toString('utf8'))
-    return s && typeof s.projects === 'object' ? s : { projects: {} }
+    return { projects: cleanProjects(s && s.projects) }
   } catch {
     return { projects: {} }
   }
 }
 
 export function nextState(previous, results, runAt) {
-  const projects = structuredClone(previous.projects || {})
+  const projects = cleanProjects(previous && previous.projects)
   for (const r of results) {
     const s = projects[r.projectId] || { lastSuccessAt: null, lastErrorAt: null, lastError: null, consecutiveFailures: 0 }
     if (r.outcome === 'error') {
       s.lastErrorAt = runAt
       // The hidden state is base64, but anyone can decode it: it is redacted like visible text.
-      s.lastError = safeOutput(r.errors[0] || 'unknown error')
+      s.lastError = withholdValues(r.errors[0] || 'unknown error').slice(0, MAX_ERROR)
       s.consecutiveFailures += 1
     } else {
       s.lastSuccessAt = runAt
@@ -92,6 +121,7 @@ export function renderStatus({ runAt, trigger, mode, results, previous = { proje
     for (const pr of openSyncPrs) lines.push(`| ${prLink(pr)}: ${cell(pr.title)} | ${cell(pr.branch)} | ${pr.draft ? 'Yes' : 'No'} | ${pr.updatedAt || 'Unknown'} |`)
     lines.push('')
   }
+  if (openSyncPrs.truncated) lines.push(`Incomplete: more than ${openSyncPrs.length} open registry sync PRs exist; only the first ${openSyncPrs.length} are listed.`, '')
 
   const suggestions = results.filter(r => r.suggestions && r.suggestions.length)
   lines.push('## Suggested manual updates', '')

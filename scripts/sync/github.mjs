@@ -85,7 +85,13 @@ export function createClient({
         }
       }
       if (!res.ok) throw new GitHubError(`${method} ${path}: HTTP ${res.status}`, res.status, text.slice(0, 300))
-      return text ? JSON.parse(text) : null
+      if (!text) return null
+      try {
+        return JSON.parse(text)
+      } catch {
+        // The parser's message quotes the body; the diagnostic must not.
+        throw new MalformedResponse(`${method} ${path}: malformed response (body is not JSON)`, res.status, '')
+      }
     }
   }
 
@@ -103,7 +109,8 @@ export function createClient({
       if (items.length < 100) break
       if (out.length >= max) {
         // One more page tells a list of exactly `max` from a longer one.
-        const more = expectArray(await request('GET', `${path}${sep}per_page=100&page=${page + 1}`), `GET ${path}`)
+        const next = await request('GET', `${path}${sep}per_page=100&page=${page + 1}`)
+        const more = expectArray(key ? expectObject(next, `GET ${path}`, [key])[key] : next, `GET ${path}`)
         truncated = out.length > max || more.length > 0
         break
       }

@@ -22,7 +22,7 @@
 
 import { pathToFileURL } from 'node:url'
 import { resolve } from 'node:path'
-import { createClient, expectArray, expectObject } from './github.mjs'
+import { createClient, expectArray, expectObject, MalformedResponse } from './github.mjs'
 import { OWNER, HUB_REPO, HUB_DEFAULT_BRANCH, SHA, readJson, safeOutput, annotation } from './lib.mjs'
 
 const REPO = `/repos/${OWNER}/${HUB_REPO}`
@@ -79,12 +79,16 @@ export async function commitsInPush({ client, before, after, forced }) {
     problems.push({ sha: after, reason: `cannot compare ${before.slice(0, 7)}...${after.slice(0, 7)}; the old head is gone (history rewrite?)` })
     return { shas: [after], problems }
   }
-  expectObject(cmp, `compare ${before.slice(0, 7)}...${after.slice(0, 7)}`, ['status', 'commits'])
+  const what = `compare ${before.slice(0, 7)}...${after.slice(0, 7)}`
+  expectObject(cmp, what, ['status', 'commits', 'total_commits'])
+  const listed = expectArray(cmp.commits, `${what} commits`)
+  // The count proves the list is whole; without a usable one the push is not known to be checked.
+  if (!Number.isInteger(cmp.total_commits) || cmp.total_commits < listed.length) throw new MalformedResponse(`${what}: malformed response (total_commits is not a count)`, 200, '')
   // A fast-forward is "ahead". Anything else means the old head is no longer in main's
   // history, whether or not the event said forced.
   if (!forced && !['ahead', 'identical'].includes(cmp.status)) problems.push({ sha: after, reason: `history rewritten: the new head is ${cmp.status} of the previous head ${before.slice(0, 7)}` })
-  if (cmp.total_commits > (cmp.commits || []).length) problems.push({ sha: after, reason: `push of ${cmp.total_commits} commits is larger than the comparison lists; the scheduled check covers the rest` })
-  return { shas: expectArray(cmp.commits, 'compare commits').map(c => c.sha), problems }
+  if (cmp.total_commits > listed.length) problems.push({ sha: after, reason: `push of ${cmp.total_commits} commits is larger than the comparison lists; the scheduled check covers the rest` })
+  return { shas: listed.map(c => c && c.sha), problems }
 }
 
 // Every commit on main in the window, and every non-merge update of main in the activity log.

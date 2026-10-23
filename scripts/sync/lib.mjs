@@ -74,10 +74,14 @@ export function annotation(text) {
   return safeOutput(text).replace(/\r?\n/g, ' ').replace(/%/g, '%25').replace(/\r/g, '%0D')
 }
 
-// Schema errors about external data, without the data: a rejected value is named by its
-// path only, then anything left that looks sensitive (a key name, say) is redacted.
+// Schema errors about external data, without the data: a rejected value or an unexpected
+// key is named by its path only, whatever its shape, then anything left that looks
+// sensitive is redacted.
 export function withholdValues(message) {
-  return safeOutput(String(message).replace(/: (?:"(?:[^"\\]|\\.)*"|-?\d[\d.eE+-]*|true|false|null) (does not match|is not one of|is not an ISO|is not a valid URL)/, ': (value withheld) $1'))
+  return safeOutput(String(message)
+    .replace(/: (?:"(?:[^"\\]|\\.)*"|-?\d[\d.eE+-]*|true|false|null) (does not match|is not one of|is not an ISO|is not a valid URL)/g, ': (value withheld) $1')
+    .replace(/unknown property "[\s\S]*$/, 'unknown property (name withheld)')
+    .replace(/duplicate item [\s\S]*$/, 'duplicate item (value withheld)'))
 }
 
 export function parseSemver(v) {

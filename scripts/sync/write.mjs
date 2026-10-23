@@ -12,9 +12,9 @@
 //      arrive through a merged PR.
 
 import { createHash } from 'node:crypto'
-import { OWNER, HUB_REPO, HUB_DEFAULT_BRANCH, REGISTRY_PATH, SLUG, SYNC_RECORDER, serializeRegistry } from './lib.mjs'
+import { OWNER, HUB_REPO, HUB_DEFAULT_BRANCH, REGISTRY_PATH, SLUG, SYNC_RECORDER, serializeRegistry, cleanText } from './lib.mjs'
 import { guardPaths, guardRegistryChange } from './guard.mjs'
-import { expectArray, expectObject } from './github.mjs'
+import { expectArray, expectObject, MalformedResponse } from './github.mjs'
 import { materialView } from './plan.mjs'
 
 export class WriteRefused extends Error {}
@@ -72,9 +72,13 @@ async function findSyncPr(client, branch) {
 
 export async function listSyncPrs(client) {
   const prs = await client.paginate(`${HUB}/pulls?state=open&base=${HUB_DEFAULT_BRANCH}`, { max: 100 })
-  return prs.filter(pr => pr.head && /^sync\/[a-z0-9-]+$/.test(pr.head.ref))
-    .map(pr => ({ number: pr.number, url: pr.html_url, title: pr.title, branch: pr.head.ref, draft: Boolean(pr.draft), updatedAt: pr.updated_at }))
+  for (const pr of prs) expectObject(pr, 'open pull requests', ['number', 'html_url', 'head'])
+  const list = prs.filter(pr => pr.head && /^sync\/[a-z0-9-]+$/.test(pr.head.ref))
+    .map(pr => ({ number: pr.number, url: pr.html_url, title: cleanText(pr.title), branch: pr.head.ref, draft: Boolean(pr.draft), updatedAt: pr.updated_at }))
     .sort((a, b) => a.number - b.number)
+  // A partial list is reported as partial, never as every outstanding PR.
+  if (prs.truncated) Object.defineProperty(list, 'truncated', { value: true })
+  return list
 }
 
 // Pre-push checks that do not depend on GitHub: paths, field ownership, full validation.
@@ -166,6 +170,7 @@ export async function writeSync({ client: raw, projectId, baseRegistry, nextRegi
 
   // 3. Validation. PRs pushed with GITHUB_TOKEN do not trigger pull_request workflows; workflow_dispatch does.
   const runs = expectObject(await client.get(`${HUB}/actions/workflows/validate.yml/runs?branch=${encodeURIComponent(branch)}&head_sha=${headSha}&per_page=1`), 'validation runs', ['total_count'])
+  if (!Number.isInteger(runs.total_count) || runs.total_count < 0) throw new MalformedResponse('validation runs: malformed response (total_count is not a count)', 200, '')
   if (runs.total_count > 0) steps.validation = 'already-ran'
   else {
     await client.request('POST', `${HUB}/actions/workflows/validate.yml/dispatches`, { body: { ref: branch } })

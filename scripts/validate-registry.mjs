@@ -442,7 +442,9 @@ export function validateText(registryText, schema, options) {
   try {
     registry = JSON.parse(registryText)
   } catch (e) {
-    return [`$: invalid JSON (${e.message})`]
+    // Only the position: the parser's message quotes the input, which may hold a secret.
+    const at = /at position \d+(?: \(line \d+ column \d+\))?/.exec(e.message)
+    return [`$: invalid JSON${at ? ` (${at[0]})` : ''}`]
   }
   return validateRegistry(registry, schema, options)
 }
@@ -456,7 +458,7 @@ function main(argv) {
     schema = JSON.parse(readFileSync(schemaPath, 'utf8'))
     dodText = readFileSync(DEFAULT_DOD, 'utf8')
   } catch (e) {
-    console.error(`validate-registry: cannot read input: ${e.message}`)
+    console.error(redactSensitive(`validate-registry: cannot read input: ${e.message}`))
     return 2
   }
   let errors
@@ -471,7 +473,8 @@ function main(argv) {
   }
   if (errors.length) {
     console.error(`validate-registry: ${errors.length} problem(s) in ${registryPath}`)
-    for (const e of errors) console.error(`  - ${e}`)
+    // CI logs are public to anyone with read access: values that look sensitive are redacted.
+    for (const e of errors) console.error(redactSensitive(`  - ${e}`))
     return 1
   }
   const r = JSON.parse(text)

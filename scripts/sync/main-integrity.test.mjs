@@ -151,7 +151,7 @@ test('F-03: malformed integrity API responses fail closed with a clear diagnosti
   await assert.rejects(windowScan({ client: obj.client }), /malformed response \(expected a list, got object\)/)
 
   const cmp = repo({ compare: { message: 'odd' } })
-  await assert.rejects(commitsInPush({ client: cmp.client, before: merged[0], after: merged[1], forced: false }), /malformed response \(missing status, commits\)/)
+  await assert.rejects(commitsInPush({ client: cmp.client, before: merged[0], after: merged[1], forced: false }), /malformed response \(missing status, commits, total_commits\)/)
 
   const prs = repo()
   prs.gh.routes.unshift({ method: 'GET', re: /\/commits\/([0-9a-f]{40})\/pulls$/, handler: () => ({}) })

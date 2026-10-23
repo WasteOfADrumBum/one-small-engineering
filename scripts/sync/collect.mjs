@@ -6,7 +6,7 @@ import { validateAgainstSchema } from '../validate-registry.mjs'
 import { expectArray, expectObject } from './github.mjs'
 import {
   CONFIG_PATH, TEMPLATE_WORKFLOW_PATH, MAX_CONFIG_BYTES, SHA, OWNER,
-  readJson, repoFromUrl, isoSeconds, cleanText, effectiveConfig, workflowFile, slugify, withholdValues, safeOutput
+  readJson, repoFromUrl, isoSeconds, cleanText, effectiveConfig, workflowFile, slugify, withholdValues
 } from './lib.mjs'
 
 export class SyncError extends Error {
@@ -22,7 +22,27 @@ const MAX_MERGED = 30
 const MAX_RELEASES = 20
 const MAX_OPEN = 100
 
+const MAX_CLOSED = 50
+const MAX_FILES = 300
+
 const enc = encodeURIComponent
+
+// GitHub's own URL shapes for the records the registry cites. A URL that is not exactly
+// one of these (another repository, or extra text after the id) makes the record malformed.
+const URL_SHAPES = {
+  pull: '/pull/\\d+',
+  actions: '/actions/runs/\\d+(?:/attempts/\\d+)?',
+  releases: '/releases/tag/[A-Za-z0-9._/-]{1,100}'
+}
+export function isEvidenceUrl(project, kind, url) {
+  const base = project.repository.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  return typeof url === 'string' && new RegExp(`^${base}${URL_SHAPES[kind]}$`, 'i').test(url)
+}
+// Fail closed on a record that is not GitHub's documented shape; the record is not echoed.
+const malformed = what => new SyncError('malformed-response', `${what}: malformed response`)
+const isObject = v => Boolean(v) && typeof v === 'object' && !Array.isArray(v)
+const isId = n => Number.isInteger(n) && n > 0
+const isTime = t => typeof t === 'string' && !Number.isNaN(Date.parse(t))
 
 function decodeContent(file) {
   if (!file || file.type !== 'file' || file.encoding !== 'base64') throw new SyncError('config-invalid', `${CONFIG_PATH} is not a regular file`)
@@ -34,7 +54,8 @@ export function validateConfig(value, projectId) {
   const errors = validateAgainstSchema(value, configSchema)
   // The config is external data: diagnostics name the failing path, never the value.
   if (errors.length) throw new SyncError('config-invalid', `${CONFIG_PATH}: ${errors.slice(0, 5).map(withholdValues).join('; ')}`)
-  if (value.projectId !== projectId) throw new SyncError('project-mismatch', safeOutput(`${CONFIG_PATH} says projectId "${value.projectId}" but the registry maps this repository to "${projectId}"`))
+  // The config's value is withheld here too: a slug-shaped secret passes the schema.
+  if (value.projectId !== projectId) throw new SyncError('project-mismatch', `${CONFIG_PATH} has a different projectId (value withheld) but the registry maps this repository to "${projectId}"`)
   try {
     new RegExp(effectiveConfig(value).releaseTagPattern)
   } catch {
@@ -48,7 +69,10 @@ async function tagCommit(client, base, tag) {
   const ref = await client.get(`${base}/git/ref/tags/${enc(tag)}`, { allow404: true })
   if (!ref || !ref.object) return null
   let obj = ref.object
-  for (let i = 0; obj && obj.type === 'tag' && i < 3; i++) obj = (await client.get(`${base}/git/tags/${obj.sha}`)).object
+  for (let i = 0; obj && obj.type === 'tag' && i < 3; i++) {
+    if (!SHA.test(obj.sha || '')) throw malformed(`tag ${tag}`)
+    obj = expectObject(await client.get(`${base}/git/tags/${obj.sha}`), `tag ${tag}`, ['object']).object
+  }
   return obj && obj.type === 'commit' && SHA.test(obj.sha) ? obj.sha : null
 }
 
@@ -95,28 +119,60 @@ export async function collect({ project, client, now = new Date() }) {
     templateVersion = m ? +m[1] : null
   }
 
+  if (typeof repo.html_url !== 'string' || repo.html_url.toLowerCase() !== project.repository.toLowerCase()) throw malformed('repository (html_url)')
   const repoUrl = repo.html_url
-  const inRepo = (url, kind) => typeof url === 'string' && url.toLowerCase().startsWith(`${project.repository.toLowerCase()}/${kind}/`)
+  // Records the registry cites must be well formed. A record GitHub returns in an unexpected
+  // shape fails the collection; it is never dropped, which would read as "not there".
+  const checkPr = (pr, what) => {
+    if (!isObject(pr) || !isId(pr.number) || !isEvidenceUrl(project, 'pull', pr.html_url)) throw malformed(what)
+    return pr
+  }
+  // Anything not fully read is a gap, and any gap marks the collection incomplete.
+  const gaps = []
 
   const open = await client.paginate(`${base}/pulls?state=open&sort=created&direction=asc`, { max: MAX_OPEN })
   // openPullRequests replaces the registry's list, so a partial list would silently drop PRs.
   if (open.truncated) throw new SyncError('incomplete-collection', `more than ${MAX_OPEN} open pull requests; the list would be incomplete, so nothing is proposed`)
   const openPullRequests = open
-    .filter(pr => inRepo(pr.html_url, 'pull') && SHA.test(pr.head.sha))
-    .map(pr => ({ number: pr.number, url: pr.html_url, title: cleanText(pr.title), headSha: pr.head.sha, draft: Boolean(pr.draft) }))
+    .map(pr => checkPr(pr, 'open pull requests'))
+    .map(pr => {
+      if (!isObject(pr.head) || !SHA.test(pr.head.sha || '')) throw malformed('open pull requests (head)')
+      return { number: pr.number, url: pr.html_url, title: cleanText(pr.title), headSha: pr.head.sha, draft: Boolean(pr.draft) }
+    })
     .sort((a, b) => a.number - b.number)
 
   const since = now.getTime() - config.lookbackDays * 86400_000
-  const closed = expectArray(await client.get(`${base}/pulls?state=closed&base=${enc(defaultBranch)}&sort=updated&direction=desc&per_page=50`), 'closed pull requests')
+  const closed = expectArray(await client.get(`${base}/pulls?state=closed&base=${enc(defaultBranch)}&sort=updated&direction=desc&per_page=${MAX_CLOSED}`), 'closed pull requests')
+  // Newest update first: a full page whose last entry is still inside the window may hide more merges.
+  if (closed.length >= MAX_CLOSED) {
+    const last = closed[closed.length - 1]
+    if (!isObject(last) || !isTime(last.updated_at)) throw malformed('closed pull requests (updated_at)')
+    if (Date.parse(last.updated_at) >= since) gaps.push(`more than ${MAX_CLOSED} pull requests closed within the ${config.lookbackDays}-day look-back; older merges in the window were not read`)
+  }
   const mergedPullRequests = []
   for (const pr of closed) {
-    if (mergedPullRequests.length >= MAX_MERGED) break
-    if (!pr.merged_at || Date.parse(pr.merged_at) < since || !inRepo(pr.html_url, 'pull') || !SHA.test(pr.merge_commit_sha || '')) continue
-    const labels = (pr.labels || []).map(l => l.name)
+    checkPr(pr, 'closed pull requests')
+    if (!pr.merged_at) continue
+    if (!isTime(pr.merged_at) || !SHA.test(pr.merge_commit_sha || '')) throw malformed(`pull request #${pr.number}`)
+    if (Date.parse(pr.merged_at) < since) continue
+    if (mergedPullRequests.length >= MAX_MERGED) {
+      gaps.push(`more than ${MAX_MERGED} pull requests merged within the ${config.lookbackDays}-day look-back; only ${MAX_MERGED} were read`)
+      break
+    }
+    if (pr.labels !== undefined && !Array.isArray(pr.labels)) throw malformed(`pull request #${pr.number} (labels)`)
+    const labels = (pr.labels || []).map(l => {
+      if (!isObject(l) || typeof l.name !== 'string') throw malformed(`pull request #${pr.number} (labels)`)
+      return cleanText(l.name, 100)
+    })
     // File lists are only fetched when they can change the outcome.
     let files = null
     if (config.materialPaths.length && !labels.includes(config.evidenceLabel)) {
-      files = (await client.paginate(`${base}/pulls/${pr.number}/files`, { max: 300 })).map(f => f.filename)
+      const list = await client.paginate(`${base}/pulls/${pr.number}/files`, { max: MAX_FILES })
+      if (list.truncated) gaps.push(`pull request #${pr.number} changes more than ${MAX_FILES} files; its material-path check is incomplete`)
+      files = list.map(f => {
+        if (!isObject(f) || typeof f.filename !== 'string') throw malformed(`pull request #${pr.number} (files)`)
+        return cleanText(f.filename, 500)
+      })
     }
     mergedPullRequests.push({ number: pr.number, url: pr.html_url, title: cleanText(pr.title), mergeCommitSha: pr.merge_commit_sha, mergedAt: isoSeconds(pr.merged_at), labels, files })
   }
@@ -126,12 +182,16 @@ export async function collect({ project, client, now = new Date() }) {
   // the last completed one, so it must be seen, not filtered out.
   const runs = expectObject(await client.get(`${base}/actions/runs?branch=${enc(defaultBranch)}&head_sha=${headSha}&per_page=100`), 'workflow runs', ['total_count', 'workflow_runs'])
   const runList = expectArray(runs.workflow_runs, 'workflow runs')
-  const gaps = []
+  // The count is what proves the list is whole: without a usable one the list cannot be trusted.
+  if (!Number.isInteger(runs.total_count) || runs.total_count < runList.length) throw malformed('workflow runs (total_count)')
   if (runs.total_count > runList.length) gaps.push(`GitHub reports ${runs.total_count} runs for ${headSha.slice(0, 7)} but returned ${runList.length}; later pages were not read`)
   const latest = new Map()
   for (const run of runList) {
+    if (!isObject(run) || !isId(run.id) || typeof run.path !== 'string' || run.head_sha !== headSha || !isEvidenceUrl(project, 'actions', run.html_url) ||
+      (run.run_attempt !== undefined && !isId(run.run_attempt))) throw malformed('workflow runs')
     const wf = workflowFile(run.path)
-    if (run.head_sha !== headSha || !inRepo(run.html_url, 'actions') || !/^[A-Za-z0-9._-]+\.ya?ml$/.test(wf)) continue
+    // Runs without a workflow file (GitHub Pages and other dynamic runs) are not project CI.
+    if (!/^[A-Za-z0-9._-]+\.ya?ml$/.test(wf)) continue
     if (config.workflows.length && !config.workflows.includes(wf)) continue
     // The newest run wins; for the same run, the newest attempt (a re-run keeps the id).
     const prev = latest.get(wf)
@@ -140,11 +200,15 @@ export async function collect({ project, client, now = new Date() }) {
   }
   for (const [wf, run] of latest) {
     if (run.status !== 'completed' || !run.conclusion) {
-      gaps.push(`${wf} run ${run.id} attempt ${run.run_attempt || 1} is ${run.status || 'in an unknown state'}`)
+      gaps.push(`${wf} run ${run.id} attempt ${run.run_attempt || 1} is ${run.status ? cleanText(run.status, 40) : 'in an unknown state'}`)
       latest.delete(wf)
     }
   }
   for (const wf of config.workflows) if (!latest.has(wf) && !gaps.some(g => g.startsWith(`${wf} `))) gaps.push(`${wf} is configured but has no completed run on ${headSha.slice(0, 7)}`)
+  for (const run of latest.values()) {
+    // GitHub event names are lower-case words; anything else is not a GitHub run record.
+    if (typeof run.event !== 'string' || !/^[a-z_]{1,50}$/.test(run.event) || !isTime(run.updated_at)) throw malformed('workflow runs')
+  }
   const workflowRuns = [...latest.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([wf, run]) => ({
     workflow: wf,
     name: cleanText(run.name || wf),
@@ -152,7 +216,7 @@ export async function collect({ project, client, now = new Date() }) {
     attempt: run.run_attempt || 1,
     url: run.html_url,
     headSha: run.head_sha,
-    event: String(run.event),
+    event: run.event,
     conclusion: run.conclusion,
     completedAt: isoSeconds(run.updated_at)
   }))
@@ -161,7 +225,12 @@ export async function collect({ project, client, now = new Date() }) {
   const releaseList = expectArray(await client.get(`${base}/releases?per_page=${MAX_RELEASES}`), 'releases')
   const releases = []
   for (const rel of releaseList) {
-    if (rel.draft || !rel.published_at || !inRepo(rel.html_url, 'releases') || !/^[A-Za-z0-9._/-]{1,100}$/.test(rel.tag_name)) continue
+    if (!isObject(rel)) throw malformed('releases')
+    if (rel.draft || !rel.published_at) continue
+    if (!isTime(rel.published_at) || typeof rel.tag_name !== 'string') throw malformed('releases')
+    // A tag name outside this set cannot become an evidence id; it is not a release to record.
+    if (!/^[A-Za-z0-9._/-]{1,100}$/.test(rel.tag_name)) continue
+    if (!isEvidenceUrl(project, 'releases', rel.html_url)) throw malformed('releases')
     // Already recorded releases are not re-resolved; the planner skips them by eventKey.
     const recorded = known.has(`${project.id}:release:${slugify(rel.tag_name)}`)
     let commitSha = null
@@ -202,16 +271,18 @@ export function checkObservation(project, obs) {
   if (errors.length) throw new SyncError('observation-invalid', errors.slice(0, 5).map(withholdValues).join('; '))
   if (obs.projectId !== project.id) throw new SyncError('project-mismatch', `observation is for ${obs.projectId}, not ${project.id}`)
   if (!project.sync || obs.repo.id !== project.sync.repositoryId) throw new SyncError('repo-id-mismatch', 'observation repository id does not match the pinned id')
-  if (obs.repo.owner !== OWNER) throw new SyncError('owner-mismatch', `observation owner is ${obs.repo.owner}`)
-  const prefix = project.repository.toLowerCase() + '/'
+  if (obs.repo.owner !== OWNER) throw new SyncError('owner-mismatch', 'observation owner is not the registry owner')
+  if (obs.repo.url.toLowerCase() !== project.repository.toLowerCase()) throw new SyncError('evidence-outside-repo', `observation repository URL is outside ${project.repository}`)
   const urls = [
-    obs.repo.url + '/',
-    ...obs.openPullRequests.map(p => p.url),
-    ...obs.mergedPullRequests.map(p => p.url),
-    ...obs.workflowRuns.map(r => r.url),
-    ...obs.releases.map(r => r.url)
+    ...obs.openPullRequests.map(p => ['pull', p.url]),
+    ...obs.mergedPullRequests.map(p => ['pull', p.url]),
+    ...obs.workflowRuns.map(r => ['actions', r.url]),
+    ...obs.releases.map(r => ['releases', r.url])
   ]
-  for (const u of urls) if (!u.toLowerCase().startsWith(prefix)) throw new SyncError('evidence-outside-repo', `URL ${u} is outside ${project.repository}`)
+  // The URL itself is not echoed: anything after the expected shape is untrusted text.
+  for (const [kind, u] of urls) if (!isEvidenceUrl(project, kind, u)) throw new SyncError('evidence-outside-repo', `a ${kind} URL in the observation is outside ${project.repository} or not in GitHub's form`)
+  // "complete" is a claim the gaps must back: complete with gaps, or incomplete without any, is invalid.
+  if (obs.collection.complete !== (obs.collection.gaps.length === 0)) throw new SyncError('observation-invalid', 'collection.complete does not match collection.gaps')
   if (obs.config.value) validateConfig(obs.config.value, project.id)
   return obs
 }

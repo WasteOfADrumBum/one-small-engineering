@@ -47,7 +47,7 @@ test('F-02: a secret in a config value never appears in the collect error', asyn
     assert.ok(['config-invalid', 'project-mismatch'].includes(e.code), secret)
     assert.ok(!leaks(e.message, secret), `${secret} leaked: ${e.message}`)
     if (e.code === 'config-invalid') assert.match(e.message, /\$\.projectId: \(value withheld\) does not match/, 'the failing path is still named')
-    else assert.match(e.message, /says projectId "\[redacted [^\]]+\]" but the registry maps this repository to "taskforge"/)
+    else assert.match(e.message, /has a different projectId \(value withheld\) but the registry maps this repository to "taskforge"/)
   }
 })
 

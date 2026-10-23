@@ -109,33 +109,48 @@ function main(argv) {
     const i = argv.indexOf(name)
     return i === -1 ? fallback : argv[i + 1]
   }
+  // Every line goes through safeOutput: the branch name and registry text are not trusted.
+  const out = text => console.log(safeOutput(text))
+  const fail = text => console.error(safeOutput(text))
   const baseRef = opt('--base', 'origin/main')
   const branch = opt('--branch', process.env.GITHUB_HEAD_REF || process.env.GITHUB_REF_NAME || '')
   if (!branch.startsWith('sync/')) {
-    console.log(`sync-guard: ${branch || 'this ref'} is not a sync branch; nothing to check`)
+    out(`sync-guard: ${branch || 'this ref'} is not a sync branch; nothing to check`)
     return 0
   }
   let projectId
   try {
     projectId = projectIdFromBranch(branch)
   } catch (e) {
-    console.error(`sync-guard: ${e.message}`)
+    fail(`sync-guard: ${e.message}`)
     return 1
   }
-  const mergeBase = git(['merge-base', baseRef, 'HEAD']).trim()
-  const changed = git(['diff', '--name-only', mergeBase, 'HEAD']).split('\n').filter(Boolean)
-  const errors = guardPaths(changed)
-  if (changed.includes(REGISTRY_PATH)) {
-    const base = JSON.parse(git(['show', `${mergeBase}:${REGISTRY_PATH}`]))
-    const head = JSON.parse(git(['show', `HEAD:${REGISTRY_PATH}`]))
-    errors.push(...guardRegistryChange(base, head, projectId))
+  const errors = []
+  try {
+    const mergeBase = git(['merge-base', baseRef, 'HEAD']).trim()
+    const changed = git(['diff', '--name-only', mergeBase, 'HEAD']).split('\n').filter(Boolean)
+    errors.push(...guardPaths(changed))
+    if (changed.includes(REGISTRY_PATH)) {
+      const read = ref => {
+        try {
+          return JSON.parse(git(['show', `${ref}:${REGISTRY_PATH}`]))
+        } catch {
+          // The parser's message quotes the file; name the revision only.
+          throw new Error(`${REGISTRY_PATH} at ${ref === 'HEAD' ? 'the branch head' : 'the merge base'} is not valid JSON`)
+        }
+      }
+      errors.push(...guardRegistryChange(read(mergeBase), read('HEAD'), projectId))
+    }
+  } catch (e) {
+    fail(`sync-guard: cannot check ${branch}: ${e.message}`)
+    return 1
   }
   if (errors.length) {
-    console.error(`sync-guard: ${errors.length} problem(s) on ${branch}`)
-    for (const e of errors) console.error(`  - ${safeOutput(e)}`)
+    fail(`sync-guard: ${errors.length} problem(s) on ${branch}`)
+    for (const e of errors) fail(`  - ${e}`)
     return 1
   }
-  console.log(`sync-guard: OK (${branch} changes only automation-owned fields of ${projectId})`)
+  out(`sync-guard: OK (${branch} changes only automation-owned fields of ${projectId})`)
   return 0
 }
 
