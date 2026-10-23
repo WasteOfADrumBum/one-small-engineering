@@ -21,7 +21,7 @@ const DEFAULT_DOD = resolve(ROOT, 'standards/definition-of-done.md')
 // ---------------------------------------------------------------------------
 
 const ANNOTATIONS = new Set(['$schema', '$id', 'title', 'description', '$comment', '$defs'])
-const KEYWORDS = new Set(['$ref', 'type', 'properties', 'required', 'additionalProperties', 'items', 'enum', 'const', 'pattern', 'format', 'minLength', 'minItems', 'uniqueItems'])
+const KEYWORDS = new Set(['$ref', 'type', 'properties', 'required', 'additionalProperties', 'items', 'enum', 'const', 'pattern', 'format', 'minLength', 'maxLength', 'minItems', 'maxItems', 'minimum', 'uniqueItems'])
 
 export class SchemaError extends Error {}
 
@@ -80,8 +80,11 @@ export function validateAgainstSchema(value, schema, root = schema, path = '$', 
   if (schema.const !== undefined && value !== schema.const) errors.push(`${path}: must equal ${JSON.stringify(schema.const)}`)
   if (schema.enum && !schema.enum.includes(value)) errors.push(`${path}: ${JSON.stringify(value)} is not one of ${schema.enum.join(', ')}`)
 
+  if (typeof value === 'number' && schema.minimum !== undefined && value < schema.minimum) errors.push(`${path}: must be at least ${schema.minimum}`)
+
   if (typeof value === 'string') {
     if (schema.minLength !== undefined && value.trim().length < schema.minLength) errors.push(`${path}: must not be empty`)
+    if (schema.maxLength !== undefined && value.length > schema.maxLength) errors.push(`${path}: longer than ${schema.maxLength} characters`)
     if (schema.pattern && !new RegExp(schema.pattern).test(value)) errors.push(`${path}: ${JSON.stringify(value)} does not match ${schema.pattern}`)
     if (schema.format === 'date-time' && !isUtcTimestamp(value)) errors.push(`${path}: ${JSON.stringify(value)} is not an ISO 8601 UTC timestamp (YYYY-MM-DDTHH:MM:SSZ)`)
     if (schema.format === 'uri' && !isUri(value)) errors.push(`${path}: ${JSON.stringify(value)} is not a valid URL`)
@@ -89,6 +92,7 @@ export function validateAgainstSchema(value, schema, root = schema, path = '$', 
 
   if (Array.isArray(value)) {
     if (schema.minItems !== undefined && value.length < schema.minItems) errors.push(`${path}: needs at least ${schema.minItems} item(s)`)
+    if (schema.maxItems !== undefined && value.length > schema.maxItems) errors.push(`${path}: has more than ${schema.maxItems} item(s)`)
     if (schema.uniqueItems) {
       const seen = new Set()
       for (const item of value) {
@@ -193,6 +197,14 @@ const NON_PROVING_TYPES = new Set(['repository_metadata'])
 // A not_applicable rationale must be a sentence, not "n/a".
 const MIN_RATIONALE = 20
 const norm = name => (name || '').trim().toLowerCase()
+// Automated records describe facts or relay claims. They can never be pass or fail, so they can never verify a gate.
+export const SYNC_RECORDER = 'One Small Engineering Sync'
+const AUTOMATED_ORIGINS = new Set(['sync', 'builder-report'])
+const ALLOWED_RESULTS = {
+  sync: new Set(['informational', 'builder_reported']),
+  'builder-report': new Set(['informational', 'builder_reported']),
+  'ai-assessment': new Set(['informational', 'builder_reported', 'inconclusive'])
+}
 
 export function checkRules(registry, { now = new Date(), dod = parseDefinitionOfDone(readFileSync(DEFAULT_DOD, 'utf8')) } = {}) {
   const errors = []
@@ -231,11 +243,13 @@ export function checkRules(registry, { now = new Date(), dod = parseDefinitionOf
 
     // Evidence: IDs unique across the whole registry; every timestamp not after lastUpdatedAt.
     const evidence = new Map()
+    const eventKeys = new Map()
     p.evidence.forEach((e, j) => {
       if (evidenceIds.has(e.id)) err(`${at}.evidence[${j}]`, `duplicate evidence id "${e.id}" (also at ${evidenceIds.get(e.id)})`)
       evidenceIds.set(e.id, `${at}.evidence[${j}]`)
       evidence.set(e.id, e)
       if (new Date(e.verifiedAt) > updated) err(`${at}.evidence[${j}]`, 'verifiedAt is later than registry lastUpdatedAt')
+      checkEvidenceOrigin(p, e, `${at}.evidence[${j}] (${e.id})`, eventKeys, err)
     })
     const resolveRefs = (refs, path) => refs.map(r => {
       const e = evidence.get(r)
@@ -311,6 +325,10 @@ export function checkRules(registry, { now = new Date(), dod = parseDefinitionOf
       if (!own.builder || !own.verifier) err(`${at}.ownership`, `releaseStatus ${r.releaseStatus} needs both a builder and an independent verifier`)
       if (!p.lastVerifiedAt) err(at, `releaseStatus ${r.releaseStatus} needs lastVerifiedAt`)
     }
+    for (const role of ['builder', 'verifier']) {
+      if (norm(own[role]) === norm(SYNC_RECORDER)) err(`${at}.ownership`, `${role} cannot be the automated recorder "${SYNC_RECORDER}"`)
+    }
+    if (p.sync && p.sync.lastSyncedAt && new Date(p.sync.lastSyncedAt) > updated) err(`${at}.sync`, 'lastSyncedAt is later than registry lastUpdatedAt')
     if (own.builder && own.verifier && norm(own.builder) === norm(own.verifier)) {
       err(`${at}.ownership`, 'builder and verifier must be different for independent acceptance')
     }
@@ -367,6 +385,33 @@ export function checkRules(registry, { now = new Date(), dod = parseDefinitionOf
   })
 
   return errors
+}
+
+// Rules 10 to 13: automated and AI records stay separate from independent verification.
+function checkEvidenceOrigin(p, e, path, eventKeys, err) {
+  const origin = e.origin || 'manual'
+  const automated = AUTOMATED_ORIGINS.has(origin)
+  if (ALLOWED_RESULTS[origin] && !ALLOWED_RESULTS[origin].has(e.result)) {
+    err(path, `origin ${origin} can only record ${[...ALLOWED_RESULTS[origin]].join(' or ')}, not ${e.result}; independent verification is always a separate manual record`)
+  }
+  if (e.eventKey) {
+    if (!e.eventKey.startsWith(`${p.id}:`)) err(path, `eventKey must start with "${p.id}:"`)
+    if (eventKeys.has(e.eventKey)) err(path, `duplicate eventKey "${e.eventKey}" (also ${eventKeys.get(e.eventKey)})`)
+    eventKeys.set(e.eventKey, path)
+  } else if (automated) {
+    err(path, `origin ${origin} needs an eventKey`)
+  }
+  if (origin === 'sync') {
+    if (e.recordedBy !== SYNC_RECORDER) err(path, `origin sync must be recordedBy "${SYNC_RECORDER}"`)
+    if (!e.id.startsWith('sync-')) err(path, 'origin sync evidence ids start with "sync-"')
+  } else {
+    if (norm(e.recordedBy) === norm(SYNC_RECORDER)) err(path, `only origin sync records may use the recorder name "${SYNC_RECORDER}"`)
+    if (e.id.startsWith('sync-')) err(path, 'the "sync-" id prefix is reserved for origin sync evidence')
+  }
+  if (automated) {
+    if (!e.url.toLowerCase().startsWith(p.repository.toLowerCase() + '/')) err(path, `automated evidence must link inside ${p.repository}`)
+    if (!e.commitSha) err(path, 'automated evidence needs a commitSha')
+  }
 }
 
 export function validateRegistry(registry, schema, options = {}) {

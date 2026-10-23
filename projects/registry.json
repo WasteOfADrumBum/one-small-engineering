@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
-  "schemaVersion": "1.0.0",
-  "lastUpdatedAt": "2026-10-22T17:20:00Z",
+  "schemaVersion": "1.1.0",
+  "lastUpdatedAt": "2026-10-23T00:56:28Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -436,7 +436,15 @@
         "Copilot and Gemini CLI runtime evidence or a recorded owner decision to ship them as experimental.",
         "npm ownership/access confirmation.",
         "Builder and independent verifier not assigned in the registry."
-      ]
+      ],
+      "sync": {
+        "enabled": true,
+        "mode": "observe",
+        "repositoryId": 1413933787,
+        "lastSyncedAt": null,
+        "lastSyncedHead": null,
+        "configSource": null
+      }
     },
     {
       "id": "one-small-ui",
@@ -1458,7 +1466,15 @@
         "Independent verification of the builder-reported Phase 1/2 evidence.",
         "Backup/restore verification.",
         "Builder and independent verifier not assigned."
-      ]
+      ],
+      "sync": {
+        "enabled": true,
+        "mode": "observe",
+        "repositoryId": 962181990,
+        "lastSyncedAt": null,
+        "lastSyncedHead": null,
+        "configSource": null
+      }
     },
     {
       "id": "cortex",
