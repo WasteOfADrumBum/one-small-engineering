@@ -39,3 +39,27 @@ jobs:
         env:
           SYNC_BRANCH: ${{ github.head_ref || github.ref_name }}
         run: node scripts/sync/guard.mjs --base origin/main --branch "$SYNC_BRANCH"
+      # TEMPORARY (removed in the next commit): read-only first-run access checks with this
+      # job's own GITHUB_TOKEN (contents: read). No writes; status codes only.
+      - name: Access probe (temporary)
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/sync/access-probe.mjs
+      - name: Real collect and dry run with GITHUB_TOKEN (temporary)
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/sync/run.mjs collect --out out/probe/observations.json
+          node scripts/sync/run.mjs write --mode dry-run --in out/probe/observations.json --out-dir out/probe
+          cat out/probe/STATUS.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Real main integrity window scan with GITHUB_TOKEN (temporary)
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_EVENT_NAME: workflow_dispatch
+        run: node scripts/sync/main-integrity.mjs
