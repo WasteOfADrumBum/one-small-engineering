@@ -1,0 +1,82 @@
+name: Registry sync
+
+# Hub-pull reconciliation. Reads every sync-enabled project from GitHub's API and opens
+# or refreshes one draft PR per project when something material changed. Deterministic:
+# no AI calls and no project code. See docs/sync.md.
+#
+# Writes are off until the owner sets the repository variable SYNC_WRITE_ENABLED=true.
+# Until then every run is a dry run that only updates the "Registry sync status" issue.
+on:
+  schedule:
+    - cron: '23 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      project:
+        description: 'Project ID to sync (blank for all sync-enabled projects)'
+        required: false
+        default: ''
+      dry_run:
+        description: 'Dry run: report only, no branches or PRs'
+        type: boolean
+        default: true
+
+# GITHUB_TOKEN gets nothing unless a job asks for it.
+permissions: {}
+
+# One sync at a time; a queued run waits rather than cancelling one that may be writing.
+concurrency:
+  group: registry-sync
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    # Read-only. Public project repositories are read with this job's token; a private
+    # project needs the optional read-only reader credential (docs/sync-setup.md).
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    outputs:
+      observations: ${{ steps.collect.outputs.observations }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - id: collect
+        name: Collect observations
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          READER_TOKEN: ${{ secrets.SYNC_READER_TOKEN }}
+          SYNC_PROJECT: ${{ inputs.project }}
+        run: node scripts/sync/run.mjs collect
+
+  write:
+    # Runs only from main, so the code holding write permission is code the owner merged.
+    needs: collect
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write        # push sync/* branches only (enforced in scripts/sync/write.mjs)
+      pull-requests: write   # draft PRs into main
+      issues: write          # the single "Registry sync status" issue
+      actions: write         # dispatch Validate registry on sync branches
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Plan, guard, validate and write
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          SYNC_OBSERVATIONS: ${{ needs.collect.outputs.observations }}
+          # The same project filter as collect, so the writer knows which projects to expect.
+          SYNC_PROJECT: ${{ inputs.project }}
+          SYNC_STATUS_ISSUE: 'true'
+          SYNC_MODE: ${{ (vars.SYNC_WRITE_ENABLED == 'true' && !(github.event_name == 'workflow_dispatch' && inputs.dry_run)) && 'write' || 'dry-run' }}
+        run: node scripts/sync/run.mjs write --mode "$SYNC_MODE"

@@ -1,0 +1,9 @@
+{
+  "$comment": "Exceptions that Main integrity accepts. Add an entry only through a reviewed PR, with the reason. 'acknowledged' lists commits that need no merged PR; it never excuses a force push, history rewrite or other ref update, even onto that commit. 'acknowledgedActivity' lists single, already-reviewed updates of main from GitHub's repository activity log, by their activity id, so one entry can never cover a later update.",
+  "acknowledged": [
+    { "sha": "954833cfe46ce807bc40faeca8781a31d27a20f9", "reason": "Initial commit created with the repository by Joshua Small on 2026-10-22, before any pull request existed." }
+  ],
+  "acknowledgedActivity": [
+    { "id": 47413237880, "type": "branch_creation", "after": "954833cfe46ce807bc40faeca8781a31d27a20f9", "reason": "Creation of main with the initial commit on 2026-10-22, read from GET /repos/WasteOfADrumBum/one-small-engineering/activity." }
+  ]
+}

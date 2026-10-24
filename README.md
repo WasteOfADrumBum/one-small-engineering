@@ -8,6 +8,7 @@ The single source of truth for the status, release readiness and quality evidenc
 - Shared **standards**: a three-tier [Definition of Done](standards/definition-of-done.md), a [security standard](standards/security.md) and [release governance](standards/release.md).
 - **Audit records** ([`audits/`](audits/)) that registry entries cite as evidence.
 - A dependency-free **validator** and CI check that keep the registry honest.
+- **Registry sync** ([docs/sync.md](docs/sync.md)): a scheduled, deterministic job that reads each project's GitHub state and proposes registry updates as draft PRs. It never verifies, approves or merges anything.
 
 ## What it is not
 
@@ -57,6 +58,10 @@ Beyond the schema (required fields, enums, UTC timestamps, https URLs, SHAs):
 7. Approval can only be given by the approval owner, with evidence, after verification.
 8. ModsPack `installed`/`verified` needs a version, adapters and evidence.
 9. No credentials, tokens, email addresses, card numbers or long account-like numbers anywhere.
+10. Evidence with `origin` `sync` or `builder-report` can only be `informational` or `builder_reported`; `ai-assessment` can only be `informational`, `builder_reported` or `inconclusive`. None of them can verify a gate.
+11. Automated evidence has an `eventKey` that is unique within the project and starts with the project ID.
+12. Only `origin: sync` records use the recorder name `One Small Engineering Sync` and the `sync-` ID prefix, and that recorder can never be a builder or verifier.
+13. Automated evidence links inside the project's own repository and names a commit.
 
 ## How AI assistants should use it
 
@@ -67,8 +72,13 @@ Claude, ChatGPT, Codex, Copilot, Gemini and any other assistant:
 3. Propose status changes only through a pull request that links evidence, never by keeping a separate status record.
 4. Never record approval or mark a release `released` without Joshua Small's linked approval.
 5. Mark relayed results `builder_reported`; only re-run results are `pass`.
+6. To assess a project, follow [`agents/project-assessor.md`](agents/project-assessor.md); to onboard one, [`agents/onboard-project.md`](agents/onboard-project.md). Thin adapters exist for Claude (`.claude/skills/`), Codex (`AGENTS.md`), Copilot (`.github/copilot-instructions.md`, `.github/prompts/`) and Gemini (`GEMINI.md`).
 
 Full rules: [Cross-AI governance](standards/release.md#cross-ai-governance).
+
+## Automated sync
+
+Projects with a `sync` block are read every six hours by [Registry sync](.github/workflows/registry-sync.yml). It updates only the fields in [`sync/field-ownership.json`](sync/field-ownership.json) (repository snapshot, open PRs, its own evidence, and `currentVersion` from a published release) through one draft PR per project. Gates, blockers, release status, ownership and approval stay manual. Status of every run is in the **Registry sync status** issue. Onboard a project with `npm run onboard -- <project-id>`. Details: [docs/sync.md](docs/sync.md); owner setup: [docs/sync-setup.md](docs/sync-setup.md).
 
 ## Updating release status
 
@@ -89,9 +99,10 @@ Requires Node 20 or newer. No install step: there are no dependencies.
 npm run validate   # check projects/registry.json
 npm test           # validator tests, including negative cases
 npm run check      # both; this is what CI runs
+npm run sync:preview  # read-only: what registry sync would propose right now
 ```
 
-CI ([`.github/workflows/validate.yml`](.github/workflows/validate.yml)) runs `npm run check` on every pull request and on pushes to `main`, with read-only permissions.
+CI ([`.github/workflows/validate.yml`](.github/workflows/validate.yml)) runs `npm run check` on every pull request and on pushes to `main`, with read-only permissions, plus the field-ownership guard on `sync/*` branches. [Main integrity](.github/workflows/main-integrity.yml) runs on push and every six hours and flags any change to `main` that did not come from a merged PR. These are detection and code-level controls, not branch protection, which GitHub Free does not enforce on this private repository.
 
 ## Proposing changes
 
@@ -101,10 +112,17 @@ Open a pull request against `main` and fill in [the template](.github/PULL_REQUE
 
 ```text
 projects/registry.json          canonical project registry
-projects/registry.schema.json   schema (version 1.0.0)
+projects/registry.schema.json   schema (version 1.1.0)
 standards/                      Definition of Done, security, release governance
 audits/                         audit records cited as evidence
 scripts/validate-registry.mjs   validator (Node built-ins only)
 scripts/validate-registry.test.mjs  validator tests
-.github/                        PR template and CI workflow
+scripts/sync/                   registry sync: collect, plan, guard, write, status, onboard (+ tests)
+schemas/                        project config, observation and AI assessment schemas
+sync/field-ownership.json       the fields automation may change
+templates/project/              files onboarding generates for a project repository
+agents/                         shared AI specs: project assessor, onboarding
+fixtures/sync/                  in-memory GitHub used by the tests
+docs/                           sync design and owner setup
+.github/                        PR template, workflows, Copilot instructions and prompts
 ```

@@ -1,0 +1,5 @@
+{
+  "$schema": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/schemas/project-config.schema.json",
+  "configVersion": 1,
+  "projectId": "__PROJECT_ID__"
+}

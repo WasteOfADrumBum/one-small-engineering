@@ -271,13 +271,20 @@ test('a catalog gate not defined for the tier fails', () => {
   rejects(r, '$.gateCatalog.showcase: gate "authentication" is not defined by the showcase tier')
 })
 
-test('a gate removed from the Definition of Done is caught in the catalog and schema', () => {
-  const trimmed = parseDefinitionOfDone(dodText.replace(/^\| 11 \| `authentication` .*\n/m, ''))
-  assert.ok(!trimmed.application.includes('authentication'))
-  const errors = run(clone(), { dod: trimmed })
-  assert.ok(errors.some(e => e.includes('gate "authentication" is not defined by the application tier')), errors.join('\n'))
-  assert.ok(errors.some(e => e.startsWith('$schema.$defs.gateId: gate "authentication" is not defined')), errors.join('\n'))
-})
+// Runs on the file as checked out and on a CRLF copy, so a Windows checkout behaves the same.
+for (const [eol, text] of [['LF', dodText.replace(/\r\n/g, '\n')], ['CRLF', dodText.replace(/\r?\n/g, '\r\n')]]) {
+  test(`a gate removed from the Definition of Done is caught in the catalog and schema (${eol})`, () => {
+    assert.deepEqual(parseDefinitionOfDone(text), dod, 'line endings do not change the parsed gate lists')
+    const removed = text.replace(/^\| 11 \| `authentication` [^\r\n]*\r?\n/m, '')
+    assert.equal(removed.length < text.length, true, 'the authentication row was actually removed')
+    const trimmed = parseDefinitionOfDone(removed)
+    assert.ok(!trimmed.application.includes('authentication'))
+    assert.equal(trimmed.application.length, dod.application.length - 1)
+    const errors = run(clone(), { dod: trimmed })
+    assert.ok(errors.some(e => e.includes('gate "authentication" is not defined by the application tier')), errors.join('\n'))
+    assert.ok(errors.some(e => e.startsWith('$schema.$defs.gateId: gate "authentication" is not defined')), errors.join('\n'))
+  })
+}
 
 test('a resolved blocker needs evidence of the resolution', () => {
   const r1 = clone(); const b1 = project(r1, 'one-small-ai-workforce').release.blockers[0]
@@ -295,4 +302,71 @@ test('scope-document-missing cannot be resolved while the scope document is null
   rejects(r, 'scope-document-missing cannot be resolved while release.scopeDocument is null')
   p.release.scopeDocument = 'https://github.com/WasteOfADrumBum/one-small-ai-workforce/blob/main/docs/scope.md'
   assert.deepEqual(run(r), [])
+})
+
+// Schema 1.1.0: automated and AI records stay separate from independent verification.
+const syncRecord = (over = {}) => ({
+  id: 'sync-taskforge-run-ci-yml-11975d0-2t-1', type: 'workflow_run', url: 'https://github.com/WasteOfADrumBum/TaskForge/actions/runs/1',
+  commitSha: '11975d0278c7f04db5033c0461295c734e3b4134', verifiedAt: '2026-10-09T19:10:23Z', result: 'builder_reported',
+  description: 'Fixture: automated CI observation.', recordedBy: 'One Small Engineering Sync', origin: 'sync', eventKey: 'taskforge:workflow_run:ci.yml/11975d0/2t/1', ...over
+}) // an override of undefined removes the field
+const withEvidence = (...records) => {
+  const r = clone()
+  project(r, 'taskforge').evidence.push(...records.map(e => Object.fromEntries(Object.entries(e).filter(([, v]) => v !== undefined))))
+  return r
+}
+
+test('a well-formed automated record is accepted', () => {
+  assert.deepEqual(run(withEvidence(syncRecord())), [])
+})
+
+test('automated records can never be pass or fail', () => {
+  rejects(withEvidence(syncRecord({ result: 'pass' })), 'origin sync can only record informational or builder_reported, not pass')
+  rejects(withEvidence(syncRecord({ result: 'fail' })), 'not fail')
+  rejects(withEvidence(syncRecord({ origin: 'builder-report', id: 'tf-builder-report', recordedBy: 'TaskForge CI', result: 'pass' })), 'origin builder-report can only record')
+  rejects(withEvidence(syncRecord({ origin: 'ai-assessment', id: 'tf-ai', recordedBy: 'Claude Code', eventKey: undefined, result: 'pass' })), 'origin ai-assessment can only record')
+})
+
+test('an automated record cannot verify a gate even when cited', () => {
+  const r = withEvidence(syncRecord())
+  const p = project(r, 'taskforge')
+  p.ownership = { builder: 'Claude Code', verifier: 'ChatGPT Codex', approvalOwner: 'Joshua Small' }
+  Object.assign(p.releaseGates.find(g => g.id === 'automated-checks'), { status: 'verified', evidenceRefs: ['sync-taskforge-run-ci-yml-11975d0-2t-1'], verifiedAt: '2026-10-22T00:00:00Z' })
+  rejects(r, 'a verified gate needs evidence with result "pass"')
+})
+
+test('automated records need a unique, project-scoped eventKey', () => {
+  rejects(withEvidence(syncRecord({ eventKey: undefined })), 'origin sync needs an eventKey')
+  rejects(withEvidence(syncRecord({ eventKey: 'cortex:workflow_run:ci.yml/1' })), 'eventKey must start with "taskforge:"')
+  rejects(withEvidence(syncRecord(), syncRecord({ id: 'sync-taskforge-run-other' })), 'duplicate eventKey')
+})
+
+test('the sync recorder name and id prefix cannot be borrowed, and sync stays inside its repository', () => {
+  rejects(withEvidence(syncRecord({ recordedBy: 'Claude Code' })), 'origin sync must be recordedBy "One Small Engineering Sync"')
+  rejects(withEvidence(syncRecord({ id: 'tf-ci-auto' })), 'origin sync evidence ids start with "sync-"')
+  rejects(withEvidence(syncRecord({ origin: undefined, eventKey: undefined })), 'only origin sync records may use the recorder name')
+  rejects(withEvidence(syncRecord({ origin: 'manual', recordedBy: 'Claude Code', eventKey: undefined })), 'the "sync-" id prefix is reserved')
+  rejects(withEvidence(syncRecord({ url: 'https://github.com/WasteOfADrumBum/cortex-brain-task/actions/runs/1' })), 'automated evidence must link inside')
+  rejects(withEvidence(syncRecord({ commitSha: null })), 'automated evidence needs a commitSha')
+})
+
+test('the automated recorder can never be a builder or verifier', () => {
+  const r = clone()
+  project(r, 'taskforge').ownership.verifier = 'One Small Engineering Sync'
+  rejects(r, 'verifier cannot be the automated recorder')
+})
+
+test('sync block: pinned positive repository id and known mode', () => {
+  const r1 = clone(); project(r1, 'taskforge').sync.repositoryId = 0
+  rejects(r1, '$.projects[5].sync.repositoryId: must be at least 1')
+  const r2 = clone(); project(r2, 'taskforge').sync.mode = 'push'
+  rejects(r2, 'is not one of observe, integrated')
+  const r3 = clone(); project(r3, 'taskforge').sync.lastSyncedAt = '2031-01-01T00:00:00Z'
+  rejects(r3, 'lastSyncedAt is later than registry lastUpdatedAt')
+})
+
+test('maxLength, maxItems and minimum keywords are enforced', () => {
+  const s = { type: 'object', properties: { a: { type: 'string', maxLength: 3 }, b: { type: 'array', maxItems: 1 }, c: { type: 'integer', minimum: 2 } } }
+  const errors = validateAgainstSchema({ a: 'long', b: [1, 2], c: 1 }, s)
+  assert.equal(errors.length, 3, errors.join('\n'))
 })

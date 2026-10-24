@@ -4,6 +4,9 @@ on:
   pull_request:
   push:
     branches: [main]
+  # Registry sync dispatches this on its sync/* branches, because PRs opened with
+  # GITHUB_TOKEN do not trigger pull_request workflows.
+  workflow_dispatch:
 
 # Read-only: the job checks files and never writes to the repository.
 permissions:
@@ -22,9 +25,17 @@ jobs:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
         with:
           persist-credentials: false
+          # Full history so the sync guard can diff against main.
+          fetch-depth: 0
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: 22
       # No dependencies to install: the validator uses only Node built-ins.
       - name: Validate registry and run validator tests
         run: npm run check
+      # On sync/* branches: only automation-owned fields of that branch's project may change.
+      - name: Sync branch guard
+        if: startsWith(github.head_ref || github.ref_name, 'sync/')
+        env:
+          SYNC_BRANCH: ${{ github.head_ref || github.ref_name }}
+        run: node scripts/sync/guard.mjs --base origin/main --branch "$SYNC_BRANCH"
