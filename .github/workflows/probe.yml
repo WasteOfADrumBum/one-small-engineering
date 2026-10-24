@@ -1,0 +1,31 @@
+name: TEMPORARY probe
+# Removed before review. Read-only: contents: read only.
+on:
+  push:
+    branches: [claude/phase-2-operational-integration]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Identities
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node probe/identities.mjs
+      - name: Preview (read-only, sync-enabled projects)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/sync/run.mjs preview || echo "preview exit $?"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: probe-out
+          path: out/
