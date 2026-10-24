@@ -129,7 +129,8 @@ export function plan(registry, observation) {
   // answer keeps its previous value: missing data is never written as "none".
   const prev = before.repositorySnapshot
   p.repositorySnapshot = snapshotFrom(prev, observation, notes)
-  const rel = observation.head.relation
+  // The relation describes the head recorded when collecting; if main has moved on since, it is not known.
+  const rel = observation.head.previousSha === (prev.headSha || null) ? observation.head.relation : 'unknown'
   if (prev.headSha !== observation.head.sha) {
     const from = prev.headSha ? short(prev.headSha) : 'unknown'
     if (rel === 'rewritten' || rel === 'unreachable') {
@@ -153,7 +154,7 @@ export function plan(registry, observation) {
   if (prev.visibility !== snap.visibility) changes.push(`Visibility recorded as ${snap.visibility}${prev.visibility ? ` (was ${prev.visibility})` : ''}.`)
   if (snap.visibility !== p.visibility) suggestions.push(`GitHub reports the repository as ${snap.visibility} but the registry says ${p.visibility}; update the project's visibility by hand (a private repository needs the reader credential).`)
   if (!deepEqual(prev.latestTag, snap.latestTag) && snap.latestTag !== undefined) {
-    changes.push(snap.latestTag ? `Latest version tag is ${snap.latestTag.name} at ${short(snap.latestTag.commitSha)}.` : 'No version tag matches the release tag pattern.')
+    changes.push(snap.latestTag ? `Latest version tag is ${snap.latestTag.name} at ${short(snap.latestTag.commitSha)}.` : 'No version tag on the repository.')
   }
   if (snap.latestTag && !observation.releases.some(r => r.tag === snap.latestTag.name)) suggestions.push(`Tag ${snap.latestTag.name} has no published GitHub release among the ${observation.releases.length} read; a tag alone does not move currentVersion or satisfy any release gate.`)
   if (!deepEqual(prev.package, snap.package) && snap.package !== undefined) {

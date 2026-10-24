@@ -60,7 +60,7 @@
     "workflowRuns": { "type": "array", "items": { "$ref": "#/$defs/workflowRun" } },
     "releases": { "type": "array", "items": { "$ref": "#/$defs/release" } },
     "tags": {
-      "description": "none: GitHub returned an empty tag list (confirmed absence). unavailable: the list could not be read (no data; listed in collection.unavailable). latest is the highest version matching the release tag pattern.",
+      "description": "none: GitHub returned an empty tag list (confirmed absence). unavailable: the list could not be read (no data; listed in collection.unavailable). latest is the highest version tag (v1.2.3 or 1.2.3, prereleases included).",
       "type": "object",
       "required": ["status"],
       "additionalProperties": false,

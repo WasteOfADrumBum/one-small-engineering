@@ -78,7 +78,7 @@ Full rules: [Cross-AI governance](standards/release.md#cross-ai-governance).
 
 ## Automated sync
 
-Projects with a `sync` block are read every six hours by [Registry sync](.github/workflows/registry-sync.yml). It updates only the fields in [`sync/field-ownership.json`](sync/field-ownership.json) (repository snapshot, open PRs, its own evidence, and `currentVersion` from a published release) through one draft PR per project. Gates, blockers, release status, ownership and approval stay manual. Status of every run is in the **Registry sync status** issue. Onboard a project with `npm run onboard -- <project-id>`. Details: [docs/sync.md](docs/sync.md); owner setup: [docs/sync-setup.md](docs/sync-setup.md).
+All eight active projects have a `sync` block (observe mode: nothing is needed in their repositories) and are read by [Registry sync](.github/workflows/registry-sync.yml): head and history, visibility, open PRs, CI runs with run IDs and attempts, releases, tags and root `package.json`. It updates only the fields in [`sync/field-ownership.json`](sync/field-ownership.json) (repository snapshot, open PRs, its own evidence, and `currentVersion` from a published release) through one draft PR per project. Gates, blockers, release status, ownership and approval stay manual. Activation is staged by the `SYNC_STAGE` variable: A read-only (default), B draft PRs on manual runs, C every six hours. Each run ends `COMPLETE`, `INCOMPLETE` or `FAILED`, never reporting success with evidence missing. Onboard a project with `npm run onboard -- <project-id>`. Details: [docs/sync.md](docs/sync.md); runbook: [docs/operations.md](docs/operations.md); owner setup: [docs/sync-setup.md](docs/sync-setup.md).
 
 ## Updating release status
 
@@ -99,7 +99,9 @@ Requires Node 20 or newer. No install step: there are no dependencies.
 npm run validate   # check projects/registry.json
 npm test           # validator tests, including negative cases
 npm run check      # both; this is what CI runs
-npm run sync:preview  # read-only: what registry sync would propose right now
+npm run sync:preview  # read-only: what registry sync would propose right now (needs a GitHub token)
+npm run sync:pilot    # read-only ModsPack pilot: seven checks against live GitHub
+npm run readiness     # release readiness for every project, from the registry alone
 ```
 
 CI ([`.github/workflows/validate.yml`](.github/workflows/validate.yml)) runs `npm run check` on every pull request and on pushes to `main`, with read-only permissions, plus the field-ownership guard on `sync/*` branches. [Main integrity](.github/workflows/main-integrity.yml) runs on push and every six hours and flags any change to `main` that did not come from a merged PR. These are detection and code-level controls, not branch protection, which GitHub Free does not enforce on this private repository.
@@ -112,17 +114,18 @@ Open a pull request against `main` and fill in [the template](.github/PULL_REQUE
 
 ```text
 projects/registry.json          canonical project registry
-projects/registry.schema.json   schema (version 1.1.0)
+projects/registry.schema.json   schema (version 1.2.0)
 standards/                      Definition of Done, security, release governance
 audits/                         audit records cited as evidence
 scripts/validate-registry.mjs   validator (Node built-ins only)
 scripts/validate-registry.test.mjs  validator tests
-scripts/sync/                   registry sync: collect, plan, guard, write, status, onboard (+ tests)
+scripts/readiness.mjs           release readiness and evidence summary (Definition of Done, not CI)
+scripts/sync/                   registry sync: collect, plan, guard, write, status, stage, pilot, onboard (+ tests)
 schemas/                        project config, observation and AI assessment schemas
 sync/field-ownership.json       the fields automation may change
 templates/project/              files onboarding generates for a project repository
 agents/                         shared AI specs: project assessor, onboarding
 fixtures/sync/                  in-memory GitHub used by the tests
-docs/                           sync design and owner setup
+docs/                           sync design, operations runbook and owner setup
 .github/                        PR template, workflows, Copilot instructions and prompts
 ```

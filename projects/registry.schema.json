@@ -119,7 +119,7 @@
           "enum": ["public", "private", "internal"]
         },
         "latestTag": {
-          "description": "Highest version tag matching the project's release tag pattern, or null when no tag matches. A tag is not a release and verifies nothing.",
+          "description": "Highest version tag (v1.2.3 or 1.2.3, prereleases included), or null when there is none. A tag is not a release and verifies nothing.",
           "type": ["object", "null"],
           "required": ["name", "version", "commitSha"],
           "additionalProperties": false,

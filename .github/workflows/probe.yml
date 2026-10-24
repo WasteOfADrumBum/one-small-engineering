@@ -26,6 +26,7 @@ jobs:
         run: |
           node scripts/sync/run.mjs collect --out out/probe/observations.json
           node scripts/sync/run.mjs write --in out/probe/observations.json --mode dry-run --out-dir out/probe/sync || echo "stage A exit $?"
+          cat out/probe/sync/STATUS.md
       - name: ModsPack pilot (read-only, live)
         env:
           GITHUB_TOKEN: ${{ github.token }}

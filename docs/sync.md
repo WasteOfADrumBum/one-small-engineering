@@ -5,16 +5,16 @@ Registry sync keeps `projects/registry.json` current without routine manual edit
 ## How it works
 
 ```text
-Registry sync (schedule every 6 h, or Run workflow)
-  collect   read-only token     for each project with sync.enabled:
+Registry sync (Run workflow; every 6 h from stage C)
+  collect   read-only token     for each of the eight sync-enabled projects:
                                   verify owner + pinned repository id + name
-                                  read config file, default-branch head, open PRs,
-                                  recent merges, CI runs for the head, releases
-                                  → observation (schemas/observation.schema.json)
-  write     main only           plan (pure) → field-ownership guard → full validator
-                                  dry run: report only
-                                  write:   sync/<project-id> branch + one draft PR,
-                                           dispatch Validate registry on it
+                                  read config file, default-branch head and how it moved
+                                  (fast-forward or rewrite), visibility, open PRs, recent
+                                  merges, CI runs for the head, releases, tags, package.json
+                                  → observation v2 (schemas/observation.schema.json)
+  report    stage A, read-only  plan (pure) → field-ownership guard → full validator → job summary
+  write     stages B/C, main    the same, then sync/<project-id> branch + one draft PR,
+                                  dispatch Validate registry on it,
                                   update the "Registry sync status" issue
 Validate registry               npm run check + guard on every sync/* branch
 Main integrity (push + every 6 h) flags any change to main that is not a merged PR
@@ -27,6 +27,9 @@ You                             review, mark ready, merge (or close)
 - **One PR per project.** `sync/<project-id>` is rebuilt from the latest `main` each time, so a PR that conflicts after another merges is regenerated on the next run.
 - **Self-repairing writes.** The writer reconciles three things separately on every run: the branch content, an open draft PR whose title and description describe the branch head (a hidden `<!-- sync-head: <sha> -->` marker names it), and a Validate registry run for the branch head. If a run pushed the branch but failed to open the PR, update its description or dispatch validation, the next run sees the branch is right and redoes only what is missing. A PR you close without merging is not reopened for the same commit; a later change opens a new one.
 - **Fail closed.** A GitHub response that is not the documented shape (an object where a list belongs, a missing field or count, a body that is not JSON, a record with a missing or invalid id, SHA, date or URL) is an error for that project, never an empty result and never a record silently dropped. Cited URLs must be exactly GitHub's form for that repository. A push comparison without a usable commit count fails Main integrity. Missing or malformed input to the write job is an error, and a sync-enabled project with no observation is reported as `not-collected`; an empty list passes only when no project is sync-enabled.
+- **Unavailable is not absent.** Every optional section says which it is: tags `none` (GitHub returned an empty list) versus `unavailable` (the call failed), `package.json` `none` (no file) versus `invalid` (present, unreadable) versus `unavailable`. An unavailable section is listed in `collection.unavailable`, is a gap, keeps the registry's previous value and fails the run; a malformed response still fails the project.
+- **One verdict per run.** `COMPLETE` only when every project was collected with no gap; `INCOMPLETE` when something is still pending (exit 0 with a warning); `FAILED` when a project or a section could not be read (exit 1). Access errors are named by status and, when GitHub says so, the permission needed (`token-rejected`, `permission-denied`, `not-visible`, `rate-limited`, `github-unavailable`).
+- **History rewrites are reported.** When a project's default branch moved, the hub compares the recorded head with the new one. Anything but a fast-forward (`rewritten`, or `unreachable` when the old head is gone) is called out in the PR with a suggestion to re-check evidence tied to older commits.
 - **Incomplete evidence is never positive.** If GitHub lists more runs than it returned, a newer attempt is still running, a configured workflow has no completed run, more PRs closed or merged in the look-back than one read covers, or a PR's file list was cut off, the observation is marked incomplete and the gap is named. The run then suggests nothing positive about CI, says why, and keeps every older automated CI record. An observation whose `complete` flag disagrees with its gaps is rejected. More than 100 open PRs fails the project rather than proposing a shortened list, and more than 100 open sync PRs is shown as an incomplete list in the status report.
 - **No secrets in output.** Diagnostics about project data name the failing path, never the value or an unexpected key name, whatever its shape; parse errors give a position, never the text. Every string that leaves the job (log lines, workflow annotations, the job summary, validator and guard output, the status issue and its hidden state, PR descriptions) is redacted with the same patterns the validator's sensitive-data scan uses, and log lines are folded to one line so external text cannot start a workflow command. The status issue's hidden state is rebuilt from known fields on every read and its stored errors are withheld and redacted again, so values written by an older version are not carried forward. External run text (status, event) is cleaned or rejected before it enters an observation.
 
@@ -36,17 +39,23 @@ Defined in [`sync/field-ownership.json`](../sync/field-ownership.json) and enfor
 
 | Field | Rule |
 | --- | --- |
-| `repositorySnapshot`, `openPullRequests` | Replaced from GitHub. `observedAt` is when the facts last changed. |
+| `repositorySnapshot`, `openPullRequests` | Replaced from GitHub. `observedAt` is when the facts last changed. Since schema 1.2.0 the snapshot also holds `visibility`, `latestTag` and root `package` metadata; a section GitHub could not answer keeps its previous value. |
 | `evidence` with `origin: "sync"` | Added; superseded CI records are removed only if nothing cites them. Results are only `informational` or `builder_reported`. |
 | `release.currentVersion` / `currentVersionSource` | Forward only, from a published non-prerelease GitHub release whose tag matches the pattern and whose commit is on the default branch. |
 | `sync.lastSyncedAt` / `lastSyncedHead` / `configSource` | When the registry last absorbed a sync. |
 | top-level `lastUpdatedAt` | Set when a change is proposed. |
 
-Everything else is manual: gates, blockers, release status, target version, scope, ownership, approval, tier, lifecycle, ModsPack integration, missing evidence, manual evidence, other projects. When the facts suggest a manual change, it appears under **Suggested manual updates** in the PR and the status issue, and stays a suggestion.
+Everything else is manual, including the project's own `visibility` (a mismatch with GitHub is a suggestion) and `sync.repositoryId`: gates, blockers, release status, target version, scope, ownership, approval, tier, lifecycle, ModsPack integration, missing evidence, manual evidence, other projects. When the facts suggest a manual change, it appears under **Suggested manual updates** in the PR and the status issue, and stays a suggestion.
 
 ### What counts as material
 
 A PR is opened only when one of these differs from `main`: the default-branch head, the open PR list (opened, closed, merged, draft toggled, head moved), a CI conclusion on the head, a new release, a merged PR carrying the evidence label or touching `materialPaths`, or the config source. Sync timestamps alone never open a PR.
+
+## Release readiness
+
+`npm run readiness` (and a section in every status report and sync PR) computes each project's readiness from the registry under the Definition of Done: gates satisfied by independent verification, in progress, blocked, not started and not applicable, open blockers, and a verdict (`not-scoped`, `not-ready`, `awaiting-owner-approval`, `approved-not-released`, `released`). A gate counts as satisfied only with a verifier's own `pass` record, exactly as the validator requires. CI results are shown beside it, labelled builder-reported: green CI never changes the verdict, and nothing but Joshua Small's approval moves a project past `awaiting-owner-approval`.
+
+Evidence is counted in four kinds, kept apart: observation (`informational`), builder-reported, independently verified (`pass` by someone other than the builder, never automation), and owner approval.
 
 ## Builder-reported versus verified
 
@@ -69,7 +78,7 @@ It confirms the mapping; it cannot choose it. The registry decides which reposit
 
 Modes, set in the registry's `sync` block:
 
-- `observe`: the hub reads the repository and expects nothing in it (hub defaults apply). ModsPack stays here until its PR #3 testing is complete.
+- `observe`: the hub reads the repository and expects nothing in it (hub defaults apply). All eight active projects are in this mode; ModsPack stays here until its PR #3 testing is complete.
 - `integrated`: the config file is required; a missing file is an error.
 
 ## Status report
@@ -91,8 +100,8 @@ It pins the repository ID, enables sync in `observe` mode, validates the registr
 ## Pausing and rollback
 
 - Pause one project: `"reporting": { "enabled": false }` in its config, or `sync.enabled: false` in the registry.
-- Pause everything: unset `SYNC_WRITE_ENABLED` (back to dry run) or disable the Registry sync workflow.
-- Undo: close `sync/*` PRs. Schema 1.1.0 is additive, so reverting the code leaves a valid registry.
+- Pause writes: set `SYNC_STAGE=A` (read-only). Pause everything: disable the Registry sync workflow.
+- Undo: close `sync/*` PRs. Full rollback steps: [operations.md](operations.md#disabling-or-rolling-back).
 
 ## Adding event-driven sync later
 

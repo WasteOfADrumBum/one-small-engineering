@@ -257,7 +257,7 @@ export async function collect({ project, client, now = new Date() }) {
 
   const head = { sha: headSha, ...(await headRelation(client, base, project.repositorySnapshot && project.repositorySnapshot.headSha, headSha, gaps)) }
   const unavailable = []
-  const tags = await optionalSection('tags', unavailable, gaps, () => collectTags(client, base, config))
+  const tags = await optionalSection('tags', unavailable, gaps, () => collectTags(client, base))
   const pkg = await optionalSection('package', unavailable, gaps, () => collectPackage(client, base, headSha))
   if (head.relation === 'unknown') unavailable.push('head-comparison')
 
@@ -319,15 +319,18 @@ async function optionalSection(section, unavailable, gaps, read) {
   }
 }
 
-async function collectTags(client, base, config) {
+// Version tags are v1.2.3 or 1.2.3, prereleases included: a tag is a fact about the
+// repository, not a release (only a published release can move currentVersion).
+const VERSION_TAG = /^v?(\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?)$/
+
+async function collectTags(client, base) {
   const list = await client.paginate(`${base}/tags`, { max: MAX_TAGS })
   if (!list.length) return { status: 'none', count: 0, truncated: false, latest: null }
-  const tagRe = new RegExp(config.releaseTagPattern)
   let latest = null
   for (const t of list) {
     if (!isObject(t) || typeof t.name !== 'string' || !isObject(t.commit) || !SHA.test(t.commit.sha || '')) throw malformed('tags')
     if (!/^[A-Za-z0-9._/-]{1,100}$/.test(t.name)) continue
-    const m = tagRe.exec(t.name)
+    const m = VERSION_TAG.exec(t.name)
     const version = m && m[1] && parseSemver(m[1]) ? m[1] : null
     if (!version) continue
     if (!latest || compareSemver(version, latest.version) > 0) latest = { name: t.name, version, commitSha: t.commit.sha }
