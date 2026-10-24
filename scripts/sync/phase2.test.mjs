@@ -351,6 +351,22 @@ test('readiness: every gate independently verified waits for the owner; approval
   assert.equal(provenance(tf(reg)).ownerApproval, 1)
 })
 
+test('readiness: a pass recorded before a verifier was assigned is not counted as independent verification', () => {
+  const reg = loadRegistry()
+  const e = provenance(tf(reg))
+  assert.equal(e.independentlyVerified, 0, 'Phase 0 pass records predate any builder or verifier')
+  assert.equal(e.passWithoutVerifier, 1)
+  assert.match(renderReadiness(reg, { only: 'taskforge' }), /1 pass record\(s\) made before a verifier was assigned, which verify nothing yet/)
+  assert.equal(provenance(tf(releasable())).independentlyVerified, 2)
+})
+
+test('a private package.json version raises no distribution suggestion; a publishable one does', async () => {
+  const quiet = plan(loadRegistry(), await observe({ packageJson: { name: 'taskforge', version: '3.0.0', private: true } }))
+  assert.ok(!quiet.suggestions.some(s => /package\.json declares/.test(s)))
+  const tagged = plan(loadRegistry(), await observe({ tagList: [{ name: 'v0.5.0', sha: TF_HEAD }] }))
+  assert.ok(tagged.suggestions.some(s => /Tag v0\.5\.0 has no published GitHub release \(the repository has none\)/.test(s)))
+})
+
 test('readiness: a gate marked verified on builder-reported or sync evidence is unproven, not satisfied', () => {
   for (const tamper of [
     e => { e.recordedBy = 'Builder Bot' },

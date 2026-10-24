@@ -156,12 +156,13 @@ export function plan(registry, observation) {
   if (!deepEqual(prev.latestTag, snap.latestTag) && snap.latestTag !== undefined) {
     changes.push(snap.latestTag ? `Latest version tag is ${snap.latestTag.name} at ${short(snap.latestTag.commitSha)}.` : 'No version tag on the repository.')
   }
-  if (snap.latestTag && !observation.releases.some(r => r.tag === snap.latestTag.name)) suggestions.push(`Tag ${snap.latestTag.name} has no published GitHub release among the ${observation.releases.length} read; a tag alone does not move currentVersion or satisfy any release gate.`)
+  if (snap.latestTag && !observation.releases.some(r => r.tag === snap.latestTag.name)) suggestions.push(`Tag ${snap.latestTag.name} has no published GitHub release${observation.releases.length ? ` among the ${observation.releases.length} newest` : ' (the repository has none)'}; a tag alone does not move currentVersion or satisfy any release gate.`)
   if (!deepEqual(prev.package, snap.package) && snap.package !== undefined) {
     const k = snap.package
     changes.push(k.status === 'observed' ? `package.json at ${short(observation.head.sha)}: ${k.name || '(no valid name)'}@${k.version || '(no valid version)'}${k.private ? ' (private)' : ''}.` : k.status === 'none' ? 'No root package.json at the head commit.' : 'Root package.json is present but unreadable.')
   }
-  if (snap.package && snap.package.status === 'observed' && snap.package.version && parseSemver(snap.package.version) && (!parseSemver(p.release.currentVersion) || compareSemver(snap.package.version, p.release.currentVersion) > 0)) {
+  // A private package is never published, so its version says nothing about distribution.
+  if (snap.package && snap.package.status === 'observed' && !snap.package.private && snap.package.version && parseSemver(snap.package.version) && (!parseSemver(p.release.currentVersion) || compareSemver(snap.package.version, p.release.currentVersion) > 0)) {
     suggestions.push(`package.json declares ${snap.package.version} but currentVersion is ${p.release.currentVersion || 'unset'}. currentVersion moves only from a published release; distribution and provenance are verified by hand.`)
   }
 

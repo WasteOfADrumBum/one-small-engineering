@@ -26,15 +26,21 @@ export const VERDICT_TEXT = {
 }
 
 // The four kinds of evidence, kept apart: what automation observed, what a builder reports,
-// what an independent verifier re-checked, and what the owner approved.
+// what an independent verifier re-checked, and what the owner approved. A pass recorded
+// while no separate builder and verifier are assigned is counted on its own: it cannot
+// verify a gate until the release is scoped and a verifier re-checks it.
 export function provenance(p) {
   const builder = norm(p.ownership.builder)
+  const verifier = norm(p.ownership.verifier)
+  const independent = Boolean(builder && verifier && builder !== verifier)
   const approval = new Set(p.approval.status === 'approved' ? p.approval.evidenceRefs : [])
-  const c = { observation: 0, builderReported: 0, independentlyVerified: 0, failed: 0, ownerApproval: 0 }
+  const c = { observation: 0, builderReported: 0, independentlyVerified: 0, passWithoutVerifier: 0, failed: 0, ownerApproval: 0 }
   for (const e of p.evidence) {
     if (approval.has(e.id)) c.ownerApproval++
+    const manualPass = e.result === 'pass' && !NON_PROVING_TYPES.has(e.type) && (!e.origin || e.origin === 'manual') && norm(e.recordedBy) !== norm(SYNC_RECORDER)
     if (e.result === 'builder_reported') c.builderReported++
-    else if (e.result === 'pass' && !NON_PROVING_TYPES.has(e.type) && (!e.origin || e.origin === 'manual') && norm(e.recordedBy) !== builder && norm(e.recordedBy) !== norm(SYNC_RECORDER)) c.independentlyVerified++
+    else if (manualPass && independent && norm(e.recordedBy) !== builder) c.independentlyVerified++
+    else if (manualPass) c.passWithoutVerifier++
     else if (e.result === 'fail') c.failed++
     else if (e.result === 'informational' || e.result === 'inconclusive') c.observation++
   }
@@ -123,7 +129,7 @@ export function renderReadiness(registry, { only = null, heading = '#' } = {}) {
     lines.push(`${heading}# ${x.name} (${x.id})`, '')
     lines.push(`- Verdict: ${VERDICT_TEXT[x.verdict]}. Release status in the registry: ${x.releaseStatus}. Current version: ${x.currentVersion || 'none'}; target: ${x.targetVersion || 'none'}.`)
     if (x.reasons.length) lines.push(`- Why: ${x.reasons.join('; ')}.`)
-    lines.push(`- Evidence: ${x.evidence.independentlyVerified} independently verified, ${x.evidence.builderReported} builder-reported, ${x.evidence.observation} observation, ${x.evidence.failed} failed, ${x.evidence.ownerApproval} owner approval.`)
+    lines.push(`- Evidence: ${x.evidence.independentlyVerified} independently verified, ${x.evidence.builderReported} builder-reported, ${x.evidence.observation} observation, ${x.evidence.failed} failed, ${x.evidence.ownerApproval} owner approval${x.evidence.passWithoutVerifier ? `; ${x.evidence.passWithoutVerifier} pass record(s) made before a verifier was assigned, which verify nothing yet` : ''}.`)
     const g = x.gates
     if (g.inProgress.length) lines.push(`- In progress: ${g.inProgress.join(', ')}.`)
     if (g.blocked.length) lines.push(`- Blocked: ${g.blocked.join(', ')}.`)
