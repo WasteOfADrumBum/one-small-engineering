@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
-  "schemaVersion": "1.1.0",
-  "lastUpdatedAt": "2026-10-23T00:56:28Z",
+  "schemaVersion": "1.2.0",
+  "lastUpdatedAt": "2026-10-24T22:00:00Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -709,7 +709,15 @@
         "Whether 0.5.0 was published with npm provenance (not checked).",
         "GitHub release object for v0.5.0 (only a tag exists).",
         "Builder and independent verifier not assigned."
-      ]
+      ],
+      "sync": {
+        "enabled": true,
+        "mode": "observe",
+        "repositoryId": 1411378047,
+        "lastSyncedAt": null,
+        "lastSyncedHead": null,
+        "configSource": null
+      }
     },
     {
       "id": "personal-portfolio",
@@ -886,7 +894,15 @@
         "Any automated test or lint CI evidence.",
         "Accessibility, security and production verification records.",
         "Builder and independent verifier not assigned."
-      ]
+      ],
+      "sync": {
+        "enabled": true,
+        "mode": "observe",
+        "repositoryId": 1406067959,
+        "lastSyncedAt": null,
+        "lastSyncedHead": null,
+        "configSource": null
+      }
     },
     {
       "id": "one-small-studio",
@@ -1049,7 +1065,15 @@
         "Security review of the contact form endpoint (abuse/rate limiting, personal data retention).",
         "Accessibility and production verification records.",
         "Builder and independent verifier not assigned."
-      ]
+      ],
+      "sync": {
+        "enabled": true,
+        "mode": "observe",
+        "repositoryId": 1410748339,
+        "lastSyncedAt": null,
+        "lastSyncedHead": null,
+        "configSource": null
+      }
     },
     {
       "id": "one-small-photography",
@@ -1212,7 +1236,15 @@
         "Infrastructure verification (database, photo storage) if in scope.",
         "Accessibility and production verification records.",
         "Builder and independent verifier not assigned."
-      ]
+      ],
+      "sync": {
+        "enabled": true,
+        "mode": "observe",
+        "repositoryId": 1406355122,
+        "lastSyncedAt": null,
+        "lastSyncedHead": null,
+        "configSource": null
+      }
     },
     {
       "id": "taskforge",
@@ -1729,7 +1761,15 @@
         "Any CI evidence for npm test.",
         "Security review of Drive, Todoist and Calendar integrations.",
         "Builder and independent verifier not assigned."
-      ]
+      ],
+      "sync": {
+        "enabled": true,
+        "mode": "observe",
+        "repositoryId": 1413298530,
+        "lastSyncedAt": null,
+        "lastSyncedHead": null,
+        "configSource": null
+      }
     },
     {
       "id": "one-small-ai-workforce",
@@ -1959,7 +1999,15 @@
         "Release scope, target version and tier confirmation (Application assumed: authentication, database, approvals).",
         "Production URL: none set on the repository; deployment records were not accessible to this inspection.",
         "Builder and independent verifier not assigned."
-      ]
+      ],
+      "sync": {
+        "enabled": true,
+        "mode": "observe",
+        "repositoryId": null,
+        "lastSyncedAt": null,
+        "lastSyncedHead": null,
+        "configSource": null
+      }
     }
   ],
   "legacyRepositories": [

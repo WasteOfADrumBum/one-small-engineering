@@ -173,11 +173,15 @@ test('F-03: a push comparison without a usable commit count fails closed', async
 test('F-04: an observation claiming completeness it does not have is rejected, so it cannot report CI passed', async () => {
   const reg = loadRegistry()
   const obs = await observe(repoWith())
-  obs.collection = { complete: true, gaps: ['ci.yml run 9 is in_progress'] }
+  obs.collection = { complete: true, gaps: ['ci.yml run 9 is in_progress'], unavailable: [] }
   assert.throws(() => checkObservation(tf(reg), obs), /collection\.complete does not match collection\.gaps/)
   assert.throws(() => plan(reg, obs), /collection\.complete does not match/)
-  obs.collection = { complete: false, gaps: [] }
+  obs.collection = { complete: false, gaps: [], unavailable: [] }
   assert.throws(() => plan(reg, obs), /collection\.complete does not match/)
+  // An unavailable section is a gap too: it cannot be hidden behind complete: true.
+  obs.collection = { complete: true, gaps: [], unavailable: ['tags'] }
+  obs.tags = { status: 'unavailable' }
+  assert.throws(() => plan(reg, obs), /collection\.unavailable lists sections but collection\.complete is true/)
 })
 
 test('F-04: a full page of recently closed pull requests marks the collection incomplete', async () => {

@@ -27,9 +27,26 @@ test('registry sync: schedule every six hours, empty default permissions, writes
     assert.match(text, /if: github\.ref == 'refs\/heads\/main'/, eol)
     assert.match(text, /cancel-in-progress: false/, eol)
     assert.match(text, /SYNC_WRITE_ENABLED == 'true'/, eol)
-    // The writer must expect the same projects collect read (F-06).
-    assert.equal(text.match(/SYNC_PROJECT: \$\{\{ inputs\.project \}\}/g).length, 2, eol)
+    // The report and write jobs must expect the same projects collect read (F-06).
+    assert.equal(text.match(/SYNC_PROJECT: \$\{\{ inputs\.project \}\}/g).length, 3, eol)
+    // Staged activation: the stage decides the mode, never a shell-interpolated expression.
+    assert.match(text, /run: node scripts\/sync\/run\.mjs write --mode auto --read-only\r?$/m, eol)
+    assert.match(text, /run: node scripts\/sync\/run\.mjs write --mode auto\r?$/m, eol)
+    assert.doesNotMatch(text, /run: .*\$\{\{/, `${eol}: no expression is interpolated into a run command`)
+    assert.match(text, /if: github\.event_name != 'schedule' \|\| vars\.SYNC_STAGE == 'C'/, eol)
+
     assert.doesNotMatch(text, /workflows: write|administration|secrets: write/, eol)
+  }
+})
+
+test('registry sync: the stage A report job holds no write permission, and only the write job does', () => {
+  for (const [eol, text] of both(read('.github/workflows/registry-sync.yml'))) {
+    const jobs = text.split(/\r?\n(?= {2}[a-z]+:\r?$)/m)
+    const job = name => jobs.find(j => new RegExp(`^ {2}${name}:\\r?$`, 'm').test(j))
+    assert.doesNotMatch(job('collect'), /: write/, eol)
+    assert.doesNotMatch(job('report'), /: write/, eol)
+    assert.match(job('report'), /if: vars\.SYNC_STAGE != 'B' && vars\.SYNC_STAGE != 'C'/, eol)
+    assert.match(job('write'), /if: github\.ref == 'refs\/heads\/main' && \(vars\.SYNC_STAGE == 'B' \|\| vars\.SYNC_STAGE == 'C'/, eol)
   }
 })
 

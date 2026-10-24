@@ -1,5 +1,5 @@
 // End to end against the in-memory GitHub: collect → plan → guard → validate → write,
-// across several runs, with TaskForge (pilot) and ModsPack (observe-only).
+// across several runs, with all eight active projects (seven public, AI Workforce private).
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
@@ -10,8 +10,8 @@ import { checkMainCommit } from './main-integrity.mjs'
 import { createClient } from './github.mjs'
 import { validateRegistry, parseDefinitionOfDone } from '../validate-registry.mjs'
 import { readJson, ROOT } from './lib.mjs'
-import { FakeGitHub, projectRepo, hubRepo } from '../../fixtures/sync/fake-github.mjs'
-import { loadRegistry, registryText, taskforgeState, modspackState, NOW, fakeSha } from '../../fixtures/sync/scenario.mjs'
+import { FakeGitHub, hubRepo } from '../../fixtures/sync/fake-github.mjs'
+import { loadRegistry, registryText, allProjectRepos, NOW, fakeSha } from '../../fixtures/sync/scenario.mjs'
 
 const schema = readJson('projects/registry.schema.json')
 const dod = parseDefinitionOfDone(readFileSync(resolve(ROOT, 'standards/definition-of-done.md'), 'utf8'))
@@ -19,8 +19,7 @@ const validate = r => validateRegistry(r, schema, { dod })
 
 function universe() {
   const gh = new FakeGitHub()
-  const tf = projectRepo(gh, taskforgeState())
-  const mp = projectRepo(gh, modspackState())
+  const { tf, mp } = allProjectRepos(gh)
   const mainSha = fakeSha('main-e2e')
   const hub = hubRepo(gh, { registryText: registryText(), mainSha })
   const client = createClient({ token: 't', fetchImpl: gh.fetch, sleep: async () => {}, random: () => 0 })
@@ -34,24 +33,32 @@ async function runOnce(u, registry, mode, now = NOW) {
 
 const writesTo = (u, re) => u.gh.writes().filter(c => re.test(c.path))
 
-test('dry run reads both pilots and writes nothing at all', async () => {
+const PUBLIC = ['one-small-mods-pack', 'one-small-ui', 'personal-portfolio', 'one-small-studio', 'one-small-photography', 'taskforge', 'cortex']
+const ALL = [...PUBLIC, 'one-small-ai-workforce']
+
+test('dry run reads all eight active projects and writes nothing at all', async () => {
   const u = universe()
   const results = await runOnce(u, loadRegistry(), 'dry-run')
-  assert.deepEqual(results.map(r => [r.projectId, r.outcome]), [['one-small-mods-pack', 'changed'], ['taskforge', 'changed']])
+  assert.deepEqual(results.map(r => r.projectId), ALL)
+  // First run: every public project bootstraps its snapshot; the private one is reported, not skipped.
+  for (const r of results.filter(r => PUBLIC.includes(r.projectId))) assert.equal(r.outcome, 'changed', r.projectId)
+  const aw = results.find(r => r.projectId === 'one-small-ai-workforce')
+  assert.equal(aw.outcome, 'error')
+  assert.match(aw.errors[0], /^needs-reader-token: /)
   assert.equal(u.gh.writes().length, 0)
 })
 
 test('write mode: one draft PR per project, never a write to a project repo or main', async () => {
   const u = universe()
   const results = await runOnce(u, loadRegistry(), 'write')
-  assert.deepEqual(results.map(r => r.prAction), ['created', 'created'])
-  assert.deepEqual(u.hub.pulls.map(p => [p.head, p.draft]), [['sync/one-small-mods-pack', true], ['sync/taskforge', true]])
+  assert.deepEqual(results.map(r => r.prAction), [...PUBLIC.map(() => 'created'), null])
+  assert.deepEqual(u.hub.pulls.map(p => [p.head, p.draft]), PUBLIC.map(id => [`sync/${id}`, true]))
   assert.equal(u.hub.refs['heads/main'], u.mainSha)
-  assert.equal(writesTo(u, /\/repos\/WasteOfADrumBum\/(TaskForge|one-small-mods-pack)\//).length, 0, 'no write to any project repository')
+  assert.equal(u.gh.writes().filter(c => !c.path.startsWith('/repos/WasteOfADrumBum/one-small-engineering/')).length, 0, 'no write to any project repository')
   assert.equal(writesTo(u, /\/merge/).length, 0)
 
   // Each branch's registry passes the validator and touches only its own project.
-  for (const id of ['taskforge', 'one-small-mods-pack']) {
+  for (const id of PUBLIC) {
     const reg = JSON.parse(u.hub.commits[u.hub.refs[`heads/sync/${id}`]].registryText)
     assert.deepEqual(validate(reg), [])
     const base = loadRegistry()
@@ -64,7 +71,8 @@ test('the next scheduled run with no GitHub change is a no-op', async () => {
   await runOnce(u, loadRegistry(), 'write')
   const before = u.gh.writes().length
   const results = await runOnce(u, loadRegistry(), 'write', new Date(NOW.getTime() + 6 * 3600_000))
-  assert.deepEqual(results.map(r => r.prAction), ['unchanged', 'unchanged'])
+  assert.deepEqual(results.map(r => r.prAction), [...PUBLIC.map(() => 'unchanged'), null])
+  assert.equal(u.hub.pulls.length, PUBLIC.length, 'no duplicate PR')
   assert.equal(u.gh.writes().length, before)
 })
 
@@ -78,7 +86,7 @@ test('after the owner merges, main holds the facts and the next run proposes not
   assert.equal(t.outcome, 'unchanged')
 })
 
-test('a project error is isolated and reported; the other project still syncs', async () => {
+test('a project error is isolated and reported; the other projects still sync', async () => {
   const u = universe()
   u.tf.repoId = 42
   const results = await runOnce(u, loadRegistry(), 'write')

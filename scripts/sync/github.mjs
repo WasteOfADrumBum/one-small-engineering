@@ -2,11 +2,31 @@
 // fetch and sleep are injectable so tests never touch the network.
 
 export class GitHubError extends Error {
-  constructor(message, status, body) {
+  constructor(message, status, body, { acceptedPermissions = null } = {}) {
     super(message)
     this.status = status
     this.body = body
+    // GitHub names the permission a refused call needed (x-accepted-github-permissions),
+    // for example "pull_requests=read". Permission names only; never a value.
+    this.acceptedPermissions = acceptedPermissions
   }
+}
+
+const PERMISSIONS = /^[a-z_]+=(?:read|write|admin)(?:[,;] ?[a-z_]+=(?:read|write|admin))*$/
+
+// A precise, value-free diagnosis of a refused read: what failed and what would fix it.
+// GitHub answers 404 (not 403) for a private repository the token cannot see, so a 404 is
+// "not found or not visible", never proof that the repository does not exist.
+export function describeAccess(e, what) {
+  if (!(e instanceof GitHubError) || e instanceof MalformedResponse) return null
+  const perms = e.acceptedPermissions ? ` (GitHub says this call needs ${e.acceptedPermissions})` : ''
+  if (e.status === 401) return { code: 'token-rejected', message: `${what}: the token was rejected (HTTP 401); it is missing, expired or revoked` }
+  if (e.status === 403) return { code: 'permission-denied', message: `${what}: the token lacks permission (HTTP 403)${perms}` }
+  if (e.status === 404) return { code: 'not-visible', message: `${what}: not found or not visible to this token (HTTP 404)${perms}` }
+  if (e.status === 429) return { code: 'rate-limited', message: `${what}: rate limited (HTTP 429); the next scheduled run retries` }
+  if (e.status === 0) return { code: 'network-error', message: `${what}: network error after retries` }
+  if (e.status >= 500) return { code: 'github-unavailable', message: `${what}: GitHub returned HTTP ${e.status} after retries` }
+  return { code: 'request-failed', message: `${what}: HTTP ${e.status}${perms}` }
 }
 
 export class MalformedResponse extends GitHubError {}
@@ -84,7 +104,10 @@ export function createClient({
           continue
         }
       }
-      if (!res.ok) throw new GitHubError(`${method} ${path}: HTTP ${res.status}`, res.status, text.slice(0, 300))
+      if (!res.ok) {
+        const accepted = res.headers.get('x-accepted-github-permissions')
+        throw new GitHubError(`${method} ${path}: HTTP ${res.status}`, res.status, text.slice(0, 300), { acceptedPermissions: accepted && PERMISSIONS.test(accepted) ? accepted : null })
+      }
       if (!text) return null
       try {
         return JSON.parse(text)

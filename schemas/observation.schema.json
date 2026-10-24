@@ -2,33 +2,39 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/WasteOfADrumBum/one-small-engineering/schemas/observation.schema.json",
   "title": "Normalized repository observation",
-  "description": "Version 1. What scripts/sync/collect.mjs read from GitHub for one project, after cleaning. The planner only accepts observations that match this schema. An event-driven trigger added later produces the same observation, so the planner and writer do not change.",
+  "description": "Version 2 (adds visibility, head movement, tags, root package metadata and per-section availability). What scripts/sync/collect.mjs read from GitHub for one project, after cleaning. The planner only accepts observations that match this schema. An event-driven trigger added later produces the same observation, so the planner and writer do not change.",
   "type": "object",
-  "required": ["observationVersion", "projectId", "collectedAt", "repo", "head", "config", "template", "openPullRequests", "mergedPullRequests", "workflowRuns", "releases", "collection"],
+  "required": ["observationVersion", "projectId", "collectedAt", "repo", "head", "config", "template", "openPullRequests", "mergedPullRequests", "workflowRuns", "releases", "tags", "package", "collection"],
   "additionalProperties": false,
   "properties": {
-    "observationVersion": { "type": "integer", "const": 1 },
+    "observationVersion": { "type": "integer", "const": 2 },
     "projectId": { "$ref": "#/$defs/slug" },
     "collectedAt": { "$ref": "#/$defs/timestamp" },
     "repo": {
       "type": "object",
-      "required": ["id", "fullName", "owner", "private", "archived", "defaultBranch", "url"],
+      "required": ["id", "fullName", "owner", "private", "visibility", "archived", "defaultBranch", "url"],
       "additionalProperties": false,
       "properties": {
         "id": { "type": "integer", "minimum": 1 },
         "fullName": { "type": "string", "minLength": 1 },
         "owner": { "type": "string", "minLength": 1 },
         "private": { "type": "boolean" },
+        "visibility": { "type": "string", "enum": ["public", "private", "internal"] },
         "archived": { "type": "boolean" },
         "defaultBranch": { "type": "string", "minLength": 1 },
         "url": { "$ref": "#/$defs/url" }
       }
     },
     "head": {
+      "description": "previousSha is the head the registry recorded before this collection. relation: first-observation (none recorded), unchanged, fast-forward (the recorded head is an ancestor), rewritten (behind or diverged: a force push), unreachable (the recorded head is no longer in the repository), unknown (the comparison could not be read; also listed in collection.unavailable).",
       "type": "object",
-      "required": ["sha"],
+      "required": ["sha", "previousSha", "relation"],
       "additionalProperties": false,
-      "properties": { "sha": { "$ref": "#/$defs/sha" } }
+      "properties": {
+        "sha": { "$ref": "#/$defs/sha" },
+        "previousSha": { "$ref": "#/$defs/nullableSha" },
+        "relation": { "type": "string", "enum": ["first-observation", "unchanged", "fast-forward", "rewritten", "unreachable", "unknown"] }
+      }
     },
     "config": {
       "type": "object",
@@ -53,14 +59,54 @@
     "mergedPullRequests": { "type": "array", "items": { "$ref": "#/$defs/mergedPullRequest" } },
     "workflowRuns": { "type": "array", "items": { "$ref": "#/$defs/workflowRun" } },
     "releases": { "type": "array", "items": { "$ref": "#/$defs/release" } },
+    "tags": {
+      "description": "none: GitHub returned an empty tag list (confirmed absence). unavailable: the list could not be read (no data; listed in collection.unavailable). latest is the highest version matching the release tag pattern.",
+      "type": "object",
+      "required": ["status"],
+      "additionalProperties": false,
+      "properties": {
+        "status": { "type": "string", "enum": ["observed", "none", "unavailable"] },
+        "count": { "type": "integer", "minimum": 0 },
+        "truncated": { "type": "boolean" },
+        "latest": {
+          "type": ["object", "null"],
+          "required": ["name", "version", "commitSha"],
+          "additionalProperties": false,
+          "properties": {
+            "name": { "type": "string", "pattern": "^[A-Za-z0-9._/-]{1,100}$" },
+            "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$" },
+            "commitSha": { "$ref": "#/$defs/sha" }
+          }
+        }
+      }
+    },
+    "package": {
+      "description": "Root package.json at the head commit. none: no such file (confirmed absence). invalid: present but unreadable. unavailable: could not be read (listed in collection.unavailable). Publication to npm is not checked: the hub only calls GitHub.",
+      "type": "object",
+      "required": ["status"],
+      "additionalProperties": false,
+      "properties": {
+        "status": { "type": "string", "enum": ["observed", "none", "invalid", "unavailable"] },
+        "name": { "type": ["string", "null"], "maxLength": 214 },
+        "version": { "type": ["string", "null"], "maxLength": 100 },
+        "private": { "type": "boolean" },
+        "reason": { "type": "string", "maxLength": 100 }
+      }
+    },
     "collection": {
       "description": "Whether the CI evidence read for the head commit is complete. Incomplete collection never yields a positive CI suggestion and never prunes older automated CI records.",
       "type": "object",
-      "required": ["complete", "gaps"],
+      "required": ["complete", "gaps", "unavailable"],
       "additionalProperties": false,
       "properties": {
         "complete": { "type": "boolean" },
-        "gaps": { "type": "array", "maxItems": 50, "items": { "type": "string", "minLength": 1, "maxLength": 300 } }
+        "gaps": { "type": "array", "maxItems": 50, "items": { "type": "string", "minLength": 1, "maxLength": 300 } },
+        "unavailable": {
+          "description": "Sections that could not be read at all. Each is also a gap, so complete is false.",
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "enum": ["tags", "package", "head-comparison"] }
+        }
       }
     }
   },

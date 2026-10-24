@@ -20,10 +20,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: node probe/identities.mjs
-      - name: Preview (read-only, sync-enabled projects)
+      - name: Stage A pipeline (collect, then read-only plan/guard/validate)
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: node scripts/sync/run.mjs preview || echo "preview exit $?"
+        run: |
+          node scripts/sync/run.mjs collect --out out/probe/observations.json
+          node scripts/sync/run.mjs write --in out/probe/observations.json --mode dry-run --out-dir out/probe/sync || echo "stage A exit $?"
+      - name: ModsPack pilot (read-only, live)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/sync/pilot.mjs || echo "pilot exit $?"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:

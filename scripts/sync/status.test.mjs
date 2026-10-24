@@ -9,8 +9,9 @@ const bad = { projectId: 'one-small-mods-pack', outcome: 'error', changes: [], s
 test('renders every required section with text statuses', () => {
   const { markdown } = renderStatus({ runAt: '2026-10-23T06:23:00Z', trigger: 'schedule', mode: 'write', results: [ok, bad], openSyncPrs: [{ number: 7, url: ok.pr.url, title: 'sync(taskforge): registry update', branch: 'sync/taskforge', draft: true, updatedAt: '2026-10-23T06:23:00Z' }] })
   for (const h of ['# Registry sync status', '## Summary', '## Detected changes', '## Errors', '## Outstanding registry PRs', '## Suggested manual updates']) assert.ok(markdown.includes(h), h)
-  assert.match(markdown, /\| taskforge \| Changes found \| 2026-10-23T06:23:00Z \| 0 \| \[PR #7\]/)
-  assert.match(markdown, /\| one-small-mods-pack \| Error \| Never \| 1 \| None \|/)
+  assert.match(markdown, /\| taskforge \| Changes found \| Complete \| 2026-10-23T06:23:00Z \| 0 \| \[PR #7\]/)
+  assert.match(markdown, /\| one-small-mods-pack \| Error \| Not collected \| Never \| 1 \| None \|/)
+  assert.match(markdown, /Run result: FAILED: 1 of 2 project\(s\) not fully observed \(one-small-mods-pack\); 1 complete\./)
   assert.match(markdown, /repo-unreachable/)
   assert.match(markdown, /\| \[PR #7\]\(.*\): sync\(taskforge\): registry update \| sync\/taskforge \| Yes \|/)
   assert.doesNotMatch(markdown, /[\u{1F300}-\u{1FAFF}✅❌]/u, 'no emoji-only status')

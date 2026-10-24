@@ -88,6 +88,25 @@ export function materialView(p) {
   }
 }
 
+// The snapshot written for this observation. Keys are always in the same order, so the
+// same facts give byte-identical output.
+export function snapshotFrom(prev, observation, notes = []) {
+  const s = { defaultBranch: observation.repo.defaultBranch, headSha: observation.head.sha, archived: observation.repo.archived, observedAt: observation.collectedAt, visibility: observation.repo.visibility }
+  const t = observation.tags
+  if (t.status === 'unavailable') {
+    if (prev.latestTag !== undefined) s.latestTag = prev.latestTag
+    notes.push('Tags could not be read; the recorded latest tag is kept unchanged.')
+  } else s.latestTag = t.latest ? { name: t.latest.name, version: t.latest.version, commitSha: t.latest.commitSha } : null
+  const k = observation.package
+  if (k.status === 'unavailable') {
+    if (prev.package !== undefined) s.package = prev.package
+    notes.push('package.json could not be read; the recorded package metadata is kept unchanged.')
+  } else if (k.status === 'observed') s.package = { status: 'observed', name: k.name, version: k.version, private: k.private }
+  else s.package = { status: k.status, name: null, version: null, private: null }
+  if (t.status === 'observed' && t.truncated) notes.push(`More than ${t.count} tags exist; the latest version tag was chosen from the first ${t.count} only.`)
+  return s
+}
+
 export function plan(registry, observation) {
   const index = registry.projects.findIndex(p => p.id === observation.projectId)
   if (index === -1) throw new Error(`project ${observation.projectId} is not in the registry`)
@@ -106,16 +125,43 @@ export function plan(registry, observation) {
   const p = structuredClone(before)
   const changes = []
 
-  // Repository snapshot and open PRs are replaced from GitHub.
-  p.repositorySnapshot = { defaultBranch: branch, headSha: observation.head.sha, archived: observation.repo.archived, observedAt: observation.collectedAt }
-  if (before.repositorySnapshot.headSha !== observation.head.sha) changes.push(`Default branch ${branch} moved from ${before.repositorySnapshot.headSha ? short(before.repositorySnapshot.headSha) : 'unknown'} to ${short(observation.head.sha)}.`)
-  if (before.repositorySnapshot.defaultBranch !== branch) {
-    changes.push(`Default branch renamed from ${before.repositorySnapshot.defaultBranch} to ${branch}.`)
-    suggestions.push(`The default branch is now ${branch}; check any documentation or evidence that names ${before.repositorySnapshot.defaultBranch}.`)
+  // Repository snapshot and open PRs are replaced from GitHub. A section GitHub could not
+  // answer keeps its previous value: missing data is never written as "none".
+  const prev = before.repositorySnapshot
+  p.repositorySnapshot = snapshotFrom(prev, observation, notes)
+  const rel = observation.head.relation
+  if (prev.headSha !== observation.head.sha) {
+    const from = prev.headSha ? short(prev.headSha) : 'unknown'
+    if (rel === 'rewritten' || rel === 'unreachable') {
+      changes.push(`Default branch ${branch} history was rewritten: ${from} is ${rel === 'rewritten' ? 'not an ancestor of' : 'no longer in the repository, so it cannot be an ancestor of'} ${short(observation.head.sha)} (force push or branch reset).`)
+      const commitRefs = before.evidence.filter(e => e.origin !== 'sync' && e.commitSha).length
+      suggestions.push(`History on ${branch} was rewritten (${from} → ${short(observation.head.sha)}). Re-check the ${commitRefs} manual evidence record(s) that name a commit, and any gate verified against a commit from before the rewrite, before relying on them.`)
+    } else {
+      changes.push(`Default branch ${branch} moved from ${from} to ${short(observation.head.sha)}${rel === 'fast-forward' ? ' (fast-forward)' : ''}.`)
+      if (rel === 'unknown') notes.push(`Whether ${branch} moved by fast-forward or by a rewrite could not be read; the next run checks again.`)
+    }
   }
-  if (before.repositorySnapshot.archived !== observation.repo.archived) {
+  if (prev.defaultBranch !== branch) {
+    changes.push(`Default branch renamed from ${prev.defaultBranch} to ${branch}.`)
+    suggestions.push(`The default branch is now ${branch}; check any documentation or evidence that names ${prev.defaultBranch}.`)
+  }
+  if (prev.archived !== observation.repo.archived) {
     changes.push(`Archived flag changed to ${observation.repo.archived}.`)
     if (observation.repo.archived && p.lifecycle === 'active') suggestions.push('The repository is archived but the project lifecycle is active; review lifecycle.')
+  }
+  const snap = p.repositorySnapshot
+  if (prev.visibility !== snap.visibility) changes.push(`Visibility recorded as ${snap.visibility}${prev.visibility ? ` (was ${prev.visibility})` : ''}.`)
+  if (snap.visibility !== p.visibility) suggestions.push(`GitHub reports the repository as ${snap.visibility} but the registry says ${p.visibility}; update the project's visibility by hand (a private repository needs the reader credential).`)
+  if (!deepEqual(prev.latestTag, snap.latestTag) && snap.latestTag !== undefined) {
+    changes.push(snap.latestTag ? `Latest version tag is ${snap.latestTag.name} at ${short(snap.latestTag.commitSha)}.` : 'No version tag matches the release tag pattern.')
+  }
+  if (snap.latestTag && !observation.releases.some(r => r.tag === snap.latestTag.name)) suggestions.push(`Tag ${snap.latestTag.name} has no published GitHub release among the ${observation.releases.length} read; a tag alone does not move currentVersion or satisfy any release gate.`)
+  if (!deepEqual(prev.package, snap.package) && snap.package !== undefined) {
+    const k = snap.package
+    changes.push(k.status === 'observed' ? `package.json at ${short(observation.head.sha)}: ${k.name || '(no valid name)'}@${k.version || '(no valid version)'}${k.private ? ' (private)' : ''}.` : k.status === 'none' ? 'No root package.json at the head commit.' : 'Root package.json is present but unreadable.')
+  }
+  if (snap.package && snap.package.status === 'observed' && snap.package.version && parseSemver(snap.package.version) && (!parseSemver(p.release.currentVersion) || compareSemver(snap.package.version, p.release.currentVersion) > 0)) {
+    suggestions.push(`package.json declares ${snap.package.version} but currentVersion is ${p.release.currentVersion || 'unset'}. currentVersion moves only from a published release; distribution and provenance are verified by hand.`)
   }
 
   p.openPullRequests = observation.openPullRequests
@@ -154,7 +200,7 @@ export function plan(registry, observation) {
   const complete = observation.collection.complete
   if (failed.length) suggestions.push(`CI did not pass on ${short(observation.head.sha)} (${failed.map(r => `${r.workflow}: ${r.conclusion}`).join(', ')}); automated-checks must not be verified for this commit.`)
   if (!complete) {
-    suggestions.push(`CI evidence for ${short(observation.head.sha)} is incomplete (${observation.collection.gaps.join('; ')}); automated-checks must not be verified from this run.`)
+    suggestions.push(`Collection for ${short(observation.head.sha)} is incomplete (${observation.collection.gaps.join('; ')}); automated-checks must not be verified from this run.`)
     notes.push('Incomplete CI collection: older automated CI records were kept, and no CI pass was reported.')
   } else if (!failed.length && observation.workflowRuns.length) {
     const gate = p.releaseGates.find(g => g.id === 'automated-checks')
