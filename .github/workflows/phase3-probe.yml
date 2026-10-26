@@ -1,0 +1,33 @@
+name: Phase 3 probe (temporary, read-only)
+on:
+  push:
+    branches: [claude/phase-3-probe]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Read public project state
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -u
+          api() { curl -sS -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com$1"; }
+          R=WasteOfADrumBum/one-small-mods-pack
+          echo "== PR 3"; api /repos/$R/pulls/3 | jq '{state,draft,merged,mergeable_state,head:.head.sha,updated_at,title,commits,changed_files}'
+          echo "== open PRs"; api "/repos/$R/pulls?state=all&per_page=20" | jq -c '.[]|{number,state,draft,head:.head.sha,merged_at,updated_at}'
+          H=$(api /repos/$R/pulls/3 | jq -r .head.sha)
+          echo "== runs on PR head $H"; api "/repos/$R/actions/runs?head_sha=$H&per_page=50" | jq -c '{total:.total_count, runs:[.workflow_runs[]|{id,name,path,event,status,conclusion,run_attempt,created_at,updated_at,html_url}]}'
+          for id in $(api "/repos/$R/actions/runs?head_sha=$H&per_page=50" | jq -r '.workflow_runs[].id'); do echo "== jobs $id"; api /repos/$R/actions/runs/$id/jobs | jq -c '[.jobs[]|{name,conclusion,completed_at}]'; done
+          echo "== check-runs"; api /repos/$R/commits/$H/check-runs | jq -c '[.check_runs[]|{name,conclusion,completed_at}]'
+          echo "== tags"; api /repos/$R/tags | jq -c '[.[].name]'
+          echo "== releases"; api /repos/$R/releases | jq -c '[.[].tag_name]'
+          echo "== PR3 comments"; api "/repos/$R/issues/3/comments?per_page=100" | jq -c '[.[]|{user:.user.login,created_at,updated_at,len:(.body|length)}]'
+          echo "== PR3 reviews"; api "/repos/$R/pulls/3/reviews" | jq -c '[.[]|{user:.user.login,state,submitted_at,commit_id}]'
+          echo "== npm"; curl -sS -o /dev/null -w "%{http_code}\n" https://registry.npmjs.org/one-small-modspack
+          for repo in one-small-ui personal-portfolio one-small-studio one-small-photography taskforge cortex; do
+            echo "== $repo"; api /repos/WasteOfADrumBum/$repo | jq -c '{id,full_name,default_branch,pushed_at,visibility}'
+            api "/repos/WasteOfADrumBum/$repo/pulls?state=open" | jq -c '[.[]|{number,draft,head:.head.sha,title}]'
+          done
