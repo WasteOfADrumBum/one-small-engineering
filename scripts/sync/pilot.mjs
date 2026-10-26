@@ -29,7 +29,7 @@ export function governanceView(p) {
     tier: p.tier,
     lifecycle: p.lifecycle,
     visibility: p.visibility,
-    scope: { targetVersion: p.release.targetVersion, releaseStatus: p.release.releaseStatus, scopeDocument: p.release.scopeDocument, nextAction: p.release.nextAction, enhancements: p.release.enhancements },
+    scope: { targetVersion: p.release.targetVersion, releaseStatus: p.release.releaseStatus, scopeDocument: p.release.scopeDocument, candidate: p.release.candidate, nextAction: p.release.nextAction, enhancements: p.release.enhancements },
     blockers: p.release.blockers,
     ownership: p.ownership,
     approval: p.approval,
@@ -37,6 +37,7 @@ export function governanceView(p) {
     manualEvidence: p.evidence.filter(e => e.origin !== 'sync'),
     modsPack: p.modsPack,
     missingEvidence: p.missingEvidence,
+    dependencies: p.dependencies,
     syncIdentity: p.sync && { enabled: p.sync.enabled, mode: p.sync.mode, repositoryId: p.sync.repositoryId }
   }
 }

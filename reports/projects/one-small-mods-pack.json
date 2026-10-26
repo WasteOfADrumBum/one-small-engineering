@@ -1,0 +1,1222 @@
+{
+  "kind": "one-small-engineering/project-readiness",
+  "generatedBy": "npm run release:reports",
+  "asOf": "2026-10-26T02:00:00Z",
+  "staleDays": 30,
+  "engineVersion": 1,
+  "registrySha256": "9e156e2ac7d2dd09f6a3e21498700c4ae0a554383093c51c3f7d1d259ecc7acc",
+  "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
+  "project": {
+    "id": "one-small-mods-pack",
+    "name": "One Small ModsPack",
+    "tier": "library",
+    "facts": {
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "currentVersion": "0.1.0",
+      "targetVersion": "2.0.0",
+      "releaseStatus": "in_progress",
+      "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/docs/release-verification.md",
+      "candidate": {
+        "pullRequest": 3,
+        "ref": "modspack-2-0",
+        "headSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+        "observedAt": "2026-10-26T01:16:08Z"
+      },
+      "openPullRequests": [
+        {
+          "number": 3,
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/pull/3",
+          "headSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+          "draft": true
+        }
+      ],
+      "head": "367cede6ffba17de9bf2d3a20968a3e1cd1b3371",
+      "snapshotObservedAt": "2026-10-22T16:33:00Z",
+      "lastSyncedAt": null,
+      "lastEvidenceAt": "2026-10-26T01:40:00Z",
+      "ownership": {
+        "builder": null,
+        "verifier": null,
+        "approvalOwner": "Joshua Small"
+      },
+      "approval": {
+        "status": "pending",
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidenceRefs": []
+      },
+      "registryNextAction": "Finish the manual accessibility checks and the Copilot/Gemini decision in the active PR #3 testing session, reconcile the PR description with release-verification.md, then request independent verification of the final head.",
+      "missingEvidence": [
+        "Independent (non-builder) verification of any PR #3 test result.",
+        "Manual screen reader, browser zoom and forced-colors results.",
+        "Copilot and Gemini CLI runtime evidence or a recorded owner decision to ship them as experimental.",
+        "npm ownership/access confirmation.",
+        "Builder and independent verifier not assigned in the registry."
+      ]
+    },
+    "derived": {
+      "readiness": {
+        "totalGates": 22,
+        "applicableGates": 21,
+        "verifiedGates": 0,
+        "remainingGates": 21,
+        "byState": {
+          "verified": 0,
+          "in_progress": 13,
+          "not_started": 7,
+          "blocked": 1,
+          "not_applicable": 1,
+          "unknown_stale": 0
+        },
+        "percentage": 0,
+        "prePublication": {
+          "applicable": 18,
+          "verified": 0
+        },
+        "blockingFindings": 11,
+        "registryBlockers": 8,
+        "missingIndependentVerification": [
+          "automated-checks",
+          "wcag-22-aa",
+          "keyboard-screen-reader",
+          "responsive-layouts",
+          "no-release-blockers",
+          "clean-consumer-install",
+          "runtime-compatibility",
+          "package-archive-inspection",
+          "supply-chain-review",
+          "ci-release-pipeline",
+          "versioning-changelog",
+          "upgrade-rollback-uninstall-docs",
+          "public-docs-accurate"
+        ],
+        "candidateMoved": false,
+        "ownershipValid": false,
+        "approvalRecorded": false,
+        "eligibility": "not-eligible",
+        "releaseReady": false
+      },
+      "gates": [
+        {
+          "id": "scope-complete",
+          "requirement": "The approved release scope document is complete; every in-scope item is done.",
+          "phase": "pre-publication",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
+          "applicable": true,
+          "provenance": "observation",
+          "evidence": [
+            {
+              "id": "msp-pr-3",
+              "type": "pull_request",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/pull/3",
+              "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+              "verifiedAt": "2026-10-22T16:33:00Z",
+              "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-10-22T16:33:00Z",
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "registry notes: Scope is PR #3 plus the go/no-go checklist in release-verification.md; open checklist items remain"
+          ],
+          "notes": "Scope is PR #3 plus the go/no-go checklist in release-verification.md; open checklist items remain.",
+          "blockers": [],
+          "nextAction": "Finish the work and record evidence, then have the verifier re-check."
+        },
+        {
+          "id": "automated-checks",
+          "requirement": "Applicable build, lint, type check and automated tests pass in CI on the release commit.",
+          "phase": "pre-publication",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
+          "applicable": true,
+          "provenance": "pass-without-independent-verifier",
+          "evidence": [
+            {
+              "id": "msp-ci-pr3-head",
+              "type": "workflow_run",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/39813140190",
+              "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+              "verifiedAt": "2026-10-22T16:33:00Z",
+              "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
+              "origin": "manual",
+              "provenance": "pass-without-independent-verifier",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-10-22T16:33:00Z",
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: CI green on PR #3 head 80cc269. The PR is under active testing; re-check on the final head"
+          ],
+          "notes": "CI green on PR #3 head 80cc269. The PR is under active testing; re-check on the final head.",
+          "blockers": [],
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+        },
+        {
+          "id": "security-privacy-review",
+          "requirement": "Security and privacy review completed against [security.md](security.md).",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate",
+            "registry notes: Security test suite and dependency audit are builder-reported; no independent security review recorded yet"
+          ],
+          "notes": "Security test suite and dependency audit are builder-reported; no independent security review recorded yet.",
+          "blockers": [],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "wcag-22-aa",
+          "requirement": "Applicable WCAG 2.2 AA success criteria verified (automated checks plus manual review).",
+          "phase": "pre-publication",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
+          "applicable": true,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "msp-release-verification",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/docs/release-verification.md",
+              "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+              "verifiedAt": "2026-10-22T16:33:00Z",
+              "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-10-22T16:33:00Z",
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding"
+          ],
+          "notes": "Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding.",
+          "blockers": [
+            "manual-screen-reader-review",
+            "manual-zoom-forced-colors-review"
+          ],
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+        },
+        {
+          "id": "keyboard-screen-reader",
+          "requirement": "Keyboard-only and screen-reader testing completed on the critical pages.",
+          "phase": "pre-publication",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
+          "applicable": true,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "msp-release-verification",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/docs/release-verification.md",
+              "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+              "verifiedAt": "2026-10-22T16:33:00Z",
+              "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-10-22T16:33:00Z",
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED"
+          ],
+          "notes": "Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED.",
+          "blockers": [
+            "manual-screen-reader-review"
+          ],
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+        },
+        {
+          "id": "responsive-layouts",
+          "requirement": "Layouts tested at phone, tablet and desktop widths and at 200% zoom.",
+          "phase": "pre-publication",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
+          "applicable": true,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "msp-release-verification",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/docs/release-verification.md",
+              "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+              "verifiedAt": "2026-10-22T16:33:00Z",
+              "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-10-22T16:33:00Z",
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED"
+          ],
+          "notes": "Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED.",
+          "blockers": [
+            "manual-zoom-forced-colors-review"
+          ],
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+        },
+        {
+          "id": "critical-workflows",
+          "requirement": "Critical user workflows (navigation, contact form, media playback, galleries) tested.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [
+            "auto-critical-workflows-unverified"
+          ],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "production-deployment",
+          "requirement": "The production deployment serves the release commit and behaves as tested.",
+          "phase": "post-publication",
+          "registryStatus": "not_applicable",
+          "state": "not_applicable",
+          "applicable": false,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [],
+          "notes": "Owner decision 2026-10-22: ModsPack 2.0.0 ships as an npm library and a GitHub-hosted Claude Code plugin marketplace; there is no hosted service or website to deploy. Delivery is verified instead by the separate gates distribution-verified, release-provenance, clean-consumer-install, published-artifact-matches and public-docs-accurate, which stay required. Revisit if the generated documentation site is hosted as part of a release.",
+          "blockers": [],
+          "nextAction": null
+        },
+        {
+          "id": "documentation-accurate",
+          "requirement": "README and essential docs describe the actual project, setup and deployment.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [
+            "pr-description-stale"
+          ],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "no-release-blockers",
+          "requirement": "No unresolved release-blocking findings.",
+          "phase": "pre-publication",
+          "registryStatus": "blocked",
+          "state": "blocked",
+          "applicable": true,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "msp-release-verification",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/docs/release-verification.md",
+              "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+              "verifiedAt": "2026-10-22T16:33:00Z",
+              "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-10-22T16:33:00Z",
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Open blockers are listed under release.blockers"
+          ],
+          "notes": "Open blockers are listed under release.blockers.",
+          "blockers": [
+            "pr-description-stale",
+            "codex-interactive-trust",
+            "copilot-gemini-runtime-untested",
+            "manual-screen-reader-review",
+            "manual-zoom-forced-colors-review",
+            "npm-ownership-access",
+            "publish-pipeline-missing",
+            "release-authorization"
+          ],
+          "nextAction": "Resolve pr-description-stale, codex-interactive-trust, copilot-gemini-runtime-untested, manual-screen-reader-review, manual-zoom-forced-colors-review, npm-ownership-access, publish-pipeline-missing, release-authorization, then verify."
+        },
+        {
+          "id": "package-metadata-exports",
+          "requirement": "Package name, version, `exports`/`bin`, `files`, `engines`, license and repository metadata verified.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "clean-consumer-install",
+          "requirement": "The packed artifact installs and works in a clean consumer project.",
+          "phase": "pre-publication",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
+          "applicable": true,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "msp-release-verification",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/docs/release-verification.md",
+              "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+              "verifiedAt": "2026-10-22T16:33:00Z",
+              "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-10-22T16:33:00Z",
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Builder reports an artifact test that packs, installs, validates and initializes every platform"
+          ],
+          "notes": "Builder reports an artifact test that packs, installs, validates and initializes every platform.",
+          "blockers": [],
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+        },
+        {
+          "id": "runtime-compatibility",
+          "requirement": "Supported runtimes and platforms (Node versions, OS, host tools) tested as claimed.",
+          "phase": "pre-publication",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
+          "applicable": true,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "msp-release-verification",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/docs/release-verification.md",
+              "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+              "verifiedAt": "2026-10-22T16:33:00Z",
+              "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "msp-compatibility-catalog",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/catalog/compatibility.json",
+              "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+              "verifiedAt": "2026-10-22T16:33:00Z",
+              "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-10-22T16:33:00Z",
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Claude Code harness PASS; Codex discovery and trust-bypassed hook enforcement live; Copilot/Gemini runtime NOT TESTED; Node 20 partial, CI runs Node 22 only"
+          ],
+          "notes": "Claude Code harness PASS; Codex discovery and trust-bypassed hook enforcement live; Copilot/Gemini runtime NOT TESTED; Node 20 partial, CI runs Node 22 only.",
+          "blockers": [
+            "codex-interactive-trust",
+            "copilot-gemini-runtime-untested"
+          ],
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+        },
+        {
+          "id": "package-archive-inspection",
+          "requirement": "`npm pack` (or equivalent) contents inspected: required files present, no tests, secrets, `.env`, or build junk.",
+          "phase": "pre-publication",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
+          "applicable": true,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "msp-release-verification",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/docs/release-verification.md",
+              "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+              "verifiedAt": "2026-10-22T16:33:00Z",
+              "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-10-22T16:33:00Z",
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Builder reports an 82-file tarball reviewed with an artifact regression test; not independently re-inspected"
+          ],
+          "notes": "Builder reports an 82-file tarball reviewed with an artifact regression test; not independently re-inspected.",
+          "blockers": [],
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+        },
+        {
+          "id": "supply-chain-review",
+          "requirement": "Dependency audit and supply-chain review completed (see [security.md](security.md#package-supply-chain)).",
+          "phase": "pre-publication",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
+          "applicable": true,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "msp-release-verification",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/docs/release-verification.md",
+              "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+              "verifiedAt": "2026-10-22T16:33:00Z",
+              "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-10-22T16:33:00Z",
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE"
+          ],
+          "notes": "Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE.",
+          "blockers": [],
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+        },
+        {
+          "id": "ci-release-pipeline",
+          "requirement": "CI and the release/publish pipeline verified, with least-privilege permissions.",
+          "phase": "pre-publication",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
+          "applicable": true,
+          "provenance": "pass-without-independent-verifier",
+          "evidence": [
+            {
+              "id": "msp-ci-pr3-head",
+              "type": "workflow_run",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/39813140190",
+              "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+              "verifiedAt": "2026-10-22T16:33:00Z",
+              "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
+              "origin": "manual",
+              "provenance": "pass-without-independent-verifier",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-10-22T16:33:00Z",
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: CI exists for checks (contents: read). There is no release or publish pipeline yet"
+          ],
+          "notes": "CI exists for checks (contents: read). There is no release or publish pipeline yet.",
+          "blockers": [
+            "npm-ownership-access",
+            "publish-pipeline-missing"
+          ],
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+        },
+        {
+          "id": "versioning-changelog",
+          "requirement": "Semantic version chosen and CHANGELOG updated for this release.",
+          "phase": "pre-publication",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
+          "applicable": true,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "msp-release-verification",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/docs/release-verification.md",
+              "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+              "verifiedAt": "2026-10-22T16:33:00Z",
+              "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-10-22T16:33:00Z",
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: CHANGELOG 2.0.0 (unreleased) with mod version list and a consistency test (builder-reported)"
+          ],
+          "notes": "CHANGELOG 2.0.0 (unreleased) with mod version list and a consistency test (builder-reported).",
+          "blockers": [],
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+        },
+        {
+          "id": "distribution-verified",
+          "requirement": "The package is available from npm (or the stated channel) under the expected name and version.",
+          "phase": "post-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate",
+            "registry notes: Not published. npm ownership and access unconfirmed"
+          ],
+          "notes": "Not published. npm ownership and access unconfirmed.",
+          "blockers": [
+            "npm-ownership-access"
+          ],
+          "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+        },
+        {
+          "id": "release-provenance",
+          "requirement": "Release provenance (npm `--provenance` or signed tags) where the channel supports it.",
+          "phase": "post-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate",
+            "registry notes: No publish workflow, so no npm provenance yet"
+          ],
+          "notes": "No publish workflow, so no npm provenance yet.",
+          "blockers": [
+            "publish-pipeline-missing"
+          ],
+          "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+        },
+        {
+          "id": "upgrade-rollback-uninstall-docs",
+          "requirement": "Upgrade, rollback and uninstall behavior documented.",
+          "phase": "pre-publication",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
+          "applicable": true,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "msp-release-verification",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/docs/release-verification.md",
+              "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+              "verifiedAt": "2026-10-22T16:33:00Z",
+              "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-10-22T16:33:00Z",
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Install, update and modspack uninstall --yes documented in docs/getting-started.md (builder-reported)"
+          ],
+          "notes": "Install, update and modspack uninstall --yes documented in docs/getting-started.md (builder-reported).",
+          "blockers": [],
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+        },
+        {
+          "id": "public-docs-accurate",
+          "requirement": "Public documentation reflects actual, verified capabilities and states limits plainly.",
+          "phase": "pre-publication",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
+          "applicable": true,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "msp-release-verification",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/docs/release-verification.md",
+              "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+              "verifiedAt": "2026-10-22T16:33:00Z",
+              "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "msp-compatibility-catalog",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/catalog/compatibility.json",
+              "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+              "verifiedAt": "2026-10-22T16:33:00Z",
+              "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-10-22T16:33:00Z",
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: README, CHANGELOG and limitations reviewed by the builder; compatibility claims come from the catalog"
+          ],
+          "notes": "README, CHANGELOG and limitations reviewed by the builder; compatibility claims come from the catalog.",
+          "blockers": [
+            "copilot-gemini-runtime-untested"
+          ],
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+        },
+        {
+          "id": "published-artifact-matches",
+          "requirement": "The published artifact matches the verified release commit and inspected archive.",
+          "phase": "post-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate",
+            "registry notes: Nothing published yet"
+          ],
+          "notes": "Nothing published yet.",
+          "blockers": [],
+          "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+        }
+      ],
+      "blockers": {
+        "merge": [
+          {
+            "id": "pr-description-stale",
+            "origin": "registry",
+            "status": "open",
+            "category": "documentation",
+            "severity": null,
+            "blocks": "merge",
+            "gates": [
+              "documentation-accurate"
+            ],
+            "description": "PR #3 description disagrees with docs/release-verification.md at the same head (dependency audit INCONCLUSIVE vs PASS; 55 vs 82 packed files; 85 vs 89 CLI tests). Reconcile before review.",
+            "evidenceRefs": [
+              "msp-pr-3",
+              "msp-release-verification"
+            ],
+            "rule": null
+          }
+        ],
+        "release": [
+          {
+            "id": "codex-interactive-trust",
+            "origin": "registry",
+            "status": "open",
+            "category": "workflow",
+            "severity": null,
+            "blocks": "release",
+            "gates": [
+              "runtime-compatibility"
+            ],
+            "description": "Codex hook enforcement verified only with trust bypassed; interactive /hooks trust not confirmed.",
+            "evidenceRefs": [
+              "msp-release-verification"
+            ],
+            "rule": null
+          },
+          {
+            "id": "copilot-gemini-runtime-untested",
+            "origin": "registry",
+            "status": "open",
+            "category": "workflow",
+            "severity": null,
+            "blocks": "release",
+            "gates": [
+              "runtime-compatibility",
+              "public-docs-accurate"
+            ],
+            "description": "Copilot and Gemini CLI hook enforcement and custom agents are NOT TESTED; either test in authenticated runtimes or record an owner decision to ship them as experimental.",
+            "evidenceRefs": [
+              "msp-release-verification",
+              "msp-compatibility-catalog"
+            ],
+            "rule": null
+          },
+          {
+            "id": "manual-screen-reader-review",
+            "origin": "registry",
+            "status": "open",
+            "category": "accessibility",
+            "severity": null,
+            "blocks": "release",
+            "gates": [
+              "keyboard-screen-reader",
+              "wcag-22-aa"
+            ],
+            "description": "Screen reader review (NVDA or similar) of the generated documentation site is NOT TESTED.",
+            "evidenceRefs": [
+              "msp-release-verification"
+            ],
+            "rule": null
+          },
+          {
+            "id": "manual-zoom-forced-colors-review",
+            "origin": "registry",
+            "status": "open",
+            "category": "accessibility",
+            "severity": null,
+            "blocks": "release",
+            "gates": [
+              "responsive-layouts",
+              "wcag-22-aa"
+            ],
+            "description": "Real 200%/400% browser zoom, text spacing and Windows forced-colors review is NOT TESTED (only viewport-width and emulated checks).",
+            "evidenceRefs": [
+              "msp-release-verification"
+            ],
+            "rule": null
+          },
+          {
+            "id": "npm-ownership-access",
+            "origin": "registry",
+            "status": "open",
+            "category": "distribution",
+            "severity": null,
+            "blocks": "release",
+            "gates": [
+              "distribution-verified",
+              "ci-release-pipeline"
+            ],
+            "description": "npm ownership of one-small-modspack and publish access not confirmed; the name is currently unpublished.",
+            "evidenceRefs": [
+              "msp-npm-name-check"
+            ],
+            "rule": null
+          },
+          {
+            "id": "publish-pipeline-missing",
+            "origin": "registry",
+            "status": "open",
+            "category": "distribution",
+            "severity": null,
+            "blocks": "release",
+            "gates": [
+              "ci-release-pipeline",
+              "release-provenance"
+            ],
+            "description": "No release or publish workflow exists at the candidate commit (only ci.yml), so the package cannot be published from CI with npm provenance. Add a least-privilege publish workflow (manual trigger, npm --provenance) or record an owner decision on how 2.0.0 is published. Proposed by Claude Code in the Phase 3 PR for owner review.",
+            "evidenceRefs": [
+              "msp-workflows-80cc269"
+            ],
+            "rule": null
+          },
+          {
+            "id": "release-authorization",
+            "origin": "registry",
+            "status": "open",
+            "category": "approval",
+            "severity": null,
+            "blocks": "release",
+            "gates": [],
+            "description": "No owner authorization yet for merge, tag, npm publish or deployment.",
+            "evidenceRefs": [
+              "msp-pr-3"
+            ],
+            "rule": null
+          },
+          {
+            "id": "auto-critical-workflows-unverified",
+            "origin": "derived",
+            "status": "proposed",
+            "category": "workflow",
+            "severity": null,
+            "blocks": "release",
+            "gates": [
+              "critical-workflows"
+            ],
+            "description": "Critical workflows are not independently verified (critical-workflows).",
+            "evidenceRefs": [],
+            "rule": "critical workflow gates must be verified before release",
+            "action": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
+          },
+          {
+            "id": "auto-missing-verification",
+            "origin": "derived",
+            "status": "proposed",
+            "category": "evidence",
+            "severity": null,
+            "blocks": "release",
+            "gates": [
+              "scope-complete",
+              "automated-checks",
+              "security-privacy-review",
+              "wcag-22-aa",
+              "keyboard-screen-reader",
+              "responsive-layouts",
+              "critical-workflows",
+              "documentation-accurate",
+              "package-metadata-exports",
+              "clean-consumer-install",
+              "runtime-compatibility",
+              "package-archive-inspection",
+              "supply-chain-review",
+              "ci-release-pipeline",
+              "versioning-changelog",
+              "upgrade-rollback-uninstall-docs",
+              "public-docs-accurate"
+            ],
+            "description": "17 applicable pre-publication gate(s) lack current independent verification.",
+            "evidenceRefs": [],
+            "rule": "every applicable gate needs independent pass evidence",
+            "action": null
+          },
+          {
+            "id": "auto-ownership",
+            "origin": "derived",
+            "status": "proposed",
+            "category": "evidence",
+            "severity": null,
+            "blocks": "release",
+            "gates": [],
+            "description": "Independent verification impossible: builder and independent verifier are not both assigned.",
+            "evidenceRefs": [],
+            "rule": "ownership.builder and ownership.verifier must be named, different and not automation",
+            "action": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision)."
+          }
+        ],
+        "postRelease": [
+          {
+            "id": "enhancement-1",
+            "origin": "registry",
+            "text": "Plugin icon artwork and plugin-directory submission (not needed for npm or local use)."
+          },
+          {
+            "id": "enhancement-2",
+            "origin": "registry",
+            "text": "Add Node 20 to the CI matrix to back the engines claim."
+          },
+          {
+            "id": "enhancement-3",
+            "origin": "registry",
+            "text": "Optional hosting of the generated documentation site."
+          }
+        ]
+      },
+      "nextActions": [
+        {
+          "rank": 1,
+          "priority": 3,
+          "bucket": "Missing required verification",
+          "source": "auto-ownership",
+          "origin": "derived",
+          "blocks": "release",
+          "gates": [],
+          "text": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision).",
+          "summary": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision)."
+        },
+        {
+          "rank": 2,
+          "priority": 3,
+          "bucket": "Missing required verification",
+          "source": "codex-interactive-trust",
+          "origin": "registry",
+          "blocks": "release",
+          "gates": [
+            "runtime-compatibility"
+          ],
+          "text": "Resolve blocker codex-interactive-trust: Codex hook enforcement verified only with trust bypassed; interactive /hooks trust not confirmed.",
+          "summary": "Resolve blocker codex-interactive-trust."
+        },
+        {
+          "rank": 3,
+          "priority": 3,
+          "bucket": "Missing required verification",
+          "source": "copilot-gemini-runtime-untested",
+          "origin": "registry",
+          "blocks": "release",
+          "gates": [
+            "runtime-compatibility",
+            "public-docs-accurate"
+          ],
+          "text": "Resolve blocker copilot-gemini-runtime-untested: Copilot and Gemini CLI hook enforcement and custom agents are NOT TESTED; either test in authenticated runtimes or record an owner decision to ship them as experimental.",
+          "summary": "Resolve blocker copilot-gemini-runtime-untested."
+        },
+        {
+          "rank": 4,
+          "priority": 3,
+          "bucket": "Missing required verification",
+          "source": "auto-critical-workflows-unverified",
+          "origin": "derived",
+          "blocks": "release",
+          "gates": [
+            "critical-workflows"
+          ],
+          "text": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.",
+          "summary": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
+        },
+        {
+          "rank": 5,
+          "priority": 3,
+          "bucket": "Missing required verification",
+          "source": "auto-missing-verification",
+          "origin": "derived",
+          "blocks": "release",
+          "gates": [
+            "scope-complete",
+            "automated-checks",
+            "security-privacy-review",
+            "wcag-22-aa",
+            "keyboard-screen-reader",
+            "responsive-layouts",
+            "critical-workflows",
+            "documentation-accurate",
+            "package-metadata-exports",
+            "clean-consumer-install",
+            "runtime-compatibility",
+            "package-archive-inspection",
+            "supply-chain-review",
+            "ci-release-pipeline",
+            "versioning-changelog",
+            "upgrade-rollback-uninstall-docs",
+            "public-docs-accurate"
+          ],
+          "text": "Independently re-check the builder evidence for automated-checks, clean-consumer-install, package-archive-inspection, supply-chain-review, versioning-changelog, upgrade-rollback-uninstall-docs; produce evidence for scope-complete, security-privacy-review, package-metadata-exports; then verify wcag-22-aa, keyboard-screen-reader, responsive-layouts, critical-workflows, documentation-accurate, runtime-compatibility, ci-release-pipeline, public-docs-accurate once their blockers are resolved.",
+          "summary": "Independently re-check the builder evidence for automated-checks, clean-consumer-install, package-archive-inspection, supply-chain-review..."
+        },
+        {
+          "rank": 6,
+          "priority": 5,
+          "bucket": "Accessibility release blockers",
+          "source": "manual-screen-reader-review",
+          "origin": "registry",
+          "blocks": "release",
+          "gates": [
+            "keyboard-screen-reader",
+            "wcag-22-aa"
+          ],
+          "text": "Resolve blocker manual-screen-reader-review: Screen reader review (NVDA or similar) of the generated documentation site is NOT TESTED.",
+          "summary": "Resolve blocker manual-screen-reader-review."
+        },
+        {
+          "rank": 7,
+          "priority": 5,
+          "bucket": "Accessibility release blockers",
+          "source": "manual-zoom-forced-colors-review",
+          "origin": "registry",
+          "blocks": "release",
+          "gates": [
+            "responsive-layouts",
+            "wcag-22-aa"
+          ],
+          "text": "Resolve blocker manual-zoom-forced-colors-review: Real 200%/400% browser zoom, text spacing and Windows forced-colors review is NOT TESTED (only viewport-width and emulated checks).",
+          "summary": "Resolve blocker manual-zoom-forced-colors-review."
+        },
+        {
+          "rank": 8,
+          "priority": 6,
+          "bucket": "Missing release artifacts",
+          "source": "npm-ownership-access",
+          "origin": "registry",
+          "blocks": "release",
+          "gates": [
+            "distribution-verified",
+            "ci-release-pipeline"
+          ],
+          "text": "Resolve blocker npm-ownership-access: npm ownership of one-small-modspack and publish access not confirmed; the name is currently unpublished.",
+          "summary": "Resolve blocker npm-ownership-access."
+        },
+        {
+          "rank": 9,
+          "priority": 6,
+          "bucket": "Missing release artifacts",
+          "source": "publish-pipeline-missing",
+          "origin": "registry",
+          "blocks": "release",
+          "gates": [
+            "ci-release-pipeline",
+            "release-provenance"
+          ],
+          "text": "Resolve blocker publish-pipeline-missing: No release or publish workflow exists at the candidate commit (only ci.yml), so the package cannot be published from CI with npm provenance. Add a least-privilege publish workflow (manual trigger, npm --provenance) or record an owner decision on how 2.0.0 is published. Proposed by Claude Code in the Phase 3 PR for owner review.",
+          "summary": "Resolve blocker publish-pipeline-missing."
+        },
+        {
+          "rank": 10,
+          "priority": 7,
+          "bucket": "Documentation and lower priority",
+          "source": "pr-description-stale",
+          "origin": "registry",
+          "blocks": "merge",
+          "gates": [
+            "documentation-accurate"
+          ],
+          "text": "Resolve blocker pr-description-stale: PR #3 description disagrees with docs/release-verification.md at the same head (dependency audit INCONCLUSIVE vs PASS; 55 vs 82 packed files; 85 vs 89 CLI tests). Reconcile before review.",
+          "summary": "Resolve blocker pr-description-stale."
+        }
+      ],
+      "dependencies": [],
+      "findings": [],
+      "approval": {
+        "valid": false,
+        "reason": "approval is pending"
+      }
+    },
+    "unverified": [
+      {
+        "gate": "automated-checks",
+        "evidence": "msp-ci-pr3-head",
+        "provenance": "pass-without-independent-verifier"
+      },
+      {
+        "gate": "wcag-22-aa",
+        "evidence": "msp-release-verification",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "keyboard-screen-reader",
+        "evidence": "msp-release-verification",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "responsive-layouts",
+        "evidence": "msp-release-verification",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "no-release-blockers",
+        "evidence": "msp-release-verification",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "clean-consumer-install",
+        "evidence": "msp-release-verification",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "runtime-compatibility",
+        "evidence": "msp-release-verification",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "runtime-compatibility",
+        "evidence": "msp-compatibility-catalog",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "package-archive-inspection",
+        "evidence": "msp-release-verification",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "supply-chain-review",
+        "evidence": "msp-release-verification",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "ci-release-pipeline",
+        "evidence": "msp-ci-pr3-head",
+        "provenance": "pass-without-independent-verifier"
+      },
+      {
+        "gate": "versioning-changelog",
+        "evidence": "msp-release-verification",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "upgrade-rollback-uninstall-docs",
+        "evidence": "msp-release-verification",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "public-docs-accurate",
+        "evidence": "msp-release-verification",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "public-docs-accurate",
+        "evidence": "msp-compatibility-catalog",
+        "provenance": "builder-reported"
+      }
+    ]
+  }
+}

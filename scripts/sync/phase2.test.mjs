@@ -394,7 +394,7 @@ test('readiness: not applicable, blocked, in progress and not started are counte
   assert.equal(x.gates.inProgress.length, 13)
   assert.equal(x.gates.notStarted.length, 7)
   assert.equal(x.verdict, 'not-ready')
-  assert.ok(x.reasons.some(r => /7 open blocker/.test(r)))
+  assert.ok(x.reasons.some(r => /8 open blocker/.test(r)))
   const cli = execFileSync('node', [resolve(ROOT, 'scripts/readiness.mjs')], { cwd: ROOT, encoding: 'utf8' })
   for (const p of reg.projects) assert.match(cli, new RegExp(`\\| ${p.id} \\|`))
 })
@@ -442,9 +442,9 @@ test('the stage A report job never writes, even if the stage variable says other
 
 // Schema, validator and line endings ----------------------------------------------
 
-test('schema 1.2.0: snapshot extras are typed, a public project must be pinned', () => {
+test('schema 1.2.0+: snapshot extras are typed, a public project must be pinned', () => {
   const reg = loadRegistry()
-  assert.equal(reg.schemaVersion, '1.2.0')
+  assert.equal(reg.schemaVersion, '1.3.0')
   const bad = (mutate, re) => {
     const r = loadRegistry()
     mutate(r)

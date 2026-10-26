@@ -1,0 +1,376 @@
+{
+  "kind": "one-small-engineering/release-preparation",
+  "generatedBy": "npm run release:reports",
+  "asOf": "2026-10-26T02:00:00Z",
+  "staleDays": 30,
+  "engineVersion": 1,
+  "registrySha256": "9e156e2ac7d2dd09f6a3e21498700c4ae0a554383093c51c3f7d1d259ecc7acc",
+  "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
+  "project": {
+    "id": "one-small-ui",
+    "name": "OneSmallUI",
+    "tier": "library"
+  },
+  "facts": {
+    "currentVersion": "0.5.0",
+    "targetVersion": "0.6.0",
+    "releaseStatus": "not_started",
+    "scopeDocument": null,
+    "candidate": null,
+    "openPullRequests": [],
+    "evidenceCommits": [
+      {
+        "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+        "evidence": [
+          "ui-ci-main"
+        ]
+      }
+    ],
+    "ownership": {
+      "builder": null,
+      "verifier": null,
+      "approvalOwner": "Joshua Small"
+    },
+    "approval": {
+      "status": "pending",
+      "approvedBy": null,
+      "approvedAt": null,
+      "evidenceRefs": []
+    }
+  },
+  "derived": {
+    "readiness": {
+      "totalGates": 22,
+      "applicableGates": 22,
+      "verifiedGates": 0,
+      "remainingGates": 22,
+      "byState": {
+        "verified": 0,
+        "in_progress": 1,
+        "not_started": 21,
+        "blocked": 0,
+        "not_applicable": 0,
+        "unknown_stale": 0
+      },
+      "percentage": 0,
+      "prePublication": {
+        "applicable": 18,
+        "verified": 0
+      },
+      "blockingFindings": 5,
+      "registryBlockers": 1,
+      "missingIndependentVerification": [
+        "automated-checks"
+      ],
+      "candidateMoved": false,
+      "ownershipValid": false,
+      "approvalRecorded": false,
+      "eligibility": "not-scoped",
+      "releaseReady": false
+    },
+    "eligibility": "not-scoped",
+    "security": [
+      {
+        "id": "security-privacy-review",
+        "state": "not_started",
+        "provenance": "none",
+        "missing": [
+          "builder and independent verifier are not both assigned",
+          "evidence for this gate"
+        ]
+      },
+      {
+        "id": "supply-chain-review",
+        "state": "not_started",
+        "provenance": "none",
+        "missing": [
+          "builder and independent verifier are not both assigned",
+          "evidence for this gate"
+        ]
+      }
+    ],
+    "accessibility": [
+      {
+        "id": "wcag-22-aa",
+        "state": "not_started",
+        "provenance": "none",
+        "missing": [
+          "builder and independent verifier are not both assigned",
+          "evidence for this gate"
+        ]
+      },
+      {
+        "id": "keyboard-screen-reader",
+        "state": "not_started",
+        "provenance": "none",
+        "missing": [
+          "builder and independent verifier are not both assigned",
+          "evidence for this gate"
+        ]
+      },
+      {
+        "id": "responsive-layouts",
+        "state": "not_started",
+        "provenance": "none",
+        "missing": [
+          "builder and independent verifier are not both assigned",
+          "evidence for this gate"
+        ]
+      }
+    ],
+    "testAndCiEvidence": [
+      {
+        "id": "ui-ci-main",
+        "type": "workflow_run",
+        "result": "pass",
+        "provenance": "pass-without-independent-verifier",
+        "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+        "verifiedAt": "2026-10-22T16:33:00Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/38903087292",
+        "stale": null
+      }
+    ],
+    "blockers": {
+      "merge": [],
+      "release": [
+        {
+          "id": "scope-document-missing",
+          "origin": "registry",
+          "status": "open",
+          "category": "scope",
+          "severity": null,
+          "blocks": "release",
+          "gates": [
+            "scope-complete"
+          ],
+          "description": "No v0.6.0 / Phase 5 page-blocks scope document exists in the repository; scope cannot be frozen.",
+          "evidenceRefs": [
+            "ui-repo-metadata"
+          ],
+          "rule": null
+        },
+        {
+          "id": "auto-critical-workflows-unverified",
+          "origin": "derived",
+          "status": "proposed",
+          "category": "workflow",
+          "severity": null,
+          "blocks": "release",
+          "gates": [
+            "critical-workflows"
+          ],
+          "description": "Critical workflows are not independently verified (critical-workflows).",
+          "evidenceRefs": [],
+          "rule": "critical workflow gates must be verified before release",
+          "action": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
+        },
+        {
+          "id": "auto-missing-verification",
+          "origin": "derived",
+          "status": "proposed",
+          "category": "evidence",
+          "severity": null,
+          "blocks": "release",
+          "gates": [
+            "scope-complete",
+            "automated-checks",
+            "security-privacy-review",
+            "wcag-22-aa",
+            "keyboard-screen-reader",
+            "responsive-layouts",
+            "critical-workflows",
+            "documentation-accurate",
+            "package-metadata-exports",
+            "clean-consumer-install",
+            "runtime-compatibility",
+            "package-archive-inspection",
+            "supply-chain-review",
+            "ci-release-pipeline",
+            "versioning-changelog",
+            "upgrade-rollback-uninstall-docs",
+            "public-docs-accurate"
+          ],
+          "description": "17 applicable pre-publication gate(s) lack current independent verification.",
+          "evidenceRefs": [],
+          "rule": "every applicable gate needs independent pass evidence",
+          "action": null
+        },
+        {
+          "id": "auto-owner-approval",
+          "origin": "derived",
+          "status": "proposed",
+          "category": "approval",
+          "severity": null,
+          "blocks": "release",
+          "gates": [],
+          "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release.",
+          "evidenceRefs": [],
+          "rule": "approval.status approved with evidence, by the approval owner",
+          "action": "Ask Joshua Small to review the evidence and approve or decline the release."
+        },
+        {
+          "id": "auto-ownership",
+          "origin": "derived",
+          "status": "proposed",
+          "category": "evidence",
+          "severity": null,
+          "blocks": "release",
+          "gates": [],
+          "description": "Independent verification impossible: builder and independent verifier are not both assigned.",
+          "evidenceRefs": [],
+          "rule": "ownership.builder and ownership.verifier must be named, different and not automation",
+          "action": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision)."
+        }
+      ],
+      "postRelease": []
+    },
+    "nextActions": [
+      {
+        "rank": 1,
+        "priority": 3,
+        "bucket": "Missing required verification",
+        "source": "scope-document-missing",
+        "origin": "registry",
+        "blocks": "release",
+        "gates": [
+          "scope-complete"
+        ],
+        "text": "Resolve blocker scope-document-missing: No v0.6.0 / Phase 5 page-blocks scope document exists in the repository; scope cannot be frozen.",
+        "summary": "Resolve blocker scope-document-missing."
+      },
+      {
+        "rank": 2,
+        "priority": 3,
+        "bucket": "Missing required verification",
+        "source": "auto-ownership",
+        "origin": "derived",
+        "blocks": "release",
+        "gates": [],
+        "text": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision).",
+        "summary": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision)."
+      },
+      {
+        "rank": 3,
+        "priority": 3,
+        "bucket": "Missing required verification",
+        "source": "auto-critical-workflows-unverified",
+        "origin": "derived",
+        "blocks": "release",
+        "gates": [
+          "critical-workflows"
+        ],
+        "text": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.",
+        "summary": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
+      },
+      {
+        "rank": 4,
+        "priority": 3,
+        "bucket": "Missing required verification",
+        "source": "auto-missing-verification",
+        "origin": "derived",
+        "blocks": "release",
+        "gates": [
+          "scope-complete",
+          "automated-checks",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader",
+          "responsive-layouts",
+          "critical-workflows",
+          "documentation-accurate",
+          "package-metadata-exports",
+          "clean-consumer-install",
+          "runtime-compatibility",
+          "package-archive-inspection",
+          "supply-chain-review",
+          "ci-release-pipeline",
+          "versioning-changelog",
+          "upgrade-rollback-uninstall-docs",
+          "public-docs-accurate"
+        ],
+        "text": "Independently re-check the builder evidence for automated-checks; produce evidence for security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate, package-metadata-exports, clean-consumer-install, runtime-compatibility, package-archive-inspection, supply-chain-review, ci-release-pipeline, versioning-changelog, upgrade-rollback-uninstall-docs, public-docs-accurate; then verify scope-complete, critical-workflows once their blockers are resolved.",
+        "summary": "Independently re-check the builder evidence for automated-checks."
+      }
+    ],
+    "rollback": {
+      "guidance": "npm versions cannot be reused: roll back with `npm deprecate <name>@<bad version>` plus a patch release, and point users to the previous version. A git revert of the merge restores the source. See standards/release.md#rollback-and-recovery.",
+      "gates": [
+        {
+          "id": "upgrade-rollback-uninstall-docs",
+          "state": "not_started",
+          "provenance": "none",
+          "evidence": []
+        }
+      ]
+    },
+    "ownerChecklist": [
+      {
+        "item": "Release scope frozen: targetVersion and scopeDocument recorded",
+        "done": false
+      },
+      {
+        "item": "Release candidate commit recorded and unchanged",
+        "done": false
+      },
+      {
+        "item": "Builder and a different, independent verifier assigned",
+        "done": false
+      },
+      {
+        "item": "Every applicable pre-publication gate independently verified on current evidence (0/18)",
+        "done": false
+      },
+      {
+        "item": "No open merge blockers",
+        "done": true
+      },
+      {
+        "item": "No open release blockers other than the approval itself",
+        "done": false
+      },
+      {
+        "item": "Changelog and release notes reviewed against verified evidence (drafts below are unverified)",
+        "done": false,
+        "manual": true
+      },
+      {
+        "item": "Joshua Small approves the release, linked as evidence in a registry PR",
+        "done": false,
+        "manual": true
+      },
+      {
+        "item": "After the authorized publication or deployment: post-publication gates verified (production-deployment, distribution-verified, release-provenance, published-artifact-matches)",
+        "done": false
+      },
+      {
+        "item": "Registry updated by PR: currentVersion, releaseStatus released, lifecycle maintenance",
+        "done": false
+      }
+    ]
+  },
+  "unverified": {
+    "evidence": [
+      {
+        "gate": "automated-checks",
+        "evidence": "ui-ci-main",
+        "provenance": "pass-without-independent-verifier"
+      }
+    ],
+    "changelog": null,
+    "limitations": {
+      "registryMissingEvidence": [
+        "v0.6.0 scope document.",
+        "Whether 0.5.0 was published with npm provenance (not checked).",
+        "GitHub release object for v0.5.0 (only a tag exists).",
+        "Builder and independent verifier not assigned."
+      ],
+      "unverifiedGateNotes": [
+        {
+          "gate": "automated-checks",
+          "notes": "Latest default-branch CI passed at 94438ee. The target release scope is not frozen, so this does not verify the release; re-run on the release candidate."
+        }
+      ],
+      "changelogKnownLimitations": null
+    }
+  }
+}

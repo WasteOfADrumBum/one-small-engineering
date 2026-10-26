@@ -38,7 +38,7 @@ Move up one stage at a time and check each before the next:
 - One project: fill in **Project ID** (for example `one-small-mods-pack`).
 - Locally, read-only: `GITHUB_TOKEN=<read token> npm run sync:preview` writes `out/sync/STATUS.md` plus a proposed registry, PR body and observation per changed project. Nothing is written to GitHub.
 - ModsPack pilot, read-only: `npm run sync:pilot` (same token) writes `out/pilot/one-small-mods-pack.{md,json}`.
-- Readiness for every project, offline: `npm run readiness`.
+- Readiness for every project, offline: `npm run readiness`. Gate-level readiness, the dashboard and release preparation: `npm run release:reports` ([release-readiness.md](release-readiness.md)).
 
 ## Reading a run
 
