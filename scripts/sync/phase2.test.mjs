@@ -4,7 +4,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
-import { mkdtempSync, writeFileSync, readFileSync } from 'node:fs'
+import { mkdtempSync, writeFileSync, readFileSync, cpSync, existsSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { resolve } from 'node:path'
 import { collect, checkObservation, SyncError } from './collect.mjs'
@@ -486,4 +486,23 @@ test('the readiness section in a sync PR body is redacted like the rest', async 
 test('GitHubError keeps only a well-formed permission list', () => {
   const e = new GitHubError('GET /x: HTTP 403', 403, '', { acceptedPermissions: 'contents=read' })
   assert.match(describeAccess(e, 'x').message, /needs contents=read/)
+})
+
+test('a dry run works outside a git checkout, and write mode still needs the hub commit', () => {
+  const copy = mkdtempSync(resolve(tmpdir(), 'p2-nogit-'))
+  cpSync(ROOT, copy, { recursive: true, filter: src => !/[\\/](\.git|out|node_modules)$/.test(src) })
+  const file = resolve(copy, 'obs.json')
+  writeFileSync(file, '[]')
+  const env = { ...process.env, GITHUB_TOKEN: '', GITHUB_SHA: '', SYNC_STATUS_ISSUE: '', SYNC_PROJECT: '', GIT_CEILING_DIRECTORIES: tmpdir() }
+  const run = mode => {
+    try {
+      execFileSync('node', [resolve(copy, 'scripts/sync/run.mjs'), 'write', '--in', file, '--mode', mode, '--out-dir', resolve(copy, 'out')], { cwd: copy, env: mode === 'write' ? { ...env, GITHUB_TOKEN: 'x' } : env, stdio: 'pipe', encoding: 'utf8' })
+      return ''
+    } catch (e) {
+      return String(e.stdout) + String(e.stderr)
+    }
+  }
+  assert.doesNotMatch(run('dry-run'), /not a git repository/)
+  assert.ok(existsSync(resolve(copy, 'out/STATUS.md')), 'the dry run wrote its status report')
+  assert.match(run('write'), /not a git repository/)
 })
