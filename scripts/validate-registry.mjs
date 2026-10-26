@@ -341,6 +341,8 @@ export function checkRules(registry, { now = new Date(), dod = parseDefinitionOf
       if (norm(own[role]) === norm(SYNC_RECORDER)) err(`${at}.ownership`, `${role} cannot be the automated recorder "${SYNC_RECORDER}"`)
     }
     if (p.sync && p.sync.lastSyncedAt && new Date(p.sync.lastSyncedAt) > updated) err(`${at}.sync`, 'lastSyncedAt is later than registry lastUpdatedAt')
+    // A public repository can always be read, so its identity must be pinned before it syncs.
+    if (p.sync && p.sync.repositoryId === null && p.visibility === 'public') err(`${at}.sync`, 'a public repository must have its repositoryId pinned (npm run onboard)')
     if (own.builder && own.verifier && norm(own.builder) === norm(own.verifier)) {
       err(`${at}.ownership`, 'builder and verifier must be different for independent acceptance')
     }

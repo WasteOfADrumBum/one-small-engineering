@@ -17,11 +17,14 @@ import { execFileSync } from 'node:child_process'
 import { resolve, dirname } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { validateRegistry, parseDefinitionOfDone } from '../validate-registry.mjs'
-import { createClient } from './github.mjs'
+import { createClient, describeAccess } from './github.mjs'
 import { collect, SyncError } from './collect.mjs'
 import { plan } from './plan.mjs'
 import { writeSync, closeStale, listSyncPrs, upsertStatusIssue, readStatusIssueBody, checkProposal, WriteRefused } from './write.mjs'
 import { renderStatus, renderPrBody, parseState } from './status.mjs'
+import { runVerdict } from './verdict.mjs'
+import { resolveRun } from './stage.mjs'
+export { runVerdict }
 import { ROOT, REGISTRY_PATH, SLUG, OWNER, HUB_REPO, readJson, serializeRegistry, isoSeconds, safeOutput, annotation } from './lib.mjs'
 
 function loadRegistry() {
@@ -53,7 +56,10 @@ export async function collectAll({ registry, only, clients, now = new Date() }) 
       if (!client) throw new SyncError('needs-reader-token', 'private repository: the read-only reader credential is not configured')
       out.push({ projectId: project.id, ok: true, observation: await collect({ project, client, now }) })
     } catch (e) {
-      out.push({ projectId: project.id, ok: false, error: { code: e.code || 'collect-failed', message: safeOutput(e.message) } })
+      // A refused or failed API call is named precisely (status, and the permission GitHub
+      // says the call needs), never reported as an empty result.
+      const access = describeAccess(e, e.message.split(':')[0])
+      out.push({ projectId: project.id, ok: false, error: access ? { code: access.code, message: safeOutput(access.message) } : { code: e.code || 'collect-failed', message: safeOutput(e.message) } })
     }
   }
   return out
@@ -100,13 +106,15 @@ export function reconcileCollected({ registry, only, collected }) {
 export async function processAll({ registry, collected, mode, hubClient, mainSha, validate, outDir }) {
   const results = []
   for (const item of collected) {
-    const r = { projectId: item.projectId, outcome: 'unchanged', changes: [], suggestions: [], notes: [], errors: [], pr: null, prAction: null }
+    const r = { projectId: item.projectId, outcome: 'unchanged', changes: [], suggestions: [], notes: [], errors: [], pr: null, prAction: null, gaps: [], unavailable: [] }
     results.push(r)
     if (!item.ok) {
       r.outcome = 'error'
       r.errors.push(safeOutput(`${item.error.code}: ${item.error.message}`))
       continue
     }
+    r.gaps = item.observation.collection.gaps.slice()
+    r.unavailable = item.observation.collection.unavailable.slice()
     try {
       const planned = plan(registry, item.observation)
       Object.assign(r, { changes: planned.changes, suggestions: planned.suggestions, notes: planned.notes })
@@ -120,7 +128,7 @@ export async function processAll({ registry, collected, mode, hubClient, mainSha
       }
       r.outcome = 'changed'
       const title = `sync(${item.projectId}): registry update from ${item.observation.head.sha.slice(0, 7)}`
-      const body = renderPrBody({ projectId: item.projectId, result: planned, observation: item.observation, registryUrl: `https://github.com/${OWNER}/${HUB_REPO}/blob/main/${REGISTRY_PATH}` })
+      const body = renderPrBody({ projectId: item.projectId, result: planned, observation: item.observation, registryUrl: `https://github.com/${OWNER}/${HUB_REPO}/blob/main/${REGISTRY_PATH}`, registry: planned.registry })
       if (mode !== 'write') {
         checkProposal({ baseRegistry: registry, nextRegistry: planned.registry, projectId: item.projectId, validate })
         if (outDir) {
@@ -180,9 +188,24 @@ async function main(argv) {
     else {
       collected = reconcileCollected({ registry, only, collected: loadObservations({ inFile: opt(argv, '--in', null), encoded: process.env.SYNC_OBSERVATIONS || '' }) })
     }
-    const mode = cmd === 'preview' ? 'dry-run' : opt(argv, '--mode', 'dry-run')
+    let mode = cmd === 'preview' ? 'dry-run' : opt(argv, '--mode', 'dry-run')
+    let statusIssue = process.env.SYNC_STATUS_ISSUE === 'true'
+    // --mode auto: the activation stage decides (scripts/sync/stage.mjs), from variables the
+    // workflow passes as environment, never interpolated into a shell command.
+    if (mode === 'auto') {
+      const r = resolveRun({ stage: process.env.SYNC_STAGE, legacyWriteEnabled: process.env.SYNC_WRITE_ENABLED, event: process.env.GITHUB_EVENT_NAME, dryRunInput: process.env.SYNC_DRY_RUN_INPUT, ref: process.env.GITHUB_REF })
+      console.log(annotation(`activation: ${r.reason}`))
+      if (r.skip) return 0
+      mode = r.mode
+      statusIssue = r.statusIssue
+      // The stage A report job holds no write permission: it never writes, whatever the stage says.
+      if (argv.includes('--read-only')) {
+        mode = 'dry-run'
+        statusIssue = false
+      }
+    }
     if (!['dry-run', 'write'].includes(mode)) throw new Error(`unknown mode ${mode}`)
-    const hubClient = mode === 'write' || process.env.SYNC_STATUS_ISSUE === 'true' ? createClient({ token }) : null
+    const hubClient = mode === 'write' || statusIssue ? createClient({ token }) : null
     if (mode === 'write' && !token) throw new Error('write mode needs GITHUB_TOKEN')
     const mainSha = process.env.GITHUB_SHA || execFileSync('git', ['rev-parse', 'HEAD'], { cwd: ROOT, encoding: 'utf8' }).trim()
     const outDir = resolve(ROOT, opt(argv, '--out-dir', 'out/sync'))
@@ -197,7 +220,7 @@ async function main(argv) {
       previous = parseState(await readStatusIssueBody(hubClient))
       openSyncPrs = await listSyncPrs(hubClient)
     }
-    const { markdown } = renderStatus({ runAt, trigger, mode, results, previous, openSyncPrs, runUrl })
+    const { markdown } = renderStatus({ runAt, trigger, mode, results, previous, openSyncPrs, runUrl, registry })
     mkdirSync(outDir, { recursive: true })
     writeFileSync(resolve(outDir, 'STATUS.md'), markdown)
     if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, markdown)
@@ -206,8 +229,10 @@ async function main(argv) {
       console.log(`status issue ${issue.action}: ${issue.url}`)
     }
     if (cmd === 'preview') console.log(markdown)
-    for (const r of results) console.log(annotation(`sync ${r.projectId}: ${r.outcome}${r.prAction ? ` (${r.prAction})` : ''}${r.errors.length ? ` - ${r.errors.join('; ')}` : ''}`))
-    return results.some(r => r.outcome === 'error') ? 1 : 0
+    for (const r of results) console.log(annotation(`sync ${r.projectId}: ${r.outcome}${r.prAction ? ` (${r.prAction})` : ''}${r.errors.length ? ` - ${r.errors.join('; ')}` : ''}${r.gaps.length ? ` - incomplete: ${r.gaps.join('; ')}` : ''}`))
+    const verdict = runVerdict(results)
+    console.log(`${verdict.result === 'complete' ? '' : verdict.result === 'incomplete' ? '::warning title=Registry sync incomplete::' : '::error title=Registry sync failed::'}${annotation(verdict.summary)}`)
+    return verdict.exitCode
   }
 
   console.error('usage: run.mjs collect|write|preview [--project <id>] [--out <file>] [--in <file>] [--mode dry-run|write]')

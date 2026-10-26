@@ -13,6 +13,8 @@
     "test": "node --test scripts/*.test.mjs scripts/sync/*.test.mjs",
     "check": "npm run validate && npm test",
     "onboard": "node scripts/sync/onboard.mjs",
-    "sync:preview": "node scripts/sync/run.mjs preview"
+    "sync:preview": "node scripts/sync/run.mjs preview",
+    "sync:pilot": "node scripts/sync/pilot.mjs",
+    "readiness": "node scripts/readiness.mjs"
   }
 }

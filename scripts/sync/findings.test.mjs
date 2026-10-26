@@ -244,7 +244,9 @@ test('F-06: missing, empty or malformed collection input is an error, not zero p
 test('F-06: a project the collect job did not report is an error for that project', () => {
   const reg = loadRegistry()
   const r = reconcileCollected({ registry: reg, only: null, collected: [] })
-  assert.deepEqual(r.map(c => [c.projectId, c.ok, c.error.code]), [['one-small-mods-pack', false, 'not-collected'], ['taskforge', false, 'not-collected']])
+  const enabled = reg.projects.filter(p => p.sync && p.sync.enabled).map(p => p.id)
+  assert.equal(enabled.length, 8, 'all eight active projects are sync-enabled')
+  assert.deepEqual(r.map(c => [c.projectId, c.ok, c.error.code]), enabled.map(id => [id, false, 'not-collected']))
   assert.throws(() => reconcileCollected({ registry: reg, only: 'taskforge', collected: [{ projectId: 'one-small-mods-pack', ok: false, error: { code: 'x' } }] }), /does not cover/)
   assert.throws(() => reconcileCollected({ registry: reg, only: null, collected: [{ projectId: 'taskforge', ok: false, error: { code: 'x' } }, { projectId: 'taskforge', ok: false, error: { code: 'x' } }] }), /twice/)
 })

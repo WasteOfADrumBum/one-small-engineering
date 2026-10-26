@@ -12,10 +12,17 @@ const schema = readJson('projects/registry.schema.json')
 const dod = parseDefinitionOfDone(readFileSync(resolve(ROOT, 'standards/definition-of-done.md'), 'utf8'))
 const valid = r => assert.deepEqual(validateRegistry(r, schema, { dod, now: new Date('2030-01-01T00:00:00Z') }), [])
 const NOW = '2026-10-23T07:00:00Z'
+// Every active project is onboarded on main now, so these tests start from a registry
+// where the project has not been onboarded yet.
+const unsynced = id => {
+  const r = loadRegistry()
+  delete r.projects.find(p => p.id === id).sync
+  return r
+}
 const repo = (full, id, extra = {}) => ({ id, full_name: full, owner: { login: 'WasteOfADrumBum' }, default_branch: 'main', archived: false, ...extra })
 
 test('enables sync for an existing project with only its id', () => {
-  const r = onboard(loadRegistry(), { projectId: 'one-small-studio', repo: repo('WasteOfADrumBum/one-small-studio', 555), now: NOW })
+  const r = onboard(unsynced('one-small-studio'), { projectId: 'one-small-studio', repo: repo('WasteOfADrumBum/one-small-studio', 555), now: NOW })
   const p = r.registry.projects.find(x => x.id === 'one-small-studio')
   assert.deepEqual(p.sync, { enabled: true, mode: 'observe', repositoryId: 555, lastSyncedAt: null, lastSyncedHead: null, configSource: null })
   assert.match(r.files['.github/one-small-engineering.json'], /"projectId": "one-small-studio"/)
@@ -25,7 +32,7 @@ test('enables sync for an existing project with only its id', () => {
 })
 
 test('the generated project config is the minimal form: nothing duplicated from the registry', () => {
-  const r = onboard(loadRegistry(), { projectId: 'cortex', repo: repo('WasteOfADrumBum/cortex-brain-task', 777), now: NOW })
+  const r = onboard(unsynced('cortex'), { projectId: 'cortex', repo: repo('WasteOfADrumBum/cortex-brain-task', 777), now: NOW })
   const c = JSON.parse(r.files['.github/one-small-engineering.json'])
   assert.deepEqual(Object.keys(c).sort(), ['$schema', 'configVersion', 'projectId'])
 })
@@ -58,4 +65,13 @@ test('switching a project to integrated keeps its pinned identity', () => {
   const p = r.registry.projects.find(x => x.id === 'taskforge')
   assert.equal(p.sync.mode, 'integrated')
   assert.equal(p.sync.repositoryId, 962181990)
+})
+
+test('an unpinned project (private, no reader yet) is pinned once; a pinned id is never replaced', () => {
+  const reg = loadRegistry()
+  assert.equal(reg.projects.find(p => p.id === 'one-small-ai-workforce').sync.repositoryId, null)
+  const r = onboard(reg, { projectId: 'one-small-ai-workforce', repo: repo('WasteOfADrumBum/one-small-ai-workforce', 4242, { private: true }), now: NOW })
+  assert.equal(r.project.sync.repositoryId, 4242)
+  valid(r.registry)
+  assert.throws(() => onboard(r.registry, { projectId: 'one-small-ai-workforce', repo: repo('WasteOfADrumBum/one-small-ai-workforce', 4343), now: NOW }), /investigate before re-pinning/)
 })

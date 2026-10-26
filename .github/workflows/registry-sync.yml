@@ -4,8 +4,13 @@ name: Registry sync
 # or refreshes one draft PR per project when something material changed. Deterministic:
 # no AI calls and no project code. See docs/sync.md.
 #
-# Writes are off until the owner sets the repository variable SYNC_WRITE_ENABLED=true.
-# Until then every run is a dry run that only updates the "Registry sync status" issue.
+# Staged activation (scripts/sync/stage.mjs, docs/sync-setup.md), set by the repository
+# variable SYNC_STAGE:
+#   A (unset)  read-only. Manual runs only; the report job holds no write permission and
+#              the report goes to the job summary. Scheduled runs are skipped.
+#   B          manual runs may open draft sync PRs here and update the status issue.
+#   C          the six-hour schedule runs too, with writes.
+# The Phase 1 variable SYNC_WRITE_ENABLED=true still means stage C.
 on:
   schedule:
     - cron: '23 */6 * * *'
@@ -32,6 +37,8 @@ jobs:
   collect:
     # Read-only. Public project repositories are read with this job's token; a private
     # project needs the optional read-only reader credential (docs/sync-setup.md).
+    # A scheduled run does nothing before stage C.
+    if: github.event_name != 'schedule' || vars.SYNC_STAGE == 'C' || (vars.SYNC_STAGE == '' && vars.SYNC_WRITE_ENABLED == 'true')
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -53,10 +60,37 @@ jobs:
           SYNC_PROJECT: ${{ inputs.project }}
         run: node scripts/sync/run.mjs collect
 
-  write:
-    # Runs only from main, so the code holding write permission is code the owner merged.
+  report:
+    # Stage A: plan, guard and validate with no write permission at all. The report is the
+    # job summary; nothing is written to GitHub.
     needs: collect
-    if: github.ref == 'refs/heads/main'
+    if: vars.SYNC_STAGE != 'B' && vars.SYNC_STAGE != 'C' && !(vars.SYNC_STAGE == '' && vars.SYNC_WRITE_ENABLED == 'true')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Plan, guard and validate (read-only)
+        env:
+          SYNC_OBSERVATIONS: ${{ needs.collect.outputs.observations }}
+          SYNC_PROJECT: ${{ inputs.project }}
+          # Checked so an unknown stage fails loudly; --read-only keeps this job a dry run whatever it says.
+          SYNC_STAGE: ${{ vars.SYNC_STAGE }}
+          SYNC_WRITE_ENABLED: ${{ vars.SYNC_WRITE_ENABLED }}
+          SYNC_DRY_RUN_INPUT: ${{ inputs.dry_run }}
+        run: node scripts/sync/run.mjs write --mode auto --read-only
+
+  write:
+    # Stages B and C. Runs only from main, so the code holding write permission is code the
+    # owner merged.
+    needs: collect
+    if: github.ref == 'refs/heads/main' && (vars.SYNC_STAGE == 'B' || vars.SYNC_STAGE == 'C' || (vars.SYNC_STAGE == '' && vars.SYNC_WRITE_ENABLED == 'true'))
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -77,6 +111,8 @@ jobs:
           SYNC_OBSERVATIONS: ${{ needs.collect.outputs.observations }}
           # The same project filter as collect, so the writer knows which projects to expect.
           SYNC_PROJECT: ${{ inputs.project }}
-          SYNC_STATUS_ISSUE: 'true'
-          SYNC_MODE: ${{ (vars.SYNC_WRITE_ENABLED == 'true' && !(github.event_name == 'workflow_dispatch' && inputs.dry_run)) && 'write' || 'dry-run' }}
-        run: node scripts/sync/run.mjs write --mode "$SYNC_MODE"
+          # The stage decides the mode (scripts/sync/stage.mjs); an unknown stage fails the run.
+          SYNC_STAGE: ${{ vars.SYNC_STAGE }}
+          SYNC_WRITE_ENABLED: ${{ vars.SYNC_WRITE_ENABLED }}
+          SYNC_DRY_RUN_INPUT: ${{ inputs.dry_run }}
+        run: node scripts/sync/run.mjs write --mode auto

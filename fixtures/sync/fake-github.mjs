@@ -82,6 +82,20 @@ export function projectRepo(gh, state) {
     if (!state.template) return null
     return { type: 'file', encoding: 'base64', size: state.template.length, content: b64(state.template), sha: blobSha(state.template) }
   })
+  // Tags: a list of { name, sha } (default none); state.tagsError makes the call fail.
+  gh.on('GET', R('/tags'), ({ q }) => {
+    if (state.tagsError) return json(state.tagsError, { message: 'fake tags failure' })
+    const all = (state.tagList || []).map(t => ({ name: t.name, commit: { sha: t.sha } }))
+    const page = +(q.get('page') || 1)
+    return all.slice((page - 1) * 100, page * 100)
+  })
+  // Root package.json: state.packageJson is an object, raw text, or absent (404).
+  gh.on('GET', R('/contents/package\\.json'), () => {
+    if (state.packageError) return json(state.packageError, { message: 'fake package failure' })
+    if (state.packageJson === undefined || state.packageJson === null) return null
+    const text = typeof state.packageJson === 'string' ? state.packageJson : JSON.stringify(state.packageJson)
+    return { type: 'file', encoding: 'base64', size: Buffer.byteLength(text), content: b64(text), sha: blobSha(text) }
+  })
   gh.on('GET', R('/pulls'), ({ q }) => {
     const all = state.pulls || []
     const page = +(q.get('page') || 1)

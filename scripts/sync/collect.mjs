@@ -2,11 +2,11 @@
 // normalized into an observation (schemas/observation.schema.json). No AI, no
 // project code: the hub only reads API JSON. Validation fails closed.
 
-import { validateAgainstSchema } from '../validate-registry.mjs'
-import { expectArray, expectObject } from './github.mjs'
+import { validateAgainstSchema, findSensitive } from '../validate-registry.mjs'
+import { expectArray, expectObject, GitHubError, MalformedResponse, describeAccess } from './github.mjs'
 import {
   CONFIG_PATH, TEMPLATE_WORKFLOW_PATH, MAX_CONFIG_BYTES, SHA, OWNER,
-  readJson, repoFromUrl, isoSeconds, cleanText, effectiveConfig, workflowFile, slugify, withholdValues
+  readJson, repoFromUrl, isoSeconds, cleanText, effectiveConfig, workflowFile, slugify, withholdValues, parseSemver, compareSemver
 } from './lib.mjs'
 
 export class SyncError extends Error {
@@ -24,6 +24,9 @@ const MAX_OPEN = 100
 
 const MAX_CLOSED = 50
 const MAX_FILES = 300
+const MAX_TAGS = 100
+const MAX_PACKAGE_BYTES = 256 * 1024
+export const OBSERVATION_VERSION = 2
 
 const enc = encodeURIComponent
 
@@ -81,15 +84,21 @@ export async function collect({ project, client, now = new Date() }) {
   if (!sync || !sync.enabled) throw new SyncError('not-enabled', 'sync is not enabled for this project in the registry')
   const { owner, name } = repoFromUrl(project.repository)
   const base = `/repos/${owner}/${name}`
+  // Nothing is read for a project whose identity is not pinned: the pin is what proves
+  // the repository is the registered one.
+  if (sync.repositoryId === null) throw new SyncError('identity-unpinned', `the registry has not pinned a repository id for ${owner}/${name}; once the hub can read it, run "npm run onboard -- ${project.id}" with the reader token and merge the hub PR`)
 
   // Identity first: everything else is only read once the repository is proven to be the registered one.
   const repo = await client.get(base, { allow404: true })
-  if (!repo) throw new SyncError('repo-unreachable', `${owner}/${name} was not found or is not readable with the current token`)
+  // GitHub answers 404 for a private repository the token cannot see: not proof it is gone.
+  if (!repo) throw new SyncError('repo-unreachable', `${owner}/${name} was not found or is not visible to the current token (HTTP 404); if it was made private, the hub needs the read-only reader credential (docs/sync-setup.md)`)
   expectObject(repo, 'repository', ['id', 'owner', 'full_name', 'default_branch', 'html_url'])
   if (repo.id !== sync.repositoryId) throw new SyncError('repo-id-mismatch', `repository id ${repo.id} does not match the pinned id ${sync.repositoryId}; the repository may have been deleted and recreated or transferred`)
   if (!repo.owner || repo.owner.login !== OWNER) throw new SyncError('owner-mismatch', `repository owner is ${repo.owner && repo.owner.login}, expected ${OWNER}`)
   if (repo.full_name.toLowerCase() !== `${owner}/${name}`.toLowerCase()) throw new SyncError('repo-renamed', `repository is now ${repo.full_name}; update the registry URL by hand before syncing`)
 
+  if (repo.visibility !== undefined && !['public', 'private', 'internal'].includes(repo.visibility)) throw malformed('repository (visibility)')
+  const visibility = repo.visibility || (repo.private ? 'private' : 'public')
   const defaultBranch = repo.default_branch
   const branch = expectObject(await client.get(`${base}/branches/${enc(defaultBranch)}`), 'default branch', ['commit'])
   const headSha = branch.commit && branch.commit.sha
@@ -246,22 +255,108 @@ export async function collect({ project, client, now = new Date() }) {
   }
   releases.sort((a, b) => a.publishedAt.localeCompare(b.publishedAt) || a.tag.localeCompare(b.tag))
 
+  const head = { sha: headSha, ...(await headRelation(client, base, project.repositorySnapshot && project.repositorySnapshot.headSha, headSha, gaps)) }
+  const unavailable = []
+  const tags = await optionalSection('tags', unavailable, gaps, () => collectTags(client, base))
+  const pkg = await optionalSection('package', unavailable, gaps, () => collectPackage(client, base, headSha))
+  if (head.relation === 'unknown') unavailable.push('head-comparison')
+
   const observation = {
-    observationVersion: 1,
+    observationVersion: OBSERVATION_VERSION,
     projectId: project.id,
     collectedAt: isoSeconds(now),
-    repo: { id: repo.id, fullName: repo.full_name, owner: repo.owner.login, private: Boolean(repo.private), archived: Boolean(repo.archived), defaultBranch, url: repoUrl },
-    head: { sha: headSha },
+    repo: { id: repo.id, fullName: repo.full_name, owner: repo.owner.login, private: Boolean(repo.private), visibility, archived: Boolean(repo.archived), defaultBranch, url: repoUrl },
+    head,
     config: { source: configValue ? 'repository' : 'defaults', value: configValue, commitSha: headSha },
     template: { present: Boolean(templateFile), version: templateVersion },
     openPullRequests,
     mergedPullRequests,
     workflowRuns,
     releases,
-    collection: { complete: gaps.length === 0, gaps }
+    tags,
+    package: pkg,
+    collection: { complete: gaps.length === 0, gaps, unavailable }
   }
   checkObservation(project, observation)
   return observation
+}
+
+// How the default branch moved since the registry's snapshot. A head that is not a
+// fast-forward of the recorded one means history on the default branch was rewritten
+// (a force push), so evidence citing the old commits may no longer describe the branch.
+async function headRelation(client, base, previousSha, headSha, gaps) {
+  if (!previousSha) return { previousSha: null, relation: 'first-observation' }
+  if (previousSha === headSha) return { previousSha, relation: 'unchanged' }
+  let cmp
+  try {
+    cmp = await client.get(`${base}/compare/${previousSha}...${headSha}`, { allow404: true })
+  } catch (e) {
+    if (e instanceof MalformedResponse || !(e instanceof GitHubError)) throw e
+    gaps.push(`comparison of the recorded head ${previousSha.slice(0, 7)} with ${headSha.slice(0, 7)} could not be read (${describeAccess(e, 'compare').code}); whether history was rewritten is unknown`)
+    return { previousSha, relation: 'unknown' }
+  }
+  // The recorded head is no longer in the repository: rewritten history, or a wrong record.
+  if (!cmp) return { previousSha, relation: 'unreachable' }
+  if (!isObject(cmp) || typeof cmp.status !== 'string') throw malformed('compare (status)')
+  if (cmp.status === 'ahead') return { previousSha, relation: 'fast-forward' }
+  if (cmp.status === 'identical') return { previousSha, relation: 'unchanged' }
+  if (cmp.status === 'behind' || cmp.status === 'diverged') return { previousSha, relation: 'rewritten' }
+  throw malformed('compare (status)')
+}
+
+// Sections that describe the project but are not needed to keep the registry's own fields
+// correct. An HTTP or network failure here marks the section unavailable (a named gap,
+// and the planner keeps the previous value); a malformed response still fails the project.
+async function optionalSection(section, unavailable, gaps, read) {
+  try {
+    return await read()
+  } catch (e) {
+    if (e instanceof MalformedResponse || e instanceof SyncError || !(e instanceof GitHubError)) throw e
+    const d = describeAccess(e, section)
+    unavailable.push(section)
+    gaps.push(`${section} could not be read: ${d.message}`.slice(0, 300))
+    return { status: 'unavailable' }
+  }
+}
+
+// Version tags are v1.2.3 or 1.2.3, prereleases included: a tag is a fact about the
+// repository, not a release (only a published release can move currentVersion).
+const VERSION_TAG = /^v?(\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?)$/
+
+async function collectTags(client, base) {
+  const list = await client.paginate(`${base}/tags`, { max: MAX_TAGS })
+  if (!list.length) return { status: 'none', count: 0, truncated: false, latest: null }
+  let latest = null
+  for (const t of list) {
+    if (!isObject(t) || typeof t.name !== 'string' || !isObject(t.commit) || !SHA.test(t.commit.sha || '')) throw malformed('tags')
+    if (!/^[A-Za-z0-9._/-]{1,100}$/.test(t.name)) continue
+    const m = VERSION_TAG.exec(t.name)
+    const version = m && m[1] && parseSemver(m[1]) ? m[1] : null
+    if (!version) continue
+    if (!latest || compareSemver(version, latest.version) > 0) latest = { name: t.name, version, commitSha: t.commit.sha }
+  }
+  // GitHub does not order the tag list by version, so a cut-off list may hide the newest tag.
+  return { status: 'observed', count: list.length, truncated: Boolean(list.truncated), latest }
+}
+
+// Root package.json at the head commit: name, version and the private flag only.
+// A file that is present but unreadable is recorded as invalid, never as absent.
+async function collectPackage(client, base, headSha) {
+  const file = await client.get(`${base}/contents/package.json?ref=${headSha}`, { allow404: true })
+  if (!file) return { status: 'none' }
+  if (!isObject(file) || file.type !== 'file' || file.encoding !== 'base64' || typeof file.content !== 'string') return { status: 'invalid', reason: 'not a regular file' }
+  if (!Number.isInteger(file.size) || file.size > MAX_PACKAGE_BYTES) return { status: 'invalid', reason: `larger than ${MAX_PACKAGE_BYTES} bytes` }
+  let pkg
+  try {
+    pkg = JSON.parse(Buffer.from(file.content, 'base64').toString('utf8'))
+  } catch {
+    return { status: 'invalid', reason: 'not valid JSON' }
+  }
+  if (!isObject(pkg)) return { status: 'invalid', reason: 'not a JSON object' }
+  // External text: only a well-formed npm name that does not look sensitive is kept.
+  const name = typeof pkg.name === 'string' && /^(?:@[a-z0-9-~][a-z0-9-._~]*\/)?[a-z0-9-~][a-z0-9-._~]*$/.test(pkg.name) && pkg.name.length <= 214 && !findSensitive(pkg.name).length ? pkg.name : null
+  const version = typeof pkg.version === 'string' && parseSemver(pkg.version) ? pkg.version : null
+  return { status: 'observed', name, version, private: pkg.private === true }
 }
 
 // Re-checks an observation against the registry entry. The planner calls this too,
@@ -283,6 +378,13 @@ export function checkObservation(project, obs) {
   for (const [kind, u] of urls) if (!isEvidenceUrl(project, kind, u)) throw new SyncError('evidence-outside-repo', `a ${kind} URL in the observation is outside ${project.repository} or not in GitHub's form`)
   // "complete" is a claim the gaps must back: complete with gaps, or incomplete without any, is invalid.
   if (obs.collection.complete !== (obs.collection.gaps.length === 0)) throw new SyncError('observation-invalid', 'collection.complete does not match collection.gaps')
+  // A section reported unavailable must also be a named gap, and must not carry data.
+  if (obs.collection.unavailable.length && obs.collection.complete) throw new SyncError('observation-invalid', 'collection.unavailable lists sections but collection.complete is true')
+  for (const section of ['tags', 'package']) {
+    if ((obs[section].status === 'unavailable') !== obs.collection.unavailable.includes(section)) throw new SyncError('observation-invalid', `${section} availability does not match collection.unavailable`)
+  }
+  if ((obs.head.relation === 'unknown') !== obs.collection.unavailable.includes('head-comparison')) throw new SyncError('observation-invalid', 'head comparison availability does not match collection.unavailable')
+  if (obs.tags.latest && !SHA.test(obs.tags.latest.commitSha)) throw new SyncError('observation-invalid', 'tags.latest has no commit')
   if (obs.config.value) validateConfig(obs.config.value, project.id)
   return obs
 }

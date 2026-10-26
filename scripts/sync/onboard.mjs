@@ -87,7 +87,8 @@ export function onboard(registry, { projectId, mode = 'observe', isNew = false, 
   const { owner, name: repoName } = repoFromUrl(p.repository)
   if (repo.owner && repo.owner.login !== OWNER) throw new OnboardError(`repository owner is ${repo.owner.login}, expected ${OWNER}`)
   if (repo.full_name && repo.full_name.toLowerCase() !== `${owner}/${repoName}`.toLowerCase()) throw new OnboardError(`GitHub reports ${repo.full_name}; fix the registry URL first`)
-  if (p.sync && p.sync.repositoryId !== repo.id) throw new OnboardError(`registry pins repository id ${p.sync.repositoryId} but GitHub reports ${repo.id}; investigate before re-pinning`)
+  // An unpinned (null) id is pinned here; a pinned id is never silently replaced.
+  if (p.sync && p.sync.repositoryId !== null && p.sync.repositoryId !== repo.id) throw new OnboardError(`registry pins repository id ${p.sync.repositoryId} but GitHub reports ${repo.id}; investigate before re-pinning`)
 
   p.sync = {
     enabled: true,
