@@ -4,7 +4,7 @@
 | --- | --- |
 | Repository | [WasteOfADrumBum/one-small-mods-pack](https://github.com/WasteOfADrumBum/one-small-mods-pack) (public) |
 | Audited revision | Release candidate: PR [#3](https://github.com/WasteOfADrumBum/one-small-mods-pack/pull/3) head [`80cc269`](https://github.com/WasteOfADrumBum/one-small-mods-pack/commit/80cc269ebb7c20aca5f6ca03214954726fb494f7) (unchanged since 2026-10-22); `main` at `367cede` |
-| Observed | 2026-10-26T01:16Z (GitHub API, read-only probe [run](https://github.com/WasteOfADrumBum/one-small-engineering/actions/runs/40253380621)) and 2026-10-26T01:40Z (read-only shallow clone) |
+| Observed | 2026-10-26T01:16Z (GitHub API, read-only probe [run](https://github.com/WasteOfADrumBum/one-small-engineering/actions/runs/40253380621)) and 2026-10-26T01:31Z (read-only shallow clone) |
 | Auditor | Claude Code, Phase 3 builder. Nothing in the ModsPack repository, PR, branches, CI or release configuration was changed. Tests were **not** re-run. |
 | Verdict | **Not eligible for release.** 0 of 21 applicable gates independently verified (0%); 11 open blockers (8 recorded in the registry, 3 derived). Generated report: [reports/projects/one-small-mods-pack.md](../reports/projects/one-small-mods-pack.md). |
 

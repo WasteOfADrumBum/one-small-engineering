@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-10-26T01:45:00Z",
+  "lastUpdatedAt": "2026-10-26T01:36:00Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -305,7 +305,7 @@
           "type": "commit",
           "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/tree/80cc269ebb7c20aca5f6ca03214954726fb494f7/.github/workflows",
           "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
-          "verifiedAt": "2026-10-26T01:40:00Z",
+          "verifiedAt": "2026-10-26T01:31:00Z",
           "result": "informational",
           "description": "Read-only clone of the release candidate: .github/workflows holds only ci.yml (checks; permissions declared). There is no release or publish workflow, so nothing can publish with npm provenance yet.",
           "recordedBy": "Claude Code (Phase 3 baseline, read-only GitHub inspection)"
