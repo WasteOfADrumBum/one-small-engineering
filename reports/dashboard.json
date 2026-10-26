@@ -1,7 +1,7 @@
 {
   "kind": "one-small-engineering/dashboard",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-10-26T02:00:00Z",
+  "asOf": "2026-10-26T01:45:00Z",
   "staleDays": 30,
   "engineVersion": 1,
   "registrySha256": "9e156e2ac7d2dd09f6a3e21498700c4ae0a554383093c51c3f7d1d259ecc7acc",

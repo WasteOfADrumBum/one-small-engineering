@@ -1,6 +1,6 @@
 # One Small ModsPack 2.0.0 release notes (draft)
 
-> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 21 applicable gates independently verified (0%); 11 open blocker(s). Generated 2026-10-26T02:00:00Z.
+> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 21 applicable gates independently verified (0%); 11 open blocker(s). Generated 2026-10-26T01:45:00Z.
 
 ## Highlights
 
