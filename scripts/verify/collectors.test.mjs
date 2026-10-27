@@ -62,6 +62,13 @@ test('build and test: runs the planned commands; a failing test fails; a missing
   assert.equal(r.result, 'inconclusive')
 })
 
+test('build and test: a runtime below the engines floor is inconclusive, not a pass', () => {
+  const view = memoryView({ 'package.json': JSON.stringify({ engines: { node: '>=99' }, scripts: { test: 'node --test' } }), 'package-lock.json': '{}' })
+  const r = buildTest.collect(ctx({ view }))
+  assert.equal(r.result, 'inconclusive')
+  assert.match(r.failureReason, /engines floor|Node 99/)
+})
+
 test('lint, format and types: none configured is inconclusive, not a pass', () => {
   const view = memoryView({ 'package.json': JSON.stringify({ name: 'x', scripts: { test: 'node --test' } }) })
   assert.equal(lintFormatTypes.collect(ctx({ view })).result, 'inconclusive')
@@ -116,6 +123,12 @@ test('secret scan: real credentials fail with location only; placeholders are ig
   assert.equal(review.result, 'inconclusive')
   assert.equal(secretScan.collect(ctx({ view: memoryView({ 'a.js': 'const k = "AKIAIOSFODNN7EXAMPLE"' }) })).result, 'pass')
   assert.deepEqual(scanText('x.js', 'postgres://user:hunter22@db/x').map(f => f.kind), ['credentials in URL'])
+  // A throwaway service credential on localhost is reviewed, not failed.
+  const ci = secretScan.collect(ctx({ view: memoryView({ '.github/workflows/ci.yml': 'TEST_DATABASE_URL: postgres://postgres:postgres@localhost:5432/t' }) }))
+  assert.equal(ci.result, 'inconclusive')
+  // A committed .env file fails only with a sensitive-looking key that has a value.
+  assert.equal(secretScan.collect(ctx({ view: memoryView({ 'client/.env.test': 'VITE_API_URL=http://localhost:3000' }) })).result, 'pass')
+  assert.equal(secretScan.collect(ctx({ view: memoryView({ 'server/.env': 'DB_PASSWORD=swordfish1' }) })).result, 'fail')
 })
 
 test('accessibility: tooling alone never passes; manual review is always listed', () => {
@@ -159,6 +172,10 @@ test('release packaging: version, changelog and publish workflow are checked aga
   const r2 = releasePackaging.collect(ctx({ run: pack, view: memoryView({ 'package.json': PKG, 'CHANGELOG.md': '## 2.0.0', '.github/workflows/release.yml': 'run: npm publish --provenance' }) }))
   assert.match(r2.checks.find(c => c.name === 'npm pack contents').detail, /entry points missing: dist\/modspack\.mjs; should not ship: test\/a\.test\.mjs/)
   assert.equal(releasePackaging.collect(ctx({ view: memoryView({ 'package.json': '{oops' }) })).result, 'fail')
+  // Monorepo: the profile's packageDir is the package that is checked.
+  const mono = releasePackaging.collect(ctx({ execute: false, profile: { packageDir: 'packages/lib' }, view: memoryView({ 'package.json': JSON.stringify({ name: 'root', private: true }), 'packages/lib/package.json': PKG, 'packages/lib/CHANGELOG.md': '## 2.0.0' }) }))
+  assert.equal(mono.checks.find(c => c.name === 'name and version').detail, 'one-small-modspack@2.0.0')
+  assert.equal(mono.checks.find(c => c.name === 'CHANGELOG top entry matches the version').result, 'pass')
 })
 
 test('compatibility: the engines floor must be tested in CI', () => {

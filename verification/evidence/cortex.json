@@ -1,0 +1,593 @@
+{
+  "project": "cortex",
+  "evidence": [
+    {
+      "schema": 1,
+      "id": "ev-cortex-ci-results-ec49fd7-cdd510f0",
+      "project": "cortex",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "6d563f0372436736",
+      "execute": true,
+      "executedAt": "2026-10-27T01:03:52Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:03:52Z"
+      },
+      "digest": "bc9d6e4bd8d870fb7c76849c8accde41e6333c36d4a9bc81c80e2a3c504b39f6"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-deployment-health-ec49fd7-805608a7",
+      "project": "cortex",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "ec74229cd0941988",
+      "execute": true,
+      "executedAt": "2026-10-27T01:03:52Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://cortex-brain-nu.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "vercel.json"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://cortex-brain-nu.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-28T01:03:52Z"
+      },
+      "digest": "7d3f1d44e877772c50d8bc6aa2b07b35afb35176628987488e8dbdad8420a44f"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-accessibility-ec49fd7-27cfef71",
+      "project": "cortex",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "accessibility",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "d62211cb8fb4c453",
+      "execute": true,
+      "executedAt": "2026-10-27T00:56:06Z",
+      "result": "inconclusive",
+      "summary": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive",
+      "failureReason": "not run or inconclusive: automated accessibility tooling (none declared in package.json); automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
+      "checks": [
+        {
+          "name": "automated accessibility tooling",
+          "result": "inconclusive",
+          "detail": "none declared in package.json"
+        },
+        {
+          "name": "automated accessibility run",
+          "result": "not_run",
+          "detail": "no automated accessibility command is configured for this project"
+        },
+        {
+          "name": "manual review",
+          "result": "not_run",
+          "detail": "Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA."
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:56:06Z"
+      },
+      "digest": "7a092441118a8a008ee4d8f41a1631a9380defa45e171bcc333d4e4711b33eba"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-dependency-audit-ec49fd7-7e30241d",
+      "project": "cortex",
+      "gates": [
+        "security-privacy-review",
+        "supply-chain-review"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "dependency-audit",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "a8f878bf8e1fcad7",
+      "execute": true,
+      "executedAt": "2026-10-27T00:56:06Z",
+      "result": "pass",
+      "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "npm audit",
+          "result": "pass",
+          "detail": "critical 0, high 0, moderate 0, low 0, info 0 across 5 packages"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "npm-audit.json",
+          "sha256": "1ddda7b3774b5f927ff3f628248964a7dbbb2c1a1547208913fb161524cc94ad",
+          "ref": null
+        }
+      ],
+      "reproduce": "npm audit --json --package-lock-only (at ec49fd7)",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T00:56:06Z"
+      },
+      "digest": "e987ca34b5f984d1c4696513a01c809408d2f5419c877058635dfb73da8a9cf6"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-deployment-health-ec49fd7-ca79944d",
+      "project": "cortex",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "ec74229cd0941988",
+      "execute": true,
+      "executedAt": "2026-10-27T00:56:06Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://cortex-brain-nu.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "vercel.json"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://cortex-brain-nu.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-28T00:56:06Z"
+      },
+      "digest": "f477d1df4e6c0d281d31ea859d3336dd10918e7131b19900141b917e61ebfc1e"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-documentation-ec49fd7-e08f6339",
+      "project": "cortex",
+      "gates": [
+        "documentation-accurate",
+        "public-docs-accurate",
+        "upgrade-rollback-uninstall-docs"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "documentation",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "c32d4dbe04d71867",
+      "execute": true,
+      "executedAt": "2026-10-27T00:56:06Z",
+      "result": "inconclusive",
+      "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "checks": [
+        {
+          "name": "README",
+          "result": "pass",
+          "detail": "90 lines"
+        },
+        {
+          "name": "README install or usage section",
+          "result": "pass",
+          "detail": "heading naming install, usage, setup or getting started"
+        },
+        {
+          "name": "relative links resolve",
+          "result": "pass",
+          "detail": "2 Markdown file(s)"
+        },
+        {
+          "name": "accuracy against behaviour",
+          "result": "not_run",
+          "detail": "whether the documentation matches the product is a manual review"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:56:06Z"
+      },
+      "digest": "2ad1676b3977f9917415bbbfdfa40e3393dfc1bce457ae7eac0fd31576cb9240"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-secret-scan-ec49fd7-59e05abc",
+      "project": "cortex",
+      "gates": [
+        "security-privacy-review",
+        "sensitive-data-handling"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "secret-scan",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "21ad2d5d7bc96ce0",
+      "execute": true,
+      "executedAt": "2026-10-27T00:56:06Z",
+      "result": "pass",
+      "summary": "secret scan: 3 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "credential patterns outside tests and docs",
+          "result": "pass",
+          "detail": "51 files scanned"
+        },
+        {
+          "name": "committed .env files with sensitive keys",
+          "result": "pass",
+          "detail": "none"
+        },
+        {
+          "name": "credential-shaped values in tests and docs",
+          "result": "pass",
+          "detail": "none"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "secret-scan-locations",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "ref": "0 location(s), values withheld"
+        }
+      ],
+      "reproduce": "node scripts/verify/cli.mjs collect --project <id> --collector secret-scan",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:56:06Z"
+      },
+      "digest": "f9c68fc0188d682d5ba5e637ac199bce55d51be3f3580d9d8062ea0fdcc80732"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
+      "project": "cortex",
+      "gates": [
+        "automated-checks",
+        "critical-workflows",
+        "e2e-critical-workflows"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "build-test",
+        "version": "1.1.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "a3fd53a0e9cc65c6",
+      "execute": true,
+      "executedAt": "2026-10-27T00:56:05Z",
+      "result": "pass",
+      "summary": "build and test: 1 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "test",
+          "result": "pass",
+          "detail": "# skipped 0\n# todo 0\n# duration_ms 214.257146"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": "git clone https://github.com/WasteOfADrumBum/cortex-brain-task && git -C <dir> checkout ec49fd7907e9c901e6e4871732c7fe51881e5d3d && npm ci --ignore-scripts && npm test",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:56:05Z"
+      },
+      "digest": "0f5e33663973ef9eb8655d52ea3daa966703e8ab953f0b5cd0cff182a00646ee"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-ci-results-ec49fd7-c1e79b00",
+      "project": "cortex",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "6d563f0372436736",
+      "execute": true,
+      "executedAt": "2026-10-27T00:56:05Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T00:56:05Z"
+      },
+      "digest": "4d1b86c224c14bfa6f67340a085bd9042fe42f437c3300354d142c7c9d68fc1b"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-lint-format-types-ec49fd7-4b9bec16",
+      "project": "cortex",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "lint-format-types",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "92349a69454d4ef9",
+      "execute": true,
+      "executedAt": "2026-10-27T00:56:05Z",
+      "result": "inconclusive",
+      "summary": "lint, format and types: none configured",
+      "failureReason": "the project declares no lint, format check or type check script",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:56:05Z"
+      },
+      "digest": "83740a385e330aa871486c48685b48a0169d9b344447d2d435e33f02c2f419a6"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-repo-structure-ec49fd7-0105455c",
+      "project": "cortex",
+      "gates": [],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "repo-structure",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "5f177a9447eb38b2",
+      "execute": true,
+      "executedAt": "2026-10-27T00:56:03Z",
+      "result": "inconclusive",
+      "summary": "repository structure: 3 of 5 check(s) passed; 2 not run or inconclusive",
+      "failureReason": "not run or inconclusive: license (absent); workflows (no GitHub Actions workflows)",
+      "checks": [
+        {
+          "name": "package.json",
+          "result": "pass",
+          "detail": "cortex-brain-task@(no version) (private)"
+        },
+        {
+          "name": "lockfile",
+          "result": "pass",
+          "detail": "package-lock.json"
+        },
+        {
+          "name": "readme",
+          "result": "pass",
+          "detail": "README.md"
+        },
+        {
+          "name": "license",
+          "result": "inconclusive",
+          "detail": "absent"
+        },
+        {
+          "name": "workflows",
+          "result": "inconclusive",
+          "detail": "no GitHub Actions workflows"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "file-list",
+          "sha256": "a12e08173017512fab8fc77fa45d76290a9742c73fd7fdf927f987bb3726391d",
+          "ref": "119 files"
+        }
+      ],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:56:03Z"
+      },
+      "digest": "c68b0f0ce5ade5a7f3b512c4db83d565106fd69379861c1c2384cc83a3f43494"
+    }
+  ]
+}

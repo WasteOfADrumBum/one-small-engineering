@@ -107,7 +107,9 @@
           }
         ],
         "manual": "Keyboard and screen reader review of the docs app and components."
-      }
+      },
+      "packageDir": "packages/onesmallui",
+      "$packageDir": "The published package @onesmall/ui lives in this workspace; the repository root is a private monorepo root."
     },
     "one-small-ai-workforce": {
       "source": "private repository: no profile until a reader credential is configured"

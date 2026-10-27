@@ -1,0 +1,1122 @@
+{
+  "kind": "one-small-engineering/verification-project",
+  "asOf": "2026-10-27T01:05:00Z",
+  "id": "one-small-ai-workforce",
+  "name": "One Small AI Workforce",
+  "tier": "application",
+  "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+  "target": {
+    "sha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+    "source": "registry snapshot (live head unavailable)",
+    "liveSha": null,
+    "drift": null
+  },
+  "readiness": {
+    "percentage": 0,
+    "previousPercentage": 0,
+    "applicableGates": 20,
+    "verifiedGates": 0,
+    "eligibility": "not-scoped",
+    "ownershipValid": false
+  },
+  "gateStates": {
+    "independently_verified": 0,
+    "passed_by_builder": 1,
+    "failed": 0,
+    "inconclusive": 8,
+    "not_tested": 11,
+    "not_applicable": 0
+  },
+  "gates": [
+    {
+      "id": "scope-complete",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": true,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "automated-checks",
+      "state": "passed_by_builder",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "full",
+      "manualReviewRequired": false,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217",
+          "collector": "build-test",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T01:03:52Z",
+          "summary": "build and test: no checkout"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-d29eecc7",
+          "collector": "ci-results",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T01:03:52Z",
+          "summary": "CI results: not readable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-1e2a62c6",
+          "collector": "lint-format-types",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T01:03:52Z",
+          "summary": "lint, format and types: no checkout"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: Default-branch CI passed at c70d8b1, but no release scope exists yet, so the gate stays not_verified"
+      ],
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+    },
+    {
+      "id": "security-privacy-review",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-9621791e",
+          "collector": "dependency-audit",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T01:03:52Z",
+          "summary": "dependency audit: no checkout"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e",
+          "collector": "secret-scan",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T01:03:52Z",
+          "summary": "secret scan: no checkout"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "wcag-22-aa",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-51744bcd",
+          "collector": "accessibility",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T01:03:52Z",
+          "summary": "accessibility: no checkout"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "keyboard-screen-reader",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": true,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "responsive-layouts",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "critical-workflows",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217",
+          "collector": "build-test",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T01:03:52Z",
+          "summary": "build and test: no checkout"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "production-deployment",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410",
+          "collector": "deployment-health",
+          "result": "inconclusive",
+          "executedAt": "2026-10-27T00:56:07Z",
+          "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+    },
+    {
+      "id": "documentation-accurate",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-ai-workforce-documentation-c70d8b1-3bb81c01",
+          "collector": "documentation",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T01:03:52Z",
+          "summary": "documentation: no checkout"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "no-release-blockers",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": true,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "authentication",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "authorization-boundaries",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "sensitive-data-handling",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e",
+          "collector": "secret-scan",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T01:03:52Z",
+          "summary": "secret scan: no checkout"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "api-integration-security",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "integration-failure-handling",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "backup-recovery",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "audit-logging",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "deployment-rollback",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410",
+          "collector": "deployment-health",
+          "result": "inconclusive",
+          "executedAt": "2026-10-27T00:56:07Z",
+          "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "e2e-critical-workflows",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217",
+          "collector": "build-test",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T01:03:52Z",
+          "summary": "build and test: no checkout"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "user-data-isolation",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    }
+  ],
+  "missingVerification": [
+    "scope-complete",
+    "automated-checks",
+    "security-privacy-review",
+    "wcag-22-aa",
+    "keyboard-screen-reader",
+    "responsive-layouts",
+    "critical-workflows",
+    "production-deployment",
+    "documentation-accurate",
+    "no-release-blockers",
+    "authentication",
+    "authorization-boundaries",
+    "sensitive-data-handling",
+    "api-integration-security",
+    "integration-failure-handling",
+    "backup-recovery",
+    "audit-logging",
+    "deployment-rollback",
+    "e2e-critical-workflows",
+    "user-data-isolation"
+  ],
+  "staleEvidence": [],
+  "blockers": [
+    {
+      "id": "scope-document-missing",
+      "origin": "registry",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "scope",
+      "description": "No release scope document. The README describes a Phase 1 deterministic simulation foundation; the first release scope has not been defined."
+    },
+    {
+      "id": "auto-critical-workflows-unverified",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "workflow",
+      "description": "Critical workflows are not independently verified (critical-workflows, e2e-critical-workflows)."
+    },
+    {
+      "id": "auto-missing-verification",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "evidence",
+      "description": "18 applicable pre-publication gate(s) lack current independent verification."
+    },
+    {
+      "id": "auto-owner-approval",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "approval",
+      "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
+    },
+    {
+      "id": "auto-ownership",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "evidence",
+      "description": "Independent verification impossible: builder and independent verifier are not both assigned."
+    }
+  ],
+  "blockersBySeverity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "unclassified": 5
+  },
+  "mergeEligible": false,
+  "releaseEligible": false,
+  "lastVerification": null,
+  "lastCollection": "2026-10-27T01:03:52Z",
+  "nextAction": "Resolve blocker scope-document-missing.",
+  "findings": [
+    {
+      "id": "one-small-ai-workforce:accessibility:c70d8b1",
+      "project": "one-small-ai-workforce",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "collector": "accessibility",
+      "evidenceId": "ev-one-small-ai-workforce-accessibility-c70d8b1-51744bcd",
+      "kind": "access",
+      "severity": "unclassified",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "releaseImpact": "blocks verification of wcag-22-aa",
+      "title": "accessibility: no checkout",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector accessibility --execute",
+      "rootCause": null,
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "proposedFix": null,
+      "acceptance": "The accessibility collector reports pass at the new commit, and the verifier records it for wcag-22-aa.",
+      "verification": [
+        "wcag-22-aa: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-ai-workforce:build-test:c70d8b1",
+      "project": "one-small-ai-workforce",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "collector": "build-test",
+      "evidenceId": "ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217",
+      "kind": "access",
+      "severity": "unclassified",
+      "gates": [
+        "automated-checks",
+        "critical-workflows",
+        "e2e-critical-workflows"
+      ],
+      "releaseImpact": "blocks verification of automated-checks, critical-workflows, e2e-critical-workflows",
+      "title": "build and test: no checkout",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector build-test --execute",
+      "rootCause": null,
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "proposedFix": null,
+      "acceptance": "The build-test collector reports pass at the new commit, and the verifier records it for automated-checks, critical-workflows, e2e-critical-workflows.",
+      "verification": [
+        "automated-checks: re-executed by the verifier",
+        "critical-workflows: manual review by the verifier",
+        "e2e-critical-workflows: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-ai-workforce:ci-results:c70d8b1",
+      "project": "one-small-ai-workforce",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "collector": "ci-results",
+      "evidenceId": "ev-one-small-ai-workforce-ci-results-c70d8b1-d29eecc7",
+      "kind": "access",
+      "severity": "unclassified",
+      "gates": [
+        "automated-checks"
+      ],
+      "releaseImpact": "blocks verification of automated-checks",
+      "title": "CI results: not readable",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector ci-results --execute",
+      "rootCause": null,
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "proposedFix": null,
+      "acceptance": "The ci-results collector reports pass at the new commit, and the verifier records it for automated-checks.",
+      "verification": [
+        "automated-checks: re-executed by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-ai-workforce:dependency-audit:c70d8b1",
+      "project": "one-small-ai-workforce",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "collector": "dependency-audit",
+      "evidenceId": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-9621791e",
+      "kind": "access",
+      "severity": "unclassified",
+      "gates": [
+        "security-privacy-review"
+      ],
+      "releaseImpact": "blocks verification of security-privacy-review",
+      "title": "dependency audit: no checkout",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector dependency-audit --execute",
+      "rootCause": null,
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "proposedFix": null,
+      "acceptance": "The dependency-audit collector reports pass at the new commit, and the verifier records it for security-privacy-review.",
+      "verification": [
+        "security-privacy-review: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-ai-workforce:deployment-health:c70d8b1",
+      "project": "one-small-ai-workforce",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "collector": "deployment-health",
+      "evidenceId": "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "releaseImpact": "blocks verification of deployment-rollback, production-deployment",
+      "title": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector deployment-health --execute",
+      "rootCause": null,
+      "failureReason": "not run or inconclusive: deployment configuration (no checkout); health check (no productionUrl in the registry)",
+      "proposedFix": null,
+      "acceptance": "The deployment-health collector reports pass at the new commit, and the verifier records it for deployment-rollback, production-deployment.",
+      "verification": [
+        "deployment-rollback: manual review by the verifier",
+        "production-deployment: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-ai-workforce:documentation:c70d8b1",
+      "project": "one-small-ai-workforce",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "collector": "documentation",
+      "evidenceId": "ev-one-small-ai-workforce-documentation-c70d8b1-3bb81c01",
+      "kind": "access",
+      "severity": "unclassified",
+      "gates": [
+        "documentation-accurate"
+      ],
+      "releaseImpact": "blocks verification of documentation-accurate",
+      "title": "documentation: no checkout",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector documentation --execute",
+      "rootCause": null,
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "proposedFix": null,
+      "acceptance": "The documentation collector reports pass at the new commit, and the verifier records it for documentation-accurate.",
+      "verification": [
+        "documentation-accurate: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-ai-workforce:lint-format-types:c70d8b1",
+      "project": "one-small-ai-workforce",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "collector": "lint-format-types",
+      "evidenceId": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-1e2a62c6",
+      "kind": "access",
+      "severity": "unclassified",
+      "gates": [
+        "automated-checks"
+      ],
+      "releaseImpact": "blocks verification of automated-checks",
+      "title": "lint, format and types: no checkout",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector lint-format-types --execute",
+      "rootCause": null,
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "proposedFix": null,
+      "acceptance": "The lint-format-types collector reports pass at the new commit, and the verifier records it for automated-checks.",
+      "verification": [
+        "automated-checks: re-executed by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-ai-workforce:repo-structure:c70d8b1",
+      "project": "one-small-ai-workforce",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "collector": "repo-structure",
+      "evidenceId": "ev-one-small-ai-workforce-repo-structure-c70d8b1-681715fd",
+      "kind": "access",
+      "severity": "unclassified",
+      "gates": [],
+      "releaseImpact": "context only; no gate depends on it",
+      "title": "repository not readable",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector repo-structure --execute",
+      "rootCause": null,
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "proposedFix": null,
+      "acceptance": "The repo-structure collector reports pass.",
+      "verification": []
+    },
+    {
+      "id": "one-small-ai-workforce:secret-scan:c70d8b1",
+      "project": "one-small-ai-workforce",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "collector": "secret-scan",
+      "evidenceId": "ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e",
+      "kind": "access",
+      "severity": "unclassified",
+      "gates": [
+        "security-privacy-review",
+        "sensitive-data-handling"
+      ],
+      "releaseImpact": "blocks verification of security-privacy-review, sensitive-data-handling",
+      "title": "secret scan: no checkout",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector secret-scan --execute",
+      "rootCause": null,
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "proposedFix": null,
+      "acceptance": "The secret-scan collector reports pass at the new commit, and the verifier records it for security-privacy-review, sensitive-data-handling.",
+      "verification": [
+        "security-privacy-review: manual review by the verifier",
+        "sensitive-data-handling: manual review by the verifier"
+      ]
+    }
+  ],
+  "verifications": [],
+  "relatedPullRequests": [],
+  "remediation": [],
+  "verificationRequests": [
+    {
+      "gate": "scope-complete",
+      "automation": "none",
+      "humanOnly": true,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "automated-checks",
+      "automation": "full",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-362731a7",
+          "digest": "a891faceb95f0396f936b583ba4fe8378be403c62abcc0680675c5a1b3cb1b73",
+          "collector": "build-test",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217",
+          "digest": "de3253e8b7f10661e7af535a1c162433b75ea2a081902831f9a7600263f8341d",
+          "collector": "build-test",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-a83d10da",
+          "digest": "84cd087576e30872898dd62f7bc48ad43c17cbb0ac27812bee18563528f7daa3",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-d29eecc7",
+          "digest": "77385e00ac6b9bb3644a6ed8e2176b0cf0320b5813a27d4a604e206c2f6c085d",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-1e2a62c6",
+          "digest": "4cd821e33b9a5c1a5691bed9615b7df808780b207b15bb7dfc3d92ab48ea3d10",
+          "collector": "lint-format-types",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-f96f96b8",
+          "digest": "6a1a6f7bbace62841b5198e227edd91e5a47f5f6ecc57cb3e4c859a1c867963f",
+          "collector": "lint-format-types",
+          "result": "unavailable"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "re-executed",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "security-privacy-review",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-9621791e",
+          "digest": "4a167304247ee85aee947606b5f1df958179bdac0a0c2d67d58b2f10e02bb995",
+          "collector": "dependency-audit",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-ca5ee6f6",
+          "digest": "4b96c73df3d2d8975956c542d44613a3eb6be59d8386e0ba765fb1dafa168658",
+          "collector": "dependency-audit",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e",
+          "digest": "95705fed32f2fffb754f82e79dc78a8518e8a292a89288968a1a52051339dd99",
+          "collector": "secret-scan",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-f25d1452",
+          "digest": "a4be5ca75cf74b14f11acde0e4d33f8e003cffa96fa1cf762144b903bceae17d",
+          "collector": "secret-scan",
+          "result": "unavailable"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "wcag-22-aa",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-51744bcd",
+          "digest": "0d73f426de5ad942211a473fe5100f6c2ab84c1fa11641e1f4812c8b3e976f8b",
+          "collector": "accessibility",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-71442670",
+          "digest": "912ae34c42fdb37ebd5b3e6f1e9737347e28f168e35cdd179f6f8d3b9cf474ac",
+          "collector": "accessibility",
+          "result": "unavailable"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "keyboard-screen-reader",
+      "automation": "none",
+      "humanOnly": true,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "responsive-layouts",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "critical-workflows",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-362731a7",
+          "digest": "a891faceb95f0396f936b583ba4fe8378be403c62abcc0680675c5a1b3cb1b73",
+          "collector": "build-test",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217",
+          "digest": "de3253e8b7f10661e7af535a1c162433b75ea2a081902831f9a7600263f8341d",
+          "collector": "build-test",
+          "result": "unavailable"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "production-deployment",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410",
+          "digest": "e24fb89f0237e7f01d7512a30d7bcb7472891d804a3a31ef8bbf6efcea83f9b6",
+          "collector": "deployment-health",
+          "result": "inconclusive"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "documentation-accurate",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-ai-workforce-documentation-c70d8b1-13c3e86a",
+          "digest": "7ab0a2493a8492c63c64a7adbd26724437e05e433f97b438086f6d7253f15820",
+          "collector": "documentation",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-documentation-c70d8b1-3bb81c01",
+          "digest": "a2b1a7ef44c3954b15e2952e9dd026de2af0ad0b3e01a3f69be06d843b75663d",
+          "collector": "documentation",
+          "result": "unavailable"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "no-release-blockers",
+      "automation": "none",
+      "humanOnly": true,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "authentication",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "authorization-boundaries",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "sensitive-data-handling",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e",
+          "digest": "95705fed32f2fffb754f82e79dc78a8518e8a292a89288968a1a52051339dd99",
+          "collector": "secret-scan",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-f25d1452",
+          "digest": "a4be5ca75cf74b14f11acde0e4d33f8e003cffa96fa1cf762144b903bceae17d",
+          "collector": "secret-scan",
+          "result": "unavailable"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "api-integration-security",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "integration-failure-handling",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "backup-recovery",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "audit-logging",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "deployment-rollback",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410",
+          "digest": "e24fb89f0237e7f01d7512a30d7bcb7472891d804a3a31ef8bbf6efcea83f9b6",
+          "collector": "deployment-health",
+          "result": "inconclusive"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "e2e-critical-workflows",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-362731a7",
+          "digest": "a891faceb95f0396f936b583ba4fe8378be403c62abcc0680675c5a1b3cb1b73",
+          "collector": "build-test",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217",
+          "digest": "de3253e8b7f10661e7af535a1c162433b75ea2a081902831f9a7600263f8341d",
+          "collector": "build-test",
+          "result": "unavailable"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "user-data-isolation",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    }
+  ]
+}

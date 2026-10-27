@@ -100,12 +100,17 @@ export const repoStructure = {
 }
 
 export const buildTest = {
-  name: 'build-test', version: V, gates: ['automated-checks', 'critical-workflows', 'e2e-critical-workflows'],
+  name: 'build-test', version: '1.1.0', gates: ['automated-checks', 'critical-workflows', 'e2e-critical-workflows'],
   collect(ctx) {
     const gate = executionGate(ctx, 'build and test')
     if (gate) return gate
     const planned = plannedChecks(ctx.view, ctx.profile).filter(c => c.kind === 'build' || c.kind === 'test')
     if (!planned.length) return inconclusive('build and test: no build or test command', 'the project declares no build or test script; automated checks cannot be shown')
+    // Results under a Node older than the project's engines floor do not show the project works.
+    const pkg = ctx.view.json('package.json') || {}
+    const floor = Number((/(\d+)/.exec((pkg.engines && pkg.engines.node) || '') || [])[1]) || null
+    const local = Number(process.versions.node.split('.')[0])
+    if (floor && local < floor) return inconclusive(`build and test: collector Node ${process.versions.node} is below the project's engines floor ${floor}`, `run the collector on Node ${floor} or later; results on an unsupported runtime are not evidence`)
     const checks = planned.map(c => runCheck(ctx, c))
     for (const n of ctx.profile.notRun || []) if (!n.collector || n.collector === 'build-test') checks.push({ name: n.name, result: n.coveredBy ? 'delegated' : 'not_run', detail: n.coveredBy ? `covered by the ${n.coveredBy} collector: ${n.reason}` : n.reason })
     return { ...combine(checks, 'build and test'), reproduce: reproduceFor(ctx, planned.map(c => c.cmd.join(' '))) }
@@ -205,7 +210,10 @@ export function scanText(path, text) {
       const m = re.exec(line)
       if (!m) continue
       const placeholder = PLACEHOLDER.test(m[0]) || PLACEHOLDER.test(line)
-      findings.push({ path, line: i + 1, kind, placeholder, inTestOrDocs: TEST_PATH.test(path) })
+      // A credential in a URL to localhost is a throwaway CI or test service, not a leaked secret;
+      // it still goes to human review rather than passing silently.
+      const local = kind === 'credentials in URL' && /@(localhost|127\.0\.0\.1|0\.0\.0\.0|\[::1\])[:/]/.test(line)
+      findings.push({ path, line: i + 1, kind, placeholder, inTestOrDocs: TEST_PATH.test(path) || local })
     }
   })
   return findings
@@ -217,7 +225,12 @@ export const secretScan = {
     if (!ctx.view) return unavailable('secret scan: no checkout', ctx.accessReason || 'no checkout')
     const files = ctx.view.files().filter(f => !BINARY.test(f.path) && f.size <= 1_000_000)
     const findings = []
-    const envFiles = files.filter(f => /(^|\/)\.env(\.[a-z]+)?$/i.test(f.path) && !/\.(example|sample|template)$/i.test(f.path)).map(f => f.path)
+    // A committed .env file fails only when it assigns a non-empty value to a sensitive-looking
+    // key (SECRET, TOKEN, KEY, PASSWORD, ...); other committed .env files are listed for review.
+    const SENSITIVE_KEY = /^\s*(?:export\s+)?[A-Z0-9_]*(SECRET|TOKEN|PASSWORD|PASSWD|API_?KEY|PRIVATE|CREDENTIAL|AUTH)[A-Z0-9_]*\s*=\s*\S+/im
+    const envAll = files.filter(f => /(^|\/)\.env(\.[a-z]+)?$/i.test(f.path) && !/\.(example|sample|template)$/i.test(f.path)).map(f => f.path)
+    const envFiles = envAll.filter(p => SENSITIVE_KEY.test(ctx.view.read(p) || ''))
+    const envOther = envAll.filter(p => !envFiles.includes(p))
     for (const f of files) {
       const text = ctx.view.read(f.path)
       if (text === null || text.includes('\u0000')) continue
@@ -228,7 +241,7 @@ export const secretScan = {
     const fmt = x => `${x.path}:${x.line} (${x.kind})`
     const checks = [
       { name: 'credential patterns outside tests and docs', result: real.length ? 'fail' : 'pass', detail: real.length ? real.slice(0, 20).map(fmt).join('; ') : `${files.length} files scanned` },
-      { name: 'committed .env files', result: envFiles.length ? 'fail' : 'pass', detail: envFiles.length ? envFiles.join(', ') : 'none' },
+      { name: 'committed .env files with sensitive keys', result: envFiles.length ? 'fail' : 'pass', detail: envFiles.length ? envFiles.join(', ') : envOther.length ? `none; committed without sensitive keys (names only checked): ${envOther.join(', ')}` : 'none' },
       { name: 'credential-shaped values in tests and docs', result: review.length ? 'inconclusive' : 'pass', detail: review.length ? `needs human review (often deliberate fixtures): ${review.slice(0, 20).map(fmt).join('; ')}` : 'none' }
     ]
     const out = combine(checks, 'secret scan')
@@ -324,7 +337,8 @@ export const documentation = {
       { name: 'relative links resolve', result: broken.length ? 'fail' : 'pass', detail: broken.length ? broken.slice(0, 15).join('; ') : `${docs.length} Markdown file(s)` }
     ]
     if (lib) {
-      checks.push({ name: 'CHANGELOG', result: v.exists('CHANGELOG.md') ? 'pass' : 'fail', detail: v.exists('CHANGELOG.md') ? 'present' : 'absent' })
+      const changelog = ['CHANGELOG.md', ctx.profile.packageDir && `${ctx.profile.packageDir.replace(/\/$/, '')}/CHANGELOG.md`].filter(Boolean).find(p => v.exists(p))
+      checks.push({ name: 'CHANGELOG', result: changelog ? 'pass' : 'fail', detail: changelog || 'absent' })
       checks.push({ name: 'upgrade, rollback and uninstall documented', result: /upgrad/i.test(all) && /rollback|roll back|downgrad/i.test(all) && /uninstall/i.test(all) ? 'pass' : 'fail', detail: ['upgrade', 'rollback', 'uninstall'].filter(w => !new RegExp(w === 'rollback' ? 'rollback|roll back|downgrad' : w, 'i').test(all)).map(w => `no mention of ${w}`).join(', ') || 'all three mentioned' })
     }
     checks.push({ name: 'accuracy against behaviour', result: 'not_run', detail: 'whether the documentation matches the product is a manual review' })
@@ -338,11 +352,13 @@ export const releasePackaging = {
   name: 'release-packaging', version: V, gates: ['package-metadata-exports', 'package-archive-inspection', 'versioning-changelog', 'clean-consumer-install', 'ci-release-pipeline'],
   collect(ctx) {
     if (!ctx.view) return unavailable('release packaging: no checkout', ctx.accessReason || 'no checkout')
-    const pkg = ctx.view.json('package.json')
+    // A monorepo publishes from a workspace directory named in the profile (packageDir).
+    const dir = ctx.profile.packageDir ? `${ctx.profile.packageDir.replace(/\/$/, '')}/` : ''
+    const pkg = ctx.view.json(`${dir}package.json`)
     if (!pkg) return notApplicable('release packaging: no package.json')
     if (pkg.__malformed) return fail('release packaging: package.json is not valid JSON', 'package.json does not parse')
     const target = ctx.project.release && ctx.project.release.targetVersion
-    const changelog = ctx.view.read('CHANGELOG.md') || ''
+    const changelog = ctx.view.read(`${dir}CHANGELOG.md`) || ''
     const top = /^#{1,3}\s*\[?v?(\d+\.\d+\.\d+[^\]\s]*)/m.exec(changelog)
     const workflows = ctx.view.files().filter(f => /^\.github\/workflows\/[^/]+\.ya?ml$/.test(f.path))
     const publishWf = workflows.filter(f => /npm publish|changesets\/action|semantic-release/.test(ctx.view.read(f.path) || '')).map(f => f.path)
@@ -363,7 +379,7 @@ export const releasePackaging = {
       const build = s.build ? runCheck(ctx, { name: 'build before pack', cmd: ['npm', 'run', 'build'] }) : null
       if (build && build.result !== 'pass') checks.push({ ...build, name: 'npm pack contents', result: build.result === 'fail' ? 'fail' : 'not_run' })
       else {
-        const res = ctx.run('npm', ['pack', '--dry-run', '--json', '--ignore-scripts'], { cwd: ctx.view.dir, timeoutMs: 300_000 })
+        const res = ctx.run('npm', ['pack', '--dry-run', '--json', '--ignore-scripts'], { cwd: dir ? `${ctx.view.dir}/${dir}` : ctx.view.dir, timeoutMs: 300_000 })
         let listing = null
         try { listing = JSON.parse(res.stdout.slice(res.stdout.indexOf('['))) } catch { /* reported below */ }
         if (!Array.isArray(listing) || !listing[0] || !Array.isArray(listing[0].files)) checks.push({ name: 'npm pack contents', result: 'inconclusive', detail: `npm pack gave no listing (exit ${res.status})` })

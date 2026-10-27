@@ -1,0 +1,1021 @@
+{
+  "kind": "one-small-engineering/verification-project",
+  "asOf": "2026-10-27T01:05:00Z",
+  "id": "cortex",
+  "name": "Cortex",
+  "tier": "application",
+  "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+  "target": {
+    "sha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+    "source": "live head of main",
+    "liveSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+    "drift": null
+  },
+  "readiness": {
+    "percentage": 0,
+    "previousPercentage": 0,
+    "applicableGates": 20,
+    "verifiedGates": 0,
+    "eligibility": "not-scoped",
+    "ownershipValid": false
+  },
+  "gateStates": {
+    "independently_verified": 0,
+    "passed_by_builder": 4,
+    "failed": 0,
+    "inconclusive": 5,
+    "not_tested": 11,
+    "not_applicable": 0
+  },
+  "gates": [
+    {
+      "id": "scope-complete",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": true,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "automated-checks",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "full",
+      "manualReviewRequired": false,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
+          "collector": "build-test",
+          "result": "pass",
+          "executedAt": "2026-10-27T00:56:05Z",
+          "summary": "build and test: 1 check(s) passed"
+        },
+        {
+          "id": "ev-cortex-ci-results-ec49fd7-cdd510f0",
+          "collector": "ci-results",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T01:03:52Z",
+          "summary": "CI results: not readable"
+        },
+        {
+          "id": "ev-cortex-lint-format-types-ec49fd7-4b9bec16",
+          "collector": "lint-format-types",
+          "result": "inconclusive",
+          "executedAt": "2026-10-27T00:56:05Z",
+          "summary": "lint, format and types: none configured"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "security-privacy-review",
+      "state": "passed_by_builder",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-cortex-dependency-audit-ec49fd7-7e30241d",
+          "collector": "dependency-audit",
+          "result": "pass",
+          "executedAt": "2026-10-27T00:56:06Z",
+          "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0"
+        },
+        {
+          "id": "ev-cortex-secret-scan-ec49fd7-59e05abc",
+          "collector": "secret-scan",
+          "result": "pass",
+          "executedAt": "2026-10-27T00:56:06Z",
+          "summary": "secret scan: 3 check(s) passed"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "wcag-22-aa",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-cortex-accessibility-ec49fd7-27cfef71",
+          "collector": "accessibility",
+          "result": "inconclusive",
+          "executedAt": "2026-10-27T00:56:06Z",
+          "summary": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "keyboard-screen-reader",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": true,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "responsive-layouts",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "critical-workflows",
+      "state": "passed_by_builder",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
+          "collector": "build-test",
+          "result": "pass",
+          "executedAt": "2026-10-27T00:56:05Z",
+          "summary": "build and test: 1 check(s) passed"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "production-deployment",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-cortex-deployment-health-ec49fd7-805608a7",
+          "collector": "deployment-health",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T01:03:52Z",
+          "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+    },
+    {
+      "id": "documentation-accurate",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-cortex-documentation-ec49fd7-e08f6339",
+          "collector": "documentation",
+          "result": "inconclusive",
+          "executedAt": "2026-10-27T00:56:06Z",
+          "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "no-release-blockers",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": true,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "authentication",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "authorization-boundaries",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "sensitive-data-handling",
+      "state": "passed_by_builder",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-cortex-secret-scan-ec49fd7-59e05abc",
+          "collector": "secret-scan",
+          "result": "pass",
+          "executedAt": "2026-10-27T00:56:06Z",
+          "summary": "secret scan: 3 check(s) passed"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate",
+        "registry notes: High priority: the planned Finances ingest handles personal financial summaries; the spec requires auth, an 8-digit account-number rule and rate limiting"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "api-integration-security",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "integration-failure-handling",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "backup-recovery",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "audit-logging",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "deployment-rollback",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-cortex-deployment-health-ec49fd7-805608a7",
+          "collector": "deployment-health",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T01:03:52Z",
+          "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "e2e-critical-workflows",
+      "state": "passed_by_builder",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
+          "collector": "build-test",
+          "result": "pass",
+          "executedAt": "2026-10-27T00:56:05Z",
+          "summary": "build and test: 1 check(s) passed"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "user-data-isolation",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    }
+  ],
+  "missingVerification": [
+    "scope-complete",
+    "automated-checks",
+    "security-privacy-review",
+    "wcag-22-aa",
+    "keyboard-screen-reader",
+    "responsive-layouts",
+    "critical-workflows",
+    "production-deployment",
+    "documentation-accurate",
+    "no-release-blockers",
+    "authentication",
+    "authorization-boundaries",
+    "sensitive-data-handling",
+    "api-integration-security",
+    "integration-failure-handling",
+    "backup-recovery",
+    "audit-logging",
+    "deployment-rollback",
+    "e2e-critical-workflows",
+    "user-data-isolation"
+  ],
+  "staleEvidence": [],
+  "blockers": [
+    {
+      "id": "no-ci-workflow",
+      "origin": "registry",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "ci",
+      "description": "No GitHub Actions workflow; npm test exists but is not enforced on PRs (only the Vercel status runs)."
+    },
+    {
+      "id": "spec-open-questions",
+      "origin": "registry",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "scope",
+      "description": "The v2 spec lists five open questions for the owner (finance email hand-off, Muse check, Vault legend, news sources, briefing schedule)."
+    },
+    {
+      "id": "v2-phases-incomplete",
+      "origin": "registry",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "scope",
+      "description": "README states Finances is a placeholder until phase 4 and News until phase 5, and Ops project cards arrive in phase 3; the v2 spec defines six phases."
+    },
+    {
+      "id": "auto-critical-workflows-unverified",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "workflow",
+      "description": "Critical workflows are not independently verified (critical-workflows, e2e-critical-workflows)."
+    },
+    {
+      "id": "auto-missing-verification",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "evidence",
+      "description": "18 applicable pre-publication gate(s) lack current independent verification."
+    },
+    {
+      "id": "auto-owner-approval",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "approval",
+      "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
+    },
+    {
+      "id": "auto-ownership",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "evidence",
+      "description": "Independent verification impossible: builder and independent verifier are not both assigned."
+    }
+  ],
+  "blockersBySeverity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "unclassified": 7
+  },
+  "mergeEligible": false,
+  "releaseEligible": false,
+  "lastVerification": null,
+  "lastCollection": "2026-10-27T01:03:52Z",
+  "nextAction": "Resolve blocker spec-open-questions.",
+  "findings": [
+    {
+      "id": "cortex:accessibility:ec49fd7",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "collector": "accessibility",
+      "evidenceId": "ev-cortex-accessibility-ec49fd7-27cfef71",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "releaseImpact": "blocks verification of wcag-22-aa",
+      "title": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive",
+      "reproduction": "node scripts/verify/cli.mjs run --project cortex --collector accessibility --execute",
+      "rootCause": null,
+      "failureReason": "not run or inconclusive: automated accessibility tooling (none declared in package.json); automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
+      "proposedFix": null,
+      "acceptance": "The accessibility collector reports pass at the new commit, and the verifier records it for wcag-22-aa.",
+      "verification": [
+        "wcag-22-aa: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "cortex:ci-results:ec49fd7",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "collector": "ci-results",
+      "evidenceId": "ev-cortex-ci-results-ec49fd7-cdd510f0",
+      "kind": "access",
+      "severity": "unclassified",
+      "gates": [
+        "automated-checks"
+      ],
+      "releaseImpact": "blocks verification of automated-checks",
+      "title": "CI results: not readable",
+      "reproduction": "node scripts/verify/cli.mjs run --project cortex --collector ci-results --execute",
+      "rootCause": null,
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "proposedFix": null,
+      "acceptance": "The ci-results collector reports pass at the new commit, and the verifier records it for automated-checks.",
+      "verification": [
+        "automated-checks: re-executed by the verifier"
+      ]
+    },
+    {
+      "id": "cortex:deployment-health:ec49fd7",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "collector": "deployment-health",
+      "evidenceId": "ev-cortex-deployment-health-ec49fd7-805608a7",
+      "kind": "access",
+      "severity": "unclassified",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "releaseImpact": "blocks verification of deployment-rollback, production-deployment",
+      "title": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "reproduction": "node scripts/verify/cli.mjs run --project cortex --collector deployment-health --execute",
+      "rootCause": null,
+      "failureReason": "could not reach https://cortex-brain-nu.vercel.app from this runner",
+      "proposedFix": null,
+      "acceptance": "The deployment-health collector reports pass at the new commit, and the verifier records it for deployment-rollback, production-deployment.",
+      "verification": [
+        "deployment-rollback: manual review by the verifier",
+        "production-deployment: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "cortex:documentation:ec49fd7",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "collector": "documentation",
+      "evidenceId": "ev-cortex-documentation-ec49fd7-e08f6339",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [
+        "documentation-accurate"
+      ],
+      "releaseImpact": "blocks verification of documentation-accurate",
+      "title": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
+      "reproduction": "node scripts/verify/cli.mjs run --project cortex --collector documentation --execute",
+      "rootCause": null,
+      "failureReason": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "proposedFix": null,
+      "acceptance": "The documentation collector reports pass at the new commit, and the verifier records it for documentation-accurate.",
+      "verification": [
+        "documentation-accurate: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "cortex:lint-format-types:ec49fd7",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "collector": "lint-format-types",
+      "evidenceId": "ev-cortex-lint-format-types-ec49fd7-4b9bec16",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [
+        "automated-checks"
+      ],
+      "releaseImpact": "blocks verification of automated-checks",
+      "title": "lint, format and types: none configured",
+      "reproduction": "node scripts/verify/cli.mjs run --project cortex --collector lint-format-types --execute",
+      "rootCause": null,
+      "failureReason": "the project declares no lint, format check or type check script",
+      "proposedFix": null,
+      "acceptance": "The lint-format-types collector reports pass at the new commit, and the verifier records it for automated-checks.",
+      "verification": [
+        "automated-checks: re-executed by the verifier"
+      ]
+    },
+    {
+      "id": "cortex:repo-structure:ec49fd7",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "collector": "repo-structure",
+      "evidenceId": "ev-cortex-repo-structure-ec49fd7-0105455c",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [],
+      "releaseImpact": "context only; no gate depends on it",
+      "title": "repository structure: 3 of 5 check(s) passed; 2 not run or inconclusive",
+      "reproduction": "node scripts/verify/cli.mjs run --project cortex --collector repo-structure --execute",
+      "rootCause": null,
+      "failureReason": "not run or inconclusive: license (absent); workflows (no GitHub Actions workflows)",
+      "proposedFix": null,
+      "acceptance": "The repo-structure collector reports pass.",
+      "verification": []
+    }
+  ],
+  "verifications": [],
+  "relatedPullRequests": [],
+  "remediation": [],
+  "verificationRequests": [
+    {
+      "gate": "scope-complete",
+      "automation": "none",
+      "humanOnly": true,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "automated-checks",
+      "automation": "full",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
+          "digest": "0f5e33663973ef9eb8655d52ea3daa966703e8ab953f0b5cd0cff182a00646ee",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
+          "id": "ev-cortex-ci-results-ec49fd7-c1e79b00",
+          "digest": "4d1b86c224c14bfa6f67340a085bd9042fe42f437c3300354d142c7c9d68fc1b",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-cortex-ci-results-ec49fd7-cdd510f0",
+          "digest": "bc9d6e4bd8d870fb7c76849c8accde41e6333c36d4a9bc81c80e2a3c504b39f6",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-cortex-lint-format-types-ec49fd7-4b9bec16",
+          "digest": "83740a385e330aa871486c48685b48a0169d9b344447d2d435e33f02c2f419a6",
+          "collector": "lint-format-types",
+          "result": "inconclusive"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "re-executed",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "security-privacy-review",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-cortex-dependency-audit-ec49fd7-7e30241d",
+          "digest": "e987ca34b5f984d1c4696513a01c809408d2f5419c877058635dfb73da8a9cf6",
+          "collector": "dependency-audit",
+          "result": "pass"
+        },
+        {
+          "id": "ev-cortex-secret-scan-ec49fd7-59e05abc",
+          "digest": "f9c68fc0188d682d5ba5e637ac199bce55d51be3f3580d9d8062ea0fdcc80732",
+          "collector": "secret-scan",
+          "result": "pass"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "wcag-22-aa",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-cortex-accessibility-ec49fd7-27cfef71",
+          "digest": "7a092441118a8a008ee4d8f41a1631a9380defa45e171bcc333d4e4711b33eba",
+          "collector": "accessibility",
+          "result": "inconclusive"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "keyboard-screen-reader",
+      "automation": "none",
+      "humanOnly": true,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "responsive-layouts",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "critical-workflows",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
+          "digest": "0f5e33663973ef9eb8655d52ea3daa966703e8ab953f0b5cd0cff182a00646ee",
+          "collector": "build-test",
+          "result": "pass"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "production-deployment",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-cortex-deployment-health-ec49fd7-805608a7",
+          "digest": "7d3f1d44e877772c50d8bc6aa2b07b35afb35176628987488e8dbdad8420a44f",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-cortex-deployment-health-ec49fd7-ca79944d",
+          "digest": "f477d1df4e6c0d281d31ea859d3336dd10918e7131b19900141b917e61ebfc1e",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "documentation-accurate",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-cortex-documentation-ec49fd7-e08f6339",
+          "digest": "2ad1676b3977f9917415bbbfdfa40e3393dfc1bce457ae7eac0fd31576cb9240",
+          "collector": "documentation",
+          "result": "inconclusive"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "no-release-blockers",
+      "automation": "none",
+      "humanOnly": true,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "authentication",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "authorization-boundaries",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "sensitive-data-handling",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-cortex-secret-scan-ec49fd7-59e05abc",
+          "digest": "f9c68fc0188d682d5ba5e637ac199bce55d51be3f3580d9d8062ea0fdcc80732",
+          "collector": "secret-scan",
+          "result": "pass"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "api-integration-security",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "integration-failure-handling",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "backup-recovery",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "audit-logging",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "deployment-rollback",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-cortex-deployment-health-ec49fd7-805608a7",
+          "digest": "7d3f1d44e877772c50d8bc6aa2b07b35afb35176628987488e8dbdad8420a44f",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-cortex-deployment-health-ec49fd7-ca79944d",
+          "digest": "f477d1df4e6c0d281d31ea859d3336dd10918e7131b19900141b917e61ebfc1e",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "e2e-critical-workflows",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
+          "digest": "0f5e33663973ef9eb8655d52ea3daa966703e8ab953f0b5cd0cff182a00646ee",
+          "collector": "build-test",
+          "result": "pass"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "user-data-isolation",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    }
+  ]
+}

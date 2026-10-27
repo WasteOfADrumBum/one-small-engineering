@@ -1,0 +1,668 @@
+{
+  "project": "one-small-photography",
+  "evidence": [
+    {
+      "schema": 1,
+      "id": "ev-one-small-photography-build-test-45a74ba-1883a99f",
+      "project": "one-small-photography",
+      "gates": [
+        "automated-checks",
+        "critical-workflows",
+        "e2e-critical-workflows"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "ref": null,
+      "collector": {
+        "name": "build-test",
+        "version": "1.1.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "b0413e1c0205403a",
+      "execute": true,
+      "executedAt": "2026-10-27T01:01:14Z",
+      "result": "pass",
+      "summary": "build and test: 2 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "build",
+          "result": "pass",
+          "detail": "\u001b[2m01:01:06\u001b[22m \u001b[34m[@astrojs/vercel]\u001b[39m Copying static files to .vercel/output/static\n\u001b[2m01:01:06\u001b[22m \u001b[34m[build]\u001b[39m Server built in \u001b[1m15.48s\u001b[22m\n\u001b[2m01:01:06\u001b[22m \u001b[34m[build]\u001b[39m \u001b[1mComplete!\u001b[22m"
+        },
+        {
+          "name": "test",
+          "result": "pass",
+          "detail": "\u001b[2m   Duration \u001b[22m 6.15s\u001b[2m (import 45%, transform 38%, environment 12%, tests 4%, worker 1%)\u001b[22m\n\u001b[2m    Isolate \u001b[22m \u001b[33m16 workers spawned\u001b[39m\u001b[2m · ~272ms startup each (spawn + environment, per file)\u001b[22m\n\u001b[2m            \u001b[22m \u001b[2mat least ~1.18s faster with \u001b[22m\u001b[33misolate: false\u001b[39m\u001b[2m — reuses workers across files instead of one per file\u001b[22m"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": "git clone https://github.com/WasteOfADrumBum/one-small-photography && git -C <dir> checkout 45a74bad8a05c47ed7d6027dfb76e621dc16ef8f && npm ci --ignore-scripts && npm run build && npm test",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:01:14Z"
+      },
+      "digest": "82b144204292aa5d9c4f6cda5bbb78ab68242360ea748978fecfdc53c6d253df"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-photography-ci-results-45a74ba-32fcc3c6",
+      "project": "one-small-photography",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "0ea773dc03e1ce2d",
+      "execute": true,
+      "executedAt": "2026-10-27T01:01:14Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:01:14Z"
+      },
+      "digest": "381e54d993bafc4ef779ae3e957f9fed21e48b66d3824dcb7cceedfc8e45e368"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-photography-deployment-health-45a74ba-a51e90f7",
+      "project": "one-small-photography",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "84e9e45c29e0c43f",
+      "execute": true,
+      "executedAt": "2026-10-27T01:01:14Z",
+      "result": "unavailable",
+      "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive",
+      "failureReason": "could not reach https://one-small-photography.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "inconclusive",
+          "detail": "no deployment configuration file found"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://one-small-photography.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-28T01:01:14Z"
+      },
+      "digest": "740b64b29458dc2fa27c4b286bbb1470694df9cbd9bf730a552a198f3d71eab4"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-photography-accessibility-45a74ba-933f23e4",
+      "project": "one-small-photography",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "ref": null,
+      "collector": {
+        "name": "accessibility",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "23f90400e431d2a4",
+      "execute": true,
+      "executedAt": "2026-10-27T00:51:44Z",
+      "result": "inconclusive",
+      "summary": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive",
+      "failureReason": "not run or inconclusive: automated accessibility tooling (none declared in package.json); automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
+      "checks": [
+        {
+          "name": "automated accessibility tooling",
+          "result": "inconclusive",
+          "detail": "none declared in package.json"
+        },
+        {
+          "name": "automated accessibility run",
+          "result": "not_run",
+          "detail": "no automated accessibility command is configured for this project"
+        },
+        {
+          "name": "manual review",
+          "result": "not_run",
+          "detail": "Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA."
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:51:44Z"
+      },
+      "digest": "0b5eb6809de91323863990296f9f0a9e57356fcb38fd43aa5a0e164dbd530ddd"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-photography-dependency-audit-45a74ba-c75a1f11",
+      "project": "one-small-photography",
+      "gates": [
+        "security-privacy-review",
+        "supply-chain-review"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "ref": null,
+      "collector": {
+        "name": "dependency-audit",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "fcc84892530e2be4",
+      "execute": true,
+      "executedAt": "2026-10-27T00:51:44Z",
+      "result": "pass",
+      "summary": "dependency audit: critical 0, high 0, moderate 4, low 0, info 0",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "npm audit",
+          "result": "pass",
+          "detail": "critical 0, high 0, moderate 4, low 0, info 0 across 736 packages"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "npm-audit.json",
+          "sha256": "a6547b27b45ed0c5b1246e117230efb01276b3201a836890cd93afe507bdc3c5",
+          "ref": null
+        }
+      ],
+      "reproduce": "npm audit --json --package-lock-only (at 45a74ba)",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T00:51:44Z"
+      },
+      "digest": "e46ae7094250d0cf4e224ce2dfd0fe656f58d9102dd49cc3f15b7842b5303d7b"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-photography-deployment-health-45a74ba-75c80d8d",
+      "project": "one-small-photography",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "84e9e45c29e0c43f",
+      "execute": true,
+      "executedAt": "2026-10-27T00:51:44Z",
+      "result": "unavailable",
+      "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive",
+      "failureReason": "could not reach https://one-small-photography.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "inconclusive",
+          "detail": "no deployment configuration file found"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://one-small-photography.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-28T00:51:44Z"
+      },
+      "digest": "eda815b27e4cb74bf3ff62585af361a1eb432eab0139691829fa083f21cdd210"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-photography-documentation-45a74ba-34cb2a4c",
+      "project": "one-small-photography",
+      "gates": [
+        "documentation-accurate",
+        "public-docs-accurate",
+        "upgrade-rollback-uninstall-docs"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "ref": null,
+      "collector": {
+        "name": "documentation",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "46a123c7f2047358",
+      "execute": true,
+      "executedAt": "2026-10-27T00:51:44Z",
+      "result": "inconclusive",
+      "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "checks": [
+        {
+          "name": "README",
+          "result": "pass",
+          "detail": "56 lines"
+        },
+        {
+          "name": "README install or usage section",
+          "result": "pass",
+          "detail": "heading naming install, usage, setup or getting started"
+        },
+        {
+          "name": "relative links resolve",
+          "result": "pass",
+          "detail": "1 Markdown file(s)"
+        },
+        {
+          "name": "accuracy against behaviour",
+          "result": "not_run",
+          "detail": "whether the documentation matches the product is a manual review"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:51:44Z"
+      },
+      "digest": "29d748658add0423c2b33720457e7d4bbbaf2501aa33f562b4e1d4012def6c97"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-photography-secret-scan-45a74ba-38ccfe10",
+      "project": "one-small-photography",
+      "gates": [
+        "security-privacy-review",
+        "sensitive-data-handling"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "ref": null,
+      "collector": {
+        "name": "secret-scan",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "dd17ad0c39f7cb2e",
+      "execute": true,
+      "executedAt": "2026-10-27T00:51:44Z",
+      "result": "inconclusive",
+      "summary": "secret scan: 2 of 3 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "not run or inconclusive: credential-shaped values in tests and docs (needs human review (often deliberate fixtures): .github/workflows/ci.yml:42 (credentials in URL))",
+      "checks": [
+        {
+          "name": "credential patterns outside tests and docs",
+          "result": "pass",
+          "detail": "223 files scanned"
+        },
+        {
+          "name": "committed .env files with sensitive keys",
+          "result": "pass",
+          "detail": "none"
+        },
+        {
+          "name": "credential-shaped values in tests and docs",
+          "result": "inconclusive",
+          "detail": "needs human review (often deliberate fixtures): .github/workflows/ci.yml:42 (credentials in URL)"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "secret-scan-locations",
+          "sha256": "72e746716a239e0cc1b602f4d219e85f79027079692789ee96d41ae6a784986a",
+          "ref": "1 location(s), values withheld"
+        }
+      ],
+      "reproduce": "node scripts/verify/cli.mjs collect --project <id> --collector secret-scan",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:51:44Z"
+      },
+      "digest": "97198cd0d1aa6157b5bb3856aeb3e379602ac36ac7bf9942b67a408e284554e4"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-photography-ci-results-45a74ba-001ddf5f",
+      "project": "one-small-photography",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "0ea773dc03e1ce2d",
+      "execute": true,
+      "executedAt": "2026-10-27T00:51:43Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T00:51:43Z"
+      },
+      "digest": "b718feddb87143c832e8c279d90692a0dff63e6b6f8d571168a6f3130f5329c3"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-photography-lint-format-types-45a74ba-e909ffaa",
+      "project": "one-small-photography",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "ref": null,
+      "collector": {
+        "name": "lint-format-types",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "3aa0b2f7cf3ad59e",
+      "execute": true,
+      "executedAt": "2026-10-27T00:51:42Z",
+      "result": "pass",
+      "summary": "lint, format and types: 3 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "lint",
+          "result": "pass",
+          "detail": "> one-small-photography@0.1.0 lint\n> eslint ."
+        },
+        {
+          "name": "check",
+          "result": "pass",
+          "detail": "- 0 errors\n- 0 warnings\n- 0 hints"
+        },
+        {
+          "name": "format:check",
+          "result": "pass",
+          "detail": "> prettier --check .\nChecking formatting...\nAll matched files use Prettier code style!"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": "git clone https://github.com/WasteOfADrumBum/one-small-photography && git -C <dir> checkout 45a74bad8a05c47ed7d6027dfb76e621dc16ef8f && npm ci --ignore-scripts && npm run lint && npm run check && npm run format:check",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:51:42Z"
+      },
+      "digest": "957202957f2ca063b57e5615cf62e33b436952fb8ddfc2fd5f4f622baae54a9e"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-photography-build-test-45a74ba-469ea48f",
+      "project": "one-small-photography",
+      "gates": [
+        "automated-checks",
+        "critical-workflows",
+        "e2e-critical-workflows"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "ref": null,
+      "collector": {
+        "name": "build-test",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "025bdc4e5ade34fe",
+      "execute": true,
+      "executedAt": "2026-10-27T00:51:14Z",
+      "result": "pass",
+      "summary": "build and test: 2 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "build",
+          "result": "pass",
+          "detail": "\u001b[2m00:51:04\u001b[22m \u001b[34m[@astrojs/vercel]\u001b[39m Copying static files to .vercel/output/static\n\u001b[2m00:51:04\u001b[22m \u001b[34m[build]\u001b[39m Server built in \u001b[1m18.52s\u001b[22m\n\u001b[2m00:51:04\u001b[22m \u001b[34m[build]\u001b[39m \u001b[1mComplete!\u001b[22m"
+        },
+        {
+          "name": "test",
+          "result": "pass",
+          "detail": "\u001b[2m   Duration \u001b[22m 7.95s\u001b[2m (transform 45%, import 38%, environment 11%, tests 5%, worker 1%)\u001b[22m\n\u001b[2m    Isolate \u001b[22m \u001b[33m16 workers spawned\u001b[39m\u001b[2m · ~345ms startup each (spawn + environment, per file)\u001b[22m\n\u001b[2m            \u001b[22m \u001b[2mat least ~1.50s faster with \u001b[22m\u001b[33misolate: false\u001b[39m\u001b[2m — reuses workers across files instead of one per file\u001b[22m"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": "git clone https://github.com/WasteOfADrumBum/one-small-photography && git -C <dir> checkout 45a74bad8a05c47ed7d6027dfb76e621dc16ef8f && npm ci --ignore-scripts && npm run build && npm test",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:51:14Z"
+      },
+      "digest": "431c9dfdc7f71549d18d635ea2bd9b79bd8307a40d7e35e59f33d52ceb435123"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-photography-repo-structure-45a74ba-2c295a50",
+      "project": "one-small-photography",
+      "gates": [],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "ref": null,
+      "collector": {
+        "name": "repo-structure",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "9dfe0610542d5e7b",
+      "execute": true,
+      "executedAt": "2026-10-27T00:50:20Z",
+      "result": "inconclusive",
+      "summary": "repository structure: 4 of 5 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "not run or inconclusive: license (absent)",
+      "checks": [
+        {
+          "name": "package.json",
+          "result": "pass",
+          "detail": "one-small-photography@0.1.0 (private)"
+        },
+        {
+          "name": "lockfile",
+          "result": "pass",
+          "detail": "package-lock.json"
+        },
+        {
+          "name": "readme",
+          "result": "pass",
+          "detail": "README.md"
+        },
+        {
+          "name": "license",
+          "result": "inconclusive",
+          "detail": "absent"
+        },
+        {
+          "name": "workflows",
+          "result": "pass",
+          "detail": "ci.yml"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "file-list",
+          "sha256": "3bf9b507a19f617ee8adf102c96e0c18a55bd380c257b1eb1a49add3c12571c7",
+          "ref": "275 files"
+        }
+      ],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:50:20Z"
+      },
+      "digest": "81d1ea654581c39e51fbb577d2d5f600a21aa9f56973474b813c8ed7ab545d1c"
+    }
+  ]
+}

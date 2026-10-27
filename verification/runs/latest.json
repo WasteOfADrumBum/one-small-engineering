@@ -1,0 +1,583 @@
+{
+  "collectedAt": "2026-10-27T00:57:34Z",
+  "executor": "local",
+  "runUrl": null,
+  "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+  "execute": true,
+  "remediation": {
+    "personal-portfolio": [
+      {
+        "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/17",
+        "status": "draft PR: dependency advisories (next)"
+      }
+    ],
+    "one-small-studio": [
+      {
+        "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/16",
+        "status": "draft PR: dependency advisories"
+      }
+    ],
+    "taskforge": [
+      {
+        "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/43",
+        "status": "draft PR: dependency advisories"
+      }
+    ]
+  },
+  "runs": [
+    {
+      "project": "cortex",
+      "access": "ok",
+      "accessReason": null,
+      "target": {
+        "sha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+        "source": "live head of main",
+        "liveSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+        "drift": null
+      },
+      "collectors": [
+        {
+          "name": "repo-structure",
+          "result": "inconclusive",
+          "evidenceId": "ev-cortex-repo-structure-ec49fd7-0105455c",
+          "reused": true
+        },
+        {
+          "name": "build-test",
+          "result": "pass",
+          "evidenceId": "ev-cortex-build-test-ec49fd7-7edbf4a5",
+          "reused": true
+        },
+        {
+          "name": "lint-format-types",
+          "result": "inconclusive",
+          "evidenceId": "ev-cortex-lint-format-types-ec49fd7-4b9bec16",
+          "reused": true
+        },
+        {
+          "name": "ci-results",
+          "result": "unavailable",
+          "evidenceId": "ev-cortex-ci-results-ec49fd7-cdd510f0",
+          "reused": false
+        },
+        {
+          "name": "dependency-audit",
+          "result": "pass",
+          "evidenceId": "ev-cortex-dependency-audit-ec49fd7-7e30241d",
+          "reused": true
+        },
+        {
+          "name": "secret-scan",
+          "result": "pass",
+          "evidenceId": "ev-cortex-secret-scan-ec49fd7-59e05abc",
+          "reused": true
+        },
+        {
+          "name": "accessibility",
+          "result": "inconclusive",
+          "evidenceId": "ev-cortex-accessibility-ec49fd7-27cfef71",
+          "reused": true
+        },
+        {
+          "name": "deployment-health",
+          "result": "unavailable",
+          "evidenceId": "ev-cortex-deployment-health-ec49fd7-805608a7",
+          "reused": false
+        },
+        {
+          "name": "documentation",
+          "result": "inconclusive",
+          "evidenceId": "ev-cortex-documentation-ec49fd7-e08f6339",
+          "reused": true
+        }
+      ]
+    },
+    {
+      "project": "one-small-ai-workforce",
+      "access": "not-visible",
+      "accessReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "target": {
+        "sha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+        "source": "registry snapshot (live head unavailable)",
+        "liveSha": null,
+        "drift": null
+      },
+      "collectors": [
+        {
+          "name": "repo-structure",
+          "result": "unavailable",
+          "evidenceId": "ev-one-small-ai-workforce-repo-structure-c70d8b1-681715fd",
+          "reused": false
+        },
+        {
+          "name": "build-test",
+          "result": "unavailable",
+          "evidenceId": "ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217",
+          "reused": false
+        },
+        {
+          "name": "lint-format-types",
+          "result": "unavailable",
+          "evidenceId": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-1e2a62c6",
+          "reused": false
+        },
+        {
+          "name": "ci-results",
+          "result": "unavailable",
+          "evidenceId": "ev-one-small-ai-workforce-ci-results-c70d8b1-d29eecc7",
+          "reused": false
+        },
+        {
+          "name": "dependency-audit",
+          "result": "unavailable",
+          "evidenceId": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-9621791e",
+          "reused": false
+        },
+        {
+          "name": "secret-scan",
+          "result": "unavailable",
+          "evidenceId": "ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e",
+          "reused": false
+        },
+        {
+          "name": "accessibility",
+          "result": "unavailable",
+          "evidenceId": "ev-one-small-ai-workforce-accessibility-c70d8b1-51744bcd",
+          "reused": false
+        },
+        {
+          "name": "deployment-health",
+          "result": "inconclusive",
+          "evidenceId": "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410",
+          "reused": true
+        },
+        {
+          "name": "documentation",
+          "result": "unavailable",
+          "evidenceId": "ev-one-small-ai-workforce-documentation-c70d8b1-3bb81c01",
+          "reused": false
+        }
+      ]
+    },
+    {
+      "project": "one-small-mods-pack",
+      "access": "ok",
+      "accessReason": null,
+      "target": {
+        "sha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+        "source": "release candidate (PR #3, modspack-2-0)",
+        "liveSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+        "drift": null
+      },
+      "collectors": [
+        {
+          "name": "repo-structure",
+          "result": "pass",
+          "evidenceId": "ev-one-small-mods-pack-repo-structure-80cc269-f0cd58d4",
+          "reused": true
+        },
+        {
+          "name": "build-test",
+          "result": "pass",
+          "evidenceId": "ev-one-small-mods-pack-build-test-80cc269-9a91ed75",
+          "reused": false
+        },
+        {
+          "name": "lint-format-types",
+          "result": "pass",
+          "evidenceId": "ev-one-small-mods-pack-lint-format-types-80cc269-15e1f95a",
+          "reused": true
+        },
+        {
+          "name": "ci-results",
+          "result": "unavailable",
+          "evidenceId": "ev-one-small-mods-pack-ci-results-80cc269-e9f8640e",
+          "reused": false
+        },
+        {
+          "name": "dependency-audit",
+          "result": "pass",
+          "evidenceId": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
+          "reused": true
+        },
+        {
+          "name": "secret-scan",
+          "result": "pass",
+          "evidenceId": "ev-one-small-mods-pack-secret-scan-80cc269-a24f0c7c",
+          "reused": true
+        },
+        {
+          "name": "accessibility",
+          "result": "inconclusive",
+          "evidenceId": "ev-one-small-mods-pack-accessibility-80cc269-fe18f174",
+          "reused": true
+        },
+        {
+          "name": "documentation",
+          "result": "inconclusive",
+          "evidenceId": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
+          "reused": true
+        },
+        {
+          "name": "release-packaging",
+          "result": "fail",
+          "evidenceId": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+          "reused": true
+        },
+        {
+          "name": "compatibility",
+          "result": "fail",
+          "evidenceId": "ev-one-small-mods-pack-compatibility-80cc269-9f4e6fcb",
+          "reused": true
+        }
+      ]
+    },
+    {
+      "project": "one-small-photography",
+      "access": "ok",
+      "accessReason": null,
+      "target": {
+        "sha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+        "source": "live head of main",
+        "liveSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+        "drift": "registry snapshot is 2471b18; live head is 45a74ba (registry sync refreshes it)"
+      },
+      "collectors": [
+        {
+          "name": "repo-structure",
+          "result": "inconclusive",
+          "evidenceId": "ev-one-small-photography-repo-structure-45a74ba-2c295a50",
+          "reused": true
+        },
+        {
+          "name": "build-test",
+          "result": "pass",
+          "evidenceId": "ev-one-small-photography-build-test-45a74ba-1883a99f",
+          "reused": false
+        },
+        {
+          "name": "lint-format-types",
+          "result": "pass",
+          "evidenceId": "ev-one-small-photography-lint-format-types-45a74ba-e909ffaa",
+          "reused": true
+        },
+        {
+          "name": "ci-results",
+          "result": "unavailable",
+          "evidenceId": "ev-one-small-photography-ci-results-45a74ba-32fcc3c6",
+          "reused": false
+        },
+        {
+          "name": "dependency-audit",
+          "result": "pass",
+          "evidenceId": "ev-one-small-photography-dependency-audit-45a74ba-c75a1f11",
+          "reused": true
+        },
+        {
+          "name": "secret-scan",
+          "result": "inconclusive",
+          "evidenceId": "ev-one-small-photography-secret-scan-45a74ba-38ccfe10",
+          "reused": true
+        },
+        {
+          "name": "accessibility",
+          "result": "inconclusive",
+          "evidenceId": "ev-one-small-photography-accessibility-45a74ba-933f23e4",
+          "reused": true
+        },
+        {
+          "name": "deployment-health",
+          "result": "unavailable",
+          "evidenceId": "ev-one-small-photography-deployment-health-45a74ba-a51e90f7",
+          "reused": false
+        },
+        {
+          "name": "documentation",
+          "result": "inconclusive",
+          "evidenceId": "ev-one-small-photography-documentation-45a74ba-34cb2a4c",
+          "reused": true
+        }
+      ]
+    },
+    {
+      "project": "one-small-studio",
+      "access": "ok",
+      "accessReason": null,
+      "target": {
+        "sha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+        "source": "live head of main",
+        "liveSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+        "drift": "registry snapshot is 923fb11; live head is 175cef6 (registry sync refreshes it)"
+      },
+      "collectors": [
+        {
+          "name": "repo-structure",
+          "result": "inconclusive",
+          "evidenceId": "ev-one-small-studio-repo-structure-175cef6-d86527ca",
+          "reused": true
+        },
+        {
+          "name": "build-test",
+          "result": "pass",
+          "evidenceId": "ev-one-small-studio-build-test-175cef6-294dde20",
+          "reused": false
+        },
+        {
+          "name": "lint-format-types",
+          "result": "pass",
+          "evidenceId": "ev-one-small-studio-lint-format-types-175cef6-90de18f0",
+          "reused": true
+        },
+        {
+          "name": "ci-results",
+          "result": "unavailable",
+          "evidenceId": "ev-one-small-studio-ci-results-175cef6-f298f2b3",
+          "reused": false
+        },
+        {
+          "name": "dependency-audit",
+          "result": "fail",
+          "evidenceId": "ev-one-small-studio-dependency-audit-175cef6-fd8b01aa",
+          "reused": true
+        },
+        {
+          "name": "secret-scan",
+          "result": "pass",
+          "evidenceId": "ev-one-small-studio-secret-scan-175cef6-7a3a0299",
+          "reused": true
+        },
+        {
+          "name": "accessibility",
+          "result": "inconclusive",
+          "evidenceId": "ev-one-small-studio-accessibility-175cef6-363512db",
+          "reused": true
+        },
+        {
+          "name": "deployment-health",
+          "result": "unavailable",
+          "evidenceId": "ev-one-small-studio-deployment-health-175cef6-f5e271b7",
+          "reused": false
+        },
+        {
+          "name": "documentation",
+          "result": "inconclusive",
+          "evidenceId": "ev-one-small-studio-documentation-175cef6-4ba9575d",
+          "reused": true
+        }
+      ]
+    },
+    {
+      "project": "one-small-ui",
+      "access": "ok",
+      "accessReason": null,
+      "target": {
+        "sha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+        "source": "live head of main",
+        "liveSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+        "drift": null
+      },
+      "collectors": [
+        {
+          "name": "repo-structure",
+          "result": "pass",
+          "evidenceId": "ev-one-small-ui-repo-structure-94438ee-ad40ad06",
+          "reused": true
+        },
+        {
+          "name": "build-test",
+          "result": "pass",
+          "evidenceId": "ev-one-small-ui-build-test-94438ee-46e60bd8",
+          "reused": false
+        },
+        {
+          "name": "lint-format-types",
+          "result": "pass",
+          "evidenceId": "ev-one-small-ui-lint-format-types-94438ee-b048c952",
+          "reused": true
+        },
+        {
+          "name": "ci-results",
+          "result": "unavailable",
+          "evidenceId": "ev-one-small-ui-ci-results-94438ee-090f762b",
+          "reused": false
+        },
+        {
+          "name": "dependency-audit",
+          "result": "fail",
+          "evidenceId": "ev-one-small-ui-dependency-audit-94438ee-24e71675",
+          "reused": true
+        },
+        {
+          "name": "secret-scan",
+          "result": "pass",
+          "evidenceId": "ev-one-small-ui-secret-scan-94438ee-64a0d2ba",
+          "reused": true
+        },
+        {
+          "name": "accessibility",
+          "result": "inconclusive",
+          "evidenceId": "ev-one-small-ui-accessibility-94438ee-ca6c9e73",
+          "reused": true
+        },
+        {
+          "name": "deployment-health",
+          "result": "unavailable",
+          "evidenceId": "ev-one-small-ui-deployment-health-94438ee-5e002677",
+          "reused": false
+        },
+        {
+          "name": "documentation",
+          "result": "fail",
+          "evidenceId": "ev-one-small-ui-documentation-94438ee-46de4908",
+          "reused": true
+        },
+        {
+          "name": "release-packaging",
+          "result": "fail",
+          "evidenceId": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
+          "reused": true
+        },
+        {
+          "name": "compatibility",
+          "result": "fail",
+          "evidenceId": "ev-one-small-ui-compatibility-94438ee-4922bd39",
+          "reused": true
+        }
+      ]
+    },
+    {
+      "project": "personal-portfolio",
+      "access": "ok",
+      "accessReason": null,
+      "target": {
+        "sha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+        "source": "live head of main",
+        "liveSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+        "drift": null
+      },
+      "collectors": [
+        {
+          "name": "repo-structure",
+          "result": "inconclusive",
+          "evidenceId": "ev-personal-portfolio-repo-structure-684ef3c-08dcef3c",
+          "reused": true
+        },
+        {
+          "name": "build-test",
+          "result": "pass",
+          "evidenceId": "ev-personal-portfolio-build-test-684ef3c-0bc913a4",
+          "reused": false
+        },
+        {
+          "name": "lint-format-types",
+          "result": "pass",
+          "evidenceId": "ev-personal-portfolio-lint-format-types-684ef3c-3a80bae8",
+          "reused": true
+        },
+        {
+          "name": "ci-results",
+          "result": "unavailable",
+          "evidenceId": "ev-personal-portfolio-ci-results-684ef3c-4e6240b2",
+          "reused": false
+        },
+        {
+          "name": "dependency-audit",
+          "result": "fail",
+          "evidenceId": "ev-personal-portfolio-dependency-audit-684ef3c-6a355138",
+          "reused": true
+        },
+        {
+          "name": "secret-scan",
+          "result": "pass",
+          "evidenceId": "ev-personal-portfolio-secret-scan-684ef3c-c8ba0893",
+          "reused": true
+        },
+        {
+          "name": "accessibility",
+          "result": "inconclusive",
+          "evidenceId": "ev-personal-portfolio-accessibility-684ef3c-7f948fd0",
+          "reused": true
+        },
+        {
+          "name": "deployment-health",
+          "result": "unavailable",
+          "evidenceId": "ev-personal-portfolio-deployment-health-684ef3c-f1ab7588",
+          "reused": false
+        },
+        {
+          "name": "documentation",
+          "result": "inconclusive",
+          "evidenceId": "ev-personal-portfolio-documentation-684ef3c-207e2e00",
+          "reused": true
+        }
+      ]
+    },
+    {
+      "project": "taskforge",
+      "access": "ok",
+      "accessReason": null,
+      "target": {
+        "sha": "11975d0278c7f04db5033c0461295c734e3b4134",
+        "source": "live head of main",
+        "liveSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+        "drift": null
+      },
+      "collectors": [
+        {
+          "name": "repo-structure",
+          "result": "pass",
+          "evidenceId": "ev-taskforge-repo-structure-11975d0-bc93d2c0",
+          "reused": true
+        },
+        {
+          "name": "build-test",
+          "result": "pass",
+          "evidenceId": "ev-taskforge-build-test-11975d0-d17e1159",
+          "reused": false
+        },
+        {
+          "name": "lint-format-types",
+          "result": "pass",
+          "evidenceId": "ev-taskforge-lint-format-types-11975d0-bd0a2724",
+          "reused": true
+        },
+        {
+          "name": "ci-results",
+          "result": "unavailable",
+          "evidenceId": "ev-taskforge-ci-results-11975d0-6ee2dff9",
+          "reused": false
+        },
+        {
+          "name": "dependency-audit",
+          "result": "fail",
+          "evidenceId": "ev-taskforge-dependency-audit-11975d0-930082be",
+          "reused": true
+        },
+        {
+          "name": "secret-scan",
+          "result": "inconclusive",
+          "evidenceId": "ev-taskforge-secret-scan-11975d0-8442003a",
+          "reused": true
+        },
+        {
+          "name": "accessibility",
+          "result": "inconclusive",
+          "evidenceId": "ev-taskforge-accessibility-11975d0-5d28a392",
+          "reused": true
+        },
+        {
+          "name": "deployment-health",
+          "result": "unavailable",
+          "evidenceId": "ev-taskforge-deployment-health-11975d0-6024ae7e",
+          "reused": false
+        },
+        {
+          "name": "documentation",
+          "result": "inconclusive",
+          "evidenceId": "ev-taskforge-documentation-11975d0-132d686c",
+          "reused": true
+        }
+      ]
+    }
+  ]
+}
