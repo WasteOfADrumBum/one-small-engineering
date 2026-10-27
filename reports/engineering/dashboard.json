@@ -3006,9 +3006,9 @@
       "kind": "access",
       "title": "7 collectors unavailable: repository not found or not visible without a reader credential (private repositories need one)",
       "impact": "No evidence for automated-checks, critical-workflows, documentation-accurate, e2e-critical-workflows, security-privacy-review, sensitive-data-handling, wcag-22-aa; unavailable is never a pass.",
-      "proposedCorrection": "Provide a read-only reader credential (repository secret SYNC_READER_TOKEN, read-only Metadata, Contents, Pull requests, Actions and Checks on that repository only) or take the project out of active monitoring.",
+      "proposedCorrection": "Provide a read-only reader credential (repository secret SYNC_READER_TOKEN, read-only Metadata, Contents, Pull requests and Actions, plus Checks where offered, on that repository only) or take the project out of active monitoring.",
       "actionClass": "blocked-credentials",
-      "nextAction": "Provide a read-only reader credential (repository secret SYNC_READER_TOKEN, read-only Metadata, Contents, Pull requests, Actions and Checks on that repository only) or take the project out of active monitoring..",
+      "nextAction": "Provide a read-only reader credential (repository secret SYNC_READER_TOKEN, read-only Metadata, Contents, Pull requests and Actions, plus Checks where offered, on that repository only) or take the project out of active monitoring..",
       "accessReason": "repository not found or not visible without a reader credential (private repositories need one)",
       "collectors": [
         "accessibility",

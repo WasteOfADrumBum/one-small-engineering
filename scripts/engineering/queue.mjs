@@ -105,7 +105,7 @@ const COLLECTOR_RULES = {
   'repo-structure': [8, 'low', 8]
 }
 
-const accessFix = reason => /not visible|private|reader credential/i.test(reason || '') ? 'Provide a read-only reader credential (repository secret SYNC_READER_TOKEN, read-only Metadata, Contents, Pull requests, Actions and Checks on that repository only) or take the project out of active monitoring.' : 'Run where the GitHub API is reachable: the engineering workflow in GitHub Actions has a read-only token for this.'
+const accessFix = reason => /not visible|private|reader credential/i.test(reason || '') ? 'Provide a read-only reader credential (repository secret SYNC_READER_TOKEN, read-only Metadata, Contents, Pull requests and Actions, plus Checks where offered, on that repository only) or take the project out of active monitoring.' : 'Run where the GitHub API is reachable: the engineering workflow in GitHub Actions has a read-only token for this.'
 
 export function collectorIssues(p, v, { hasAdvisoryDetail = false } = {}) {
   const out = []

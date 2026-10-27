@@ -91,7 +91,7 @@ None.
 | 43 | one-small-photography | 7. Missing verification or documentation | medium | deployment-health unavailable: could not reach https://one-small-photography.vercel.app from this runner | Run where the GitHub API is reachable. | 2026-10-27 |
 | 45 | taskforge | 7. Missing verification or documentation | medium | deployment-health unavailable: could not reach https://taskforge-alpha-six.vercel.app from this runner | Run where the GitHub API is reachable. | 2026-10-27 |
 | 48 | cortex | 7. Missing verification or documentation | medium | deployment-health unavailable: could not reach https://cortex-brain-nu.vercel.app from this runner | Run where the GitHub API is reachable. | 2026-10-27 |
-| 50 | one-small-ai-workforce | 7. Missing verification or documentation | medium | 7 collectors unavailable: repository not found or not visible without a reader credential (private repositories need one) | Provide a read-only reader credential (repository secret SYNC_READER_TOKEN, read-only Metadata, Contents, Pull requests, Actions and Checks on that repository only) or take the project out of active monitoring.. | 2026-10-27 |
+| 50 | one-small-ai-workforce | 7. Missing verification or documentation | medium | 7 collectors unavailable: repository not found or not visible without a reader credential (private repositories need one) | Provide a read-only reader credential (repository secret SYNC_READER_TOKEN, read-only Metadata, Contents, Pull requests and Actions, plus Checks where offered, on that repository only) or take the project out of active monitoring.. | 2026-10-27 |
 | 52 | portfolio (one-small-mods-pack, one-small-ui, personal-portfolio, one-small-studio, one-small-photography, taskforge, cortex, one-small-ai-workforce) | 7. Missing verification or documentation | medium | ci-results unavailable in 8 projects: check runs: the token was rejected (HTTP 401); it is missing, expired or revoked | Run where the GitHub API is reachable. | 2026-10-27 |
 
 ## Informational (5)
@@ -602,7 +602,7 @@ None.
 - Priority: 7. Missing verification or documentation; severity medium; action: Blocked by credentials or environment; confidence high; complexity trivial
 - Root cause: repository not found or not visible without a reader credential (private repositories need one)
 - Impact: No evidence for automated-checks, critical-workflows, documentation-accurate, e2e-critical-workflows, security-privacy-review, sensitive-data-handling, wcag-22-aa; unavailable is never a pass.
-- Proposed correction: Provide a read-only reader credential (repository secret SYNC_READER_TOKEN, read-only Metadata, Contents, Pull requests, Actions and Checks on that repository only) or take the project out of active monitoring.
+- Proposed correction: Provide a read-only reader credential (repository secret SYNC_READER_TOKEN, read-only Metadata, Contents, Pull requests and Actions, plus Checks where offered, on that repository only) or take the project out of active monitoring.
 - Validation: the collectors report a result other than unavailable
 - Evidence: `ev-one-small-ai-workforce-accessibility-c70d8b1-a1500480`, `ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd`, `ev-one-small-ai-workforce-dependency-audit-c70d8b1-8417e8f4`, `ev-one-small-ai-workforce-documentation-c70d8b1-06b855f1`, `ev-one-small-ai-workforce-lint-format-types-c70d8b1-547f714e`, `ev-one-small-ai-workforce-repo-structure-c70d8b1-2cf1a4f1`, `ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c`
 
