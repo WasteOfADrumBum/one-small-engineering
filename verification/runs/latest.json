@@ -1,9 +1,9 @@
 {
-  "collectedAt": "2026-10-27T00:57:34Z",
+  "collectedAt": "2026-10-27T01:56:26Z",
   "executor": "local",
   "runUrl": null,
-  "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-  "execute": true,
+  "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental) via engineering:check",
+  "execute": false,
   "remediation": {
     "personal-portfolio": [
       {
@@ -37,58 +37,16 @@
       },
       "collectors": [
         {
-          "name": "repo-structure",
-          "result": "inconclusive",
-          "evidenceId": "ev-cortex-repo-structure-ec49fd7-0105455c",
-          "reused": true
-        },
-        {
-          "name": "build-test",
-          "result": "pass",
-          "evidenceId": "ev-cortex-build-test-ec49fd7-7edbf4a5",
-          "reused": true
-        },
-        {
-          "name": "lint-format-types",
-          "result": "inconclusive",
-          "evidenceId": "ev-cortex-lint-format-types-ec49fd7-4b9bec16",
-          "reused": true
-        },
-        {
           "name": "ci-results",
           "result": "unavailable",
-          "evidenceId": "ev-cortex-ci-results-ec49fd7-cdd510f0",
+          "evidenceId": "ev-cortex-ci-results-ec49fd7-bf09a281",
           "reused": false
-        },
-        {
-          "name": "dependency-audit",
-          "result": "pass",
-          "evidenceId": "ev-cortex-dependency-audit-ec49fd7-7e30241d",
-          "reused": true
-        },
-        {
-          "name": "secret-scan",
-          "result": "pass",
-          "evidenceId": "ev-cortex-secret-scan-ec49fd7-59e05abc",
-          "reused": true
-        },
-        {
-          "name": "accessibility",
-          "result": "inconclusive",
-          "evidenceId": "ev-cortex-accessibility-ec49fd7-27cfef71",
-          "reused": true
         },
         {
           "name": "deployment-health",
           "result": "unavailable",
-          "evidenceId": "ev-cortex-deployment-health-ec49fd7-805608a7",
+          "evidenceId": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
           "reused": false
-        },
-        {
-          "name": "documentation",
-          "result": "inconclusive",
-          "evidenceId": "ev-cortex-documentation-ec49fd7-e08f6339",
-          "reused": true
         }
       ]
     },
@@ -106,55 +64,49 @@
         {
           "name": "repo-structure",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ai-workforce-repo-structure-c70d8b1-681715fd",
+          "evidenceId": "ev-one-small-ai-workforce-repo-structure-c70d8b1-2cf1a4f1",
           "reused": false
         },
         {
           "name": "build-test",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217",
+          "evidenceId": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
           "reused": false
         },
         {
           "name": "lint-format-types",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-1e2a62c6",
+          "evidenceId": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-547f714e",
           "reused": false
         },
         {
           "name": "ci-results",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ai-workforce-ci-results-c70d8b1-d29eecc7",
+          "evidenceId": "ev-one-small-ai-workforce-ci-results-c70d8b1-e50e2e11",
           "reused": false
         },
         {
           "name": "dependency-audit",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-9621791e",
+          "evidenceId": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-8417e8f4",
           "reused": false
         },
         {
           "name": "secret-scan",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e",
+          "evidenceId": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c",
           "reused": false
         },
         {
           "name": "accessibility",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ai-workforce-accessibility-c70d8b1-51744bcd",
+          "evidenceId": "ev-one-small-ai-workforce-accessibility-c70d8b1-a1500480",
           "reused": false
-        },
-        {
-          "name": "deployment-health",
-          "result": "inconclusive",
-          "evidenceId": "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410",
-          "reused": true
         },
         {
           "name": "documentation",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ai-workforce-documentation-c70d8b1-3bb81c01",
+          "evidenceId": "ev-one-small-ai-workforce-documentation-c70d8b1-06b855f1",
           "reused": false
         }
       ]
@@ -171,64 +123,10 @@
       },
       "collectors": [
         {
-          "name": "repo-structure",
-          "result": "pass",
-          "evidenceId": "ev-one-small-mods-pack-repo-structure-80cc269-f0cd58d4",
-          "reused": true
-        },
-        {
-          "name": "build-test",
-          "result": "pass",
-          "evidenceId": "ev-one-small-mods-pack-build-test-80cc269-9a91ed75",
-          "reused": false
-        },
-        {
-          "name": "lint-format-types",
-          "result": "pass",
-          "evidenceId": "ev-one-small-mods-pack-lint-format-types-80cc269-15e1f95a",
-          "reused": true
-        },
-        {
           "name": "ci-results",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-mods-pack-ci-results-80cc269-e9f8640e",
+          "evidenceId": "ev-one-small-mods-pack-ci-results-80cc269-35769d7e",
           "reused": false
-        },
-        {
-          "name": "dependency-audit",
-          "result": "pass",
-          "evidenceId": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
-          "reused": true
-        },
-        {
-          "name": "secret-scan",
-          "result": "pass",
-          "evidenceId": "ev-one-small-mods-pack-secret-scan-80cc269-a24f0c7c",
-          "reused": true
-        },
-        {
-          "name": "accessibility",
-          "result": "inconclusive",
-          "evidenceId": "ev-one-small-mods-pack-accessibility-80cc269-fe18f174",
-          "reused": true
-        },
-        {
-          "name": "documentation",
-          "result": "inconclusive",
-          "evidenceId": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
-          "reused": true
-        },
-        {
-          "name": "release-packaging",
-          "result": "fail",
-          "evidenceId": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
-          "reused": true
-        },
-        {
-          "name": "compatibility",
-          "result": "fail",
-          "evidenceId": "ev-one-small-mods-pack-compatibility-80cc269-9f4e6fcb",
-          "reused": true
         }
       ]
     },
@@ -244,58 +142,16 @@
       },
       "collectors": [
         {
-          "name": "repo-structure",
-          "result": "inconclusive",
-          "evidenceId": "ev-one-small-photography-repo-structure-45a74ba-2c295a50",
-          "reused": true
-        },
-        {
-          "name": "build-test",
-          "result": "pass",
-          "evidenceId": "ev-one-small-photography-build-test-45a74ba-1883a99f",
-          "reused": false
-        },
-        {
-          "name": "lint-format-types",
-          "result": "pass",
-          "evidenceId": "ev-one-small-photography-lint-format-types-45a74ba-e909ffaa",
-          "reused": true
-        },
-        {
           "name": "ci-results",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-photography-ci-results-45a74ba-32fcc3c6",
+          "evidenceId": "ev-one-small-photography-ci-results-45a74ba-b919d9a0",
           "reused": false
-        },
-        {
-          "name": "dependency-audit",
-          "result": "pass",
-          "evidenceId": "ev-one-small-photography-dependency-audit-45a74ba-c75a1f11",
-          "reused": true
-        },
-        {
-          "name": "secret-scan",
-          "result": "inconclusive",
-          "evidenceId": "ev-one-small-photography-secret-scan-45a74ba-38ccfe10",
-          "reused": true
-        },
-        {
-          "name": "accessibility",
-          "result": "inconclusive",
-          "evidenceId": "ev-one-small-photography-accessibility-45a74ba-933f23e4",
-          "reused": true
         },
         {
           "name": "deployment-health",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-photography-deployment-health-45a74ba-a51e90f7",
+          "evidenceId": "ev-one-small-photography-deployment-health-45a74ba-6f7249e7",
           "reused": false
-        },
-        {
-          "name": "documentation",
-          "result": "inconclusive",
-          "evidenceId": "ev-one-small-photography-documentation-45a74ba-34cb2a4c",
-          "reused": true
         }
       ]
     },
@@ -311,58 +167,16 @@
       },
       "collectors": [
         {
-          "name": "repo-structure",
-          "result": "inconclusive",
-          "evidenceId": "ev-one-small-studio-repo-structure-175cef6-d86527ca",
-          "reused": true
-        },
-        {
-          "name": "build-test",
-          "result": "pass",
-          "evidenceId": "ev-one-small-studio-build-test-175cef6-294dde20",
-          "reused": false
-        },
-        {
-          "name": "lint-format-types",
-          "result": "pass",
-          "evidenceId": "ev-one-small-studio-lint-format-types-175cef6-90de18f0",
-          "reused": true
-        },
-        {
           "name": "ci-results",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-studio-ci-results-175cef6-f298f2b3",
+          "evidenceId": "ev-one-small-studio-ci-results-175cef6-372b3f9b",
           "reused": false
-        },
-        {
-          "name": "dependency-audit",
-          "result": "fail",
-          "evidenceId": "ev-one-small-studio-dependency-audit-175cef6-fd8b01aa",
-          "reused": true
-        },
-        {
-          "name": "secret-scan",
-          "result": "pass",
-          "evidenceId": "ev-one-small-studio-secret-scan-175cef6-7a3a0299",
-          "reused": true
-        },
-        {
-          "name": "accessibility",
-          "result": "inconclusive",
-          "evidenceId": "ev-one-small-studio-accessibility-175cef6-363512db",
-          "reused": true
         },
         {
           "name": "deployment-health",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-studio-deployment-health-175cef6-f5e271b7",
+          "evidenceId": "ev-one-small-studio-deployment-health-175cef6-eac0aff6",
           "reused": false
-        },
-        {
-          "name": "documentation",
-          "result": "inconclusive",
-          "evidenceId": "ev-one-small-studio-documentation-175cef6-4ba9575d",
-          "reused": true
         }
       ]
     },
@@ -378,70 +192,16 @@
       },
       "collectors": [
         {
-          "name": "repo-structure",
-          "result": "pass",
-          "evidenceId": "ev-one-small-ui-repo-structure-94438ee-ad40ad06",
-          "reused": true
-        },
-        {
-          "name": "build-test",
-          "result": "pass",
-          "evidenceId": "ev-one-small-ui-build-test-94438ee-46e60bd8",
-          "reused": false
-        },
-        {
-          "name": "lint-format-types",
-          "result": "pass",
-          "evidenceId": "ev-one-small-ui-lint-format-types-94438ee-b048c952",
-          "reused": true
-        },
-        {
           "name": "ci-results",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ui-ci-results-94438ee-090f762b",
+          "evidenceId": "ev-one-small-ui-ci-results-94438ee-b0dee17e",
           "reused": false
-        },
-        {
-          "name": "dependency-audit",
-          "result": "fail",
-          "evidenceId": "ev-one-small-ui-dependency-audit-94438ee-24e71675",
-          "reused": true
-        },
-        {
-          "name": "secret-scan",
-          "result": "pass",
-          "evidenceId": "ev-one-small-ui-secret-scan-94438ee-64a0d2ba",
-          "reused": true
-        },
-        {
-          "name": "accessibility",
-          "result": "inconclusive",
-          "evidenceId": "ev-one-small-ui-accessibility-94438ee-ca6c9e73",
-          "reused": true
         },
         {
           "name": "deployment-health",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ui-deployment-health-94438ee-5e002677",
+          "evidenceId": "ev-one-small-ui-deployment-health-94438ee-4b57ce2e",
           "reused": false
-        },
-        {
-          "name": "documentation",
-          "result": "fail",
-          "evidenceId": "ev-one-small-ui-documentation-94438ee-46de4908",
-          "reused": true
-        },
-        {
-          "name": "release-packaging",
-          "result": "fail",
-          "evidenceId": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
-          "reused": true
-        },
-        {
-          "name": "compatibility",
-          "result": "fail",
-          "evidenceId": "ev-one-small-ui-compatibility-94438ee-4922bd39",
-          "reused": true
         }
       ]
     },
@@ -457,58 +217,16 @@
       },
       "collectors": [
         {
-          "name": "repo-structure",
-          "result": "inconclusive",
-          "evidenceId": "ev-personal-portfolio-repo-structure-684ef3c-08dcef3c",
-          "reused": true
-        },
-        {
-          "name": "build-test",
-          "result": "pass",
-          "evidenceId": "ev-personal-portfolio-build-test-684ef3c-0bc913a4",
-          "reused": false
-        },
-        {
-          "name": "lint-format-types",
-          "result": "pass",
-          "evidenceId": "ev-personal-portfolio-lint-format-types-684ef3c-3a80bae8",
-          "reused": true
-        },
-        {
           "name": "ci-results",
           "result": "unavailable",
-          "evidenceId": "ev-personal-portfolio-ci-results-684ef3c-4e6240b2",
+          "evidenceId": "ev-personal-portfolio-ci-results-684ef3c-c2193761",
           "reused": false
-        },
-        {
-          "name": "dependency-audit",
-          "result": "fail",
-          "evidenceId": "ev-personal-portfolio-dependency-audit-684ef3c-6a355138",
-          "reused": true
-        },
-        {
-          "name": "secret-scan",
-          "result": "pass",
-          "evidenceId": "ev-personal-portfolio-secret-scan-684ef3c-c8ba0893",
-          "reused": true
-        },
-        {
-          "name": "accessibility",
-          "result": "inconclusive",
-          "evidenceId": "ev-personal-portfolio-accessibility-684ef3c-7f948fd0",
-          "reused": true
         },
         {
           "name": "deployment-health",
           "result": "unavailable",
-          "evidenceId": "ev-personal-portfolio-deployment-health-684ef3c-f1ab7588",
+          "evidenceId": "ev-personal-portfolio-deployment-health-684ef3c-45447d7c",
           "reused": false
-        },
-        {
-          "name": "documentation",
-          "result": "inconclusive",
-          "evidenceId": "ev-personal-portfolio-documentation-684ef3c-207e2e00",
-          "reused": true
         }
       ]
     },
@@ -524,58 +242,16 @@
       },
       "collectors": [
         {
-          "name": "repo-structure",
-          "result": "pass",
-          "evidenceId": "ev-taskforge-repo-structure-11975d0-bc93d2c0",
-          "reused": true
-        },
-        {
-          "name": "build-test",
-          "result": "pass",
-          "evidenceId": "ev-taskforge-build-test-11975d0-d17e1159",
-          "reused": false
-        },
-        {
-          "name": "lint-format-types",
-          "result": "pass",
-          "evidenceId": "ev-taskforge-lint-format-types-11975d0-bd0a2724",
-          "reused": true
-        },
-        {
           "name": "ci-results",
           "result": "unavailable",
-          "evidenceId": "ev-taskforge-ci-results-11975d0-6ee2dff9",
+          "evidenceId": "ev-taskforge-ci-results-11975d0-e6837581",
           "reused": false
-        },
-        {
-          "name": "dependency-audit",
-          "result": "fail",
-          "evidenceId": "ev-taskforge-dependency-audit-11975d0-930082be",
-          "reused": true
-        },
-        {
-          "name": "secret-scan",
-          "result": "inconclusive",
-          "evidenceId": "ev-taskforge-secret-scan-11975d0-8442003a",
-          "reused": true
-        },
-        {
-          "name": "accessibility",
-          "result": "inconclusive",
-          "evidenceId": "ev-taskforge-accessibility-11975d0-5d28a392",
-          "reused": true
         },
         {
           "name": "deployment-health",
           "result": "unavailable",
-          "evidenceId": "ev-taskforge-deployment-health-11975d0-6024ae7e",
+          "evidenceId": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
           "reused": false
-        },
-        {
-          "name": "documentation",
-          "result": "inconclusive",
-          "evidenceId": "ev-taskforge-documentation-11975d0-132d686c",
-          "reused": true
         }
       ]
     }

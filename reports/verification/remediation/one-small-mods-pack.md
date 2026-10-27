@@ -1,6 +1,6 @@
 # One Small ModsPack: issue reports
 
-As of 2026-10-27T01:05:00Z, commit 80cc269ebb7c20aca5f6ca03214954726fb494f7. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
+As of 2026-10-27T01:56:27Z, commit 80cc269ebb7c20aca5f6ca03214954726fb494f7. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
 
 ## accessibility: 1 of 4 check(s) passed; 3 not run or inconclusive
 
@@ -8,7 +8,7 @@ As of 2026-10-27T01:05:00Z, commit 80cc269ebb7c20aca5f6ca03214954726fb494f7. One
 - Commit: 80cc269ebb7c20aca5f6ca03214954726fb494f7
 - Gate(s): wcag-22-aa
 - Severity: low; kind: evidence-gap; release impact: blocks verification of wcag-22-aa
-- Evidence: ev-one-small-mods-pack-accessibility-80cc269-fe18f174
+- Evidence: ev-one-small-mods-pack-accessibility-80cc269-ca3183a8
 
 ### Reproduction
 
@@ -43,12 +43,12 @@ The accessibility collector reports pass at the new commit, and the verifier rec
 - Commit: 80cc269ebb7c20aca5f6ca03214954726fb494f7
 - Gate(s): automated-checks
 - Severity: unclassified; kind: access; release impact: blocks verification of automated-checks
-- Evidence: ev-one-small-mods-pack-ci-results-80cc269-e9f8640e
+- Evidence: ev-one-small-mods-pack-ci-results-80cc269-35769d7e
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-mods-pack --collector ci-results --execute
+node scripts/verify/cli.mjs run --project one-small-mods-pack --collector ci-results
 ```
 
 ### Root cause
@@ -78,7 +78,7 @@ The ci-results collector reports pass at the new commit, and the verifier record
 - Commit: 80cc269ebb7c20aca5f6ca03214954726fb494f7
 - Gate(s): runtime-compatibility
 - Severity: medium; kind: defect; release impact: blocks verification of runtime-compatibility
-- Evidence: ev-one-small-mods-pack-compatibility-80cc269-9f4e6fcb
+- Evidence: ev-one-small-mods-pack-compatibility-80cc269-fff1571b
 
 ### Reproduction
 
@@ -113,7 +113,7 @@ The compatibility collector reports pass at the new commit, and the verifier rec
 - Commit: 80cc269ebb7c20aca5f6ca03214954726fb494f7
 - Gate(s): documentation-accurate, public-docs-accurate, upgrade-rollback-uninstall-docs
 - Severity: low; kind: evidence-gap; release impact: blocks verification of documentation-accurate, public-docs-accurate, upgrade-rollback-uninstall-docs
-- Evidence: ev-one-small-mods-pack-documentation-80cc269-c1d63737
+- Evidence: ev-one-small-mods-pack-documentation-80cc269-c7ec0915
 
 ### Reproduction
 
@@ -150,7 +150,7 @@ The documentation collector reports pass at the new commit, and the verifier rec
 - Commit: 80cc269ebb7c20aca5f6ca03214954726fb494f7
 - Gate(s): ci-release-pipeline, clean-consumer-install, package-archive-inspection, package-metadata-exports, versioning-changelog
 - Severity: medium; kind: defect; release impact: blocks verification of ci-release-pipeline, clean-consumer-install, package-archive-inspection, package-metadata-exports, versioning-changelog
-- Evidence: ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80
+- Evidence: ev-one-small-mods-pack-release-packaging-80cc269-3663499d
 
 ### Reproduction
 

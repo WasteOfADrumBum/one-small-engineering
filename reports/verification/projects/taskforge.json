@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-27T01:05:00Z",
+  "asOf": "2026-10-27T01:56:27Z",
   "id": "taskforge",
   "name": "TaskForge",
   "tier": "application",
@@ -56,24 +56,24 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-taskforge-build-test-11975d0-d17e1159",
+          "id": "ev-taskforge-build-test-11975d0-dc105b8c",
           "collector": "build-test",
           "result": "pass",
-          "executedAt": "2026-10-27T01:03:51Z",
+          "executedAt": "2026-10-27T01:54:09Z",
           "summary": "build and test: 2 check(s) passed"
         },
         {
-          "id": "ev-taskforge-ci-results-11975d0-6ee2dff9",
+          "id": "ev-taskforge-ci-results-11975d0-e6837581",
           "collector": "ci-results",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:03:51Z",
+          "executedAt": "2026-10-27T01:56:25Z",
           "summary": "CI results: not readable"
         },
         {
-          "id": "ev-taskforge-lint-format-types-11975d0-bd0a2724",
+          "id": "ev-taskforge-lint-format-types-11975d0-7b0942a4",
           "collector": "lint-format-types",
           "result": "pass",
-          "executedAt": "2026-10-27T00:55:59Z",
+          "executedAt": "2026-10-27T01:54:34Z",
           "summary": "lint, format and types: 3 check(s) passed"
         }
       ],
@@ -97,17 +97,17 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-taskforge-dependency-audit-11975d0-930082be",
+          "id": "ev-taskforge-dependency-audit-11975d0-b1e62bb2",
           "collector": "dependency-audit",
           "result": "fail",
-          "executedAt": "2026-10-27T00:56:01Z",
+          "executedAt": "2026-10-27T01:54:36Z",
           "summary": "dependency audit: critical 0, high 4, moderate 3, low 0, info 0"
         },
         {
-          "id": "ev-taskforge-secret-scan-11975d0-8442003a",
+          "id": "ev-taskforge-secret-scan-11975d0-8237b1bd",
           "collector": "secret-scan",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:56:02Z",
+          "executedAt": "2026-10-27T01:54:36Z",
           "summary": "secret scan: 2 of 3 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -130,10 +130,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-taskforge-accessibility-11975d0-5d28a392",
+          "id": "ev-taskforge-accessibility-11975d0-fe387eac",
           "collector": "accessibility",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:56:02Z",
+          "executedAt": "2026-10-27T01:54:36Z",
           "summary": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive"
         }
       ],
@@ -192,10 +192,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-taskforge-build-test-11975d0-d17e1159",
+          "id": "ev-taskforge-build-test-11975d0-dc105b8c",
           "collector": "build-test",
           "result": "pass",
-          "executedAt": "2026-10-27T01:03:51Z",
+          "executedAt": "2026-10-27T01:54:09Z",
           "summary": "build and test: 2 check(s) passed"
         }
       ],
@@ -218,10 +218,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-taskforge-deployment-health-11975d0-6024ae7e",
+          "id": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
           "collector": "deployment-health",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:03:51Z",
+          "executedAt": "2026-10-27T01:56:25Z",
           "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -244,10 +244,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-taskforge-documentation-11975d0-132d686c",
+          "id": "ev-taskforge-documentation-11975d0-61e05b6b",
           "collector": "documentation",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:56:02Z",
+          "executedAt": "2026-10-27T01:54:36Z",
           "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -324,10 +324,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-taskforge-secret-scan-11975d0-8442003a",
+          "id": "ev-taskforge-secret-scan-11975d0-8237b1bd",
           "collector": "secret-scan",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:56:02Z",
+          "executedAt": "2026-10-27T01:54:36Z",
           "summary": "secret scan: 2 of 3 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -423,10 +423,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-taskforge-deployment-health-11975d0-6024ae7e",
+          "id": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
           "collector": "deployment-health",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:03:51Z",
+          "executedAt": "2026-10-27T01:56:25Z",
           "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -449,10 +449,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-taskforge-build-test-11975d0-d17e1159",
+          "id": "ev-taskforge-build-test-11975d0-dc105b8c",
           "collector": "build-test",
           "result": "pass",
-          "executedAt": "2026-10-27T01:03:51Z",
+          "executedAt": "2026-10-27T01:54:09Z",
           "summary": "build and test: 2 check(s) passed"
         }
       ],
@@ -575,7 +575,7 @@
   "mergeEligible": false,
   "releaseEligible": false,
   "lastVerification": null,
-  "lastCollection": "2026-10-27T01:03:51Z",
+  "lastCollection": "2026-10-27T01:56:25Z",
   "nextAction": "Fix dependency-audit at 11975d0: dependency audit: critical 0, high 4, moderate 3, low 0, info 0.",
   "findings": [
     {
@@ -584,7 +584,7 @@
       "repository": "https://github.com/WasteOfADrumBum/TaskForge",
       "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
       "collector": "accessibility",
-      "evidenceId": "ev-taskforge-accessibility-11975d0-5d28a392",
+      "evidenceId": "ev-taskforge-accessibility-11975d0-fe387eac",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -607,7 +607,7 @@
       "repository": "https://github.com/WasteOfADrumBum/TaskForge",
       "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
       "collector": "ci-results",
-      "evidenceId": "ev-taskforge-ci-results-11975d0-6ee2dff9",
+      "evidenceId": "ev-taskforge-ci-results-11975d0-e6837581",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -615,7 +615,7 @@
       ],
       "releaseImpact": "blocks verification of automated-checks",
       "title": "CI results: not readable",
-      "reproduction": "node scripts/verify/cli.mjs run --project taskforge --collector ci-results --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project taskforge --collector ci-results",
       "rootCause": null,
       "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
       "proposedFix": null,
@@ -630,7 +630,7 @@
       "repository": "https://github.com/WasteOfADrumBum/TaskForge",
       "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
       "collector": "dependency-audit",
-      "evidenceId": "ev-taskforge-dependency-audit-11975d0-930082be",
+      "evidenceId": "ev-taskforge-dependency-audit-11975d0-b1e62bb2",
       "kind": "defect",
       "severity": "high",
       "gates": [
@@ -653,7 +653,7 @@
       "repository": "https://github.com/WasteOfADrumBum/TaskForge",
       "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
       "collector": "deployment-health",
-      "evidenceId": "ev-taskforge-deployment-health-11975d0-6024ae7e",
+      "evidenceId": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -662,7 +662,7 @@
       ],
       "releaseImpact": "blocks verification of deployment-rollback, production-deployment",
       "title": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
-      "reproduction": "node scripts/verify/cli.mjs run --project taskforge --collector deployment-health --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project taskforge --collector deployment-health",
       "rootCause": null,
       "failureReason": "could not reach https://taskforge-alpha-six.vercel.app from this runner",
       "proposedFix": null,
@@ -678,7 +678,7 @@
       "repository": "https://github.com/WasteOfADrumBum/TaskForge",
       "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
       "collector": "documentation",
-      "evidenceId": "ev-taskforge-documentation-11975d0-132d686c",
+      "evidenceId": "ev-taskforge-documentation-11975d0-61e05b6b",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -701,7 +701,7 @@
       "repository": "https://github.com/WasteOfADrumBum/TaskForge",
       "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
       "collector": "secret-scan",
-      "evidenceId": "ev-taskforge-secret-scan-11975d0-8442003a",
+      "evidenceId": "ev-taskforge-secret-scan-11975d0-8237b1bd",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -752,10 +752,28 @@
           "result": "pass"
         },
         {
+          "id": "ev-taskforge-build-test-11975d0-dc105b8c",
+          "digest": "9f260089a2a9b09329e9e213d2bf2db4f93109ac74b2e99dc8ab8fa6572454ee",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
           "id": "ev-taskforge-build-test-11975d0-e8803dfb",
           "digest": "dd105da118a815152d36cbad738cd521b1aad705de6184ae15b9dec5f8864018",
           "collector": "build-test",
           "result": "fail"
+        },
+        {
+          "id": "ev-taskforge-ci-results-11975d0-4b02f52c",
+          "digest": "73c1a2c65e39b1878c9fe9adf8929be8cab7c3ff8d127633dbcdf4df18460b22",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-taskforge-ci-results-11975d0-68561bad",
+          "digest": "fa962a9864cd20195a23cb874709c7cfdf334d92dd447520d7208343ef57fd77",
+          "collector": "ci-results",
+          "result": "unavailable"
         },
         {
           "id": "ev-taskforge-ci-results-11975d0-6ee2dff9",
@@ -768,6 +786,18 @@
           "digest": "fafe544a979122e813e250515a6826ae8718bf5d2a89c0d38b92683fea96cbd1",
           "collector": "ci-results",
           "result": "unavailable"
+        },
+        {
+          "id": "ev-taskforge-ci-results-11975d0-e6837581",
+          "digest": "e0f3f6cd3d81c4cea740f8dba15d98ceab2590c2bbb8a347f3caef5dba858d9d",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-taskforge-lint-format-types-11975d0-7b0942a4",
+          "digest": "4194f921e21d4e3ada5c0f6cd88c9383e536ef9966446950c2a329fe523aacc8",
+          "collector": "lint-format-types",
+          "result": "pass"
         },
         {
           "id": "ev-taskforge-lint-format-types-11975d0-bd0a2724",
@@ -793,6 +823,18 @@
           "result": "fail"
         },
         {
+          "id": "ev-taskforge-dependency-audit-11975d0-b1e62bb2",
+          "digest": "54f56475adcb1a7e5562ad20423343d37374b116127813d4f6895a424aed19ba",
+          "collector": "dependency-audit",
+          "result": "fail"
+        },
+        {
+          "id": "ev-taskforge-secret-scan-11975d0-8237b1bd",
+          "digest": "5adf39324b1c679d62d9c00d8a4241430cdbd76676b3d96163f3d0530aed731d",
+          "collector": "secret-scan",
+          "result": "inconclusive"
+        },
+        {
           "id": "ev-taskforge-secret-scan-11975d0-8442003a",
           "digest": "b4edc975b11c7d8e235cd658d34f3627c2f067892ac93c081154bdd5270001cc",
           "collector": "secret-scan",
@@ -812,6 +854,12 @@
         {
           "id": "ev-taskforge-accessibility-11975d0-5d28a392",
           "digest": "42ccb097e51ecae3fd774c59ad7b259b5be07728190c08f4034e7062a75501e1",
+          "collector": "accessibility",
+          "result": "inconclusive"
+        },
+        {
+          "id": "ev-taskforge-accessibility-11975d0-fe387eac",
+          "digest": "226284e7c6310c5ae5d25182aec97b051a990190e411c7ebfceef34f6720ba43",
           "collector": "accessibility",
           "result": "inconclusive"
         }
@@ -853,6 +901,12 @@
           "result": "pass"
         },
         {
+          "id": "ev-taskforge-build-test-11975d0-dc105b8c",
+          "digest": "9f260089a2a9b09329e9e213d2bf2db4f93109ac74b2e99dc8ab8fa6572454ee",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
           "id": "ev-taskforge-build-test-11975d0-e8803dfb",
           "digest": "dd105da118a815152d36cbad738cd521b1aad705de6184ae15b9dec5f8864018",
           "collector": "build-test",
@@ -876,8 +930,26 @@
           "result": "unavailable"
         },
         {
+          "id": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
+          "digest": "524ee2baf07a31bcac93dd69e79304f49a0a11735c064d1278c77f88540302d1",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-taskforge-deployment-health-11975d0-bc460bf9",
           "digest": "311dc5b5e2e5c4d5090fb8e83a7a9bf60ec7cd81bc66d183e831032fd8dd865f",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-taskforge-deployment-health-11975d0-e9164135",
+          "digest": "3a30cf14ca85f5408d4eaa5a20c7e128e4dce94538715625c7bdb1e0e1920f51",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-taskforge-deployment-health-11975d0-f2d7254c",
+          "digest": "816873a751d556e5c8ae0f7b1ec7ef194d0656c06b4117d1f9f67acc88dc08ab",
           "collector": "deployment-health",
           "result": "unavailable"
         }
@@ -895,6 +967,12 @@
         {
           "id": "ev-taskforge-documentation-11975d0-132d686c",
           "digest": "a3af3ce638114e300408148c1fd0926f76e656da6eaaf4d21991bf353dfacd4e",
+          "collector": "documentation",
+          "result": "inconclusive"
+        },
+        {
+          "id": "ev-taskforge-documentation-11975d0-61e05b6b",
+          "digest": "8155c17c4afa31b757ef36f41ca84e9cacddfb141a4ca999ceef27faeac38589",
           "collector": "documentation",
           "result": "inconclusive"
         }
@@ -939,6 +1017,12 @@
       "automation": "partial",
       "humanOnly": false,
       "evidence": [
+        {
+          "id": "ev-taskforge-secret-scan-11975d0-8237b1bd",
+          "digest": "5adf39324b1c679d62d9c00d8a4241430cdbd76676b3d96163f3d0530aed731d",
+          "collector": "secret-scan",
+          "result": "inconclusive"
+        },
         {
           "id": "ev-taskforge-secret-scan-11975d0-8442003a",
           "digest": "b4edc975b11c7d8e235cd658d34f3627c2f067892ac93c081154bdd5270001cc",
@@ -1003,8 +1087,26 @@
           "result": "unavailable"
         },
         {
+          "id": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
+          "digest": "524ee2baf07a31bcac93dd69e79304f49a0a11735c064d1278c77f88540302d1",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-taskforge-deployment-health-11975d0-bc460bf9",
           "digest": "311dc5b5e2e5c4d5090fb8e83a7a9bf60ec7cd81bc66d183e831032fd8dd865f",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-taskforge-deployment-health-11975d0-e9164135",
+          "digest": "3a30cf14ca85f5408d4eaa5a20c7e128e4dce94538715625c7bdb1e0e1920f51",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-taskforge-deployment-health-11975d0-f2d7254c",
+          "digest": "816873a751d556e5c8ae0f7b1ec7ef194d0656c06b4117d1f9f67acc88dc08ab",
           "collector": "deployment-health",
           "result": "unavailable"
         }
@@ -1022,6 +1124,12 @@
         {
           "id": "ev-taskforge-build-test-11975d0-d17e1159",
           "digest": "29327708b9dcadebe90ec5123be359eb28ce9735081a45de06464b919fbf7b87",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
+          "id": "ev-taskforge-build-test-11975d0-dc105b8c",
+          "digest": "9f260089a2a9b09329e9e213d2bf2db4f93109ac74b2e99dc8ab8fa6572454ee",
           "collector": "build-test",
           "result": "pass"
         },

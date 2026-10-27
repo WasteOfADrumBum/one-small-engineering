@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-27T01:05:00Z",
+  "asOf": "2026-10-27T01:56:27Z",
   "id": "cortex",
   "name": "Cortex",
   "tier": "application",
@@ -56,24 +56,24 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
+          "id": "ev-cortex-build-test-ec49fd7-736062d9",
           "collector": "build-test",
           "result": "pass",
-          "executedAt": "2026-10-27T00:56:05Z",
+          "executedAt": "2026-10-27T01:54:43Z",
           "summary": "build and test: 1 check(s) passed"
         },
         {
-          "id": "ev-cortex-ci-results-ec49fd7-cdd510f0",
+          "id": "ev-cortex-ci-results-ec49fd7-bf09a281",
           "collector": "ci-results",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:03:52Z",
+          "executedAt": "2026-10-27T01:56:26Z",
           "summary": "CI results: not readable"
         },
         {
-          "id": "ev-cortex-lint-format-types-ec49fd7-4b9bec16",
+          "id": "ev-cortex-lint-format-types-ec49fd7-de308fcc",
           "collector": "lint-format-types",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:56:05Z",
+          "executedAt": "2026-10-27T01:54:43Z",
           "summary": "lint, format and types: none configured"
         }
       ],
@@ -96,17 +96,17 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-cortex-dependency-audit-ec49fd7-7e30241d",
+          "id": "ev-cortex-dependency-audit-ec49fd7-7cd263c6",
           "collector": "dependency-audit",
           "result": "pass",
-          "executedAt": "2026-10-27T00:56:06Z",
+          "executedAt": "2026-10-27T01:54:43Z",
           "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0"
         },
         {
-          "id": "ev-cortex-secret-scan-ec49fd7-59e05abc",
+          "id": "ev-cortex-secret-scan-ec49fd7-b392d9b7",
           "collector": "secret-scan",
           "result": "pass",
-          "executedAt": "2026-10-27T00:56:06Z",
+          "executedAt": "2026-10-27T01:54:43Z",
           "summary": "secret scan: 3 check(s) passed"
         }
       ],
@@ -129,10 +129,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-cortex-accessibility-ec49fd7-27cfef71",
+          "id": "ev-cortex-accessibility-ec49fd7-81ba90a1",
           "collector": "accessibility",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:56:06Z",
+          "executedAt": "2026-10-27T01:54:43Z",
           "summary": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive"
         }
       ],
@@ -191,10 +191,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
+          "id": "ev-cortex-build-test-ec49fd7-736062d9",
           "collector": "build-test",
           "result": "pass",
-          "executedAt": "2026-10-27T00:56:05Z",
+          "executedAt": "2026-10-27T01:54:43Z",
           "summary": "build and test: 1 check(s) passed"
         }
       ],
@@ -217,10 +217,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-cortex-deployment-health-ec49fd7-805608a7",
+          "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
           "collector": "deployment-health",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:03:52Z",
+          "executedAt": "2026-10-27T01:56:26Z",
           "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -243,10 +243,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-cortex-documentation-ec49fd7-e08f6339",
+          "id": "ev-cortex-documentation-ec49fd7-f2ca9d57",
           "collector": "documentation",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:56:06Z",
+          "executedAt": "2026-10-27T01:54:43Z",
           "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -323,10 +323,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-cortex-secret-scan-ec49fd7-59e05abc",
+          "id": "ev-cortex-secret-scan-ec49fd7-b392d9b7",
           "collector": "secret-scan",
           "result": "pass",
-          "executedAt": "2026-10-27T00:56:06Z",
+          "executedAt": "2026-10-27T01:54:43Z",
           "summary": "secret scan: 3 check(s) passed"
         }
       ],
@@ -422,10 +422,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-cortex-deployment-health-ec49fd7-805608a7",
+          "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
           "collector": "deployment-health",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:03:52Z",
+          "executedAt": "2026-10-27T01:56:26Z",
           "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -448,10 +448,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
+          "id": "ev-cortex-build-test-ec49fd7-736062d9",
           "collector": "build-test",
           "result": "pass",
-          "executedAt": "2026-10-27T00:56:05Z",
+          "executedAt": "2026-10-27T01:54:43Z",
           "summary": "build and test: 1 check(s) passed"
         }
       ],
@@ -574,7 +574,7 @@
   "mergeEligible": false,
   "releaseEligible": false,
   "lastVerification": null,
-  "lastCollection": "2026-10-27T01:03:52Z",
+  "lastCollection": "2026-10-27T01:56:26Z",
   "nextAction": "Resolve blocker spec-open-questions.",
   "findings": [
     {
@@ -583,7 +583,7 @@
       "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
       "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
       "collector": "accessibility",
-      "evidenceId": "ev-cortex-accessibility-ec49fd7-27cfef71",
+      "evidenceId": "ev-cortex-accessibility-ec49fd7-81ba90a1",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -606,7 +606,7 @@
       "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
       "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
       "collector": "ci-results",
-      "evidenceId": "ev-cortex-ci-results-ec49fd7-cdd510f0",
+      "evidenceId": "ev-cortex-ci-results-ec49fd7-bf09a281",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -614,7 +614,7 @@
       ],
       "releaseImpact": "blocks verification of automated-checks",
       "title": "CI results: not readable",
-      "reproduction": "node scripts/verify/cli.mjs run --project cortex --collector ci-results --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project cortex --collector ci-results",
       "rootCause": null,
       "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
       "proposedFix": null,
@@ -629,7 +629,7 @@
       "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
       "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
       "collector": "deployment-health",
-      "evidenceId": "ev-cortex-deployment-health-ec49fd7-805608a7",
+      "evidenceId": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -638,7 +638,7 @@
       ],
       "releaseImpact": "blocks verification of deployment-rollback, production-deployment",
       "title": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
-      "reproduction": "node scripts/verify/cli.mjs run --project cortex --collector deployment-health --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project cortex --collector deployment-health",
       "rootCause": null,
       "failureReason": "could not reach https://cortex-brain-nu.vercel.app from this runner",
       "proposedFix": null,
@@ -654,7 +654,7 @@
       "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
       "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
       "collector": "documentation",
-      "evidenceId": "ev-cortex-documentation-ec49fd7-e08f6339",
+      "evidenceId": "ev-cortex-documentation-ec49fd7-f2ca9d57",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -677,7 +677,7 @@
       "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
       "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
       "collector": "lint-format-types",
-      "evidenceId": "ev-cortex-lint-format-types-ec49fd7-4b9bec16",
+      "evidenceId": "ev-cortex-lint-format-types-ec49fd7-de308fcc",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -700,7 +700,7 @@
       "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
       "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
       "collector": "repo-structure",
-      "evidenceId": "ev-cortex-repo-structure-ec49fd7-0105455c",
+      "evidenceId": "ev-cortex-repo-structure-ec49fd7-cae23b60",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [],
@@ -734,10 +734,34 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-cortex-build-test-ec49fd7-736062d9",
+          "digest": "17e8d27da4aa4a392f8bf73cf76e6b4945aa1d5509d322a64b5bf1673f08e0d8",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
           "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
           "digest": "0f5e33663973ef9eb8655d52ea3daa966703e8ab953f0b5cd0cff182a00646ee",
           "collector": "build-test",
           "result": "pass"
+        },
+        {
+          "id": "ev-cortex-ci-results-ec49fd7-2872fbb1",
+          "digest": "1f9b42cff5464299fbbe07e50780049cab8ce447a55a84981f1609ce5d3bfdbf",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-cortex-ci-results-ec49fd7-692a94aa",
+          "digest": "d107a86b75196c84af6c039c2ef7b60de52b8ac0397b80d9b75c9a2872f4129a",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-cortex-ci-results-ec49fd7-bf09a281",
+          "digest": "d6cf78d3d5a26c3c8c0372643376d721bef969b33c1c93fe7cd612e0ef6c596e",
+          "collector": "ci-results",
+          "result": "unavailable"
         },
         {
           "id": "ev-cortex-ci-results-ec49fd7-c1e79b00",
@@ -756,6 +780,12 @@
           "digest": "83740a385e330aa871486c48685b48a0169d9b344447d2d435e33f02c2f419a6",
           "collector": "lint-format-types",
           "result": "inconclusive"
+        },
+        {
+          "id": "ev-cortex-lint-format-types-ec49fd7-de308fcc",
+          "digest": "d83426c73e66ddcabf5e68d3aa9d449ac6c4f343544b035fd0476233c3befdf1",
+          "collector": "lint-format-types",
+          "result": "inconclusive"
         }
       ],
       "missingCollectors": [],
@@ -769,6 +799,12 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-cortex-dependency-audit-ec49fd7-7cd263c6",
+          "digest": "fbe999ef2cda2aab6478bd33a5fab1e1a7977a26a9613fe7420c87b08fbd5d6a",
+          "collector": "dependency-audit",
+          "result": "pass"
+        },
+        {
           "id": "ev-cortex-dependency-audit-ec49fd7-7e30241d",
           "digest": "e987ca34b5f984d1c4696513a01c809408d2f5419c877058635dfb73da8a9cf6",
           "collector": "dependency-audit",
@@ -777,6 +813,12 @@
         {
           "id": "ev-cortex-secret-scan-ec49fd7-59e05abc",
           "digest": "f9c68fc0188d682d5ba5e637ac199bce55d51be3f3580d9d8062ea0fdcc80732",
+          "collector": "secret-scan",
+          "result": "pass"
+        },
+        {
+          "id": "ev-cortex-secret-scan-ec49fd7-b392d9b7",
+          "digest": "628c0acbcebbe7b042d144a17fdd4a20c9d9cc51870e2c4cd23dbe79564a98e5",
           "collector": "secret-scan",
           "result": "pass"
         }
@@ -794,6 +836,12 @@
         {
           "id": "ev-cortex-accessibility-ec49fd7-27cfef71",
           "digest": "7a092441118a8a008ee4d8f41a1631a9380defa45e171bcc333d4e4711b33eba",
+          "collector": "accessibility",
+          "result": "inconclusive"
+        },
+        {
+          "id": "ev-cortex-accessibility-ec49fd7-81ba90a1",
+          "digest": "2af18586db3562bad68ef8d1ab924a6309424ad8b310ee4ca34d07e0c260140b",
           "collector": "accessibility",
           "result": "inconclusive"
         }
@@ -829,6 +877,12 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-cortex-build-test-ec49fd7-736062d9",
+          "digest": "17e8d27da4aa4a392f8bf73cf76e6b4945aa1d5509d322a64b5bf1673f08e0d8",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
           "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
           "digest": "0f5e33663973ef9eb8655d52ea3daa966703e8ab953f0b5cd0cff182a00646ee",
           "collector": "build-test",
@@ -846,8 +900,26 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-cortex-deployment-health-ec49fd7-46dff49b",
+          "digest": "1f6ca75001683e2f2887e07311d6de28e9da2cdbc1837682f74ffb5bae07c87a",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-cortex-deployment-health-ec49fd7-68a838a7",
+          "digest": "bb69fdfac1749eb55d82d0faf78db91221e6a72152270fb4d34c064f64dbb5fe",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-cortex-deployment-health-ec49fd7-805608a7",
           "digest": "7d3f1d44e877772c50d8bc6aa2b07b35afb35176628987488e8dbdad8420a44f",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
+          "digest": "34c21a661061dc3fd3eb4067b239de349a3449c94c9f4592542dfba6bf7c50bc",
           "collector": "deployment-health",
           "result": "unavailable"
         },
@@ -871,6 +943,12 @@
         {
           "id": "ev-cortex-documentation-ec49fd7-e08f6339",
           "digest": "2ad1676b3977f9917415bbbfdfa40e3393dfc1bce457ae7eac0fd31576cb9240",
+          "collector": "documentation",
+          "result": "inconclusive"
+        },
+        {
+          "id": "ev-cortex-documentation-ec49fd7-f2ca9d57",
+          "digest": "4dbe7229540172cbe61bab1b14f3963e05c9de6975abbbc74511d0295f286660",
           "collector": "documentation",
           "result": "inconclusive"
         }
@@ -918,6 +996,12 @@
         {
           "id": "ev-cortex-secret-scan-ec49fd7-59e05abc",
           "digest": "f9c68fc0188d682d5ba5e637ac199bce55d51be3f3580d9d8062ea0fdcc80732",
+          "collector": "secret-scan",
+          "result": "pass"
+        },
+        {
+          "id": "ev-cortex-secret-scan-ec49fd7-b392d9b7",
+          "digest": "628c0acbcebbe7b042d144a17fdd4a20c9d9cc51870e2c4cd23dbe79564a98e5",
           "collector": "secret-scan",
           "result": "pass"
         }
@@ -973,8 +1057,26 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-cortex-deployment-health-ec49fd7-46dff49b",
+          "digest": "1f6ca75001683e2f2887e07311d6de28e9da2cdbc1837682f74ffb5bae07c87a",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-cortex-deployment-health-ec49fd7-68a838a7",
+          "digest": "bb69fdfac1749eb55d82d0faf78db91221e6a72152270fb4d34c064f64dbb5fe",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-cortex-deployment-health-ec49fd7-805608a7",
           "digest": "7d3f1d44e877772c50d8bc6aa2b07b35afb35176628987488e8dbdad8420a44f",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
+          "digest": "34c21a661061dc3fd3eb4067b239de349a3449c94c9f4592542dfba6bf7c50bc",
           "collector": "deployment-health",
           "result": "unavailable"
         },
@@ -995,6 +1097,12 @@
       "automation": "partial",
       "humanOnly": false,
       "evidence": [
+        {
+          "id": "ev-cortex-build-test-ec49fd7-736062d9",
+          "digest": "17e8d27da4aa4a392f8bf73cf76e6b4945aa1d5509d322a64b5bf1673f08e0d8",
+          "collector": "build-test",
+          "result": "pass"
+        },
         {
           "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
           "digest": "0f5e33663973ef9eb8655d52ea3daa966703e8ab953f0b5cd0cff182a00646ee",

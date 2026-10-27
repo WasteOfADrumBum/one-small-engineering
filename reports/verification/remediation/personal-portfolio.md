@@ -1,6 +1,6 @@
 # Personal Portfolio: issue reports
 
-As of 2026-10-27T01:05:00Z, commit 684ef3ce76d62919045cea65259e8bf52f1c6174. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
+As of 2026-10-27T01:56:27Z, commit 684ef3ce76d62919045cea65259e8bf52f1c6174. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
 
 ## accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive
 
@@ -8,7 +8,7 @@ As of 2026-10-27T01:05:00Z, commit 684ef3ce76d62919045cea65259e8bf52f1c6174. One
 - Commit: 684ef3ce76d62919045cea65259e8bf52f1c6174
 - Gate(s): wcag-22-aa
 - Severity: low; kind: evidence-gap; release impact: blocks verification of wcag-22-aa
-- Evidence: ev-personal-portfolio-accessibility-684ef3c-7f948fd0
+- Evidence: ev-personal-portfolio-accessibility-684ef3c-baee89e7
 
 ### Reproduction
 
@@ -43,12 +43,12 @@ The accessibility collector reports pass at the new commit, and the verifier rec
 - Commit: 684ef3ce76d62919045cea65259e8bf52f1c6174
 - Gate(s): automated-checks
 - Severity: unclassified; kind: access; release impact: blocks verification of automated-checks
-- Evidence: ev-personal-portfolio-ci-results-684ef3c-4e6240b2
+- Evidence: ev-personal-portfolio-ci-results-684ef3c-c2193761
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project personal-portfolio --collector ci-results --execute
+node scripts/verify/cli.mjs run --project personal-portfolio --collector ci-results
 ```
 
 ### Root cause
@@ -78,7 +78,7 @@ The ci-results collector reports pass at the new commit, and the verifier record
 - Commit: 684ef3ce76d62919045cea65259e8bf52f1c6174
 - Gate(s): security-privacy-review
 - Severity: high; kind: defect; release impact: blocks verification of security-privacy-review
-- Evidence: ev-personal-portfolio-dependency-audit-684ef3c-6a355138
+- Evidence: ev-personal-portfolio-dependency-audit-684ef3c-448e5446
 
 ### Reproduction
 
@@ -113,12 +113,12 @@ The dependency-audit collector reports pass at the new commit, and the verifier 
 - Commit: 684ef3ce76d62919045cea65259e8bf52f1c6174
 - Gate(s): production-deployment
 - Severity: unclassified; kind: access; release impact: blocks verification of production-deployment
-- Evidence: ev-personal-portfolio-deployment-health-684ef3c-f1ab7588
+- Evidence: ev-personal-portfolio-deployment-health-684ef3c-45447d7c
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project personal-portfolio --collector deployment-health --execute
+node scripts/verify/cli.mjs run --project personal-portfolio --collector deployment-health
 ```
 
 ### Root cause
@@ -148,7 +148,7 @@ The deployment-health collector reports pass at the new commit, and the verifier
 - Commit: 684ef3ce76d62919045cea65259e8bf52f1c6174
 - Gate(s): documentation-accurate
 - Severity: low; kind: evidence-gap; release impact: blocks verification of documentation-accurate
-- Evidence: ev-personal-portfolio-documentation-684ef3c-207e2e00
+- Evidence: ev-personal-portfolio-documentation-684ef3c-b200612c
 
 ### Reproduction
 
@@ -183,7 +183,7 @@ The documentation collector reports pass at the new commit, and the verifier rec
 - Commit: 684ef3ce76d62919045cea65259e8bf52f1c6174
 - Gate(s): none (context)
 - Severity: low; kind: evidence-gap; release impact: context only; no gate depends on it
-- Evidence: ev-personal-portfolio-repo-structure-684ef3c-08dcef3c
+- Evidence: ev-personal-portfolio-repo-structure-684ef3c-0662185a
 
 ### Reproduction
 

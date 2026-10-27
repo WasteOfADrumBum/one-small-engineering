@@ -1,9 +1,9 @@
 {
   "kind": "one-small-engineering/verification-dashboard",
   "command": "npm run verify:report",
-  "asOf": "2026-10-27T01:05:00Z",
+  "asOf": "2026-10-27T01:56:27Z",
   "registryHash": "1a7e4cac0711e578af796f7cbb13a0814856f18d6f06b43d00f12e50d76542c5",
-  "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+  "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
   "policyVersion": 1,
   "runs": [
     {
@@ -11,64 +11,64 @@
       "access": "ok",
       "accessReason": null,
       "collected": 2,
-      "reused": 7,
-      "executor": "local, 2026-10-27T00:57:34Z"
+      "reused": 0,
+      "executor": "local, 2026-10-27T01:56:26Z"
     },
     {
       "project": "one-small-ai-workforce",
       "access": "not-visible",
       "accessReason": "repository not found or not visible without a reader credential (private repositories need one)",
       "collected": 8,
-      "reused": 1,
-      "executor": "local, 2026-10-27T00:57:34Z"
+      "reused": 0,
+      "executor": "local, 2026-10-27T01:56:26Z"
     },
     {
       "project": "one-small-mods-pack",
       "access": "ok",
       "accessReason": null,
-      "collected": 2,
-      "reused": 8,
-      "executor": "local, 2026-10-27T00:57:34Z"
+      "collected": 1,
+      "reused": 0,
+      "executor": "local, 2026-10-27T01:56:26Z"
     },
     {
       "project": "one-small-photography",
       "access": "ok",
       "accessReason": null,
-      "collected": 3,
-      "reused": 6,
-      "executor": "local, 2026-10-27T00:57:34Z"
+      "collected": 2,
+      "reused": 0,
+      "executor": "local, 2026-10-27T01:56:26Z"
     },
     {
       "project": "one-small-studio",
       "access": "ok",
       "accessReason": null,
-      "collected": 3,
-      "reused": 6,
-      "executor": "local, 2026-10-27T00:57:34Z"
+      "collected": 2,
+      "reused": 0,
+      "executor": "local, 2026-10-27T01:56:26Z"
     },
     {
       "project": "one-small-ui",
       "access": "ok",
       "accessReason": null,
-      "collected": 3,
-      "reused": 8,
-      "executor": "local, 2026-10-27T00:57:34Z"
+      "collected": 2,
+      "reused": 0,
+      "executor": "local, 2026-10-27T01:56:26Z"
     },
     {
       "project": "personal-portfolio",
       "access": "ok",
       "accessReason": null,
-      "collected": 3,
-      "reused": 6,
-      "executor": "local, 2026-10-27T00:57:34Z"
+      "collected": 2,
+      "reused": 0,
+      "executor": "local, 2026-10-27T01:56:26Z"
     },
     {
       "project": "taskforge",
       "access": "ok",
       "accessReason": null,
-      "collected": 3,
-      "reused": 6,
-      "executor": "local, 2026-10-27T00:57:34Z"
+      "collected": 2,
+      "reused": 0,
+      "executor": "local, 2026-10-27T01:56:26Z"
     }
   ],
   "overlayErrors": [],
@@ -119,17 +119,17 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-mods-pack-build-test-80cc269-9a91ed75",
+              "id": "ev-one-small-mods-pack-build-test-80cc269-1fdd6619",
               "collector": "build-test",
               "result": "pass"
             },
             {
-              "id": "ev-one-small-mods-pack-ci-results-80cc269-e9f8640e",
+              "id": "ev-one-small-mods-pack-ci-results-80cc269-35769d7e",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-mods-pack-lint-format-types-80cc269-15e1f95a",
+              "id": "ev-one-small-mods-pack-lint-format-types-80cc269-5c6b44ce",
               "collector": "lint-format-types",
               "result": "pass"
             }
@@ -145,12 +145,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
+              "id": "ev-one-small-mods-pack-dependency-audit-80cc269-573eddb2",
               "collector": "dependency-audit",
               "result": "pass"
             },
             {
-              "id": "ev-one-small-mods-pack-secret-scan-80cc269-a24f0c7c",
+              "id": "ev-one-small-mods-pack-secret-scan-80cc269-a0ebfced",
               "collector": "secret-scan",
               "result": "pass"
             }
@@ -166,7 +166,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-mods-pack-accessibility-80cc269-fe18f174",
+              "id": "ev-one-small-mods-pack-accessibility-80cc269-ca3183a8",
               "collector": "accessibility",
               "result": "inconclusive"
             }
@@ -202,7 +202,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-mods-pack-build-test-80cc269-9a91ed75",
+              "id": "ev-one-small-mods-pack-build-test-80cc269-1fdd6619",
               "collector": "build-test",
               "result": "pass"
             }
@@ -228,7 +228,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
+              "id": "ev-one-small-mods-pack-documentation-80cc269-c7ec0915",
               "collector": "documentation",
               "result": "inconclusive"
             }
@@ -254,7 +254,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+              "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
               "collector": "release-packaging",
               "result": "fail"
             }
@@ -270,7 +270,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+              "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
               "collector": "release-packaging",
               "result": "fail"
             }
@@ -286,7 +286,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-mods-pack-compatibility-80cc269-9f4e6fcb",
+              "id": "ev-one-small-mods-pack-compatibility-80cc269-fff1571b",
               "collector": "compatibility",
               "result": "fail"
             }
@@ -302,7 +302,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+              "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
               "collector": "release-packaging",
               "result": "fail"
             }
@@ -318,7 +318,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
+              "id": "ev-one-small-mods-pack-dependency-audit-80cc269-573eddb2",
               "collector": "dependency-audit",
               "result": "pass"
             }
@@ -334,7 +334,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+              "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
               "collector": "release-packaging",
               "result": "fail"
             }
@@ -350,7 +350,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+              "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
               "collector": "release-packaging",
               "result": "fail"
             }
@@ -386,7 +386,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
+              "id": "ev-one-small-mods-pack-documentation-80cc269-c7ec0915",
               "collector": "documentation",
               "result": "inconclusive"
             }
@@ -402,7 +402,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
+              "id": "ev-one-small-mods-pack-documentation-80cc269-c7ec0915",
               "collector": "documentation",
               "result": "inconclusive"
             }
@@ -544,7 +544,7 @@
       ],
       "mergeEligible": false,
       "releaseEligible": false,
-      "lastCollection": "2026-10-27T00:58:04Z",
+      "lastCollection": "2026-10-27T01:56:22Z",
       "lastVerification": null,
       "nextAction": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision).",
       "findings": [
@@ -554,7 +554,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
           "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
           "collector": "accessibility",
-          "evidenceId": "ev-one-small-mods-pack-accessibility-80cc269-fe18f174",
+          "evidenceId": "ev-one-small-mods-pack-accessibility-80cc269-ca3183a8",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -576,7 +576,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
           "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
           "collector": "ci-results",
-          "evidenceId": "ev-one-small-mods-pack-ci-results-80cc269-e9f8640e",
+          "evidenceId": "ev-one-small-mods-pack-ci-results-80cc269-35769d7e",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -598,7 +598,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
           "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
           "collector": "compatibility",
-          "evidenceId": "ev-one-small-mods-pack-compatibility-80cc269-9f4e6fcb",
+          "evidenceId": "ev-one-small-mods-pack-compatibility-80cc269-fff1571b",
           "kind": "defect",
           "severity": "medium",
           "gates": [
@@ -620,7 +620,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
           "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
           "collector": "documentation",
-          "evidenceId": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
+          "evidenceId": "ev-one-small-mods-pack-documentation-80cc269-c7ec0915",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -646,7 +646,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
           "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
           "collector": "release-packaging",
-          "evidenceId": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+          "evidenceId": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
           "kind": "defect",
           "severity": "medium",
           "gates": [
@@ -696,6 +696,12 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-mods-pack-build-test-80cc269-1fdd6619",
+              "digest": "39f899cf14fe27ce1077defff6cd397a673d17e81c86c5b14ab1cfa4204677c9",
+              "collector": "build-test",
+              "result": "pass"
+            },
+            {
               "id": "ev-one-small-mods-pack-build-test-80cc269-7a14a123",
               "digest": "449372546aa714d86abf9f05b65afe2bb91eca3db4c3b61b6c0572e38dc1f657",
               "collector": "build-test",
@@ -708,8 +714,20 @@
               "result": "pass"
             },
             {
+              "id": "ev-one-small-mods-pack-ci-results-80cc269-35769d7e",
+              "digest": "4b39d9da0ad2f2aec666dda46cb70a77fed062b563804f9e789c12b5ad74dd0b",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-mods-pack-ci-results-80cc269-40fdb2d7",
               "digest": "c17cda48975909e77bc555775d6d153254c954619d58489b1929b5b9f86bb2d1",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-mods-pack-ci-results-80cc269-ad9b54c8",
+              "digest": "63a0c127a78e35ed3aede42b66443e39a5181f02ab8178c3133dffde3939ad97",
               "collector": "ci-results",
               "result": "unavailable"
             },
@@ -720,8 +738,20 @@
               "result": "unavailable"
             },
             {
+              "id": "ev-one-small-mods-pack-ci-results-80cc269-fdd23412",
+              "digest": "1eb7109f61de50bbfe012505dc7d6747f744d10034ae6b82dad4f5e186c5d648",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-mods-pack-lint-format-types-80cc269-15e1f95a",
               "digest": "c467ebf1eec334377a74b1778b6094556ff1bcd719351e82181edad7febb025f",
+              "collector": "lint-format-types",
+              "result": "pass"
+            },
+            {
+              "id": "ev-one-small-mods-pack-lint-format-types-80cc269-5c6b44ce",
+              "digest": "a8dc33d8d565be11778b9fb16e8c4b3efdd15039d08411b413f07f89ead97918",
               "collector": "lint-format-types",
               "result": "pass"
             }
@@ -737,9 +767,21 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-mods-pack-dependency-audit-80cc269-573eddb2",
+              "digest": "0e6e0bc0626e9ae92e2f308074bc85aa5195779e703305f1895f2f1187eeaf2b",
+              "collector": "dependency-audit",
+              "result": "pass"
+            },
+            {
               "id": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
               "digest": "79affce323bfb613661cf723297330f6baf2568596b4edf6aa3349c1f78cc70b",
               "collector": "dependency-audit",
+              "result": "pass"
+            },
+            {
+              "id": "ev-one-small-mods-pack-secret-scan-80cc269-a0ebfced",
+              "digest": "93f444d30115bd889b9a4e2be8195a25648395603aa87e6e5ae48ad6c4924be6",
+              "collector": "secret-scan",
               "result": "pass"
             },
             {
@@ -759,6 +801,12 @@
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-one-small-mods-pack-accessibility-80cc269-ca3183a8",
+              "digest": "bfe9eec38ba107b640c5a27dd918a6b9f25329f98061d0304cd74514da927fca",
+              "collector": "accessibility",
+              "result": "inconclusive"
+            },
             {
               "id": "ev-one-small-mods-pack-accessibility-80cc269-fe18f174",
               "digest": "c13859f93e991b4e17695b983eb88afb6c69b9ae6e5a68ecbf430458fba0e6ea",
@@ -797,6 +845,12 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-mods-pack-build-test-80cc269-1fdd6619",
+              "digest": "39f899cf14fe27ce1077defff6cd397a673d17e81c86c5b14ab1cfa4204677c9",
+              "collector": "build-test",
+              "result": "pass"
+            },
+            {
               "id": "ev-one-small-mods-pack-build-test-80cc269-7a14a123",
               "digest": "449372546aa714d86abf9f05b65afe2bb91eca3db4c3b61b6c0572e38dc1f657",
               "collector": "build-test",
@@ -824,6 +878,12 @@
               "digest": "5c7639743214cda9a5cad96c37407a7941dc79928516b80fb66546e121061dfd",
               "collector": "documentation",
               "result": "inconclusive"
+            },
+            {
+              "id": "ev-one-small-mods-pack-documentation-80cc269-c7ec0915",
+              "digest": "15a29faa9054ef1b9fc20108e77e2baa30f4f8b260ea04b42a53276c1e6698e4",
+              "collector": "documentation",
+              "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
@@ -847,6 +907,12 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
+              "digest": "4657833a7e67175c9bb3eaf15158acce53b4da283724ba7e9f671524fee86ff8",
+              "collector": "release-packaging",
+              "result": "fail"
+            },
+            {
               "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
               "digest": "0851d6d0f34f14dbffbca05f9c1b13b8566d1e4dc0e10b110404e256fa480a99",
               "collector": "release-packaging",
@@ -863,6 +929,12 @@
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
+              "digest": "4657833a7e67175c9bb3eaf15158acce53b4da283724ba7e9f671524fee86ff8",
+              "collector": "release-packaging",
+              "result": "fail"
+            },
             {
               "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
               "digest": "0851d6d0f34f14dbffbca05f9c1b13b8566d1e4dc0e10b110404e256fa480a99",
@@ -885,6 +957,12 @@
               "digest": "73e9a6d1e7493f59cf927cbd0d1e55902b88a21330378f20ca840e12e1549d83",
               "collector": "compatibility",
               "result": "fail"
+            },
+            {
+              "id": "ev-one-small-mods-pack-compatibility-80cc269-fff1571b",
+              "digest": "1d841f5eb4638ed085279ae4e4549246077d5ee9ff82fde538509a8bb52b01e8",
+              "collector": "compatibility",
+              "result": "fail"
             }
           ],
           "missingCollectors": [],
@@ -897,6 +975,12 @@
           "automation": "full",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
+              "digest": "4657833a7e67175c9bb3eaf15158acce53b4da283724ba7e9f671524fee86ff8",
+              "collector": "release-packaging",
+              "result": "fail"
+            },
             {
               "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
               "digest": "0851d6d0f34f14dbffbca05f9c1b13b8566d1e4dc0e10b110404e256fa480a99",
@@ -915,6 +999,12 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-mods-pack-dependency-audit-80cc269-573eddb2",
+              "digest": "0e6e0bc0626e9ae92e2f308074bc85aa5195779e703305f1895f2f1187eeaf2b",
+              "collector": "dependency-audit",
+              "result": "pass"
+            },
+            {
               "id": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
               "digest": "79affce323bfb613661cf723297330f6baf2568596b4edf6aa3349c1f78cc70b",
               "collector": "dependency-audit",
@@ -932,6 +1022,12 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
+              "digest": "4657833a7e67175c9bb3eaf15158acce53b4da283724ba7e9f671524fee86ff8",
+              "collector": "release-packaging",
+              "result": "fail"
+            },
+            {
               "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
               "digest": "0851d6d0f34f14dbffbca05f9c1b13b8566d1e4dc0e10b110404e256fa480a99",
               "collector": "release-packaging",
@@ -948,6 +1044,12 @@
           "automation": "full",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
+              "digest": "4657833a7e67175c9bb3eaf15158acce53b4da283724ba7e9f671524fee86ff8",
+              "collector": "release-packaging",
+              "result": "fail"
+            },
             {
               "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
               "digest": "0851d6d0f34f14dbffbca05f9c1b13b8566d1e4dc0e10b110404e256fa480a99",
@@ -990,6 +1092,12 @@
               "digest": "5c7639743214cda9a5cad96c37407a7941dc79928516b80fb66546e121061dfd",
               "collector": "documentation",
               "result": "inconclusive"
+            },
+            {
+              "id": "ev-one-small-mods-pack-documentation-80cc269-c7ec0915",
+              "digest": "15a29faa9054ef1b9fc20108e77e2baa30f4f8b260ea04b42a53276c1e6698e4",
+              "collector": "documentation",
+              "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
@@ -1005,6 +1113,12 @@
             {
               "id": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
               "digest": "5c7639743214cda9a5cad96c37407a7941dc79928516b80fb66546e121061dfd",
+              "collector": "documentation",
+              "result": "inconclusive"
+            },
+            {
+              "id": "ev-one-small-mods-pack-documentation-80cc269-c7ec0915",
+              "digest": "15a29faa9054ef1b9fc20108e77e2baa30f4f8b260ea04b42a53276c1e6698e4",
               "collector": "documentation",
               "result": "inconclusive"
             }
@@ -1072,17 +1186,17 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ui-build-test-94438ee-46e60bd8",
+              "id": "ev-one-small-ui-build-test-94438ee-7aa0df0c",
               "collector": "build-test",
               "result": "pass"
             },
             {
-              "id": "ev-one-small-ui-ci-results-94438ee-090f762b",
+              "id": "ev-one-small-ui-ci-results-94438ee-b0dee17e",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ui-lint-format-types-94438ee-b048c952",
+              "id": "ev-one-small-ui-lint-format-types-94438ee-c4a80561",
               "collector": "lint-format-types",
               "result": "pass"
             }
@@ -1098,12 +1212,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ui-dependency-audit-94438ee-24e71675",
+              "id": "ev-one-small-ui-dependency-audit-94438ee-c247d2a2",
               "collector": "dependency-audit",
               "result": "fail"
             },
             {
-              "id": "ev-one-small-ui-secret-scan-94438ee-64a0d2ba",
+              "id": "ev-one-small-ui-secret-scan-94438ee-0d4de9f6",
               "collector": "secret-scan",
               "result": "pass"
             }
@@ -1119,7 +1233,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ui-accessibility-94438ee-ca6c9e73",
+              "id": "ev-one-small-ui-accessibility-94438ee-c38c97f7",
               "collector": "accessibility",
               "result": "inconclusive"
             }
@@ -1155,7 +1269,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ui-build-test-94438ee-46e60bd8",
+              "id": "ev-one-small-ui-build-test-94438ee-7aa0df0c",
               "collector": "build-test",
               "result": "pass"
             }
@@ -1171,7 +1285,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ui-deployment-health-94438ee-5e002677",
+              "id": "ev-one-small-ui-deployment-health-94438ee-4b57ce2e",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -1187,7 +1301,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ui-documentation-94438ee-46de4908",
+              "id": "ev-one-small-ui-documentation-94438ee-009b26ac",
               "collector": "documentation",
               "result": "fail"
             }
@@ -1213,7 +1327,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
+              "id": "ev-one-small-ui-release-packaging-94438ee-26f4e088",
               "collector": "release-packaging",
               "result": "fail"
             }
@@ -1229,7 +1343,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
+              "id": "ev-one-small-ui-release-packaging-94438ee-26f4e088",
               "collector": "release-packaging",
               "result": "fail"
             }
@@ -1245,7 +1359,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ui-compatibility-94438ee-4922bd39",
+              "id": "ev-one-small-ui-compatibility-94438ee-1fbb33cf",
               "collector": "compatibility",
               "result": "fail"
             }
@@ -1261,7 +1375,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
+              "id": "ev-one-small-ui-release-packaging-94438ee-26f4e088",
               "collector": "release-packaging",
               "result": "fail"
             }
@@ -1277,7 +1391,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ui-dependency-audit-94438ee-24e71675",
+              "id": "ev-one-small-ui-dependency-audit-94438ee-c247d2a2",
               "collector": "dependency-audit",
               "result": "fail"
             }
@@ -1293,7 +1407,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
+              "id": "ev-one-small-ui-release-packaging-94438ee-26f4e088",
               "collector": "release-packaging",
               "result": "fail"
             }
@@ -1309,7 +1423,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
+              "id": "ev-one-small-ui-release-packaging-94438ee-26f4e088",
               "collector": "release-packaging",
               "result": "fail"
             }
@@ -1345,7 +1459,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ui-documentation-94438ee-46de4908",
+              "id": "ev-one-small-ui-documentation-94438ee-009b26ac",
               "collector": "documentation",
               "result": "fail"
             }
@@ -1361,7 +1475,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ui-documentation-94438ee-46de4908",
+              "id": "ev-one-small-ui-documentation-94438ee-009b26ac",
               "collector": "documentation",
               "result": "fail"
             }
@@ -1456,7 +1570,7 @@
       ],
       "mergeEligible": false,
       "releaseEligible": false,
-      "lastCollection": "2026-10-27T00:59:26Z",
+      "lastCollection": "2026-10-27T01:56:23Z",
       "lastVerification": null,
       "nextAction": "Fix dependency-audit at 94438ee: dependency audit: critical 2, high 0, moderate 1, low 0, info 0.",
       "findings": [
@@ -1466,7 +1580,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
           "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
           "collector": "accessibility",
-          "evidenceId": "ev-one-small-ui-accessibility-94438ee-ca6c9e73",
+          "evidenceId": "ev-one-small-ui-accessibility-94438ee-c38c97f7",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -1488,7 +1602,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
           "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
           "collector": "ci-results",
-          "evidenceId": "ev-one-small-ui-ci-results-94438ee-090f762b",
+          "evidenceId": "ev-one-small-ui-ci-results-94438ee-b0dee17e",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -1510,7 +1624,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
           "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
           "collector": "compatibility",
-          "evidenceId": "ev-one-small-ui-compatibility-94438ee-4922bd39",
+          "evidenceId": "ev-one-small-ui-compatibility-94438ee-1fbb33cf",
           "kind": "defect",
           "severity": "medium",
           "gates": [
@@ -1532,7 +1646,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
           "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
           "collector": "dependency-audit",
-          "evidenceId": "ev-one-small-ui-dependency-audit-94438ee-24e71675",
+          "evidenceId": "ev-one-small-ui-dependency-audit-94438ee-c247d2a2",
           "kind": "defect",
           "severity": "high",
           "gates": [
@@ -1556,7 +1670,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
           "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
           "collector": "deployment-health",
-          "evidenceId": "ev-one-small-ui-deployment-health-94438ee-5e002677",
+          "evidenceId": "ev-one-small-ui-deployment-health-94438ee-4b57ce2e",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -1578,7 +1692,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
           "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
           "collector": "documentation",
-          "evidenceId": "ev-one-small-ui-documentation-94438ee-46de4908",
+          "evidenceId": "ev-one-small-ui-documentation-94438ee-009b26ac",
           "kind": "defect",
           "severity": "low",
           "gates": [
@@ -1604,7 +1718,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
           "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
           "collector": "release-packaging",
-          "evidenceId": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
+          "evidenceId": "ev-one-small-ui-release-packaging-94438ee-26f4e088",
           "kind": "defect",
           "severity": "medium",
           "gates": [
@@ -1654,6 +1768,12 @@
               "result": "pass"
             },
             {
+              "id": "ev-one-small-ui-build-test-94438ee-7aa0df0c",
+              "digest": "5f726a51988be0a81e5cd8e67d08884fc83671ff3b3e11ed2ce4868b80602780",
+              "collector": "build-test",
+              "result": "pass"
+            },
+            {
               "id": "ev-one-small-ui-build-test-94438ee-bd83ad58",
               "digest": "d9e93ef7bc9b782a48c99687c4d859dbfe0d83457f5fd5ecb1cb991e2aa9f062",
               "collector": "build-test",
@@ -1666,14 +1786,38 @@
               "result": "unavailable"
             },
             {
+              "id": "ev-one-small-ui-ci-results-94438ee-5abe3f1f",
+              "digest": "aaf3faa47f8282ba006da4e904e1aa104d501ee4d618cef4af912a82b1255f10",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ui-ci-results-94438ee-5c0ef90e",
+              "digest": "fbdb423acdd534cfee48f7a5a93fb3c16363dc675d081946f20fac19f3eada6d",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-ui-ci-results-94438ee-811505f7",
               "digest": "6b80d45e94dd4d07c8b723a939e4e887852e82a6ee295bd17c03b3d1130bf9bb",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
+              "id": "ev-one-small-ui-ci-results-94438ee-b0dee17e",
+              "digest": "035788385eb9b04a32a45a45ccdda87886b906f72f653620e5db0f9f07f244f8",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-ui-lint-format-types-94438ee-b048c952",
               "digest": "42bffa06f1f649886d5a232bfd3b4ce78d89a7aa885a02b74c3055376c58ecc3",
+              "collector": "lint-format-types",
+              "result": "pass"
+            },
+            {
+              "id": "ev-one-small-ui-lint-format-types-94438ee-c4a80561",
+              "digest": "093e166c08db9ebacefca72c62f7f690d3fbc018d7f63f3dbcb0c3adf17978a0",
               "collector": "lint-format-types",
               "result": "pass"
             }
@@ -1695,6 +1839,18 @@
               "result": "fail"
             },
             {
+              "id": "ev-one-small-ui-dependency-audit-94438ee-c247d2a2",
+              "digest": "5c326b5df118a9afa54e3190b4290b239ffd83faac4becb887357ee8a77e7a5e",
+              "collector": "dependency-audit",
+              "result": "fail"
+            },
+            {
+              "id": "ev-one-small-ui-secret-scan-94438ee-0d4de9f6",
+              "digest": "d77c215ff1b80580ee9d0f3014ba18affb4243c697d90e77537f055a2d62a70f",
+              "collector": "secret-scan",
+              "result": "pass"
+            },
+            {
               "id": "ev-one-small-ui-secret-scan-94438ee-64a0d2ba",
               "digest": "e57d9c50189ef800a428bb8295f3cede6f4ea456427bc0482f003907f8bd218a",
               "collector": "secret-scan",
@@ -1711,6 +1867,12 @@
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-one-small-ui-accessibility-94438ee-c38c97f7",
+              "digest": "dcc3e029404cdcfe7704d716f5bd04fd93c6fc83ecdceeac6f4cd28ff5ba26dd",
+              "collector": "accessibility",
+              "result": "inconclusive"
+            },
             {
               "id": "ev-one-small-ui-accessibility-94438ee-ca6c9e73",
               "digest": "caddd7f7ccdcf78c72babdc2c6b7b7a78cbea309df36f3732fd4fcbdc54d1d6c",
@@ -1755,6 +1917,12 @@
               "result": "pass"
             },
             {
+              "id": "ev-one-small-ui-build-test-94438ee-7aa0df0c",
+              "digest": "5f726a51988be0a81e5cd8e67d08884fc83671ff3b3e11ed2ce4868b80602780",
+              "collector": "build-test",
+              "result": "pass"
+            },
+            {
               "id": "ev-one-small-ui-build-test-94438ee-bd83ad58",
               "digest": "d9e93ef7bc9b782a48c99687c4d859dbfe0d83457f5fd5ecb1cb991e2aa9f062",
               "collector": "build-test",
@@ -1772,8 +1940,26 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-ui-deployment-health-94438ee-4b57ce2e",
+              "digest": "03d427aa4757d5744833f4305b723de280875a39d07a93836facaf94710e84a5",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-ui-deployment-health-94438ee-5e002677",
               "digest": "9bfa38e9bb609c560954739f92359103b9e37308dc7763081c2c82210cc59c04",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ui-deployment-health-94438ee-7d0def0d",
+              "digest": "22feb25293cbf34795f072fc4553160d2660f3179a9bd4e3d169a718ab1c87f3",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ui-deployment-health-94438ee-995bed74",
+              "digest": "57a323b41b84b93d34942ac297dab8d4f9be75918325446513497c8f958c3e0b",
               "collector": "deployment-health",
               "result": "unavailable"
             },
@@ -1794,6 +1980,12 @@
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-one-small-ui-documentation-94438ee-009b26ac",
+              "digest": "bdaeae76629c4d3144ee17a840724953bff4a17f9b6fa5998527c3d20c3c84c9",
+              "collector": "documentation",
+              "result": "fail"
+            },
             {
               "id": "ev-one-small-ui-documentation-94438ee-46de4908",
               "digest": "6342dad511048d564398feb8919919e42f68358bcb53d9c099278910a9852c31",
@@ -1822,6 +2014,12 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-ui-release-packaging-94438ee-26f4e088",
+              "digest": "39a6b721923738ab1eece1b654d5902a24b90c252058e306b0c6c1752bfc13b3",
+              "collector": "release-packaging",
+              "result": "fail"
+            },
+            {
               "id": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
               "digest": "8cfd748fbdb90344d50eb170aca10963b6c2915d8994bbf403ffeae5c665c29a",
               "collector": "release-packaging",
@@ -1838,6 +2036,12 @@
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-one-small-ui-release-packaging-94438ee-26f4e088",
+              "digest": "39a6b721923738ab1eece1b654d5902a24b90c252058e306b0c6c1752bfc13b3",
+              "collector": "release-packaging",
+              "result": "fail"
+            },
             {
               "id": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
               "digest": "8cfd748fbdb90344d50eb170aca10963b6c2915d8994bbf403ffeae5c665c29a",
@@ -1856,6 +2060,12 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-ui-compatibility-94438ee-1fbb33cf",
+              "digest": "5ef0f06640e9ad4253e5e0a5831ca116d7c269c9b7b7adc812520957290e6ffa",
+              "collector": "compatibility",
+              "result": "fail"
+            },
+            {
               "id": "ev-one-small-ui-compatibility-94438ee-4922bd39",
               "digest": "b68086883aa1761523656843fd44a783425fdde8a31104e94fbe114bd2482010",
               "collector": "compatibility",
@@ -1872,6 +2082,12 @@
           "automation": "full",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-one-small-ui-release-packaging-94438ee-26f4e088",
+              "digest": "39a6b721923738ab1eece1b654d5902a24b90c252058e306b0c6c1752bfc13b3",
+              "collector": "release-packaging",
+              "result": "fail"
+            },
             {
               "id": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
               "digest": "8cfd748fbdb90344d50eb170aca10963b6c2915d8994bbf403ffeae5c665c29a",
@@ -1894,6 +2110,12 @@
               "digest": "ce9c686193ae46c3585bf5d298977456105b137da76ae82af1987ce2e8d25834",
               "collector": "dependency-audit",
               "result": "fail"
+            },
+            {
+              "id": "ev-one-small-ui-dependency-audit-94438ee-c247d2a2",
+              "digest": "5c326b5df118a9afa54e3190b4290b239ffd83faac4becb887357ee8a77e7a5e",
+              "collector": "dependency-audit",
+              "result": "fail"
             }
           ],
           "missingCollectors": [],
@@ -1906,6 +2128,12 @@
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-one-small-ui-release-packaging-94438ee-26f4e088",
+              "digest": "39a6b721923738ab1eece1b654d5902a24b90c252058e306b0c6c1752bfc13b3",
+              "collector": "release-packaging",
+              "result": "fail"
+            },
             {
               "id": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
               "digest": "8cfd748fbdb90344d50eb170aca10963b6c2915d8994bbf403ffeae5c665c29a",
@@ -1923,6 +2151,12 @@
           "automation": "full",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-one-small-ui-release-packaging-94438ee-26f4e088",
+              "digest": "39a6b721923738ab1eece1b654d5902a24b90c252058e306b0c6c1752bfc13b3",
+              "collector": "release-packaging",
+              "result": "fail"
+            },
             {
               "id": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
               "digest": "8cfd748fbdb90344d50eb170aca10963b6c2915d8994bbf403ffeae5c665c29a",
@@ -1961,6 +2195,12 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-ui-documentation-94438ee-009b26ac",
+              "digest": "bdaeae76629c4d3144ee17a840724953bff4a17f9b6fa5998527c3d20c3c84c9",
+              "collector": "documentation",
+              "result": "fail"
+            },
+            {
               "id": "ev-one-small-ui-documentation-94438ee-46de4908",
               "digest": "6342dad511048d564398feb8919919e42f68358bcb53d9c099278910a9852c31",
               "collector": "documentation",
@@ -1977,6 +2217,12 @@
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-one-small-ui-documentation-94438ee-009b26ac",
+              "digest": "bdaeae76629c4d3144ee17a840724953bff4a17f9b6fa5998527c3d20c3c84c9",
+              "collector": "documentation",
+              "result": "fail"
+            },
             {
               "id": "ev-one-small-ui-documentation-94438ee-46de4908",
               "digest": "6342dad511048d564398feb8919919e42f68358bcb53d9c099278910a9852c31",
@@ -2047,17 +2293,17 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-personal-portfolio-build-test-684ef3c-0bc913a4",
+              "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
               "collector": "build-test",
               "result": "pass"
             },
             {
-              "id": "ev-personal-portfolio-ci-results-684ef3c-4e6240b2",
+              "id": "ev-personal-portfolio-ci-results-684ef3c-c2193761",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-personal-portfolio-lint-format-types-684ef3c-3a80bae8",
+              "id": "ev-personal-portfolio-lint-format-types-684ef3c-ff61bbd5",
               "collector": "lint-format-types",
               "result": "pass"
             }
@@ -2073,12 +2319,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-personal-portfolio-dependency-audit-684ef3c-6a355138",
+              "id": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
               "collector": "dependency-audit",
               "result": "fail"
             },
             {
-              "id": "ev-personal-portfolio-secret-scan-684ef3c-c8ba0893",
+              "id": "ev-personal-portfolio-secret-scan-684ef3c-a6bbdbf4",
               "collector": "secret-scan",
               "result": "pass"
             }
@@ -2094,7 +2340,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-personal-portfolio-accessibility-684ef3c-7f948fd0",
+              "id": "ev-personal-portfolio-accessibility-684ef3c-baee89e7",
               "collector": "accessibility",
               "result": "inconclusive"
             }
@@ -2130,7 +2376,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-personal-portfolio-build-test-684ef3c-0bc913a4",
+              "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
               "collector": "build-test",
               "result": "pass"
             }
@@ -2146,7 +2392,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-personal-portfolio-deployment-health-684ef3c-f1ab7588",
+              "id": "ev-personal-portfolio-deployment-health-684ef3c-45447d7c",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -2162,7 +2408,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-personal-portfolio-documentation-684ef3c-207e2e00",
+              "id": "ev-personal-portfolio-documentation-684ef3c-b200612c",
               "collector": "documentation",
               "result": "inconclusive"
             }
@@ -2261,7 +2507,7 @@
       ],
       "mergeEligible": false,
       "releaseEligible": false,
-      "lastCollection": "2026-10-27T00:59:56Z",
+      "lastCollection": "2026-10-27T01:56:23Z",
       "lastVerification": null,
       "nextAction": "Fix dependency-audit at 684ef3c: dependency audit: critical 1, high 1, moderate 0, low 0, info 0.",
       "findings": [
@@ -2271,7 +2517,7 @@
           "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
           "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
           "collector": "accessibility",
-          "evidenceId": "ev-personal-portfolio-accessibility-684ef3c-7f948fd0",
+          "evidenceId": "ev-personal-portfolio-accessibility-684ef3c-baee89e7",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -2293,7 +2539,7 @@
           "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
           "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
           "collector": "ci-results",
-          "evidenceId": "ev-personal-portfolio-ci-results-684ef3c-4e6240b2",
+          "evidenceId": "ev-personal-portfolio-ci-results-684ef3c-c2193761",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -2315,7 +2561,7 @@
           "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
           "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
           "collector": "dependency-audit",
-          "evidenceId": "ev-personal-portfolio-dependency-audit-684ef3c-6a355138",
+          "evidenceId": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
           "kind": "defect",
           "severity": "high",
           "gates": [
@@ -2337,7 +2583,7 @@
           "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
           "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
           "collector": "deployment-health",
-          "evidenceId": "ev-personal-portfolio-deployment-health-684ef3c-f1ab7588",
+          "evidenceId": "ev-personal-portfolio-deployment-health-684ef3c-45447d7c",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -2359,7 +2605,7 @@
           "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
           "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
           "collector": "documentation",
-          "evidenceId": "ev-personal-portfolio-documentation-684ef3c-207e2e00",
+          "evidenceId": "ev-personal-portfolio-documentation-684ef3c-b200612c",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -2381,7 +2627,7 @@
           "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
           "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
           "collector": "repo-structure",
-          "evidenceId": "ev-personal-portfolio-repo-structure-684ef3c-08dcef3c",
+          "evidenceId": "ev-personal-portfolio-repo-structure-684ef3c-0662185a",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [],
@@ -2424,6 +2670,12 @@
               "result": "pass"
             },
             {
+              "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
+              "digest": "c7cd96d452ac40971e4868e0ff2951f4dea8257f0fd099e12bb690e46df858e0",
+              "collector": "build-test",
+              "result": "pass"
+            },
+            {
               "id": "ev-personal-portfolio-build-test-684ef3c-de39ee7e",
               "digest": "936ef8926b51a0e39d8ada3d0e328737416fabd7d6d6e92d9068ead664396fc8",
               "collector": "build-test",
@@ -2442,8 +2694,32 @@
               "result": "unavailable"
             },
             {
+              "id": "ev-personal-portfolio-ci-results-684ef3c-c2193761",
+              "digest": "9b4bfebbb213e18517fe6dac32902cee2c436ad2a1ddfde15ccedc0dde9ffd5d",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-personal-portfolio-ci-results-684ef3c-e6eafba3",
+              "digest": "bf57fe92d4c3596096d8a49b790903403c5af73d5944340f21e016f2bb7a5988",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-personal-portfolio-ci-results-684ef3c-f67d778c",
+              "digest": "4ecde34aac21f3ca492abb752b8a575da7a2378b2ed1f3aaa4b4b89d1ab2e949",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-personal-portfolio-lint-format-types-684ef3c-3a80bae8",
               "digest": "71952ced4ba6dc30d09b84289031d8ce090ad618bde363ca2e2615db343ad5f1",
+              "collector": "lint-format-types",
+              "result": "pass"
+            },
+            {
+              "id": "ev-personal-portfolio-lint-format-types-684ef3c-ff61bbd5",
+              "digest": "e65e3d24eeb2e4e2c9d7b69452c86f5e985c7bbba8caf51f0f497b20b72651b8",
               "collector": "lint-format-types",
               "result": "pass"
             }
@@ -2459,10 +2735,22 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
+              "digest": "c0f87cb081a3fd20c74f5d91e0908f8c877b6b3f1b5fa73b0e8f19f5f8dce59c",
+              "collector": "dependency-audit",
+              "result": "fail"
+            },
+            {
               "id": "ev-personal-portfolio-dependency-audit-684ef3c-6a355138",
               "digest": "717e9d4328e5722d506980f01916ce37c254f004cd598d4ef247447f32b07459",
               "collector": "dependency-audit",
               "result": "fail"
+            },
+            {
+              "id": "ev-personal-portfolio-secret-scan-684ef3c-a6bbdbf4",
+              "digest": "6542dfe8d64c4f50e34da473a33297d23f81a1b1fcad51fff8811979c106ba45",
+              "collector": "secret-scan",
+              "result": "pass"
             },
             {
               "id": "ev-personal-portfolio-secret-scan-684ef3c-c8ba0893",
@@ -2484,6 +2772,12 @@
             {
               "id": "ev-personal-portfolio-accessibility-684ef3c-7f948fd0",
               "digest": "d109d8fa3fa9f8f4cd4e2abd25c3753593d58558d1bea65d096a21bf87b7d336",
+              "collector": "accessibility",
+              "result": "inconclusive"
+            },
+            {
+              "id": "ev-personal-portfolio-accessibility-684ef3c-baee89e7",
+              "digest": "3d5cd7951da0282ac37f16f42ccc8b273a42958035c8afc90a6427fb2e124cc4",
               "collector": "accessibility",
               "result": "inconclusive"
             }
@@ -2525,6 +2819,12 @@
               "result": "pass"
             },
             {
+              "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
+              "digest": "c7cd96d452ac40971e4868e0ff2951f4dea8257f0fd099e12bb690e46df858e0",
+              "collector": "build-test",
+              "result": "pass"
+            },
+            {
               "id": "ev-personal-portfolio-build-test-684ef3c-de39ee7e",
               "digest": "936ef8926b51a0e39d8ada3d0e328737416fabd7d6d6e92d9068ead664396fc8",
               "collector": "build-test",
@@ -2541,6 +2841,24 @@
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-personal-portfolio-deployment-health-684ef3c-45447d7c",
+              "digest": "41913376de46cb109acb26eda9ac7089d561c234be1166ea55f800bd67863d53",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-personal-portfolio-deployment-health-684ef3c-79f176d5",
+              "digest": "1be68d85940c96bd62542b222c4acc578da768033394fb3195913dae69904789",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-personal-portfolio-deployment-health-684ef3c-95957ec8",
+              "digest": "0b5817a60583401f42b4db6141f582eb8a69cf691fbc72cf467844de457d946c",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
             {
               "id": "ev-personal-portfolio-deployment-health-684ef3c-b3ba0def",
               "digest": "cb5ab86912057d96aabd9b8bfdd48c31ec873d998347447a4b898774acd48745",
@@ -2567,6 +2885,12 @@
             {
               "id": "ev-personal-portfolio-documentation-684ef3c-207e2e00",
               "digest": "1e2cc69595e77734332cff493a5e1a03242a684af595083310a5fe4e9e275cd0",
+              "collector": "documentation",
+              "result": "inconclusive"
+            },
+            {
+              "id": "ev-personal-portfolio-documentation-684ef3c-b200612c",
+              "digest": "5dc6fbf4051fa8bb29c90aa1a2d81122bfc3fae7b40fb25d83240dd345b87f53",
               "collector": "documentation",
               "result": "inconclusive"
             }
@@ -2634,17 +2958,17 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-studio-build-test-175cef6-294dde20",
+              "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
               "collector": "build-test",
               "result": "pass"
             },
             {
-              "id": "ev-one-small-studio-ci-results-175cef6-f298f2b3",
+              "id": "ev-one-small-studio-ci-results-175cef6-372b3f9b",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-studio-lint-format-types-175cef6-90de18f0",
+              "id": "ev-one-small-studio-lint-format-types-175cef6-cf237cfb",
               "collector": "lint-format-types",
               "result": "pass"
             }
@@ -2660,12 +2984,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-studio-dependency-audit-175cef6-fd8b01aa",
+              "id": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
               "collector": "dependency-audit",
               "result": "fail"
             },
             {
-              "id": "ev-one-small-studio-secret-scan-175cef6-7a3a0299",
+              "id": "ev-one-small-studio-secret-scan-175cef6-fb6abe5b",
               "collector": "secret-scan",
               "result": "pass"
             }
@@ -2681,7 +3005,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-studio-accessibility-175cef6-363512db",
+              "id": "ev-one-small-studio-accessibility-175cef6-fb594e90",
               "collector": "accessibility",
               "result": "inconclusive"
             }
@@ -2717,7 +3041,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-studio-build-test-175cef6-294dde20",
+              "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
               "collector": "build-test",
               "result": "pass"
             }
@@ -2733,7 +3057,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-studio-deployment-health-175cef6-f5e271b7",
+              "id": "ev-one-small-studio-deployment-health-175cef6-eac0aff6",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -2749,7 +3073,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-studio-documentation-175cef6-4ba9575d",
+              "id": "ev-one-small-studio-documentation-175cef6-5daa9695",
               "collector": "documentation",
               "result": "inconclusive"
             }
@@ -2832,7 +3156,7 @@
       ],
       "mergeEligible": false,
       "releaseEligible": false,
-      "lastCollection": "2026-10-27T01:00:27Z",
+      "lastCollection": "2026-10-27T01:56:24Z",
       "lastVerification": null,
       "nextAction": "Fix dependency-audit at 175cef6: dependency audit: critical 0, high 2, moderate 0, low 0, info 0.",
       "findings": [
@@ -2842,7 +3166,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
           "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
           "collector": "accessibility",
-          "evidenceId": "ev-one-small-studio-accessibility-175cef6-363512db",
+          "evidenceId": "ev-one-small-studio-accessibility-175cef6-fb594e90",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -2864,7 +3188,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
           "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
           "collector": "ci-results",
-          "evidenceId": "ev-one-small-studio-ci-results-175cef6-f298f2b3",
+          "evidenceId": "ev-one-small-studio-ci-results-175cef6-372b3f9b",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -2886,7 +3210,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
           "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
           "collector": "dependency-audit",
-          "evidenceId": "ev-one-small-studio-dependency-audit-175cef6-fd8b01aa",
+          "evidenceId": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
           "kind": "defect",
           "severity": "high",
           "gates": [
@@ -2908,7 +3232,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
           "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
           "collector": "deployment-health",
-          "evidenceId": "ev-one-small-studio-deployment-health-175cef6-f5e271b7",
+          "evidenceId": "ev-one-small-studio-deployment-health-175cef6-eac0aff6",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -2930,7 +3254,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
           "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
           "collector": "documentation",
-          "evidenceId": "ev-one-small-studio-documentation-175cef6-4ba9575d",
+          "evidenceId": "ev-one-small-studio-documentation-175cef6-5daa9695",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -2952,7 +3276,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
           "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
           "collector": "repo-structure",
-          "evidenceId": "ev-one-small-studio-repo-structure-175cef6-d86527ca",
+          "evidenceId": "ev-one-small-studio-repo-structure-175cef6-6574efd3",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [],
@@ -2995,10 +3319,34 @@
               "result": "pass"
             },
             {
+              "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
+              "digest": "dcb9383d0174073428dec8c4dcb46fa5b0f27708793c73ed061dc89a9f63344d",
+              "collector": "build-test",
+              "result": "pass"
+            },
+            {
               "id": "ev-one-small-studio-build-test-175cef6-b269e3ac",
               "digest": "bd3aeb36f44753fc8ec589fb342d768dcd2e1579609d927ce1a2a2b8cf061fed",
               "collector": "build-test",
               "result": "pass"
+            },
+            {
+              "id": "ev-one-small-studio-ci-results-175cef6-276b0f38",
+              "digest": "bef09b10a27faa491656a828caeb7df99ac4847f43032105ccf219c849f3b738",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-studio-ci-results-175cef6-372b3f9b",
+              "digest": "6ae9e714d69be28e718fd8ed67899c9b39fabefa9191c8d2b9924753b06a1c65",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-studio-ci-results-175cef6-b43c4ef0",
+              "digest": "66b50c1ea9fd7cd19c6fe871a2b789c7c48b96e03e706ba79bb24a09a4da17a6",
+              "collector": "ci-results",
+              "result": "unavailable"
             },
             {
               "id": "ev-one-small-studio-ci-results-175cef6-c73120b6",
@@ -3017,6 +3365,12 @@
               "digest": "98a7fc12005e4f1fdc3b6d04d35a58f3a783fae0caa36a331e8f8318b5887336",
               "collector": "lint-format-types",
               "result": "pass"
+            },
+            {
+              "id": "ev-one-small-studio-lint-format-types-175cef6-cf237cfb",
+              "digest": "494fa9fcf5902b1caf5d3162785403d7f33b4f251aaaf3eefb7c8078cb8fb1c1",
+              "collector": "lint-format-types",
+              "result": "pass"
             }
           ],
           "missingCollectors": [],
@@ -3030,6 +3384,12 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
+              "digest": "91da9d70ee7e65679430607e1eca2ee25a3c003cc0cdc2abd4c2162945b46b04",
+              "collector": "dependency-audit",
+              "result": "fail"
+            },
+            {
               "id": "ev-one-small-studio-dependency-audit-175cef6-fd8b01aa",
               "digest": "f37df86536baf16179f3bf8980d4852bccf1e25f6d937792787eb4e5408a03a8",
               "collector": "dependency-audit",
@@ -3038,6 +3398,12 @@
             {
               "id": "ev-one-small-studio-secret-scan-175cef6-7a3a0299",
               "digest": "516803fa0522dcc6d495b96b3d629f473a6f5791107cf5dad1b58ffc139e92b5",
+              "collector": "secret-scan",
+              "result": "pass"
+            },
+            {
+              "id": "ev-one-small-studio-secret-scan-175cef6-fb6abe5b",
+              "digest": "2e356c0d394df7895ae230e8f416006e8aec0d9178611dadb997b8fe7828f057",
               "collector": "secret-scan",
               "result": "pass"
             }
@@ -3055,6 +3421,12 @@
             {
               "id": "ev-one-small-studio-accessibility-175cef6-363512db",
               "digest": "108be59aa6cbce7a7d0fb4b8e0039c32bb808a732c4912e6b0e0c2e6d006a709",
+              "collector": "accessibility",
+              "result": "inconclusive"
+            },
+            {
+              "id": "ev-one-small-studio-accessibility-175cef6-fb594e90",
+              "digest": "4b3906b5d28e228d698b331a1c22580c8c25739579bc79e7a1118aaf232c71a0",
               "collector": "accessibility",
               "result": "inconclusive"
             }
@@ -3096,6 +3468,12 @@
               "result": "pass"
             },
             {
+              "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
+              "digest": "dcb9383d0174073428dec8c4dcb46fa5b0f27708793c73ed061dc89a9f63344d",
+              "collector": "build-test",
+              "result": "pass"
+            },
+            {
               "id": "ev-one-small-studio-build-test-175cef6-b269e3ac",
               "digest": "bd3aeb36f44753fc8ec589fb342d768dcd2e1579609d927ce1a2a2b8cf061fed",
               "collector": "build-test",
@@ -3113,8 +3491,26 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-studio-deployment-health-175cef6-14945802",
+              "digest": "8fe09051e663cf8cf17e22126bfd32732f343a98e6944034a0dd5ecfb097e104",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-studio-deployment-health-175cef6-5899dff3",
+              "digest": "881f12f2231304b57944b3adc0cfa84fd9df260ecb1bb0d2db525d51ae1a62af",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-studio-deployment-health-175cef6-8d0ebc02",
               "digest": "d756d8d0e6e67a2b081f16e6912ef5f6ec7cc06a320f3b689aad6bb362e07da8",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-studio-deployment-health-175cef6-eac0aff6",
+              "digest": "bdb97732369a50069900480ff73e4147f8c39d73cd7b95c0b41746d18bf590f5",
               "collector": "deployment-health",
               "result": "unavailable"
             },
@@ -3138,6 +3534,12 @@
             {
               "id": "ev-one-small-studio-documentation-175cef6-4ba9575d",
               "digest": "441378ae7ff5c85f2dbee6d45e448773096c4b5b25141e730598e363b7d5e8ea",
+              "collector": "documentation",
+              "result": "inconclusive"
+            },
+            {
+              "id": "ev-one-small-studio-documentation-175cef6-5daa9695",
+              "digest": "10f36168b361aab19eb16b3a795419a5a5137f87f1eb21c3a4fd78f8716ac1d9",
               "collector": "documentation",
               "result": "inconclusive"
             }
@@ -3205,17 +3607,17 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-photography-build-test-45a74ba-1883a99f",
+              "id": "ev-one-small-photography-build-test-45a74ba-1c559c0f",
               "collector": "build-test",
               "result": "pass"
             },
             {
-              "id": "ev-one-small-photography-ci-results-45a74ba-32fcc3c6",
+              "id": "ev-one-small-photography-ci-results-45a74ba-b919d9a0",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-photography-lint-format-types-45a74ba-e909ffaa",
+              "id": "ev-one-small-photography-lint-format-types-45a74ba-040ed0be",
               "collector": "lint-format-types",
               "result": "pass"
             }
@@ -3231,12 +3633,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-photography-dependency-audit-45a74ba-c75a1f11",
+              "id": "ev-one-small-photography-dependency-audit-45a74ba-e4c11401",
               "collector": "dependency-audit",
               "result": "pass"
             },
             {
-              "id": "ev-one-small-photography-secret-scan-45a74ba-38ccfe10",
+              "id": "ev-one-small-photography-secret-scan-45a74ba-3a0e0c19",
               "collector": "secret-scan",
               "result": "inconclusive"
             }
@@ -3252,7 +3654,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-photography-accessibility-45a74ba-933f23e4",
+              "id": "ev-one-small-photography-accessibility-45a74ba-5ad5aff3",
               "collector": "accessibility",
               "result": "inconclusive"
             }
@@ -3288,7 +3690,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-photography-build-test-45a74ba-1883a99f",
+              "id": "ev-one-small-photography-build-test-45a74ba-1c559c0f",
               "collector": "build-test",
               "result": "pass"
             }
@@ -3304,7 +3706,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-photography-deployment-health-45a74ba-a51e90f7",
+              "id": "ev-one-small-photography-deployment-health-45a74ba-6f7249e7",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -3320,7 +3722,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-photography-documentation-45a74ba-34cb2a4c",
+              "id": "ev-one-small-photography-documentation-45a74ba-a1411b23",
               "collector": "documentation",
               "result": "inconclusive"
             }
@@ -3403,7 +3805,7 @@
       ],
       "mergeEligible": false,
       "releaseEligible": false,
-      "lastCollection": "2026-10-27T01:01:14Z",
+      "lastCollection": "2026-10-27T01:56:25Z",
       "lastVerification": null,
       "nextAction": "Resolve blocker scope-document-missing.",
       "findings": [
@@ -3413,7 +3815,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
           "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
           "collector": "accessibility",
-          "evidenceId": "ev-one-small-photography-accessibility-45a74ba-933f23e4",
+          "evidenceId": "ev-one-small-photography-accessibility-45a74ba-5ad5aff3",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -3435,7 +3837,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
           "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
           "collector": "ci-results",
-          "evidenceId": "ev-one-small-photography-ci-results-45a74ba-32fcc3c6",
+          "evidenceId": "ev-one-small-photography-ci-results-45a74ba-b919d9a0",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -3457,7 +3859,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
           "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
           "collector": "deployment-health",
-          "evidenceId": "ev-one-small-photography-deployment-health-45a74ba-a51e90f7",
+          "evidenceId": "ev-one-small-photography-deployment-health-45a74ba-6f7249e7",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -3479,7 +3881,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
           "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
           "collector": "documentation",
-          "evidenceId": "ev-one-small-photography-documentation-45a74ba-34cb2a4c",
+          "evidenceId": "ev-one-small-photography-documentation-45a74ba-a1411b23",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -3501,7 +3903,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
           "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
           "collector": "repo-structure",
-          "evidenceId": "ev-one-small-photography-repo-structure-45a74ba-2c295a50",
+          "evidenceId": "ev-one-small-photography-repo-structure-45a74ba-761de6c0",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [],
@@ -3519,7 +3921,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
           "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
           "collector": "secret-scan",
-          "evidenceId": "ev-one-small-photography-secret-scan-45a74ba-38ccfe10",
+          "evidenceId": "ev-one-small-photography-secret-scan-45a74ba-3a0e0c19",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -3561,6 +3963,12 @@
               "result": "pass"
             },
             {
+              "id": "ev-one-small-photography-build-test-45a74ba-1c559c0f",
+              "digest": "5c54c7f36f64173e9f12ee19ddcf1393e46079a58b566e2a46963c8ff930a39f",
+              "collector": "build-test",
+              "result": "pass"
+            },
+            {
               "id": "ev-one-small-photography-build-test-45a74ba-469ea48f",
               "digest": "431c9dfdc7f71549d18d635ea2bd9b79bd8307a40d7e35e59f33d52ceb435123",
               "collector": "build-test",
@@ -3577,6 +3985,30 @@
               "digest": "381e54d993bafc4ef779ae3e957f9fed21e48b66d3824dcb7cceedfc8e45e368",
               "collector": "ci-results",
               "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-photography-ci-results-45a74ba-acd0e7e8",
+              "digest": "039b90e9c7e2b1d878a8ae2d82423f664012db98bcf070ecd935abe59475ae9f",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-photography-ci-results-45a74ba-b919d9a0",
+              "digest": "99ff72dd8b884d812a8808dd39877ed79dbcebdfbc9db0ab09f25d60dafeda88",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-photography-ci-results-45a74ba-f4281eac",
+              "digest": "e1253874a11068e8625a9253e38962f2ce8db96b76ff9b60eb35fa4f716779dc",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-photography-lint-format-types-45a74ba-040ed0be",
+              "digest": "764c212390cd5a8a5279dc38d9d65db27b5a62fddee3f34cf307cf4c29ec7b67",
+              "collector": "lint-format-types",
+              "result": "pass"
             },
             {
               "id": "ev-one-small-photography-lint-format-types-45a74ba-e909ffaa",
@@ -3602,8 +4034,20 @@
               "result": "pass"
             },
             {
+              "id": "ev-one-small-photography-dependency-audit-45a74ba-e4c11401",
+              "digest": "df8f9258cc02ec95e65db9c4d4e5cfaca9aad1b16e22f31dc9647877fb48f79f",
+              "collector": "dependency-audit",
+              "result": "pass"
+            },
+            {
               "id": "ev-one-small-photography-secret-scan-45a74ba-38ccfe10",
               "digest": "97198cd0d1aa6157b5bb3856aeb3e379602ac36ac7bf9942b67a408e284554e4",
+              "collector": "secret-scan",
+              "result": "inconclusive"
+            },
+            {
+              "id": "ev-one-small-photography-secret-scan-45a74ba-3a0e0c19",
+              "digest": "c860e738b0aace7db784ab332f1bca9835226211a1e59a5f93ea37eb855db081",
               "collector": "secret-scan",
               "result": "inconclusive"
             }
@@ -3618,6 +4062,12 @@
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-one-small-photography-accessibility-45a74ba-5ad5aff3",
+              "digest": "208c3feab710df3359cdb033c9d4d84f9cc034d55e29dada2585f4fc2eae4fbe",
+              "collector": "accessibility",
+              "result": "inconclusive"
+            },
             {
               "id": "ev-one-small-photography-accessibility-45a74ba-933f23e4",
               "digest": "0b5eb6809de91323863990296f9f0a9e57356fcb38fd43aa5a0e164dbd530ddd",
@@ -3662,6 +4112,12 @@
               "result": "pass"
             },
             {
+              "id": "ev-one-small-photography-build-test-45a74ba-1c559c0f",
+              "digest": "5c54c7f36f64173e9f12ee19ddcf1393e46079a58b566e2a46963c8ff930a39f",
+              "collector": "build-test",
+              "result": "pass"
+            },
+            {
               "id": "ev-one-small-photography-build-test-45a74ba-469ea48f",
               "digest": "431c9dfdc7f71549d18d635ea2bd9b79bd8307a40d7e35e59f33d52ceb435123",
               "collector": "build-test",
@@ -3678,6 +4134,24 @@
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-one-small-photography-deployment-health-45a74ba-36845369",
+              "digest": "ef6886dbb5558a7077a5f3ed3f9e8203a19ebd403775db83dd8baa1e0d377340",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-photography-deployment-health-45a74ba-4e156a51",
+              "digest": "06f2ee43556d5bace29f9499f8c911986b07c6bf62245928f9c2e44685968b91",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-photography-deployment-health-45a74ba-6f7249e7",
+              "digest": "b2109631f6586d2c5d0f14d8e047f2846cd8d3f1d7a54678ab654d7f3bcde2a6",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
             {
               "id": "ev-one-small-photography-deployment-health-45a74ba-75c80d8d",
               "digest": "eda815b27e4cb74bf3ff62585af361a1eb432eab0139691829fa083f21cdd210",
@@ -3704,6 +4178,12 @@
             {
               "id": "ev-one-small-photography-documentation-45a74ba-34cb2a4c",
               "digest": "29d748658add0423c2b33720457e7d4bbbaf2501aa33f562b4e1d4012def6c97",
+              "collector": "documentation",
+              "result": "inconclusive"
+            },
+            {
+              "id": "ev-one-small-photography-documentation-45a74ba-a1411b23",
+              "digest": "9b88ebae2f3ab0f7ea272171d0c246dec8a409db3ee8b38f4ff52dda30796153",
               "collector": "documentation",
               "result": "inconclusive"
             }
@@ -3771,17 +4251,17 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-build-test-11975d0-d17e1159",
+              "id": "ev-taskforge-build-test-11975d0-dc105b8c",
               "collector": "build-test",
               "result": "pass"
             },
             {
-              "id": "ev-taskforge-ci-results-11975d0-6ee2dff9",
+              "id": "ev-taskforge-ci-results-11975d0-e6837581",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-taskforge-lint-format-types-11975d0-bd0a2724",
+              "id": "ev-taskforge-lint-format-types-11975d0-7b0942a4",
               "collector": "lint-format-types",
               "result": "pass"
             }
@@ -3797,12 +4277,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-dependency-audit-11975d0-930082be",
+              "id": "ev-taskforge-dependency-audit-11975d0-b1e62bb2",
               "collector": "dependency-audit",
               "result": "fail"
             },
             {
-              "id": "ev-taskforge-secret-scan-11975d0-8442003a",
+              "id": "ev-taskforge-secret-scan-11975d0-8237b1bd",
               "collector": "secret-scan",
               "result": "inconclusive"
             }
@@ -3818,7 +4298,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-accessibility-11975d0-5d28a392",
+              "id": "ev-taskforge-accessibility-11975d0-fe387eac",
               "collector": "accessibility",
               "result": "inconclusive"
             }
@@ -3854,7 +4334,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-build-test-11975d0-d17e1159",
+              "id": "ev-taskforge-build-test-11975d0-dc105b8c",
               "collector": "build-test",
               "result": "pass"
             }
@@ -3870,7 +4350,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-deployment-health-11975d0-6024ae7e",
+              "id": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -3886,7 +4366,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-documentation-11975d0-132d686c",
+              "id": "ev-taskforge-documentation-11975d0-61e05b6b",
               "collector": "documentation",
               "result": "inconclusive"
             }
@@ -3932,7 +4412,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-secret-scan-11975d0-8442003a",
+              "id": "ev-taskforge-secret-scan-11975d0-8237b1bd",
               "collector": "secret-scan",
               "result": "inconclusive"
             }
@@ -3988,7 +4468,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-deployment-health-11975d0-6024ae7e",
+              "id": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -4004,7 +4484,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-build-test-11975d0-d17e1159",
+              "id": "ev-taskforge-build-test-11975d0-dc105b8c",
               "collector": "build-test",
               "result": "pass"
             }
@@ -4113,7 +4593,7 @@
       ],
       "mergeEligible": false,
       "releaseEligible": false,
-      "lastCollection": "2026-10-27T01:03:51Z",
+      "lastCollection": "2026-10-27T01:56:25Z",
       "lastVerification": null,
       "nextAction": "Fix dependency-audit at 11975d0: dependency audit: critical 0, high 4, moderate 3, low 0, info 0.",
       "findings": [
@@ -4123,7 +4603,7 @@
           "repository": "https://github.com/WasteOfADrumBum/TaskForge",
           "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
           "collector": "accessibility",
-          "evidenceId": "ev-taskforge-accessibility-11975d0-5d28a392",
+          "evidenceId": "ev-taskforge-accessibility-11975d0-fe387eac",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -4145,7 +4625,7 @@
           "repository": "https://github.com/WasteOfADrumBum/TaskForge",
           "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
           "collector": "ci-results",
-          "evidenceId": "ev-taskforge-ci-results-11975d0-6ee2dff9",
+          "evidenceId": "ev-taskforge-ci-results-11975d0-e6837581",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -4167,7 +4647,7 @@
           "repository": "https://github.com/WasteOfADrumBum/TaskForge",
           "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
           "collector": "dependency-audit",
-          "evidenceId": "ev-taskforge-dependency-audit-11975d0-930082be",
+          "evidenceId": "ev-taskforge-dependency-audit-11975d0-b1e62bb2",
           "kind": "defect",
           "severity": "high",
           "gates": [
@@ -4189,7 +4669,7 @@
           "repository": "https://github.com/WasteOfADrumBum/TaskForge",
           "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
           "collector": "deployment-health",
-          "evidenceId": "ev-taskforge-deployment-health-11975d0-6024ae7e",
+          "evidenceId": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -4213,7 +4693,7 @@
           "repository": "https://github.com/WasteOfADrumBum/TaskForge",
           "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
           "collector": "documentation",
-          "evidenceId": "ev-taskforge-documentation-11975d0-132d686c",
+          "evidenceId": "ev-taskforge-documentation-11975d0-61e05b6b",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -4235,7 +4715,7 @@
           "repository": "https://github.com/WasteOfADrumBum/TaskForge",
           "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
           "collector": "secret-scan",
-          "evidenceId": "ev-taskforge-secret-scan-11975d0-8442003a",
+          "evidenceId": "ev-taskforge-secret-scan-11975d0-8237b1bd",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -4284,10 +4764,28 @@
               "result": "pass"
             },
             {
+              "id": "ev-taskforge-build-test-11975d0-dc105b8c",
+              "digest": "9f260089a2a9b09329e9e213d2bf2db4f93109ac74b2e99dc8ab8fa6572454ee",
+              "collector": "build-test",
+              "result": "pass"
+            },
+            {
               "id": "ev-taskforge-build-test-11975d0-e8803dfb",
               "digest": "dd105da118a815152d36cbad738cd521b1aad705de6184ae15b9dec5f8864018",
               "collector": "build-test",
               "result": "fail"
+            },
+            {
+              "id": "ev-taskforge-ci-results-11975d0-4b02f52c",
+              "digest": "73c1a2c65e39b1878c9fe9adf8929be8cab7c3ff8d127633dbcdf4df18460b22",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-taskforge-ci-results-11975d0-68561bad",
+              "digest": "fa962a9864cd20195a23cb874709c7cfdf334d92dd447520d7208343ef57fd77",
+              "collector": "ci-results",
+              "result": "unavailable"
             },
             {
               "id": "ev-taskforge-ci-results-11975d0-6ee2dff9",
@@ -4300,6 +4798,18 @@
               "digest": "fafe544a979122e813e250515a6826ae8718bf5d2a89c0d38b92683fea96cbd1",
               "collector": "ci-results",
               "result": "unavailable"
+            },
+            {
+              "id": "ev-taskforge-ci-results-11975d0-e6837581",
+              "digest": "e0f3f6cd3d81c4cea740f8dba15d98ceab2590c2bbb8a347f3caef5dba858d9d",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-taskforge-lint-format-types-11975d0-7b0942a4",
+              "digest": "4194f921e21d4e3ada5c0f6cd88c9383e536ef9966446950c2a329fe523aacc8",
+              "collector": "lint-format-types",
+              "result": "pass"
             },
             {
               "id": "ev-taskforge-lint-format-types-11975d0-bd0a2724",
@@ -4325,6 +4835,18 @@
               "result": "fail"
             },
             {
+              "id": "ev-taskforge-dependency-audit-11975d0-b1e62bb2",
+              "digest": "54f56475adcb1a7e5562ad20423343d37374b116127813d4f6895a424aed19ba",
+              "collector": "dependency-audit",
+              "result": "fail"
+            },
+            {
+              "id": "ev-taskforge-secret-scan-11975d0-8237b1bd",
+              "digest": "5adf39324b1c679d62d9c00d8a4241430cdbd76676b3d96163f3d0530aed731d",
+              "collector": "secret-scan",
+              "result": "inconclusive"
+            },
+            {
               "id": "ev-taskforge-secret-scan-11975d0-8442003a",
               "digest": "b4edc975b11c7d8e235cd658d34f3627c2f067892ac93c081154bdd5270001cc",
               "collector": "secret-scan",
@@ -4344,6 +4866,12 @@
             {
               "id": "ev-taskforge-accessibility-11975d0-5d28a392",
               "digest": "42ccb097e51ecae3fd774c59ad7b259b5be07728190c08f4034e7062a75501e1",
+              "collector": "accessibility",
+              "result": "inconclusive"
+            },
+            {
+              "id": "ev-taskforge-accessibility-11975d0-fe387eac",
+              "digest": "226284e7c6310c5ae5d25182aec97b051a990190e411c7ebfceef34f6720ba43",
               "collector": "accessibility",
               "result": "inconclusive"
             }
@@ -4385,6 +4913,12 @@
               "result": "pass"
             },
             {
+              "id": "ev-taskforge-build-test-11975d0-dc105b8c",
+              "digest": "9f260089a2a9b09329e9e213d2bf2db4f93109ac74b2e99dc8ab8fa6572454ee",
+              "collector": "build-test",
+              "result": "pass"
+            },
+            {
               "id": "ev-taskforge-build-test-11975d0-e8803dfb",
               "digest": "dd105da118a815152d36cbad738cd521b1aad705de6184ae15b9dec5f8864018",
               "collector": "build-test",
@@ -4408,8 +4942,26 @@
               "result": "unavailable"
             },
             {
+              "id": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
+              "digest": "524ee2baf07a31bcac93dd69e79304f49a0a11735c064d1278c77f88540302d1",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-taskforge-deployment-health-11975d0-bc460bf9",
               "digest": "311dc5b5e2e5c4d5090fb8e83a7a9bf60ec7cd81bc66d183e831032fd8dd865f",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-taskforge-deployment-health-11975d0-e9164135",
+              "digest": "3a30cf14ca85f5408d4eaa5a20c7e128e4dce94538715625c7bdb1e0e1920f51",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-taskforge-deployment-health-11975d0-f2d7254c",
+              "digest": "816873a751d556e5c8ae0f7b1ec7ef194d0656c06b4117d1f9f67acc88dc08ab",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -4427,6 +4979,12 @@
             {
               "id": "ev-taskforge-documentation-11975d0-132d686c",
               "digest": "a3af3ce638114e300408148c1fd0926f76e656da6eaaf4d21991bf353dfacd4e",
+              "collector": "documentation",
+              "result": "inconclusive"
+            },
+            {
+              "id": "ev-taskforge-documentation-11975d0-61e05b6b",
+              "digest": "8155c17c4afa31b757ef36f41ca84e9cacddfb141a4ca999ceef27faeac38589",
               "collector": "documentation",
               "result": "inconclusive"
             }
@@ -4471,6 +5029,12 @@
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-taskforge-secret-scan-11975d0-8237b1bd",
+              "digest": "5adf39324b1c679d62d9c00d8a4241430cdbd76676b3d96163f3d0530aed731d",
+              "collector": "secret-scan",
+              "result": "inconclusive"
+            },
             {
               "id": "ev-taskforge-secret-scan-11975d0-8442003a",
               "digest": "b4edc975b11c7d8e235cd658d34f3627c2f067892ac93c081154bdd5270001cc",
@@ -4535,8 +5099,26 @@
               "result": "unavailable"
             },
             {
+              "id": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
+              "digest": "524ee2baf07a31bcac93dd69e79304f49a0a11735c064d1278c77f88540302d1",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-taskforge-deployment-health-11975d0-bc460bf9",
               "digest": "311dc5b5e2e5c4d5090fb8e83a7a9bf60ec7cd81bc66d183e831032fd8dd865f",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-taskforge-deployment-health-11975d0-e9164135",
+              "digest": "3a30cf14ca85f5408d4eaa5a20c7e128e4dce94538715625c7bdb1e0e1920f51",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-taskforge-deployment-health-11975d0-f2d7254c",
+              "digest": "816873a751d556e5c8ae0f7b1ec7ef194d0656c06b4117d1f9f67acc88dc08ab",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -4554,6 +5136,12 @@
             {
               "id": "ev-taskforge-build-test-11975d0-d17e1159",
               "digest": "29327708b9dcadebe90ec5123be359eb28ce9735081a45de06464b919fbf7b87",
+              "collector": "build-test",
+              "result": "pass"
+            },
+            {
+              "id": "ev-taskforge-build-test-11975d0-dc105b8c",
+              "digest": "9f260089a2a9b09329e9e213d2bf2db4f93109ac74b2e99dc8ab8fa6572454ee",
               "collector": "build-test",
               "result": "pass"
             },
@@ -4627,17 +5215,17 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
+              "id": "ev-cortex-build-test-ec49fd7-736062d9",
               "collector": "build-test",
               "result": "pass"
             },
             {
-              "id": "ev-cortex-ci-results-ec49fd7-cdd510f0",
+              "id": "ev-cortex-ci-results-ec49fd7-bf09a281",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-cortex-lint-format-types-ec49fd7-4b9bec16",
+              "id": "ev-cortex-lint-format-types-ec49fd7-de308fcc",
               "collector": "lint-format-types",
               "result": "inconclusive"
             }
@@ -4653,12 +5241,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-cortex-dependency-audit-ec49fd7-7e30241d",
+              "id": "ev-cortex-dependency-audit-ec49fd7-7cd263c6",
               "collector": "dependency-audit",
               "result": "pass"
             },
             {
-              "id": "ev-cortex-secret-scan-ec49fd7-59e05abc",
+              "id": "ev-cortex-secret-scan-ec49fd7-b392d9b7",
               "collector": "secret-scan",
               "result": "pass"
             }
@@ -4674,7 +5262,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-cortex-accessibility-ec49fd7-27cfef71",
+              "id": "ev-cortex-accessibility-ec49fd7-81ba90a1",
               "collector": "accessibility",
               "result": "inconclusive"
             }
@@ -4710,7 +5298,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
+              "id": "ev-cortex-build-test-ec49fd7-736062d9",
               "collector": "build-test",
               "result": "pass"
             }
@@ -4726,7 +5314,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-cortex-deployment-health-ec49fd7-805608a7",
+              "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -4742,7 +5330,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-cortex-documentation-ec49fd7-e08f6339",
+              "id": "ev-cortex-documentation-ec49fd7-f2ca9d57",
               "collector": "documentation",
               "result": "inconclusive"
             }
@@ -4788,7 +5376,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-cortex-secret-scan-ec49fd7-59e05abc",
+              "id": "ev-cortex-secret-scan-ec49fd7-b392d9b7",
               "collector": "secret-scan",
               "result": "pass"
             }
@@ -4844,7 +5432,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-cortex-deployment-health-ec49fd7-805608a7",
+              "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -4860,7 +5448,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
+              "id": "ev-cortex-build-test-ec49fd7-736062d9",
               "collector": "build-test",
               "result": "pass"
             }
@@ -4969,7 +5557,7 @@
       ],
       "mergeEligible": false,
       "releaseEligible": false,
-      "lastCollection": "2026-10-27T01:03:52Z",
+      "lastCollection": "2026-10-27T01:56:26Z",
       "lastVerification": null,
       "nextAction": "Resolve blocker spec-open-questions.",
       "findings": [
@@ -4979,7 +5567,7 @@
           "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
           "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
           "collector": "accessibility",
-          "evidenceId": "ev-cortex-accessibility-ec49fd7-27cfef71",
+          "evidenceId": "ev-cortex-accessibility-ec49fd7-81ba90a1",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -5001,7 +5589,7 @@
           "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
           "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
           "collector": "ci-results",
-          "evidenceId": "ev-cortex-ci-results-ec49fd7-cdd510f0",
+          "evidenceId": "ev-cortex-ci-results-ec49fd7-bf09a281",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -5023,7 +5611,7 @@
           "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
           "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
           "collector": "deployment-health",
-          "evidenceId": "ev-cortex-deployment-health-ec49fd7-805608a7",
+          "evidenceId": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -5047,7 +5635,7 @@
           "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
           "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
           "collector": "documentation",
-          "evidenceId": "ev-cortex-documentation-ec49fd7-e08f6339",
+          "evidenceId": "ev-cortex-documentation-ec49fd7-f2ca9d57",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -5069,7 +5657,7 @@
           "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
           "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
           "collector": "lint-format-types",
-          "evidenceId": "ev-cortex-lint-format-types-ec49fd7-4b9bec16",
+          "evidenceId": "ev-cortex-lint-format-types-ec49fd7-de308fcc",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -5091,7 +5679,7 @@
           "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
           "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
           "collector": "repo-structure",
-          "evidenceId": "ev-cortex-repo-structure-ec49fd7-0105455c",
+          "evidenceId": "ev-cortex-repo-structure-ec49fd7-cae23b60",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [],
@@ -5123,10 +5711,34 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-cortex-build-test-ec49fd7-736062d9",
+              "digest": "17e8d27da4aa4a392f8bf73cf76e6b4945aa1d5509d322a64b5bf1673f08e0d8",
+              "collector": "build-test",
+              "result": "pass"
+            },
+            {
               "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
               "digest": "0f5e33663973ef9eb8655d52ea3daa966703e8ab953f0b5cd0cff182a00646ee",
               "collector": "build-test",
               "result": "pass"
+            },
+            {
+              "id": "ev-cortex-ci-results-ec49fd7-2872fbb1",
+              "digest": "1f9b42cff5464299fbbe07e50780049cab8ce447a55a84981f1609ce5d3bfdbf",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-cortex-ci-results-ec49fd7-692a94aa",
+              "digest": "d107a86b75196c84af6c039c2ef7b60de52b8ac0397b80d9b75c9a2872f4129a",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-cortex-ci-results-ec49fd7-bf09a281",
+              "digest": "d6cf78d3d5a26c3c8c0372643376d721bef969b33c1c93fe7cd612e0ef6c596e",
+              "collector": "ci-results",
+              "result": "unavailable"
             },
             {
               "id": "ev-cortex-ci-results-ec49fd7-c1e79b00",
@@ -5145,6 +5757,12 @@
               "digest": "83740a385e330aa871486c48685b48a0169d9b344447d2d435e33f02c2f419a6",
               "collector": "lint-format-types",
               "result": "inconclusive"
+            },
+            {
+              "id": "ev-cortex-lint-format-types-ec49fd7-de308fcc",
+              "digest": "d83426c73e66ddcabf5e68d3aa9d449ac6c4f343544b035fd0476233c3befdf1",
+              "collector": "lint-format-types",
+              "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
@@ -5158,6 +5776,12 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-cortex-dependency-audit-ec49fd7-7cd263c6",
+              "digest": "fbe999ef2cda2aab6478bd33a5fab1e1a7977a26a9613fe7420c87b08fbd5d6a",
+              "collector": "dependency-audit",
+              "result": "pass"
+            },
+            {
               "id": "ev-cortex-dependency-audit-ec49fd7-7e30241d",
               "digest": "e987ca34b5f984d1c4696513a01c809408d2f5419c877058635dfb73da8a9cf6",
               "collector": "dependency-audit",
@@ -5166,6 +5790,12 @@
             {
               "id": "ev-cortex-secret-scan-ec49fd7-59e05abc",
               "digest": "f9c68fc0188d682d5ba5e637ac199bce55d51be3f3580d9d8062ea0fdcc80732",
+              "collector": "secret-scan",
+              "result": "pass"
+            },
+            {
+              "id": "ev-cortex-secret-scan-ec49fd7-b392d9b7",
+              "digest": "628c0acbcebbe7b042d144a17fdd4a20c9d9cc51870e2c4cd23dbe79564a98e5",
               "collector": "secret-scan",
               "result": "pass"
             }
@@ -5183,6 +5813,12 @@
             {
               "id": "ev-cortex-accessibility-ec49fd7-27cfef71",
               "digest": "7a092441118a8a008ee4d8f41a1631a9380defa45e171bcc333d4e4711b33eba",
+              "collector": "accessibility",
+              "result": "inconclusive"
+            },
+            {
+              "id": "ev-cortex-accessibility-ec49fd7-81ba90a1",
+              "digest": "2af18586db3562bad68ef8d1ab924a6309424ad8b310ee4ca34d07e0c260140b",
               "collector": "accessibility",
               "result": "inconclusive"
             }
@@ -5218,6 +5854,12 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-cortex-build-test-ec49fd7-736062d9",
+              "digest": "17e8d27da4aa4a392f8bf73cf76e6b4945aa1d5509d322a64b5bf1673f08e0d8",
+              "collector": "build-test",
+              "result": "pass"
+            },
+            {
               "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
               "digest": "0f5e33663973ef9eb8655d52ea3daa966703e8ab953f0b5cd0cff182a00646ee",
               "collector": "build-test",
@@ -5235,8 +5877,26 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-cortex-deployment-health-ec49fd7-46dff49b",
+              "digest": "1f6ca75001683e2f2887e07311d6de28e9da2cdbc1837682f74ffb5bae07c87a",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-cortex-deployment-health-ec49fd7-68a838a7",
+              "digest": "bb69fdfac1749eb55d82d0faf78db91221e6a72152270fb4d34c064f64dbb5fe",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-cortex-deployment-health-ec49fd7-805608a7",
               "digest": "7d3f1d44e877772c50d8bc6aa2b07b35afb35176628987488e8dbdad8420a44f",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
+              "digest": "34c21a661061dc3fd3eb4067b239de349a3449c94c9f4592542dfba6bf7c50bc",
               "collector": "deployment-health",
               "result": "unavailable"
             },
@@ -5260,6 +5920,12 @@
             {
               "id": "ev-cortex-documentation-ec49fd7-e08f6339",
               "digest": "2ad1676b3977f9917415bbbfdfa40e3393dfc1bce457ae7eac0fd31576cb9240",
+              "collector": "documentation",
+              "result": "inconclusive"
+            },
+            {
+              "id": "ev-cortex-documentation-ec49fd7-f2ca9d57",
+              "digest": "4dbe7229540172cbe61bab1b14f3963e05c9de6975abbbc74511d0295f286660",
               "collector": "documentation",
               "result": "inconclusive"
             }
@@ -5307,6 +5973,12 @@
             {
               "id": "ev-cortex-secret-scan-ec49fd7-59e05abc",
               "digest": "f9c68fc0188d682d5ba5e637ac199bce55d51be3f3580d9d8062ea0fdcc80732",
+              "collector": "secret-scan",
+              "result": "pass"
+            },
+            {
+              "id": "ev-cortex-secret-scan-ec49fd7-b392d9b7",
+              "digest": "628c0acbcebbe7b042d144a17fdd4a20c9d9cc51870e2c4cd23dbe79564a98e5",
               "collector": "secret-scan",
               "result": "pass"
             }
@@ -5362,8 +6034,26 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-cortex-deployment-health-ec49fd7-46dff49b",
+              "digest": "1f6ca75001683e2f2887e07311d6de28e9da2cdbc1837682f74ffb5bae07c87a",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-cortex-deployment-health-ec49fd7-68a838a7",
+              "digest": "bb69fdfac1749eb55d82d0faf78db91221e6a72152270fb4d34c064f64dbb5fe",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-cortex-deployment-health-ec49fd7-805608a7",
               "digest": "7d3f1d44e877772c50d8bc6aa2b07b35afb35176628987488e8dbdad8420a44f",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
+              "digest": "34c21a661061dc3fd3eb4067b239de349a3449c94c9f4592542dfba6bf7c50bc",
               "collector": "deployment-health",
               "result": "unavailable"
             },
@@ -5384,6 +6074,12 @@
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-cortex-build-test-ec49fd7-736062d9",
+              "digest": "17e8d27da4aa4a392f8bf73cf76e6b4945aa1d5509d322a64b5bf1673f08e0d8",
+              "collector": "build-test",
+              "result": "pass"
+            },
             {
               "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
               "digest": "0f5e33663973ef9eb8655d52ea3daa966703e8ab953f0b5cd0cff182a00646ee",
@@ -5454,17 +6150,17 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217",
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
               "collector": "build-test",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-d29eecc7",
+              "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-e50e2e11",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-1e2a62c6",
+              "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-547f714e",
               "collector": "lint-format-types",
               "result": "unavailable"
             }
@@ -5480,12 +6176,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-9621791e",
+              "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-8417e8f4",
               "collector": "dependency-audit",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e",
+              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c",
               "collector": "secret-scan",
               "result": "unavailable"
             }
@@ -5501,7 +6197,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-51744bcd",
+              "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-a1500480",
               "collector": "accessibility",
               "result": "unavailable"
             }
@@ -5537,7 +6233,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217",
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
               "collector": "build-test",
               "result": "unavailable"
             }
@@ -5553,7 +6249,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410",
+              "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
               "collector": "deployment-health",
               "result": "inconclusive"
             }
@@ -5569,7 +6265,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-documentation-c70d8b1-3bb81c01",
+              "id": "ev-one-small-ai-workforce-documentation-c70d8b1-06b855f1",
               "collector": "documentation",
               "result": "unavailable"
             }
@@ -5615,7 +6311,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e",
+              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c",
               "collector": "secret-scan",
               "result": "unavailable"
             }
@@ -5671,7 +6367,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410",
+              "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
               "collector": "deployment-health",
               "result": "inconclusive"
             }
@@ -5687,7 +6383,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217",
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
               "collector": "build-test",
               "result": "unavailable"
             }
@@ -5780,7 +6476,7 @@
       ],
       "mergeEligible": false,
       "releaseEligible": false,
-      "lastCollection": "2026-10-27T01:03:52Z",
+      "lastCollection": "2026-10-27T01:56:26Z",
       "lastVerification": null,
       "nextAction": "Resolve blocker scope-document-missing.",
       "findings": [
@@ -5790,7 +6486,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "accessibility",
-          "evidenceId": "ev-one-small-ai-workforce-accessibility-c70d8b1-51744bcd",
+          "evidenceId": "ev-one-small-ai-workforce-accessibility-c70d8b1-a1500480",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -5812,7 +6508,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "build-test",
-          "evidenceId": "ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217",
+          "evidenceId": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -5838,7 +6534,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "ci-results",
-          "evidenceId": "ev-one-small-ai-workforce-ci-results-c70d8b1-d29eecc7",
+          "evidenceId": "ev-one-small-ai-workforce-ci-results-c70d8b1-e50e2e11",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -5860,7 +6556,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "dependency-audit",
-          "evidenceId": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-9621791e",
+          "evidenceId": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-8417e8f4",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -5882,7 +6578,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "deployment-health",
-          "evidenceId": "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410",
+          "evidenceId": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -5906,7 +6602,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "documentation",
-          "evidenceId": "ev-one-small-ai-workforce-documentation-c70d8b1-3bb81c01",
+          "evidenceId": "ev-one-small-ai-workforce-documentation-c70d8b1-06b855f1",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -5928,7 +6624,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "lint-format-types",
-          "evidenceId": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-1e2a62c6",
+          "evidenceId": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-547f714e",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -5950,7 +6646,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "repo-structure",
-          "evidenceId": "ev-one-small-ai-workforce-repo-structure-c70d8b1-681715fd",
+          "evidenceId": "ev-one-small-ai-workforce-repo-structure-c70d8b1-2cf1a4f1",
           "kind": "access",
           "severity": "unclassified",
           "gates": [],
@@ -5968,7 +6664,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "secret-scan",
-          "evidenceId": "ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e",
+          "evidenceId": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -6006,8 +6702,26 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-2f66b9c8",
+              "digest": "e6b601e2d8e5dd75c33d7faed769a934378371f163d2891f7af272a0ef72a6da",
+              "collector": "build-test",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-ai-workforce-build-test-c70d8b1-362731a7",
               "digest": "a891faceb95f0396f936b583ba4fe8378be403c62abcc0680675c5a1b3cb1b73",
+              "collector": "build-test",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-61ee42d8",
+              "digest": "637c0994687ed6f43cd55d387d667334cdaec0170f0da47f3123d9fa6c9b665f",
+              "collector": "build-test",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
+              "digest": "b39fd41dc939fa6789501a0029aa933ee297fb7be67193b762c15885aa3673e5",
               "collector": "build-test",
               "result": "unavailable"
             },
@@ -6018,8 +6732,20 @@
               "result": "unavailable"
             },
             {
+              "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-7f896de6",
+              "digest": "a94e86a3c13bad2b68f1f172385e05fb6bd7cc3ef5910bddad303660778435e6",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-a83d10da",
               "digest": "84cd087576e30872898dd62f7bc48ad43c17cbb0ac27812bee18563528f7daa3",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-b9aeba37",
+              "digest": "6377be07cc9bf3642a61a09f2f1f789d29036b16eec845e2af8d08dfe8c6358e",
               "collector": "ci-results",
               "result": "unavailable"
             },
@@ -6030,8 +6756,32 @@
               "result": "unavailable"
             },
             {
+              "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-e50e2e11",
+              "digest": "fe35a4204f71d3146d8d94cedb10310b96aeab62028c32098b76ebb17694bd8c",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-1e2a62c6",
               "digest": "4cd821e33b9a5c1a5691bed9615b7df808780b207b15bb7dfc3d92ab48ea3d10",
+              "collector": "lint-format-types",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-332471aa",
+              "digest": "439aaa670188b4dc13c744ad5bba88db5aaa11311b0b74d46e0494e73ae23458",
+              "collector": "lint-format-types",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-547f714e",
+              "digest": "3ad21c9babe3e4a164b2b24940f9702e1a730d18dd9a1d0a9ca9a17dc3bd9005",
+              "collector": "lint-format-types",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-8ae528e8",
+              "digest": "c56ee93979f481b9d99d6a8e05b028741d05f294a878f23827f815f294fced22",
               "collector": "lint-format-types",
               "result": "unavailable"
             },
@@ -6053,8 +6803,26 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-00e29bfc",
+              "digest": "a768ddeb1220dba5a973deb9ecf2fe5920e5339b0618d5948490f4242b882859",
+              "collector": "dependency-audit",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-8417e8f4",
+              "digest": "af4de958bdf8422d00f5ad1af34f6b0c651e1092818b93b6132fa74779f97098",
+              "collector": "dependency-audit",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-9621791e",
               "digest": "4a167304247ee85aee947606b5f1df958179bdac0a0c2d67d58b2f10e02bb995",
+              "collector": "dependency-audit",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-c759f6b9",
+              "digest": "c080d8161d14823293a1c1c303179de0f9285467c8366b028a9444f4589dbae7",
               "collector": "dependency-audit",
               "result": "unavailable"
             },
@@ -6065,8 +6833,26 @@
               "result": "unavailable"
             },
             {
+              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-6b35d7b9",
+              "digest": "8a5b5bf3ee77cd52922db7cf9384ef9680641956ca81c4db8e1a7d9c545a68fa",
+              "collector": "secret-scan",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e",
               "digest": "95705fed32f2fffb754f82e79dc78a8518e8a292a89288968a1a52051339dd99",
+              "collector": "secret-scan",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e3f5f265",
+              "digest": "e88b65df38209da274945fd67a5f1626ddd28c39ff7635f21b0bc8ebcf4ad8e1",
+              "collector": "secret-scan",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c",
+              "digest": "2278ed73dac8a4f45773ac9f51350f0dd2c9f4c1a5adfc7326bed858b6d0c417",
               "collector": "secret-scan",
               "result": "unavailable"
             },
@@ -6088,6 +6874,12 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-23a85e5a",
+              "digest": "848a7e7e43cce09fc77cf1e8a008789f95215b85515df4940761b466dbca0b77",
+              "collector": "accessibility",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-51744bcd",
               "digest": "0d73f426de5ad942211a473fe5100f6c2ab84c1fa11641e1f4812c8b3e976f8b",
               "collector": "accessibility",
@@ -6096,6 +6888,18 @@
             {
               "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-71442670",
               "digest": "912ae34c42fdb37ebd5b3e6f1e9737347e28f168e35cdd179f6f8d3b9cf474ac",
+              "collector": "accessibility",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-8b5cb63c",
+              "digest": "a10b2b3953bfa58f218999f19dbb792cd927518f01ffc76e5d0c30558042db52",
+              "collector": "accessibility",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-a1500480",
+              "digest": "b5bc25e2b060e03eb36ecd345484204fe8aa22f6b93a2db65e990ce7a0ba3a4e",
               "collector": "accessibility",
               "result": "unavailable"
             }
@@ -6131,8 +6935,26 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-2f66b9c8",
+              "digest": "e6b601e2d8e5dd75c33d7faed769a934378371f163d2891f7af272a0ef72a6da",
+              "collector": "build-test",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-ai-workforce-build-test-c70d8b1-362731a7",
               "digest": "a891faceb95f0396f936b583ba4fe8378be403c62abcc0680675c5a1b3cb1b73",
+              "collector": "build-test",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-61ee42d8",
+              "digest": "637c0994687ed6f43cd55d387d667334cdaec0170f0da47f3123d9fa6c9b665f",
+              "collector": "build-test",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
+              "digest": "b39fd41dc939fa6789501a0029aa933ee297fb7be67193b762c15885aa3673e5",
               "collector": "build-test",
               "result": "unavailable"
             },
@@ -6158,6 +6980,12 @@
               "digest": "e24fb89f0237e7f01d7512a30d7bcb7472891d804a3a31ef8bbf6efcea83f9b6",
               "collector": "deployment-health",
               "result": "inconclusive"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
+              "digest": "7a00078947964d8d64aa5e7e72417e4fcbf66dfc8c696f78f13b4071a2758b00",
+              "collector": "deployment-health",
+              "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
@@ -6171,6 +6999,12 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-ai-workforce-documentation-c70d8b1-06b855f1",
+              "digest": "f71116a47a1d2f889d901e86366f32ff3798a647f247163993016eef7e65ad37",
+              "collector": "documentation",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-ai-workforce-documentation-c70d8b1-13c3e86a",
               "digest": "7ab0a2493a8492c63c64a7adbd26724437e05e433f97b438086f6d7253f15820",
               "collector": "documentation",
@@ -6179,6 +7013,18 @@
             {
               "id": "ev-one-small-ai-workforce-documentation-c70d8b1-3bb81c01",
               "digest": "a2b1a7ef44c3954b15e2952e9dd026de2af0ad0b3e01a3f69be06d843b75663d",
+              "collector": "documentation",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-documentation-c70d8b1-44a8558d",
+              "digest": "09e3b5ecad7e432c96dc8139609656a215493a897332f7e4f4866fafa9f8f017",
+              "collector": "documentation",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-documentation-c70d8b1-74211a64",
+              "digest": "d3bc3f45561f3a6bd03de43787ec6c1013334d1661d3b3246640b1088b64b971",
               "collector": "documentation",
               "result": "unavailable"
             }
@@ -6224,8 +7070,26 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-6b35d7b9",
+              "digest": "8a5b5bf3ee77cd52922db7cf9384ef9680641956ca81c4db8e1a7d9c545a68fa",
+              "collector": "secret-scan",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e",
               "digest": "95705fed32f2fffb754f82e79dc78a8518e8a292a89288968a1a52051339dd99",
+              "collector": "secret-scan",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e3f5f265",
+              "digest": "e88b65df38209da274945fd67a5f1626ddd28c39ff7635f21b0bc8ebcf4ad8e1",
+              "collector": "secret-scan",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c",
+              "digest": "2278ed73dac8a4f45773ac9f51350f0dd2c9f4c1a5adfc7326bed858b6d0c417",
               "collector": "secret-scan",
               "result": "unavailable"
             },
@@ -6291,6 +7155,12 @@
               "digest": "e24fb89f0237e7f01d7512a30d7bcb7472891d804a3a31ef8bbf6efcea83f9b6",
               "collector": "deployment-health",
               "result": "inconclusive"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
+              "digest": "7a00078947964d8d64aa5e7e72417e4fcbf66dfc8c696f78f13b4071a2758b00",
+              "collector": "deployment-health",
+              "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
@@ -6304,8 +7174,26 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-2f66b9c8",
+              "digest": "e6b601e2d8e5dd75c33d7faed769a934378371f163d2891f7af272a0ef72a6da",
+              "collector": "build-test",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-ai-workforce-build-test-c70d8b1-362731a7",
               "digest": "a891faceb95f0396f936b583ba4fe8378be403c62abcc0680675c5a1b3cb1b73",
+              "collector": "build-test",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-61ee42d8",
+              "digest": "637c0994687ed6f43cd55d387d667334cdaec0170f0da47f3123d9fa6c9b665f",
+              "collector": "build-test",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
+              "digest": "b39fd41dc939fa6789501a0029aa933ee297fb7be67193b762c15885aa3673e5",
               "collector": "build-test",
               "result": "unavailable"
             },

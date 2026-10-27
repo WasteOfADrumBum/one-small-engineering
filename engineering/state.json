@@ -1,0 +1,1089 @@
+{
+  "findings": {
+    "cortex:access:deployment-health": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "cortex"
+    },
+    "cortex:blocker:no-ci-workflow": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "cortex"
+    },
+    "cortex:blocker:spec-open-questions": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "cortex"
+    },
+    "cortex:blocker:v2-phases-incomplete": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "cortex"
+    },
+    "cortex:collector:accessibility": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "cortex"
+    },
+    "cortex:collector:documentation": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "cortex"
+    },
+    "cortex:collector:lint-format-types": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "cortex"
+    },
+    "cortex:collector:repo-structure": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "cortex"
+    },
+    "cortex:verification": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "cortex"
+    },
+    "one-small-ai-workforce:access:accessibility+build-test+dependency-audit+documentation+lint-format-types+repo-structure+secret-scan": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-ai-workforce"
+    },
+    "one-small-ai-workforce:blocker:scope-document-missing": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-ai-workforce"
+    },
+    "one-small-ai-workforce:collector:deployment-health": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-ai-workforce"
+    },
+    "one-small-ai-workforce:verification": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-ai-workforce"
+    },
+    "one-small-mods-pack:blocker:codex-interactive-trust": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-mods-pack"
+    },
+    "one-small-mods-pack:blocker:copilot-gemini-runtime-untested": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-mods-pack"
+    },
+    "one-small-mods-pack:blocker:manual-screen-reader-review": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-mods-pack"
+    },
+    "one-small-mods-pack:blocker:manual-zoom-forced-colors-review": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-mods-pack"
+    },
+    "one-small-mods-pack:blocker:npm-ownership-access": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-mods-pack"
+    },
+    "one-small-mods-pack:blocker:pr-description-stale": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-mods-pack"
+    },
+    "one-small-mods-pack:blocker:publish-pipeline-missing": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-mods-pack"
+    },
+    "one-small-mods-pack:blocker:release-authorization": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-mods-pack"
+    },
+    "one-small-mods-pack:collector:accessibility": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-mods-pack"
+    },
+    "one-small-mods-pack:collector:compatibility": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-mods-pack"
+    },
+    "one-small-mods-pack:collector:documentation": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-mods-pack"
+    },
+    "one-small-mods-pack:collector:release-packaging": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-mods-pack"
+    },
+    "one-small-mods-pack:verification": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-mods-pack"
+    },
+    "one-small-photography:access:deployment-health": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-photography"
+    },
+    "one-small-photography:blocker:scope-document-missing": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-photography"
+    },
+    "one-small-photography:collector:accessibility": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-photography"
+    },
+    "one-small-photography:collector:documentation": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-photography"
+    },
+    "one-small-photography:collector:repo-structure": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-photography"
+    },
+    "one-small-photography:collector:secret-scan": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-photography"
+    },
+    "one-small-photography:verification": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-photography"
+    },
+    "one-small-studio:access:deployment-health": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-studio"
+    },
+    "one-small-studio:advisory:high-production": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-studio"
+    },
+    "one-small-studio:blocker:scope-document-missing": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-studio"
+    },
+    "one-small-studio:collector:accessibility": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-studio"
+    },
+    "one-small-studio:collector:documentation": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-studio"
+    },
+    "one-small-studio:collector:repo-structure": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-studio"
+    },
+    "one-small-studio:verification": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-studio"
+    },
+    "one-small-ui:access:deployment-health": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-ui"
+    },
+    "one-small-ui:advisory:critical-dev": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-ui"
+    },
+    "one-small-ui:advisory:moderate": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-ui"
+    },
+    "one-small-ui:blocker:scope-document-missing": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-ui"
+    },
+    "one-small-ui:collector:accessibility": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-ui"
+    },
+    "one-small-ui:collector:compatibility": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-ui"
+    },
+    "one-small-ui:collector:documentation": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-ui"
+    },
+    "one-small-ui:collector:release-packaging": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-ui"
+    },
+    "one-small-ui:verification": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "one-small-ui"
+    },
+    "personal-portfolio:access:deployment-health": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "personal-portfolio"
+    },
+    "personal-portfolio:advisory:critical-production": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "personal-portfolio"
+    },
+    "personal-portfolio:advisory:high-dev": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "personal-portfolio"
+    },
+    "personal-portfolio:blocker:no-ci-workflow": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "personal-portfolio"
+    },
+    "personal-portfolio:blocker:readme-boilerplate": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "personal-portfolio"
+    },
+    "personal-portfolio:blocker:scope-document-missing": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "personal-portfolio"
+    },
+    "personal-portfolio:collector:accessibility": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "personal-portfolio"
+    },
+    "personal-portfolio:collector:documentation": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "personal-portfolio"
+    },
+    "personal-portfolio:collector:repo-structure": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "personal-portfolio"
+    },
+    "personal-portfolio:verification": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "personal-portfolio"
+    },
+    "portfolio:access:ci-results": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "portfolio"
+    },
+    "portfolio:ownership": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "portfolio"
+    },
+    "taskforge:access:deployment-health": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "taskforge"
+    },
+    "taskforge:advisory:high-dev": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "taskforge"
+    },
+    "taskforge:advisory:high-production": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "taskforge"
+    },
+    "taskforge:advisory:moderate": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "taskforge"
+    },
+    "taskforge:blocker:backup-restore-unverified": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "taskforge"
+    },
+    "taskforge:blocker:project-status-stale": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "taskforge"
+    },
+    "taskforge:collector:accessibility": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "taskforge"
+    },
+    "taskforge:collector:documentation": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "taskforge"
+    },
+    "taskforge:collector:secret-scan": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "taskforge"
+    },
+    "taskforge:scope": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "taskforge"
+    },
+    "taskforge:verification": {
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "lastSeen": "2026-10-27T01:56:27Z",
+      "project": "taskforge"
+    }
+  },
+  "lastRun": {
+    "api": "unavailable (statuses kept from the last run that could read them)",
+    "at": "2026-10-27T01:56:27Z",
+    "changed": [],
+    "collected": [
+      "cortex",
+      "one-small-ai-workforce",
+      "one-small-mods-pack",
+      "one-small-photography",
+      "one-small-studio",
+      "one-small-ui",
+      "personal-portfolio",
+      "taskforge"
+    ],
+    "execute": false,
+    "executor": "local",
+    "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental)",
+    "mode": "observe",
+    "runUrl": null,
+    "skipped": [],
+    "startedAt": "2026-10-27T01:56:19Z"
+  },
+  "projects": {
+    "cortex": {
+      "access": "ok",
+      "accessReason": null,
+      "changedAt": "2026-10-27T01:55:16Z",
+      "history": [
+        {
+          "at": "2026-10-27T01:55:19Z",
+          "state": "not_ready"
+        }
+      ],
+      "manifest": {
+        "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+        "digest": "9f7f415cea452c3947d4f35d051303aeac013fd0de57f02923636fc9f8d0bb8c",
+        "locked": {
+          "@types/node": "22.20.5",
+          "ical-expander": "3.2.0",
+          "typescript": "5.9.3"
+        },
+        "lockfile": true,
+        "packages": [
+          {
+            "dependencies": {
+              "ical-expander": "^3.2.0"
+            },
+            "devDependencies": {
+              "@types/node": "^22.0.0",
+              "typescript": "^5.9.0"
+            },
+            "engines": {
+              "node": "22.x"
+            },
+            "name": "cortex-brain-task",
+            "path": "package.json",
+            "peerDependencies": {},
+            "private": true,
+            "version": null
+          }
+        ],
+        "repoRefs": [],
+        "workflows": []
+      },
+      "observedAt": "2026-10-27T01:56:19Z",
+      "previousRevision": null,
+      "ref": null,
+      "releaseState": "not_ready",
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d"
+    },
+    "one-small-ai-workforce": {
+      "access": "not-visible",
+      "accessReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "history": [
+        {
+          "at": "2026-10-27T01:55:19Z",
+          "state": "not_ready"
+        }
+      ],
+      "observedAt": "2026-10-27T01:56:19Z",
+      "ref": null,
+      "releaseState": "not_ready",
+      "revision": null
+    },
+    "one-small-mods-pack": {
+      "access": "ok",
+      "accessReason": null,
+      "changedAt": "2026-10-27T01:55:16Z",
+      "history": [
+        {
+          "at": "2026-10-27T01:55:19Z",
+          "state": "blocked"
+        }
+      ],
+      "manifest": {
+        "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+        "digest": "c0cab5e42c7b45f9124a551f47493d0fd53eb78a867cd4943036dd5271fe45cd",
+        "locked": {
+          "@types/node": "22.20.5",
+          "axe-core": "4.14.0",
+          "esbuild": "0.28.2",
+          "jsdom": "30.1.3",
+          "typescript": "5.9.3"
+        },
+        "lockfile": true,
+        "packages": [
+          {
+            "dependencies": {},
+            "devDependencies": {
+              "@types/node": "^22.20.5",
+              "axe-core": "^4.14.0",
+              "esbuild": "^0.28.2",
+              "jsdom": "^30.1.3",
+              "typescript": "^5.4.0"
+            },
+            "engines": {
+              "node": ">=20"
+            },
+            "name": "one-small-modspack",
+            "path": "package.json",
+            "peerDependencies": {},
+            "private": false,
+            "version": "2.0.0"
+          }
+        ],
+        "repoRefs": [],
+        "workflows": [
+          ".github/workflows/ci.yml"
+        ]
+      },
+      "observedAt": "2026-10-27T01:56:19Z",
+      "previousRevision": null,
+      "ref": "modspack-2-0",
+      "releaseState": "blocked",
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7"
+    },
+    "one-small-photography": {
+      "access": "ok",
+      "accessReason": null,
+      "changedAt": "2026-10-27T01:55:16Z",
+      "history": [
+        {
+          "at": "2026-10-27T01:55:19Z",
+          "state": "not_ready"
+        }
+      ],
+      "manifest": {
+        "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+        "digest": "b9c9478b9494bac92f6c80814ec2cb189b600bfd3a7a14146912052c966451ff",
+        "locked": {
+          "@astrojs/check": "0.9.10",
+          "@astrojs/react": "7.0.0",
+          "@astrojs/vercel": "11.0.16",
+          "@aws-sdk/client-s3": "3.1146.0",
+          "@aws-sdk/s3-request-presigner": "3.1146.0",
+          "@dnd-kit/core": "6.3.1",
+          "@dnd-kit/sortable": "10.0.0",
+          "@dnd-kit/utilities": "3.2.2",
+          "@eslint/js": "10.0.1",
+          "@fontsource-variable/fraunces": "5.3.0",
+          "@fontsource-variable/inter": "5.3.0",
+          "@fontsource/caveat": "5.3.0",
+          "@neondatabase/serverless": "1.2.0",
+          "@tailwindcss/vite": "4.3.3",
+          "@types/node": "22.20.5",
+          "@types/pg": "8.23.1",
+          "@types/react": "19.3.0",
+          "@types/react-dom": "19.3.0",
+          "astro": "7.3.5",
+          "astro-eslint-parser": "1.4.0",
+          "drizzle-kit": "0.31.11",
+          "drizzle-orm": "0.45.3",
+          "eslint": "10.12.0",
+          "eslint-plugin-astro": "1.7.0",
+          "exifr": "7.1.3",
+          "globals": "17.13.0",
+          "gsap": "3.15.0",
+          "happy-dom": "21.0.4",
+          "lenis": "1.3.26",
+          "lucide-react": "1.52.0",
+          "pg": "8.23.1",
+          "prettier": "3.9.9",
+          "prettier-plugin-astro": "1.1.0",
+          "react": "19.3.0",
+          "react-dom": "19.3.0",
+          "tailwindcss": "4.3.3",
+          "typescript": "6.0.3",
+          "typescript-eslint": "8.71.1",
+          "vitest": "5.0.5",
+          "zod": "4.6.7"
+        },
+        "lockfile": true,
+        "packages": [
+          {
+            "dependencies": {
+              "@astrojs/react": "^7.0.0",
+              "@astrojs/vercel": "^11.0.11",
+              "@aws-sdk/client-s3": "^3.1146.0",
+              "@aws-sdk/s3-request-presigner": "^3.1146.0",
+              "@dnd-kit/core": "^6.3.1",
+              "@dnd-kit/sortable": "^10.0.0",
+              "@dnd-kit/utilities": "^3.2.2",
+              "@fontsource-variable/fraunces": "^5.3.0",
+              "@fontsource-variable/inter": "^5.3.0",
+              "@fontsource/caveat": "^5.3.0",
+              "@neondatabase/serverless": "^1.2.0",
+              "@tailwindcss/vite": "^4.3.3",
+              "astro": "^7.3.5",
+              "drizzle-orm": "^0.45.3",
+              "exifr": "^7.1.3",
+              "gsap": "^3.15.0",
+              "lenis": "^1.3.26",
+              "lucide-react": "^1.52.0",
+              "pg": "^8.23.1",
+              "react": "^19.3.0",
+              "react-dom": "^19.3.0",
+              "tailwindcss": "^4.3.3",
+              "zod": "^4.6.7"
+            },
+            "devDependencies": {
+              "@astrojs/check": "^0.9.10",
+              "@eslint/js": "^10.0.1",
+              "@types/node": "^22.20.5",
+              "@types/pg": "^8.23.1",
+              "@types/react": "^19.3.0",
+              "@types/react-dom": "^19.3.0",
+              "astro-eslint-parser": "^1.4.0",
+              "drizzle-kit": "^0.31.11",
+              "eslint": "^10.12.0",
+              "eslint-plugin-astro": "^1.7.0",
+              "globals": "^17.13.0",
+              "happy-dom": "^21.0.3",
+              "prettier": "^3.9.9",
+              "prettier-plugin-astro": "^1.1.0",
+              "typescript": "^6.0.3",
+              "typescript-eslint": "^8.71.1",
+              "vitest": "^5.0.5"
+            },
+            "engines": {
+              "node": ">=22.12.0"
+            },
+            "name": "one-small-photography",
+            "path": "package.json",
+            "peerDependencies": {},
+            "private": true,
+            "version": "0.1.0"
+          }
+        ],
+        "repoRefs": [],
+        "workflows": [
+          ".github/workflows/ci.yml"
+        ]
+      },
+      "observedAt": "2026-10-27T01:56:19Z",
+      "previousRevision": null,
+      "ref": null,
+      "releaseState": "not_ready",
+      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f"
+    },
+    "one-small-studio": {
+      "access": "ok",
+      "accessReason": null,
+      "changedAt": "2026-10-27T01:55:16Z",
+      "history": [
+        {
+          "at": "2026-10-27T01:55:19Z",
+          "state": "not_ready"
+        }
+      ],
+      "manifest": {
+        "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+        "digest": "60d1681de8e8dac00ac3f9bb68f5c146c707b116d17e4c6e0290dde511697f40",
+        "locked": {
+          "@axe-core/playwright": "4.14.0",
+          "@eslint/js": "10.0.1",
+          "@fontsource-variable/inter": "5.3.0",
+          "@fontsource-variable/jetbrains-mono": "5.3.0",
+          "@fontsource-variable/oswald": "5.3.0",
+          "@gsap/react": "2.1.2",
+          "@mantine/core": "9.7.1",
+          "@mantine/hooks": "9.7.1",
+          "@playwright/test": "1.63.0",
+          "@tabler/icons-react": "3.49.0",
+          "@testing-library/dom": "10.4.2",
+          "@testing-library/react": "16.3.3",
+          "@types/express": "5.0.6",
+          "@types/node": "22.20.5",
+          "@types/react": "19.3.0",
+          "@types/react-dom": "19.3.0",
+          "@types/supertest": "7.2.1",
+          "@vitejs/plugin-react": "6.1.2",
+          "concurrently": "10.0.6",
+          "eslint": "10.12.0",
+          "eslint-plugin-react-hooks": "7.1.1",
+          "express": "5.2.1",
+          "globals": "17.13.0",
+          "gsap": "3.15.0",
+          "jsdom": "30.1.3",
+          "motion": "14.0.0",
+          "playwright-core": "1.63.0",
+          "postcss": "8.5.29",
+          "postcss-preset-mantine": "1.18.0",
+          "postcss-simple-vars": "7.0.1",
+          "prettier": "3.9.9",
+          "react": "19.3.0",
+          "react-dom": "19.3.0",
+          "supertest": "7.3.1",
+          "tsx": "4.23.15",
+          "typescript": "6.0.3",
+          "typescript-eslint": "8.71.1",
+          "vite": "8.3.4",
+          "vitest": "5.0.5",
+          "zod": "4.6.5"
+        },
+        "lockfile": true,
+        "packages": [
+          {
+            "dependencies": {
+              "@fontsource-variable/inter": "^5.3.0",
+              "@fontsource-variable/jetbrains-mono": "^5.3.0",
+              "@fontsource-variable/oswald": "^5.3.0",
+              "@gsap/react": "^2.1.2",
+              "@mantine/core": "^9.7.1",
+              "@mantine/hooks": "^9.7.1",
+              "@tabler/icons-react": "^3.49.0",
+              "express": "^5.2.1",
+              "gsap": "^3.15.0",
+              "motion": "^14.0.0",
+              "react": "^19.3.0",
+              "react-dom": "^19.3.0",
+              "zod": "^4.6.5"
+            },
+            "devDependencies": {
+              "@axe-core/playwright": "^4.14.0",
+              "@eslint/js": "^10.0.1",
+              "@playwright/test": "1.63.0",
+              "@testing-library/dom": "^10.4.2",
+              "@testing-library/react": "^16.3.3",
+              "@types/express": "^5.0.6",
+              "@types/node": "^22.20.5",
+              "@types/react": "^19.3.0",
+              "@types/react-dom": "^19.3.0",
+              "@types/supertest": "^7.2.1",
+              "@vitejs/plugin-react": "^6.1.2",
+              "concurrently": "^10.0.6",
+              "eslint": "^10.12.0",
+              "eslint-plugin-react-hooks": "^7.1.1",
+              "globals": "^17.13.0",
+              "jsdom": "^30.1.3",
+              "playwright-core": "1.63.0",
+              "postcss": "^8.5.29",
+              "postcss-preset-mantine": "^1.18.0",
+              "postcss-simple-vars": "^7.0.1",
+              "prettier": "^3.9.9",
+              "supertest": "^7.3.1",
+              "tsx": "^4.23.15",
+              "typescript": "^6.0.3",
+              "typescript-eslint": "^8.71.1",
+              "vite": "^8.3.4",
+              "vitest": "^5.0.5"
+            },
+            "engines": {
+              "node": ">=22.12.0"
+            },
+            "name": "one-small-studio",
+            "path": "package.json",
+            "peerDependencies": {},
+            "private": true,
+            "version": "0.1.0"
+          }
+        ],
+        "repoRefs": [],
+        "workflows": [
+          ".github/workflows/ci.yml"
+        ]
+      },
+      "observedAt": "2026-10-27T01:56:19Z",
+      "previousRevision": null,
+      "ref": null,
+      "releaseState": "not_ready",
+      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049"
+    },
+    "one-small-ui": {
+      "access": "ok",
+      "accessReason": null,
+      "changedAt": "2026-10-27T01:55:16Z",
+      "history": [
+        {
+          "at": "2026-10-27T01:55:19Z",
+          "state": "not_ready"
+        }
+      ],
+      "manifest": {
+        "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+        "digest": "e07dfd7261833debef73ef69269a0cd2dfed0a352f2ae36f113db832965a6a00",
+        "locked": {
+          "@testing-library/jest-dom": "6.9.1",
+          "@testing-library/react": "16.3.3",
+          "@testing-library/user-event": "14.6.7",
+          "@types/node": "26.6.5",
+          "@types/react": "19.3.0",
+          "@types/react-dom": "19.3.0",
+          "@vitejs/plugin-react": "6.1.2",
+          "axe-core": "4.12.1",
+          "eslint": "10.12.0",
+          "eslint-plugin-react-hooks": "7.1.1",
+          "globals": "17.13.0",
+          "jest-axe": "11.0.0",
+          "jsdom": "26.1.0",
+          "playwright": "1.56.0",
+          "prism-react-renderer": "2.4.1",
+          "react": "19.3.0",
+          "react-dom": "19.3.0",
+          "rollup": "4.64.5",
+          "rollup-plugin-dts": "6.5.1",
+          "sass": "1.105.1",
+          "typescript": "5.9.3",
+          "typescript-eslint": "8.71.1",
+          "vite": "8.3.4",
+          "vitest": "3.2.7"
+        },
+        "lockfile": true,
+        "packages": [
+          {
+            "dependencies": {},
+            "devDependencies": {
+              "axe-core": "^4.10.3",
+              "playwright": "^1.56.0"
+            },
+            "engines": {
+              "node": ">=18.18"
+            },
+            "name": "onesmallui-monorepo",
+            "path": "package.json",
+            "peerDependencies": {},
+            "private": true,
+            "version": "0.5.0"
+          },
+          {
+            "dependencies": {
+              "@onesmall/ui": "*",
+              "prism-react-renderer": "^2.4.1",
+              "react": "^19.1.0",
+              "react-dom": "^19.1.0"
+            },
+            "devDependencies": {
+              "@types/react": "^19.1.0",
+              "@types/react-dom": "^19.1.0",
+              "@vitejs/plugin-react": "^6.1.0",
+              "sass": "^1.89.0",
+              "typescript": "~5.9.2",
+              "vite": "^8.3.0"
+            },
+            "engines": {},
+            "name": "@onesmallui/docs",
+            "path": "apps/docs/package.json",
+            "peerDependencies": {},
+            "private": true,
+            "version": "0.5.0"
+          },
+          {
+            "dependencies": {},
+            "devDependencies": {
+              "@eslint/js": "^9.39.5",
+              "@testing-library/jest-dom": "^6.6.3",
+              "@testing-library/react": "^16.3.0",
+              "@testing-library/user-event": "^14.6.1",
+              "@types/node": "^22.20.5",
+              "@types/react": "^19.1.0",
+              "@types/react-dom": "^19.1.0",
+              "@vitejs/plugin-react": "^6.1.0",
+              "axe-core": "^4.10.0",
+              "eslint": "^9.39.5",
+              "eslint-plugin-jsx-a11y": "^6.10.2",
+              "eslint-plugin-react-hooks": "^7.1.1",
+              "globals": "^17.13.0",
+              "jest-axe": "^11.0.0",
+              "jsdom": "^26.1.0",
+              "react": "^19.1.0",
+              "react-dom": "^19.1.0",
+              "rollup": "^4.64.5",
+              "rollup-plugin-dts": "^6.5.1",
+              "sass": "^1.89.0",
+              "typescript": "~5.9.2",
+              "typescript-eslint": "^8.71.1",
+              "vite": "^8.3.0",
+              "vitest": "^3.2.0"
+            },
+            "engines": {
+              "node": ">=18.18"
+            },
+            "name": "@onesmall/ui",
+            "path": "packages/onesmallui/package.json",
+            "peerDependencies": {
+              "react": "^18 || ^19",
+              "react-dom": "^18 || ^19"
+            },
+            "private": false,
+            "version": "0.5.0"
+          }
+        ],
+        "repoRefs": [],
+        "workflows": [
+          ".github/workflows/ci.yml"
+        ]
+      },
+      "observedAt": "2026-10-27T01:56:19Z",
+      "previousRevision": null,
+      "ref": null,
+      "releaseState": "not_ready",
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d"
+    },
+    "personal-portfolio": {
+      "access": "ok",
+      "accessReason": null,
+      "changedAt": "2026-10-27T01:55:16Z",
+      "history": [
+        {
+          "at": "2026-10-27T01:55:19Z",
+          "state": "not_ready"
+        }
+      ],
+      "manifest": {
+        "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+        "digest": "cf40d9fb39ab7fcd9269dc07bcfc60db3d35f4c7d70b1165f229d66e4e04708c",
+        "locked": {
+          "@tailwindcss/postcss": "4.3.3",
+          "@types/node": "20.19.43",
+          "@types/react": "19.3.0",
+          "@types/react-dom": "19.3.0",
+          "eslint": "9.39.5",
+          "eslint-config-next": "16.3.8",
+          "lucide-react": "1.52.0",
+          "motion": "14.0.0",
+          "next": "16.3.8",
+          "react": "19.2.8",
+          "react-dom": "19.2.8",
+          "resend": "6.32.0",
+          "tailwindcss": "4.3.3",
+          "typescript": "5.9.3"
+        },
+        "lockfile": true,
+        "packages": [
+          {
+            "dependencies": {
+              "lucide-react": "^1.52.0",
+              "motion": "^14.0.0",
+              "next": "16.3.8",
+              "react": "19.2.8",
+              "react-dom": "19.2.8",
+              "resend": "^6.32.0"
+            },
+            "devDependencies": {
+              "@tailwindcss/postcss": "^4",
+              "@types/node": "^20",
+              "@types/react": "^19",
+              "@types/react-dom": "^19",
+              "eslint": "^9",
+              "eslint-config-next": "16.3.8",
+              "tailwindcss": "^4",
+              "typescript": "^5"
+            },
+            "engines": {},
+            "name": "joshsmall-site",
+            "path": "package.json",
+            "peerDependencies": {},
+            "private": true,
+            "version": "0.1.0"
+          }
+        ],
+        "repoRefs": [],
+        "workflows": []
+      },
+      "observedAt": "2026-10-27T01:56:19Z",
+      "previousRevision": null,
+      "ref": null,
+      "releaseState": "not_ready",
+      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174"
+    },
+    "taskforge": {
+      "access": "ok",
+      "accessReason": null,
+      "changedAt": "2026-10-27T01:55:16Z",
+      "history": [
+        {
+          "at": "2026-10-27T01:55:19Z",
+          "state": "not_ready"
+        }
+      ],
+      "manifest": {
+        "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+        "digest": "9b5612331fb4461de0cb6ad8a867472e030da5c37c658e15959667cae0d513b9",
+        "locked": {
+          "@eslint/js": "9.39.5",
+          "@playwright/test": "1.63.0",
+          "@types/node": "22.20.4",
+          "concurrently": "9.2.4",
+          "esbuild": "0.27.2",
+          "eslint": "9.39.5",
+          "eslint-config-prettier": "10.1.8",
+          "eslint-import-resolver-typescript": "4.4.5",
+          "eslint-plugin-import": "2.32.0",
+          "eslint-plugin-react": "7.37.5",
+          "eslint-plugin-react-hooks": "7.1.1",
+          "globals": "17.12.0",
+          "jest": "30.5.2",
+          "mongodb-memory-server-core": "11.3.0",
+          "prettier": "3.9.9",
+          "ts-node": "10.9.2",
+          "typescript": "5.9.3",
+          "typescript-eslint": "8.71.0"
+        },
+        "lockfile": true,
+        "packages": [
+          {
+            "dependencies": {},
+            "devDependencies": {
+              "@eslint/js": "^9.39.5",
+              "@playwright/test": "^1.63.0",
+              "@types/node": "^22.14.0",
+              "concurrently": "^9.1.2",
+              "esbuild": "^0.27.2",
+              "eslint": "^9.24.0",
+              "eslint-config-prettier": "^10.1.8",
+              "eslint-import-resolver-typescript": "^4.4.5",
+              "eslint-plugin-import": "^2.32.0",
+              "eslint-plugin-react": "^7.37.5",
+              "eslint-plugin-react-hooks": "^7.1.1",
+              "globals": "^17.12.0",
+              "jest": "^30.5.2",
+              "mongodb-memory-server-core": "^11.3.0",
+              "prettier": "^3.5.3",
+              "ts-node": "^10.9.2",
+              "typescript": "5.9.3",
+              "typescript-eslint": "^8.71.0"
+            },
+            "engines": {
+              "node": ">=24",
+              "npm": ">=11"
+            },
+            "name": "taskforge",
+            "path": "package.json",
+            "peerDependencies": {},
+            "private": true,
+            "version": null
+          }
+        ],
+        "repoRefs": [],
+        "workflows": [
+          ".github/workflows/ci.yml"
+        ]
+      },
+      "observedAt": "2026-10-27T01:56:19Z",
+      "previousRevision": null,
+      "ref": null,
+      "releaseState": "not_ready",
+      "revision": "11975d0278c7f04db5033c0461295c734e3b4134"
+    }
+  },
+  "pullRequests": [
+    {
+      "observedAt": null,
+      "reason": "pull request: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "reviewed": null,
+      "status": "unknown",
+      "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/17"
+    },
+    {
+      "observedAt": null,
+      "reason": "pull request: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "reviewed": null,
+      "status": "unknown",
+      "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/16"
+    },
+    {
+      "observedAt": null,
+      "reason": "pull request: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "reviewed": null,
+      "status": "unknown",
+      "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/43"
+    }
+  ],
+  "schema": 1,
+  "sync": {
+    "cortex": {
+      "changes": [],
+      "reason": "token-rejected: GET /repos/WasteOfADrumBum/cortex-brain-task: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "status": "unavailable"
+    },
+    "one-small-ai-workforce": {
+      "changes": [],
+      "reason": "needs-reader-token: private repository: the read-only reader credential is not configured",
+      "status": "unavailable"
+    },
+    "one-small-mods-pack": {
+      "changes": [],
+      "reason": "token-rejected: GET /repos/WasteOfADrumBum/one-small-mods-pack: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "status": "unavailable"
+    },
+    "one-small-photography": {
+      "changes": [],
+      "reason": "token-rejected: GET /repos/WasteOfADrumBum/one-small-photography: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "status": "unavailable"
+    },
+    "one-small-studio": {
+      "changes": [],
+      "reason": "token-rejected: GET /repos/WasteOfADrumBum/one-small-studio: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "status": "unavailable"
+    },
+    "one-small-ui": {
+      "changes": [],
+      "reason": "token-rejected: GET /repos/WasteOfADrumBum/one-small-ui: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "status": "unavailable"
+    },
+    "personal-portfolio": {
+      "changes": [],
+      "reason": "token-rejected: GET /repos/WasteOfADrumBum/joshsmall-site: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "status": "unavailable"
+    },
+    "taskforge": {
+      "changes": [],
+      "reason": "token-rejected: GET /repos/WasteOfADrumBum/TaskForge: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "status": "unavailable"
+    }
+  }
+}

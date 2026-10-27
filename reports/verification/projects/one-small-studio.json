@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-27T01:05:00Z",
+  "asOf": "2026-10-27T01:56:27Z",
   "id": "one-small-studio",
   "name": "One Small Studio",
   "tier": "showcase",
@@ -56,24 +56,24 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-studio-build-test-175cef6-294dde20",
+          "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
           "collector": "build-test",
           "result": "pass",
-          "executedAt": "2026-10-27T01:00:26Z",
+          "executedAt": "2026-10-27T01:51:19Z",
           "summary": "build and test: 2 check(s) passed"
         },
         {
-          "id": "ev-one-small-studio-ci-results-175cef6-f298f2b3",
+          "id": "ev-one-small-studio-ci-results-175cef6-372b3f9b",
           "collector": "ci-results",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:00:26Z",
+          "executedAt": "2026-10-27T01:56:24Z",
           "summary": "CI results: not readable"
         },
         {
-          "id": "ev-one-small-studio-lint-format-types-175cef6-90de18f0",
+          "id": "ev-one-small-studio-lint-format-types-175cef6-cf237cfb",
           "collector": "lint-format-types",
           "result": "pass",
-          "executedAt": "2026-10-27T00:50:18Z",
+          "executedAt": "2026-10-27T01:51:30Z",
           "summary": "lint, format and types: 3 check(s) passed"
         }
       ],
@@ -97,17 +97,17 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-studio-dependency-audit-175cef6-fd8b01aa",
+          "id": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
           "collector": "dependency-audit",
           "result": "fail",
-          "executedAt": "2026-10-27T00:50:19Z",
+          "executedAt": "2026-10-27T01:51:32Z",
           "summary": "dependency audit: critical 0, high 2, moderate 0, low 0, info 0"
         },
         {
-          "id": "ev-one-small-studio-secret-scan-175cef6-7a3a0299",
+          "id": "ev-one-small-studio-secret-scan-175cef6-fb6abe5b",
           "collector": "secret-scan",
           "result": "pass",
-          "executedAt": "2026-10-27T00:50:19Z",
+          "executedAt": "2026-10-27T01:51:32Z",
           "summary": "secret scan: 3 check(s) passed"
         }
       ],
@@ -130,10 +130,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-studio-accessibility-175cef6-363512db",
+          "id": "ev-one-small-studio-accessibility-175cef6-fb594e90",
           "collector": "accessibility",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:50:19Z",
+          "executedAt": "2026-10-27T01:51:32Z",
           "summary": "accessibility: 1 of 3 check(s) passed; 2 not run or inconclusive"
         }
       ],
@@ -192,10 +192,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-studio-build-test-175cef6-294dde20",
+          "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
           "collector": "build-test",
           "result": "pass",
-          "executedAt": "2026-10-27T01:00:26Z",
+          "executedAt": "2026-10-27T01:51:19Z",
           "summary": "build and test: 2 check(s) passed"
         }
       ],
@@ -218,10 +218,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-studio-deployment-health-175cef6-f5e271b7",
+          "id": "ev-one-small-studio-deployment-health-175cef6-eac0aff6",
           "collector": "deployment-health",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:00:27Z",
+          "executedAt": "2026-10-27T01:56:24Z",
           "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -244,10 +244,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-studio-documentation-175cef6-4ba9575d",
+          "id": "ev-one-small-studio-documentation-175cef6-5daa9695",
           "collector": "documentation",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:50:19Z",
+          "executedAt": "2026-10-27T01:51:32Z",
           "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -344,7 +344,7 @@
   "mergeEligible": false,
   "releaseEligible": false,
   "lastVerification": null,
-  "lastCollection": "2026-10-27T01:00:27Z",
+  "lastCollection": "2026-10-27T01:56:24Z",
   "nextAction": "Fix dependency-audit at 175cef6: dependency audit: critical 0, high 2, moderate 0, low 0, info 0.",
   "findings": [
     {
@@ -353,7 +353,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
       "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
       "collector": "accessibility",
-      "evidenceId": "ev-one-small-studio-accessibility-175cef6-363512db",
+      "evidenceId": "ev-one-small-studio-accessibility-175cef6-fb594e90",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -376,7 +376,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
       "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
       "collector": "ci-results",
-      "evidenceId": "ev-one-small-studio-ci-results-175cef6-f298f2b3",
+      "evidenceId": "ev-one-small-studio-ci-results-175cef6-372b3f9b",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -384,7 +384,7 @@
       ],
       "releaseImpact": "blocks verification of automated-checks",
       "title": "CI results: not readable",
-      "reproduction": "node scripts/verify/cli.mjs run --project one-small-studio --collector ci-results --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-studio --collector ci-results",
       "rootCause": null,
       "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
       "proposedFix": null,
@@ -399,7 +399,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
       "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
       "collector": "dependency-audit",
-      "evidenceId": "ev-one-small-studio-dependency-audit-175cef6-fd8b01aa",
+      "evidenceId": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
       "kind": "defect",
       "severity": "high",
       "gates": [
@@ -422,7 +422,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
       "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
       "collector": "deployment-health",
-      "evidenceId": "ev-one-small-studio-deployment-health-175cef6-f5e271b7",
+      "evidenceId": "ev-one-small-studio-deployment-health-175cef6-eac0aff6",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -430,7 +430,7 @@
       ],
       "releaseImpact": "blocks verification of production-deployment",
       "title": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
-      "reproduction": "node scripts/verify/cli.mjs run --project one-small-studio --collector deployment-health --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-studio --collector deployment-health",
       "rootCause": null,
       "failureReason": "could not reach https://one-small-studio.vercel.app from this runner",
       "proposedFix": null,
@@ -445,7 +445,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
       "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
       "collector": "documentation",
-      "evidenceId": "ev-one-small-studio-documentation-175cef6-4ba9575d",
+      "evidenceId": "ev-one-small-studio-documentation-175cef6-5daa9695",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -468,7 +468,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
       "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
       "collector": "repo-structure",
-      "evidenceId": "ev-one-small-studio-repo-structure-175cef6-d86527ca",
+      "evidenceId": "ev-one-small-studio-repo-structure-175cef6-6574efd3",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [],
@@ -513,10 +513,34 @@
           "result": "pass"
         },
         {
+          "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
+          "digest": "dcb9383d0174073428dec8c4dcb46fa5b0f27708793c73ed061dc89a9f63344d",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
           "id": "ev-one-small-studio-build-test-175cef6-b269e3ac",
           "digest": "bd3aeb36f44753fc8ec589fb342d768dcd2e1579609d927ce1a2a2b8cf061fed",
           "collector": "build-test",
           "result": "pass"
+        },
+        {
+          "id": "ev-one-small-studio-ci-results-175cef6-276b0f38",
+          "digest": "bef09b10a27faa491656a828caeb7df99ac4847f43032105ccf219c849f3b738",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-studio-ci-results-175cef6-372b3f9b",
+          "digest": "6ae9e714d69be28e718fd8ed67899c9b39fabefa9191c8d2b9924753b06a1c65",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-studio-ci-results-175cef6-b43c4ef0",
+          "digest": "66b50c1ea9fd7cd19c6fe871a2b789c7c48b96e03e706ba79bb24a09a4da17a6",
+          "collector": "ci-results",
+          "result": "unavailable"
         },
         {
           "id": "ev-one-small-studio-ci-results-175cef6-c73120b6",
@@ -535,6 +559,12 @@
           "digest": "98a7fc12005e4f1fdc3b6d04d35a58f3a783fae0caa36a331e8f8318b5887336",
           "collector": "lint-format-types",
           "result": "pass"
+        },
+        {
+          "id": "ev-one-small-studio-lint-format-types-175cef6-cf237cfb",
+          "digest": "494fa9fcf5902b1caf5d3162785403d7f33b4f251aaaf3eefb7c8078cb8fb1c1",
+          "collector": "lint-format-types",
+          "result": "pass"
         }
       ],
       "missingCollectors": [],
@@ -548,6 +578,12 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
+          "digest": "91da9d70ee7e65679430607e1eca2ee25a3c003cc0cdc2abd4c2162945b46b04",
+          "collector": "dependency-audit",
+          "result": "fail"
+        },
+        {
           "id": "ev-one-small-studio-dependency-audit-175cef6-fd8b01aa",
           "digest": "f37df86536baf16179f3bf8980d4852bccf1e25f6d937792787eb4e5408a03a8",
           "collector": "dependency-audit",
@@ -556,6 +592,12 @@
         {
           "id": "ev-one-small-studio-secret-scan-175cef6-7a3a0299",
           "digest": "516803fa0522dcc6d495b96b3d629f473a6f5791107cf5dad1b58ffc139e92b5",
+          "collector": "secret-scan",
+          "result": "pass"
+        },
+        {
+          "id": "ev-one-small-studio-secret-scan-175cef6-fb6abe5b",
+          "digest": "2e356c0d394df7895ae230e8f416006e8aec0d9178611dadb997b8fe7828f057",
           "collector": "secret-scan",
           "result": "pass"
         }
@@ -573,6 +615,12 @@
         {
           "id": "ev-one-small-studio-accessibility-175cef6-363512db",
           "digest": "108be59aa6cbce7a7d0fb4b8e0039c32bb808a732c4912e6b0e0c2e6d006a709",
+          "collector": "accessibility",
+          "result": "inconclusive"
+        },
+        {
+          "id": "ev-one-small-studio-accessibility-175cef6-fb594e90",
+          "digest": "4b3906b5d28e228d698b331a1c22580c8c25739579bc79e7a1118aaf232c71a0",
           "collector": "accessibility",
           "result": "inconclusive"
         }
@@ -614,6 +662,12 @@
           "result": "pass"
         },
         {
+          "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
+          "digest": "dcb9383d0174073428dec8c4dcb46fa5b0f27708793c73ed061dc89a9f63344d",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
           "id": "ev-one-small-studio-build-test-175cef6-b269e3ac",
           "digest": "bd3aeb36f44753fc8ec589fb342d768dcd2e1579609d927ce1a2a2b8cf061fed",
           "collector": "build-test",
@@ -631,8 +685,26 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-one-small-studio-deployment-health-175cef6-14945802",
+          "digest": "8fe09051e663cf8cf17e22126bfd32732f343a98e6944034a0dd5ecfb097e104",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-studio-deployment-health-175cef6-5899dff3",
+          "digest": "881f12f2231304b57944b3adc0cfa84fd9df260ecb1bb0d2db525d51ae1a62af",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-one-small-studio-deployment-health-175cef6-8d0ebc02",
           "digest": "d756d8d0e6e67a2b081f16e6912ef5f6ec7cc06a320f3b689aad6bb362e07da8",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-studio-deployment-health-175cef6-eac0aff6",
+          "digest": "bdb97732369a50069900480ff73e4147f8c39d73cd7b95c0b41746d18bf590f5",
           "collector": "deployment-health",
           "result": "unavailable"
         },
@@ -656,6 +728,12 @@
         {
           "id": "ev-one-small-studio-documentation-175cef6-4ba9575d",
           "digest": "441378ae7ff5c85f2dbee6d45e448773096c4b5b25141e730598e363b7d5e8ea",
+          "collector": "documentation",
+          "result": "inconclusive"
+        },
+        {
+          "id": "ev-one-small-studio-documentation-175cef6-5daa9695",
+          "digest": "10f36168b361aab19eb16b3a795419a5a5137f87f1eb21c3a4fd78f8716ac1d9",
           "collector": "documentation",
           "result": "inconclusive"
         }

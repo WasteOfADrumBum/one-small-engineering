@@ -3,6 +3,728 @@
   "evidence": [
     {
       "schema": 1,
+      "id": "ev-one-small-studio-ci-results-175cef6-372b3f9b",
+      "project": "one-small-studio",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "53681c4bfe2c9957",
+      "execute": false,
+      "executedAt": "2026-10-27T01:56:24Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:56:24Z"
+      },
+      "digest": "6ae9e714d69be28e718fd8ed67899c9b39fabefa9191c8d2b9924753b06a1c65"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-deployment-health-175cef6-eac0aff6",
+      "project": "one-small-studio",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "3d78a57e4127915f",
+      "execute": false,
+      "executedAt": "2026-10-27T01:56:24Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://one-small-studio.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "vercel.json"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://one-small-studio.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-28T01:56:24Z"
+      },
+      "digest": "bdb97732369a50069900480ff73e4147f8c39d73cd7b95c0b41746d18bf590f5"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-ci-results-175cef6-b43c4ef0",
+      "project": "one-small-studio",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "53681c4bfe2c9957",
+      "execute": false,
+      "executedAt": "2026-10-27T01:55:44Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:55:44Z"
+      },
+      "digest": "66b50c1ea9fd7cd19c6fe871a2b789c7c48b96e03e706ba79bb24a09a4da17a6"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-deployment-health-175cef6-14945802",
+      "project": "one-small-studio",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "3d78a57e4127915f",
+      "execute": false,
+      "executedAt": "2026-10-27T01:55:44Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://one-small-studio.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "vercel.json"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://one-small-studio.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-28T01:55:44Z"
+      },
+      "digest": "8fe09051e663cf8cf17e22126bfd32732f343a98e6944034a0dd5ecfb097e104"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-accessibility-175cef6-fb594e90",
+      "project": "one-small-studio",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "ref": null,
+      "collector": {
+        "name": "accessibility",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "8bae06f2771a7a65",
+      "execute": true,
+      "executedAt": "2026-10-27T01:51:32Z",
+      "result": "inconclusive",
+      "summary": "accessibility: 1 of 3 check(s) passed; 2 not run or inconclusive",
+      "failureReason": "not run or inconclusive: automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
+      "checks": [
+        {
+          "name": "automated accessibility tooling",
+          "result": "pass",
+          "detail": "@axe-core/playwright"
+        },
+        {
+          "name": "automated accessibility run",
+          "result": "not_run",
+          "detail": "no automated accessibility command is configured for this project"
+        },
+        {
+          "name": "manual review",
+          "result": "not_run",
+          "detail": "Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA."
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:51:32Z"
+      },
+      "digest": "4b3906b5d28e228d698b331a1c22580c8c25739579bc79e7a1118aaf232c71a0"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
+      "project": "one-small-studio",
+      "gates": [
+        "security-privacy-review",
+        "supply-chain-review"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "ref": null,
+      "collector": {
+        "name": "dependency-audit",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "ebe3b3e97d7a8af5",
+      "execute": true,
+      "executedAt": "2026-10-27T01:51:32Z",
+      "result": "fail",
+      "summary": "dependency audit: critical 0, high 2, moderate 0, low 0, info 0",
+      "failureReason": "critical or high advisories: body-parser, zod",
+      "checks": [
+        {
+          "name": "npm audit",
+          "result": "fail",
+          "detail": "critical 0, high 2, moderate 0, low 0, info 0 across 443 packages"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "npm-audit.json",
+          "sha256": "3b208407aba14a29cff253d53df5d6322d400ccd602cb57e5164f3a6a3300843",
+          "ref": null
+        }
+      ],
+      "reproduce": "npm audit --json --package-lock-only (at 175cef6)",
+      "details": {
+        "advisories": [
+          {
+            "name": "body-parser",
+            "severity": "high",
+            "direct": false,
+            "production": true,
+            "fix": "available"
+          },
+          {
+            "name": "zod",
+            "severity": "high",
+            "direct": true,
+            "production": true,
+            "fix": "available"
+          }
+        ],
+        "productionAudit": "ran"
+      },
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:51:32Z"
+      },
+      "digest": "91da9d70ee7e65679430607e1eca2ee25a3c003cc0cdc2abd4c2162945b46b04"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-deployment-health-175cef6-5899dff3",
+      "project": "one-small-studio",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "7153e68f9a5947fb",
+      "execute": true,
+      "executedAt": "2026-10-27T01:51:32Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://one-small-studio.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "vercel.json"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://one-small-studio.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-28T01:51:32Z"
+      },
+      "digest": "881f12f2231304b57944b3adc0cfa84fd9df260ecb1bb0d2db525d51ae1a62af"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-documentation-175cef6-5daa9695",
+      "project": "one-small-studio",
+      "gates": [
+        "documentation-accurate",
+        "public-docs-accurate",
+        "upgrade-rollback-uninstall-docs"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "ref": null,
+      "collector": {
+        "name": "documentation",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "2f6363f8b8142149",
+      "execute": true,
+      "executedAt": "2026-10-27T01:51:32Z",
+      "result": "inconclusive",
+      "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "checks": [
+        {
+          "name": "README",
+          "result": "pass",
+          "detail": "55 lines"
+        },
+        {
+          "name": "README install or usage section",
+          "result": "pass",
+          "detail": "heading naming install, usage, setup or getting started"
+        },
+        {
+          "name": "relative links resolve",
+          "result": "pass",
+          "detail": "1 Markdown file(s)"
+        },
+        {
+          "name": "accuracy against behaviour",
+          "result": "not_run",
+          "detail": "whether the documentation matches the product is a manual review"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:51:32Z"
+      },
+      "digest": "10f36168b361aab19eb16b3a795419a5a5137f87f1eb21c3a4fd78f8716ac1d9"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-secret-scan-175cef6-fb6abe5b",
+      "project": "one-small-studio",
+      "gates": [
+        "security-privacy-review",
+        "sensitive-data-handling"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "ref": null,
+      "collector": {
+        "name": "secret-scan",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "bfe0bb3353f13d36",
+      "execute": true,
+      "executedAt": "2026-10-27T01:51:32Z",
+      "result": "pass",
+      "summary": "secret scan: 3 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "credential patterns outside tests and docs",
+          "result": "pass",
+          "detail": "106 files scanned"
+        },
+        {
+          "name": "committed .env files with sensitive keys",
+          "result": "pass",
+          "detail": "none"
+        },
+        {
+          "name": "credential-shaped values in tests and docs",
+          "result": "pass",
+          "detail": "none"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "secret-scan-locations",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "ref": "0 location(s), values withheld"
+        }
+      ],
+      "reproduce": "node scripts/verify/cli.mjs collect --project <id> --collector secret-scan",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:51:32Z"
+      },
+      "digest": "2e356c0d394df7895ae230e8f416006e8aec0d9178611dadb997b8fe7828f057"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-ci-results-175cef6-276b0f38",
+      "project": "one-small-studio",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "27260d251eeda1c1",
+      "execute": true,
+      "executedAt": "2026-10-27T01:51:30Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:51:30Z"
+      },
+      "digest": "bef09b10a27faa491656a828caeb7df99ac4847f43032105ccf219c849f3b738"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-lint-format-types-175cef6-cf237cfb",
+      "project": "one-small-studio",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "ref": null,
+      "collector": {
+        "name": "lint-format-types",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "45ad62869d809be5",
+      "execute": true,
+      "executedAt": "2026-10-27T01:51:30Z",
+      "result": "pass",
+      "summary": "lint, format and types: 3 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "lint",
+          "result": "pass",
+          "detail": "> one-small-studio@0.1.0 lint\n> eslint ."
+        },
+        {
+          "name": "check",
+          "result": "pass",
+          "detail": "> one-small-studio@0.1.0 check\n> tsc --noEmit"
+        },
+        {
+          "name": "format:check",
+          "result": "pass",
+          "detail": "> prettier --check .\nChecking formatting...\nAll matched files use Prettier code style!"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": "git clone https://github.com/WasteOfADrumBum/one-small-studio && git -C <dir> checkout 175cef6bafbc0322e0d54cf3e543aafa1626a049 && npm ci --ignore-scripts && npm run lint && npm run check && npm run format:check",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:51:30Z"
+      },
+      "digest": "494fa9fcf5902b1caf5d3162785403d7f33b4f251aaaf3eefb7c8078cb8fb1c1"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
+      "project": "one-small-studio",
+      "gates": [
+        "automated-checks",
+        "critical-workflows",
+        "e2e-critical-workflows"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "ref": null,
+      "collector": {
+        "name": "build-test",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "565028b51bf57ab0",
+      "execute": true,
+      "executedAt": "2026-10-27T01:51:19Z",
+      "result": "pass",
+      "summary": "build and test: 2 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "build",
+          "result": "pass",
+          "detail": "dist/assets/index-JOIBKXtT.css                                    370.33 kB │ gzip:  66.37 kB\ndist/assets/index-Os1gn5h2.js                                     838.49 kB │ gzip: 261.29 kB\n\u001b[32m✓ built in 1.68s\u001b[39m"
+        },
+        {
+          "name": "test",
+          "result": "pass",
+          "detail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m40 passed\u001b[39m\u001b[22m\u001b[90m (40)\u001b[39m\n\u001b[2m   Start at \u001b[22m 01:51:18\n\u001b[2m   Duration \u001b[22m 1.01s\u001b[2m (environment 41%, import 23%, tests 19%, transform 16%, worker 1%)\u001b[22m"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": "git clone https://github.com/WasteOfADrumBum/one-small-studio && git -C <dir> checkout 175cef6bafbc0322e0d54cf3e543aafa1626a049 && npm ci --ignore-scripts && npm run build && npm test",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:51:19Z"
+      },
+      "digest": "dcb9383d0174073428dec8c4dcb46fa5b0f27708793c73ed061dc89a9f63344d"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-repo-structure-175cef6-6574efd3",
+      "project": "one-small-studio",
+      "gates": [],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "ref": null,
+      "collector": {
+        "name": "repo-structure",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "c5e03282c3b5eee6",
+      "execute": true,
+      "executedAt": "2026-10-27T01:51:06Z",
+      "result": "inconclusive",
+      "summary": "repository structure: 4 of 5 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "not run or inconclusive: license (absent)",
+      "checks": [
+        {
+          "name": "package.json",
+          "result": "pass",
+          "detail": "one-small-studio@0.1.0 (private)"
+        },
+        {
+          "name": "lockfile",
+          "result": "pass",
+          "detail": "package-lock.json"
+        },
+        {
+          "name": "readme",
+          "result": "pass",
+          "detail": "README.md"
+        },
+        {
+          "name": "license",
+          "result": "inconclusive",
+          "detail": "absent"
+        },
+        {
+          "name": "workflows",
+          "result": "pass",
+          "detail": "ci.yml"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "file-list",
+          "sha256": "2e481ee96dca23d82635c93dcea2da2589fcb01f962dd457132be7349eed4e1f",
+          "ref": "110 files"
+        }
+      ],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:51:06Z"
+      },
+      "digest": "21defe5e1ff3cd98d7f01c2637279f81140c6d8024118be7628d96ea9ed0c9af"
+    },
+    {
+      "schema": 1,
       "id": "ev-one-small-studio-deployment-health-175cef6-f5e271b7",
       "project": "one-small-studio",
       "gates": [

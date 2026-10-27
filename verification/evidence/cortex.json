@@ -3,6 +3,692 @@
   "evidence": [
     {
       "schema": 1,
+      "id": "ev-cortex-ci-results-ec49fd7-bf09a281",
+      "project": "cortex",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "31a98124f1a6fa0c",
+      "execute": false,
+      "executedAt": "2026-10-27T01:56:26Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:56:26Z"
+      },
+      "digest": "d6cf78d3d5a26c3c8c0372643376d721bef969b33c1c93fe7cd612e0ef6c596e"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
+      "project": "cortex",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "1a62e8621155f004",
+      "execute": false,
+      "executedAt": "2026-10-27T01:56:26Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://cortex-brain-nu.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "vercel.json"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://cortex-brain-nu.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-28T01:56:26Z"
+      },
+      "digest": "34c21a661061dc3fd3eb4067b239de349a3449c94c9f4592542dfba6bf7c50bc"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-ci-results-ec49fd7-2872fbb1",
+      "project": "cortex",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "31a98124f1a6fa0c",
+      "execute": false,
+      "executedAt": "2026-10-27T01:55:46Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:55:46Z"
+      },
+      "digest": "1f9b42cff5464299fbbe07e50780049cab8ce447a55a84981f1609ce5d3bfdbf"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-deployment-health-ec49fd7-46dff49b",
+      "project": "cortex",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "1a62e8621155f004",
+      "execute": false,
+      "executedAt": "2026-10-27T01:55:46Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://cortex-brain-nu.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "vercel.json"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://cortex-brain-nu.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-28T01:55:46Z"
+      },
+      "digest": "1f6ca75001683e2f2887e07311d6de28e9da2cdbc1837682f74ffb5bae07c87a"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-accessibility-ec49fd7-81ba90a1",
+      "project": "cortex",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "accessibility",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "7c90d5fd5716c20f",
+      "execute": true,
+      "executedAt": "2026-10-27T01:54:43Z",
+      "result": "inconclusive",
+      "summary": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive",
+      "failureReason": "not run or inconclusive: automated accessibility tooling (none declared in package.json); automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
+      "checks": [
+        {
+          "name": "automated accessibility tooling",
+          "result": "inconclusive",
+          "detail": "none declared in package.json"
+        },
+        {
+          "name": "automated accessibility run",
+          "result": "not_run",
+          "detail": "no automated accessibility command is configured for this project"
+        },
+        {
+          "name": "manual review",
+          "result": "not_run",
+          "detail": "Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA."
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:54:43Z"
+      },
+      "digest": "2af18586db3562bad68ef8d1ab924a6309424ad8b310ee4ca34d07e0c260140b"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-build-test-ec49fd7-736062d9",
+      "project": "cortex",
+      "gates": [
+        "automated-checks",
+        "critical-workflows",
+        "e2e-critical-workflows"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "build-test",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "fe1a43d87b2083ff",
+      "execute": true,
+      "executedAt": "2026-10-27T01:54:43Z",
+      "result": "pass",
+      "summary": "build and test: 1 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "test",
+          "result": "pass",
+          "detail": "ℹ skipped 0\nℹ todo 0\nℹ duration_ms 132.930012"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": "git clone https://github.com/WasteOfADrumBum/cortex-brain-task && git -C <dir> checkout ec49fd7907e9c901e6e4871732c7fe51881e5d3d && npm ci --ignore-scripts && npm test",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:54:43Z"
+      },
+      "digest": "17e8d27da4aa4a392f8bf73cf76e6b4945aa1d5509d322a64b5bf1673f08e0d8"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-ci-results-ec49fd7-692a94aa",
+      "project": "cortex",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "9f5ec8fee80a6476",
+      "execute": true,
+      "executedAt": "2026-10-27T01:54:43Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:54:43Z"
+      },
+      "digest": "d107a86b75196c84af6c039c2ef7b60de52b8ac0397b80d9b75c9a2872f4129a"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-dependency-audit-ec49fd7-7cd263c6",
+      "project": "cortex",
+      "gates": [
+        "security-privacy-review",
+        "supply-chain-review"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "dependency-audit",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "773a9488312f60a1",
+      "execute": true,
+      "executedAt": "2026-10-27T01:54:43Z",
+      "result": "pass",
+      "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "npm audit",
+          "result": "pass",
+          "detail": "critical 0, high 0, moderate 0, low 0, info 0 across 5 packages"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "npm-audit.json",
+          "sha256": "1ddda7b3774b5f927ff3f628248964a7dbbb2c1a1547208913fb161524cc94ad",
+          "ref": null
+        }
+      ],
+      "reproduce": "npm audit --json --package-lock-only (at ec49fd7)",
+      "details": {
+        "advisories": [],
+        "productionAudit": "not run"
+      },
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:54:43Z"
+      },
+      "digest": "fbe999ef2cda2aab6478bd33a5fab1e1a7977a26a9613fe7420c87b08fbd5d6a"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-deployment-health-ec49fd7-68a838a7",
+      "project": "cortex",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "789ca2e6dd8bf3f4",
+      "execute": true,
+      "executedAt": "2026-10-27T01:54:43Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://cortex-brain-nu.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "vercel.json"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://cortex-brain-nu.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-28T01:54:43Z"
+      },
+      "digest": "bb69fdfac1749eb55d82d0faf78db91221e6a72152270fb4d34c064f64dbb5fe"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-documentation-ec49fd7-f2ca9d57",
+      "project": "cortex",
+      "gates": [
+        "documentation-accurate",
+        "public-docs-accurate",
+        "upgrade-rollback-uninstall-docs"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "documentation",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "1fd9c37e6df6f6c1",
+      "execute": true,
+      "executedAt": "2026-10-27T01:54:43Z",
+      "result": "inconclusive",
+      "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "checks": [
+        {
+          "name": "README",
+          "result": "pass",
+          "detail": "90 lines"
+        },
+        {
+          "name": "README install or usage section",
+          "result": "pass",
+          "detail": "heading naming install, usage, setup or getting started"
+        },
+        {
+          "name": "relative links resolve",
+          "result": "pass",
+          "detail": "2 Markdown file(s)"
+        },
+        {
+          "name": "accuracy against behaviour",
+          "result": "not_run",
+          "detail": "whether the documentation matches the product is a manual review"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:54:43Z"
+      },
+      "digest": "4dbe7229540172cbe61bab1b14f3963e05c9de6975abbbc74511d0295f286660"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-lint-format-types-ec49fd7-de308fcc",
+      "project": "cortex",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "lint-format-types",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "cc47073f8c030d22",
+      "execute": true,
+      "executedAt": "2026-10-27T01:54:43Z",
+      "result": "inconclusive",
+      "summary": "lint, format and types: none configured",
+      "failureReason": "the project declares no lint, format check or type check script",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:54:43Z"
+      },
+      "digest": "d83426c73e66ddcabf5e68d3aa9d449ac6c4f343544b035fd0476233c3befdf1"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-secret-scan-ec49fd7-b392d9b7",
+      "project": "cortex",
+      "gates": [
+        "security-privacy-review",
+        "sensitive-data-handling"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "secret-scan",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "08b02aebdd2dff40",
+      "execute": true,
+      "executedAt": "2026-10-27T01:54:43Z",
+      "result": "pass",
+      "summary": "secret scan: 3 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "credential patterns outside tests and docs",
+          "result": "pass",
+          "detail": "51 files scanned"
+        },
+        {
+          "name": "committed .env files with sensitive keys",
+          "result": "pass",
+          "detail": "none"
+        },
+        {
+          "name": "credential-shaped values in tests and docs",
+          "result": "pass",
+          "detail": "none"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "secret-scan-locations",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "ref": "0 location(s), values withheld"
+        }
+      ],
+      "reproduce": "node scripts/verify/cli.mjs collect --project <id> --collector secret-scan",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:54:43Z"
+      },
+      "digest": "628c0acbcebbe7b042d144a17fdd4a20c9d9cc51870e2c4cd23dbe79564a98e5"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-repo-structure-ec49fd7-cae23b60",
+      "project": "cortex",
+      "gates": [],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "repo-structure",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "66768892de6ceeae",
+      "execute": true,
+      "executedAt": "2026-10-27T01:54:41Z",
+      "result": "inconclusive",
+      "summary": "repository structure: 3 of 5 check(s) passed; 2 not run or inconclusive",
+      "failureReason": "not run or inconclusive: license (absent); workflows (no GitHub Actions workflows)",
+      "checks": [
+        {
+          "name": "package.json",
+          "result": "pass",
+          "detail": "cortex-brain-task@(no version) (private)"
+        },
+        {
+          "name": "lockfile",
+          "result": "pass",
+          "detail": "package-lock.json"
+        },
+        {
+          "name": "readme",
+          "result": "pass",
+          "detail": "README.md"
+        },
+        {
+          "name": "license",
+          "result": "inconclusive",
+          "detail": "absent"
+        },
+        {
+          "name": "workflows",
+          "result": "inconclusive",
+          "detail": "no GitHub Actions workflows"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "file-list",
+          "sha256": "a12e08173017512fab8fc77fa45d76290a9742c73fd7fdf927f987bb3726391d",
+          "ref": "119 files"
+        }
+      ],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:54:41Z"
+      },
+      "digest": "21e3ac6d92fb1b3076e5861fb27e86a1e2a53d2b48527015897547d8400c41ad"
+    },
+    {
+      "schema": 1,
       "id": "ev-cortex-ci-results-ec49fd7-cdd510f0",
       "project": "cortex",
       "gates": [

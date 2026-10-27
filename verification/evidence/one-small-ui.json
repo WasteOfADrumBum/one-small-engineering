@@ -3,6 +3,902 @@
   "evidence": [
     {
       "schema": 1,
+      "id": "ev-one-small-ui-ci-results-94438ee-b0dee17e",
+      "project": "one-small-ui",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "45ceafab6e72cb95",
+      "execute": false,
+      "executedAt": "2026-10-27T01:56:23Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:56:23Z"
+      },
+      "digest": "035788385eb9b04a32a45a45ccdda87886b906f72f653620e5db0f9f07f244f8"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ui-deployment-health-94438ee-4b57ce2e",
+      "project": "one-small-ui",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "a175d471c563dcd6",
+      "execute": false,
+      "executedAt": "2026-10-27T01:56:23Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://one-small-ui.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "vercel.json"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://one-small-ui.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-28T01:56:23Z"
+      },
+      "digest": "03d427aa4757d5744833f4305b723de280875a39d07a93836facaf94710e84a5"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ui-ci-results-94438ee-5abe3f1f",
+      "project": "one-small-ui",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "45ceafab6e72cb95",
+      "execute": false,
+      "executedAt": "2026-10-27T01:55:43Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:55:43Z"
+      },
+      "digest": "aaf3faa47f8282ba006da4e904e1aa104d501ee4d618cef4af912a82b1255f10"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ui-deployment-health-94438ee-7d0def0d",
+      "project": "one-small-ui",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "a175d471c563dcd6",
+      "execute": false,
+      "executedAt": "2026-10-27T01:55:43Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://one-small-ui.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "vercel.json"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://one-small-ui.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-28T01:55:43Z"
+      },
+      "digest": "22feb25293cbf34795f072fc4553160d2660f3179a9bd4e3d169a718ab1c87f3"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ui-compatibility-94438ee-1fbb33cf",
+      "project": "one-small-ui",
+      "gates": [
+        "runtime-compatibility"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "compatibility",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "867c107eb950d1b2",
+      "execute": true,
+      "executedAt": "2026-10-27T01:50:35Z",
+      "result": "fail",
+      "summary": "compatibility: 1 of 3 check(s) failed",
+      "failureReason": "failed: CI tests the engines floor",
+      "checks": [
+        {
+          "name": "engines.node declared",
+          "result": "pass",
+          "detail": ">=18.18"
+        },
+        {
+          "name": "CI tests the engines floor",
+          "result": "fail",
+          "detail": "floor 18, CI Node 22"
+        },
+        {
+          "name": "collector runtime satisfies engines",
+          "result": "pass",
+          "detail": "collector Node 24.22.1"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:50:35Z"
+      },
+      "digest": "5ef0f06640e9ad4253e5e0a5831ca116d7c269c9b7b7adc812520957290e6ffa"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ui-release-packaging-94438ee-26f4e088",
+      "project": "one-small-ui",
+      "gates": [
+        "ci-release-pipeline",
+        "clean-consumer-install",
+        "package-archive-inspection",
+        "package-metadata-exports",
+        "versioning-changelog"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "release-packaging",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "61aff2a6fe0d1dc5",
+      "execute": true,
+      "executedAt": "2026-10-27T01:50:35Z",
+      "result": "fail",
+      "summary": "release packaging: 2 of 10 check(s) failed",
+      "failureReason": "failed: version matches the registry target, publish workflow",
+      "checks": [
+        {
+          "name": "name and version",
+          "result": "pass",
+          "detail": "@onesmall/ui@0.5.0"
+        },
+        {
+          "name": "license",
+          "result": "pass",
+          "detail": "MIT"
+        },
+        {
+          "name": "publishable",
+          "result": "pass",
+          "detail": "not private"
+        },
+        {
+          "name": "entry points declared",
+          "result": "pass",
+          "detail": "exports, main"
+        },
+        {
+          "name": "files allowlist",
+          "result": "pass",
+          "detail": "5 pattern(s)"
+        },
+        {
+          "name": "engines and repository metadata",
+          "result": "pass",
+          "detail": "present"
+        },
+        {
+          "name": "version matches the registry target",
+          "result": "fail",
+          "detail": "package 0.5.0, target 0.6.0"
+        },
+        {
+          "name": "CHANGELOG top entry matches the version",
+          "result": "pass",
+          "detail": "top entry 0.5.0"
+        },
+        {
+          "name": "publish workflow",
+          "result": "fail",
+          "detail": "no workflow runs npm publish (1 workflow(s))"
+        },
+        {
+          "name": "npm pack contents",
+          "result": "pass",
+          "detail": "677 files"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "npm-pack-listing",
+          "sha256": "978d029711fd30e6a3be23657695f678568f01acb518fd5f53555a429392566a",
+          "ref": "677 files"
+        }
+      ],
+      "reproduce": "npm run build && npm pack --dry-run --json --ignore-scripts",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:50:35Z"
+      },
+      "digest": "39a6b721923738ab1eece1b654d5902a24b90c252058e306b0c6c1752bfc13b3"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ui-accessibility-94438ee-c38c97f7",
+      "project": "one-small-ui",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "accessibility",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "d3fcf208264719b4",
+      "execute": true,
+      "executedAt": "2026-10-27T01:50:14Z",
+      "result": "inconclusive",
+      "summary": "accessibility: 2 of 3 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "not run or inconclusive: manual review (Keyboard and screen reader review of the docs app and components.)",
+      "checks": [
+        {
+          "name": "automated accessibility tooling",
+          "result": "pass",
+          "detail": "axe-core"
+        },
+        {
+          "name": "check:contrast",
+          "result": "pass",
+          "detail": "light: 80 pairs checked\ndark: 80 pairs checked\nAll token pairs meet WCAG AAA contrast."
+        },
+        {
+          "name": "manual review",
+          "result": "not_run",
+          "detail": "Keyboard and screen reader review of the docs app and components."
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:50:14Z"
+      },
+      "digest": "dcc3e029404cdcfe7704d716f5bd04fd93c6fc83ecdceeac6f4cd28ff5ba26dd"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ui-deployment-health-94438ee-995bed74",
+      "project": "one-small-ui",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "ab12285d88b4b6e2",
+      "execute": true,
+      "executedAt": "2026-10-27T01:50:14Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://one-small-ui.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "vercel.json"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://one-small-ui.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-28T01:50:14Z"
+      },
+      "digest": "57a323b41b84b93d34942ac297dab8d4f9be75918325446513497c8f958c3e0b"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ui-documentation-94438ee-009b26ac",
+      "project": "one-small-ui",
+      "gates": [
+        "documentation-accurate",
+        "public-docs-accurate",
+        "upgrade-rollback-uninstall-docs"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "documentation",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "8eafea850b223835",
+      "execute": true,
+      "executedAt": "2026-10-27T01:50:14Z",
+      "result": "fail",
+      "summary": "documentation: 1 of 6 check(s) failed",
+      "failureReason": "failed: upgrade, rollback and uninstall documented",
+      "checks": [
+        {
+          "name": "README",
+          "result": "pass",
+          "detail": "44 lines"
+        },
+        {
+          "name": "README install or usage section",
+          "result": "pass",
+          "detail": "heading naming install, usage, setup or getting started"
+        },
+        {
+          "name": "relative links resolve",
+          "result": "pass",
+          "detail": "5 Markdown file(s)"
+        },
+        {
+          "name": "CHANGELOG",
+          "result": "pass",
+          "detail": "packages/onesmallui/CHANGELOG.md"
+        },
+        {
+          "name": "upgrade, rollback and uninstall documented",
+          "result": "fail",
+          "detail": "no mention of upgrade, no mention of rollback, no mention of uninstall"
+        },
+        {
+          "name": "accuracy against behaviour",
+          "result": "not_run",
+          "detail": "whether the documentation matches the product is a manual review"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:50:14Z"
+      },
+      "digest": "bdaeae76629c4d3144ee17a840724953bff4a17f9b6fa5998527c3d20c3c84c9"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ui-dependency-audit-94438ee-c247d2a2",
+      "project": "one-small-ui",
+      "gates": [
+        "security-privacy-review",
+        "supply-chain-review"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "dependency-audit",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "a716bfa78813d66e",
+      "execute": true,
+      "executedAt": "2026-10-27T01:50:13Z",
+      "result": "fail",
+      "summary": "dependency audit: critical 2, high 0, moderate 1, low 0, info 0",
+      "failureReason": "critical or high advisories: tinypool, vitest",
+      "checks": [
+        {
+          "name": "npm audit",
+          "result": "fail",
+          "detail": "critical 2, high 0, moderate 1, low 0, info 0 across 521 packages"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "npm-audit.json",
+          "sha256": "78f949e3fc104e20c116da87ff9058fa7c34e36b14af8c590d149b706f285cb6",
+          "ref": null
+        }
+      ],
+      "reproduce": "npm audit --json --package-lock-only (at 94438ee)",
+      "details": {
+        "advisories": [
+          {
+            "name": "@vitest/mocker",
+            "severity": "moderate",
+            "direct": false,
+            "production": false,
+            "fix": "major",
+            "fixVia": "vitest@5.0.5"
+          },
+          {
+            "name": "tinypool",
+            "severity": "critical",
+            "direct": false,
+            "production": false,
+            "fix": "major",
+            "fixVia": "vitest@5.0.5"
+          },
+          {
+            "name": "vitest",
+            "severity": "critical",
+            "direct": true,
+            "production": false,
+            "fix": "major",
+            "fixVia": "vitest@5.0.5"
+          }
+        ],
+        "productionAudit": "ran"
+      },
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:50:13Z"
+      },
+      "digest": "5c326b5df118a9afa54e3190b4290b239ffd83faac4becb887357ee8a77e7a5e"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ui-secret-scan-94438ee-0d4de9f6",
+      "project": "one-small-ui",
+      "gates": [
+        "security-privacy-review",
+        "sensitive-data-handling"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "secret-scan",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "7ea15b3d6dc634cb",
+      "execute": true,
+      "executedAt": "2026-10-27T01:50:13Z",
+      "result": "pass",
+      "summary": "secret scan: 3 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "credential patterns outside tests and docs",
+          "result": "pass",
+          "detail": "1280 files scanned"
+        },
+        {
+          "name": "committed .env files with sensitive keys",
+          "result": "pass",
+          "detail": "none"
+        },
+        {
+          "name": "credential-shaped values in tests and docs",
+          "result": "pass",
+          "detail": "none"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "secret-scan-locations",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "ref": "0 location(s), values withheld"
+        }
+      ],
+      "reproduce": "node scripts/verify/cli.mjs collect --project <id> --collector secret-scan",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:50:13Z"
+      },
+      "digest": "d77c215ff1b80580ee9d0f3014ba18affb4243c697d90e77537f055a2d62a70f"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ui-ci-results-94438ee-5c0ef90e",
+      "project": "one-small-ui",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "2882b6d5f8a1e37e",
+      "execute": true,
+      "executedAt": "2026-10-27T01:50:12Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:50:12Z"
+      },
+      "digest": "fbdb423acdd534cfee48f7a5a93fb3c16363dc675d081946f20fac19f3eada6d"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ui-lint-format-types-94438ee-c4a80561",
+      "project": "one-small-ui",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "lint-format-types",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "0586deeba1262f6c",
+      "execute": true,
+      "executedAt": "2026-10-27T01:50:12Z",
+      "result": "pass",
+      "summary": "lint, format and types: 2 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "lint",
+          "result": "pass",
+          "detail": "> npm run lint -w @onesmall/ui\n> @onesmall/ui@0.5.0 lint\n> eslint ."
+        },
+        {
+          "name": "typecheck",
+          "result": "pass",
+          "detail": "> tsc -p tsconfig.json --noEmit\n> @onesmallui/docs@0.5.0 typecheck\n> tsc --noEmit"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": "git clone https://github.com/WasteOfADrumBum/one-small-ui && git -C <dir> checkout 94438ee63ed8c72c027be4d58fc0b168236d213d && npm ci --ignore-scripts && npm run lint && npm run typecheck",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:50:12Z"
+      },
+      "digest": "093e166c08db9ebacefca72c62f7f690d3fbc018d7f63f3dbcb0c3adf17978a0"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ui-build-test-94438ee-7aa0df0c",
+      "project": "one-small-ui",
+      "gates": [
+        "automated-checks",
+        "critical-workflows",
+        "e2e-critical-workflows"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "build-test",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "5a56a604d3ea6a5e",
+      "execute": true,
+      "executedAt": "2026-10-27T01:49:48Z",
+      "result": "pass",
+      "summary": "build and test: 2 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "build",
+          "result": "pass",
+          "detail": "dist/assets/index-DpFVGfjh.js   1,435.84 kB │ gzip: 412.33 kB\n\u001b[32m✓ built in 2.20s\u001b[39m\nllms.txt: 99 pages"
+        },
+        {
+          "name": "test",
+          "result": "pass",
+          "detail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m707 passed\u001b[39m\u001b[22m\u001b[90m (707)\u001b[39m\n\u001b[2m   Start at \u001b[22m 01:49:24\n\u001b[2m   Duration \u001b[22m 23.62s\u001b[2m (transform 2.64s, setup 4.64s, collect 8.52s, tests 41.79s, environment 8.77s, prepare 1.85s)\u001b[22m"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": "git clone https://github.com/WasteOfADrumBum/one-small-ui && git -C <dir> checkout 94438ee63ed8c72c027be4d58fc0b168236d213d && npm ci --ignore-scripts && npm run build && npm test",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:49:48Z"
+      },
+      "digest": "5f726a51988be0a81e5cd8e67d08884fc83671ff3b3e11ed2ce4868b80602780"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ui-repo-structure-94438ee-154b5be5",
+      "project": "one-small-ui",
+      "gates": [],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "repo-structure",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "18040e00457aab83",
+      "execute": true,
+      "executedAt": "2026-10-27T01:48:56Z",
+      "result": "pass",
+      "summary": "repository structure: 5 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "package.json",
+          "result": "pass",
+          "detail": "onesmallui-monorepo@0.5.0 (private)"
+        },
+        {
+          "name": "lockfile",
+          "result": "pass",
+          "detail": "package-lock.json"
+        },
+        {
+          "name": "readme",
+          "result": "pass",
+          "detail": "README.md"
+        },
+        {
+          "name": "license",
+          "result": "pass",
+          "detail": "present"
+        },
+        {
+          "name": "workflows",
+          "result": "pass",
+          "detail": "ci.yml"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "file-list",
+          "sha256": "10971a12380869c909ab33ead76b19783ac2718c0d91b2a6d8f70f3134de9ed5",
+          "ref": "709 files"
+        }
+      ],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:48:56Z"
+      },
+      "digest": "7ad7666f358aa5d66a41fb4a8b56035fdb73899324274e784f670394c373a243"
+    },
+    {
+      "schema": 1,
       "id": "ev-one-small-ui-build-test-94438ee-46e60bd8",
       "project": "one-small-ui",
       "gates": [

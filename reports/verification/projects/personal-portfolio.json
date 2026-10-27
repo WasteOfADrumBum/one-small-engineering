@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-27T01:05:00Z",
+  "asOf": "2026-10-27T01:56:27Z",
   "id": "personal-portfolio",
   "name": "Personal Portfolio",
   "tier": "showcase",
@@ -56,24 +56,24 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-personal-portfolio-build-test-684ef3c-0bc913a4",
+          "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
           "collector": "build-test",
           "result": "pass",
-          "executedAt": "2026-10-27T00:59:56Z",
+          "executedAt": "2026-10-27T01:50:58Z",
           "summary": "build and test: 2 check(s) passed"
         },
         {
-          "id": "ev-personal-portfolio-ci-results-684ef3c-4e6240b2",
+          "id": "ev-personal-portfolio-ci-results-684ef3c-c2193761",
           "collector": "ci-results",
           "result": "unavailable",
-          "executedAt": "2026-10-27T00:59:56Z",
+          "executedAt": "2026-10-27T01:56:23Z",
           "summary": "CI results: not readable"
         },
         {
-          "id": "ev-personal-portfolio-lint-format-types-684ef3c-3a80bae8",
+          "id": "ev-personal-portfolio-lint-format-types-684ef3c-ff61bbd5",
           "collector": "lint-format-types",
           "result": "pass",
-          "executedAt": "2026-10-27T00:49:25Z",
+          "executedAt": "2026-10-27T01:51:01Z",
           "summary": "lint, format and types: 1 check(s) passed"
         }
       ],
@@ -96,17 +96,17 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-personal-portfolio-dependency-audit-684ef3c-6a355138",
+          "id": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
           "collector": "dependency-audit",
           "result": "fail",
-          "executedAt": "2026-10-27T00:49:26Z",
+          "executedAt": "2026-10-27T01:51:04Z",
           "summary": "dependency audit: critical 1, high 1, moderate 0, low 0, info 0"
         },
         {
-          "id": "ev-personal-portfolio-secret-scan-684ef3c-c8ba0893",
+          "id": "ev-personal-portfolio-secret-scan-684ef3c-a6bbdbf4",
           "collector": "secret-scan",
           "result": "pass",
-          "executedAt": "2026-10-27T00:49:27Z",
+          "executedAt": "2026-10-27T01:51:04Z",
           "summary": "secret scan: 3 check(s) passed"
         }
       ],
@@ -129,10 +129,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-personal-portfolio-accessibility-684ef3c-7f948fd0",
+          "id": "ev-personal-portfolio-accessibility-684ef3c-baee89e7",
           "collector": "accessibility",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:49:27Z",
+          "executedAt": "2026-10-27T01:51:04Z",
           "summary": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive"
         }
       ],
@@ -191,10 +191,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-personal-portfolio-build-test-684ef3c-0bc913a4",
+          "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
           "collector": "build-test",
           "result": "pass",
-          "executedAt": "2026-10-27T00:59:56Z",
+          "executedAt": "2026-10-27T01:50:58Z",
           "summary": "build and test: 2 check(s) passed"
         }
       ],
@@ -217,10 +217,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-personal-portfolio-deployment-health-684ef3c-f1ab7588",
+          "id": "ev-personal-portfolio-deployment-health-684ef3c-45447d7c",
           "collector": "deployment-health",
           "result": "unavailable",
-          "executedAt": "2026-10-27T00:59:56Z",
+          "executedAt": "2026-10-27T01:56:23Z",
           "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive"
         }
       ],
@@ -243,10 +243,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-personal-portfolio-documentation-684ef3c-207e2e00",
+          "id": "ev-personal-portfolio-documentation-684ef3c-b200612c",
           "collector": "documentation",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:49:27Z",
+          "executedAt": "2026-10-27T01:51:04Z",
           "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -359,7 +359,7 @@
   "mergeEligible": false,
   "releaseEligible": false,
   "lastVerification": null,
-  "lastCollection": "2026-10-27T00:59:56Z",
+  "lastCollection": "2026-10-27T01:56:23Z",
   "nextAction": "Fix dependency-audit at 684ef3c: dependency audit: critical 1, high 1, moderate 0, low 0, info 0.",
   "findings": [
     {
@@ -368,7 +368,7 @@
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
       "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
       "collector": "accessibility",
-      "evidenceId": "ev-personal-portfolio-accessibility-684ef3c-7f948fd0",
+      "evidenceId": "ev-personal-portfolio-accessibility-684ef3c-baee89e7",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -391,7 +391,7 @@
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
       "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
       "collector": "ci-results",
-      "evidenceId": "ev-personal-portfolio-ci-results-684ef3c-4e6240b2",
+      "evidenceId": "ev-personal-portfolio-ci-results-684ef3c-c2193761",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -399,7 +399,7 @@
       ],
       "releaseImpact": "blocks verification of automated-checks",
       "title": "CI results: not readable",
-      "reproduction": "node scripts/verify/cli.mjs run --project personal-portfolio --collector ci-results --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project personal-portfolio --collector ci-results",
       "rootCause": null,
       "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
       "proposedFix": null,
@@ -414,7 +414,7 @@
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
       "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
       "collector": "dependency-audit",
-      "evidenceId": "ev-personal-portfolio-dependency-audit-684ef3c-6a355138",
+      "evidenceId": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
       "kind": "defect",
       "severity": "high",
       "gates": [
@@ -437,7 +437,7 @@
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
       "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
       "collector": "deployment-health",
-      "evidenceId": "ev-personal-portfolio-deployment-health-684ef3c-f1ab7588",
+      "evidenceId": "ev-personal-portfolio-deployment-health-684ef3c-45447d7c",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -445,7 +445,7 @@
       ],
       "releaseImpact": "blocks verification of production-deployment",
       "title": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive",
-      "reproduction": "node scripts/verify/cli.mjs run --project personal-portfolio --collector deployment-health --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project personal-portfolio --collector deployment-health",
       "rootCause": null,
       "failureReason": "could not reach https://joshsmall-portfolio.vercel.app from this runner",
       "proposedFix": null,
@@ -460,7 +460,7 @@
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
       "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
       "collector": "documentation",
-      "evidenceId": "ev-personal-portfolio-documentation-684ef3c-207e2e00",
+      "evidenceId": "ev-personal-portfolio-documentation-684ef3c-b200612c",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -483,7 +483,7 @@
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
       "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
       "collector": "repo-structure",
-      "evidenceId": "ev-personal-portfolio-repo-structure-684ef3c-08dcef3c",
+      "evidenceId": "ev-personal-portfolio-repo-structure-684ef3c-0662185a",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [],
@@ -528,6 +528,12 @@
           "result": "pass"
         },
         {
+          "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
+          "digest": "c7cd96d452ac40971e4868e0ff2951f4dea8257f0fd099e12bb690e46df858e0",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
           "id": "ev-personal-portfolio-build-test-684ef3c-de39ee7e",
           "digest": "936ef8926b51a0e39d8ada3d0e328737416fabd7d6d6e92d9068ead664396fc8",
           "collector": "build-test",
@@ -546,8 +552,32 @@
           "result": "unavailable"
         },
         {
+          "id": "ev-personal-portfolio-ci-results-684ef3c-c2193761",
+          "digest": "9b4bfebbb213e18517fe6dac32902cee2c436ad2a1ddfde15ccedc0dde9ffd5d",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-personal-portfolio-ci-results-684ef3c-e6eafba3",
+          "digest": "bf57fe92d4c3596096d8a49b790903403c5af73d5944340f21e016f2bb7a5988",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-personal-portfolio-ci-results-684ef3c-f67d778c",
+          "digest": "4ecde34aac21f3ca492abb752b8a575da7a2378b2ed1f3aaa4b4b89d1ab2e949",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-personal-portfolio-lint-format-types-684ef3c-3a80bae8",
           "digest": "71952ced4ba6dc30d09b84289031d8ce090ad618bde363ca2e2615db343ad5f1",
+          "collector": "lint-format-types",
+          "result": "pass"
+        },
+        {
+          "id": "ev-personal-portfolio-lint-format-types-684ef3c-ff61bbd5",
+          "digest": "e65e3d24eeb2e4e2c9d7b69452c86f5e985c7bbba8caf51f0f497b20b72651b8",
           "collector": "lint-format-types",
           "result": "pass"
         }
@@ -563,10 +593,22 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
+          "digest": "c0f87cb081a3fd20c74f5d91e0908f8c877b6b3f1b5fa73b0e8f19f5f8dce59c",
+          "collector": "dependency-audit",
+          "result": "fail"
+        },
+        {
           "id": "ev-personal-portfolio-dependency-audit-684ef3c-6a355138",
           "digest": "717e9d4328e5722d506980f01916ce37c254f004cd598d4ef247447f32b07459",
           "collector": "dependency-audit",
           "result": "fail"
+        },
+        {
+          "id": "ev-personal-portfolio-secret-scan-684ef3c-a6bbdbf4",
+          "digest": "6542dfe8d64c4f50e34da473a33297d23f81a1b1fcad51fff8811979c106ba45",
+          "collector": "secret-scan",
+          "result": "pass"
         },
         {
           "id": "ev-personal-portfolio-secret-scan-684ef3c-c8ba0893",
@@ -588,6 +630,12 @@
         {
           "id": "ev-personal-portfolio-accessibility-684ef3c-7f948fd0",
           "digest": "d109d8fa3fa9f8f4cd4e2abd25c3753593d58558d1bea65d096a21bf87b7d336",
+          "collector": "accessibility",
+          "result": "inconclusive"
+        },
+        {
+          "id": "ev-personal-portfolio-accessibility-684ef3c-baee89e7",
+          "digest": "3d5cd7951da0282ac37f16f42ccc8b273a42958035c8afc90a6427fb2e124cc4",
           "collector": "accessibility",
           "result": "inconclusive"
         }
@@ -629,6 +677,12 @@
           "result": "pass"
         },
         {
+          "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
+          "digest": "c7cd96d452ac40971e4868e0ff2951f4dea8257f0fd099e12bb690e46df858e0",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
           "id": "ev-personal-portfolio-build-test-684ef3c-de39ee7e",
           "digest": "936ef8926b51a0e39d8ada3d0e328737416fabd7d6d6e92d9068ead664396fc8",
           "collector": "build-test",
@@ -645,6 +699,24 @@
       "automation": "partial",
       "humanOnly": false,
       "evidence": [
+        {
+          "id": "ev-personal-portfolio-deployment-health-684ef3c-45447d7c",
+          "digest": "41913376de46cb109acb26eda9ac7089d561c234be1166ea55f800bd67863d53",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-personal-portfolio-deployment-health-684ef3c-79f176d5",
+          "digest": "1be68d85940c96bd62542b222c4acc578da768033394fb3195913dae69904789",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-personal-portfolio-deployment-health-684ef3c-95957ec8",
+          "digest": "0b5817a60583401f42b4db6141f582eb8a69cf691fbc72cf467844de457d946c",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
         {
           "id": "ev-personal-portfolio-deployment-health-684ef3c-b3ba0def",
           "digest": "cb5ab86912057d96aabd9b8bfdd48c31ec873d998347447a4b898774acd48745",
@@ -671,6 +743,12 @@
         {
           "id": "ev-personal-portfolio-documentation-684ef3c-207e2e00",
           "digest": "1e2cc69595e77734332cff493a5e1a03242a684af595083310a5fe4e9e275cd0",
+          "collector": "documentation",
+          "result": "inconclusive"
+        },
+        {
+          "id": "ev-personal-portfolio-documentation-684ef3c-b200612c",
+          "digest": "5dc6fbf4051fa8bb29c90aa1a2d81122bfc3fae7b40fb25d83240dd345b87f53",
           "collector": "documentation",
           "result": "inconclusive"
         }

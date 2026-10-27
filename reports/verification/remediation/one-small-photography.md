@@ -1,6 +1,6 @@
 # One Small Photography: issue reports
 
-As of 2026-10-27T01:05:00Z, commit 45a74bad8a05c47ed7d6027dfb76e621dc16ef8f. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
+As of 2026-10-27T01:56:27Z, commit 45a74bad8a05c47ed7d6027dfb76e621dc16ef8f. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
 
 ## accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive
 
@@ -8,7 +8,7 @@ As of 2026-10-27T01:05:00Z, commit 45a74bad8a05c47ed7d6027dfb76e621dc16ef8f. One
 - Commit: 45a74bad8a05c47ed7d6027dfb76e621dc16ef8f
 - Gate(s): wcag-22-aa
 - Severity: low; kind: evidence-gap; release impact: blocks verification of wcag-22-aa
-- Evidence: ev-one-small-photography-accessibility-45a74ba-933f23e4
+- Evidence: ev-one-small-photography-accessibility-45a74ba-5ad5aff3
 
 ### Reproduction
 
@@ -43,12 +43,12 @@ The accessibility collector reports pass at the new commit, and the verifier rec
 - Commit: 45a74bad8a05c47ed7d6027dfb76e621dc16ef8f
 - Gate(s): automated-checks
 - Severity: unclassified; kind: access; release impact: blocks verification of automated-checks
-- Evidence: ev-one-small-photography-ci-results-45a74ba-32fcc3c6
+- Evidence: ev-one-small-photography-ci-results-45a74ba-b919d9a0
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-photography --collector ci-results --execute
+node scripts/verify/cli.mjs run --project one-small-photography --collector ci-results
 ```
 
 ### Root cause
@@ -78,12 +78,12 @@ The ci-results collector reports pass at the new commit, and the verifier record
 - Commit: 45a74bad8a05c47ed7d6027dfb76e621dc16ef8f
 - Gate(s): production-deployment
 - Severity: unclassified; kind: access; release impact: blocks verification of production-deployment
-- Evidence: ev-one-small-photography-deployment-health-45a74ba-a51e90f7
+- Evidence: ev-one-small-photography-deployment-health-45a74ba-6f7249e7
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-photography --collector deployment-health --execute
+node scripts/verify/cli.mjs run --project one-small-photography --collector deployment-health
 ```
 
 ### Root cause
@@ -113,7 +113,7 @@ The deployment-health collector reports pass at the new commit, and the verifier
 - Commit: 45a74bad8a05c47ed7d6027dfb76e621dc16ef8f
 - Gate(s): documentation-accurate
 - Severity: low; kind: evidence-gap; release impact: blocks verification of documentation-accurate
-- Evidence: ev-one-small-photography-documentation-45a74ba-34cb2a4c
+- Evidence: ev-one-small-photography-documentation-45a74ba-a1411b23
 
 ### Reproduction
 
@@ -148,7 +148,7 @@ The documentation collector reports pass at the new commit, and the verifier rec
 - Commit: 45a74bad8a05c47ed7d6027dfb76e621dc16ef8f
 - Gate(s): none (context)
 - Severity: low; kind: evidence-gap; release impact: context only; no gate depends on it
-- Evidence: ev-one-small-photography-repo-structure-45a74ba-2c295a50
+- Evidence: ev-one-small-photography-repo-structure-45a74ba-761de6c0
 
 ### Reproduction
 
@@ -183,7 +183,7 @@ The repo-structure collector reports pass.
 - Commit: 45a74bad8a05c47ed7d6027dfb76e621dc16ef8f
 - Gate(s): security-privacy-review
 - Severity: low; kind: evidence-gap; release impact: blocks verification of security-privacy-review
-- Evidence: ev-one-small-photography-secret-scan-45a74ba-38ccfe10
+- Evidence: ev-one-small-photography-secret-scan-45a74ba-3a0e0c19
 
 ### Reproduction
 

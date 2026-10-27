@@ -1,6 +1,6 @@
 # One Small Studio: issue reports
 
-As of 2026-10-27T01:05:00Z, commit 175cef6bafbc0322e0d54cf3e543aafa1626a049. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
+As of 2026-10-27T01:56:27Z, commit 175cef6bafbc0322e0d54cf3e543aafa1626a049. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
 
 ## accessibility: 1 of 3 check(s) passed; 2 not run or inconclusive
 
@@ -8,7 +8,7 @@ As of 2026-10-27T01:05:00Z, commit 175cef6bafbc0322e0d54cf3e543aafa1626a049. One
 - Commit: 175cef6bafbc0322e0d54cf3e543aafa1626a049
 - Gate(s): wcag-22-aa
 - Severity: low; kind: evidence-gap; release impact: blocks verification of wcag-22-aa
-- Evidence: ev-one-small-studio-accessibility-175cef6-363512db
+- Evidence: ev-one-small-studio-accessibility-175cef6-fb594e90
 
 ### Reproduction
 
@@ -43,12 +43,12 @@ The accessibility collector reports pass at the new commit, and the verifier rec
 - Commit: 175cef6bafbc0322e0d54cf3e543aafa1626a049
 - Gate(s): automated-checks
 - Severity: unclassified; kind: access; release impact: blocks verification of automated-checks
-- Evidence: ev-one-small-studio-ci-results-175cef6-f298f2b3
+- Evidence: ev-one-small-studio-ci-results-175cef6-372b3f9b
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-studio --collector ci-results --execute
+node scripts/verify/cli.mjs run --project one-small-studio --collector ci-results
 ```
 
 ### Root cause
@@ -78,7 +78,7 @@ The ci-results collector reports pass at the new commit, and the verifier record
 - Commit: 175cef6bafbc0322e0d54cf3e543aafa1626a049
 - Gate(s): security-privacy-review
 - Severity: high; kind: defect; release impact: blocks verification of security-privacy-review
-- Evidence: ev-one-small-studio-dependency-audit-175cef6-fd8b01aa
+- Evidence: ev-one-small-studio-dependency-audit-175cef6-0f866491
 
 ### Reproduction
 
@@ -113,12 +113,12 @@ The dependency-audit collector reports pass at the new commit, and the verifier 
 - Commit: 175cef6bafbc0322e0d54cf3e543aafa1626a049
 - Gate(s): production-deployment
 - Severity: unclassified; kind: access; release impact: blocks verification of production-deployment
-- Evidence: ev-one-small-studio-deployment-health-175cef6-f5e271b7
+- Evidence: ev-one-small-studio-deployment-health-175cef6-eac0aff6
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-studio --collector deployment-health --execute
+node scripts/verify/cli.mjs run --project one-small-studio --collector deployment-health
 ```
 
 ### Root cause
@@ -148,7 +148,7 @@ The deployment-health collector reports pass at the new commit, and the verifier
 - Commit: 175cef6bafbc0322e0d54cf3e543aafa1626a049
 - Gate(s): documentation-accurate
 - Severity: low; kind: evidence-gap; release impact: blocks verification of documentation-accurate
-- Evidence: ev-one-small-studio-documentation-175cef6-4ba9575d
+- Evidence: ev-one-small-studio-documentation-175cef6-5daa9695
 
 ### Reproduction
 
@@ -183,7 +183,7 @@ The documentation collector reports pass at the new commit, and the verifier rec
 - Commit: 175cef6bafbc0322e0d54cf3e543aafa1626a049
 - Gate(s): none (context)
 - Severity: low; kind: evidence-gap; release impact: context only; no gate depends on it
-- Evidence: ev-one-small-studio-repo-structure-175cef6-d86527ca
+- Evidence: ev-one-small-studio-repo-structure-175cef6-6574efd3
 
 ### Reproduction
 

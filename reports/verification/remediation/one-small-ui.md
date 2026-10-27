@@ -1,6 +1,6 @@
 # OneSmallUI: issue reports
 
-As of 2026-10-27T01:05:00Z, commit 94438ee63ed8c72c027be4d58fc0b168236d213d. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
+As of 2026-10-27T01:56:27Z, commit 94438ee63ed8c72c027be4d58fc0b168236d213d. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
 
 ## accessibility: 2 of 3 check(s) passed; 1 not run or inconclusive
 
@@ -8,7 +8,7 @@ As of 2026-10-27T01:05:00Z, commit 94438ee63ed8c72c027be4d58fc0b168236d213d. One
 - Commit: 94438ee63ed8c72c027be4d58fc0b168236d213d
 - Gate(s): wcag-22-aa
 - Severity: low; kind: evidence-gap; release impact: blocks verification of wcag-22-aa
-- Evidence: ev-one-small-ui-accessibility-94438ee-ca6c9e73
+- Evidence: ev-one-small-ui-accessibility-94438ee-c38c97f7
 
 ### Reproduction
 
@@ -43,12 +43,12 @@ The accessibility collector reports pass at the new commit, and the verifier rec
 - Commit: 94438ee63ed8c72c027be4d58fc0b168236d213d
 - Gate(s): automated-checks
 - Severity: unclassified; kind: access; release impact: blocks verification of automated-checks
-- Evidence: ev-one-small-ui-ci-results-94438ee-090f762b
+- Evidence: ev-one-small-ui-ci-results-94438ee-b0dee17e
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-ui --collector ci-results --execute
+node scripts/verify/cli.mjs run --project one-small-ui --collector ci-results
 ```
 
 ### Root cause
@@ -78,7 +78,7 @@ The ci-results collector reports pass at the new commit, and the verifier record
 - Commit: 94438ee63ed8c72c027be4d58fc0b168236d213d
 - Gate(s): runtime-compatibility
 - Severity: medium; kind: defect; release impact: blocks verification of runtime-compatibility
-- Evidence: ev-one-small-ui-compatibility-94438ee-4922bd39
+- Evidence: ev-one-small-ui-compatibility-94438ee-1fbb33cf
 
 ### Reproduction
 
@@ -113,7 +113,7 @@ The compatibility collector reports pass at the new commit, and the verifier rec
 - Commit: 94438ee63ed8c72c027be4d58fc0b168236d213d
 - Gate(s): security-privacy-review, supply-chain-review
 - Severity: high; kind: defect; release impact: blocks verification of security-privacy-review, supply-chain-review
-- Evidence: ev-one-small-ui-dependency-audit-94438ee-24e71675
+- Evidence: ev-one-small-ui-dependency-audit-94438ee-c247d2a2
 
 ### Reproduction
 
@@ -149,12 +149,12 @@ The dependency-audit collector reports pass at the new commit, and the verifier 
 - Commit: 94438ee63ed8c72c027be4d58fc0b168236d213d
 - Gate(s): production-deployment
 - Severity: unclassified; kind: access; release impact: blocks verification of production-deployment
-- Evidence: ev-one-small-ui-deployment-health-94438ee-5e002677
+- Evidence: ev-one-small-ui-deployment-health-94438ee-4b57ce2e
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-ui --collector deployment-health --execute
+node scripts/verify/cli.mjs run --project one-small-ui --collector deployment-health
 ```
 
 ### Root cause
@@ -184,7 +184,7 @@ The deployment-health collector reports pass at the new commit, and the verifier
 - Commit: 94438ee63ed8c72c027be4d58fc0b168236d213d
 - Gate(s): documentation-accurate, public-docs-accurate, upgrade-rollback-uninstall-docs
 - Severity: low; kind: defect; release impact: blocks verification of documentation-accurate, public-docs-accurate, upgrade-rollback-uninstall-docs
-- Evidence: ev-one-small-ui-documentation-94438ee-46de4908
+- Evidence: ev-one-small-ui-documentation-94438ee-009b26ac
 
 ### Reproduction
 
@@ -221,7 +221,7 @@ The documentation collector reports pass at the new commit, and the verifier rec
 - Commit: 94438ee63ed8c72c027be4d58fc0b168236d213d
 - Gate(s): ci-release-pipeline, clean-consumer-install, package-archive-inspection, package-metadata-exports, versioning-changelog
 - Severity: medium; kind: defect; release impact: blocks verification of ci-release-pipeline, clean-consumer-install, package-archive-inspection, package-metadata-exports, versioning-changelog
-- Evidence: ev-one-small-ui-release-packaging-94438ee-b4d7867f
+- Evidence: ev-one-small-ui-release-packaging-94438ee-26f4e088
 
 ### Reproduction
 

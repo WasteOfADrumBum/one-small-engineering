@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-27T01:05:00Z",
+  "asOf": "2026-10-27T01:56:27Z",
   "id": "one-small-mods-pack",
   "name": "One Small ModsPack",
   "tier": "library",
@@ -56,24 +56,24 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-mods-pack-build-test-80cc269-9a91ed75",
+          "id": "ev-one-small-mods-pack-build-test-80cc269-1fdd6619",
           "collector": "build-test",
           "result": "pass",
-          "executedAt": "2026-10-27T00:58:04Z",
+          "executedAt": "2026-10-27T01:48:52Z",
           "summary": "build and test: 4 check(s) passed; 1 delegated to other collectors"
         },
         {
-          "id": "ev-one-small-mods-pack-ci-results-80cc269-e9f8640e",
+          "id": "ev-one-small-mods-pack-ci-results-80cc269-35769d7e",
           "collector": "ci-results",
           "result": "unavailable",
-          "executedAt": "2026-10-27T00:58:04Z",
+          "executedAt": "2026-10-27T01:56:22Z",
           "summary": "CI results: not readable"
         },
         {
-          "id": "ev-one-small-mods-pack-lint-format-types-80cc269-15e1f95a",
+          "id": "ev-one-small-mods-pack-lint-format-types-80cc269-5c6b44ce",
           "collector": "lint-format-types",
           "result": "pass",
-          "executedAt": "2026-10-27T00:45:41Z",
+          "executedAt": "2026-10-27T01:48:53Z",
           "summary": "lint, format and types: 2 check(s) passed"
         }
       ],
@@ -97,17 +97,17 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
+          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-573eddb2",
           "collector": "dependency-audit",
           "result": "pass",
-          "executedAt": "2026-10-27T00:45:42Z",
+          "executedAt": "2026-10-27T01:48:54Z",
           "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0"
         },
         {
-          "id": "ev-one-small-mods-pack-secret-scan-80cc269-a24f0c7c",
+          "id": "ev-one-small-mods-pack-secret-scan-80cc269-a0ebfced",
           "collector": "secret-scan",
           "result": "pass",
-          "executedAt": "2026-10-27T00:45:42Z",
+          "executedAt": "2026-10-27T01:48:54Z",
           "summary": "secret scan: 3 check(s) passed"
         }
       ],
@@ -131,10 +131,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-mods-pack-accessibility-80cc269-fe18f174",
+          "id": "ev-one-small-mods-pack-accessibility-80cc269-ca3183a8",
           "collector": "accessibility",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:45:42Z",
+          "executedAt": "2026-10-27T01:48:54Z",
           "summary": "accessibility: 1 of 4 check(s) passed; 3 not run or inconclusive"
         }
       ],
@@ -196,10 +196,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-mods-pack-build-test-80cc269-9a91ed75",
+          "id": "ev-one-small-mods-pack-build-test-80cc269-1fdd6619",
           "collector": "build-test",
           "result": "pass",
-          "executedAt": "2026-10-27T00:58:04Z",
+          "executedAt": "2026-10-27T01:48:52Z",
           "summary": "build and test: 4 check(s) passed; 1 delegated to other collectors"
         }
       ],
@@ -237,10 +237,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
+          "id": "ev-one-small-mods-pack-documentation-80cc269-c7ec0915",
           "collector": "documentation",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:45:42Z",
+          "executedAt": "2026-10-27T01:48:54Z",
           "summary": "documentation: 5 of 6 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -282,10 +282,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
           "collector": "release-packaging",
           "result": "fail",
-          "executedAt": "2026-10-27T00:45:43Z",
+          "executedAt": "2026-10-27T01:48:54Z",
           "summary": "release packaging: 1 of 10 check(s) failed"
         }
       ],
@@ -308,10 +308,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
           "collector": "release-packaging",
           "result": "fail",
-          "executedAt": "2026-10-27T00:45:43Z",
+          "executedAt": "2026-10-27T01:48:54Z",
           "summary": "release packaging: 1 of 10 check(s) failed"
         }
       ],
@@ -335,10 +335,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-mods-pack-compatibility-80cc269-9f4e6fcb",
+          "id": "ev-one-small-mods-pack-compatibility-80cc269-fff1571b",
           "collector": "compatibility",
           "result": "fail",
-          "executedAt": "2026-10-27T00:45:43Z",
+          "executedAt": "2026-10-27T01:48:54Z",
           "summary": "compatibility: 1 of 3 check(s) failed"
         }
       ],
@@ -362,10 +362,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
           "collector": "release-packaging",
           "result": "fail",
-          "executedAt": "2026-10-27T00:45:43Z",
+          "executedAt": "2026-10-27T01:48:54Z",
           "summary": "release packaging: 1 of 10 check(s) failed"
         }
       ],
@@ -389,10 +389,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
+          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-573eddb2",
           "collector": "dependency-audit",
           "result": "pass",
-          "executedAt": "2026-10-27T00:45:42Z",
+          "executedAt": "2026-10-27T01:48:54Z",
           "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0"
         }
       ],
@@ -416,10 +416,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
           "collector": "release-packaging",
           "result": "fail",
-          "executedAt": "2026-10-27T00:45:43Z",
+          "executedAt": "2026-10-27T01:48:54Z",
           "summary": "release packaging: 1 of 10 check(s) failed"
         }
       ],
@@ -443,10 +443,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
           "collector": "release-packaging",
           "result": "fail",
-          "executedAt": "2026-10-27T00:45:43Z",
+          "executedAt": "2026-10-27T01:48:54Z",
           "summary": "release packaging: 1 of 10 check(s) failed"
         }
       ],
@@ -508,10 +508,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
+          "id": "ev-one-small-mods-pack-documentation-80cc269-c7ec0915",
           "collector": "documentation",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:45:42Z",
+          "executedAt": "2026-10-27T01:48:54Z",
           "summary": "documentation: 5 of 6 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -535,10 +535,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
+          "id": "ev-one-small-mods-pack-documentation-80cc269-c7ec0915",
           "collector": "documentation",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:45:42Z",
+          "executedAt": "2026-10-27T01:48:54Z",
           "summary": "documentation: 5 of 6 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -696,7 +696,7 @@
   "mergeEligible": false,
   "releaseEligible": false,
   "lastVerification": null,
-  "lastCollection": "2026-10-27T00:58:04Z",
+  "lastCollection": "2026-10-27T01:56:22Z",
   "nextAction": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision).",
   "findings": [
     {
@@ -705,7 +705,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
       "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
       "collector": "accessibility",
-      "evidenceId": "ev-one-small-mods-pack-accessibility-80cc269-fe18f174",
+      "evidenceId": "ev-one-small-mods-pack-accessibility-80cc269-ca3183a8",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -728,7 +728,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
       "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
       "collector": "ci-results",
-      "evidenceId": "ev-one-small-mods-pack-ci-results-80cc269-e9f8640e",
+      "evidenceId": "ev-one-small-mods-pack-ci-results-80cc269-35769d7e",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -736,7 +736,7 @@
       ],
       "releaseImpact": "blocks verification of automated-checks",
       "title": "CI results: not readable",
-      "reproduction": "node scripts/verify/cli.mjs run --project one-small-mods-pack --collector ci-results --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-mods-pack --collector ci-results",
       "rootCause": null,
       "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
       "proposedFix": null,
@@ -751,7 +751,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
       "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
       "collector": "compatibility",
-      "evidenceId": "ev-one-small-mods-pack-compatibility-80cc269-9f4e6fcb",
+      "evidenceId": "ev-one-small-mods-pack-compatibility-80cc269-fff1571b",
       "kind": "defect",
       "severity": "medium",
       "gates": [
@@ -774,7 +774,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
       "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
       "collector": "documentation",
-      "evidenceId": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
+      "evidenceId": "ev-one-small-mods-pack-documentation-80cc269-c7ec0915",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -801,7 +801,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
       "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
       "collector": "release-packaging",
-      "evidenceId": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+      "evidenceId": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
       "kind": "defect",
       "severity": "medium",
       "gates": [
@@ -853,6 +853,12 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-one-small-mods-pack-build-test-80cc269-1fdd6619",
+          "digest": "39f899cf14fe27ce1077defff6cd397a673d17e81c86c5b14ab1cfa4204677c9",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
           "id": "ev-one-small-mods-pack-build-test-80cc269-7a14a123",
           "digest": "449372546aa714d86abf9f05b65afe2bb91eca3db4c3b61b6c0572e38dc1f657",
           "collector": "build-test",
@@ -865,8 +871,20 @@
           "result": "pass"
         },
         {
+          "id": "ev-one-small-mods-pack-ci-results-80cc269-35769d7e",
+          "digest": "4b39d9da0ad2f2aec666dda46cb70a77fed062b563804f9e789c12b5ad74dd0b",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-one-small-mods-pack-ci-results-80cc269-40fdb2d7",
           "digest": "c17cda48975909e77bc555775d6d153254c954619d58489b1929b5b9f86bb2d1",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-mods-pack-ci-results-80cc269-ad9b54c8",
+          "digest": "63a0c127a78e35ed3aede42b66443e39a5181f02ab8178c3133dffde3939ad97",
           "collector": "ci-results",
           "result": "unavailable"
         },
@@ -877,8 +895,20 @@
           "result": "unavailable"
         },
         {
+          "id": "ev-one-small-mods-pack-ci-results-80cc269-fdd23412",
+          "digest": "1eb7109f61de50bbfe012505dc7d6747f744d10034ae6b82dad4f5e186c5d648",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-one-small-mods-pack-lint-format-types-80cc269-15e1f95a",
           "digest": "c467ebf1eec334377a74b1778b6094556ff1bcd719351e82181edad7febb025f",
+          "collector": "lint-format-types",
+          "result": "pass"
+        },
+        {
+          "id": "ev-one-small-mods-pack-lint-format-types-80cc269-5c6b44ce",
+          "digest": "a8dc33d8d565be11778b9fb16e8c4b3efdd15039d08411b413f07f89ead97918",
           "collector": "lint-format-types",
           "result": "pass"
         }
@@ -894,9 +924,21 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-573eddb2",
+          "digest": "0e6e0bc0626e9ae92e2f308074bc85aa5195779e703305f1895f2f1187eeaf2b",
+          "collector": "dependency-audit",
+          "result": "pass"
+        },
+        {
           "id": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
           "digest": "79affce323bfb613661cf723297330f6baf2568596b4edf6aa3349c1f78cc70b",
           "collector": "dependency-audit",
+          "result": "pass"
+        },
+        {
+          "id": "ev-one-small-mods-pack-secret-scan-80cc269-a0ebfced",
+          "digest": "93f444d30115bd889b9a4e2be8195a25648395603aa87e6e5ae48ad6c4924be6",
+          "collector": "secret-scan",
           "result": "pass"
         },
         {
@@ -916,6 +958,12 @@
       "automation": "partial",
       "humanOnly": false,
       "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-accessibility-80cc269-ca3183a8",
+          "digest": "bfe9eec38ba107b640c5a27dd918a6b9f25329f98061d0304cd74514da927fca",
+          "collector": "accessibility",
+          "result": "inconclusive"
+        },
         {
           "id": "ev-one-small-mods-pack-accessibility-80cc269-fe18f174",
           "digest": "c13859f93e991b4e17695b983eb88afb6c69b9ae6e5a68ecbf430458fba0e6ea",
@@ -954,6 +1002,12 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-one-small-mods-pack-build-test-80cc269-1fdd6619",
+          "digest": "39f899cf14fe27ce1077defff6cd397a673d17e81c86c5b14ab1cfa4204677c9",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
           "id": "ev-one-small-mods-pack-build-test-80cc269-7a14a123",
           "digest": "449372546aa714d86abf9f05b65afe2bb91eca3db4c3b61b6c0572e38dc1f657",
           "collector": "build-test",
@@ -981,6 +1035,12 @@
           "digest": "5c7639743214cda9a5cad96c37407a7941dc79928516b80fb66546e121061dfd",
           "collector": "documentation",
           "result": "inconclusive"
+        },
+        {
+          "id": "ev-one-small-mods-pack-documentation-80cc269-c7ec0915",
+          "digest": "15a29faa9054ef1b9fc20108e77e2baa30f4f8b260ea04b42a53276c1e6698e4",
+          "collector": "documentation",
+          "result": "inconclusive"
         }
       ],
       "missingCollectors": [],
@@ -1004,6 +1064,12 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
+          "digest": "4657833a7e67175c9bb3eaf15158acce53b4da283724ba7e9f671524fee86ff8",
+          "collector": "release-packaging",
+          "result": "fail"
+        },
+        {
           "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
           "digest": "0851d6d0f34f14dbffbca05f9c1b13b8566d1e4dc0e10b110404e256fa480a99",
           "collector": "release-packaging",
@@ -1020,6 +1086,12 @@
       "automation": "partial",
       "humanOnly": false,
       "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
+          "digest": "4657833a7e67175c9bb3eaf15158acce53b4da283724ba7e9f671524fee86ff8",
+          "collector": "release-packaging",
+          "result": "fail"
+        },
         {
           "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
           "digest": "0851d6d0f34f14dbffbca05f9c1b13b8566d1e4dc0e10b110404e256fa480a99",
@@ -1042,6 +1114,12 @@
           "digest": "73e9a6d1e7493f59cf927cbd0d1e55902b88a21330378f20ca840e12e1549d83",
           "collector": "compatibility",
           "result": "fail"
+        },
+        {
+          "id": "ev-one-small-mods-pack-compatibility-80cc269-fff1571b",
+          "digest": "1d841f5eb4638ed085279ae4e4549246077d5ee9ff82fde538509a8bb52b01e8",
+          "collector": "compatibility",
+          "result": "fail"
         }
       ],
       "missingCollectors": [],
@@ -1054,6 +1132,12 @@
       "automation": "full",
       "humanOnly": false,
       "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
+          "digest": "4657833a7e67175c9bb3eaf15158acce53b4da283724ba7e9f671524fee86ff8",
+          "collector": "release-packaging",
+          "result": "fail"
+        },
         {
           "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
           "digest": "0851d6d0f34f14dbffbca05f9c1b13b8566d1e4dc0e10b110404e256fa480a99",
@@ -1072,6 +1156,12 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-573eddb2",
+          "digest": "0e6e0bc0626e9ae92e2f308074bc85aa5195779e703305f1895f2f1187eeaf2b",
+          "collector": "dependency-audit",
+          "result": "pass"
+        },
+        {
           "id": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
           "digest": "79affce323bfb613661cf723297330f6baf2568596b4edf6aa3349c1f78cc70b",
           "collector": "dependency-audit",
@@ -1089,6 +1179,12 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
+          "digest": "4657833a7e67175c9bb3eaf15158acce53b4da283724ba7e9f671524fee86ff8",
+          "collector": "release-packaging",
+          "result": "fail"
+        },
+        {
           "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
           "digest": "0851d6d0f34f14dbffbca05f9c1b13b8566d1e4dc0e10b110404e256fa480a99",
           "collector": "release-packaging",
@@ -1105,6 +1201,12 @@
       "automation": "full",
       "humanOnly": false,
       "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
+          "digest": "4657833a7e67175c9bb3eaf15158acce53b4da283724ba7e9f671524fee86ff8",
+          "collector": "release-packaging",
+          "result": "fail"
+        },
         {
           "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
           "digest": "0851d6d0f34f14dbffbca05f9c1b13b8566d1e4dc0e10b110404e256fa480a99",
@@ -1147,6 +1249,12 @@
           "digest": "5c7639743214cda9a5cad96c37407a7941dc79928516b80fb66546e121061dfd",
           "collector": "documentation",
           "result": "inconclusive"
+        },
+        {
+          "id": "ev-one-small-mods-pack-documentation-80cc269-c7ec0915",
+          "digest": "15a29faa9054ef1b9fc20108e77e2baa30f4f8b260ea04b42a53276c1e6698e4",
+          "collector": "documentation",
+          "result": "inconclusive"
         }
       ],
       "missingCollectors": [],
@@ -1162,6 +1270,12 @@
         {
           "id": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
           "digest": "5c7639743214cda9a5cad96c37407a7941dc79928516b80fb66546e121061dfd",
+          "collector": "documentation",
+          "result": "inconclusive"
+        },
+        {
+          "id": "ev-one-small-mods-pack-documentation-80cc269-c7ec0915",
+          "digest": "15a29faa9054ef1b9fc20108e77e2baa30f4f8b260ea04b42a53276c1e6698e4",
           "collector": "documentation",
           "result": "inconclusive"
         }
