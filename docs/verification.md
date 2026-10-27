@@ -88,7 +88,7 @@ For each selected project the orchestrator chooses the commit to evaluate (the r
 
 ## GitHub Actions
 
-[`verify.yml`](../.github/workflows/verify.yml): manual, daily schedule and pull requests that touch verification code, policy or the registry. Top-level `permissions: {}`; jobs get `contents: read` (plus `checks: read` and `actions: read` for the CI-results collector). No secrets, no write permission, no `pull_request_target`, credentials not persisted. Project commands run through [`exec.mjs`](../scripts/verify/exec.mjs) with an allowlisted environment, so `GITHUB_TOKEN` and the Actions runtime tokens never reach project code. Scheduled runs do not execute project code. Evidence, run log and reports are uploaded as an artifact for 30 days, and the job summary lists every collector result. Committing new evidence to the repository is a person's PR.
+[`verify.yml`](../.github/workflows/verify.yml): manual and pull requests that touch verification code, policy or the registry. Top-level `permissions: {}`; jobs get `contents: read` (plus `checks: read` and `actions: read` for the CI-results collector). No secrets, no write permission, no `pull_request_target`, credentials not persisted. Project commands run through [`exec.mjs`](../scripts/verify/exec.mjs) with an allowlisted environment, so `GITHUB_TOKEN` and the Actions runtime tokens never reach project code. Scheduled collection moved to the engineering orchestrator ([engineering.md](engineering.md)), which runs every six hours, incrementally, and never executes project code on a schedule. Evidence, run log and reports are uploaded as an artifact for 30 days, and the job summary lists every collector result. Committing new evidence to the repository is a person's PR.
 
 ## Remediation
 
