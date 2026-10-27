@@ -1,0 +1,219 @@
+name: Engineering orchestrator
+
+# One Small Engineering's single monitoring workflow (docs/engineering.md): sync live revisions,
+# collect changed evidence, verify, evaluate readiness, prioritize, report. Read-only everywhere.
+#
+#   schedule           every six hours: OBSERVE only. No project code runs, nothing is written to
+#                      any repository, and no job here has a write permission.
+#   workflow_dispatch  manual: observe (optionally running project builds and tests in a separate
+#                      job that holds no secret), or prepare (candidate fixes as artifacts only).
+#   pull_request       when orchestrator code changes: tests plus an observe run. The PR's code
+#                      runs with a read-only token and without the reader secret.
+#
+# Opening a remediation PR is a different workflow (remediation.yml) with its own token, run by a
+# person from main. State between scheduled runs is kept in the Actions cache (main only); every
+# run uploads its reports, state and evidence as an artifact for 30 days.
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'observe (monitor and report) or prepare (candidate fixes as artifacts; nothing is written)'
+        type: choice
+        options: [observe, prepare]
+        default: observe
+      project:
+        description: 'Project ID (blank for all eight)'
+        required: false
+        default: ''
+      execute:
+        description: 'Run project build and test commands first (isolated job, no secrets)'
+        type: boolean
+        default: false
+  pull_request:
+    paths:
+      - 'scripts/engineering/**'
+      - 'engineering/**'
+      - '.github/workflows/engineering.yml'
+
+# Nothing unless a job asks for it.
+permissions: {}
+
+# One run at a time per ref, queued rather than cancelled, so two runs never interleave state.
+concurrency:
+  group: engineering-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - name: Registry, orchestrator and regression tests
+        run: npm run check
+
+  execute:
+    # Manual only. Untrusted project code (npm ci, build, test) runs here, in a job with no secret,
+    # no API token in its environment and read-only contents permission. Its evidence is handed to
+    # the observe job as an artifact.
+    needs: tests
+    if: github.event_name == 'workflow_dispatch' && inputs.execute
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+        if: github.ref == 'refs/heads/main'
+        with:
+          path: |
+            engineering/state.json
+            verification/evidence/
+            verification/runs/
+          key: engineering-state-${{ github.run_id }}
+          restore-keys: engineering-state-
+      - name: Build and test projects (no API, no secrets)
+        env:
+          ENGINEERING_PROJECT: ${{ inputs.project }}
+        run: |
+          set -euo pipefail
+          args=(check --execute --no-api --work "$RUNNER_TEMP/work")
+          if [ -n "${ENGINEERING_PROJECT:-}" ]; then args+=(--project "$ENGINEERING_PROJECT"); fi
+          node scripts/engineering/cli.mjs "${args[@]}"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: engineering-execute-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            engineering/state.json
+            verification/evidence/
+            verification/runs/
+          retention-days: 7
+          if-no-files-found: error
+
+  observe:
+    needs: [tests, execute]
+    if: always() && needs.tests.result == 'success' && needs.execute.result != 'failure' && (github.event_name != 'workflow_dispatch' || inputs.mode == 'observe')
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      actions: read
+      checks: read
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+        if: github.ref == 'refs/heads/main'
+        with:
+          path: |
+            engineering/state.json
+            verification/evidence/
+            verification/runs/
+          key: engineering-state-${{ github.run_id }}
+          restore-keys: engineering-state-
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        if: needs.execute.result == 'success'
+        with:
+          name: engineering-execute-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .
+      - name: Observe all projects (read-only)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          # The private-repository reader is never given to pull request runs.
+          SYNC_READER_TOKEN: ${{ github.event_name != 'pull_request' && secrets.SYNC_READER_TOKEN || '' }}
+          ENGINEERING_PROJECT: ${{ inputs.project }}
+        run: |
+          set -euo pipefail
+          args=(check --work "$RUNNER_TEMP/work")
+          if [ -n "${ENGINEERING_PROJECT:-}" ]; then args+=(--project "$ENGINEERING_PROJECT"); fi
+          node scripts/engineering/cli.mjs "${args[@]}" | tee "$RUNNER_TEMP/observe.log"
+      - name: Reports are reproducible from the recorded state
+        run: node scripts/engineering/cli.mjs report --check
+      - name: Log the dashboard
+        if: always()
+        run: |
+          grep '^engineering:' "$RUNNER_TEMP/observe.log" || true
+          if [ -f reports/engineering/dashboard.md ]; then cat reports/engineering/dashboard.md; fi
+      - uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        with:
+          path: |
+            engineering/state.json
+            verification/evidence/
+            verification/runs/
+          key: engineering-state-${{ github.run_id }}
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: engineering-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            reports/engineering/
+            reports/verification/
+            engineering/state.json
+            verification/evidence/
+            verification/runs/
+          retention-days: 30
+          if-no-files-found: warn
+
+  prepare:
+    # Manual only. Candidate fixes become artifacts with digests for review. No token can write:
+    # the job has read-only contents permission and no secret.
+    needs: tests
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'prepare'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+        if: github.ref == 'refs/heads/main'
+        with:
+          path: |
+            engineering/state.json
+            verification/evidence/
+            verification/runs/
+          key: engineering-state-${{ github.run_id }}
+          restore-keys: engineering-state-
+      - name: Prepare candidate fixes (nothing is written to GitHub)
+        env:
+          ENGINEERING_PROJECT: ${{ inputs.project }}
+          ENGINEERING_EXECUTE: ${{ inputs.execute }}
+        run: |
+          set -euo pipefail
+          args=(prepare --out "$RUNNER_TEMP/proposals" --work "$RUNNER_TEMP/work")
+          if [ -n "${ENGINEERING_PROJECT:-}" ]; then args+=(--project "$ENGINEERING_PROJECT"); fi
+          if [ "${ENGINEERING_EXECUTE}" = "true" ]; then args+=(--execute); fi
+          node scripts/engineering/cli.mjs "${args[@]}"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: engineering-proposals-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/proposals/
+          retention-days: 30
+          if-no-files-found: warn
