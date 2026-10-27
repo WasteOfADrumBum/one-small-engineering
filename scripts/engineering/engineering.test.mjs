@@ -342,6 +342,24 @@ test('forged or misbound approvals never reach Approved for Release', () => {
   assert.equal(approvalBinding(noEvidence.p, null).bound, false)
 })
 
+test('Released also needs an approval bound to the released commit, not only Phase 3 eligibility', () => {
+  const released = over => {
+    const f = releaseFixture({ releaseStatus: 'released', approval: 'Joshua Small', ...over })
+    f.engine.derived.readiness.eligibility = 'released'
+    return f
+  }
+  assert.equal(releaseState(released()).state, 'released')
+  // Phase 3 says released, but the approval evidence names another commit (Codex review finding 1).
+  const misbound = releaseState(released({ evidenceCommit: SHA2 }))
+  assert.equal(misbound.state, 'blocked')
+  assert.equal(misbound.approval.bound, false)
+  assert.match(misbound.reasons.join(' '), /without an approval bound to the released commit.*not the candidate/)
+  const noCandidate = released()
+  noCandidate.p.release.candidate = null
+  assert.equal(releaseState(noCandidate).state, 'blocked')
+  assert.equal(releaseState(released({ approval: 'Claude Code' })).state, 'blocked')
+})
+
 test('release transitions: forward steps need evidence; owner-only states cannot be skipped to', () => {
   assert.equal(checkTransition('verification_required', 'candidate_ready').ok, true)
   assert.equal(checkTransition('candidate_ready', 'approved').ok, false)

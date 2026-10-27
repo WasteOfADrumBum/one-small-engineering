@@ -87,8 +87,12 @@ export function releaseState({ p, v, engine, approvalOwner, access = 'ok', depen
   const openBlockers = v.blockers.filter(b => (b.origin === 'registry' && b.category !== 'approval') || HARD.test(b.id))
   const derivedBlockers = v.blockers.filter(b => b.origin !== 'registry' && !HARD.test(b.id) && !['auto-owner-approval', 'auto-scope-missing'].includes(b.id))
   let state
-  if (p.release.releaseStatus === 'released' && r.eligibility === 'released') state = 'released'
-  else if (!scoped) { state = 'not_ready'; reasons.push(!p.release.targetVersion ? 'no target version' : 'no scope document') }
+  // Released only with the same proof as Approved: Phase 3's released eligibility checks the
+  // approval's owner and provenance, not that it names the released commit.
+  if (p.release.releaseStatus === 'released' && r.eligibility === 'released') {
+    if (approval.valid && binding.bound) state = 'released'
+    else { state = 'blocked'; reasons.push(`recorded as released without an approval bound to the released commit: ${approval.valid ? binding.reason : approval.reason}`) }
+  } else if (!scoped) { state = 'not_ready'; reasons.push(!p.release.targetVersion ? 'no target version' : 'no scope document') }
   else if (access !== 'ok' || openBlockers.length || severe.length || dependencyBlocked.length || r.candidateMoved) {
     state = 'blocked'
     if (access !== 'ok') reasons.push(`repository not readable (${access})`)
