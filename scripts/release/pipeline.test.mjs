@@ -21,7 +21,8 @@ const registryText = read('projects/registry.json')
 const dodText = read('standards/definition-of-done.md')
 const schema = JSON.parse(read('projects/registry.schema.json'))
 const inputsText = read('release/inputs.json')
-const AS_OF = '2026-10-26T02:00:00Z'
+// Must not be earlier than the registry's lastUpdatedAt (a future registry is invalid).
+const AS_OF = '2026-10-27T03:40:00Z'
 const CLI = resolve(ROOT, 'scripts/release/cli.mjs')
 const inputs = () => loadInputs(inputsText, p => read(p))
 const gen = (over = {}) => generate({ registryText, schema, dodText, inputs: inputs(), asOf: AS_OF, ...over })

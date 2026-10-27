@@ -1,6 +1,6 @@
 # One Small ModsPack 2.0.0: completion checklist
 
-Derived as of 2026-10-26T01:36:00Z. Status: Not eligible for release. 0 of 21 applicable gates independently verified (0%); 11 open blocker(s).
+Derived as of 2026-10-27T03:40:00Z. Status: Not eligible for release. 0 of 21 applicable gates independently verified (0%); 11 open blocker(s).
 
 1. [ ] Record the builder and a different, independent verifier in the registry ownership block (an owner decision).
 2. [ ] Resolve blocker codex-interactive-trust: Codex hook enforcement verified only with trust bypassed; interactive /hooks trust not confirmed.
