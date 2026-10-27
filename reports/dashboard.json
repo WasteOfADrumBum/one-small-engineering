@@ -1,0 +1,188 @@
+{
+  "kind": "one-small-engineering/dashboard",
+  "generatedBy": "npm run release:reports",
+  "asOf": "2026-10-26T01:36:00Z",
+  "staleDays": 30,
+  "engineVersion": 1,
+  "registrySha256": "1a7e4cac0711e578af796f7cbb13a0814856f18d6f06b43d00f12e50d76542c5",
+  "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
+  "projects": [
+    {
+      "id": "one-small-mods-pack",
+      "name": "One Small ModsPack",
+      "tier": "library",
+      "facts": {
+        "targetVersion": "2.0.0",
+        "currentVersion": "0.1.0",
+        "releaseStatus": "in_progress",
+        "lastEvidenceAt": "2026-10-26T01:31:00Z",
+        "snapshotObservedAt": "2026-10-22T16:33:00Z"
+      },
+      "derived": {
+        "percentage": 0,
+        "verifiedGates": 0,
+        "applicableGates": 21,
+        "blockingFindings": 11,
+        "registryBlockers": 8,
+        "eligibility": "not-eligible",
+        "releaseReady": false,
+        "nextAction": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision)."
+      }
+    },
+    {
+      "id": "one-small-ui",
+      "name": "OneSmallUI",
+      "tier": "library",
+      "facts": {
+        "targetVersion": "0.6.0",
+        "currentVersion": "0.5.0",
+        "releaseStatus": "not_started",
+        "lastEvidenceAt": "2026-10-22T16:33:00Z",
+        "snapshotObservedAt": "2026-10-22T16:33:00Z"
+      },
+      "derived": {
+        "percentage": 0,
+        "verifiedGates": 0,
+        "applicableGates": 22,
+        "blockingFindings": 5,
+        "registryBlockers": 1,
+        "eligibility": "not-scoped",
+        "releaseReady": false,
+        "nextAction": "Resolve blocker scope-document-missing: No v0.6.0 / Phase 5 page-blocks scope document exists in the repository; scope cannot be frozen."
+      }
+    },
+    {
+      "id": "personal-portfolio",
+      "name": "Personal Portfolio",
+      "tier": "showcase",
+      "facts": {
+        "targetVersion": null,
+        "currentVersion": null,
+        "releaseStatus": "in_progress",
+        "lastEvidenceAt": "2026-10-22T16:33:00Z",
+        "snapshotObservedAt": "2026-10-22T16:33:00Z"
+      },
+      "derived": {
+        "percentage": 0,
+        "verifiedGates": 0,
+        "applicableGates": 10,
+        "blockingFindings": 7,
+        "registryBlockers": 3,
+        "eligibility": "not-scoped",
+        "releaseReady": false,
+        "nextAction": "Resolve blocker scope-document-missing: No release scope document in the repository (final audit and project showcase updates are owner-reported leads)."
+      }
+    },
+    {
+      "id": "one-small-studio",
+      "name": "One Small Studio",
+      "tier": "showcase",
+      "facts": {
+        "targetVersion": null,
+        "currentVersion": null,
+        "releaseStatus": "in_progress",
+        "lastEvidenceAt": "2026-10-22T16:33:00Z",
+        "snapshotObservedAt": "2026-10-22T16:33:00Z"
+      },
+      "derived": {
+        "percentage": 0,
+        "verifiedGates": 0,
+        "applicableGates": 10,
+        "blockingFindings": 5,
+        "registryBlockers": 1,
+        "eligibility": "not-scoped",
+        "releaseReady": false,
+        "nextAction": "Resolve blocker scope-document-missing: No release scope document in the repository (equipment showcase and final QA are owner-reported leads)."
+      }
+    },
+    {
+      "id": "one-small-photography",
+      "name": "One Small Photography",
+      "tier": "showcase",
+      "facts": {
+        "targetVersion": null,
+        "currentVersion": null,
+        "releaseStatus": "in_progress",
+        "lastEvidenceAt": "2026-10-22T16:33:00Z",
+        "snapshotObservedAt": "2026-10-22T16:33:00Z"
+      },
+      "derived": {
+        "percentage": 0,
+        "verifiedGates": 0,
+        "applicableGates": 10,
+        "blockingFindings": 5,
+        "registryBlockers": 1,
+        "eligibility": "not-scoped",
+        "releaseReady": false,
+        "nextAction": "Resolve blocker scope-document-missing: No release scope document. README lists Neon Postgres and Backblaze B2 photo storage as \"next phase\"; the owner must decide whether they are in the first release scope."
+      }
+    },
+    {
+      "id": "taskforge",
+      "name": "TaskForge",
+      "tier": "application",
+      "facts": {
+        "targetVersion": null,
+        "currentVersion": null,
+        "releaseStatus": "in_progress",
+        "lastEvidenceAt": "2026-10-22T16:33:00Z",
+        "snapshotObservedAt": "2026-10-22T16:33:00Z"
+      },
+      "derived": {
+        "percentage": 0,
+        "verifiedGates": 0,
+        "applicableGates": 20,
+        "blockingFindings": 7,
+        "registryBlockers": 2,
+        "eligibility": "not-scoped",
+        "releaseReady": false,
+        "nextAction": "Choose the target version for the scoped release and record it as release.targetVersion in the registry."
+      }
+    },
+    {
+      "id": "cortex",
+      "name": "Cortex",
+      "tier": "application",
+      "facts": {
+        "targetVersion": null,
+        "currentVersion": null,
+        "releaseStatus": "in_progress",
+        "lastEvidenceAt": "2026-10-22T16:33:00Z",
+        "snapshotObservedAt": "2026-10-22T16:33:00Z"
+      },
+      "derived": {
+        "percentage": 0,
+        "verifiedGates": 0,
+        "applicableGates": 20,
+        "blockingFindings": 7,
+        "registryBlockers": 3,
+        "eligibility": "not-scoped",
+        "releaseReady": false,
+        "nextAction": "Resolve blocker spec-open-questions: The v2 spec lists five open questions for the owner (finance email hand-off, Muse check, Vault legend, news sources, briefing schedule)."
+      }
+    },
+    {
+      "id": "one-small-ai-workforce",
+      "name": "One Small AI Workforce",
+      "tier": "application",
+      "facts": {
+        "targetVersion": null,
+        "currentVersion": null,
+        "releaseStatus": "not_started",
+        "lastEvidenceAt": "2026-10-22T17:20:00Z",
+        "snapshotObservedAt": "2026-10-22T17:20:00Z"
+      },
+      "derived": {
+        "percentage": 0,
+        "verifiedGates": 0,
+        "applicableGates": 20,
+        "blockingFindings": 5,
+        "registryBlockers": 1,
+        "eligibility": "not-scoped",
+        "releaseReady": false,
+        "nextAction": "Resolve blocker scope-document-missing: No release scope document. The README describes a Phase 1 deterministic simulation foundation; the first release scope has not been defined."
+      }
+    }
+  ],
+  "dependencyCycles": []
+}

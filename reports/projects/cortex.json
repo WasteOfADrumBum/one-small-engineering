@@ -1,0 +1,722 @@
+{
+  "kind": "one-small-engineering/project-readiness",
+  "generatedBy": "npm run release:reports",
+  "asOf": "2026-10-26T01:36:00Z",
+  "staleDays": 30,
+  "engineVersion": 1,
+  "registrySha256": "1a7e4cac0711e578af796f7cbb13a0814856f18d6f06b43d00f12e50d76542c5",
+  "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
+  "project": {
+    "id": "cortex",
+    "name": "Cortex",
+    "tier": "application",
+    "facts": {
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "currentVersion": null,
+      "targetVersion": null,
+      "releaseStatus": "in_progress",
+      "scopeDocument": "https://github.com/WasteOfADrumBum/cortex-brain-task/blob/ec49fd7907e9c901e6e4871732c7fe51881e5d3d/docs/cortex-v2-spec.md",
+      "candidate": null,
+      "openPullRequests": [],
+      "head": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "snapshotObservedAt": "2026-10-22T16:33:00Z",
+      "lastSyncedAt": null,
+      "lastEvidenceAt": "2026-10-22T16:33:00Z",
+      "ownership": {
+        "builder": null,
+        "verifier": null,
+        "approvalOwner": "Joshua Small"
+      },
+      "approval": {
+        "status": "pending",
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidenceRefs": []
+      },
+      "registryNextAction": "Add a CI workflow running npm test, answer the v2 spec open questions, and record which of the six phases are done with evidence before starting phase 3.",
+      "missingEvidence": [
+        "Per-phase completion evidence for the six v2 phases.",
+        "Any CI evidence for npm test.",
+        "Security review of Drive, Todoist and Calendar integrations.",
+        "Builder and independent verifier not assigned."
+      ]
+    },
+    "derived": {
+      "readiness": {
+        "totalGates": 20,
+        "applicableGates": 20,
+        "verifiedGates": 0,
+        "remainingGates": 20,
+        "byState": {
+          "verified": 0,
+          "in_progress": 0,
+          "not_started": 20,
+          "blocked": 0,
+          "not_applicable": 0,
+          "unknown_stale": 0
+        },
+        "percentage": 0,
+        "prePublication": {
+          "applicable": 19,
+          "verified": 0
+        },
+        "blockingFindings": 7,
+        "registryBlockers": 3,
+        "missingIndependentVerification": [],
+        "candidateMoved": false,
+        "ownershipValid": false,
+        "approvalRecorded": false,
+        "eligibility": "not-scoped",
+        "releaseReady": false
+      },
+      "gates": [
+        {
+          "id": "scope-complete",
+          "requirement": "The approved release scope document is complete; every in-scope item is done.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [
+            "spec-open-questions",
+            "v2-phases-incomplete"
+          ],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "automated-checks",
+          "requirement": "Applicable build, lint, type check and automated tests pass in CI on the release commit.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [
+            "no-ci-workflow"
+          ],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "security-privacy-review",
+          "requirement": "Security and privacy review completed against [security.md](security.md).",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "wcag-22-aa",
+          "requirement": "Applicable WCAG 2.2 AA success criteria verified (automated checks plus manual review).",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "keyboard-screen-reader",
+          "requirement": "Keyboard-only and screen-reader testing completed on the critical pages.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "responsive-layouts",
+          "requirement": "Layouts tested at phone, tablet and desktop widths and at 200% zoom.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "critical-workflows",
+          "requirement": "Critical user workflows (navigation, contact form, media playback, galleries) tested.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [
+            "auto-critical-workflows-unverified"
+          ],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "production-deployment",
+          "requirement": "The production deployment serves the release commit and behaves as tested.",
+          "phase": "post-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [],
+          "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+        },
+        {
+          "id": "documentation-accurate",
+          "requirement": "README and essential docs describe the actual project, setup and deployment.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "no-release-blockers",
+          "requirement": "No unresolved release-blocking findings.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [
+            "no-ci-workflow",
+            "spec-open-questions",
+            "v2-phases-incomplete"
+          ],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "authentication",
+          "requirement": "Sign-in, sign-out, session expiry and credential handling verified.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "authorization-boundaries",
+          "requirement": "Permission boundaries verified: users and agents can only do what they are allowed to.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "sensitive-data-handling",
+          "requirement": "Personal, financial and other sensitive data handling reviewed (collection, storage, display, retention).",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate",
+            "registry notes: High priority: the planned Finances ingest handles personal financial summaries; the spec requires auth, an 8-digit account-number rule and rate limiting"
+          ],
+          "notes": "High priority: the planned Finances ingest handles personal financial summaries; the spec requires auth, an 8-digit account-number rule and rate limiting.",
+          "blockers": [],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "api-integration-security",
+          "requirement": "APIs and third-party integrations (Drive, Todoist, Calendar, AI providers, databases) secured and least-privilege.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "integration-failure-handling",
+          "requirement": "Behavior when each integration fails or times out is tested.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "backup-recovery",
+          "requirement": "Backup and recovery verified with an actual restore, where the application stores data.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "audit-logging",
+          "requirement": "Security-relevant and approval actions are logged appropriately, without logging secrets.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "deployment-rollback",
+          "requirement": "Deployment and rollback procedure verified.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "e2e-critical-workflows",
+          "requirement": "End-to-end tests of critical workflows pass against the release.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [
+            "auto-critical-workflows-unverified"
+          ],
+          "nextAction": "Produce evidence for this gate."
+        },
+        {
+          "id": "user-data-isolation",
+          "requirement": "One user's data cannot be read or changed by another, where the app has multiple users.",
+          "phase": "pre-publication",
+          "registryStatus": "not_verified",
+          "state": "not_started",
+          "applicable": true,
+          "provenance": "none",
+          "evidence": [],
+          "lastObservedAt": null,
+          "failed": false,
+          "missing": [
+            "builder and independent verifier are not both assigned",
+            "evidence for this gate"
+          ],
+          "notes": null,
+          "blockers": [],
+          "nextAction": "Produce evidence for this gate."
+        }
+      ],
+      "blockers": {
+        "merge": [],
+        "release": [
+          {
+            "id": "no-ci-workflow",
+            "origin": "registry",
+            "status": "open",
+            "category": "ci",
+            "severity": null,
+            "blocks": "release",
+            "gates": [
+              "automated-checks"
+            ],
+            "description": "No GitHub Actions workflow; npm test exists but is not enforced on PRs (only the Vercel status runs).",
+            "evidenceRefs": [
+              "cortex-repo-metadata"
+            ],
+            "rule": null
+          },
+          {
+            "id": "spec-open-questions",
+            "origin": "registry",
+            "status": "open",
+            "category": "scope",
+            "severity": null,
+            "blocks": "release",
+            "gates": [
+              "scope-complete"
+            ],
+            "description": "The v2 spec lists five open questions for the owner (finance email hand-off, Muse check, Vault legend, news sources, briefing schedule).",
+            "evidenceRefs": [
+              "cortex-v2-spec"
+            ],
+            "rule": null
+          },
+          {
+            "id": "v2-phases-incomplete",
+            "origin": "registry",
+            "status": "open",
+            "category": "scope",
+            "severity": null,
+            "blocks": "release",
+            "gates": [
+              "scope-complete"
+            ],
+            "description": "README states Finances is a placeholder until phase 4 and News until phase 5, and Ops project cards arrive in phase 3; the v2 spec defines six phases.",
+            "evidenceRefs": [
+              "cortex-repo-metadata"
+            ],
+            "rule": null
+          },
+          {
+            "id": "auto-critical-workflows-unverified",
+            "origin": "derived",
+            "status": "proposed",
+            "category": "workflow",
+            "severity": null,
+            "blocks": "release",
+            "gates": [
+              "critical-workflows",
+              "e2e-critical-workflows"
+            ],
+            "description": "Critical workflows are not independently verified (critical-workflows, e2e-critical-workflows).",
+            "evidenceRefs": [],
+            "rule": "critical workflow gates must be verified before release",
+            "action": "Test the critical workflows on the candidate commit (critical-workflows, e2e-critical-workflows) and have the verifier record the result."
+          },
+          {
+            "id": "auto-missing-verification",
+            "origin": "derived",
+            "status": "proposed",
+            "category": "evidence",
+            "severity": null,
+            "blocks": "release",
+            "gates": [
+              "scope-complete",
+              "automated-checks",
+              "security-privacy-review",
+              "wcag-22-aa",
+              "keyboard-screen-reader",
+              "responsive-layouts",
+              "critical-workflows",
+              "documentation-accurate",
+              "authentication",
+              "authorization-boundaries",
+              "sensitive-data-handling",
+              "api-integration-security",
+              "integration-failure-handling",
+              "backup-recovery",
+              "audit-logging",
+              "deployment-rollback",
+              "e2e-critical-workflows",
+              "user-data-isolation"
+            ],
+            "description": "18 applicable pre-publication gate(s) lack current independent verification.",
+            "evidenceRefs": [],
+            "rule": "every applicable gate needs independent pass evidence",
+            "action": null
+          },
+          {
+            "id": "auto-owner-approval",
+            "origin": "derived",
+            "status": "proposed",
+            "category": "approval",
+            "severity": null,
+            "blocks": "release",
+            "gates": [],
+            "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release.",
+            "evidenceRefs": [],
+            "rule": "approval.status approved with evidence, by the approval owner",
+            "action": "Ask Joshua Small to review the evidence and approve or decline the release."
+          },
+          {
+            "id": "auto-ownership",
+            "origin": "derived",
+            "status": "proposed",
+            "category": "evidence",
+            "severity": null,
+            "blocks": "release",
+            "gates": [],
+            "description": "Independent verification impossible: builder and independent verifier are not both assigned.",
+            "evidenceRefs": [],
+            "rule": "ownership.builder and ownership.verifier must be named, different and not automation",
+            "action": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision)."
+          }
+        ],
+        "postRelease": []
+      },
+      "nextActions": [
+        {
+          "rank": 1,
+          "priority": 3,
+          "bucket": "Missing required verification",
+          "source": "spec-open-questions",
+          "origin": "registry",
+          "blocks": "release",
+          "gates": [
+            "scope-complete"
+          ],
+          "text": "Resolve blocker spec-open-questions: The v2 spec lists five open questions for the owner (finance email hand-off, Muse check, Vault legend, news sources, briefing schedule).",
+          "summary": "Resolve blocker spec-open-questions."
+        },
+        {
+          "rank": 2,
+          "priority": 3,
+          "bucket": "Missing required verification",
+          "source": "v2-phases-incomplete",
+          "origin": "registry",
+          "blocks": "release",
+          "gates": [
+            "scope-complete"
+          ],
+          "text": "Resolve blocker v2-phases-incomplete: README states Finances is a placeholder until phase 4 and News until phase 5, and Ops project cards arrive in phase 3; the v2 spec defines six phases.",
+          "summary": "Resolve blocker v2-phases-incomplete."
+        },
+        {
+          "rank": 3,
+          "priority": 3,
+          "bucket": "Missing required verification",
+          "source": "auto-ownership",
+          "origin": "derived",
+          "blocks": "release",
+          "gates": [],
+          "text": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision).",
+          "summary": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision)."
+        },
+        {
+          "rank": 4,
+          "priority": 3,
+          "bucket": "Missing required verification",
+          "source": "auto-critical-workflows-unverified",
+          "origin": "derived",
+          "blocks": "release",
+          "gates": [
+            "critical-workflows",
+            "e2e-critical-workflows"
+          ],
+          "text": "Test the critical workflows on the candidate commit (critical-workflows, e2e-critical-workflows) and have the verifier record the result.",
+          "summary": "Test the critical workflows on the candidate commit (critical-workflows, e2e-critical-workflows) and have the verifier record the result."
+        },
+        {
+          "rank": 5,
+          "priority": 3,
+          "bucket": "Missing required verification",
+          "source": "auto-missing-verification",
+          "origin": "derived",
+          "blocks": "release",
+          "gates": [
+            "scope-complete",
+            "automated-checks",
+            "security-privacy-review",
+            "wcag-22-aa",
+            "keyboard-screen-reader",
+            "responsive-layouts",
+            "critical-workflows",
+            "documentation-accurate",
+            "authentication",
+            "authorization-boundaries",
+            "sensitive-data-handling",
+            "api-integration-security",
+            "integration-failure-handling",
+            "backup-recovery",
+            "audit-logging",
+            "deployment-rollback",
+            "e2e-critical-workflows",
+            "user-data-isolation"
+          ],
+          "text": "Produce evidence for security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate, authentication, authorization-boundaries, sensitive-data-handling, api-integration-security, integration-failure-handling, backup-recovery, audit-logging, deployment-rollback, user-data-isolation; then verify scope-complete, automated-checks, critical-workflows, e2e-critical-workflows once their blockers are resolved.",
+          "summary": "Produce evidence for security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate..."
+        },
+        {
+          "rank": 6,
+          "priority": 4,
+          "bucket": "Failed or missing CI",
+          "source": "no-ci-workflow",
+          "origin": "registry",
+          "blocks": "release",
+          "gates": [
+            "automated-checks"
+          ],
+          "text": "Resolve blocker no-ci-workflow: No GitHub Actions workflow; npm test exists but is not enforced on PRs (only the Vercel status runs).",
+          "summary": "Resolve blocker no-ci-workflow."
+        }
+      ],
+      "dependencies": [
+        {
+          "project": "one-small-ui",
+          "relationship": "integrates",
+          "requiredForRelease": false,
+          "minVersion": null,
+          "kind": "informational",
+          "blocking": false,
+          "message": "integrates one-small-ui; not required for this release.",
+          "rule": "only requiredForRelease dependencies block"
+        },
+        {
+          "project": "personal-portfolio",
+          "relationship": "integrates",
+          "requiredForRelease": false,
+          "minVersion": null,
+          "kind": "informational",
+          "blocking": false,
+          "message": "integrates personal-portfolio; not required for this release.",
+          "rule": "only requiredForRelease dependencies block"
+        }
+      ],
+      "findings": [],
+      "approval": {
+        "valid": false,
+        "reason": "approval is pending"
+      }
+    },
+    "unverified": []
+  }
+}

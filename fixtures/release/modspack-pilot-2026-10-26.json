@@ -1,0 +1,523 @@
+{
+  "$comment": "Frozen copy of the ModsPack registry entry as of the Phase 3 pilot (2026-10-26, candidate 80cc269), so pilot tests do not change when registry sync refreshes the live entry. Regenerate only on purpose.",
+  "approvalOwner": "Joshua Small",
+  "gateCatalog": {
+    "showcase": [
+      "scope-complete",
+      "automated-checks",
+      "security-privacy-review",
+      "wcag-22-aa",
+      "keyboard-screen-reader",
+      "responsive-layouts",
+      "critical-workflows",
+      "production-deployment",
+      "documentation-accurate",
+      "no-release-blockers"
+    ],
+    "library": [
+      "scope-complete",
+      "automated-checks",
+      "security-privacy-review",
+      "wcag-22-aa",
+      "keyboard-screen-reader",
+      "responsive-layouts",
+      "critical-workflows",
+      "production-deployment",
+      "documentation-accurate",
+      "no-release-blockers",
+      "package-metadata-exports",
+      "clean-consumer-install",
+      "runtime-compatibility",
+      "package-archive-inspection",
+      "supply-chain-review",
+      "ci-release-pipeline",
+      "versioning-changelog",
+      "distribution-verified",
+      "release-provenance",
+      "upgrade-rollback-uninstall-docs",
+      "public-docs-accurate",
+      "published-artifact-matches"
+    ],
+    "application": [
+      "scope-complete",
+      "automated-checks",
+      "security-privacy-review",
+      "wcag-22-aa",
+      "keyboard-screen-reader",
+      "responsive-layouts",
+      "critical-workflows",
+      "production-deployment",
+      "documentation-accurate",
+      "no-release-blockers",
+      "authentication",
+      "authorization-boundaries",
+      "sensitive-data-handling",
+      "api-integration-security",
+      "integration-failure-handling",
+      "backup-recovery",
+      "audit-logging",
+      "deployment-rollback",
+      "e2e-critical-workflows",
+      "user-data-isolation"
+    ]
+  },
+  "project": {
+    "id": "one-small-mods-pack",
+    "name": "One Small ModsPack",
+    "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+    "tier": "library",
+    "visibility": "public",
+    "lifecycle": "active",
+    "productionUrl": null,
+    "repositorySnapshot": {
+      "defaultBranch": "main",
+      "headSha": "367cede6ffba17de9bf2d3a20968a3e1cd1b3371",
+      "archived": false,
+      "observedAt": "2026-10-22T16:33:00Z"
+    },
+    "openPullRequests": [
+      {
+        "number": 3,
+        "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/pull/3",
+        "title": "One Small ModsPack 2.0 (draft): toolkit and pre-release verification",
+        "headSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+        "draft": true
+      }
+    ],
+    "release": {
+      "currentVersion": "0.1.0",
+      "currentVersionSource": "Not an npm or tagged release. main holds package.json guardrail-mods 0.1.0 (private) and four 0.1.0 Claude Code mods installable from the repository as a plugin marketplace. No git tags or GitHub releases exist.",
+      "targetVersion": "2.0.0",
+      "releaseStatus": "in_progress",
+      "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/docs/release-verification.md",
+      "candidate": {
+        "pullRequest": 3,
+        "ref": "modspack-2-0",
+        "headSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+        "observedAt": "2026-10-26T01:16:08Z"
+      },
+      "blockers": [
+        {
+          "id": "manual-screen-reader-review",
+          "description": "Screen reader review (NVDA or similar) of the generated documentation site is NOT TESTED.",
+          "status": "open",
+          "evidenceRefs": [
+            "msp-release-verification"
+          ],
+          "category": "accessibility",
+          "blocks": "release",
+          "gates": [
+            "keyboard-screen-reader",
+            "wcag-22-aa"
+          ]
+        },
+        {
+          "id": "manual-zoom-forced-colors-review",
+          "description": "Real 200%/400% browser zoom, text spacing and Windows forced-colors review is NOT TESTED (only viewport-width and emulated checks).",
+          "status": "open",
+          "evidenceRefs": [
+            "msp-release-verification"
+          ],
+          "category": "accessibility",
+          "blocks": "release",
+          "gates": [
+            "responsive-layouts",
+            "wcag-22-aa"
+          ]
+        },
+        {
+          "id": "copilot-gemini-runtime-untested",
+          "description": "Copilot and Gemini CLI hook enforcement and custom agents are NOT TESTED; either test in authenticated runtimes or record an owner decision to ship them as experimental.",
+          "status": "open",
+          "evidenceRefs": [
+            "msp-release-verification",
+            "msp-compatibility-catalog"
+          ],
+          "category": "workflow",
+          "blocks": "release",
+          "gates": [
+            "runtime-compatibility",
+            "public-docs-accurate"
+          ]
+        },
+        {
+          "id": "codex-interactive-trust",
+          "description": "Codex hook enforcement verified only with trust bypassed; interactive /hooks trust not confirmed.",
+          "status": "open",
+          "evidenceRefs": [
+            "msp-release-verification"
+          ],
+          "category": "workflow",
+          "blocks": "release",
+          "gates": [
+            "runtime-compatibility"
+          ]
+        },
+        {
+          "id": "npm-ownership-access",
+          "description": "npm ownership of one-small-modspack and publish access not confirmed; the name is currently unpublished.",
+          "status": "open",
+          "evidenceRefs": [
+            "msp-npm-name-check"
+          ],
+          "category": "distribution",
+          "blocks": "release",
+          "gates": [
+            "distribution-verified",
+            "ci-release-pipeline"
+          ]
+        },
+        {
+          "id": "pr-description-stale",
+          "description": "PR #3 description disagrees with docs/release-verification.md at the same head (dependency audit INCONCLUSIVE vs PASS; 55 vs 82 packed files; 85 vs 89 CLI tests). Reconcile before review.",
+          "status": "open",
+          "evidenceRefs": [
+            "msp-pr-3",
+            "msp-release-verification"
+          ],
+          "category": "documentation",
+          "blocks": "merge",
+          "gates": [
+            "documentation-accurate"
+          ]
+        },
+        {
+          "id": "publish-pipeline-missing",
+          "description": "No release or publish workflow exists at the candidate commit (only ci.yml), so the package cannot be published from CI with npm provenance. Add a least-privilege publish workflow (manual trigger, npm --provenance) or record an owner decision on how 2.0.0 is published. Proposed by Claude Code in the Phase 3 PR for owner review.",
+          "status": "open",
+          "evidenceRefs": [
+            "msp-workflows-80cc269"
+          ],
+          "category": "distribution",
+          "blocks": "release",
+          "gates": [
+            "ci-release-pipeline",
+            "release-provenance"
+          ]
+        },
+        {
+          "id": "release-authorization",
+          "description": "No owner authorization yet for merge, tag, npm publish or deployment.",
+          "status": "open",
+          "evidenceRefs": [
+            "msp-pr-3"
+          ],
+          "category": "approval",
+          "blocks": "release",
+          "gates": []
+        }
+      ],
+      "nextAction": "Finish the manual accessibility checks and the Copilot/Gemini decision in the active PR #3 testing session, reconcile the PR description with release-verification.md, then request independent verification of the final head.",
+      "enhancements": [
+        "Plugin icon artwork and plugin-directory submission (not needed for npm or local use).",
+        "Add Node 20 to the CI matrix to back the engines claim.",
+        "Optional hosting of the generated documentation site."
+      ]
+    },
+    "ownership": {
+      "builder": null,
+      "verifier": null,
+      "approvalOwner": "Joshua Small"
+    },
+    "approval": {
+      "status": "pending",
+      "approvedBy": null,
+      "approvedAt": null,
+      "evidenceRefs": []
+    },
+    "lastVerifiedAt": "2026-10-22T16:33:00Z",
+    "evidence": [
+      {
+        "id": "msp-repo-metadata",
+        "type": "repository_metadata",
+        "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+        "commitSha": "367cede6ffba17de9bf2d3a20968a3e1cd1b3371",
+        "verifiedAt": "2026-10-22T16:33:00Z",
+        "result": "informational",
+        "description": "Public, not archived, default branch main at 367cede (merge of PR #2). No tags or GitHub releases.",
+        "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+      },
+      {
+        "id": "msp-pr-3",
+        "type": "pull_request",
+        "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/pull/3",
+        "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+        "verifiedAt": "2026-10-22T16:33:00Z",
+        "result": "informational",
+        "description": "PR #3 open as draft, mergeable (clean), 23 commits, 111 files, +9978/-41. Description states NO-GO for release.",
+        "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+      },
+      {
+        "id": "msp-ci-pr3-head",
+        "type": "workflow_run",
+        "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/39813140190",
+        "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+        "verifiedAt": "2026-10-22T16:33:00Z",
+        "result": "pass",
+        "description": "CI run on PR #3 head: jobs cli, mods (Claude Code 2.1.304 harness) and windows all succeeded.",
+        "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+      },
+      {
+        "id": "msp-release-verification",
+        "type": "document",
+        "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/docs/release-verification.md",
+        "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+        "verifiedAt": "2026-10-22T16:33:00Z",
+        "result": "builder_reported",
+        "description": "Builder pre-release verification checkpoint (third pass, 2026-10-22): NO-GO, with PASS, NOT TESTED and open go/no-go items. Not independently re-run.",
+        "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+      },
+      {
+        "id": "msp-compatibility-catalog",
+        "type": "document",
+        "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/catalog/compatibility.json",
+        "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+        "verifiedAt": "2026-10-22T16:33:00Z",
+        "result": "builder_reported",
+        "description": "Per-platform capability matrix with verification level (static, harness, runtime) for Claude Code, Codex, Copilot and Gemini CLI.",
+        "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+      },
+      {
+        "id": "msp-npm-name-check",
+        "type": "package",
+        "url": "https://www.npmjs.com/package/one-small-modspack",
+        "commitSha": null,
+        "verifiedAt": "2026-10-22T16:33:00Z",
+        "result": "informational",
+        "description": "registry.npmjs.org returned Not found for one-small-modspack: the package is unpublished. This does not prove name ownership.",
+        "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+      },
+      {
+        "id": "msp-pr3-candidate-2026-10-26",
+        "type": "pull_request",
+        "url": "https://github.com/WasteOfADrumBum/one-small-engineering/actions/runs/40253380621",
+        "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+        "verifiedAt": "2026-10-26T01:16:13Z",
+        "result": "informational",
+        "description": "Phase 3 read-only probe of the ModsPack release candidate: PR #3 still open as draft and mergeable (clean), head 80cc269 unchanged since 2026-10-22; the only workflow run on that head is the CI run already recorded as msp-ci-pr3-head (attempt 1, success: cli, mods, windows); no reviews or comments on PR #3; no tags and no GitHub releases; registry.npmjs.org returns 404 for one-small-modspack. The package.json at the head names one-small-modspack 2.0.0 (public).",
+        "recordedBy": "Claude Code (Phase 3 baseline, read-only GitHub inspection)"
+      },
+      {
+        "id": "msp-workflows-80cc269",
+        "type": "commit",
+        "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/tree/80cc269ebb7c20aca5f6ca03214954726fb494f7/.github/workflows",
+        "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+        "verifiedAt": "2026-10-26T01:40:00Z",
+        "result": "informational",
+        "description": "Read-only clone of the release candidate: .github/workflows holds only ci.yml (checks; permissions declared). There is no release or publish workflow, so nothing can publish with npm provenance yet.",
+        "recordedBy": "Claude Code (Phase 3 baseline, read-only GitHub inspection)"
+      }
+    ],
+    "releaseGates": [
+      {
+        "id": "scope-complete",
+        "status": "in_progress",
+        "evidenceRefs": [
+          "msp-pr-3"
+        ],
+        "verifiedAt": null,
+        "notes": "Scope is PR #3 plus the go/no-go checklist in release-verification.md; open checklist items remain."
+      },
+      {
+        "id": "automated-checks",
+        "status": "in_progress",
+        "evidenceRefs": [
+          "msp-ci-pr3-head"
+        ],
+        "verifiedAt": null,
+        "notes": "CI green on PR #3 head 80cc269. The PR is under active testing; re-check on the final head."
+      },
+      {
+        "id": "security-privacy-review",
+        "status": "not_verified",
+        "evidenceRefs": [],
+        "verifiedAt": null,
+        "notes": "Security test suite and dependency audit are builder-reported; no independent security review recorded yet."
+      },
+      {
+        "id": "wcag-22-aa",
+        "status": "in_progress",
+        "evidenceRefs": [
+          "msp-release-verification"
+        ],
+        "verifiedAt": null,
+        "notes": "Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding."
+      },
+      {
+        "id": "keyboard-screen-reader",
+        "status": "in_progress",
+        "evidenceRefs": [
+          "msp-release-verification"
+        ],
+        "verifiedAt": null,
+        "notes": "Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED."
+      },
+      {
+        "id": "responsive-layouts",
+        "status": "in_progress",
+        "evidenceRefs": [
+          "msp-release-verification"
+        ],
+        "verifiedAt": null,
+        "notes": "Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED."
+      },
+      {
+        "id": "critical-workflows",
+        "status": "not_verified",
+        "evidenceRefs": [],
+        "verifiedAt": null,
+        "notes": null
+      },
+      {
+        "id": "production-deployment",
+        "status": "not_applicable",
+        "evidenceRefs": [],
+        "verifiedAt": null,
+        "notes": "Owner decision 2026-10-22: ModsPack 2.0.0 ships as an npm library and a GitHub-hosted Claude Code plugin marketplace; there is no hosted service or website to deploy. Delivery is verified instead by the separate gates distribution-verified, release-provenance, clean-consumer-install, published-artifact-matches and public-docs-accurate, which stay required. Revisit if the generated documentation site is hosted as part of a release."
+      },
+      {
+        "id": "documentation-accurate",
+        "status": "not_verified",
+        "evidenceRefs": [],
+        "verifiedAt": null,
+        "notes": null
+      },
+      {
+        "id": "no-release-blockers",
+        "status": "blocked",
+        "evidenceRefs": [
+          "msp-release-verification"
+        ],
+        "verifiedAt": null,
+        "notes": "Open blockers are listed under release.blockers."
+      },
+      {
+        "id": "package-metadata-exports",
+        "status": "not_verified",
+        "evidenceRefs": [],
+        "verifiedAt": null,
+        "notes": null
+      },
+      {
+        "id": "clean-consumer-install",
+        "status": "in_progress",
+        "evidenceRefs": [
+          "msp-release-verification"
+        ],
+        "verifiedAt": null,
+        "notes": "Builder reports an artifact test that packs, installs, validates and initializes every platform."
+      },
+      {
+        "id": "runtime-compatibility",
+        "status": "in_progress",
+        "evidenceRefs": [
+          "msp-release-verification",
+          "msp-compatibility-catalog"
+        ],
+        "verifiedAt": null,
+        "notes": "Claude Code harness PASS; Codex discovery and trust-bypassed hook enforcement live; Copilot/Gemini runtime NOT TESTED; Node 20 partial, CI runs Node 22 only."
+      },
+      {
+        "id": "package-archive-inspection",
+        "status": "in_progress",
+        "evidenceRefs": [
+          "msp-release-verification"
+        ],
+        "verifiedAt": null,
+        "notes": "Builder reports an 82-file tarball reviewed with an artifact regression test; not independently re-inspected."
+      },
+      {
+        "id": "supply-chain-review",
+        "status": "in_progress",
+        "evidenceRefs": [
+          "msp-release-verification"
+        ],
+        "verifiedAt": null,
+        "notes": "Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE."
+      },
+      {
+        "id": "ci-release-pipeline",
+        "status": "in_progress",
+        "evidenceRefs": [
+          "msp-ci-pr3-head"
+        ],
+        "verifiedAt": null,
+        "notes": "CI exists for checks (contents: read). There is no release or publish pipeline yet."
+      },
+      {
+        "id": "versioning-changelog",
+        "status": "in_progress",
+        "evidenceRefs": [
+          "msp-release-verification"
+        ],
+        "verifiedAt": null,
+        "notes": "CHANGELOG 2.0.0 (unreleased) with mod version list and a consistency test (builder-reported)."
+      },
+      {
+        "id": "distribution-verified",
+        "status": "not_verified",
+        "evidenceRefs": [],
+        "verifiedAt": null,
+        "notes": "Not published. npm ownership and access unconfirmed."
+      },
+      {
+        "id": "release-provenance",
+        "status": "not_verified",
+        "evidenceRefs": [],
+        "verifiedAt": null,
+        "notes": "No publish workflow, so no npm provenance yet."
+      },
+      {
+        "id": "upgrade-rollback-uninstall-docs",
+        "status": "in_progress",
+        "evidenceRefs": [
+          "msp-release-verification"
+        ],
+        "verifiedAt": null,
+        "notes": "Install, update and modspack uninstall --yes documented in docs/getting-started.md (builder-reported)."
+      },
+      {
+        "id": "public-docs-accurate",
+        "status": "in_progress",
+        "evidenceRefs": [
+          "msp-release-verification",
+          "msp-compatibility-catalog"
+        ],
+        "verifiedAt": null,
+        "notes": "README, CHANGELOG and limitations reviewed by the builder; compatibility claims come from the catalog."
+      },
+      {
+        "id": "published-artifact-matches",
+        "status": "not_verified",
+        "evidenceRefs": [],
+        "verifiedAt": null,
+        "notes": "Nothing published yet."
+      }
+    ],
+    "modsPack": {
+      "installedVersion": null,
+      "integrationStatus": "not_applicable",
+      "adapters": [],
+      "capabilities": [],
+      "evidenceRefs": [],
+      "limitations": [
+        "This is the ModsPack repository itself; installation tracking applies to consuming projects."
+      ]
+    },
+    "missingEvidence": [
+      "Independent (non-builder) verification of any PR #3 test result.",
+      "Manual screen reader, browser zoom and forced-colors results.",
+      "Copilot and Gemini CLI runtime evidence or a recorded owner decision to ship them as experimental.",
+      "npm ownership/access confirmation.",
+      "Builder and independent verifier not assigned in the registry."
+    ],
+    "sync": {
+      "enabled": true,
+      "mode": "observe",
+      "repositoryId": 1413933787,
+      "lastSyncedAt": null,
+      "lastSyncedHead": null,
+      "configSource": null
+    }
+  }
+}

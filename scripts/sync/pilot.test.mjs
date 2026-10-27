@@ -77,7 +77,7 @@ test('pilot: a meaningful ModsPack change gives the correct proposal and no gove
   assert.ok(r.proposal.suggestions.some(s => /automation will not/.test(s)))
   assert.ok(r.proposal.suggestions.some(s => /Tag v2\.0\.0-rc\.1 has no published GitHub release/.test(s)))
   assert.equal(r.readiness.verdict, 'not-ready')
-  assert.equal(r.readiness.openBlockers.length, 7)
+  assert.equal(r.readiness.openBlockers.length, 8)
 })
 
 test('pilot: governance view covers blockers, gates, ownership, approval and manual evidence', () => {

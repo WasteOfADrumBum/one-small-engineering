@@ -48,7 +48,8 @@ export function provenance(p) {
 }
 
 // A gate is satisfied only with independent pass evidence, exactly as the validator demands.
-function gateProven(p, g) {
+// Exported for the release-readiness engine (scripts/release/), which adds currency checks.
+export function gateProven(p, g) {
   const builder = norm(p.ownership.builder)
   const verifier = norm(p.ownership.verifier)
   if (!builder || !verifier || builder === verifier) return false

@@ -5,6 +5,7 @@ Committed audit records. An audit is evidence: registry entries link to it, and 
 | Audit | Project | Revision | Date | Verdict |
 | --- | --- | --- | --- | --- |
 | [modspack-2.0.md](modspack-2.0.md) | One Small ModsPack | PR #3 head `80cc269` | 2026-10-22 | NO-GO (initial, read-only) |
+| [modspack-2.0-release-readiness.md](modspack-2.0-release-readiness.md) | One Small ModsPack | PR #3 head `80cc269` | 2026-10-26 | Not eligible for release (Phase 3 pilot, read-only) |
 
 ## Writing an audit
 

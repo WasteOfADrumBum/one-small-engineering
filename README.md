@@ -36,14 +36,15 @@ Legacy and profile repositories (`one-small-photo`, `README-Generator`, `i18next
 Each project entry records:
 
 - **Identity**: `id`, `name`, `repository`, `tier`, `visibility`, `lifecycle`, and a dated `repositorySnapshot` (default branch, head SHA, archived).
-- **Release**: `currentVersion` (what was historically published, with its source) is separate from `targetVersion` and `releaseStatus` (the next release only). Plus `scopeDocument`, `blockers`, `nextAction` and `enhancements` (future work that never blocks the current release).
+- **Release**: `currentVersion` (what was historically published, with its source) is separate from `targetVersion` and `releaseStatus` (the next release only). Plus `scopeDocument`, an optional `candidate` (the PR and commit proposed for release), `blockers` (optionally classified by `category`, `severity`, `blocks` and `gates`), `nextAction` and `enhancements` (future work that never blocks the current release).
 - **Ownership**: `builder` and `verifier` (both `null` until the release is scoped; must be assigned and differ before any gate is verified) and `approvalOwner` (always Joshua Small, the only final release approver).
 - **Evidence**: `evidence` records (ID, type, URL, commit SHA, date, result, description) and `releaseGates` that reference them by ID. `lastVerifiedAt` is when the entry was last checked against GitHub.
 - **Approval**: Joshua Small's release approval, which needs linked evidence.
 - **ModsPack**: installed version, integration status, adapters, capabilities, evidence and limitations.
 - **missingEvidence**: what is still needed, in plain words.
+- **dependencies** (optional): explicit, evidenced relationships to other registry projects; only `requiredForRelease` ones can block.
 
-No completion percentages are stored. A project is complete for a release when every applicable gate of its tier is verified and the owner has approved ([what 100% means](standards/definition-of-done.md#what-100-means)).
+No completion percentages are stored (generated reports compute one as a progress indicator). A project is complete for a release when every applicable gate of its tier is verified and the owner has approved ([what 100% means](standards/definition-of-done.md#what-100-means)).
 
 ### Rules the validator enforces
 
@@ -62,6 +63,8 @@ Beyond the schema (required fields, enums, UTC timestamps, https URLs, SHAs):
 11. Automated evidence has an `eventKey` that is unique within the project and starts with the project ID.
 12. Only `origin: sync` records use the recorder name `One Small Engineering Sync` and the `sync-` ID prefix, and that recorder can never be a builder or verifier.
 13. Automated evidence links inside the project's own repository and names a commit.
+14. A blocker's `gates` belong to the project, and `severity` is only used for `category: security`. A release `candidate` needs a `targetVersion` and is not dated after `lastUpdatedAt`.
+15. Dependencies name another registry project once, cite evidence, and release-required dependencies never form a cycle.
 
 ## How AI assistants should use it
 
@@ -79,6 +82,10 @@ Full rules: [Cross-AI governance](standards/release.md#cross-ai-governance).
 ## Automated sync
 
 All eight active projects have a `sync` block (observe mode: nothing is needed in their repositories) and are read by [Registry sync](.github/workflows/registry-sync.yml): head and history, visibility, open PRs, CI runs with run IDs and attempts, releases, tags and root `package.json`. It updates only the fields in [`sync/field-ownership.json`](sync/field-ownership.json) (repository snapshot, open PRs, its own evidence, and `currentVersion` from a published release) through one draft PR per project. Gates, blockers, release status, ownership and approval stay manual. Activation is staged by the `SYNC_STAGE` variable: A read-only (default), B draft PRs on manual runs, C every six hours. Each run ends `COMPLETE`, `INCOMPLETE` or `FAILED`, never reporting success with evidence missing. Onboard a project with `npm run onboard -- <project-id>`. Details: [docs/sync.md](docs/sync.md); runbook: [docs/operations.md](docs/operations.md); owner setup: [docs/sync-setup.md](docs/sync-setup.md).
+
+## Release readiness and completion
+
+[`reports/dashboard.md`](reports/dashboard.md) shows every active project's tier, target, readiness, verified gates, blockers, last evidence and next action, generated from the registry by [`scripts/release/`](scripts/release/). Per-project reports list each gate with its evidence provenance, and `reports/releases/<id>/<target>/` holds release preparation drafts (checklists, release notes, changelog). Only independently verified, current evidence counts; a percentage is progress, never approval. How it works: [docs/release-readiness.md](docs/release-readiness.md).
 
 ## Updating release status
 
@@ -102,6 +109,8 @@ npm run check      # both; this is what CI runs
 npm run sync:preview  # read-only: what registry sync would propose right now (needs a GitHub token)
 npm run sync:pilot    # read-only ModsPack pilot: seven checks against live GitHub
 npm run readiness     # release readiness for every project, from the registry alone
+npm run release:reports -- --as-of <UTC time>  # dashboard, per-project readiness and release prep (reports/)
+npm run release:check   # are the committed reports current?
 ```
 
 CI ([`.github/workflows/validate.yml`](.github/workflows/validate.yml)) runs `npm run check` on every pull request and on pushes to `main`, with read-only permissions, plus the field-ownership guard on `sync/*` branches. [Main integrity](.github/workflows/main-integrity.yml) runs on push and every six hours and flags any change to `main` that did not come from a merged PR. These are detection and code-level controls, not branch protection, which GitHub Free does not enforce on this private repository.
@@ -114,13 +123,16 @@ Open a pull request against `main` and fill in [the template](.github/PULL_REQUE
 
 ```text
 projects/registry.json          canonical project registry
-projects/registry.schema.json   schema (version 1.2.0)
+projects/registry.schema.json   schema (version 1.3.0)
 standards/                      Definition of Done, security, release governance
 audits/                         audit records cited as evidence
 scripts/validate-registry.mjs   validator (Node built-ins only)
 scripts/validate-registry.test.mjs  validator tests
 scripts/readiness.mjs           release readiness and evidence summary (Definition of Done, not CI)
 scripts/sync/                   registry sync: collect, plan, guard, write, status, stage, pilot, onboard (+ tests)
+scripts/release/                release readiness engine, blockers, dependencies, reports, release preparation (+ tests)
+reports/                        generated dashboard, per-project readiness and release preparation drafts
+release/                        inputs for release preparation (pinned changelog snapshots)
 schemas/                        project config, observation and AI assessment schemas
 sync/field-ownership.json       the fields automation may change
 templates/project/              files onboarding generates for a project repository

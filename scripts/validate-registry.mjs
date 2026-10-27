@@ -292,6 +292,8 @@ export function checkRules(registry, { now = new Date(), dod = parseDefinitionOf
       if (blockerIds.has(b.id)) err(bp, `duplicate blocker id "${b.id}"`)
       blockerIds.add(b.id)
       const refs = resolveRefs(b.evidenceRefs, bp)
+      for (const g of b.gates || []) if (!seenGates.has(g)) err(bp, `gate "${g}" is not one of this project's gates`)
+      if (b.severity && b.category !== 'security') err(bp, 'severity applies only to category security (standards/security.md)')
       if (b.status === 'resolved') {
         // A resolution needs its own proof: metadata, failures and builder claims do not show a blocker is gone.
         if (!refs.some(e => !NON_PROVING_TYPES.has(e.type) && ['pass', 'informational'].includes(e.result))) {
@@ -351,6 +353,21 @@ export function checkRules(registry, { now = new Date(), dod = parseDefinitionOf
       if (r.currentVersion !== r.targetVersion) err(`${at}.release`, 'releaseStatus released but currentVersion does not equal targetVersion')
     }
     if (p.lifecycle === 'maintenance' && !r.currentVersion) err(at, 'a project in maintenance needs a released currentVersion')
+    if (r.candidate) {
+      if (new Date(r.candidate.observedAt) > updated) err(`${at}.release.candidate`, 'observedAt is later than registry lastUpdatedAt')
+      if (!r.targetVersion) err(`${at}.release.candidate`, 'a release candidate needs a targetVersion')
+    }
+
+    // Declared dependencies: checked here per project; references and cycles after the loop.
+    const depIds = new Set()
+    ;(p.dependencies || []).forEach((d, j) => {
+      const dp = `${at}.dependencies[${j}]`
+      if (depIds.has(d.project)) err(dp, `dependency on "${d.project}" declared twice`)
+      depIds.add(d.project)
+      if (d.project === p.id) err(dp, 'a project cannot depend on itself')
+      resolveRefs(d.evidenceRefs, dp)
+      if (d.evidenceRefs.length === 0) err(dp, 'a dependency needs evidence for the relationship (it is never inferred from names)')
+    })
 
     // Human approval.
     const a = p.approval
@@ -391,6 +408,12 @@ export function checkRules(registry, { now = new Date(), dod = parseDefinitionOf
     })
   })
 
+  registry.projects.forEach((p, i) => (p.dependencies || []).forEach((d, j) => {
+    if (d.project !== p.id && !projectIds.has(d.project)) err(`$.projects[${i}] (${p.id}).dependencies[${j}]`, `"${d.project}" is not a project in this registry`)
+  }))
+  // A cycle of release-required dependencies could never ship. Other cycles are reported by the readiness engine.
+  for (const cycle of dependencyCycles(registry.projects, d => d.requiredForRelease)) err('$.projects', `release-required dependency cycle: ${cycle.join(' -> ')}`)
+
   registry.legacyRepositories.forEach((r, i) => noteRepo(r.repository, `$.legacyRepositories[${i}] (${r.name})`))
   registry.otherRepositories.forEach((r, i) => noteRepo(r.repository, `$.otherRepositories[${i}] (${r.name})`))
 
@@ -399,6 +422,27 @@ export function checkRules(registry, { now = new Date(), dod = parseDefinitionOf
   })
 
   return errors
+}
+
+// Every distinct cycle in the declared dependency graph, each listed once from its smallest id
+// and closed (a -> b -> a). Unknown ids are ignored here; they are reported on their own.
+export function dependencyCycles(projects, include = () => true) {
+  const edges = new Map(projects.map(p => [p.id, [...new Set((p.dependencies || []).filter(include).map(d => d.project))].sort()]))
+  const found = new Map()
+  const walk = (start, node, path) => {
+    for (const next of edges.get(node) || []) {
+      if (next === start) {
+        const min = path.reduce((a, b) => (b < a ? b : a))
+        const i = path.indexOf(min)
+        const cycle = [...path.slice(i), ...path.slice(0, i), min]
+        found.set(cycle.join('>'), cycle)
+      } else if (!path.includes(next) && edges.has(next) && next > start) {
+        walk(start, next, [...path, next])
+      }
+    }
+  }
+  for (const id of [...edges.keys()].sort()) walk(id, id, [id])
+  return [...found.values()].sort((a, b) => a.join('>').localeCompare(b.join('>')))
 }
 
 // Rules 10 to 13: automated and AI records stay separate from independent verification.

@@ -106,6 +106,6 @@ All ten Tier 1 gates apply where applicable. In addition:
 A project is **100% complete** for a release when the **approved release scope** passes **every applicable release gate**, has no open blockers, has been independently verified, and has Joshua Small's recorded approval. In registry terms: `releaseStatus` is `released`, every gate is `verified` or `not_applicable`, and `approval.status` is `approved` with evidence.
 
 - The enhancement backlog never prevents the current release from being complete. Ideas found during verification go to `enhancements` unless they are defects in the approved scope.
-- No completion percentages are recorded. Progress is the list of gates and their evidence.
+- No completion percentages are recorded in the registry. Progress is the list of gates and their evidence. Generated reports ([docs/release-readiness.md](../docs/release-readiness.md)) compute a percentage of independently verified applicable gates as a progress indicator only; it never authorizes a release.
 - After final acceptance, set `lifecycle` to `maintenance`. Maintenance means fixing defects and security issues, not reopening the release for optional improvements.
 - A future release starts its own scope document, target version and gate cycle. Earlier verification does not carry forward automatically.

@@ -4,7 +4,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
-import { mkdtempSync, writeFileSync, readFileSync } from 'node:fs'
+import { mkdtempSync, writeFileSync, readFileSync, cpSync, existsSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { resolve } from 'node:path'
 import { collect, checkObservation, SyncError } from './collect.mjs'
@@ -394,7 +394,7 @@ test('readiness: not applicable, blocked, in progress and not started are counte
   assert.equal(x.gates.inProgress.length, 13)
   assert.equal(x.gates.notStarted.length, 7)
   assert.equal(x.verdict, 'not-ready')
-  assert.ok(x.reasons.some(r => /7 open blocker/.test(r)))
+  assert.ok(x.reasons.some(r => /8 open blocker/.test(r)))
   const cli = execFileSync('node', [resolve(ROOT, 'scripts/readiness.mjs')], { cwd: ROOT, encoding: 'utf8' })
   for (const p of reg.projects) assert.match(cli, new RegExp(`\\| ${p.id} \\|`))
 })
@@ -442,9 +442,9 @@ test('the stage A report job never writes, even if the stage variable says other
 
 // Schema, validator and line endings ----------------------------------------------
 
-test('schema 1.2.0: snapshot extras are typed, a public project must be pinned', () => {
+test('schema 1.2.0+: snapshot extras are typed, a public project must be pinned', () => {
   const reg = loadRegistry()
-  assert.equal(reg.schemaVersion, '1.2.0')
+  assert.equal(reg.schemaVersion, '1.3.0')
   const bad = (mutate, re) => {
     const r = loadRegistry()
     mutate(r)
@@ -486,4 +486,23 @@ test('the readiness section in a sync PR body is redacted like the rest', async 
 test('GitHubError keeps only a well-formed permission list', () => {
   const e = new GitHubError('GET /x: HTTP 403', 403, '', { acceptedPermissions: 'contents=read' })
   assert.match(describeAccess(e, 'x').message, /needs contents=read/)
+})
+
+test('a dry run works outside a git checkout, and write mode still needs the hub commit', () => {
+  const copy = mkdtempSync(resolve(tmpdir(), 'p2-nogit-'))
+  cpSync(ROOT, copy, { recursive: true, filter: src => !/[\\/](\.git|out|node_modules)$/.test(src) })
+  const file = resolve(copy, 'obs.json')
+  writeFileSync(file, '[]')
+  const env = { ...process.env, GITHUB_TOKEN: '', GITHUB_SHA: '', SYNC_STATUS_ISSUE: '', SYNC_PROJECT: '', GIT_CEILING_DIRECTORIES: tmpdir() }
+  const run = mode => {
+    try {
+      execFileSync('node', [resolve(copy, 'scripts/sync/run.mjs'), 'write', '--in', file, '--mode', mode, '--out-dir', resolve(copy, 'out')], { cwd: copy, env: mode === 'write' ? { ...env, GITHUB_TOKEN: 'x' } : env, stdio: 'pipe', encoding: 'utf8' })
+      return ''
+    } catch (e) {
+      return String(e.stdout) + String(e.stderr)
+    }
+  }
+  assert.doesNotMatch(run('dry-run'), /not a git repository/)
+  assert.ok(existsSync(resolve(copy, 'out/STATUS.md')), 'the dry run wrote its status report')
+  assert.match(run('write'), /not a git repository/)
 })

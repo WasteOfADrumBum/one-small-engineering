@@ -39,3 +39,11 @@ jobs:
         env:
           SYNC_BRANCH: ${{ github.head_ref || github.ref_name }}
         run: node scripts/sync/guard.mjs --base origin/main --branch "$SYNC_BRANCH"
+      # Release readiness (docs/release-readiness.md): offline and read-only. The dashboard goes
+      # to the job summary. Out-of-date committed reports are a warning, not a failure, so
+      # registry sync PRs stay green; regenerate them with npm run release:reports.
+      - name: Release readiness summary
+        run: |
+          node scripts/release/cli.mjs dashboard --out "$RUNNER_TEMP/release"
+          cat "$RUNNER_TEMP/release/dashboard.md" >> "$GITHUB_STEP_SUMMARY"
+          node scripts/release/cli.mjs check || echo "::warning::reports/ is out of date for this registry; run npm run release:reports"

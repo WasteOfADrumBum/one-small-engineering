@@ -207,7 +207,8 @@ async function main(argv) {
     if (!['dry-run', 'write'].includes(mode)) throw new Error(`unknown mode ${mode}`)
     const hubClient = mode === 'write' || statusIssue ? createClient({ token }) : null
     if (mode === 'write' && !token) throw new Error('write mode needs GITHUB_TOKEN')
-    const mainSha = process.env.GITHUB_SHA || execFileSync('git', ['rev-parse', 'HEAD'], { cwd: ROOT, encoding: 'utf8' }).trim()
+    // Only write mode uses the hub commit, so a dry run also works outside a git checkout (for example an archive).
+    const mainSha = mode === 'write' ? process.env.GITHUB_SHA || execFileSync('git', ['rev-parse', 'HEAD'], { cwd: ROOT, encoding: 'utf8' }).trim() : process.env.GITHUB_SHA || null
     const outDir = resolve(ROOT, opt(argv, '--out-dir', 'out/sync'))
     const results = await processAll({ registry, collected, mode, hubClient, mainSha, validate: validator(), outDir })
 
