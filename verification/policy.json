@@ -1,0 +1,226 @@
+{
+  "$comment": "Verification governance (Phase 4, docs/verification.md). Owner-controlled: change only through a reviewed PR that Joshua Small approves. Collectors and the orchestrator read this file and never write it. Its sha256 is part of every evidence cache key, so a rule change invalidates cached evidence.",
+  "policyVersion": 1,
+  "collectorIdentity": "One Small Engineering Verify",
+  "freshness": {
+    "defaultDays": 30,
+    "byCollector": {
+      "ci-results": 7,
+      "dependency-audit": 7,
+      "deployment-health": 1
+    }
+  },
+  "aiVerifiers": {
+    "$comment": "An AI tool may verify only when listed here for the project, with a distinguishable identity, a re-executed or reviewed method backed by reproducible evidence, and never for a project whose builder is the same tool family. Empty means no AI tool may act as a verifier.",
+    "allowed": []
+  },
+  "toolFamilies": {
+    "$comment": "Identity names (lower case, substring match) that belong to one AI tool family. A verifier in the same family as the builder is never independent.",
+    "claude": [
+      "claude",
+      "claude code",
+      "anthropic"
+    ],
+    "openai": [
+      "chatgpt",
+      "codex",
+      "openai",
+      "gpt"
+    ],
+    "copilot": [
+      "copilot",
+      "github copilot"
+    ],
+    "gemini": [
+      "gemini",
+      "google gemini"
+    ]
+  },
+  "humanOnlyGates": [
+    "no-release-blockers",
+    "scope-complete",
+    "keyboard-screen-reader"
+  ],
+  "gates": {
+    "scope-complete": {
+      "automation": "none",
+      "collectors": []
+    },
+    "automated-checks": {
+      "automation": "full",
+      "collectors": [
+        "build-test",
+        "lint-format-types",
+        "ci-results"
+      ]
+    },
+    "security-privacy-review": {
+      "automation": "partial",
+      "collectors": [
+        "secret-scan"
+      ],
+      "supporting": [
+        "dependency-audit"
+      ]
+    },
+    "wcag-22-aa": {
+      "automation": "partial",
+      "collectors": [
+        "accessibility"
+      ]
+    },
+    "keyboard-screen-reader": {
+      "automation": "none",
+      "collectors": []
+    },
+    "responsive-layouts": {
+      "automation": "none",
+      "collectors": []
+    },
+    "critical-workflows": {
+      "automation": "partial",
+      "collectors": [
+        "build-test"
+      ]
+    },
+    "production-deployment": {
+      "automation": "partial",
+      "collectors": [
+        "deployment-health"
+      ]
+    },
+    "documentation-accurate": {
+      "automation": "partial",
+      "collectors": [
+        "documentation"
+      ]
+    },
+    "no-release-blockers": {
+      "automation": "none",
+      "collectors": []
+    },
+    "package-metadata-exports": {
+      "automation": "full",
+      "collectors": [
+        "release-packaging"
+      ]
+    },
+    "clean-consumer-install": {
+      "automation": "partial",
+      "collectors": [
+        "release-packaging"
+      ]
+    },
+    "runtime-compatibility": {
+      "automation": "partial",
+      "collectors": [
+        "compatibility"
+      ]
+    },
+    "package-archive-inspection": {
+      "automation": "full",
+      "collectors": [
+        "release-packaging"
+      ]
+    },
+    "supply-chain-review": {
+      "automation": "partial",
+      "collectors": [
+        "dependency-audit"
+      ]
+    },
+    "ci-release-pipeline": {
+      "automation": "partial",
+      "collectors": [
+        "release-packaging"
+      ]
+    },
+    "versioning-changelog": {
+      "automation": "full",
+      "collectors": [
+        "release-packaging"
+      ]
+    },
+    "distribution-verified": {
+      "automation": "none",
+      "collectors": []
+    },
+    "release-provenance": {
+      "automation": "none",
+      "collectors": []
+    },
+    "upgrade-rollback-uninstall-docs": {
+      "automation": "partial",
+      "collectors": [
+        "documentation"
+      ]
+    },
+    "public-docs-accurate": {
+      "automation": "partial",
+      "collectors": [
+        "documentation"
+      ]
+    },
+    "published-artifact-matches": {
+      "automation": "none",
+      "collectors": []
+    },
+    "authentication": {
+      "automation": "none",
+      "collectors": []
+    },
+    "authorization-boundaries": {
+      "automation": "none",
+      "collectors": []
+    },
+    "sensitive-data-handling": {
+      "automation": "partial",
+      "collectors": [
+        "secret-scan"
+      ]
+    },
+    "api-integration-security": {
+      "automation": "none",
+      "collectors": []
+    },
+    "integration-failure-handling": {
+      "automation": "none",
+      "collectors": []
+    },
+    "backup-recovery": {
+      "automation": "none",
+      "collectors": []
+    },
+    "audit-logging": {
+      "automation": "none",
+      "collectors": []
+    },
+    "deployment-rollback": {
+      "automation": "partial",
+      "collectors": [
+        "deployment-health"
+      ]
+    },
+    "e2e-critical-workflows": {
+      "automation": "partial",
+      "collectors": [
+        "build-test"
+      ]
+    },
+    "user-data-isolation": {
+      "automation": "none",
+      "collectors": []
+    }
+  },
+  "remediation": {
+    "$comment": "Draft remediation PRs in project repositories. Off unless the workflow input, the REMEDIATION_WRITE_ENABLED variable and a scoped token all say yes. Repositories listed in protectedRepositories are never written by automation.",
+    "branchPrefix": "verify/remediation/",
+    "protectedRepositories": [],
+    "protectedRefs": [
+      "main",
+      "master",
+      "modspack-2-0"
+    ],
+    "maxFilesPerPullRequest": 20
+  }
+}

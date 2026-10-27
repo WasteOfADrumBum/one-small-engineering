@@ -1,0 +1,1185 @@
+{
+  "kind": "one-small-engineering/verification-project",
+  "asOf": "2026-10-27T01:05:00Z",
+  "id": "one-small-mods-pack",
+  "name": "One Small ModsPack",
+  "tier": "library",
+  "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+  "target": {
+    "sha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+    "source": "release candidate (PR #3, modspack-2-0)",
+    "liveSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+    "drift": null
+  },
+  "readiness": {
+    "percentage": 0,
+    "previousPercentage": 0,
+    "applicableGates": 21,
+    "verifiedGates": 0,
+    "eligibility": "not-eligible",
+    "ownershipValid": false
+  },
+  "gateStates": {
+    "independently_verified": 0,
+    "passed_by_builder": 4,
+    "failed": 6,
+    "inconclusive": 4,
+    "not_tested": 7,
+    "not_applicable": 1
+  },
+  "gates": [
+    {
+      "id": "scope-complete",
+      "state": "not_tested",
+      "engineState": "in_progress",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": true,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "registry notes: Scope is PR #3 plus the go/no-go checklist in release-verification.md; open checklist items remain"
+      ],
+      "nextAction": "Finish the work and record evidence, then have the verifier re-check."
+    },
+    {
+      "id": "automated-checks",
+      "state": "passed_by_builder",
+      "engineState": "in_progress",
+      "applicable": true,
+      "automation": "full",
+      "manualReviewRequired": false,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-mods-pack-build-test-80cc269-9a91ed75",
+          "collector": "build-test",
+          "result": "pass",
+          "executedAt": "2026-10-27T00:58:04Z",
+          "summary": "build and test: 4 check(s) passed; 1 delegated to other collectors"
+        },
+        {
+          "id": "ev-one-small-mods-pack-ci-results-80cc269-e9f8640e",
+          "collector": "ci-results",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T00:58:04Z",
+          "summary": "CI results: not readable"
+        },
+        {
+          "id": "ev-one-small-mods-pack-lint-format-types-80cc269-15e1f95a",
+          "collector": "lint-format-types",
+          "result": "pass",
+          "executedAt": "2026-10-27T00:45:41Z",
+          "summary": "lint, format and types: 2 check(s) passed"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: CI green on PR #3 head 80cc269. The PR is under active testing; re-check on the final head"
+      ],
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+    },
+    {
+      "id": "security-privacy-review",
+      "state": "passed_by_builder",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
+          "collector": "dependency-audit",
+          "result": "pass",
+          "executedAt": "2026-10-27T00:45:42Z",
+          "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0"
+        },
+        {
+          "id": "ev-one-small-mods-pack-secret-scan-80cc269-a24f0c7c",
+          "collector": "secret-scan",
+          "result": "pass",
+          "executedAt": "2026-10-27T00:45:42Z",
+          "summary": "secret scan: 3 check(s) passed"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate",
+        "registry notes: Security test suite and dependency audit are builder-reported; no independent security review recorded yet"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "wcag-22-aa",
+      "state": "inconclusive",
+      "engineState": "in_progress",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-mods-pack-accessibility-80cc269-fe18f174",
+          "collector": "accessibility",
+          "result": "inconclusive",
+          "executedAt": "2026-10-27T00:45:42Z",
+          "summary": "accessibility: 1 of 4 check(s) passed; 3 not run or inconclusive"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding"
+      ],
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+    },
+    {
+      "id": "keyboard-screen-reader",
+      "state": "not_tested",
+      "engineState": "in_progress",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": true,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED"
+      ],
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+    },
+    {
+      "id": "responsive-layouts",
+      "state": "not_tested",
+      "engineState": "in_progress",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED"
+      ],
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+    },
+    {
+      "id": "critical-workflows",
+      "state": "passed_by_builder",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-mods-pack-build-test-80cc269-9a91ed75",
+          "collector": "build-test",
+          "result": "pass",
+          "executedAt": "2026-10-27T00:58:04Z",
+          "summary": "build and test: 4 check(s) passed; 1 delegated to other collectors"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "production-deployment",
+      "state": "not_applicable",
+      "engineState": "not_applicable",
+      "applicable": false,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
+    },
+    {
+      "id": "documentation-accurate",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
+          "collector": "documentation",
+          "result": "inconclusive",
+          "executedAt": "2026-10-27T00:45:42Z",
+          "summary": "documentation: 5 of 6 check(s) passed; 1 not run or inconclusive"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "no-release-blockers",
+      "state": "not_tested",
+      "engineState": "blocked",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": true,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: Open blockers are listed under release.blockers"
+      ],
+      "nextAction": "Resolve pr-description-stale, codex-interactive-trust, copilot-gemini-runtime-untested, manual-screen-reader-review, manual-zoom-forced-colors-review, npm-ownership-access, publish-pipeline-missing, release-authorization, then verify."
+    },
+    {
+      "id": "package-metadata-exports",
+      "state": "failed",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "full",
+      "manualReviewRequired": false,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+          "collector": "release-packaging",
+          "result": "fail",
+          "executedAt": "2026-10-27T00:45:43Z",
+          "summary": "release packaging: 1 of 10 check(s) failed"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "clean-consumer-install",
+      "state": "failed",
+      "engineState": "in_progress",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+          "collector": "release-packaging",
+          "result": "fail",
+          "executedAt": "2026-10-27T00:45:43Z",
+          "summary": "release packaging: 1 of 10 check(s) failed"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: Builder reports an artifact test that packs, installs, validates and initializes every platform"
+      ],
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+    },
+    {
+      "id": "runtime-compatibility",
+      "state": "failed",
+      "engineState": "in_progress",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-mods-pack-compatibility-80cc269-9f4e6fcb",
+          "collector": "compatibility",
+          "result": "fail",
+          "executedAt": "2026-10-27T00:45:43Z",
+          "summary": "compatibility: 1 of 3 check(s) failed"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: Claude Code harness PASS; Codex discovery and trust-bypassed hook enforcement live; Copilot/Gemini runtime NOT TESTED; Node 20 partial, CI runs Node 22 only"
+      ],
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+    },
+    {
+      "id": "package-archive-inspection",
+      "state": "failed",
+      "engineState": "in_progress",
+      "applicable": true,
+      "automation": "full",
+      "manualReviewRequired": false,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+          "collector": "release-packaging",
+          "result": "fail",
+          "executedAt": "2026-10-27T00:45:43Z",
+          "summary": "release packaging: 1 of 10 check(s) failed"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: Builder reports an 82-file tarball reviewed with an artifact regression test; not independently re-inspected"
+      ],
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+    },
+    {
+      "id": "supply-chain-review",
+      "state": "passed_by_builder",
+      "engineState": "in_progress",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
+          "collector": "dependency-audit",
+          "result": "pass",
+          "executedAt": "2026-10-27T00:45:42Z",
+          "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE"
+      ],
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+    },
+    {
+      "id": "ci-release-pipeline",
+      "state": "failed",
+      "engineState": "in_progress",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+          "collector": "release-packaging",
+          "result": "fail",
+          "executedAt": "2026-10-27T00:45:43Z",
+          "summary": "release packaging: 1 of 10 check(s) failed"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: CI exists for checks (contents: read). There is no release or publish pipeline yet"
+      ],
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+    },
+    {
+      "id": "versioning-changelog",
+      "state": "failed",
+      "engineState": "in_progress",
+      "applicable": true,
+      "automation": "full",
+      "manualReviewRequired": false,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+          "collector": "release-packaging",
+          "result": "fail",
+          "executedAt": "2026-10-27T00:45:43Z",
+          "summary": "release packaging: 1 of 10 check(s) failed"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: CHANGELOG 2.0.0 (unreleased) with mod version list and a consistency test (builder-reported)"
+      ],
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+    },
+    {
+      "id": "distribution-verified",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate",
+        "registry notes: Not published. npm ownership and access unconfirmed"
+      ],
+      "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+    },
+    {
+      "id": "release-provenance",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate",
+        "registry notes: No publish workflow, so no npm provenance yet"
+      ],
+      "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+    },
+    {
+      "id": "upgrade-rollback-uninstall-docs",
+      "state": "inconclusive",
+      "engineState": "in_progress",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
+          "collector": "documentation",
+          "result": "inconclusive",
+          "executedAt": "2026-10-27T00:45:42Z",
+          "summary": "documentation: 5 of 6 check(s) passed; 1 not run or inconclusive"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: Install, update and modspack uninstall --yes documented in docs/getting-started.md (builder-reported)"
+      ],
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+    },
+    {
+      "id": "public-docs-accurate",
+      "state": "inconclusive",
+      "engineState": "in_progress",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
+          "collector": "documentation",
+          "result": "inconclusive",
+          "executedAt": "2026-10-27T00:45:42Z",
+          "summary": "documentation: 5 of 6 check(s) passed; 1 not run or inconclusive"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: README, CHANGELOG and limitations reviewed by the builder; compatibility claims come from the catalog"
+      ],
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+    },
+    {
+      "id": "published-artifact-matches",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate",
+        "registry notes: Nothing published yet"
+      ],
+      "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+    }
+  ],
+  "missingVerification": [
+    "scope-complete",
+    "automated-checks",
+    "security-privacy-review",
+    "wcag-22-aa",
+    "keyboard-screen-reader",
+    "responsive-layouts",
+    "critical-workflows",
+    "documentation-accurate",
+    "no-release-blockers",
+    "package-metadata-exports",
+    "clean-consumer-install",
+    "runtime-compatibility",
+    "package-archive-inspection",
+    "supply-chain-review",
+    "ci-release-pipeline",
+    "versioning-changelog",
+    "distribution-verified",
+    "release-provenance",
+    "upgrade-rollback-uninstall-docs",
+    "public-docs-accurate",
+    "published-artifact-matches"
+  ],
+  "staleEvidence": [],
+  "blockers": [
+    {
+      "id": "pr-description-stale",
+      "origin": "registry",
+      "severity": "unclassified",
+      "blocks": "merge",
+      "category": "documentation",
+      "description": "PR #3 description disagrees with docs/release-verification.md at the same head (dependency audit INCONCLUSIVE vs PASS; 55 vs 82 packed files; 85 vs 89 CLI tests). Reconcile before review."
+    },
+    {
+      "id": "codex-interactive-trust",
+      "origin": "registry",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "workflow",
+      "description": "Codex hook enforcement verified only with trust bypassed; interactive /hooks trust not confirmed."
+    },
+    {
+      "id": "copilot-gemini-runtime-untested",
+      "origin": "registry",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "workflow",
+      "description": "Copilot and Gemini CLI hook enforcement and custom agents are NOT TESTED; either test in authenticated runtimes or record an owner decision to ship them as experimental."
+    },
+    {
+      "id": "manual-screen-reader-review",
+      "origin": "registry",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "accessibility",
+      "description": "Screen reader review (NVDA or similar) of the generated documentation site is NOT TESTED."
+    },
+    {
+      "id": "manual-zoom-forced-colors-review",
+      "origin": "registry",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "accessibility",
+      "description": "Real 200%/400% browser zoom, text spacing and Windows forced-colors review is NOT TESTED (only viewport-width and emulated checks)."
+    },
+    {
+      "id": "npm-ownership-access",
+      "origin": "registry",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "distribution",
+      "description": "npm ownership of one-small-modspack and publish access not confirmed; the name is currently unpublished."
+    },
+    {
+      "id": "publish-pipeline-missing",
+      "origin": "registry",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "distribution",
+      "description": "No release or publish workflow exists at the candidate commit (only ci.yml), so the package cannot be published from CI with npm provenance. Add a least-privilege publish workflow (manual trigger, npm --provenance) or record an owner decision on how 2.0.0 is published. Proposed by Claude Code in the Phase 3 PR for owner review."
+    },
+    {
+      "id": "release-authorization",
+      "origin": "registry",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "approval",
+      "description": "No owner authorization yet for merge, tag, npm publish or deployment."
+    },
+    {
+      "id": "auto-critical-workflows-unverified",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "workflow",
+      "description": "Critical workflows are not independently verified (critical-workflows)."
+    },
+    {
+      "id": "auto-missing-verification",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "evidence",
+      "description": "17 applicable pre-publication gate(s) lack current independent verification."
+    },
+    {
+      "id": "auto-ownership",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "evidence",
+      "description": "Independent verification impossible: builder and independent verifier are not both assigned."
+    }
+  ],
+  "blockersBySeverity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 2,
+    "low": 0,
+    "unclassified": 11
+  },
+  "mergeEligible": false,
+  "releaseEligible": false,
+  "lastVerification": null,
+  "lastCollection": "2026-10-27T00:58:04Z",
+  "nextAction": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision).",
+  "findings": [
+    {
+      "id": "one-small-mods-pack:accessibility:80cc269",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "collector": "accessibility",
+      "evidenceId": "ev-one-small-mods-pack-accessibility-80cc269-fe18f174",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "releaseImpact": "blocks verification of wcag-22-aa",
+      "title": "accessibility: 1 of 4 check(s) passed; 3 not run or inconclusive",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-mods-pack --collector accessibility --execute",
+      "rootCause": null,
+      "failureReason": "not run or inconclusive: automated accessibility run (no automated accessibility command is configured for this project); site:check (browser accessibility and layout checks) (needs a browser; not run by the collector); manual review (Screen reader (NVDA or similar), real 200%/400% zoom, text spacing and Windows forced-colors review of the generated documentation site.)",
+      "proposedFix": null,
+      "acceptance": "The accessibility collector reports pass at the new commit, and the verifier records it for wcag-22-aa.",
+      "verification": [
+        "wcag-22-aa: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-mods-pack:ci-results:80cc269",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "collector": "ci-results",
+      "evidenceId": "ev-one-small-mods-pack-ci-results-80cc269-e9f8640e",
+      "kind": "access",
+      "severity": "unclassified",
+      "gates": [
+        "automated-checks"
+      ],
+      "releaseImpact": "blocks verification of automated-checks",
+      "title": "CI results: not readable",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-mods-pack --collector ci-results --execute",
+      "rootCause": null,
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "proposedFix": null,
+      "acceptance": "The ci-results collector reports pass at the new commit, and the verifier records it for automated-checks.",
+      "verification": [
+        "automated-checks: re-executed by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-mods-pack:compatibility:80cc269",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "collector": "compatibility",
+      "evidenceId": "ev-one-small-mods-pack-compatibility-80cc269-9f4e6fcb",
+      "kind": "defect",
+      "severity": "medium",
+      "gates": [
+        "runtime-compatibility"
+      ],
+      "releaseImpact": "blocks verification of runtime-compatibility",
+      "title": "compatibility: 1 of 3 check(s) failed",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-mods-pack --collector compatibility --execute",
+      "rootCause": "CI tests the engines floor: floor 20, CI Node 22",
+      "failureReason": "failed: CI tests the engines floor",
+      "proposedFix": null,
+      "acceptance": "The compatibility collector reports pass at the new commit, and the verifier records it for runtime-compatibility.",
+      "verification": [
+        "runtime-compatibility: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-mods-pack:documentation:80cc269",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "collector": "documentation",
+      "evidenceId": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [
+        "documentation-accurate",
+        "public-docs-accurate",
+        "upgrade-rollback-uninstall-docs"
+      ],
+      "releaseImpact": "blocks verification of documentation-accurate, public-docs-accurate, upgrade-rollback-uninstall-docs",
+      "title": "documentation: 5 of 6 check(s) passed; 1 not run or inconclusive",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-mods-pack --collector documentation --execute",
+      "rootCause": null,
+      "failureReason": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "proposedFix": null,
+      "acceptance": "The documentation collector reports pass at the new commit, and the verifier records it for documentation-accurate, public-docs-accurate, upgrade-rollback-uninstall-docs.",
+      "verification": [
+        "documentation-accurate: manual review by the verifier",
+        "public-docs-accurate: manual review by the verifier",
+        "upgrade-rollback-uninstall-docs: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-mods-pack:release-packaging:80cc269",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "collector": "release-packaging",
+      "evidenceId": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+      "kind": "defect",
+      "severity": "medium",
+      "gates": [
+        "ci-release-pipeline",
+        "clean-consumer-install",
+        "package-archive-inspection",
+        "package-metadata-exports",
+        "versioning-changelog"
+      ],
+      "releaseImpact": "blocks verification of ci-release-pipeline, clean-consumer-install, package-archive-inspection, package-metadata-exports, versioning-changelog",
+      "title": "release packaging: 1 of 10 check(s) failed",
+      "reproduction": "npm run build && npm pack --dry-run --json --ignore-scripts",
+      "rootCause": "publish workflow: no workflow runs npm publish (1 workflow(s))",
+      "failureReason": "failed: publish workflow",
+      "proposedFix": null,
+      "acceptance": "The release-packaging collector reports pass at the new commit, and the verifier records it for ci-release-pipeline, clean-consumer-install, package-archive-inspection, package-metadata-exports, versioning-changelog.",
+      "verification": [
+        "ci-release-pipeline: manual review by the verifier",
+        "clean-consumer-install: manual review by the verifier",
+        "package-archive-inspection: re-executed by the verifier",
+        "package-metadata-exports: re-executed by the verifier",
+        "versioning-changelog: re-executed by the verifier"
+      ]
+    }
+  ],
+  "verifications": [],
+  "relatedPullRequests": [
+    {
+      "number": 3,
+      "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/pull/3",
+      "draft": true
+    }
+  ],
+  "remediation": [],
+  "verificationRequests": [
+    {
+      "gate": "scope-complete",
+      "automation": "none",
+      "humanOnly": true,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "automated-checks",
+      "automation": "full",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-build-test-80cc269-7a14a123",
+          "digest": "449372546aa714d86abf9f05b65afe2bb91eca3db4c3b61b6c0572e38dc1f657",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
+          "id": "ev-one-small-mods-pack-build-test-80cc269-9a91ed75",
+          "digest": "b59832ff1fd519630ecbc405c1245cc92e2ea107fe212369751eea59f95ba81a",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
+          "id": "ev-one-small-mods-pack-ci-results-80cc269-40fdb2d7",
+          "digest": "c17cda48975909e77bc555775d6d153254c954619d58489b1929b5b9f86bb2d1",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-mods-pack-ci-results-80cc269-e9f8640e",
+          "digest": "34eb3bac624a5da8f5d68eaed6cf33061caea7d57036f62e89af869b904663c8",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-mods-pack-lint-format-types-80cc269-15e1f95a",
+          "digest": "c467ebf1eec334377a74b1778b6094556ff1bcd719351e82181edad7febb025f",
+          "collector": "lint-format-types",
+          "result": "pass"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "re-executed",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "security-privacy-review",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
+          "digest": "79affce323bfb613661cf723297330f6baf2568596b4edf6aa3349c1f78cc70b",
+          "collector": "dependency-audit",
+          "result": "pass"
+        },
+        {
+          "id": "ev-one-small-mods-pack-secret-scan-80cc269-a24f0c7c",
+          "digest": "47161efe079d3fcd2e8490bcda20d4e4a6e6afcc146b173bd5256f03789bd7e4",
+          "collector": "secret-scan",
+          "result": "pass"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "wcag-22-aa",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-accessibility-80cc269-fe18f174",
+          "digest": "c13859f93e991b4e17695b983eb88afb6c69b9ae6e5a68ecbf430458fba0e6ea",
+          "collector": "accessibility",
+          "result": "inconclusive"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "keyboard-screen-reader",
+      "automation": "none",
+      "humanOnly": true,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "responsive-layouts",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "critical-workflows",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-build-test-80cc269-7a14a123",
+          "digest": "449372546aa714d86abf9f05b65afe2bb91eca3db4c3b61b6c0572e38dc1f657",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
+          "id": "ev-one-small-mods-pack-build-test-80cc269-9a91ed75",
+          "digest": "b59832ff1fd519630ecbc405c1245cc92e2ea107fe212369751eea59f95ba81a",
+          "collector": "build-test",
+          "result": "pass"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "documentation-accurate",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
+          "digest": "5c7639743214cda9a5cad96c37407a7941dc79928516b80fb66546e121061dfd",
+          "collector": "documentation",
+          "result": "inconclusive"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "no-release-blockers",
+      "automation": "none",
+      "humanOnly": true,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "package-metadata-exports",
+      "automation": "full",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+          "digest": "0851d6d0f34f14dbffbca05f9c1b13b8566d1e4dc0e10b110404e256fa480a99",
+          "collector": "release-packaging",
+          "result": "fail"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "re-executed",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "clean-consumer-install",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+          "digest": "0851d6d0f34f14dbffbca05f9c1b13b8566d1e4dc0e10b110404e256fa480a99",
+          "collector": "release-packaging",
+          "result": "fail"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "runtime-compatibility",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-compatibility-80cc269-9f4e6fcb",
+          "digest": "73e9a6d1e7493f59cf927cbd0d1e55902b88a21330378f20ca840e12e1549d83",
+          "collector": "compatibility",
+          "result": "fail"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "package-archive-inspection",
+      "automation": "full",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+          "digest": "0851d6d0f34f14dbffbca05f9c1b13b8566d1e4dc0e10b110404e256fa480a99",
+          "collector": "release-packaging",
+          "result": "fail"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "re-executed",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "supply-chain-review",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
+          "digest": "79affce323bfb613661cf723297330f6baf2568596b4edf6aa3349c1f78cc70b",
+          "collector": "dependency-audit",
+          "result": "pass"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "ci-release-pipeline",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+          "digest": "0851d6d0f34f14dbffbca05f9c1b13b8566d1e4dc0e10b110404e256fa480a99",
+          "collector": "release-packaging",
+          "result": "fail"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "versioning-changelog",
+      "automation": "full",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-release-packaging-80cc269-63c5ed80",
+          "digest": "0851d6d0f34f14dbffbca05f9c1b13b8566d1e4dc0e10b110404e256fa480a99",
+          "collector": "release-packaging",
+          "result": "fail"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "re-executed",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "distribution-verified",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "release-provenance",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "upgrade-rollback-uninstall-docs",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
+          "digest": "5c7639743214cda9a5cad96c37407a7941dc79928516b80fb66546e121061dfd",
+          "collector": "documentation",
+          "result": "inconclusive"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "public-docs-accurate",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-mods-pack-documentation-80cc269-c1d63737",
+          "digest": "5c7639743214cda9a5cad96c37407a7941dc79928516b80fb66546e121061dfd",
+          "collector": "documentation",
+          "result": "inconclusive"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "published-artifact-matches",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    }
+  ]
+}

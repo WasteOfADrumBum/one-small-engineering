@@ -1,0 +1,658 @@
+{
+  "project": "personal-portfolio",
+  "evidence": [
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-build-test-684ef3c-0bc913a4",
+      "project": "personal-portfolio",
+      "gates": [
+        "automated-checks",
+        "critical-workflows",
+        "e2e-critical-workflows"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "ref": null,
+      "collector": {
+        "name": "build-test",
+        "version": "1.1.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "2a378877343faaba",
+      "execute": true,
+      "executedAt": "2026-10-27T00:59:56Z",
+      "result": "pass",
+      "summary": "build and test: 2 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "build",
+          "result": "pass",
+          "detail": "└ ƒ /api/contact\n○  (Static)   prerendered as static content\nƒ  (Dynamic)  server-rendered on demand"
+        },
+        {
+          "name": "test",
+          "result": "pass",
+          "detail": "ℹ skipped 0\nℹ todo 0\nℹ duration_ms 180.388327"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": "git clone https://github.com/WasteOfADrumBum/joshsmall-site && git -C <dir> checkout 684ef3ce76d62919045cea65259e8bf52f1c6174 && npm ci --ignore-scripts && npm run build && npm test",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:59:56Z"
+      },
+      "digest": "ae517abb1ef4265025f207ecb77c71501f6cfb2ef56dfe57e41b7b9ab670583f"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-ci-results-684ef3c-4e6240b2",
+      "project": "personal-portfolio",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "acd035d392b280cc",
+      "execute": true,
+      "executedAt": "2026-10-27T00:59:56Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T00:59:56Z"
+      },
+      "digest": "e9add08b9741aaa83f2beec2195aaadc1982d5e63f2b7c14f6cfb7a988361121"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-deployment-health-684ef3c-f1ab7588",
+      "project": "personal-portfolio",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "df25836bbc2c8b3f",
+      "execute": true,
+      "executedAt": "2026-10-27T00:59:56Z",
+      "result": "unavailable",
+      "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive",
+      "failureReason": "could not reach https://joshsmall-portfolio.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "inconclusive",
+          "detail": "no deployment configuration file found"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://joshsmall-portfolio.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-28T00:59:56Z"
+      },
+      "digest": "295d6d21b719cafcaea8dc67f986b77bfef45b8fe5c4a8f28c127263f5336312"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-accessibility-684ef3c-7f948fd0",
+      "project": "personal-portfolio",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "ref": null,
+      "collector": {
+        "name": "accessibility",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "ca67232df8de23b0",
+      "execute": true,
+      "executedAt": "2026-10-27T00:49:27Z",
+      "result": "inconclusive",
+      "summary": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive",
+      "failureReason": "not run or inconclusive: automated accessibility tooling (none declared in package.json); automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
+      "checks": [
+        {
+          "name": "automated accessibility tooling",
+          "result": "inconclusive",
+          "detail": "none declared in package.json"
+        },
+        {
+          "name": "automated accessibility run",
+          "result": "not_run",
+          "detail": "no automated accessibility command is configured for this project"
+        },
+        {
+          "name": "manual review",
+          "result": "not_run",
+          "detail": "Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA."
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:49:27Z"
+      },
+      "digest": "d109d8fa3fa9f8f4cd4e2abd25c3753593d58558d1bea65d096a21bf87b7d336"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-deployment-health-684ef3c-b3ba0def",
+      "project": "personal-portfolio",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "df25836bbc2c8b3f",
+      "execute": true,
+      "executedAt": "2026-10-27T00:49:27Z",
+      "result": "unavailable",
+      "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive",
+      "failureReason": "could not reach https://joshsmall-portfolio.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "inconclusive",
+          "detail": "no deployment configuration file found"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://joshsmall-portfolio.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-28T00:49:27Z"
+      },
+      "digest": "cb5ab86912057d96aabd9b8bfdd48c31ec873d998347447a4b898774acd48745"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-documentation-684ef3c-207e2e00",
+      "project": "personal-portfolio",
+      "gates": [
+        "documentation-accurate",
+        "public-docs-accurate",
+        "upgrade-rollback-uninstall-docs"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "ref": null,
+      "collector": {
+        "name": "documentation",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "05d8b06f23cfda1f",
+      "execute": true,
+      "executedAt": "2026-10-27T00:49:27Z",
+      "result": "inconclusive",
+      "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "checks": [
+        {
+          "name": "README",
+          "result": "pass",
+          "detail": "37 lines"
+        },
+        {
+          "name": "README install or usage section",
+          "result": "pass",
+          "detail": "heading naming install, usage, setup or getting started"
+        },
+        {
+          "name": "relative links resolve",
+          "result": "pass",
+          "detail": "3 Markdown file(s)"
+        },
+        {
+          "name": "accuracy against behaviour",
+          "result": "not_run",
+          "detail": "whether the documentation matches the product is a manual review"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:49:27Z"
+      },
+      "digest": "1e2cc69595e77734332cff493a5e1a03242a684af595083310a5fe4e9e275cd0"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-secret-scan-684ef3c-c8ba0893",
+      "project": "personal-portfolio",
+      "gates": [
+        "security-privacy-review",
+        "sensitive-data-handling"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "ref": null,
+      "collector": {
+        "name": "secret-scan",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "56aaf090df274097",
+      "execute": true,
+      "executedAt": "2026-10-27T00:49:27Z",
+      "result": "pass",
+      "summary": "secret scan: 3 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "credential patterns outside tests and docs",
+          "result": "pass",
+          "detail": "234 files scanned"
+        },
+        {
+          "name": "committed .env files with sensitive keys",
+          "result": "pass",
+          "detail": "none"
+        },
+        {
+          "name": "credential-shaped values in tests and docs",
+          "result": "pass",
+          "detail": "none"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "secret-scan-locations",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "ref": "0 location(s), values withheld"
+        }
+      ],
+      "reproduce": "node scripts/verify/cli.mjs collect --project <id> --collector secret-scan",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:49:27Z"
+      },
+      "digest": "d0d5726b380decb8a31c6dd3a3c34363c4adfa1b68371a74c89aa79d4775e53d"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-dependency-audit-684ef3c-6a355138",
+      "project": "personal-portfolio",
+      "gates": [
+        "security-privacy-review",
+        "supply-chain-review"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "ref": null,
+      "collector": {
+        "name": "dependency-audit",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "08bc0417da482e1e",
+      "execute": true,
+      "executedAt": "2026-10-27T00:49:26Z",
+      "result": "fail",
+      "summary": "dependency audit: critical 1, high 1, moderate 0, low 0, info 0",
+      "failureReason": "critical or high advisories: next, zod",
+      "checks": [
+        {
+          "name": "npm audit",
+          "result": "fail",
+          "detail": "critical 1, high 1, moderate 0, low 0, info 0 across 448 packages"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "npm-audit.json",
+          "sha256": "d20b6ef99191f07a9a15ce9ee6cc45a6f9bd151aff8f5664f512e5b8ad52882d",
+          "ref": null
+        }
+      ],
+      "reproduce": "npm audit --json --package-lock-only (at 684ef3c)",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T00:49:26Z"
+      },
+      "digest": "717e9d4328e5722d506980f01916ce37c254f004cd598d4ef247447f32b07459"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-ci-results-684ef3c-972d7e12",
+      "project": "personal-portfolio",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "acd035d392b280cc",
+      "execute": true,
+      "executedAt": "2026-10-27T00:49:25Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T00:49:25Z"
+      },
+      "digest": "d748b474f8d180f2588bc68c8d861d5ddc5861a50f03cfc88ce5c8283391484a"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-lint-format-types-684ef3c-3a80bae8",
+      "project": "personal-portfolio",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "ref": null,
+      "collector": {
+        "name": "lint-format-types",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "fd199aa2d884fe1d",
+      "execute": true,
+      "executedAt": "2026-10-27T00:49:25Z",
+      "result": "pass",
+      "summary": "lint, format and types: 1 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "lint",
+          "result": "pass",
+          "detail": "> joshsmall-site@0.1.0 lint\n> eslint"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": "git clone https://github.com/WasteOfADrumBum/joshsmall-site && git -C <dir> checkout 684ef3ce76d62919045cea65259e8bf52f1c6174 && npm ci --ignore-scripts && npm run lint",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:49:25Z"
+      },
+      "digest": "71952ced4ba6dc30d09b84289031d8ce090ad618bde363ca2e2615db343ad5f1"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-build-test-684ef3c-de39ee7e",
+      "project": "personal-portfolio",
+      "gates": [
+        "automated-checks",
+        "critical-workflows",
+        "e2e-critical-workflows"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "ref": null,
+      "collector": {
+        "name": "build-test",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "0bd0a28310b01660",
+      "execute": true,
+      "executedAt": "2026-10-27T00:49:21Z",
+      "result": "pass",
+      "summary": "build and test: 2 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "build",
+          "result": "pass",
+          "detail": "└ ƒ /api/contact\n○  (Static)   prerendered as static content\nƒ  (Dynamic)  server-rendered on demand"
+        },
+        {
+          "name": "test",
+          "result": "pass",
+          "detail": "# skipped 0\n# todo 0\n# duration_ms 268.762627"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": "git clone https://github.com/WasteOfADrumBum/joshsmall-site && git -C <dir> checkout 684ef3ce76d62919045cea65259e8bf52f1c6174 && npm ci --ignore-scripts && npm run build && npm test",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:49:21Z"
+      },
+      "digest": "936ef8926b51a0e39d8ada3d0e328737416fabd7d6d6e92d9068ead664396fc8"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-repo-structure-684ef3c-08dcef3c",
+      "project": "personal-portfolio",
+      "gates": [],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "ref": null,
+      "collector": {
+        "name": "repo-structure",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "962243be2ba8c183",
+      "execute": true,
+      "executedAt": "2026-10-27T00:48:54Z",
+      "result": "inconclusive",
+      "summary": "repository structure: 3 of 5 check(s) passed; 2 not run or inconclusive",
+      "failureReason": "not run or inconclusive: license (absent); workflows (no GitHub Actions workflows)",
+      "checks": [
+        {
+          "name": "package.json",
+          "result": "pass",
+          "detail": "joshsmall-site@0.1.0 (private)"
+        },
+        {
+          "name": "lockfile",
+          "result": "pass",
+          "detail": "package-lock.json"
+        },
+        {
+          "name": "readme",
+          "result": "pass",
+          "detail": "README.md"
+        },
+        {
+          "name": "license",
+          "result": "inconclusive",
+          "detail": "absent"
+        },
+        {
+          "name": "workflows",
+          "result": "inconclusive",
+          "detail": "no GitHub Actions workflows"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "file-list",
+          "sha256": "8759aa77ea311423582879ccc72c3c4a2d631ae213ece69321ea29af13f848e6",
+          "ref": "264 files"
+        }
+      ],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:48:54Z"
+      },
+      "digest": "2c8277333eb7b6b6219052234ecc2067c80fdc23e9cc6f460437d9448fbb3bdb"
+    }
+  ]
+}

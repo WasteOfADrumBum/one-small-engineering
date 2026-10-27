@@ -1,0 +1,679 @@
+{
+  "kind": "one-small-engineering/verification-project",
+  "asOf": "2026-10-27T01:05:00Z",
+  "id": "one-small-studio",
+  "name": "One Small Studio",
+  "tier": "showcase",
+  "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+  "target": {
+    "sha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+    "source": "live head of main",
+    "liveSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+    "drift": "registry snapshot is 923fb11; live head is 175cef6 (registry sync refreshes it)"
+  },
+  "readiness": {
+    "percentage": 0,
+    "previousPercentage": 0,
+    "applicableGates": 10,
+    "verifiedGates": 0,
+    "eligibility": "not-scoped",
+    "ownershipValid": false
+  },
+  "gateStates": {
+    "independently_verified": 0,
+    "passed_by_builder": 2,
+    "failed": 1,
+    "inconclusive": 3,
+    "not_tested": 4,
+    "not_applicable": 0
+  },
+  "gates": [
+    {
+      "id": "scope-complete",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": true,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "automated-checks",
+      "state": "passed_by_builder",
+      "engineState": "in_progress",
+      "applicable": true,
+      "automation": "full",
+      "manualReviewRequired": false,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-studio-build-test-175cef6-294dde20",
+          "collector": "build-test",
+          "result": "pass",
+          "executedAt": "2026-10-27T01:00:26Z",
+          "summary": "build and test: 2 check(s) passed"
+        },
+        {
+          "id": "ev-one-small-studio-ci-results-175cef6-f298f2b3",
+          "collector": "ci-results",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T01:00:26Z",
+          "summary": "CI results: not readable"
+        },
+        {
+          "id": "ev-one-small-studio-lint-format-types-175cef6-90de18f0",
+          "collector": "lint-format-types",
+          "result": "pass",
+          "executedAt": "2026-10-27T00:50:18Z",
+          "summary": "lint, format and types: 3 check(s) passed"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: Latest default-branch CI passed at 923fb11. The target release scope is not frozen, so this does not verify the release; re-run on the release candidate"
+      ],
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+    },
+    {
+      "id": "security-privacy-review",
+      "state": "failed",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-studio-dependency-audit-175cef6-fd8b01aa",
+          "collector": "dependency-audit",
+          "result": "fail",
+          "executedAt": "2026-10-27T00:50:19Z",
+          "summary": "dependency audit: critical 0, high 2, moderate 0, low 0, info 0"
+        },
+        {
+          "id": "ev-one-small-studio-secret-scan-175cef6-7a3a0299",
+          "collector": "secret-scan",
+          "result": "pass",
+          "executedAt": "2026-10-27T00:50:19Z",
+          "summary": "secret scan: 3 check(s) passed"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "wcag-22-aa",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-studio-accessibility-175cef6-363512db",
+          "collector": "accessibility",
+          "result": "inconclusive",
+          "executedAt": "2026-10-27T00:50:19Z",
+          "summary": "accessibility: 1 of 3 check(s) passed; 2 not run or inconclusive"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "keyboard-screen-reader",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": true,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "responsive-layouts",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "critical-workflows",
+      "state": "passed_by_builder",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-studio-build-test-175cef6-294dde20",
+          "collector": "build-test",
+          "result": "pass",
+          "executedAt": "2026-10-27T01:00:26Z",
+          "summary": "build and test: 2 check(s) passed"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "production-deployment",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-studio-deployment-health-175cef6-f5e271b7",
+          "collector": "deployment-health",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T01:00:27Z",
+          "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+    },
+    {
+      "id": "documentation-accurate",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-studio-documentation-175cef6-4ba9575d",
+          "collector": "documentation",
+          "result": "inconclusive",
+          "executedAt": "2026-10-27T00:50:19Z",
+          "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "no-release-blockers",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": true,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    }
+  ],
+  "missingVerification": [
+    "scope-complete",
+    "automated-checks",
+    "security-privacy-review",
+    "wcag-22-aa",
+    "keyboard-screen-reader",
+    "responsive-layouts",
+    "critical-workflows",
+    "production-deployment",
+    "documentation-accurate",
+    "no-release-blockers"
+  ],
+  "staleEvidence": [],
+  "blockers": [
+    {
+      "id": "scope-document-missing",
+      "origin": "registry",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "scope",
+      "description": "No release scope document in the repository (equipment showcase and final QA are owner-reported leads)."
+    },
+    {
+      "id": "auto-critical-workflows-unverified",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "workflow",
+      "description": "Critical workflows are not independently verified (critical-workflows)."
+    },
+    {
+      "id": "auto-missing-verification",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "evidence",
+      "description": "8 applicable pre-publication gate(s) lack current independent verification."
+    },
+    {
+      "id": "auto-owner-approval",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "approval",
+      "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
+    },
+    {
+      "id": "auto-ownership",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "evidence",
+      "description": "Independent verification impossible: builder and independent verifier are not both assigned."
+    }
+  ],
+  "blockersBySeverity": {
+    "critical": 0,
+    "high": 1,
+    "medium": 0,
+    "low": 0,
+    "unclassified": 5
+  },
+  "mergeEligible": false,
+  "releaseEligible": false,
+  "lastVerification": null,
+  "lastCollection": "2026-10-27T01:00:27Z",
+  "nextAction": "Fix dependency-audit at 175cef6: dependency audit: critical 0, high 2, moderate 0, low 0, info 0.",
+  "findings": [
+    {
+      "id": "one-small-studio:accessibility:175cef6",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "collector": "accessibility",
+      "evidenceId": "ev-one-small-studio-accessibility-175cef6-363512db",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "releaseImpact": "blocks verification of wcag-22-aa",
+      "title": "accessibility: 1 of 3 check(s) passed; 2 not run or inconclusive",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-studio --collector accessibility --execute",
+      "rootCause": null,
+      "failureReason": "not run or inconclusive: automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
+      "proposedFix": null,
+      "acceptance": "The accessibility collector reports pass at the new commit, and the verifier records it for wcag-22-aa.",
+      "verification": [
+        "wcag-22-aa: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-studio:ci-results:175cef6",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "collector": "ci-results",
+      "evidenceId": "ev-one-small-studio-ci-results-175cef6-f298f2b3",
+      "kind": "access",
+      "severity": "unclassified",
+      "gates": [
+        "automated-checks"
+      ],
+      "releaseImpact": "blocks verification of automated-checks",
+      "title": "CI results: not readable",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-studio --collector ci-results --execute",
+      "rootCause": null,
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "proposedFix": null,
+      "acceptance": "The ci-results collector reports pass at the new commit, and the verifier records it for automated-checks.",
+      "verification": [
+        "automated-checks: re-executed by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-studio:dependency-audit:175cef6",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "collector": "dependency-audit",
+      "evidenceId": "ev-one-small-studio-dependency-audit-175cef6-fd8b01aa",
+      "kind": "defect",
+      "severity": "high",
+      "gates": [
+        "security-privacy-review"
+      ],
+      "releaseImpact": "blocks verification of security-privacy-review",
+      "title": "dependency audit: critical 0, high 2, moderate 0, low 0, info 0",
+      "reproduction": "npm audit --json --package-lock-only (at 175cef6)",
+      "rootCause": "npm audit: critical 0, high 2, moderate 0, low 0, info 0 across 443 packages",
+      "failureReason": "critical or high advisories: body-parser, zod",
+      "proposedFix": null,
+      "acceptance": "The dependency-audit collector reports pass at the new commit, and the verifier records it for security-privacy-review.",
+      "verification": [
+        "security-privacy-review: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-studio:deployment-health:175cef6",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "collector": "deployment-health",
+      "evidenceId": "ev-one-small-studio-deployment-health-175cef6-f5e271b7",
+      "kind": "access",
+      "severity": "unclassified",
+      "gates": [
+        "production-deployment"
+      ],
+      "releaseImpact": "blocks verification of production-deployment",
+      "title": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-studio --collector deployment-health --execute",
+      "rootCause": null,
+      "failureReason": "could not reach https://one-small-studio.vercel.app from this runner",
+      "proposedFix": null,
+      "acceptance": "The deployment-health collector reports pass at the new commit, and the verifier records it for production-deployment.",
+      "verification": [
+        "production-deployment: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-studio:documentation:175cef6",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "collector": "documentation",
+      "evidenceId": "ev-one-small-studio-documentation-175cef6-4ba9575d",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [
+        "documentation-accurate"
+      ],
+      "releaseImpact": "blocks verification of documentation-accurate",
+      "title": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-studio --collector documentation --execute",
+      "rootCause": null,
+      "failureReason": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "proposedFix": null,
+      "acceptance": "The documentation collector reports pass at the new commit, and the verifier records it for documentation-accurate.",
+      "verification": [
+        "documentation-accurate: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-studio:repo-structure:175cef6",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "collector": "repo-structure",
+      "evidenceId": "ev-one-small-studio-repo-structure-175cef6-d86527ca",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [],
+      "releaseImpact": "context only; no gate depends on it",
+      "title": "repository structure: 4 of 5 check(s) passed; 1 not run or inconclusive",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-studio --collector repo-structure --execute",
+      "rootCause": null,
+      "failureReason": "not run or inconclusive: license (absent)",
+      "proposedFix": null,
+      "acceptance": "The repo-structure collector reports pass.",
+      "verification": []
+    }
+  ],
+  "verifications": [],
+  "relatedPullRequests": [],
+  "remediation": [
+    {
+      "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/16",
+      "status": "draft PR: dependency advisories"
+    }
+  ],
+  "verificationRequests": [
+    {
+      "gate": "scope-complete",
+      "automation": "none",
+      "humanOnly": true,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "automated-checks",
+      "automation": "full",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-studio-build-test-175cef6-294dde20",
+          "digest": "caa87ec0dd58ebaf54e6529134472bd20ecd4e66373076331584924303374124",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
+          "id": "ev-one-small-studio-build-test-175cef6-b269e3ac",
+          "digest": "bd3aeb36f44753fc8ec589fb342d768dcd2e1579609d927ce1a2a2b8cf061fed",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
+          "id": "ev-one-small-studio-ci-results-175cef6-c73120b6",
+          "digest": "6b80fac7bc3b3012d3e236e6c109884aa031a467ed1eec693351c8004076c52d",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-studio-ci-results-175cef6-f298f2b3",
+          "digest": "7eed04f5ef59c7e9b6bbc289a6d256eaaf83bb9a7e1c9a1c3acef00ff4f56eab",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-studio-lint-format-types-175cef6-90de18f0",
+          "digest": "98a7fc12005e4f1fdc3b6d04d35a58f3a783fae0caa36a331e8f8318b5887336",
+          "collector": "lint-format-types",
+          "result": "pass"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "re-executed",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "security-privacy-review",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-studio-dependency-audit-175cef6-fd8b01aa",
+          "digest": "f37df86536baf16179f3bf8980d4852bccf1e25f6d937792787eb4e5408a03a8",
+          "collector": "dependency-audit",
+          "result": "fail"
+        },
+        {
+          "id": "ev-one-small-studio-secret-scan-175cef6-7a3a0299",
+          "digest": "516803fa0522dcc6d495b96b3d629f473a6f5791107cf5dad1b58ffc139e92b5",
+          "collector": "secret-scan",
+          "result": "pass"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "wcag-22-aa",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-studio-accessibility-175cef6-363512db",
+          "digest": "108be59aa6cbce7a7d0fb4b8e0039c32bb808a732c4912e6b0e0c2e6d006a709",
+          "collector": "accessibility",
+          "result": "inconclusive"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "keyboard-screen-reader",
+      "automation": "none",
+      "humanOnly": true,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "responsive-layouts",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "critical-workflows",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-studio-build-test-175cef6-294dde20",
+          "digest": "caa87ec0dd58ebaf54e6529134472bd20ecd4e66373076331584924303374124",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
+          "id": "ev-one-small-studio-build-test-175cef6-b269e3ac",
+          "digest": "bd3aeb36f44753fc8ec589fb342d768dcd2e1579609d927ce1a2a2b8cf061fed",
+          "collector": "build-test",
+          "result": "pass"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "production-deployment",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-studio-deployment-health-175cef6-8d0ebc02",
+          "digest": "d756d8d0e6e67a2b081f16e6912ef5f6ec7cc06a320f3b689aad6bb362e07da8",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-studio-deployment-health-175cef6-f5e271b7",
+          "digest": "84250f6a84b0aca48465b9fd737f1100f3eb831b683ec103fd11d8ed09a05b85",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "documentation-accurate",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-studio-documentation-175cef6-4ba9575d",
+          "digest": "441378ae7ff5c85f2dbee6d45e448773096c4b5b25141e730598e363b7d5e8ea",
+          "collector": "documentation",
+          "result": "inconclusive"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "no-release-blockers",
+      "automation": "none",
+      "humanOnly": true,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    }
+  ]
+}

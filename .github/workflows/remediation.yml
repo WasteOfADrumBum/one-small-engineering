@@ -1,0 +1,55 @@
+name: Remediation PR (manual, gated)
+
+# Opens ONE draft remediation PR in a project repository from a reviewed plan file committed to
+# this repository (docs/verification.md#remediation). Off by default. It writes only when all of
+# these hold:
+#   - a person starts it by hand (there is no schedule and no other trigger),
+#   - it runs from main, so the code holding the token is code the owner merged,
+#   - the repository variable REMEDIATION_WRITE_ENABLED is 'true',
+#   - the confirm input is typed exactly, and
+#   - the REMEDIATION_TOKEN secret is a fine-grained token scoped to the target repository with
+#     contents and pull-requests write only.
+# The code refuses merges, approvals, deletions, existing branches, protected refs and workflow
+# files whatever the plan says (scripts/verify/remediation.mjs).
+on:
+  workflow_dispatch:
+    inputs:
+      plan:
+        description: 'Path of the reviewed plan JSON in this repository (verification/remediation/<name>.json)'
+        required: true
+      repository:
+        description: 'Target repository URL (must match the plan)'
+        required: true
+      confirm:
+        description: 'Type: create one draft remediation PR'
+        required: true
+
+permissions: {}
+
+concurrency:
+  group: remediation
+  cancel-in-progress: false
+
+jobs:
+  open-draft-pr:
+    if: github.ref == 'refs/heads/main' && vars.REMEDIATION_WRITE_ENABLED == 'true' && inputs.confirm == 'create one draft remediation PR'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Open the draft PR
+        env:
+          REMEDIATION_TOKEN: ${{ secrets.REMEDIATION_TOKEN }}
+          REMEDIATION_WRITE_ENABLED: ${{ vars.REMEDIATION_WRITE_ENABLED }}
+          PLAN: ${{ inputs.plan }}
+          TARGET: ${{ inputs.repository }}
+        run: |
+          case "$PLAN" in *..*) echo "plan path must not contain .."; exit 1 ;; verification/remediation/*.json) ;; *) echo "plan must be under verification/remediation/"; exit 1 ;; esac
+          node scripts/verify/cli.mjs remediate --plan "$PLAN" --repository "$TARGET" --confirm

@@ -1,0 +1,674 @@
+{
+  "kind": "one-small-engineering/verification-project",
+  "asOf": "2026-10-27T01:05:00Z",
+  "id": "one-small-photography",
+  "name": "One Small Photography",
+  "tier": "showcase",
+  "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+  "target": {
+    "sha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+    "source": "live head of main",
+    "liveSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+    "drift": "registry snapshot is 2471b18; live head is 45a74ba (registry sync refreshes it)"
+  },
+  "readiness": {
+    "percentage": 0,
+    "previousPercentage": 0,
+    "applicableGates": 10,
+    "verifiedGates": 0,
+    "eligibility": "not-scoped",
+    "ownershipValid": false
+  },
+  "gateStates": {
+    "independently_verified": 0,
+    "passed_by_builder": 2,
+    "failed": 0,
+    "inconclusive": 4,
+    "not_tested": 4,
+    "not_applicable": 0
+  },
+  "gates": [
+    {
+      "id": "scope-complete",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": true,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "automated-checks",
+      "state": "passed_by_builder",
+      "engineState": "in_progress",
+      "applicable": true,
+      "automation": "full",
+      "manualReviewRequired": false,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-photography-build-test-45a74ba-1883a99f",
+          "collector": "build-test",
+          "result": "pass",
+          "executedAt": "2026-10-27T01:01:14Z",
+          "summary": "build and test: 2 check(s) passed"
+        },
+        {
+          "id": "ev-one-small-photography-ci-results-45a74ba-32fcc3c6",
+          "collector": "ci-results",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T01:01:14Z",
+          "summary": "CI results: not readable"
+        },
+        {
+          "id": "ev-one-small-photography-lint-format-types-45a74ba-e909ffaa",
+          "collector": "lint-format-types",
+          "result": "pass",
+          "executedAt": "2026-10-27T00:51:42Z",
+          "summary": "lint, format and types: 3 check(s) passed"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: Latest default-branch CI passed at 2471b18. The target release scope is not frozen, so this does not verify the release; re-run on the release candidate"
+      ],
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+    },
+    {
+      "id": "security-privacy-review",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-photography-dependency-audit-45a74ba-c75a1f11",
+          "collector": "dependency-audit",
+          "result": "pass",
+          "executedAt": "2026-10-27T00:51:44Z",
+          "summary": "dependency audit: critical 0, high 0, moderate 4, low 0, info 0"
+        },
+        {
+          "id": "ev-one-small-photography-secret-scan-45a74ba-38ccfe10",
+          "collector": "secret-scan",
+          "result": "inconclusive",
+          "executedAt": "2026-10-27T00:51:44Z",
+          "summary": "secret scan: 2 of 3 check(s) passed; 1 not run or inconclusive"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "wcag-22-aa",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-photography-accessibility-45a74ba-933f23e4",
+          "collector": "accessibility",
+          "result": "inconclusive",
+          "executedAt": "2026-10-27T00:51:44Z",
+          "summary": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "keyboard-screen-reader",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": true,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "responsive-layouts",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "critical-workflows",
+      "state": "passed_by_builder",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-photography-build-test-45a74ba-1883a99f",
+          "collector": "build-test",
+          "result": "pass",
+          "executedAt": "2026-10-27T01:01:14Z",
+          "summary": "build and test: 2 check(s) passed"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "production-deployment",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-photography-deployment-health-45a74ba-a51e90f7",
+          "collector": "deployment-health",
+          "result": "unavailable",
+          "executedAt": "2026-10-27T01:01:14Z",
+          "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+    },
+    {
+      "id": "documentation-accurate",
+      "state": "inconclusive",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "partial",
+      "manualReviewRequired": true,
+      "humanOnly": false,
+      "collectorEvidence": [
+        {
+          "id": "ev-one-small-photography-documentation-45a74ba-34cb2a4c",
+          "collector": "documentation",
+          "result": "inconclusive",
+          "executedAt": "2026-10-27T00:51:44Z",
+          "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive"
+        }
+      ],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    },
+    {
+      "id": "no-release-blockers",
+      "state": "not_tested",
+      "engineState": "not_started",
+      "applicable": true,
+      "automation": "none",
+      "manualReviewRequired": true,
+      "humanOnly": true,
+      "collectorEvidence": [],
+      "staleEvidence": [],
+      "verifications": [],
+      "missingVerification": true,
+      "missing": [
+        "builder and independent verifier are not both assigned",
+        "evidence for this gate"
+      ],
+      "nextAction": "Produce evidence for this gate."
+    }
+  ],
+  "missingVerification": [
+    "scope-complete",
+    "automated-checks",
+    "security-privacy-review",
+    "wcag-22-aa",
+    "keyboard-screen-reader",
+    "responsive-layouts",
+    "critical-workflows",
+    "production-deployment",
+    "documentation-accurate",
+    "no-release-blockers"
+  ],
+  "staleEvidence": [],
+  "blockers": [
+    {
+      "id": "scope-document-missing",
+      "origin": "registry",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "scope",
+      "description": "No release scope document. README lists Neon Postgres and Backblaze B2 photo storage as \"next phase\"; the owner must decide whether they are in the first release scope."
+    },
+    {
+      "id": "auto-critical-workflows-unverified",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "workflow",
+      "description": "Critical workflows are not independently verified (critical-workflows)."
+    },
+    {
+      "id": "auto-missing-verification",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "evidence",
+      "description": "8 applicable pre-publication gate(s) lack current independent verification."
+    },
+    {
+      "id": "auto-owner-approval",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "approval",
+      "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
+    },
+    {
+      "id": "auto-ownership",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "evidence",
+      "description": "Independent verification impossible: builder and independent verifier are not both assigned."
+    }
+  ],
+  "blockersBySeverity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "unclassified": 5
+  },
+  "mergeEligible": false,
+  "releaseEligible": false,
+  "lastVerification": null,
+  "lastCollection": "2026-10-27T01:01:14Z",
+  "nextAction": "Resolve blocker scope-document-missing.",
+  "findings": [
+    {
+      "id": "one-small-photography:accessibility:45a74ba",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "collector": "accessibility",
+      "evidenceId": "ev-one-small-photography-accessibility-45a74ba-933f23e4",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "releaseImpact": "blocks verification of wcag-22-aa",
+      "title": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-photography --collector accessibility --execute",
+      "rootCause": null,
+      "failureReason": "not run or inconclusive: automated accessibility tooling (none declared in package.json); automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
+      "proposedFix": null,
+      "acceptance": "The accessibility collector reports pass at the new commit, and the verifier records it for wcag-22-aa.",
+      "verification": [
+        "wcag-22-aa: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-photography:ci-results:45a74ba",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "collector": "ci-results",
+      "evidenceId": "ev-one-small-photography-ci-results-45a74ba-32fcc3c6",
+      "kind": "access",
+      "severity": "unclassified",
+      "gates": [
+        "automated-checks"
+      ],
+      "releaseImpact": "blocks verification of automated-checks",
+      "title": "CI results: not readable",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-photography --collector ci-results --execute",
+      "rootCause": null,
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "proposedFix": null,
+      "acceptance": "The ci-results collector reports pass at the new commit, and the verifier records it for automated-checks.",
+      "verification": [
+        "automated-checks: re-executed by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-photography:deployment-health:45a74ba",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "collector": "deployment-health",
+      "evidenceId": "ev-one-small-photography-deployment-health-45a74ba-a51e90f7",
+      "kind": "access",
+      "severity": "unclassified",
+      "gates": [
+        "production-deployment"
+      ],
+      "releaseImpact": "blocks verification of production-deployment",
+      "title": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-photography --collector deployment-health --execute",
+      "rootCause": null,
+      "failureReason": "could not reach https://one-small-photography.vercel.app from this runner",
+      "proposedFix": null,
+      "acceptance": "The deployment-health collector reports pass at the new commit, and the verifier records it for production-deployment.",
+      "verification": [
+        "production-deployment: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-photography:documentation:45a74ba",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "collector": "documentation",
+      "evidenceId": "ev-one-small-photography-documentation-45a74ba-34cb2a4c",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [
+        "documentation-accurate"
+      ],
+      "releaseImpact": "blocks verification of documentation-accurate",
+      "title": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-photography --collector documentation --execute",
+      "rootCause": null,
+      "failureReason": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "proposedFix": null,
+      "acceptance": "The documentation collector reports pass at the new commit, and the verifier records it for documentation-accurate.",
+      "verification": [
+        "documentation-accurate: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-photography:repo-structure:45a74ba",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "collector": "repo-structure",
+      "evidenceId": "ev-one-small-photography-repo-structure-45a74ba-2c295a50",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [],
+      "releaseImpact": "context only; no gate depends on it",
+      "title": "repository structure: 4 of 5 check(s) passed; 1 not run or inconclusive",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-photography --collector repo-structure --execute",
+      "rootCause": null,
+      "failureReason": "not run or inconclusive: license (absent)",
+      "proposedFix": null,
+      "acceptance": "The repo-structure collector reports pass.",
+      "verification": []
+    },
+    {
+      "id": "one-small-photography:secret-scan:45a74ba",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "collector": "secret-scan",
+      "evidenceId": "ev-one-small-photography-secret-scan-45a74ba-38ccfe10",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [
+        "security-privacy-review"
+      ],
+      "releaseImpact": "blocks verification of security-privacy-review",
+      "title": "secret scan: 2 of 3 check(s) passed; 1 not run or inconclusive",
+      "reproduction": "node scripts/verify/cli.mjs collect --project <id> --collector secret-scan",
+      "rootCause": null,
+      "failureReason": "not run or inconclusive: credential-shaped values in tests and docs (needs human review (often deliberate fixtures): .github/workflows/ci.yml:42 (credentials in URL))",
+      "proposedFix": null,
+      "acceptance": "The secret-scan collector reports pass at the new commit, and the verifier records it for security-privacy-review.",
+      "verification": [
+        "security-privacy-review: manual review by the verifier"
+      ]
+    }
+  ],
+  "verifications": [],
+  "relatedPullRequests": [],
+  "remediation": [],
+  "verificationRequests": [
+    {
+      "gate": "scope-complete",
+      "automation": "none",
+      "humanOnly": true,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "automated-checks",
+      "automation": "full",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-photography-build-test-45a74ba-1883a99f",
+          "digest": "82b144204292aa5d9c4f6cda5bbb78ab68242360ea748978fecfdc53c6d253df",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
+          "id": "ev-one-small-photography-build-test-45a74ba-469ea48f",
+          "digest": "431c9dfdc7f71549d18d635ea2bd9b79bd8307a40d7e35e59f33d52ceb435123",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
+          "id": "ev-one-small-photography-ci-results-45a74ba-001ddf5f",
+          "digest": "b718feddb87143c832e8c279d90692a0dff63e6b6f8d571168a6f3130f5329c3",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-photography-ci-results-45a74ba-32fcc3c6",
+          "digest": "381e54d993bafc4ef779ae3e957f9fed21e48b66d3824dcb7cceedfc8e45e368",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-photography-lint-format-types-45a74ba-e909ffaa",
+          "digest": "957202957f2ca063b57e5615cf62e33b436952fb8ddfc2fd5f4f622baae54a9e",
+          "collector": "lint-format-types",
+          "result": "pass"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "re-executed",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "security-privacy-review",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-photography-dependency-audit-45a74ba-c75a1f11",
+          "digest": "e46ae7094250d0cf4e224ce2dfd0fe656f58d9102dd49cc3f15b7842b5303d7b",
+          "collector": "dependency-audit",
+          "result": "pass"
+        },
+        {
+          "id": "ev-one-small-photography-secret-scan-45a74ba-38ccfe10",
+          "digest": "97198cd0d1aa6157b5bb3856aeb3e379602ac36ac7bf9942b67a408e284554e4",
+          "collector": "secret-scan",
+          "result": "inconclusive"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "wcag-22-aa",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-photography-accessibility-45a74ba-933f23e4",
+          "digest": "0b5eb6809de91323863990296f9f0a9e57356fcb38fd43aa5a0e164dbd530ddd",
+          "collector": "accessibility",
+          "result": "inconclusive"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "keyboard-screen-reader",
+      "automation": "none",
+      "humanOnly": true,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "responsive-layouts",
+      "automation": "none",
+      "humanOnly": false,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "critical-workflows",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-photography-build-test-45a74ba-1883a99f",
+          "digest": "82b144204292aa5d9c4f6cda5bbb78ab68242360ea748978fecfdc53c6d253df",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
+          "id": "ev-one-small-photography-build-test-45a74ba-469ea48f",
+          "digest": "431c9dfdc7f71549d18d635ea2bd9b79bd8307a40d7e35e59f33d52ceb435123",
+          "collector": "build-test",
+          "result": "pass"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "production-deployment",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-photography-deployment-health-45a74ba-75c80d8d",
+          "digest": "eda815b27e4cb74bf3ff62585af361a1eb432eab0139691829fa083f21cdd210",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-photography-deployment-health-45a74ba-a51e90f7",
+          "digest": "740b64b29458dc2fa27c4b286bbb1470694df9cbd9bf730a552a198f3d71eab4",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "documentation-accurate",
+      "automation": "partial",
+      "humanOnly": false,
+      "evidence": [
+        {
+          "id": "ev-one-small-photography-documentation-45a74ba-34cb2a4c",
+          "digest": "29d748658add0423c2b33720457e7d4bbbaf2501aa33f562b4e1d4012def6c97",
+          "collector": "documentation",
+          "result": "inconclusive"
+        }
+      ],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    },
+    {
+      "gate": "no-release-blockers",
+      "automation": "none",
+      "humanOnly": true,
+      "evidence": [],
+      "missingCollectors": [],
+      "method": "manual-test",
+      "routedTo": null,
+      "status": "blocked: no independent verifier assigned in the registry"
+    }
+  ]
+}

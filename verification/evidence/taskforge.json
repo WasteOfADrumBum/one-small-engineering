@@ -1,0 +1,668 @@
+{
+  "project": "taskforge",
+  "evidence": [
+    {
+      "schema": 1,
+      "id": "ev-taskforge-build-test-11975d0-d17e1159",
+      "project": "taskforge",
+      "gates": [
+        "automated-checks",
+        "critical-workflows",
+        "e2e-critical-workflows"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "ref": null,
+      "collector": {
+        "name": "build-test",
+        "version": "1.1.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "4574600667e01152",
+      "execute": true,
+      "executedAt": "2026-10-27T01:03:51Z",
+      "result": "pass",
+      "summary": "build and test: 2 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "build",
+          "result": "pass",
+          "detail": "[1] \u001b[32mESM\u001b[39m \u001b[1mdist/server/server.js \u001b[22m\u001b[32m166.98 KB\u001b[39m\n[1] \u001b[32mESM\u001b[39m ⚡️ Build success in 72ms\n[1] npm --workspace server run build exited with code 0"
+        },
+        {
+          "name": "test",
+          "result": "pass",
+          "detail": "> npm --workspace server run test\n> server@1.0.0 test\n> jest"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": "git clone https://github.com/WasteOfADrumBum/TaskForge && git -C <dir> checkout 11975d0278c7f04db5033c0461295c734e3b4134 && npm ci --ignore-scripts && npm run build && npm test",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:03:51Z"
+      },
+      "digest": "29327708b9dcadebe90ec5123be359eb28ce9735081a45de06464b919fbf7b87"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-ci-results-11975d0-6ee2dff9",
+      "project": "taskforge",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "26a2443a0af09a55",
+      "execute": true,
+      "executedAt": "2026-10-27T01:03:51Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:03:51Z"
+      },
+      "digest": "3d7dbc29cf8d6d51ee38a7e291f3e2f3bbaf033993aa167b9695a8beba35a211"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-deployment-health-11975d0-6024ae7e",
+      "project": "taskforge",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "41dc671ad98c0109",
+      "execute": true,
+      "executedAt": "2026-10-27T01:03:51Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://taskforge-alpha-six.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "render.yaml"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://taskforge-alpha-six.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-28T01:03:51Z"
+      },
+      "digest": "f7487541fda0bfab6030af1d3cc5fd68b930b1c621fc4336e3b9db0587da5cf4"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-accessibility-11975d0-5d28a392",
+      "project": "taskforge",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "ref": null,
+      "collector": {
+        "name": "accessibility",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "d1cc8e08bb4c2b9d",
+      "execute": true,
+      "executedAt": "2026-10-27T00:56:02Z",
+      "result": "inconclusive",
+      "summary": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive",
+      "failureReason": "not run or inconclusive: automated accessibility tooling (none declared in package.json); automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
+      "checks": [
+        {
+          "name": "automated accessibility tooling",
+          "result": "inconclusive",
+          "detail": "none declared in package.json"
+        },
+        {
+          "name": "automated accessibility run",
+          "result": "not_run",
+          "detail": "no automated accessibility command is configured for this project"
+        },
+        {
+          "name": "manual review",
+          "result": "not_run",
+          "detail": "Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA."
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:56:02Z"
+      },
+      "digest": "42ccb097e51ecae3fd774c59ad7b259b5be07728190c08f4034e7062a75501e1"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-deployment-health-11975d0-bc460bf9",
+      "project": "taskforge",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "41dc671ad98c0109",
+      "execute": true,
+      "executedAt": "2026-10-27T00:56:02Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://taskforge-alpha-six.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "render.yaml"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://taskforge-alpha-six.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-28T00:56:02Z"
+      },
+      "digest": "311dc5b5e2e5c4d5090fb8e83a7a9bf60ec7cd81bc66d183e831032fd8dd865f"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-documentation-11975d0-132d686c",
+      "project": "taskforge",
+      "gates": [
+        "documentation-accurate",
+        "public-docs-accurate",
+        "upgrade-rollback-uninstall-docs"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "ref": null,
+      "collector": {
+        "name": "documentation",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "44808e15649eae5c",
+      "execute": true,
+      "executedAt": "2026-10-27T00:56:02Z",
+      "result": "inconclusive",
+      "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "checks": [
+        {
+          "name": "README",
+          "result": "pass",
+          "detail": "220 lines"
+        },
+        {
+          "name": "README install or usage section",
+          "result": "pass",
+          "detail": "heading naming install, usage, setup or getting started"
+        },
+        {
+          "name": "relative links resolve",
+          "result": "pass",
+          "detail": "49 Markdown file(s)"
+        },
+        {
+          "name": "accuracy against behaviour",
+          "result": "not_run",
+          "detail": "whether the documentation matches the product is a manual review"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:56:02Z"
+      },
+      "digest": "a3af3ce638114e300408148c1fd0926f76e656da6eaaf4d21991bf353dfacd4e"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-secret-scan-11975d0-8442003a",
+      "project": "taskforge",
+      "gates": [
+        "security-privacy-review",
+        "sensitive-data-handling"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "ref": null,
+      "collector": {
+        "name": "secret-scan",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "43e9b902da89d5d1",
+      "execute": true,
+      "executedAt": "2026-10-27T00:56:02Z",
+      "result": "inconclusive",
+      "summary": "secret scan: 2 of 3 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "not run or inconclusive: credential-shaped values in tests and docs (needs human review (often deliberate fixtures): server/src/ai/ollama.test.ts:111 (credentials in URL); server/src/app.test.ts:62 (credentials in URL))",
+      "checks": [
+        {
+          "name": "credential patterns outside tests and docs",
+          "result": "pass",
+          "detail": "439 files scanned"
+        },
+        {
+          "name": "committed .env files with sensitive keys",
+          "result": "pass",
+          "detail": "none; committed without sensitive keys (names only checked): client/.env.test"
+        },
+        {
+          "name": "credential-shaped values in tests and docs",
+          "result": "inconclusive",
+          "detail": "needs human review (often deliberate fixtures): server/src/ai/ollama.test.ts:111 (credentials in URL); server/src/app.test.ts:62 (credentials in URL)"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "secret-scan-locations",
+          "sha256": "d9412630a1661bcfc9242c00dbca430c37a6b4e74460a1266a112e790c8cc13e",
+          "ref": "3 location(s), values withheld"
+        }
+      ],
+      "reproduce": "node scripts/verify/cli.mjs collect --project <id> --collector secret-scan",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:56:02Z"
+      },
+      "digest": "b4edc975b11c7d8e235cd658d34f3627c2f067892ac93c081154bdd5270001cc"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-dependency-audit-11975d0-930082be",
+      "project": "taskforge",
+      "gates": [
+        "security-privacy-review",
+        "supply-chain-review"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "ref": null,
+      "collector": {
+        "name": "dependency-audit",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "16496e818eafe1c3",
+      "execute": true,
+      "executedAt": "2026-10-27T00:56:01Z",
+      "result": "fail",
+      "summary": "dependency audit: critical 0, high 4, moderate 3, low 0, info 0",
+      "failureReason": "critical or high advisories: body-parser, undici, vite, zod",
+      "checks": [
+        {
+          "name": "npm audit",
+          "result": "fail",
+          "detail": "critical 0, high 4, moderate 3, low 0, info 0 across 1101 packages"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "npm-audit.json",
+          "sha256": "450cebed17d284008ef3c3320b9331d76addd3f7e47a024284e85d27cc771f6d",
+          "ref": null
+        }
+      ],
+      "reproduce": "npm audit --json --package-lock-only (at 11975d0)",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T00:56:01Z"
+      },
+      "digest": "a9a9b3bc1831cf135a1825c0eb5b6b6d7f1f0fcbab90fa921ef532ff9befa916"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-ci-results-11975d0-dec5234f",
+      "project": "taskforge",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "26a2443a0af09a55",
+      "execute": true,
+      "executedAt": "2026-10-27T00:56:00Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T00:56:00Z"
+      },
+      "digest": "fafe544a979122e813e250515a6826ae8718bf5d2a89c0d38b92683fea96cbd1"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-lint-format-types-11975d0-bd0a2724",
+      "project": "taskforge",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "ref": null,
+      "collector": {
+        "name": "lint-format-types",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "b370d9e4f67ded25",
+      "execute": true,
+      "executedAt": "2026-10-27T00:55:59Z",
+      "result": "pass",
+      "summary": "lint, format and types: 3 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "lint",
+          "result": "pass",
+          "detail": "> eslint src\n> server@1.0.0 lint\n> eslint src integration jest.integration.config.ts"
+        },
+        {
+          "name": "typecheck",
+          "result": "pass",
+          "detail": "> npm run typecheck --workspace client && tsc --noEmit -p tsconfig.qa.json\n> client@0.1.0 typecheck\n> tsc --noEmit"
+        },
+        {
+          "name": "format:check",
+          "result": "pass",
+          "detail": "> prettier --check .\nChecking formatting...\nAll matched files use Prettier code style!"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": "git clone https://github.com/WasteOfADrumBum/TaskForge && git -C <dir> checkout 11975d0278c7f04db5033c0461295c734e3b4134 && npm ci --ignore-scripts && npm run lint && npm run typecheck && npm run format:check",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:55:59Z"
+      },
+      "digest": "a19b8ad8ebc7e6c7075dd27c959e355fa5c9eafe9afd4a84b26f759d387ac087"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-build-test-11975d0-e8803dfb",
+      "project": "taskforge",
+      "gates": [
+        "automated-checks",
+        "critical-workflows",
+        "e2e-critical-workflows"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "ref": null,
+      "collector": {
+        "name": "build-test",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "bd108e99a99cfee2",
+      "execute": true,
+      "executedAt": "2026-10-27T00:55:14Z",
+      "result": "fail",
+      "summary": "build and test: 1 of 2 check(s) failed",
+      "failureReason": "failed: test",
+      "checks": [
+        {
+          "name": "build",
+          "result": "pass",
+          "detail": "[1] \u001b[32mESM\u001b[39m \u001b[1mdist/server/server.js \u001b[22m\u001b[32m166.98 KB\u001b[39m\n[1] \u001b[32mESM\u001b[39m ⚡️ Build success in 138ms\n[1] npm --workspace server run build exited with code 0"
+        },
+        {
+          "name": "test",
+          "result": "fail",
+          "detail": "exit 1: npm error workspace client@0.1.0\nnpm error location /tmp/claude-0/-home-user-one-small-engineering/bd426181-39a5-53fd-a3f1-fd2567601714/scratchpad/work/taskforge/client\nnpm error command failed\nnpm error command sh -c vitest run"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": "git clone https://github.com/WasteOfADrumBum/TaskForge && git -C <dir> checkout 11975d0278c7f04db5033c0461295c734e3b4134 && npm ci --ignore-scripts && npm run build && npm test",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:55:14Z"
+      },
+      "digest": "dd105da118a815152d36cbad738cd521b1aad705de6184ae15b9dec5f8864018"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-repo-structure-11975d0-bc93d2c0",
+      "project": "taskforge",
+      "gates": [],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "ref": null,
+      "collector": {
+        "name": "repo-structure",
+        "version": "1.0.0"
+      },
+      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
+      "cacheKey": "7c267a3122155ef1",
+      "execute": true,
+      "executedAt": "2026-10-27T00:51:45Z",
+      "result": "pass",
+      "summary": "repository structure: 5 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "package.json",
+          "result": "pass",
+          "detail": "taskforge@(no version) (private)"
+        },
+        {
+          "name": "lockfile",
+          "result": "pass",
+          "detail": "package-lock.json"
+        },
+        {
+          "name": "readme",
+          "result": "pass",
+          "detail": "README.md"
+        },
+        {
+          "name": "license",
+          "result": "pass",
+          "detail": "present"
+        },
+        {
+          "name": "workflows",
+          "result": "pass",
+          "detail": "ci.yml"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "file-list",
+          "sha256": "460ac003ceb9822fc488b190ad7a35ca0048754e31cbce12611513556dc04116",
+          "ref": "462 files"
+        }
+      ],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T00:51:45Z"
+      },
+      "digest": "89a065a143ed15bc7860150408fd49468ee6c881f14f1e321196afcf2b50fb86"
+    }
+  ]
+}
