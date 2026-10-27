@@ -45,7 +45,7 @@ Nothing is needed to observe public projects: the workflow's own read-only `GITH
 | Credential | Where | Scope | Needed for |
 | --- | --- | --- | --- |
 | `GITHUB_TOKEN` | automatic | `contents`, `actions`, `checks`, `pull-requests`: read | CI results, PR status, sync drift on public repositories |
-| `SYNC_READER_TOKEN` | repository secret (optional) | fine-grained, `contents: read` + `metadata: read` on **one-small-ai-workforce only** | Monitoring the private AI Workforce repository. Without it that project is reported as not readable, never as empty |
+| `SYNC_READER_TOKEN` | repository secret (optional) | fine-grained, `contents: read` + `metadata: read` on **one-small-ai-workforce only** | Monitoring the private AI Workforce repository. Without it that project is reported as not readable, never as empty. Only the observe job gets it, and only git (as an HTTP header, never in a URL or `.git/config`) and the GET-only API client use it. A run that executes project code never gets it, so AI Workforce builds and tests do not run in CI |
 | `REMEDIATION_TOKEN` + variable `REMEDIATION_WRITE_ENABLED=true` | repository secret + variable (optional) | fine-grained, `contents: write` + `pull-requests: write` on the one target repository | Opening one draft remediation PR from `remediation.yml`. Leave unset to keep writes off |
 
 Project repositories need nothing. No credential is ever passed to project code: project commands run with an allowlisted environment ([`exec.mjs`](../scripts/verify/exec.mjs)), and the job that runs them holds no secret and no API token.
@@ -128,7 +128,8 @@ Issue ids carry no commit (`project:source:key`), so the same problem keeps its 
 | --- | --- | --- |
 | `another orchestrator run holds engineering/.lock` | A local run is active, or one crashed | Wait; a lock older than three hours is replaced automatically, or delete the file if no run is active |
 | `engineering/state.json is not valid JSON` / `is invalid` | Hand edit or bad merge | `git checkout -- engineering/state.json`, or delete it: the next run rebuilds it (first-seen dates restart) |
-| AI Workforce "not readable" | No reader credential | Add `SYNC_READER_TOKEN`, or take the project out of monitoring by owner decision |
+| AI Workforce "not readable" | No reader credential, or the token does not cover that repository | Add `SYNC_READER_TOKEN` with access to one-small-ai-workforce, or take the project out of monitoring by owner decision |
+| Registry sync `identity-unpinned` for AI Workforce | The registry has no repository id for it | `GITHUB_TOKEN=<reader token> npm run onboard -- one-small-ai-workforce` in a hub PR (docs/sync-setup.md) |
 | ci-results, PR status or sync drift "unavailable" | GitHub API not reachable from that machine, or rate-limited | Run in Actions; statuses from the last successful read are kept and labelled |
 | build-test "inconclusive: below the engines floor" | Runner Node older than the project needs | Run with the Node version the project declares (the workflow uses Node 24) |
 | `report --check` fails | Reports edited, or inputs changed without regenerating | `npm run engineering:report -- --as-of <time in the message>` |

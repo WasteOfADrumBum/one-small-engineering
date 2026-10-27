@@ -1,7 +1,7 @@
 // Getting a read-only checkout of a project at an exact commit, and reading files from it.
 //
 // Public repositories are fetched anonymously over HTTPS. A private repository needs a reader
-// credential; without one the checkout is reported `unavailable` with the reason, never treated
+// credential (withGitReader); without one the checkout is reported `unavailable` with the reason, never treated
 // as empty or passing. Nothing here pushes, and the checkout's remote holds no credential.
 
 import { existsSync, readFileSync, readdirSync, statSync, mkdirSync, rmSync } from 'node:fs'
@@ -28,6 +28,21 @@ export function classifyGitFailure(stderr) {
   if (/429|rate limit/i.test(s)) return { code: 'rate-limited', message: 'rate limited by github.com' }
   if (/not our ref|unadvertised object|couldn't find remote ref/i.test(s)) return { code: 'ref-missing', message: 'the requested ref or commit is not on the remote' }
   return { code: 'git-failed', message: 'git failed (details withheld)' }
+}
+
+// The reader credential for git, if this run may use one. A run that executes project code
+// never gets it: that code is untrusted and could read its parent's environment.
+export function gitReaderFrom(env, { execute = false } = {}) {
+  return execute ? '' : env.READER_TOKEN || env.SYNC_READER_TOKEN || ''
+}
+
+// Wraps a runner so git can read private repositories with a read-only reader credential. The
+// credential goes to git invocations only, as an HTTP header in that process's environment: never
+// in a remote URL, never in .git/config, and never to any other command.
+export function withGitReader(run, token) {
+  if (!token) return run
+  const auth = { GIT_CONFIG_COUNT: '1', GIT_CONFIG_KEY_0: 'http.https://github.com/.extraheader', GIT_CONFIG_VALUE_0: `AUTHORIZATION: basic ${Buffer.from(`x-access-token:${token}`).toString('base64')}` }
+  return (cmd, args, opts = {}) => (cmd === 'git' ? run(cmd, args, { ...opts, env: { ...(opts.env || {}), ...auth } }) : run(cmd, args, opts))
 }
 
 // Resolves the live head of a ref without cloning: { sha } or throws AccessError.

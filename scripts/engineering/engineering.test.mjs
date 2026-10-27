@@ -4,7 +4,7 @@ import { mkdtempSync, writeFileSync, utimesSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
 import { fixtureRegistry, realRegistry, policy, ev, fakeRunner, SHA, SHA2, AS_OF } from '../../fixtures/verify/helpers.mjs'
-import { memoryView } from '../verify/workspace.mjs'
+import { memoryView, withGitReader, gitReaderFrom, checkout } from '../verify/workspace.mjs'
 import { advisoryDetails } from '../verify/collectors.mjs'
 import { emptyState, observeRevision, trackFindings, recordReleaseState, acquireLock, loadState, saveState, checkState, StateError, LOCK_PATH } from './state.mjs'
 import { readManifest, ownerRepoRefs } from './manifest.mjs'
@@ -353,4 +353,25 @@ test('release transitions: forward steps need evidence; owner-only states cannot
   assert.equal(checkTransition('approved', 'blocked').ok, true, 'regressions are always reportable')
   assert.equal(checkTransition('x', 'nope').ok, false)
   assert.equal(RELEASE_STATES.length, 7)
+})
+
+test('the reader credential reaches git only, as a header, and never a run that executes project code', () => {
+  const calls = []
+  const base = (cmd, args, opts = {}) => { calls.push({ cmd, args, env: opts.env || {} }); return { status: 0, stdout: cmd === 'git' && args[0] === 'rev-parse' ? `${SHA}\n` : '', stderr: '' } }
+  assert.equal(withGitReader(base, ''), base)
+  const run = withGitReader(base, 'reader-token-value')
+  checkout(run, 'https://github.com/WasteOfADrumBum/private-repo', SHA, mkdtempSync(join(tmpdir(), 'ose-reader-')))
+  run('npm', ['audit', '--json'], { env: { CI: 'true' } })
+  const git = calls.filter(c => c.cmd === 'git')
+  assert.ok(git.length >= 4)
+  for (const c of git) {
+    assert.equal(c.env.GIT_CONFIG_KEY_0, 'http.https://github.com/.extraheader')
+    assert.equal(c.env.GIT_CONFIG_VALUE_0, `AUTHORIZATION: basic ${Buffer.from('x-access-token:reader-token-value').toString('base64')}`)
+    assert.ok(!c.args.join(' ').includes('reader-token-value'), 'never in arguments or the remote URL')
+  }
+  const npm = calls.find(c => c.cmd === 'npm')
+  assert.deepEqual(npm.env, { CI: 'true' })
+  assert.equal(gitReaderFrom({ SYNC_READER_TOKEN: 'x' }), 'x')
+  assert.equal(gitReaderFrom({ READER_TOKEN: 'y', SYNC_READER_TOKEN: 'x' }), 'y')
+  assert.equal(gitReaderFrom({ SYNC_READER_TOKEN: 'x' }, { execute: true }), '')
 })

@@ -27,7 +27,7 @@ import { redactSensitive } from '../validate-registry.mjs'
 import { createClient } from '../sync/github.mjs'
 import { createRunner } from '../verify/exec.mjs'
 import { iso } from '../verify/evidence.mjs'
-import { checkout, workspaceView, AccessError } from '../verify/workspace.mjs'
+import { checkout, workspaceView, AccessError, withGitReader, gitReaderFrom } from '../verify/workspace.mjs'
 import { loadState as loadVerifyState, generateReports as verifyReports, main as verifyMain } from '../verify/cli.mjs'
 import { loadState, saveState, acquireLock, trackFindings, recordReleaseState, StateError, sortKeys } from './state.mjs'
 import { readManifest } from './manifest.mjs'
@@ -113,7 +113,7 @@ async function check(o, { root, env, now, log, fetchImpl }) {
     let vstate = loadVerifyState(root)
     const only = o.projects.length ? o.projects : null
     for (const id of only || []) if (!vstate.registry.projects.some(p => p.id === id && p.tier !== 'legacy')) throw new UsageError(`no active project "${id}"`)
-    const run = createRunner()
+    const run = withGitReader(createRunner(), gitReaderFrom(env, { execute: o.execute }))
     const work = o.work ? resolve(o.work) : mkdtempSync(join(tmpdir(), 'ose-engineering-'))
     const prov = provenance(o, env)
     const summary = { changed: [], collected: {}, skipped: [], manifests: [], api: 'not used' }

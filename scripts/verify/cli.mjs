@@ -24,6 +24,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { validateText, parseDefinitionOfDone, redactSensitive } from '../validate-registry.mjs'
 import { createClient } from '../sync/github.mjs'
 import { createRunner } from './exec.mjs'
+import { withGitReader, gitReaderFrom } from './workspace.mjs'
 import { loadLedger, sha256, iso, checkEvidence, staleness } from './evidence.mjs'
 import { loadVerifications, judgeVerification, verificationId, METHODS } from './verification.mjs'
 import { collect, requestsFor, applicableGates } from './orchestrator.mjs'
@@ -178,7 +179,7 @@ export async function main(argv, { now = () => new Date(), log = console.log, er
     if (o.command === 'run') {
       const ids = o.projects.length ? o.projects : null
       for (const id of ids || []) if (!state.registry.projects.some(p => p.id === id && p.tier !== 'legacy')) throw new UsageError(`no active project "${id}"`)
-      const run = createRunner()
+      const run = withGitReader(createRunner(), gitReaderFrom(env, { execute: o.execute }))
       const workRoot = o.work ? resolve(o.work) : mkdtempSync(join(tmpdir(), 'ose-verify-'))
       const github = o.network ? createClient({ token: env.GITHUB_TOKEN || undefined, fetchImpl, maxRetries: 2, baseDelayMs: 1000 }) : null
       const result = await collect({
