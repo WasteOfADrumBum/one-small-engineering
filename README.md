@@ -87,6 +87,10 @@ All eight active projects have a `sync` block (observe mode: nothing is needed i
 
 [`reports/dashboard.md`](reports/dashboard.md) shows every active project's tier, target, readiness, verified gates, blockers, last evidence and next action, generated from the registry by [`scripts/release/`](scripts/release/). Per-project reports list each gate with its evidence provenance, and `reports/releases/<id>/<target>/` holds release preparation drafts (checklists, release notes, changelog). Only independently verified, current evidence counts; a percentage is progress, never approval. How it works: [docs/release-readiness.md](docs/release-readiness.md).
 
+## Automated verification
+
+[`reports/verification/dashboard.md`](reports/verification/dashboard.md) extends the completion dashboard with collector evidence: for every project the evaluated commit, readiness, the six gate states (independently verified, passed by builder, failed, inconclusive, not tested, not applicable), missing verification, stale evidence, blockers by severity, merge and release eligibility, and the next action. Collectors in [`scripts/verify/`](scripts/verify/) gather evidence at exact commits; only a separate verifier's own record, checked against [`verification/policy.json`](verification/policy.json), makes a gate count. How it works: [docs/verification.md](docs/verification.md).
+
 ## Updating release status
 
 1. Branch from `main` and edit the project's entry.

@@ -1,0 +1,111 @@
+name: Verify projects
+
+# Automated evidence collection and readiness regeneration (docs/verification.md).
+# Read-only everywhere: no job here can push, open PRs, comment, approve or merge. Collected
+# evidence and regenerated reports are uploaded as artifacts; committing them is a human PR.
+#
+#   workflow_dispatch  manual run: pick a project (or all) and whether to execute project code
+#   schedule           daily read-only refresh of all projects; never executes remediation
+#   pull_request       when verification code, policy or the registry changes: unit tests plus a
+#                      collection run (the hub PR's code runs with a read-only token and no secrets)
+on:
+  workflow_dispatch:
+    inputs:
+      project:
+        description: 'Project ID (blank for all eight)'
+        required: false
+        default: ''
+      execute:
+        description: 'Run project build and test commands (isolated job, no credentials)'
+        type: boolean
+        default: true
+  schedule:
+    - cron: '41 5 * * *'
+  pull_request:
+    paths:
+      - 'scripts/verify/**'
+      - 'verification/**'
+      - 'projects/registry.json'
+      - '.github/workflows/verify.yml'
+
+# Nothing unless a job asks for it.
+permissions: {}
+
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Verification unit, fixture and adversarial tests
+        run: node --test scripts/verify/*.test.mjs
+
+  collect:
+    # Untrusted project code (npm ci, build, test) runs here. The job token can only read this
+    # repository, it is not persisted to disk, and scripts/verify/exec.mjs passes project
+    # commands an allowlisted environment without GITHUB_TOKEN or any Actions runtime token.
+    # The CI-results collector uses the token for read-only API calls only.
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      checks: read
+      actions: read
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Collect evidence
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          VERIFY_PROJECT: ${{ inputs.project }}
+          # Scheduled runs are read-only refreshes and do not execute project code.
+          VERIFY_EXECUTE: ${{ github.event_name == 'schedule' && 'false' || (github.event_name == 'pull_request' && 'true' || inputs.execute) }}
+        run: |
+          set -euo pipefail
+          args=(run --work "$RUNNER_TEMP/verify-work")
+          if [ -n "${VERIFY_PROJECT:-}" ]; then args+=(--project "$VERIFY_PROJECT"); fi
+          if [ "$VERIFY_EXECUTE" = "true" ]; then args+=(--execute); fi
+          node scripts/verify/cli.mjs "${args[@]}" | tee "$RUNNER_TEMP/collect.log"
+      - name: Evidence freshness
+        run: node scripts/verify/cli.mjs freshness | tee -a "$RUNNER_TEMP/collect.log"
+      - name: Failure summary
+        if: always()
+        run: |
+          {
+            echo '## Verification run'
+            echo
+            if [ -f reports/verification/dashboard.md ]; then sed -n '1,40p' reports/verification/dashboard.md; else echo 'No dashboard was produced; see the job log.'; fi
+            echo
+            echo '### Collector results'
+            echo
+            echo '```text'
+            grep '^verify:' "$RUNNER_TEMP/collect.log" || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload evidence and reports
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: verification-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            verification/evidence/
+            verification/runs/
+            reports/verification/
+          retention-days: 30
+          if-no-files-found: warn

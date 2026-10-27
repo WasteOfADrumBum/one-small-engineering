@@ -1,0 +1,116 @@
+{
+  "$comment": "How the collectors build and test each project (Phase 4, docs/verification.md). Each profile mirrors the project's own CI at the cited commit; a project without a profile gets the default (npm ci --ignore-scripts, then its build, test, lint, typecheck and format:check scripts). A profile never weakens a check: a step that cannot run here is listed under notRun with the reason, and the collector reports the result as inconclusive, never as a pass.",
+  "profileVersion": 1,
+  "projects": {
+    "one-small-mods-pack": {
+      "source": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/.github/workflows/ci.yml (jobs cli and mods)",
+      "install": [
+        "npm",
+        "ci",
+        "--ignore-scripts"
+      ],
+      "tools": [
+        {
+          "package": "@anthropic-ai/claude-code",
+          "version": "2.1.304",
+          "bin": "claude",
+          "reason": "the mods job runs claude plugin validate and plugin test with this pinned harness"
+        }
+      ],
+      "checks": [
+        {
+          "name": "build",
+          "kind": "build",
+          "cmd": [
+            "npm",
+            "run",
+            "build"
+          ]
+        },
+        {
+          "name": "typecheck:cli",
+          "kind": "typecheck",
+          "cmd": [
+            "npx",
+            "--no-install",
+            "tsc",
+            "-p",
+            "tsconfig.cli.json"
+          ]
+        },
+        {
+          "name": "shared",
+          "kind": "lint",
+          "cmd": [
+            "npm",
+            "run",
+            "shared"
+          ]
+        },
+        {
+          "name": "test:cli",
+          "kind": "test",
+          "cmd": [
+            "npm",
+            "run",
+            "test:cli"
+          ]
+        },
+        {
+          "name": "validate (plugin manifests)",
+          "kind": "test",
+          "cmd": [
+            "npm",
+            "run",
+            "validate"
+          ],
+          "needsTool": "claude"
+        },
+        {
+          "name": "test (mod tests under the harness)",
+          "kind": "test",
+          "cmd": [
+            "npm",
+            "test"
+          ],
+          "needsTool": "claude"
+        }
+      ],
+      "notRun": [
+        {
+          "name": "windows job",
+          "coveredBy": "ci-results",
+          "reason": "native Windows checks run only on windows-latest in the project's CI"
+        },
+        {
+          "name": "site:check (browser accessibility and layout checks)",
+          "collector": "accessibility",
+          "reason": "needs a browser; not run by the collector"
+        }
+      ],
+      "accessibility": {
+        "automated": [],
+        "manual": "Screen reader (NVDA or similar), real 200%/400% zoom, text spacing and Windows forced-colors review of the generated documentation site."
+      }
+    },
+    "one-small-ui": {
+      "source": "https://github.com/WasteOfADrumBum/one-small-ui/blob/94438ee63ed8c72c027be4d58fc0b168236d213d/.github/workflows/ci.yml",
+      "accessibility": {
+        "automated": [
+          {
+            "name": "check:contrast",
+            "cmd": [
+              "npm",
+              "run",
+              "check:contrast"
+            ]
+          }
+        ],
+        "manual": "Keyboard and screen reader review of the docs app and components."
+      }
+    },
+    "one-small-ai-workforce": {
+      "source": "private repository: no profile until a reader credential is configured"
+    }
+  }
+}
