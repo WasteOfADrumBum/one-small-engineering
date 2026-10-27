@@ -105,7 +105,7 @@ export function checkPolicy(policy, registry) {
 }
 
 // Targets from the latest run; projects not in it fall back to the candidate or snapshot.
-function targetsFrom(state) {
+export function targetsFrom(state) {
   const t = new Map()
   for (const p of state.registry.projects.filter(p => p.tier !== 'legacy')) {
     const r = (state.runs.runs || []).find(x => x.project === p.id)

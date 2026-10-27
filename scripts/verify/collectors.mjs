@@ -160,8 +160,23 @@ export const ciResults = {
 
 // npm audit against the committed lockfile. Reads the registry's advisory service; runs no
 // project code (--ignore-scripts is implied by audit, which does not install).
+// Advisory detail for triage (Phase 5): severity, whether the package is a direct dependency,
+// whether it is reachable from production dependencies (absent from an --omit=dev audit means
+// development only) and what kind of fix npm offers. Package names and severities only.
+export function advisoryDetails(report, prodReport) {
+  const prod = prodReport && prodReport.vulnerabilities ? new Set(Object.keys(prodReport.vulnerabilities)) : null
+  return Object.values(report.vulnerabilities || {})
+    .filter(x => x && ['critical', 'high', 'moderate'].includes(x.severity))
+    .map(x => {
+      const f = x.fixAvailable
+      const fix = f === true ? 'available' : f && typeof f === 'object' ? (f.isSemVerMajor ? 'major' : 'available') : 'none'
+      return { name: String(x.name), severity: x.severity, direct: Boolean(x.isDirect), production: prod ? prod.has(x.name) : null, fix, ...(f && typeof f === 'object' && f.name ? { fixVia: `${f.name}@${f.version}` } : {}) }
+    })
+    .sort((a, b) => a.name.localeCompare(b.name))
+}
+
 export const dependencyAudit = {
-  name: 'dependency-audit', version: V, gates: ['supply-chain-review', 'security-privacy-review'],
+  name: 'dependency-audit', version: '1.1.0', gates: ['supply-chain-review', 'security-privacy-review'],
   collect(ctx) {
     if (!ctx.view) return unavailable('dependency audit: no checkout', ctx.accessReason || 'no checkout')
     if (!ctx.view.exists('package.json')) return notApplicable('dependency audit: no npm package')
@@ -179,6 +194,13 @@ export const dependencyAudit = {
     const out = (v.critical || 0) + (v.high || 0) > 0
       ? fail(`dependency audit: ${counts}`, `critical or high advisories: ${advisories.join(', ') || 'see report'}`, { checks })
       : pass(`dependency audit: ${counts}`, { checks })
+    // A second, production-only audit separates exposure in shipped code from tooling.
+    let prodReport = null
+    if (out.result === 'fail' || v.moderate) {
+      const prodRes = ctx.run('npm', ['audit', '--json', '--package-lock-only', '--omit=dev', '--fetch-retries=2', '--fetch-timeout=120000'], { cwd: ctx.view.dir, timeoutMs: 300_000 })
+      try { prodReport = JSON.parse(prodRes.stdout); if (prodReport.error) prodReport = null } catch { prodReport = null }
+    }
+    out.details = { advisories: advisoryDetails(report, prodReport), productionAudit: prodReport ? 'ran' : 'not run' }
     out.artifacts = [{ name: 'npm-audit.json', sha256: sha256(res.stdout), ref: null }]
     out.reproduce = `npm audit --json --package-lock-only (at ${ctx.commitSha.slice(0, 7)})`
     return out

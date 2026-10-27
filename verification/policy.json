@@ -215,7 +215,9 @@
   "remediation": {
     "$comment": "Draft remediation PRs in project repositories. Off unless the workflow input, the REMEDIATION_WRITE_ENABLED variable and a scoped token all say yes. Repositories listed in protectedRepositories are never written by automation.",
     "branchPrefix": "verify/remediation/",
-    "protectedRepositories": [],
+    "protectedRepositories": [
+      "WasteOfADrumBum/one-small-mods-pack"
+    ],
     "protectedRefs": [
       "main",
       "master",

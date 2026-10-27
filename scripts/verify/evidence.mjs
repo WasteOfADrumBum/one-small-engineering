@@ -75,6 +75,7 @@ export function makeEvidence({ project, repository, commitSha, ref = null, colle
     checks: (outcome.checks || []).map(c => ({ name: c.name, result: c.result, detail: c.detail || null })),
     artifacts: (outcome.artifacts || []).map(a => ({ name: a.name, sha256: a.sha256 || null, ref: a.ref || null })),
     reproduce: outcome.reproduce || null,
+    ...(outcome.details ? { details: outcome.details } : {}),
     provenance: {
       collectorIdentity: policy.collectorIdentity,
       executor: provenance.executor,
