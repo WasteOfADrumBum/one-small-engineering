@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-27T03:40:00Z",
+  "asOf": "2026-10-27T01:56:27Z",
   "id": "one-small-ai-workforce",
   "name": "One Small AI Workforce",
   "tier": "application",
@@ -56,24 +56,24 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217",
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
           "collector": "build-test",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:03:52Z",
+          "executedAt": "2026-10-27T01:56:26Z",
           "summary": "build and test: no checkout"
         },
         {
-          "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-d29eecc7",
+          "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-e50e2e11",
           "collector": "ci-results",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:03:52Z",
+          "executedAt": "2026-10-27T01:56:26Z",
           "summary": "CI results: not readable"
         },
         {
-          "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-1e2a62c6",
+          "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-547f714e",
           "collector": "lint-format-types",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:03:52Z",
+          "executedAt": "2026-10-27T01:56:26Z",
           "summary": "lint, format and types: no checkout"
         }
       ],
@@ -97,17 +97,17 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-9621791e",
+          "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-8417e8f4",
           "collector": "dependency-audit",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:03:52Z",
+          "executedAt": "2026-10-27T01:56:26Z",
           "summary": "dependency audit: no checkout"
         },
         {
-          "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e",
+          "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c",
           "collector": "secret-scan",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:03:52Z",
+          "executedAt": "2026-10-27T01:56:26Z",
           "summary": "secret scan: no checkout"
         }
       ],
@@ -130,10 +130,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-51744bcd",
+          "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-a1500480",
           "collector": "accessibility",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:03:52Z",
+          "executedAt": "2026-10-27T01:56:26Z",
           "summary": "accessibility: no checkout"
         }
       ],
@@ -192,10 +192,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217",
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
           "collector": "build-test",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:03:52Z",
+          "executedAt": "2026-10-27T01:56:26Z",
           "summary": "build and test: no checkout"
         }
       ],
@@ -218,10 +218,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410",
+          "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
           "collector": "deployment-health",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:56:07Z",
+          "executedAt": "2026-10-27T01:54:44Z",
           "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive"
         }
       ],
@@ -244,10 +244,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-ai-workforce-documentation-c70d8b1-3bb81c01",
+          "id": "ev-one-small-ai-workforce-documentation-c70d8b1-06b855f1",
           "collector": "documentation",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:03:52Z",
+          "executedAt": "2026-10-27T01:56:26Z",
           "summary": "documentation: no checkout"
         }
       ],
@@ -324,10 +324,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e",
+          "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c",
           "collector": "secret-scan",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:03:52Z",
+          "executedAt": "2026-10-27T01:56:26Z",
           "summary": "secret scan: no checkout"
         }
       ],
@@ -422,10 +422,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410",
+          "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
           "collector": "deployment-health",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:56:07Z",
+          "executedAt": "2026-10-27T01:54:44Z",
           "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive"
         }
       ],
@@ -448,10 +448,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217",
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
           "collector": "build-test",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:03:52Z",
+          "executedAt": "2026-10-27T01:56:26Z",
           "summary": "build and test: no checkout"
         }
       ],
@@ -558,7 +558,7 @@
   "mergeEligible": false,
   "releaseEligible": false,
   "lastVerification": null,
-  "lastCollection": "2026-10-27T01:03:52Z",
+  "lastCollection": "2026-10-27T01:56:26Z",
   "nextAction": "Resolve blocker scope-document-missing.",
   "findings": [
     {
@@ -567,7 +567,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
       "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
       "collector": "accessibility",
-      "evidenceId": "ev-one-small-ai-workforce-accessibility-c70d8b1-51744bcd",
+      "evidenceId": "ev-one-small-ai-workforce-accessibility-c70d8b1-a1500480",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -575,7 +575,7 @@
       ],
       "releaseImpact": "blocks verification of wcag-22-aa",
       "title": "accessibility: no checkout",
-      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector accessibility --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector accessibility",
       "rootCause": null,
       "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
       "proposedFix": null,
@@ -590,7 +590,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
       "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
       "collector": "build-test",
-      "evidenceId": "ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217",
+      "evidenceId": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -600,7 +600,7 @@
       ],
       "releaseImpact": "blocks verification of automated-checks, critical-workflows, e2e-critical-workflows",
       "title": "build and test: no checkout",
-      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector build-test --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector build-test",
       "rootCause": null,
       "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
       "proposedFix": null,
@@ -617,7 +617,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
       "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
       "collector": "ci-results",
-      "evidenceId": "ev-one-small-ai-workforce-ci-results-c70d8b1-d29eecc7",
+      "evidenceId": "ev-one-small-ai-workforce-ci-results-c70d8b1-e50e2e11",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -625,7 +625,7 @@
       ],
       "releaseImpact": "blocks verification of automated-checks",
       "title": "CI results: not readable",
-      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector ci-results --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector ci-results",
       "rootCause": null,
       "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
       "proposedFix": null,
@@ -640,7 +640,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
       "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
       "collector": "dependency-audit",
-      "evidenceId": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-9621791e",
+      "evidenceId": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-8417e8f4",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -648,7 +648,7 @@
       ],
       "releaseImpact": "blocks verification of security-privacy-review",
       "title": "dependency audit: no checkout",
-      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector dependency-audit --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector dependency-audit",
       "rootCause": null,
       "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
       "proposedFix": null,
@@ -663,7 +663,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
       "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
       "collector": "deployment-health",
-      "evidenceId": "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410",
+      "evidenceId": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -688,7 +688,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
       "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
       "collector": "documentation",
-      "evidenceId": "ev-one-small-ai-workforce-documentation-c70d8b1-3bb81c01",
+      "evidenceId": "ev-one-small-ai-workforce-documentation-c70d8b1-06b855f1",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -696,7 +696,7 @@
       ],
       "releaseImpact": "blocks verification of documentation-accurate",
       "title": "documentation: no checkout",
-      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector documentation --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector documentation",
       "rootCause": null,
       "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
       "proposedFix": null,
@@ -711,7 +711,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
       "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
       "collector": "lint-format-types",
-      "evidenceId": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-1e2a62c6",
+      "evidenceId": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-547f714e",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -719,7 +719,7 @@
       ],
       "releaseImpact": "blocks verification of automated-checks",
       "title": "lint, format and types: no checkout",
-      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector lint-format-types --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector lint-format-types",
       "rootCause": null,
       "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
       "proposedFix": null,
@@ -734,13 +734,13 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
       "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
       "collector": "repo-structure",
-      "evidenceId": "ev-one-small-ai-workforce-repo-structure-c70d8b1-681715fd",
+      "evidenceId": "ev-one-small-ai-workforce-repo-structure-c70d8b1-2cf1a4f1",
       "kind": "access",
       "severity": "unclassified",
       "gates": [],
       "releaseImpact": "context only; no gate depends on it",
       "title": "repository not readable",
-      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector repo-structure --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector repo-structure",
       "rootCause": null,
       "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
       "proposedFix": null,
@@ -753,7 +753,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
       "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
       "collector": "secret-scan",
-      "evidenceId": "ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e",
+      "evidenceId": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -762,7 +762,7 @@
       ],
       "releaseImpact": "blocks verification of security-privacy-review, sensitive-data-handling",
       "title": "secret scan: no checkout",
-      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector secret-scan --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector secret-scan",
       "rootCause": null,
       "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
       "proposedFix": null,
@@ -793,8 +793,26 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-2f66b9c8",
+          "digest": "e6b601e2d8e5dd75c33d7faed769a934378371f163d2891f7af272a0ef72a6da",
+          "collector": "build-test",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-one-small-ai-workforce-build-test-c70d8b1-362731a7",
           "digest": "a891faceb95f0396f936b583ba4fe8378be403c62abcc0680675c5a1b3cb1b73",
+          "collector": "build-test",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-61ee42d8",
+          "digest": "637c0994687ed6f43cd55d387d667334cdaec0170f0da47f3123d9fa6c9b665f",
+          "collector": "build-test",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
+          "digest": "b39fd41dc939fa6789501a0029aa933ee297fb7be67193b762c15885aa3673e5",
           "collector": "build-test",
           "result": "unavailable"
         },
@@ -805,8 +823,20 @@
           "result": "unavailable"
         },
         {
+          "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-7f896de6",
+          "digest": "a94e86a3c13bad2b68f1f172385e05fb6bd7cc3ef5910bddad303660778435e6",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-a83d10da",
           "digest": "84cd087576e30872898dd62f7bc48ad43c17cbb0ac27812bee18563528f7daa3",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-b9aeba37",
+          "digest": "6377be07cc9bf3642a61a09f2f1f789d29036b16eec845e2af8d08dfe8c6358e",
           "collector": "ci-results",
           "result": "unavailable"
         },
@@ -817,8 +847,32 @@
           "result": "unavailable"
         },
         {
+          "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-e50e2e11",
+          "digest": "fe35a4204f71d3146d8d94cedb10310b96aeab62028c32098b76ebb17694bd8c",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-1e2a62c6",
           "digest": "4cd821e33b9a5c1a5691bed9615b7df808780b207b15bb7dfc3d92ab48ea3d10",
+          "collector": "lint-format-types",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-332471aa",
+          "digest": "439aaa670188b4dc13c744ad5bba88db5aaa11311b0b74d46e0494e73ae23458",
+          "collector": "lint-format-types",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-547f714e",
+          "digest": "3ad21c9babe3e4a164b2b24940f9702e1a730d18dd9a1d0a9ca9a17dc3bd9005",
+          "collector": "lint-format-types",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-8ae528e8",
+          "digest": "c56ee93979f481b9d99d6a8e05b028741d05f294a878f23827f815f294fced22",
           "collector": "lint-format-types",
           "result": "unavailable"
         },
@@ -840,8 +894,26 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-00e29bfc",
+          "digest": "a768ddeb1220dba5a973deb9ecf2fe5920e5339b0618d5948490f4242b882859",
+          "collector": "dependency-audit",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-8417e8f4",
+          "digest": "af4de958bdf8422d00f5ad1af34f6b0c651e1092818b93b6132fa74779f97098",
+          "collector": "dependency-audit",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-9621791e",
           "digest": "4a167304247ee85aee947606b5f1df958179bdac0a0c2d67d58b2f10e02bb995",
+          "collector": "dependency-audit",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-c759f6b9",
+          "digest": "c080d8161d14823293a1c1c303179de0f9285467c8366b028a9444f4589dbae7",
           "collector": "dependency-audit",
           "result": "unavailable"
         },
@@ -852,8 +924,26 @@
           "result": "unavailable"
         },
         {
+          "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-6b35d7b9",
+          "digest": "8a5b5bf3ee77cd52922db7cf9384ef9680641956ca81c4db8e1a7d9c545a68fa",
+          "collector": "secret-scan",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e",
           "digest": "95705fed32f2fffb754f82e79dc78a8518e8a292a89288968a1a52051339dd99",
+          "collector": "secret-scan",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e3f5f265",
+          "digest": "e88b65df38209da274945fd67a5f1626ddd28c39ff7635f21b0bc8ebcf4ad8e1",
+          "collector": "secret-scan",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c",
+          "digest": "2278ed73dac8a4f45773ac9f51350f0dd2c9f4c1a5adfc7326bed858b6d0c417",
           "collector": "secret-scan",
           "result": "unavailable"
         },
@@ -875,6 +965,12 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-23a85e5a",
+          "digest": "848a7e7e43cce09fc77cf1e8a008789f95215b85515df4940761b466dbca0b77",
+          "collector": "accessibility",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-51744bcd",
           "digest": "0d73f426de5ad942211a473fe5100f6c2ab84c1fa11641e1f4812c8b3e976f8b",
           "collector": "accessibility",
@@ -883,6 +979,18 @@
         {
           "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-71442670",
           "digest": "912ae34c42fdb37ebd5b3e6f1e9737347e28f168e35cdd179f6f8d3b9cf474ac",
+          "collector": "accessibility",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-8b5cb63c",
+          "digest": "a10b2b3953bfa58f218999f19dbb792cd927518f01ffc76e5d0c30558042db52",
+          "collector": "accessibility",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-a1500480",
+          "digest": "b5bc25e2b060e03eb36ecd345484204fe8aa22f6b93a2db65e990ce7a0ba3a4e",
           "collector": "accessibility",
           "result": "unavailable"
         }
@@ -918,8 +1026,26 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-2f66b9c8",
+          "digest": "e6b601e2d8e5dd75c33d7faed769a934378371f163d2891f7af272a0ef72a6da",
+          "collector": "build-test",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-one-small-ai-workforce-build-test-c70d8b1-362731a7",
           "digest": "a891faceb95f0396f936b583ba4fe8378be403c62abcc0680675c5a1b3cb1b73",
+          "collector": "build-test",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-61ee42d8",
+          "digest": "637c0994687ed6f43cd55d387d667334cdaec0170f0da47f3123d9fa6c9b665f",
+          "collector": "build-test",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
+          "digest": "b39fd41dc939fa6789501a0029aa933ee297fb7be67193b762c15885aa3673e5",
           "collector": "build-test",
           "result": "unavailable"
         },
@@ -945,6 +1071,12 @@
           "digest": "e24fb89f0237e7f01d7512a30d7bcb7472891d804a3a31ef8bbf6efcea83f9b6",
           "collector": "deployment-health",
           "result": "inconclusive"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
+          "digest": "7a00078947964d8d64aa5e7e72417e4fcbf66dfc8c696f78f13b4071a2758b00",
+          "collector": "deployment-health",
+          "result": "inconclusive"
         }
       ],
       "missingCollectors": [],
@@ -958,6 +1090,12 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-one-small-ai-workforce-documentation-c70d8b1-06b855f1",
+          "digest": "f71116a47a1d2f889d901e86366f32ff3798a647f247163993016eef7e65ad37",
+          "collector": "documentation",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-one-small-ai-workforce-documentation-c70d8b1-13c3e86a",
           "digest": "7ab0a2493a8492c63c64a7adbd26724437e05e433f97b438086f6d7253f15820",
           "collector": "documentation",
@@ -966,6 +1104,18 @@
         {
           "id": "ev-one-small-ai-workforce-documentation-c70d8b1-3bb81c01",
           "digest": "a2b1a7ef44c3954b15e2952e9dd026de2af0ad0b3e01a3f69be06d843b75663d",
+          "collector": "documentation",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-documentation-c70d8b1-44a8558d",
+          "digest": "09e3b5ecad7e432c96dc8139609656a215493a897332f7e4f4866fafa9f8f017",
+          "collector": "documentation",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-documentation-c70d8b1-74211a64",
+          "digest": "d3bc3f45561f3a6bd03de43787ec6c1013334d1661d3b3246640b1088b64b971",
           "collector": "documentation",
           "result": "unavailable"
         }
@@ -1011,8 +1161,26 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-6b35d7b9",
+          "digest": "8a5b5bf3ee77cd52922db7cf9384ef9680641956ca81c4db8e1a7d9c545a68fa",
+          "collector": "secret-scan",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e",
           "digest": "95705fed32f2fffb754f82e79dc78a8518e8a292a89288968a1a52051339dd99",
+          "collector": "secret-scan",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e3f5f265",
+          "digest": "e88b65df38209da274945fd67a5f1626ddd28c39ff7635f21b0bc8ebcf4ad8e1",
+          "collector": "secret-scan",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c",
+          "digest": "2278ed73dac8a4f45773ac9f51350f0dd2c9f4c1a5adfc7326bed858b6d0c417",
           "collector": "secret-scan",
           "result": "unavailable"
         },
@@ -1078,6 +1246,12 @@
           "digest": "e24fb89f0237e7f01d7512a30d7bcb7472891d804a3a31ef8bbf6efcea83f9b6",
           "collector": "deployment-health",
           "result": "inconclusive"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
+          "digest": "7a00078947964d8d64aa5e7e72417e4fcbf66dfc8c696f78f13b4071a2758b00",
+          "collector": "deployment-health",
+          "result": "inconclusive"
         }
       ],
       "missingCollectors": [],
@@ -1091,8 +1265,26 @@
       "humanOnly": false,
       "evidence": [
         {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-2f66b9c8",
+          "digest": "e6b601e2d8e5dd75c33d7faed769a934378371f163d2891f7af272a0ef72a6da",
+          "collector": "build-test",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-one-small-ai-workforce-build-test-c70d8b1-362731a7",
           "digest": "a891faceb95f0396f936b583ba4fe8378be403c62abcc0680675c5a1b3cb1b73",
+          "collector": "build-test",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-61ee42d8",
+          "digest": "637c0994687ed6f43cd55d387d667334cdaec0170f0da47f3123d9fa6c9b665f",
+          "collector": "build-test",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
+          "digest": "b39fd41dc939fa6789501a0029aa933ee297fb7be67193b762c15885aa3673e5",
           "collector": "build-test",
           "result": "unavailable"
         },

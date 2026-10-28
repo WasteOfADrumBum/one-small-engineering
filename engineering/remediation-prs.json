@@ -1,0 +1,8 @@
+{
+  "$comment": "Remediation PRs the orchestrator tracks (Phase 5, docs/engineering.md). Owner-reviewed: add a PR here through a hub PR after it is opened. `covers` are issue-id prefixes from reports/engineering/queue.md; a covered issue is never prepared again while the PR is open. `openedFor` is the commit the finding was collected at when the PR was opened.",
+  "pullRequests": [
+    { "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/17", "project": "personal-portfolio", "covers": ["personal-portfolio:advisory"], "openedFor": "684ef3ce76d62919045cea65259e8bf52f1c6174", "origin": "Phase 4 (dependency advisories: next)" },
+    { "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/16", "project": "one-small-studio", "covers": ["one-small-studio:advisory"], "openedFor": "175cef6bafbc0322e0d54cf3e543aafa1626a049", "origin": "Phase 4 (dependency advisories)" },
+    { "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/43", "project": "taskforge", "covers": ["taskforge:advisory"], "openedFor": "11975d0278c7f04db5033c0461295c734e3b4134", "origin": "Phase 4 (dependency advisories)" }
+  ]
+}

@@ -1,0 +1,4241 @@
+{
+  "kind": "one-small-engineering/engineering-dashboard",
+  "schema": 1,
+  "command": "npm run engineering:report -- --as-of 2026-10-27T01:56:27Z",
+  "asOf": "2026-10-27T01:56:27Z",
+  "overview": {
+    "activeProjects": 8,
+    "readyForRelease": 0,
+    "candidateReady": 0,
+    "blocked": 1,
+    "failingCi": 0,
+    "ciUnknown": 8,
+    "security": {
+      "critical": 1,
+      "high": 2,
+      "medium": 1,
+      "low": 4
+    },
+    "verificationCoverage": {
+      "verified": 0,
+      "applicable": 133
+    },
+    "openRemediationPRs": 3,
+    "unreviewedRemediationPRs": 0,
+    "staleEvidence": 0,
+    "dependencyRisks": 0,
+    "inaccessible": [
+      "one-small-ai-workforce"
+    ],
+    "releaseStates": {
+      "not_ready": 7,
+      "blocked": 1,
+      "verification_required": 0,
+      "candidate_ready": 0,
+      "awaiting_approval": 0,
+      "approved": 0,
+      "released": 0
+    },
+    "queue": {
+      "automatic": 0,
+      "independent-verification": 25,
+      "owner-decision": 34,
+      "blocked-credentials": 8,
+      "informational": 5
+    }
+  },
+  "projects": [
+    {
+      "id": "one-small-mods-pack",
+      "name": "One Small ModsPack",
+      "tier": "library",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "revisionSource": "release candidate (PR #3, modspack-2-0)",
+      "liveRevision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "revisionSeenSince": "2026-10-27T01:55:16Z",
+      "access": "readable",
+      "lastCollection": "2026-10-27T01:56:22Z",
+      "ci": "unavailable",
+      "readiness": {
+        "percentage": 0,
+        "previousPercentage": 0,
+        "applicableGates": 21,
+        "verifiedGates": 0,
+        "eligibility": "not-eligible",
+        "ownershipValid": false
+      },
+      "gateStates": {
+        "independently_verified": 0,
+        "passed_by_builder": 4,
+        "failed": 6,
+        "inconclusive": 4,
+        "not_tested": 7,
+        "not_applicable": 1
+      },
+      "release": {
+        "state": "blocked",
+        "text": "Blocked",
+        "reasons": [
+          "7 open registry blocker(s): pr-description-stale, codex-interactive-trust, copilot-gemini-runtime-untested, manual-screen-reader-review, manual-zoom-forced-colors-review, npm-ownership-access, publish-pipeline-missing"
+        ],
+        "candidate": {
+          "pullRequest": 3,
+          "ref": "modspack-2-0",
+          "sha": "80cc269ebb7c20aca5f6ca03214954726fb494f7"
+        },
+        "approval": {
+          "valid": false,
+          "bound": false,
+          "reason": "approval is pending"
+        }
+      },
+      "releasePlan": {
+        "state": "blocked",
+        "candidateRevision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+        "candidateSource": "PR #3 (modspack-2-0)",
+        "applicableGates": 21,
+        "verifiedGates": 0,
+        "readinessPercent": 0,
+        "missingEvidence": [
+          "scope-complete",
+          "automated-checks",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader",
+          "responsive-layouts",
+          "critical-workflows",
+          "documentation-accurate",
+          "no-release-blockers",
+          "package-metadata-exports",
+          "clean-consumer-install",
+          "runtime-compatibility",
+          "package-archive-inspection",
+          "supply-chain-review",
+          "ci-release-pipeline",
+          "versioning-changelog",
+          "distribution-verified",
+          "release-provenance",
+          "upgrade-rollback-uninstall-docs",
+          "public-docs-accurate",
+          "published-artifact-matches"
+        ],
+        "activeBlockers": [
+          "pr-description-stale",
+          "codex-interactive-trust",
+          "copilot-gemini-runtime-untested",
+          "manual-screen-reader-review",
+          "manual-zoom-forced-colors-review",
+          "npm-ownership-access",
+          "publish-pipeline-missing",
+          "release-authorization",
+          "auto-critical-workflows-unverified",
+          "auto-missing-verification",
+          "auto-ownership"
+        ],
+        "dependencyReadiness": [],
+        "manualTesting": [
+          "scope-complete (human only)",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader (human only)",
+          "responsive-layouts",
+          "critical-workflows",
+          "documentation-accurate",
+          "no-release-blockers (human only)",
+          "clean-consumer-install",
+          "runtime-compatibility",
+          "supply-chain-review",
+          "ci-release-pipeline",
+          "distribution-verified",
+          "release-provenance",
+          "upgrade-rollback-uninstall-docs",
+          "public-docs-accurate",
+          "published-artifact-matches"
+        ],
+        "approvalsRequired": [
+          "Joshua Small (release approval, recorded in the registry with evidence)",
+          "an independent verifier must be assigned in the registry"
+        ],
+        "versionRecommendation": "2.0.0 (registry target; current 0.1.0)",
+        "preparation": [],
+        "preparationStatus": "not started: Blocked",
+        "rollback": "Deprecate the bad version (npm deprecate) and publish a fix; never unpublish. Consumers pin the previous version (0.1.0).",
+        "ownerActions": [
+          "merge: owner only",
+          "publish: owner only",
+          "deploy: owner only",
+          "tag: owner only"
+        ]
+      },
+      "blockers": [
+        {
+          "id": "pr-description-stale",
+          "severity": "unclassified",
+          "description": "PR #3 description disagrees with docs/release-verification.md at the same head (dependency audit INCONCLUSIVE vs PASS; 55 vs 82 packed files; 85 vs 89 CLI tests). Reconcile before review."
+        },
+        {
+          "id": "codex-interactive-trust",
+          "severity": "unclassified",
+          "description": "Codex hook enforcement verified only with trust bypassed; interactive /hooks trust not confirmed."
+        },
+        {
+          "id": "copilot-gemini-runtime-untested",
+          "severity": "unclassified",
+          "description": "Copilot and Gemini CLI hook enforcement and custom agents are NOT TESTED; either test in authenticated runtimes or record an owner decision to ship them as experimental."
+        },
+        {
+          "id": "manual-screen-reader-review",
+          "severity": "unclassified",
+          "description": "Screen reader review (NVDA or similar) of the generated documentation site is NOT TESTED."
+        },
+        {
+          "id": "manual-zoom-forced-colors-review",
+          "severity": "unclassified",
+          "description": "Real 200%/400% browser zoom, text spacing and Windows forced-colors review is NOT TESTED (only viewport-width and emulated checks)."
+        },
+        {
+          "id": "npm-ownership-access",
+          "severity": "unclassified",
+          "description": "npm ownership of one-small-modspack and publish access not confirmed; the name is currently unpublished."
+        },
+        {
+          "id": "publish-pipeline-missing",
+          "severity": "unclassified",
+          "description": "No release or publish workflow exists at the candidate commit (only ci.yml), so the package cannot be published from CI with npm provenance. Add a least-privilege publish workflow (manual trigger, npm --provenance) or record an owner decision on how 2.0.0 is published. Proposed by Claude Code in the Phase 3 PR for owner review."
+        },
+        {
+          "id": "release-authorization",
+          "severity": "unclassified",
+          "description": "No owner authorization yet for merge, tag, npm publish or deployment."
+        }
+      ],
+      "openPullRequests": 1,
+      "sync": {
+        "changes": [],
+        "reason": "token-rejected: GET /repos/WasteOfADrumBum/one-small-mods-pack: the token was rejected (HTTP 401); it is missing, expired or revoked",
+        "status": "unavailable"
+      },
+      "previousReleaseState": null,
+      "security": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      },
+      "nextAction": "Resolve codex-interactive-trust in one-small-mods-pack.",
+      "queueItems": 15
+    },
+    {
+      "id": "one-small-ui",
+      "name": "OneSmallUI",
+      "tier": "library",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "revisionSource": "live head of main",
+      "liveRevision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "revisionSeenSince": "2026-10-27T01:55:16Z",
+      "access": "readable",
+      "lastCollection": "2026-10-27T01:56:23Z",
+      "ci": "unavailable",
+      "readiness": {
+        "percentage": 0,
+        "previousPercentage": 0,
+        "applicableGates": 22,
+        "verifiedGates": 0,
+        "eligibility": "not-scoped",
+        "ownershipValid": false
+      },
+      "gateStates": {
+        "independently_verified": 0,
+        "passed_by_builder": 2,
+        "failed": 11,
+        "inconclusive": 2,
+        "not_tested": 7,
+        "not_applicable": 0
+      },
+      "release": {
+        "state": "not_ready",
+        "text": "Not Ready",
+        "reasons": [
+          "no scope document"
+        ],
+        "candidate": null,
+        "approval": {
+          "valid": false,
+          "bound": false,
+          "reason": "approval is pending"
+        }
+      },
+      "releasePlan": {
+        "state": "not_ready",
+        "candidateRevision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+        "candidateSource": "live head of main",
+        "applicableGates": 22,
+        "verifiedGates": 0,
+        "readinessPercent": 0,
+        "missingEvidence": [
+          "scope-complete",
+          "automated-checks",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader",
+          "responsive-layouts",
+          "critical-workflows",
+          "production-deployment",
+          "documentation-accurate",
+          "no-release-blockers",
+          "package-metadata-exports",
+          "clean-consumer-install",
+          "runtime-compatibility",
+          "package-archive-inspection",
+          "supply-chain-review",
+          "ci-release-pipeline",
+          "versioning-changelog",
+          "distribution-verified",
+          "release-provenance",
+          "upgrade-rollback-uninstall-docs",
+          "public-docs-accurate",
+          "published-artifact-matches"
+        ],
+        "activeBlockers": [
+          "scope-document-missing",
+          "auto-critical-workflows-unverified",
+          "auto-missing-verification",
+          "auto-owner-approval",
+          "auto-ownership"
+        ],
+        "dependencyReadiness": [],
+        "manualTesting": [
+          "scope-complete (human only)",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader (human only)",
+          "responsive-layouts",
+          "critical-workflows",
+          "production-deployment",
+          "documentation-accurate",
+          "no-release-blockers (human only)",
+          "clean-consumer-install",
+          "runtime-compatibility",
+          "supply-chain-review",
+          "ci-release-pipeline",
+          "distribution-verified",
+          "release-provenance",
+          "upgrade-rollback-uninstall-docs",
+          "public-docs-accurate",
+          "published-artifact-matches"
+        ],
+        "approvalsRequired": [
+          "Joshua Small (release approval, recorded in the registry with evidence)",
+          "an independent verifier must be assigned in the registry"
+        ],
+        "versionRecommendation": "0.6.0 (registry target; current 0.5.0)",
+        "preparation": [],
+        "preparationStatus": "not started: Not Ready",
+        "rollback": "Deprecate the bad version (npm deprecate) and publish a fix; never unpublish. Consumers pin the previous version (0.5.0).",
+        "ownerActions": [
+          "merge: owner only",
+          "publish: owner only",
+          "deploy: owner only",
+          "tag: owner only"
+        ]
+      },
+      "blockers": [
+        {
+          "id": "scope-document-missing",
+          "severity": "unclassified",
+          "description": "No v0.6.0 / Phase 5 page-blocks scope document exists in the repository; scope cannot be frozen."
+        }
+      ],
+      "openPullRequests": 0,
+      "sync": {
+        "changes": [],
+        "reason": "token-rejected: GET /repos/WasteOfADrumBum/one-small-ui: the token was rejected (HTTP 401); it is missing, expired or revoked",
+        "status": "unavailable"
+      },
+      "previousReleaseState": null,
+      "security": {
+        "critical": 0,
+        "high": 0,
+        "medium": 1,
+        "low": 1
+      },
+      "nextAction": "Resolve scope-document-missing in one-small-ui.",
+      "queueItems": 11
+    },
+    {
+      "id": "personal-portfolio",
+      "name": "Personal Portfolio",
+      "tier": "showcase",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "revisionSource": "live head of main",
+      "liveRevision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "revisionSeenSince": "2026-10-27T01:55:16Z",
+      "access": "readable",
+      "lastCollection": "2026-10-27T01:56:23Z",
+      "ci": "unavailable",
+      "readiness": {
+        "percentage": 0,
+        "previousPercentage": 0,
+        "applicableGates": 10,
+        "verifiedGates": 0,
+        "eligibility": "not-scoped",
+        "ownershipValid": false
+      },
+      "gateStates": {
+        "independently_verified": 0,
+        "passed_by_builder": 1,
+        "failed": 1,
+        "inconclusive": 4,
+        "not_tested": 4,
+        "not_applicable": 0
+      },
+      "release": {
+        "state": "not_ready",
+        "text": "Not Ready",
+        "reasons": [
+          "no target version"
+        ],
+        "candidate": null,
+        "approval": {
+          "valid": false,
+          "bound": false,
+          "reason": "approval is pending"
+        }
+      },
+      "releasePlan": {
+        "state": "not_ready",
+        "candidateRevision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+        "candidateSource": "live head of main",
+        "applicableGates": 10,
+        "verifiedGates": 0,
+        "readinessPercent": 0,
+        "missingEvidence": [
+          "scope-complete",
+          "automated-checks",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader",
+          "responsive-layouts",
+          "critical-workflows",
+          "production-deployment",
+          "documentation-accurate",
+          "no-release-blockers"
+        ],
+        "activeBlockers": [
+          "no-ci-workflow",
+          "readme-boilerplate",
+          "scope-document-missing",
+          "auto-critical-workflows-unverified",
+          "auto-missing-verification",
+          "auto-owner-approval",
+          "auto-ownership"
+        ],
+        "dependencyReadiness": [],
+        "manualTesting": [
+          "scope-complete (human only)",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader (human only)",
+          "responsive-layouts",
+          "critical-workflows",
+          "production-deployment",
+          "documentation-accurate",
+          "no-release-blockers (human only)"
+        ],
+        "approvalsRequired": [
+          "Joshua Small (release approval, recorded in the registry with evidence)",
+          "an independent verifier must be assigned in the registry"
+        ],
+        "versionRecommendation": "none: the owner sets release.targetVersion when a release is scoped",
+        "preparation": [],
+        "preparationStatus": "not started: Not Ready",
+        "rollback": "Redeploy the previous production revision from the hosting provider, then revert the release commit on main through a PR.",
+        "ownerActions": [
+          "merge: owner only",
+          "publish: owner only",
+          "deploy: owner only",
+          "tag: owner only"
+        ]
+      },
+      "blockers": [
+        {
+          "id": "no-ci-workflow",
+          "severity": "unclassified",
+          "description": "No GitHub Actions workflow; the only commit check is the Vercel deployment status, so lint, type check and tests are not enforced on PRs."
+        },
+        {
+          "id": "readme-boilerplate",
+          "severity": "unclassified",
+          "description": "README.md is the unmodified create-next-app template and does not describe the site."
+        },
+        {
+          "id": "scope-document-missing",
+          "severity": "unclassified",
+          "description": "No release scope document in the repository (final audit and project showcase updates are owner-reported leads)."
+        }
+      ],
+      "openPullRequests": 0,
+      "sync": {
+        "changes": [],
+        "reason": "token-rejected: GET /repos/WasteOfADrumBum/joshsmall-site: the token was rejected (HTTP 401); it is missing, expired or revoked",
+        "status": "unavailable"
+      },
+      "previousReleaseState": null,
+      "security": {
+        "critical": 1,
+        "high": 0,
+        "medium": 0,
+        "low": 1
+      },
+      "nextAction": "Review https://github.com/WasteOfADrumBum/joshsmall-site/pull/17.",
+      "queueItems": 12
+    },
+    {
+      "id": "one-small-studio",
+      "name": "One Small Studio",
+      "tier": "showcase",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "revisionSource": "live head of main",
+      "liveRevision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "revisionSeenSince": "2026-10-27T01:55:16Z",
+      "access": "readable",
+      "lastCollection": "2026-10-27T01:56:24Z",
+      "ci": "unavailable",
+      "readiness": {
+        "percentage": 0,
+        "previousPercentage": 0,
+        "applicableGates": 10,
+        "verifiedGates": 0,
+        "eligibility": "not-scoped",
+        "ownershipValid": false
+      },
+      "gateStates": {
+        "independently_verified": 0,
+        "passed_by_builder": 2,
+        "failed": 1,
+        "inconclusive": 3,
+        "not_tested": 4,
+        "not_applicable": 0
+      },
+      "release": {
+        "state": "not_ready",
+        "text": "Not Ready",
+        "reasons": [
+          "no target version"
+        ],
+        "candidate": null,
+        "approval": {
+          "valid": false,
+          "bound": false,
+          "reason": "approval is pending"
+        }
+      },
+      "releasePlan": {
+        "state": "not_ready",
+        "candidateRevision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+        "candidateSource": "live head of main",
+        "applicableGates": 10,
+        "verifiedGates": 0,
+        "readinessPercent": 0,
+        "missingEvidence": [
+          "scope-complete",
+          "automated-checks",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader",
+          "responsive-layouts",
+          "critical-workflows",
+          "production-deployment",
+          "documentation-accurate",
+          "no-release-blockers"
+        ],
+        "activeBlockers": [
+          "scope-document-missing",
+          "auto-critical-workflows-unverified",
+          "auto-missing-verification",
+          "auto-owner-approval",
+          "auto-ownership"
+        ],
+        "dependencyReadiness": [],
+        "manualTesting": [
+          "scope-complete (human only)",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader (human only)",
+          "responsive-layouts",
+          "critical-workflows",
+          "production-deployment",
+          "documentation-accurate",
+          "no-release-blockers (human only)"
+        ],
+        "approvalsRequired": [
+          "Joshua Small (release approval, recorded in the registry with evidence)",
+          "an independent verifier must be assigned in the registry"
+        ],
+        "versionRecommendation": "none: the owner sets release.targetVersion when a release is scoped",
+        "preparation": [],
+        "preparationStatus": "not started: Not Ready",
+        "rollback": "Redeploy the previous production revision from the hosting provider, then revert the release commit on main through a PR.",
+        "ownerActions": [
+          "merge: owner only",
+          "publish: owner only",
+          "deploy: owner only",
+          "tag: owner only"
+        ]
+      },
+      "blockers": [
+        {
+          "id": "scope-document-missing",
+          "severity": "unclassified",
+          "description": "No release scope document in the repository (equipment showcase and final QA are owner-reported leads)."
+        }
+      ],
+      "openPullRequests": 0,
+      "sync": {
+        "changes": [],
+        "reason": "token-rejected: GET /repos/WasteOfADrumBum/one-small-studio: the token was rejected (HTTP 401); it is missing, expired or revoked",
+        "status": "unavailable"
+      },
+      "previousReleaseState": null,
+      "security": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "low": 0
+      },
+      "nextAction": "Resolve scope-document-missing in one-small-studio.",
+      "queueItems": 9
+    },
+    {
+      "id": "one-small-photography",
+      "name": "One Small Photography",
+      "tier": "showcase",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "revisionSource": "live head of main",
+      "liveRevision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "revisionSeenSince": "2026-10-27T01:55:16Z",
+      "access": "readable",
+      "lastCollection": "2026-10-27T01:56:25Z",
+      "ci": "unavailable",
+      "readiness": {
+        "percentage": 0,
+        "previousPercentage": 0,
+        "applicableGates": 10,
+        "verifiedGates": 0,
+        "eligibility": "not-scoped",
+        "ownershipValid": false
+      },
+      "gateStates": {
+        "independently_verified": 0,
+        "passed_by_builder": 2,
+        "failed": 0,
+        "inconclusive": 4,
+        "not_tested": 4,
+        "not_applicable": 0
+      },
+      "release": {
+        "state": "not_ready",
+        "text": "Not Ready",
+        "reasons": [
+          "no target version"
+        ],
+        "candidate": null,
+        "approval": {
+          "valid": false,
+          "bound": false,
+          "reason": "approval is pending"
+        }
+      },
+      "releasePlan": {
+        "state": "not_ready",
+        "candidateRevision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+        "candidateSource": "live head of main",
+        "applicableGates": 10,
+        "verifiedGates": 0,
+        "readinessPercent": 0,
+        "missingEvidence": [
+          "scope-complete",
+          "automated-checks",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader",
+          "responsive-layouts",
+          "critical-workflows",
+          "production-deployment",
+          "documentation-accurate",
+          "no-release-blockers"
+        ],
+        "activeBlockers": [
+          "scope-document-missing",
+          "auto-critical-workflows-unverified",
+          "auto-missing-verification",
+          "auto-owner-approval",
+          "auto-ownership"
+        ],
+        "dependencyReadiness": [],
+        "manualTesting": [
+          "scope-complete (human only)",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader (human only)",
+          "responsive-layouts",
+          "critical-workflows",
+          "production-deployment",
+          "documentation-accurate",
+          "no-release-blockers (human only)"
+        ],
+        "approvalsRequired": [
+          "Joshua Small (release approval, recorded in the registry with evidence)",
+          "an independent verifier must be assigned in the registry"
+        ],
+        "versionRecommendation": "none: the owner sets release.targetVersion when a release is scoped",
+        "preparation": [],
+        "preparationStatus": "not started: Not Ready",
+        "rollback": "Redeploy the previous production revision from the hosting provider, then revert the release commit on main through a PR.",
+        "ownerActions": [
+          "merge: owner only",
+          "publish: owner only",
+          "deploy: owner only",
+          "tag: owner only"
+        ]
+      },
+      "blockers": [
+        {
+          "id": "scope-document-missing",
+          "severity": "unclassified",
+          "description": "No release scope document. README lists Neon Postgres and Backblaze B2 photo storage as \"next phase\"; the owner must decide whether they are in the first release scope."
+        }
+      ],
+      "openPullRequests": 0,
+      "sync": {
+        "changes": [],
+        "reason": "token-rejected: GET /repos/WasteOfADrumBum/one-small-photography: the token was rejected (HTTP 401); it is missing, expired or revoked",
+        "status": "unavailable"
+      },
+      "previousReleaseState": null,
+      "security": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      },
+      "nextAction": "Resolve scope-document-missing in one-small-photography.",
+      "queueItems": 9
+    },
+    {
+      "id": "taskforge",
+      "name": "TaskForge",
+      "tier": "application",
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "revisionSource": "live head of main",
+      "liveRevision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "revisionSeenSince": "2026-10-27T01:55:16Z",
+      "access": "readable",
+      "lastCollection": "2026-10-27T01:56:25Z",
+      "ci": "unavailable",
+      "readiness": {
+        "percentage": 0,
+        "previousPercentage": 0,
+        "applicableGates": 20,
+        "verifiedGates": 0,
+        "eligibility": "not-scoped",
+        "ownershipValid": false
+      },
+      "gateStates": {
+        "independently_verified": 0,
+        "passed_by_builder": 3,
+        "failed": 1,
+        "inconclusive": 5,
+        "not_tested": 11,
+        "not_applicable": 0
+      },
+      "release": {
+        "state": "not_ready",
+        "text": "Not Ready",
+        "reasons": [
+          "no target version"
+        ],
+        "candidate": null,
+        "approval": {
+          "valid": false,
+          "bound": false,
+          "reason": "approval is pending"
+        }
+      },
+      "releasePlan": {
+        "state": "not_ready",
+        "candidateRevision": "11975d0278c7f04db5033c0461295c734e3b4134",
+        "candidateSource": "live head of main",
+        "applicableGates": 20,
+        "verifiedGates": 0,
+        "readinessPercent": 0,
+        "missingEvidence": [
+          "scope-complete",
+          "automated-checks",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader",
+          "responsive-layouts",
+          "critical-workflows",
+          "production-deployment",
+          "documentation-accurate",
+          "no-release-blockers",
+          "authentication",
+          "authorization-boundaries",
+          "sensitive-data-handling",
+          "api-integration-security",
+          "integration-failure-handling",
+          "backup-recovery",
+          "audit-logging",
+          "deployment-rollback",
+          "e2e-critical-workflows",
+          "user-data-isolation"
+        ],
+        "activeBlockers": [
+          "backup-restore-unverified",
+          "project-status-stale",
+          "auto-critical-workflows-unverified",
+          "auto-missing-verification",
+          "auto-owner-approval",
+          "auto-ownership",
+          "auto-scope-missing"
+        ],
+        "dependencyReadiness": [],
+        "manualTesting": [
+          "scope-complete (human only)",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader (human only)",
+          "responsive-layouts",
+          "critical-workflows",
+          "production-deployment",
+          "documentation-accurate",
+          "no-release-blockers (human only)",
+          "authentication",
+          "authorization-boundaries",
+          "sensitive-data-handling",
+          "api-integration-security",
+          "integration-failure-handling",
+          "backup-recovery",
+          "audit-logging",
+          "deployment-rollback",
+          "e2e-critical-workflows",
+          "user-data-isolation"
+        ],
+        "approvalsRequired": [
+          "Joshua Small (release approval, recorded in the registry with evidence)",
+          "an independent verifier must be assigned in the registry"
+        ],
+        "versionRecommendation": "none: the owner sets release.targetVersion when a release is scoped",
+        "preparation": [],
+        "preparationStatus": "not started: Not Ready",
+        "rollback": "Redeploy the previous production revision from the hosting provider, then revert the release commit on main through a PR.",
+        "ownerActions": [
+          "merge: owner only",
+          "publish: owner only",
+          "deploy: owner only",
+          "tag: owner only"
+        ]
+      },
+      "blockers": [
+        {
+          "id": "backup-restore-unverified",
+          "severity": "unclassified",
+          "description": "docs/project-status.md records that an actual private backup and isolated MongoDB restore is not yet verified."
+        },
+        {
+          "id": "project-status-stale",
+          "severity": "unclassified",
+          "description": "docs/project-status.md (last updated 2026-10-09) lists KAN-48 as the current branch and next step, but KAN-48 is already merged on main as PR #42."
+        }
+      ],
+      "openPullRequests": 0,
+      "sync": {
+        "changes": [],
+        "reason": "token-rejected: GET /repos/WasteOfADrumBum/TaskForge: the token was rejected (HTTP 401); it is missing, expired or revoked",
+        "status": "unavailable"
+      },
+      "previousReleaseState": null,
+      "security": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "low": 2
+      },
+      "nextAction": "Resolve backup-restore-unverified in taskforge.",
+      "queueItems": 13
+    },
+    {
+      "id": "cortex",
+      "name": "Cortex",
+      "tier": "application",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "revisionSource": "live head of main",
+      "liveRevision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "revisionSeenSince": "2026-10-27T01:55:16Z",
+      "access": "readable",
+      "lastCollection": "2026-10-27T01:56:26Z",
+      "ci": "unavailable",
+      "readiness": {
+        "percentage": 0,
+        "previousPercentage": 0,
+        "applicableGates": 20,
+        "verifiedGates": 0,
+        "eligibility": "not-scoped",
+        "ownershipValid": false
+      },
+      "gateStates": {
+        "independently_verified": 0,
+        "passed_by_builder": 4,
+        "failed": 0,
+        "inconclusive": 5,
+        "not_tested": 11,
+        "not_applicable": 0
+      },
+      "release": {
+        "state": "not_ready",
+        "text": "Not Ready",
+        "reasons": [
+          "no target version"
+        ],
+        "candidate": null,
+        "approval": {
+          "valid": false,
+          "bound": false,
+          "reason": "approval is pending"
+        }
+      },
+      "releasePlan": {
+        "state": "not_ready",
+        "candidateRevision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+        "candidateSource": "live head of main",
+        "applicableGates": 20,
+        "verifiedGates": 0,
+        "readinessPercent": 0,
+        "missingEvidence": [
+          "scope-complete",
+          "automated-checks",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader",
+          "responsive-layouts",
+          "critical-workflows",
+          "production-deployment",
+          "documentation-accurate",
+          "no-release-blockers",
+          "authentication",
+          "authorization-boundaries",
+          "sensitive-data-handling",
+          "api-integration-security",
+          "integration-failure-handling",
+          "backup-recovery",
+          "audit-logging",
+          "deployment-rollback",
+          "e2e-critical-workflows",
+          "user-data-isolation"
+        ],
+        "activeBlockers": [
+          "no-ci-workflow",
+          "spec-open-questions",
+          "v2-phases-incomplete",
+          "auto-critical-workflows-unverified",
+          "auto-missing-verification",
+          "auto-owner-approval",
+          "auto-ownership"
+        ],
+        "dependencyReadiness": [
+          "confirmed declared: integrates one-small-ui",
+          "confirmed declared: integrates personal-portfolio"
+        ],
+        "manualTesting": [
+          "scope-complete (human only)",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader (human only)",
+          "responsive-layouts",
+          "critical-workflows",
+          "production-deployment",
+          "documentation-accurate",
+          "no-release-blockers (human only)",
+          "authentication",
+          "authorization-boundaries",
+          "sensitive-data-handling",
+          "api-integration-security",
+          "integration-failure-handling",
+          "backup-recovery",
+          "audit-logging",
+          "deployment-rollback",
+          "e2e-critical-workflows",
+          "user-data-isolation"
+        ],
+        "approvalsRequired": [
+          "Joshua Small (release approval, recorded in the registry with evidence)",
+          "an independent verifier must be assigned in the registry"
+        ],
+        "versionRecommendation": "none: the owner sets release.targetVersion when a release is scoped",
+        "preparation": [],
+        "preparationStatus": "not started: Not Ready",
+        "rollback": "Redeploy the previous production revision from the hosting provider, then revert the release commit on main through a PR.",
+        "ownerActions": [
+          "merge: owner only",
+          "publish: owner only",
+          "deploy: owner only",
+          "tag: owner only"
+        ]
+      },
+      "blockers": [
+        {
+          "id": "no-ci-workflow",
+          "severity": "unclassified",
+          "description": "No GitHub Actions workflow; npm test exists but is not enforced on PRs (only the Vercel status runs)."
+        },
+        {
+          "id": "spec-open-questions",
+          "severity": "unclassified",
+          "description": "The v2 spec lists five open questions for the owner (finance email hand-off, Muse check, Vault legend, news sources, briefing schedule)."
+        },
+        {
+          "id": "v2-phases-incomplete",
+          "severity": "unclassified",
+          "description": "README states Finances is a placeholder until phase 4 and News until phase 5, and Ops project cards arrive in phase 3; the v2 spec defines six phases."
+        }
+      ],
+      "openPullRequests": 0,
+      "sync": {
+        "changes": [],
+        "reason": "token-rejected: GET /repos/WasteOfADrumBum/cortex-brain-task: the token was rejected (HTTP 401); it is missing, expired or revoked",
+        "status": "unavailable"
+      },
+      "previousReleaseState": null,
+      "security": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      },
+      "nextAction": "Resolve no-ci-workflow in cortex.",
+      "queueItems": 11
+    },
+    {
+      "id": "one-small-ai-workforce",
+      "name": "One Small AI Workforce",
+      "tier": "application",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "revision": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "revisionSource": "registry snapshot (live head unavailable)",
+      "liveRevision": null,
+      "revisionSeenSince": null,
+      "access": "not-visible: repository not found or not visible without a reader credential (private repositories need one)",
+      "lastCollection": "2026-10-27T01:56:26Z",
+      "ci": "unavailable",
+      "readiness": {
+        "percentage": 0,
+        "previousPercentage": 0,
+        "applicableGates": 20,
+        "verifiedGates": 0,
+        "eligibility": "not-scoped",
+        "ownershipValid": false
+      },
+      "gateStates": {
+        "independently_verified": 0,
+        "passed_by_builder": 1,
+        "failed": 0,
+        "inconclusive": 8,
+        "not_tested": 11,
+        "not_applicable": 0
+      },
+      "release": {
+        "state": "not_ready",
+        "text": "Not Ready",
+        "reasons": [
+          "no target version"
+        ],
+        "candidate": null,
+        "approval": {
+          "valid": false,
+          "bound": false,
+          "reason": "approval is pending"
+        }
+      },
+      "releasePlan": {
+        "state": "not_ready",
+        "candidateRevision": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+        "candidateSource": "registry snapshot (live head unavailable)",
+        "applicableGates": 20,
+        "verifiedGates": 0,
+        "readinessPercent": 0,
+        "missingEvidence": [
+          "scope-complete",
+          "automated-checks",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader",
+          "responsive-layouts",
+          "critical-workflows",
+          "production-deployment",
+          "documentation-accurate",
+          "no-release-blockers",
+          "authentication",
+          "authorization-boundaries",
+          "sensitive-data-handling",
+          "api-integration-security",
+          "integration-failure-handling",
+          "backup-recovery",
+          "audit-logging",
+          "deployment-rollback",
+          "e2e-critical-workflows",
+          "user-data-isolation"
+        ],
+        "activeBlockers": [
+          "scope-document-missing",
+          "auto-critical-workflows-unverified",
+          "auto-missing-verification",
+          "auto-owner-approval",
+          "auto-ownership"
+        ],
+        "dependencyReadiness": [],
+        "manualTesting": [
+          "scope-complete (human only)",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader (human only)",
+          "responsive-layouts",
+          "critical-workflows",
+          "production-deployment",
+          "documentation-accurate",
+          "no-release-blockers (human only)",
+          "authentication",
+          "authorization-boundaries",
+          "sensitive-data-handling",
+          "api-integration-security",
+          "integration-failure-handling",
+          "backup-recovery",
+          "audit-logging",
+          "deployment-rollback",
+          "e2e-critical-workflows",
+          "user-data-isolation"
+        ],
+        "approvalsRequired": [
+          "Joshua Small (release approval, recorded in the registry with evidence)",
+          "an independent verifier must be assigned in the registry"
+        ],
+        "versionRecommendation": "none: the owner sets release.targetVersion when a release is scoped",
+        "preparation": [],
+        "preparationStatus": "not started: Not Ready",
+        "rollback": "Redeploy the previous production revision from the hosting provider, then revert the release commit on main through a PR.",
+        "ownerActions": [
+          "merge: owner only",
+          "publish: owner only",
+          "deploy: owner only",
+          "tag: owner only"
+        ]
+      },
+      "blockers": [
+        {
+          "id": "scope-document-missing",
+          "severity": "unclassified",
+          "description": "No release scope document. The README describes a Phase 1 deterministic simulation foundation; the first release scope has not been defined."
+        }
+      ],
+      "openPullRequests": 0,
+      "sync": {
+        "changes": [],
+        "reason": "needs-reader-token: private repository: the read-only reader credential is not configured",
+        "status": "unavailable"
+      },
+      "previousReleaseState": null,
+      "security": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      },
+      "nextAction": "Resolve scope-document-missing in one-small-ai-workforce.",
+      "queueItems": 6
+    }
+  ],
+  "queue": [
+    {
+      "rank": 1,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "rootCause": "npm audit at 684ef3c: next (critical, direct, production, fix available via next@16.4.3)",
+      "complexity": "small",
+      "validation": [
+        "npm ci --ignore-scripts and the project test suite pass at the fix commit",
+        "dependency-audit collector reports no critical/high advisories",
+        "an independent verifier records supply-chain-review"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-personal-portfolio-dependency-audit-684ef3c-448e5446"
+      ],
+      "relatedPRs": [
+        {
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/17",
+          "status": "unknown",
+          "reviewed": null,
+          "openedFor": "684ef3ce76d62919045cea65259e8bf52f1c6174"
+        }
+      ],
+      "crossProject": [],
+      "id": "personal-portfolio:advisory:critical-production",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 1,
+      "severity": "critical",
+      "kind": "vulnerability",
+      "title": "1 critical advisories in production dependencies: next",
+      "impact": "Reachable from production dependencies. Release impact: blocks supply-chain-review and security-privacy-review.",
+      "proposedCorrection": "Lockfile-only update within declared ranges (npm audit fix, without --force).",
+      "actionClass": "owner-decision",
+      "autoFix": null,
+      "nextAction": "Review https://github.com/WasteOfADrumBum/joshsmall-site/pull/17.",
+      "priorityText": "Critical security",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 2,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "rootCause": "Registry blocker no-ci-workflow (ci, blocks release).",
+      "complexity": "medium",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:personal-portfolio:no-ci-workflow"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:blocker:no-ci-workflow",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 2,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "No GitHub Actions workflow; the only commit check is the Vercel deployment status, so lint, type check and tests are not enforced on PRs.",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve no-ci-workflow in personal-portfolio.",
+      "priorityText": "Broken build or failing required CI",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 3,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": "Registry blocker no-ci-workflow (ci, blocks release).",
+      "complexity": "medium",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:cortex:no-ci-workflow"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:no-ci-workflow",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 2,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "No GitHub Actions workflow; npm test exists but is not enforced on PRs (only the Vercel status runs).",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve no-ci-workflow in cortex.",
+      "priorityText": "Broken build or failing required CI",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 4,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": "Registry blocker codex-interactive-trust (workflow, blocks release).",
+      "complexity": "medium",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:one-small-mods-pack:codex-interactive-trust"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:codex-interactive-trust",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 3,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "Codex hook enforcement verified only with trust bypassed; interactive /hooks trust not confirmed.",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve codex-interactive-trust in one-small-mods-pack.",
+      "priorityText": "Release-blocking defect",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 5,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": "Registry blocker copilot-gemini-runtime-untested (workflow, blocks release).",
+      "complexity": "medium",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:one-small-mods-pack:copilot-gemini-runtime-untested"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:copilot-gemini-runtime-untested",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 3,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "Copilot and Gemini CLI hook enforcement and custom agents are NOT TESTED; either test in authenticated runtimes or record an owner decision to ship them as experimental.",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve copilot-gemini-runtime-untested in one-small-mods-pack.",
+      "priorityText": "Release-blocking defect",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 6,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": "Registry blocker npm-ownership-access (distribution, blocks release).",
+      "complexity": "medium",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:one-small-mods-pack:npm-ownership-access"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:npm-ownership-access",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 3,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "npm ownership of one-small-modspack and publish access not confirmed; the name is currently unpublished.",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve npm-ownership-access in one-small-mods-pack.",
+      "priorityText": "Release-blocking defect",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 7,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": "Registry blocker publish-pipeline-missing (distribution, blocks release).",
+      "complexity": "medium",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:one-small-mods-pack:publish-pipeline-missing"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:publish-pipeline-missing",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 3,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "No release or publish workflow exists at the candidate commit (only ci.yml), so the package cannot be published from CI with npm provenance. Add a least-privilege publish workflow (manual trigger, npm --provenance) or record an owner decision on how 2.0.0 is published. Proposed by Claude Code in the Phase 3 PR for owner review.",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve publish-pipeline-missing in one-small-mods-pack.",
+      "priorityText": "Release-blocking defect",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 8,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": "publish workflow: no workflow runs npm publish (1 workflow(s))",
+      "complexity": "medium",
+      "validation": [
+        "ci-release-pipeline: manual review by the verifier",
+        "clean-consumer-install: manual review by the verifier",
+        "package-archive-inspection: re-executed by the verifier",
+        "package-metadata-exports: re-executed by the verifier",
+        "versioning-changelog: re-executed by the verifier"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-one-small-mods-pack-release-packaging-80cc269-3663499d"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:collector:release-packaging",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 3,
+      "severity": "medium",
+      "kind": "defect",
+      "title": "release packaging: 1 of 10 check(s) failed",
+      "impact": "blocks verification of ci-release-pipeline, clean-consumer-install, package-archive-inspection, package-metadata-exports, versioning-changelog",
+      "proposedCorrection": "A developer fixes the cause at the evaluated commit; automation does not guess code fixes.",
+      "actionClass": "owner-decision",
+      "nextAction": "Fix release-packaging in one-small-mods-pack at 80cc269.",
+      "priorityText": "Release-blocking defect",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 9,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": "Registry blocker scope-document-missing (scope, blocks release).",
+      "complexity": "large",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:one-small-ui:scope-document-missing"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:blocker:scope-document-missing",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 3,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "No v0.6.0 / Phase 5 page-blocks scope document exists in the repository; scope cannot be frozen.",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve scope-document-missing in one-small-ui.",
+      "priorityText": "Release-blocking defect",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 10,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "rootCause": "Registry blocker scope-document-missing (scope, blocks release).",
+      "complexity": "large",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:personal-portfolio:scope-document-missing"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:blocker:scope-document-missing",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 3,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "No release scope document in the repository (final audit and project showcase updates are owner-reported leads).",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve scope-document-missing in personal-portfolio.",
+      "priorityText": "Release-blocking defect",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 11,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "rootCause": "Registry blocker scope-document-missing (scope, blocks release).",
+      "complexity": "large",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:one-small-studio:scope-document-missing"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:blocker:scope-document-missing",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 3,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "No release scope document in the repository (equipment showcase and final QA are owner-reported leads).",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve scope-document-missing in one-small-studio.",
+      "priorityText": "Release-blocking defect",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 12,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "rootCause": "Registry blocker scope-document-missing (scope, blocks release).",
+      "complexity": "large",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:one-small-photography:scope-document-missing"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:blocker:scope-document-missing",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 3,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "No release scope document. README lists Neon Postgres and Backblaze B2 photo storage as \"next phase\"; the owner must decide whether they are in the first release scope.",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve scope-document-missing in one-small-photography.",
+      "priorityText": "Release-blocking defect",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 13,
+      "projects": [
+        "taskforge"
+      ],
+      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "rootCause": "Registry blocker backup-restore-unverified (workflow, blocks release).",
+      "complexity": "medium",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:taskforge:backup-restore-unverified"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "taskforge:blocker:backup-restore-unverified",
+      "project": "taskforge",
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "priority": 3,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "docs/project-status.md records that an actual private backup and isolated MongoDB restore is not yet verified.",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve backup-restore-unverified in taskforge.",
+      "priorityText": "Release-blocking defect",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 14,
+      "projects": [
+        "taskforge"
+      ],
+      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "rootCause": "Registry blocker project-status-stale (stale-evidence, blocks release).",
+      "complexity": "medium",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:taskforge:project-status-stale"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "taskforge:blocker:project-status-stale",
+      "project": "taskforge",
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "priority": 3,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "docs/project-status.md (last updated 2026-10-09) lists KAN-48 as the current branch and next step, but KAN-48 is already merged on main as PR #42.",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve project-status-stale in taskforge.",
+      "priorityText": "Release-blocking defect",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 15,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": "Registry blocker spec-open-questions (scope, blocks release).",
+      "complexity": "large",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:cortex:spec-open-questions"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:spec-open-questions",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 3,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "The v2 spec lists five open questions for the owner (finance email hand-off, Muse check, Vault legend, news sources, briefing schedule).",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve spec-open-questions in cortex.",
+      "priorityText": "Release-blocking defect",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 16,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": "Registry blocker v2-phases-incomplete (scope, blocks release).",
+      "complexity": "large",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:cortex:v2-phases-incomplete"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:v2-phases-incomplete",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 3,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "README states Finances is a placeholder until phase 4 and News until phase 5, and Ops project cards arrive in phase 3; the v2 spec defines six phases.",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve v2-phases-incomplete in cortex.",
+      "priorityText": "Release-blocking defect",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 17,
+      "projects": [
+        "one-small-ai-workforce"
+      ],
+      "revision": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "rootCause": "Registry blocker scope-document-missing (scope, blocks release).",
+      "complexity": "large",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:one-small-ai-workforce:scope-document-missing"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ai-workforce:blocker:scope-document-missing",
+      "project": "one-small-ai-workforce",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "priority": 3,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "No release scope document. The README describes a Phase 1 deterministic simulation foundation; the first release scope has not been defined.",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve scope-document-missing in one-small-ai-workforce.",
+      "priorityText": "Release-blocking defect",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 18,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "rootCause": "npm audit at 175cef6: body-parser (high, production, fix available); zod (high, direct, production, fix available)",
+      "complexity": "small",
+      "validation": [
+        "npm ci --ignore-scripts and the project test suite pass at the fix commit",
+        "dependency-audit collector reports no critical/high advisories",
+        "an independent verifier records supply-chain-review"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-one-small-studio-dependency-audit-175cef6-0f866491"
+      ],
+      "relatedPRs": [
+        {
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/16",
+          "status": "unknown",
+          "reviewed": null,
+          "openedFor": "175cef6bafbc0322e0d54cf3e543aafa1626a049"
+        }
+      ],
+      "crossProject": [
+        "one-small-photography"
+      ],
+      "id": "one-small-studio:advisory:high-production",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 4,
+      "severity": "high",
+      "kind": "vulnerability",
+      "title": "2 high advisories in production dependencies: body-parser, zod",
+      "impact": "Reachable from production dependencies. Release impact: blocks supply-chain-review and security-privacy-review.",
+      "proposedCorrection": "Lockfile-only update within declared ranges (npm audit fix, without --force).",
+      "actionClass": "owner-decision",
+      "autoFix": null,
+      "nextAction": "Review https://github.com/WasteOfADrumBum/one-small-studio/pull/16.",
+      "priorityText": "High-severity vulnerability",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 19,
+      "projects": [
+        "taskforge"
+      ],
+      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "rootCause": "npm audit at 11975d0: body-parser (high, production, fix available)",
+      "complexity": "small",
+      "validation": [
+        "npm ci --ignore-scripts and the project test suite pass at the fix commit",
+        "dependency-audit collector reports no critical/high advisories",
+        "an independent verifier records supply-chain-review"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-taskforge-dependency-audit-11975d0-b1e62bb2"
+      ],
+      "relatedPRs": [
+        {
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/43",
+          "status": "unknown",
+          "reviewed": null,
+          "openedFor": "11975d0278c7f04db5033c0461295c734e3b4134"
+        }
+      ],
+      "crossProject": [],
+      "id": "taskforge:advisory:high-production",
+      "project": "taskforge",
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "priority": 4,
+      "severity": "high",
+      "kind": "vulnerability",
+      "title": "1 high advisories in production dependencies: body-parser",
+      "impact": "Reachable from production dependencies. Release impact: blocks supply-chain-review and security-privacy-review.",
+      "proposedCorrection": "Lockfile-only update within declared ranges (npm audit fix, without --force).",
+      "actionClass": "owner-decision",
+      "autoFix": null,
+      "nextAction": "Review https://github.com/WasteOfADrumBum/TaskForge/pull/43.",
+      "priorityText": "High-severity vulnerability",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 20,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": "npm audit at 94438ee: tinypool (critical, dev only, fix major via vitest@5.0.5); vitest (critical, direct, dev only, fix major via vitest@5.0.5)",
+      "complexity": "medium",
+      "validation": [
+        "npm ci --ignore-scripts and the project test suite pass at the fix commit",
+        "dependency-audit collector reports no critical/high advisories",
+        "an independent verifier records supply-chain-review"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-one-small-ui-dependency-audit-94438ee-c247d2a2"
+      ],
+      "relatedPRs": [],
+      "crossProject": [
+        "one-small-photography",
+        "one-small-studio"
+      ],
+      "id": "one-small-ui:advisory:critical-dev",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 4,
+      "severity": "medium",
+      "kind": "vulnerability",
+      "title": "2 critical advisories in development tooling only (not shipped; runs in CI and on developer machines): tinypool, vitest",
+      "impact": "Not in the shipped bundle or server; affects build and test tooling. Release impact: supply-chain-review stays unverified.",
+      "proposedCorrection": "Upgrade needs a major version (vitest@5.0.5, vitest@5.0.5): review breaking changes before changing it.",
+      "actionClass": "owner-decision",
+      "autoFix": null,
+      "nextAction": "Decide on the major upgrade for tinypool, vitest in one-small-ui.",
+      "priorityText": "High-severity vulnerability",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 21,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": "CI tests the engines floor: floor 20, CI Node 22",
+      "complexity": "medium",
+      "validation": [
+        "runtime-compatibility: manual review by the verifier"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-one-small-mods-pack-compatibility-80cc269-fff1571b"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:collector:compatibility",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 5,
+      "severity": "medium",
+      "kind": "defect",
+      "title": "compatibility: 1 of 3 check(s) failed",
+      "impact": "blocks verification of runtime-compatibility",
+      "proposedCorrection": "A developer fixes the cause at the evaluated commit; automation does not guess code fixes.",
+      "actionClass": "owner-decision",
+      "nextAction": "Fix compatibility in one-small-mods-pack at 80cc269.",
+      "priorityText": "Cross-project compatibility",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 22,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": "CI tests the engines floor: floor 18, CI Node 22",
+      "complexity": "medium",
+      "validation": [
+        "runtime-compatibility: manual review by the verifier"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-one-small-ui-compatibility-94438ee-1fbb33cf"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:collector:compatibility",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 5,
+      "severity": "medium",
+      "kind": "defect",
+      "title": "compatibility: 1 of 3 check(s) failed",
+      "impact": "blocks verification of runtime-compatibility",
+      "proposedCorrection": "A developer fixes the cause at the evaluated commit; automation does not guess code fixes.",
+      "actionClass": "owner-decision",
+      "nextAction": "Fix compatibility in one-small-ui at 94438ee.",
+      "priorityText": "Cross-project compatibility",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 23,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": "Registry blocker manual-screen-reader-review (accessibility, blocks release).",
+      "complexity": "medium",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:one-small-mods-pack:manual-screen-reader-review"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:manual-screen-reader-review",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 6,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "Screen reader review (NVDA or similar) of the generated documentation site is NOT TESTED.",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve manual-screen-reader-review in one-small-mods-pack.",
+      "priorityText": "Accessibility",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 24,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": "Registry blocker manual-zoom-forced-colors-review (accessibility, blocks release).",
+      "complexity": "medium",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:one-small-mods-pack:manual-zoom-forced-colors-review"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:manual-zoom-forced-colors-review",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 6,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "Real 200%/400% browser zoom, text spacing and Windows forced-colors review is NOT TESTED (only viewport-width and emulated checks).",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve manual-zoom-forced-colors-review in one-small-mods-pack.",
+      "priorityText": "Accessibility",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 25,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": "not run or inconclusive: automated accessibility run (no automated accessibility command is configured for this project); site:check (browser accessibility and layout checks) (needs a browser; not run by the collector); manual review (Screen reader (NVDA or similar), real 200%/400% zoom, text spacing and Windows forced-colors review of the generated documentation site.)",
+      "complexity": "small",
+      "validation": [
+        "wcag-22-aa: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-one-small-mods-pack-accessibility-80cc269-ca3183a8"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:collector:accessibility",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 6,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "accessibility: 1 of 4 check(s) passed; 3 not run or inconclusive",
+      "impact": "blocks verification of wcag-22-aa",
+      "proposedCorrection": "A person performs the manual review and the verifier records it.",
+      "actionClass": "independent-verification",
+      "nextAction": "Review accessibility for one-small-mods-pack.",
+      "priorityText": "Accessibility",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 26,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": "not run or inconclusive: manual review (Keyboard and screen reader review of the docs app and components.)",
+      "complexity": "small",
+      "validation": [
+        "wcag-22-aa: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-one-small-ui-accessibility-94438ee-c38c97f7"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:collector:accessibility",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 6,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "accessibility: 2 of 3 check(s) passed; 1 not run or inconclusive",
+      "impact": "blocks verification of wcag-22-aa",
+      "proposedCorrection": "A person performs the manual review and the verifier records it.",
+      "actionClass": "independent-verification",
+      "nextAction": "Review accessibility for one-small-ui.",
+      "priorityText": "Accessibility",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 27,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "rootCause": "not run or inconclusive: automated accessibility tooling (none declared in package.json); automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
+      "complexity": "small",
+      "validation": [
+        "wcag-22-aa: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-personal-portfolio-accessibility-684ef3c-baee89e7"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:collector:accessibility",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 6,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive",
+      "impact": "blocks verification of wcag-22-aa",
+      "proposedCorrection": "A person performs the manual review and the verifier records it.",
+      "actionClass": "independent-verification",
+      "nextAction": "Review accessibility for personal-portfolio.",
+      "priorityText": "Accessibility",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 28,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "rootCause": "not run or inconclusive: automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
+      "complexity": "small",
+      "validation": [
+        "wcag-22-aa: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-one-small-studio-accessibility-175cef6-fb594e90"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:collector:accessibility",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 6,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "accessibility: 1 of 3 check(s) passed; 2 not run or inconclusive",
+      "impact": "blocks verification of wcag-22-aa",
+      "proposedCorrection": "A person performs the manual review and the verifier records it.",
+      "actionClass": "independent-verification",
+      "nextAction": "Review accessibility for one-small-studio.",
+      "priorityText": "Accessibility",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 29,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "rootCause": "not run or inconclusive: automated accessibility tooling (none declared in package.json); automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
+      "complexity": "small",
+      "validation": [
+        "wcag-22-aa: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-one-small-photography-accessibility-45a74ba-5ad5aff3"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:collector:accessibility",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 6,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive",
+      "impact": "blocks verification of wcag-22-aa",
+      "proposedCorrection": "A person performs the manual review and the verifier records it.",
+      "actionClass": "independent-verification",
+      "nextAction": "Review accessibility for one-small-photography.",
+      "priorityText": "Accessibility",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 30,
+      "projects": [
+        "taskforge"
+      ],
+      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "rootCause": "not run or inconclusive: automated accessibility tooling (none declared in package.json); automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
+      "complexity": "small",
+      "validation": [
+        "wcag-22-aa: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-taskforge-accessibility-11975d0-fe387eac"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "taskforge:collector:accessibility",
+      "project": "taskforge",
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "priority": 6,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive",
+      "impact": "blocks verification of wcag-22-aa",
+      "proposedCorrection": "A person performs the manual review and the verifier records it.",
+      "actionClass": "independent-verification",
+      "nextAction": "Review accessibility for taskforge.",
+      "priorityText": "Accessibility",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 31,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": "not run or inconclusive: automated accessibility tooling (none declared in package.json); automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
+      "complexity": "small",
+      "validation": [
+        "wcag-22-aa: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-cortex-accessibility-ec49fd7-81ba90a1"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:collector:accessibility",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 6,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive",
+      "impact": "blocks verification of wcag-22-aa",
+      "proposedCorrection": "A person performs the manual review and the verifier records it.",
+      "actionClass": "independent-verification",
+      "nextAction": "Review accessibility for cortex.",
+      "priorityText": "Accessibility",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 32,
+      "projects": [
+        "one-small-mods-pack",
+        "one-small-ui",
+        "personal-portfolio",
+        "one-small-studio",
+        "one-small-photography",
+        "taskforge",
+        "cortex",
+        "one-small-ai-workforce"
+      ],
+      "revision": null,
+      "rootCause": "ownership.builder / ownership.verifier are null in the registry (owner rule: assign when a release is scoped).",
+      "complexity": "trivial",
+      "validation": [
+        "registry validator passes",
+        "verification records by the assigned verifier are accepted"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:one-small-mods-pack:ownership",
+        "registry:one-small-ui:ownership",
+        "registry:personal-portfolio:ownership",
+        "registry:one-small-studio:ownership",
+        "registry:one-small-photography:ownership",
+        "registry:taskforge:ownership",
+        "registry:cortex:ownership",
+        "registry:one-small-ai-workforce:ownership"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "portfolio:ownership",
+      "project": "portfolio",
+      "repository": null,
+      "priority": 7,
+      "severity": "high",
+      "kind": "governance",
+      "title": "8 project(s) have no builder and independent verifier assigned, so no gate can be independently verified",
+      "impact": "Every project stays at 0% verified readiness.",
+      "proposedCorrection": "Assign a builder and a different, independent verifier for each project with a scoped release (registry PR).",
+      "actionClass": "owner-decision",
+      "nextAction": "Assign builder and verifier per project (owner decision).",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 33,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": "Registry blocker pr-description-stale (documentation, blocks merge).",
+      "complexity": "medium",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:one-small-mods-pack:pr-description-stale"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:pr-description-stale",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "PR #3 description disagrees with docs/release-verification.md at the same head (dependency audit INCONCLUSIVE vs PASS; 55 vs 82 packed files; 85 vs 89 CLI tests). Reconcile before review.",
+      "impact": "Blocks merge.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve pr-description-stale in one-small-mods-pack.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 34,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "medium",
+      "validation": [
+        "verify:record accepted for each gate"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:verification",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "verification",
+      "title": "21 applicable gate(s) without independent verification (0/21 verified)",
+      "impact": "Release readiness cannot rise above the verified share.",
+      "proposedCorrection": "The assigned verifier re-checks current evidence and records each gate (npm run verify:record, outside CI).",
+      "actionClass": "independent-verification",
+      "nextAction": "Verifier: record scope-complete, automated-checks, security-privacy-review, ... for one-small-mods-pack.",
+      "gates": [
+        "scope-complete",
+        "automated-checks",
+        "security-privacy-review",
+        "wcag-22-aa",
+        "keyboard-screen-reader",
+        "responsive-layouts",
+        "critical-workflows",
+        "documentation-accurate",
+        "no-release-blockers",
+        "package-metadata-exports",
+        "clean-consumer-install",
+        "runtime-compatibility",
+        "package-archive-inspection",
+        "supply-chain-review",
+        "ci-release-pipeline",
+        "versioning-changelog",
+        "distribution-verified",
+        "release-provenance",
+        "upgrade-rollback-uninstall-docs",
+        "public-docs-accurate",
+        "published-artifact-matches"
+      ],
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 35,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": "could not reach https://one-small-ui.vercel.app from this runner",
+      "complexity": "trivial",
+      "validation": [
+        "the collectors report a result other than unavailable"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-one-small-ui-deployment-health-94438ee-4b57ce2e"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:access:deployment-health",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "access",
+      "title": "deployment-health unavailable: could not reach https://one-small-ui.vercel.app from this runner",
+      "impact": "No evidence for production-deployment; unavailable is never a pass.",
+      "proposedCorrection": "Run where the GitHub API is reachable: the engineering workflow in GitHub Actions has a read-only token for this.",
+      "actionClass": "blocked-credentials",
+      "nextAction": "Run where the GitHub API is reachable.",
+      "accessReason": "could not reach https://one-small-ui.vercel.app from this runner",
+      "collectors": [
+        "deployment-health"
+      ],
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Blocked by credentials or environment",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 36,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": "version matches the registry target: package 0.5.0, target 0.6.0 | publish workflow: no workflow runs npm publish (1 workflow(s))",
+      "complexity": "medium",
+      "validation": [
+        "ci-release-pipeline: manual review by the verifier",
+        "clean-consumer-install: manual review by the verifier",
+        "package-archive-inspection: re-executed by the verifier",
+        "package-metadata-exports: re-executed by the verifier",
+        "versioning-changelog: re-executed by the verifier"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-one-small-ui-release-packaging-94438ee-26f4e088"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:collector:release-packaging",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "defect",
+      "title": "release packaging: 2 of 10 check(s) failed",
+      "impact": "blocks verification of ci-release-pipeline, clean-consumer-install, package-archive-inspection, package-metadata-exports, versioning-changelog",
+      "proposedCorrection": "A developer fixes the cause at the evaluated commit; automation does not guess code fixes.",
+      "actionClass": "owner-decision",
+      "nextAction": "Fix release-packaging in one-small-ui at 94438ee.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 37,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": null,
+      "complexity": "medium",
+      "validation": [
+        "verify:record accepted for each gate"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:verification",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "verification",
+      "title": "22 applicable gate(s) without independent verification (0/22 verified)",
+      "impact": "Release readiness cannot rise above the verified share.",
+      "proposedCorrection": "The assigned verifier re-checks current evidence and records each gate (npm run verify:record, outside CI).",
+      "actionClass": "independent-verification",
+      "nextAction": "Verifier: record scope-complete, automated-checks, security-privacy-review, ... for one-small-ui.",
+      "gates": [
+        "scope-complete",
+        "automated-checks",
+        "security-privacy-review",
+        "wcag-22-aa",
+        "keyboard-screen-reader",
+        "responsive-layouts",
+        "critical-workflows",
+        "production-deployment",
+        "documentation-accurate",
+        "no-release-blockers",
+        "package-metadata-exports",
+        "clean-consumer-install",
+        "runtime-compatibility",
+        "package-archive-inspection",
+        "supply-chain-review",
+        "ci-release-pipeline",
+        "versioning-changelog",
+        "distribution-verified",
+        "release-provenance",
+        "upgrade-rollback-uninstall-docs",
+        "public-docs-accurate",
+        "published-artifact-matches"
+      ],
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 38,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "rootCause": "could not reach https://joshsmall-portfolio.vercel.app from this runner",
+      "complexity": "trivial",
+      "validation": [
+        "the collectors report a result other than unavailable"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-personal-portfolio-deployment-health-684ef3c-45447d7c"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:access:deployment-health",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "access",
+      "title": "deployment-health unavailable: could not reach https://joshsmall-portfolio.vercel.app from this runner",
+      "impact": "No evidence for production-deployment; unavailable is never a pass.",
+      "proposedCorrection": "Run where the GitHub API is reachable: the engineering workflow in GitHub Actions has a read-only token for this.",
+      "actionClass": "blocked-credentials",
+      "nextAction": "Run where the GitHub API is reachable.",
+      "accessReason": "could not reach https://joshsmall-portfolio.vercel.app from this runner",
+      "collectors": [
+        "deployment-health"
+      ],
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Blocked by credentials or environment",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 39,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "rootCause": "Registry blocker readme-boilerplate (documentation, blocks release).",
+      "complexity": "medium",
+      "validation": [
+        "the blocker is marked resolved in the registry with resolution evidence"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:personal-portfolio:readme-boilerplate"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:blocker:readme-boilerplate",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "blocker",
+      "title": "README.md is the unmodified create-next-app template and does not describe the site.",
+      "impact": "Blocks release.",
+      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "actionClass": "owner-decision",
+      "nextAction": "Resolve readme-boilerplate in personal-portfolio.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 40,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "rootCause": null,
+      "complexity": "medium",
+      "validation": [
+        "verify:record accepted for each gate"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:verification",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "verification",
+      "title": "10 applicable gate(s) without independent verification (0/10 verified)",
+      "impact": "Release readiness cannot rise above the verified share.",
+      "proposedCorrection": "The assigned verifier re-checks current evidence and records each gate (npm run verify:record, outside CI).",
+      "actionClass": "independent-verification",
+      "nextAction": "Verifier: record scope-complete, automated-checks, security-privacy-review, ... for personal-portfolio.",
+      "gates": [
+        "scope-complete",
+        "automated-checks",
+        "security-privacy-review",
+        "wcag-22-aa",
+        "keyboard-screen-reader",
+        "responsive-layouts",
+        "critical-workflows",
+        "production-deployment",
+        "documentation-accurate",
+        "no-release-blockers"
+      ],
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 41,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "rootCause": "could not reach https://one-small-studio.vercel.app from this runner",
+      "complexity": "trivial",
+      "validation": [
+        "the collectors report a result other than unavailable"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-one-small-studio-deployment-health-175cef6-eac0aff6"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:access:deployment-health",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "access",
+      "title": "deployment-health unavailable: could not reach https://one-small-studio.vercel.app from this runner",
+      "impact": "No evidence for production-deployment; unavailable is never a pass.",
+      "proposedCorrection": "Run where the GitHub API is reachable: the engineering workflow in GitHub Actions has a read-only token for this.",
+      "actionClass": "blocked-credentials",
+      "nextAction": "Run where the GitHub API is reachable.",
+      "accessReason": "could not reach https://one-small-studio.vercel.app from this runner",
+      "collectors": [
+        "deployment-health"
+      ],
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Blocked by credentials or environment",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 42,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "rootCause": null,
+      "complexity": "medium",
+      "validation": [
+        "verify:record accepted for each gate"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:verification",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "verification",
+      "title": "10 applicable gate(s) without independent verification (0/10 verified)",
+      "impact": "Release readiness cannot rise above the verified share.",
+      "proposedCorrection": "The assigned verifier re-checks current evidence and records each gate (npm run verify:record, outside CI).",
+      "actionClass": "independent-verification",
+      "nextAction": "Verifier: record scope-complete, automated-checks, security-privacy-review, ... for one-small-studio.",
+      "gates": [
+        "scope-complete",
+        "automated-checks",
+        "security-privacy-review",
+        "wcag-22-aa",
+        "keyboard-screen-reader",
+        "responsive-layouts",
+        "critical-workflows",
+        "production-deployment",
+        "documentation-accurate",
+        "no-release-blockers"
+      ],
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 43,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "rootCause": "could not reach https://one-small-photography.vercel.app from this runner",
+      "complexity": "trivial",
+      "validation": [
+        "the collectors report a result other than unavailable"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-one-small-photography-deployment-health-45a74ba-6f7249e7"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:access:deployment-health",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "access",
+      "title": "deployment-health unavailable: could not reach https://one-small-photography.vercel.app from this runner",
+      "impact": "No evidence for production-deployment; unavailable is never a pass.",
+      "proposedCorrection": "Run where the GitHub API is reachable: the engineering workflow in GitHub Actions has a read-only token for this.",
+      "actionClass": "blocked-credentials",
+      "nextAction": "Run where the GitHub API is reachable.",
+      "accessReason": "could not reach https://one-small-photography.vercel.app from this runner",
+      "collectors": [
+        "deployment-health"
+      ],
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Blocked by credentials or environment",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 44,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "rootCause": null,
+      "complexity": "medium",
+      "validation": [
+        "verify:record accepted for each gate"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:verification",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "verification",
+      "title": "10 applicable gate(s) without independent verification (0/10 verified)",
+      "impact": "Release readiness cannot rise above the verified share.",
+      "proposedCorrection": "The assigned verifier re-checks current evidence and records each gate (npm run verify:record, outside CI).",
+      "actionClass": "independent-verification",
+      "nextAction": "Verifier: record scope-complete, automated-checks, security-privacy-review, ... for one-small-photography.",
+      "gates": [
+        "scope-complete",
+        "automated-checks",
+        "security-privacy-review",
+        "wcag-22-aa",
+        "keyboard-screen-reader",
+        "responsive-layouts",
+        "critical-workflows",
+        "production-deployment",
+        "documentation-accurate",
+        "no-release-blockers"
+      ],
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 45,
+      "projects": [
+        "taskforge"
+      ],
+      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "rootCause": "could not reach https://taskforge-alpha-six.vercel.app from this runner",
+      "complexity": "trivial",
+      "validation": [
+        "the collectors report a result other than unavailable"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-taskforge-deployment-health-11975d0-6ad29e0a"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "taskforge:access:deployment-health",
+      "project": "taskforge",
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "access",
+      "title": "deployment-health unavailable: could not reach https://taskforge-alpha-six.vercel.app from this runner",
+      "impact": "No evidence for deployment-rollback, production-deployment; unavailable is never a pass.",
+      "proposedCorrection": "Run where the GitHub API is reachable: the engineering workflow in GitHub Actions has a read-only token for this.",
+      "actionClass": "blocked-credentials",
+      "nextAction": "Run where the GitHub API is reachable.",
+      "accessReason": "could not reach https://taskforge-alpha-six.vercel.app from this runner",
+      "collectors": [
+        "deployment-health"
+      ],
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Blocked by credentials or environment",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 46,
+      "projects": [
+        "taskforge"
+      ],
+      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "rootCause": null,
+      "complexity": "medium",
+      "validation": [
+        "registry validator passes with targetVersion and scopeDocument"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "taskforge:scope",
+      "project": "taskforge",
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "scope",
+      "title": "No target version: the release cannot be scoped or verified.",
+      "impact": "No release can be verified until it is scoped.",
+      "proposedCorrection": "Commit a scope document and set release.targetVersion in the registry.",
+      "actionClass": "owner-decision",
+      "nextAction": "Scope the next taskforge release.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 47,
+      "projects": [
+        "taskforge"
+      ],
+      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "rootCause": null,
+      "complexity": "medium",
+      "validation": [
+        "verify:record accepted for each gate"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "taskforge:verification",
+      "project": "taskforge",
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "verification",
+      "title": "20 applicable gate(s) without independent verification (0/20 verified)",
+      "impact": "Release readiness cannot rise above the verified share.",
+      "proposedCorrection": "The assigned verifier re-checks current evidence and records each gate (npm run verify:record, outside CI).",
+      "actionClass": "independent-verification",
+      "nextAction": "Verifier: record scope-complete, automated-checks, security-privacy-review, ... for taskforge.",
+      "gates": [
+        "scope-complete",
+        "automated-checks",
+        "security-privacy-review",
+        "wcag-22-aa",
+        "keyboard-screen-reader",
+        "responsive-layouts",
+        "critical-workflows",
+        "production-deployment",
+        "documentation-accurate",
+        "no-release-blockers",
+        "authentication",
+        "authorization-boundaries",
+        "sensitive-data-handling",
+        "api-integration-security",
+        "integration-failure-handling",
+        "backup-recovery",
+        "audit-logging",
+        "deployment-rollback",
+        "e2e-critical-workflows",
+        "user-data-isolation"
+      ],
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 48,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": "could not reach https://cortex-brain-nu.vercel.app from this runner",
+      "complexity": "trivial",
+      "validation": [
+        "the collectors report a result other than unavailable"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-cortex-deployment-health-ec49fd7-a18cb9e8"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:access:deployment-health",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "access",
+      "title": "deployment-health unavailable: could not reach https://cortex-brain-nu.vercel.app from this runner",
+      "impact": "No evidence for deployment-rollback, production-deployment; unavailable is never a pass.",
+      "proposedCorrection": "Run where the GitHub API is reachable: the engineering workflow in GitHub Actions has a read-only token for this.",
+      "actionClass": "blocked-credentials",
+      "nextAction": "Run where the GitHub API is reachable.",
+      "accessReason": "could not reach https://cortex-brain-nu.vercel.app from this runner",
+      "collectors": [
+        "deployment-health"
+      ],
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Blocked by credentials or environment",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 49,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "medium",
+      "validation": [
+        "verify:record accepted for each gate"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:verification",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "verification",
+      "title": "20 applicable gate(s) without independent verification (0/20 verified)",
+      "impact": "Release readiness cannot rise above the verified share.",
+      "proposedCorrection": "The assigned verifier re-checks current evidence and records each gate (npm run verify:record, outside CI).",
+      "actionClass": "independent-verification",
+      "nextAction": "Verifier: record scope-complete, automated-checks, security-privacy-review, ... for cortex.",
+      "gates": [
+        "scope-complete",
+        "automated-checks",
+        "security-privacy-review",
+        "wcag-22-aa",
+        "keyboard-screen-reader",
+        "responsive-layouts",
+        "critical-workflows",
+        "production-deployment",
+        "documentation-accurate",
+        "no-release-blockers",
+        "authentication",
+        "authorization-boundaries",
+        "sensitive-data-handling",
+        "api-integration-security",
+        "integration-failure-handling",
+        "backup-recovery",
+        "audit-logging",
+        "deployment-rollback",
+        "e2e-critical-workflows",
+        "user-data-isolation"
+      ],
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 50,
+      "projects": [
+        "one-small-ai-workforce"
+      ],
+      "revision": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "rootCause": "repository not found or not visible without a reader credential (private repositories need one)",
+      "complexity": "trivial",
+      "validation": [
+        "the collectors report a result other than unavailable"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-one-small-ai-workforce-accessibility-c70d8b1-a1500480",
+        "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
+        "ev-one-small-ai-workforce-dependency-audit-c70d8b1-8417e8f4",
+        "ev-one-small-ai-workforce-documentation-c70d8b1-06b855f1",
+        "ev-one-small-ai-workforce-lint-format-types-c70d8b1-547f714e",
+        "ev-one-small-ai-workforce-repo-structure-c70d8b1-2cf1a4f1",
+        "ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ai-workforce:access:accessibility+build-test+dependency-audit+documentation+lint-format-types+repo-structure+secret-scan",
+      "project": "one-small-ai-workforce",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "access",
+      "title": "7 collectors unavailable: repository not found or not visible without a reader credential (private repositories need one)",
+      "impact": "No evidence for automated-checks, critical-workflows, documentation-accurate, e2e-critical-workflows, security-privacy-review, sensitive-data-handling, wcag-22-aa; unavailable is never a pass.",
+      "proposedCorrection": "Provide a read-only reader credential (repository secret SYNC_READER_TOKEN, read-only Metadata, Contents, Pull requests and Actions, plus Checks where offered, on that repository only) or take the project out of active monitoring.",
+      "actionClass": "blocked-credentials",
+      "nextAction": "Provide a read-only reader credential (repository secret SYNC_READER_TOKEN, read-only Metadata, Contents, Pull requests and Actions, plus Checks where offered, on that repository only) or take the project out of active monitoring..",
+      "accessReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "collectors": [
+        "accessibility",
+        "build-test",
+        "dependency-audit",
+        "documentation",
+        "lint-format-types",
+        "repo-structure",
+        "secret-scan"
+      ],
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Blocked by credentials or environment",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 51,
+      "projects": [
+        "one-small-ai-workforce"
+      ],
+      "revision": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "rootCause": null,
+      "complexity": "medium",
+      "validation": [
+        "verify:record accepted for each gate"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ai-workforce:verification",
+      "project": "one-small-ai-workforce",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "verification",
+      "title": "20 applicable gate(s) without independent verification (0/20 verified)",
+      "impact": "Release readiness cannot rise above the verified share.",
+      "proposedCorrection": "The assigned verifier re-checks current evidence and records each gate (npm run verify:record, outside CI).",
+      "actionClass": "independent-verification",
+      "nextAction": "Verifier: record scope-complete, automated-checks, security-privacy-review, ... for one-small-ai-workforce.",
+      "gates": [
+        "scope-complete",
+        "automated-checks",
+        "security-privacy-review",
+        "wcag-22-aa",
+        "keyboard-screen-reader",
+        "responsive-layouts",
+        "critical-workflows",
+        "production-deployment",
+        "documentation-accurate",
+        "no-release-blockers",
+        "authentication",
+        "authorization-boundaries",
+        "sensitive-data-handling",
+        "api-integration-security",
+        "integration-failure-handling",
+        "backup-recovery",
+        "audit-logging",
+        "deployment-rollback",
+        "e2e-critical-workflows",
+        "user-data-isolation"
+      ],
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 52,
+      "projects": [
+        "one-small-mods-pack",
+        "one-small-ui",
+        "personal-portfolio",
+        "one-small-studio",
+        "one-small-photography",
+        "taskforge",
+        "cortex",
+        "one-small-ai-workforce"
+      ],
+      "revision": null,
+      "rootCause": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "complexity": "trivial",
+      "validation": [
+        "the collectors report a result other than unavailable"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-one-small-mods-pack-ci-results-80cc269-35769d7e",
+        "ev-one-small-ui-ci-results-94438ee-b0dee17e",
+        "ev-personal-portfolio-ci-results-684ef3c-c2193761",
+        "ev-one-small-studio-ci-results-175cef6-372b3f9b",
+        "ev-one-small-photography-ci-results-45a74ba-b919d9a0",
+        "ev-taskforge-ci-results-11975d0-e6837581",
+        "ev-cortex-ci-results-ec49fd7-bf09a281",
+        "ev-one-small-ai-workforce-ci-results-c70d8b1-e50e2e11"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "portfolio:access:ci-results",
+      "project": "portfolio",
+      "repository": null,
+      "priority": 7,
+      "severity": "medium",
+      "kind": "access",
+      "title": "ci-results unavailable in 8 projects: check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "impact": "No evidence for automated-checks; unavailable is never a pass.",
+      "proposedCorrection": "Run where the GitHub API is reachable: the engineering workflow in GitHub Actions has a read-only token for this.",
+      "actionClass": "blocked-credentials",
+      "nextAction": "Run where the GitHub API is reachable.",
+      "accessReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "collectors": [
+        "ci-results"
+      ],
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Blocked by credentials or environment",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 53,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": "Registry blocker release-authorization (approval).",
+      "complexity": "trivial",
+      "validation": [
+        "approval recorded in the registry with evidence for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:one-small-mods-pack:release-authorization"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:release-authorization",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "low",
+      "kind": "approval",
+      "title": "No owner authorization yet for merge, tag, npm publish or deployment.",
+      "impact": "The release cannot ship without the owner's authorization.",
+      "proposedCorrection": "The owner decides after verification is complete; automation never records approval.",
+      "actionClass": "owner-decision",
+      "nextAction": "Owner: decide on release-authorization once one-small-mods-pack is verified.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 54,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "complexity": "small",
+      "validation": [
+        "documentation-accurate: manual review by the verifier",
+        "public-docs-accurate: manual review by the verifier",
+        "upgrade-rollback-uninstall-docs: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-one-small-mods-pack-documentation-80cc269-c7ec0915"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:collector:documentation",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "documentation: 5 of 6 check(s) passed; 1 not run or inconclusive",
+      "impact": "blocks verification of documentation-accurate, public-docs-accurate, upgrade-rollback-uninstall-docs",
+      "proposedCorrection": "A person performs the manual review and the verifier records it.",
+      "actionClass": "independent-verification",
+      "nextAction": "Review documentation for one-small-mods-pack.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 55,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": "upgrade, rollback and uninstall documented: no mention of upgrade, no mention of rollback, no mention of uninstall",
+      "complexity": "medium",
+      "validation": [
+        "documentation-accurate: manual review by the verifier",
+        "public-docs-accurate: manual review by the verifier",
+        "upgrade-rollback-uninstall-docs: manual review by the verifier"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-one-small-ui-documentation-94438ee-009b26ac"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:collector:documentation",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "low",
+      "kind": "defect",
+      "title": "documentation: 1 of 6 check(s) failed",
+      "impact": "blocks verification of documentation-accurate, public-docs-accurate, upgrade-rollback-uninstall-docs",
+      "proposedCorrection": "A developer fixes the cause at the evaluated commit; automation does not guess code fixes.",
+      "actionClass": "owner-decision",
+      "nextAction": "Fix documentation in one-small-ui at 94438ee.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 56,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "rootCause": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "complexity": "small",
+      "validation": [
+        "documentation-accurate: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-personal-portfolio-documentation-684ef3c-b200612c"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:collector:documentation",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
+      "impact": "blocks verification of documentation-accurate",
+      "proposedCorrection": "A person performs the manual review and the verifier records it.",
+      "actionClass": "independent-verification",
+      "nextAction": "Review documentation for personal-portfolio.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 57,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "rootCause": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "complexity": "small",
+      "validation": [
+        "documentation-accurate: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-one-small-studio-documentation-175cef6-5daa9695"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:collector:documentation",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
+      "impact": "blocks verification of documentation-accurate",
+      "proposedCorrection": "A person performs the manual review and the verifier records it.",
+      "actionClass": "independent-verification",
+      "nextAction": "Review documentation for one-small-studio.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 58,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "rootCause": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "complexity": "small",
+      "validation": [
+        "documentation-accurate: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-one-small-photography-documentation-45a74ba-a1411b23"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:collector:documentation",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
+      "impact": "blocks verification of documentation-accurate",
+      "proposedCorrection": "A person performs the manual review and the verifier records it.",
+      "actionClass": "independent-verification",
+      "nextAction": "Review documentation for one-small-photography.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 59,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "rootCause": "not run or inconclusive: credential-shaped values in tests and docs (needs human review (often deliberate fixtures): .github/workflows/ci.yml:42 (credentials in URL))",
+      "complexity": "small",
+      "validation": [
+        "security-privacy-review: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-one-small-photography-secret-scan-45a74ba-3a0e0c19"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:collector:secret-scan",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "secret scan: 2 of 3 check(s) passed; 1 not run or inconclusive",
+      "impact": "blocks verification of security-privacy-review",
+      "proposedCorrection": "A person performs the manual review and the verifier records it.",
+      "actionClass": "independent-verification",
+      "nextAction": "Review secret-scan for one-small-photography.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 60,
+      "projects": [
+        "taskforge"
+      ],
+      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "rootCause": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "complexity": "small",
+      "validation": [
+        "documentation-accurate: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-taskforge-documentation-11975d0-61e05b6b"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "taskforge:collector:documentation",
+      "project": "taskforge",
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
+      "impact": "blocks verification of documentation-accurate",
+      "proposedCorrection": "A person performs the manual review and the verifier records it.",
+      "actionClass": "independent-verification",
+      "nextAction": "Review documentation for taskforge.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 61,
+      "projects": [
+        "taskforge"
+      ],
+      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "rootCause": "not run or inconclusive: credential-shaped values in tests and docs (needs human review (often deliberate fixtures): server/src/ai/ollama.test.ts:111 (credentials in URL); server/src/app.test.ts:62 (credentials in URL))",
+      "complexity": "small",
+      "validation": [
+        "security-privacy-review: manual review by the verifier",
+        "sensitive-data-handling: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-taskforge-secret-scan-11975d0-8237b1bd"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "taskforge:collector:secret-scan",
+      "project": "taskforge",
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "secret scan: 2 of 3 check(s) passed; 1 not run or inconclusive",
+      "impact": "blocks verification of security-privacy-review, sensitive-data-handling",
+      "proposedCorrection": "A person performs the manual review and the verifier records it.",
+      "actionClass": "independent-verification",
+      "nextAction": "Review secret-scan for taskforge.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 62,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "complexity": "small",
+      "validation": [
+        "documentation-accurate: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-cortex-documentation-ec49fd7-f2ca9d57"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:collector:documentation",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
+      "impact": "blocks verification of documentation-accurate",
+      "proposedCorrection": "A person performs the manual review and the verifier records it.",
+      "actionClass": "independent-verification",
+      "nextAction": "Review documentation for cortex.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 63,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": "the project declares no lint, format check or type check script",
+      "complexity": "small",
+      "validation": [
+        "automated-checks: re-executed by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-cortex-lint-format-types-ec49fd7-de308fcc"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:collector:lint-format-types",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "lint, format and types: none configured",
+      "impact": "blocks verification of automated-checks",
+      "proposedCorrection": "Configure or run the missing check, then re-collect.",
+      "actionClass": "independent-verification",
+      "nextAction": "Complete lint-format-types for cortex.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 64,
+      "projects": [
+        "one-small-ai-workforce"
+      ],
+      "revision": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "rootCause": "not run or inconclusive: deployment configuration (no checkout); health check (no productionUrl in the registry)",
+      "complexity": "small",
+      "validation": [
+        "deployment-rollback: manual review by the verifier",
+        "production-deployment: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ai-workforce:collector:deployment-health",
+      "project": "one-small-ai-workforce",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive",
+      "impact": "blocks verification of deployment-rollback, production-deployment",
+      "proposedCorrection": "Configure or run the missing check, then re-collect.",
+      "actionClass": "independent-verification",
+      "nextAction": "Complete deployment-health for one-small-ai-workforce.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 65,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": "npm audit at 94438ee: @vitest/mocker (moderate, dev only, fix major via vitest@5.0.5)",
+      "complexity": "medium",
+      "validation": [
+        "npm ci --ignore-scripts and the project test suite pass at the fix commit",
+        "dependency-audit collector reports no critical/high advisories",
+        "an independent verifier records supply-chain-review"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-one-small-ui-dependency-audit-94438ee-c247d2a2"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:advisory:moderate",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 8,
+      "severity": "low",
+      "kind": "vulnerability",
+      "title": "1 moderate advisories: @vitest/mocker",
+      "impact": "Low; tracked as technical debt.",
+      "proposedCorrection": "Upgrade needs a major version (vitest@5.0.5): review breaking changes before changing it.",
+      "actionClass": "informational",
+      "autoFix": null,
+      "nextAction": "Decide on the major upgrade for @vitest/mocker in one-small-ui.",
+      "priorityText": "Lower-priority technical debt",
+      "actionText": "Informational",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 66,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "rootCause": "npm audit at 684ef3c: zod (high, dev only, fix available)",
+      "complexity": "small",
+      "validation": [
+        "npm ci --ignore-scripts and the project test suite pass at the fix commit",
+        "dependency-audit collector reports no critical/high advisories",
+        "an independent verifier records supply-chain-review"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-personal-portfolio-dependency-audit-684ef3c-448e5446"
+      ],
+      "relatedPRs": [
+        {
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/17",
+          "status": "unknown",
+          "reviewed": null,
+          "openedFor": "684ef3ce76d62919045cea65259e8bf52f1c6174"
+        }
+      ],
+      "crossProject": [
+        "one-small-photography",
+        "one-small-studio"
+      ],
+      "id": "personal-portfolio:advisory:high-dev",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 8,
+      "severity": "low",
+      "kind": "vulnerability",
+      "title": "1 high advisories in development tooling only (not shipped): zod",
+      "impact": "Not in the shipped bundle or server; affects build and test tooling. Release impact: supply-chain-review stays unverified.",
+      "proposedCorrection": "Lockfile-only update within declared ranges (npm audit fix, without --force).",
+      "actionClass": "owner-decision",
+      "autoFix": null,
+      "nextAction": "Review https://github.com/WasteOfADrumBum/joshsmall-site/pull/17.",
+      "priorityText": "Lower-priority technical debt",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 67,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "rootCause": "not run or inconclusive: license (absent); workflows (no GitHub Actions workflows)",
+      "complexity": "small",
+      "validation": [
+        "The repo-structure collector reports pass."
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-personal-portfolio-repo-structure-684ef3c-0662185a"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:collector:repo-structure",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 8,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "repository structure: 3 of 5 check(s) passed; 2 not run or inconclusive",
+      "impact": "context only; no gate depends on it",
+      "proposedCorrection": "Configure or run the missing check, then re-collect.",
+      "actionClass": "informational",
+      "nextAction": "Complete repo-structure for personal-portfolio.",
+      "priorityText": "Lower-priority technical debt",
+      "actionText": "Informational",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 68,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "rootCause": "not run or inconclusive: license (absent)",
+      "complexity": "small",
+      "validation": [
+        "The repo-structure collector reports pass."
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-one-small-studio-repo-structure-175cef6-6574efd3"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:collector:repo-structure",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 8,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "repository structure: 4 of 5 check(s) passed; 1 not run or inconclusive",
+      "impact": "context only; no gate depends on it",
+      "proposedCorrection": "Configure or run the missing check, then re-collect.",
+      "actionClass": "informational",
+      "nextAction": "Complete repo-structure for one-small-studio.",
+      "priorityText": "Lower-priority technical debt",
+      "actionText": "Informational",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 69,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "rootCause": "not run or inconclusive: license (absent)",
+      "complexity": "small",
+      "validation": [
+        "The repo-structure collector reports pass."
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-one-small-photography-repo-structure-45a74ba-761de6c0"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:collector:repo-structure",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 8,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "repository structure: 4 of 5 check(s) passed; 1 not run or inconclusive",
+      "impact": "context only; no gate depends on it",
+      "proposedCorrection": "Configure or run the missing check, then re-collect.",
+      "actionClass": "informational",
+      "nextAction": "Complete repo-structure for one-small-photography.",
+      "priorityText": "Lower-priority technical debt",
+      "actionText": "Informational",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 70,
+      "projects": [
+        "taskforge"
+      ],
+      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "rootCause": "npm audit at 11975d0: undici (high, dev only, fix available); vite (high, direct, dev only, fix available); zod (high, dev only, fix available)",
+      "complexity": "small",
+      "validation": [
+        "npm ci --ignore-scripts and the project test suite pass at the fix commit",
+        "dependency-audit collector reports no critical/high advisories",
+        "an independent verifier records supply-chain-review"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-taskforge-dependency-audit-11975d0-b1e62bb2"
+      ],
+      "relatedPRs": [
+        {
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/43",
+          "status": "unknown",
+          "reviewed": null,
+          "openedFor": "11975d0278c7f04db5033c0461295c734e3b4134"
+        }
+      ],
+      "crossProject": [
+        "one-small-photography",
+        "one-small-studio"
+      ],
+      "id": "taskforge:advisory:high-dev",
+      "project": "taskforge",
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "priority": 8,
+      "severity": "low",
+      "kind": "vulnerability",
+      "title": "3 high advisories in development tooling only (not shipped): undici, vite, zod",
+      "impact": "Not in the shipped bundle or server; affects build and test tooling. Release impact: supply-chain-review stays unverified.",
+      "proposedCorrection": "Lockfile-only update within declared ranges (npm audit fix, without --force).",
+      "actionClass": "owner-decision",
+      "autoFix": null,
+      "nextAction": "Review https://github.com/WasteOfADrumBum/TaskForge/pull/43.",
+      "priorityText": "Lower-priority technical debt",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 71,
+      "projects": [
+        "taskforge"
+      ],
+      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "rootCause": "npm audit at 11975d0: @vitest/mocker (moderate, dev only, fix available); ip-address (moderate, production, fix available); vitest (moderate, direct, dev only, fix available)",
+      "complexity": "small",
+      "validation": [
+        "npm ci --ignore-scripts and the project test suite pass at the fix commit",
+        "dependency-audit collector reports no critical/high advisories",
+        "an independent verifier records supply-chain-review"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-taskforge-dependency-audit-11975d0-b1e62bb2"
+      ],
+      "relatedPRs": [
+        {
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/43",
+          "status": "unknown",
+          "reviewed": null,
+          "openedFor": "11975d0278c7f04db5033c0461295c734e3b4134"
+        }
+      ],
+      "crossProject": [
+        "one-small-photography",
+        "one-small-studio",
+        "one-small-ui"
+      ],
+      "id": "taskforge:advisory:moderate",
+      "project": "taskforge",
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "priority": 8,
+      "severity": "low",
+      "kind": "vulnerability",
+      "title": "3 moderate advisories: @vitest/mocker, ip-address, vitest",
+      "impact": "Low; tracked as technical debt.",
+      "proposedCorrection": "Lockfile-only update within declared ranges (npm audit fix, without --force).",
+      "actionClass": "owner-decision",
+      "autoFix": null,
+      "nextAction": "Review https://github.com/WasteOfADrumBum/TaskForge/pull/43.",
+      "priorityText": "Lower-priority technical debt",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    },
+    {
+      "rank": 72,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": "not run or inconclusive: license (absent); workflows (no GitHub Actions workflows)",
+      "complexity": "small",
+      "validation": [
+        "The repo-structure collector reports pass."
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-cortex-repo-structure-ec49fd7-cae23b60"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:collector:repo-structure",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 8,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "repository structure: 3 of 5 check(s) passed; 2 not run or inconclusive",
+      "impact": "context only; no gate depends on it",
+      "proposedCorrection": "Configure or run the missing check, then re-collect.",
+      "actionClass": "informational",
+      "nextAction": "Complete repo-structure for cortex.",
+      "priorityText": "Lower-priority technical debt",
+      "actionText": "Informational",
+      "firstSeen": "2026-10-27T01:55:19Z",
+      "isNew": false
+    }
+  ],
+  "dependencies": {
+    "edges": [
+      {
+        "from": "cortex",
+        "to": "one-small-ui",
+        "kind": "declared",
+        "confirmed": true,
+        "requiredForRelease": false,
+        "relationship": "integrates",
+        "basis": "registry declaration with evidence cortex-v2-spec"
+      },
+      {
+        "from": "cortex",
+        "to": "personal-portfolio",
+        "kind": "declared",
+        "confirmed": true,
+        "requiredForRelease": false,
+        "relationship": "integrates",
+        "basis": "registry declaration with evidence cortex-v2-spec"
+      }
+    ],
+    "confirmed": [
+      {
+        "from": "cortex",
+        "to": "one-small-ui",
+        "kind": "declared",
+        "confirmed": true,
+        "requiredForRelease": false,
+        "relationship": "integrates",
+        "basis": "registry declaration with evidence cortex-v2-spec"
+      },
+      {
+        "from": "cortex",
+        "to": "personal-portfolio",
+        "kind": "declared",
+        "confirmed": true,
+        "requiredForRelease": false,
+        "relationship": "integrates",
+        "basis": "registry declaration with evidence cortex-v2-spec"
+      }
+    ],
+    "suspected": [],
+    "sharedPackages": [
+      {
+        "name": "@eslint/js",
+        "projects": {
+          "one-small-photography": {
+            "spec": "^10.0.1",
+            "locked": "10.0.1",
+            "dev": true
+          },
+          "one-small-studio": {
+            "spec": "^10.0.1",
+            "locked": "10.0.1",
+            "dev": true
+          },
+          "one-small-ui": {
+            "spec": "^9.39.5",
+            "locked": null,
+            "dev": true
+          },
+          "taskforge": {
+            "spec": "^9.39.5",
+            "locked": "9.39.5",
+            "dev": true
+          }
+        },
+        "majors": [
+          9,
+          10
+        ],
+        "divergent": true,
+        "advisories": []
+      },
+      {
+        "name": "@types/node",
+        "projects": {
+          "cortex": {
+            "spec": "^22.0.0",
+            "locked": "22.20.5",
+            "dev": true
+          },
+          "one-small-mods-pack": {
+            "spec": "^22.20.5",
+            "locked": "22.20.5",
+            "dev": true
+          },
+          "one-small-photography": {
+            "spec": "^22.20.5",
+            "locked": "22.20.5",
+            "dev": true
+          },
+          "one-small-studio": {
+            "spec": "^22.20.5",
+            "locked": "22.20.5",
+            "dev": true
+          },
+          "one-small-ui": {
+            "spec": "^22.20.5",
+            "locked": "26.6.5",
+            "dev": true
+          },
+          "personal-portfolio": {
+            "spec": "^20",
+            "locked": "20.19.43",
+            "dev": true
+          },
+          "taskforge": {
+            "spec": "^22.14.0",
+            "locked": "22.20.4",
+            "dev": true
+          }
+        },
+        "majors": [
+          20,
+          22,
+          26
+        ],
+        "divergent": true,
+        "advisories": []
+      },
+      {
+        "name": "concurrently",
+        "projects": {
+          "one-small-studio": {
+            "spec": "^10.0.6",
+            "locked": "10.0.6",
+            "dev": true
+          },
+          "taskforge": {
+            "spec": "^9.1.2",
+            "locked": "9.2.4",
+            "dev": true
+          }
+        },
+        "majors": [
+          9,
+          10
+        ],
+        "divergent": true,
+        "advisories": []
+      },
+      {
+        "name": "eslint",
+        "projects": {
+          "one-small-photography": {
+            "spec": "^10.12.0",
+            "locked": "10.12.0",
+            "dev": true
+          },
+          "one-small-studio": {
+            "spec": "^10.12.0",
+            "locked": "10.12.0",
+            "dev": true
+          },
+          "one-small-ui": {
+            "spec": "^9.39.5",
+            "locked": "10.12.0",
+            "dev": true
+          },
+          "personal-portfolio": {
+            "spec": "^9",
+            "locked": "9.39.5",
+            "dev": true
+          },
+          "taskforge": {
+            "spec": "^9.24.0",
+            "locked": "9.39.5",
+            "dev": true
+          }
+        },
+        "majors": [
+          9,
+          10
+        ],
+        "divergent": true,
+        "advisories": []
+      },
+      {
+        "name": "jsdom",
+        "projects": {
+          "one-small-mods-pack": {
+            "spec": "^30.1.3",
+            "locked": "30.1.3",
+            "dev": true
+          },
+          "one-small-studio": {
+            "spec": "^30.1.3",
+            "locked": "30.1.3",
+            "dev": true
+          },
+          "one-small-ui": {
+            "spec": "^26.1.0",
+            "locked": "26.1.0",
+            "dev": true
+          }
+        },
+        "majors": [
+          26,
+          30
+        ],
+        "divergent": true,
+        "advisories": []
+      },
+      {
+        "name": "typescript",
+        "projects": {
+          "cortex": {
+            "spec": "^5.9.0",
+            "locked": "5.9.3",
+            "dev": true
+          },
+          "one-small-mods-pack": {
+            "spec": "^5.4.0",
+            "locked": "5.9.3",
+            "dev": true
+          },
+          "one-small-photography": {
+            "spec": "^6.0.3",
+            "locked": "6.0.3",
+            "dev": true
+          },
+          "one-small-studio": {
+            "spec": "^6.0.3",
+            "locked": "6.0.3",
+            "dev": true
+          },
+          "one-small-ui": {
+            "spec": "~5.9.2",
+            "locked": "5.9.3",
+            "dev": true
+          },
+          "personal-portfolio": {
+            "spec": "^5",
+            "locked": "5.9.3",
+            "dev": true
+          },
+          "taskforge": {
+            "spec": "5.9.3",
+            "locked": "5.9.3",
+            "dev": true
+          }
+        },
+        "majors": [
+          5,
+          6
+        ],
+        "divergent": true,
+        "advisories": []
+      },
+      {
+        "name": "vitest",
+        "projects": {
+          "one-small-photography": {
+            "spec": "^5.0.5",
+            "locked": "5.0.5",
+            "dev": true
+          },
+          "one-small-studio": {
+            "spec": "^5.0.5",
+            "locked": "5.0.5",
+            "dev": true
+          },
+          "one-small-ui": {
+            "spec": "^3.2.0",
+            "locked": "3.2.7",
+            "dev": true
+          }
+        },
+        "majors": [
+          3,
+          5
+        ],
+        "divergent": true,
+        "advisories": [
+          {
+            "project": "one-small-ui",
+            "severity": "critical",
+            "production": false,
+            "fix": "major"
+          }
+        ]
+      },
+      {
+        "name": "zod",
+        "projects": {
+          "one-small-photography": {
+            "spec": "^4.6.7",
+            "locked": "4.6.7",
+            "dev": false
+          },
+          "one-small-studio": {
+            "spec": "^4.6.5",
+            "locked": "4.6.5",
+            "dev": false
+          }
+        },
+        "majors": [
+          4
+        ],
+        "divergent": false,
+        "advisories": [
+          {
+            "project": "one-small-studio",
+            "severity": "high",
+            "production": true,
+            "fix": "available"
+          }
+        ]
+      }
+    ],
+    "sharedPackageCount": 27,
+    "runtimeFloors": {
+      "one-small-mods-pack": ">=20",
+      "one-small-ui": ">=18.18",
+      "personal-portfolio": null,
+      "one-small-studio": ">=22.12.0",
+      "one-small-photography": ">=22.12.0",
+      "taskforge": ">=24",
+      "cortex": "22.x",
+      "one-small-ai-workforce": null
+    },
+    "releaseOrder": [
+      "cortex",
+      "one-small-ai-workforce",
+      "one-small-mods-pack",
+      "one-small-photography",
+      "one-small-studio",
+      "one-small-ui",
+      "personal-portfolio",
+      "taskforge"
+    ],
+    "followUps": [],
+    "risks": [],
+    "manifestsMissing": [
+      "one-small-ai-workforce"
+    ]
+  },
+  "pullRequests": [
+    {
+      "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/17",
+      "project": "personal-portfolio",
+      "covers": [
+        "personal-portfolio:advisory"
+      ],
+      "openedFor": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "origin": "Phase 4 (dependency advisories: next)",
+      "status": "unknown",
+      "reviewed": null,
+      "observedAt": null
+    },
+    {
+      "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/16",
+      "project": "one-small-studio",
+      "covers": [
+        "one-small-studio:advisory"
+      ],
+      "openedFor": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "origin": "Phase 4 (dependency advisories)",
+      "status": "unknown",
+      "reviewed": null,
+      "observedAt": null
+    },
+    {
+      "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/43",
+      "project": "taskforge",
+      "covers": [
+        "taskforge:advisory"
+      ],
+      "openedFor": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "origin": "Phase 4 (dependency advisories)",
+      "status": "unknown",
+      "reviewed": null,
+      "observedAt": null
+    }
+  ],
+  "run": {
+    "api": "unavailable (statuses kept from the last run that could read them)",
+    "at": "2026-10-27T01:56:27Z",
+    "changed": [],
+    "collected": [
+      "cortex",
+      "one-small-ai-workforce",
+      "one-small-mods-pack",
+      "one-small-photography",
+      "one-small-studio",
+      "one-small-ui",
+      "personal-portfolio",
+      "taskforge"
+    ],
+    "execute": false,
+    "executor": "local",
+    "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental)",
+    "mode": "observe",
+    "runUrl": null,
+    "skipped": [],
+    "startedAt": "2026-10-27T01:56:19Z"
+  },
+  "policyVersion": 1,
+  "overlayErrors": []
+}

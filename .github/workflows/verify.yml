@@ -5,7 +5,8 @@ name: Verify projects
 # evidence and regenerated reports are uploaded as artifacts; committing them is a human PR.
 #
 #   workflow_dispatch  manual run: pick a project (or all) and whether to execute project code
-#   schedule           daily read-only refresh of all projects; never executes remediation
+#   (no schedule)      scheduled monitoring moved to engineering.yml (every six hours, incremental),
+#                      so evidence is not collected twice
 #   pull_request       when verification code, policy or the registry changes: unit tests plus a
 #                      collection run (the hub PR's code runs with a read-only token and no secrets)
 on:
@@ -19,8 +20,6 @@ on:
         description: 'Run project build and test commands (isolated job, no credentials)'
         type: boolean
         default: true
-  schedule:
-    - cron: '41 5 * * *'
   pull_request:
     paths:
       - 'scripts/verify/**'

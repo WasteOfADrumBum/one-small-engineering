@@ -10,7 +10,7 @@
   },
   "scripts": {
     "validate": "node scripts/validate-registry.mjs",
-    "test": "node --test scripts/*.test.mjs scripts/sync/*.test.mjs scripts/release/*.test.mjs scripts/verify/*.test.mjs",
+    "test": "node --test scripts/*.test.mjs scripts/sync/*.test.mjs scripts/release/*.test.mjs scripts/verify/*.test.mjs scripts/engineering/*.test.mjs",
     "check": "npm run validate && npm test",
     "onboard": "node scripts/sync/onboard.mjs",
     "sync:preview": "node scripts/sync/run.mjs preview",
@@ -26,6 +26,10 @@
     "verify:check": "node scripts/verify/cli.mjs check",
     "verify:freshness": "node scripts/verify/cli.mjs freshness",
     "verify:record": "node scripts/verify/cli.mjs record",
-    "verify:remediate": "node scripts/verify/cli.mjs remediate"
+    "verify:remediate": "node scripts/verify/cli.mjs remediate",
+    "engineering:check": "node scripts/engineering/cli.mjs check",
+    "engineering:report": "node scripts/engineering/cli.mjs report",
+    "engineering:prepare": "node scripts/engineering/cli.mjs prepare",
+    "engineering:execute": "node scripts/engineering/cli.mjs execute"
   }
 }

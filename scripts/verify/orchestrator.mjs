@@ -42,7 +42,7 @@ export function chooseTarget(p, live) {
 }
 
 // Plans and runs collection for the selected projects. Returns new ledgers and a run log.
-//   deps: { run, github, fetch, now, workRoot, execute, provenance, installTools }
+//   deps: { run, github, githubFor (per-project client, optional), fetch, now, workRoot, execute, provenance, installTools }
 export async function collect({ registry, policy, policyHash, profiles, ledgers, projectIds = null, onlyCollectors = null, deps, incremental = true }) {
   const now = deps.now()
   const asOf = new Date(now)
@@ -93,7 +93,7 @@ export async function collect({ registry, policy, policyHash, profiles, ledgers,
       if (c.name !== 'ci-results') ensureView()
       const ctx = {
         project: p, registry, repository: p.repository, commitSha: target.sha, profile, view, execute: deps.execute,
-        accessReason: entry.accessReason, run: deps.run, github: deps.github, fetch: deps.fetch,
+        accessReason: entry.accessReason, run: deps.run, github: deps.githubFor ? deps.githubFor(p) : deps.github, fetch: deps.fetch,
         install() {
           if (installed) return installed
           if (!view) return (installed = { ok: false, reason: 'no checkout' })

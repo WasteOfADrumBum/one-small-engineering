@@ -130,29 +130,45 @@ export const lintFormatTypes = {
 }
 
 // CI results for the exact commit, from GitHub's check runs. A green run is evidence for
-// automated-checks only, and only as a builder-side signal.
+// automated-checks only, and only as a builder-side signal. Check runs need Checks read; a token
+// without it (a fine-grained reader, HTTP 403/404) falls back to the commit's Actions workflow runs,
+// which need Actions read and cover GitHub Actions only (third-party checks are not seen, and the
+// result says so).
 export const ciResults = {
-  name: 'ci-results', version: V, gates: ['automated-checks'],
+  name: 'ci-results', version: '1.1.0', gates: ['automated-checks'],
   async collect(ctx) {
     if (!ctx.github) return unavailable('CI results: no GitHub API access', 'no GitHub API client for this run (set GITHUB_TOKEN; the session proxy may block api.github.com)')
     let owner, repo
     try { ({ owner, repo } = repoParts(ctx.repository)) } catch (e) { return unavailable('CI results: bad repository', e.message) }
     let runs
+    let source = 'CI check runs'
+    let caveat = null
     try {
       const data = await ctx.github.get(`/repos/${owner}/${repo}/commits/${ctx.commitSha}/check-runs?per_page=100`)
       if (!data || !Array.isArray(data.check_runs)) return inconclusive('CI results: malformed response', 'check-runs response is not the documented shape')
       runs = data.check_runs
     } catch (e) {
       const d = describeAccess(e, 'check runs')
-      return unavailable('CI results: not readable', d ? d.message : 'request failed')
+      if (!d || !['permission-denied', 'not-visible'].includes(d.code)) return unavailable('CI results: not readable', d ? d.message : 'request failed')
+      try {
+        const data = await ctx.github.get(`/repos/${owner}/${repo}/actions/runs?head_sha=${ctx.commitSha}&per_page=100`)
+        if (!data || !Array.isArray(data.workflow_runs)) return inconclusive('CI results: malformed response', 'workflow-runs response is not the documented shape')
+        runs = data.workflow_runs
+        source = 'CI workflow runs'
+        caveat = `${d.message}; GitHub Actions workflow runs used instead, so checks from other apps are not included`
+      } catch (e2) {
+        const d2 = describeAccess(e2, 'workflow runs')
+        return unavailable('CI results: not readable', `${d.message}; ${d2 ? d2.message : 'workflow runs: request failed'}`)
+      }
     }
-    if (!runs.length) return inconclusive('CI results: no check runs on this commit', `no CI ran on ${ctx.commitSha.slice(0, 7)}`)
+    if (!runs.length) return inconclusive('CI results: no runs on this commit', `no CI ran on ${ctx.commitSha.slice(0, 7)}${caveat ? ` (${caveat})` : ''}`)
     const checks = runs.map(r => ({
       name: String(r.name).slice(0, 100),
       result: r.status !== 'completed' ? 'inconclusive' : ['success', 'neutral', 'skipped'].includes(r.conclusion) ? 'pass' : 'fail',
       detail: `${r.status}${r.conclusion ? `/${r.conclusion}` : ''}`
     })).sort((a, b) => a.name.localeCompare(b.name))
-    const out = combine(checks, 'CI check runs')
+    if (caveat) checks.push({ name: 'checks from other apps', result: 'not_run', detail: caveat })
+    const out = combine(checks, source)
     out.artifacts = runs.filter(r => typeof r.html_url === 'string' && r.html_url.startsWith('https://github.com/')).map(r => ({ name: String(r.name).slice(0, 100), sha256: null, ref: r.html_url })).sort((a, b) => a.name.localeCompare(b.name))
     return out
   }
@@ -160,8 +176,23 @@ export const ciResults = {
 
 // npm audit against the committed lockfile. Reads the registry's advisory service; runs no
 // project code (--ignore-scripts is implied by audit, which does not install).
+// Advisory detail for triage (Phase 5): severity, whether the package is a direct dependency,
+// whether it is reachable from production dependencies (absent from an --omit=dev audit means
+// development only) and what kind of fix npm offers. Package names and severities only.
+export function advisoryDetails(report, prodReport) {
+  const prod = prodReport && prodReport.vulnerabilities ? new Set(Object.keys(prodReport.vulnerabilities)) : null
+  return Object.values(report.vulnerabilities || {})
+    .filter(x => x && ['critical', 'high', 'moderate'].includes(x.severity))
+    .map(x => {
+      const f = x.fixAvailable
+      const fix = f === true ? 'available' : f && typeof f === 'object' ? (f.isSemVerMajor ? 'major' : 'available') : 'none'
+      return { name: String(x.name), severity: x.severity, direct: Boolean(x.isDirect), production: prod ? prod.has(x.name) : null, fix, ...(f && typeof f === 'object' && f.name ? { fixVia: `${f.name}@${f.version}` } : {}) }
+    })
+    .sort((a, b) => a.name.localeCompare(b.name))
+}
+
 export const dependencyAudit = {
-  name: 'dependency-audit', version: V, gates: ['supply-chain-review', 'security-privacy-review'],
+  name: 'dependency-audit', version: '1.1.0', gates: ['supply-chain-review', 'security-privacy-review'],
   collect(ctx) {
     if (!ctx.view) return unavailable('dependency audit: no checkout', ctx.accessReason || 'no checkout')
     if (!ctx.view.exists('package.json')) return notApplicable('dependency audit: no npm package')
@@ -179,6 +210,13 @@ export const dependencyAudit = {
     const out = (v.critical || 0) + (v.high || 0) > 0
       ? fail(`dependency audit: ${counts}`, `critical or high advisories: ${advisories.join(', ') || 'see report'}`, { checks })
       : pass(`dependency audit: ${counts}`, { checks })
+    // A second, production-only audit separates exposure in shipped code from tooling.
+    let prodReport = null
+    if (out.result === 'fail' || v.moderate) {
+      const prodRes = ctx.run('npm', ['audit', '--json', '--package-lock-only', '--omit=dev', '--fetch-retries=2', '--fetch-timeout=120000'], { cwd: ctx.view.dir, timeoutMs: 300_000 })
+      try { prodReport = JSON.parse(prodRes.stdout); if (prodReport.error) prodReport = null } catch { prodReport = null }
+    }
+    out.details = { advisories: advisoryDetails(report, prodReport), productionAudit: prodReport ? 'ran' : 'not run' }
     out.artifacts = [{ name: 'npm-audit.json', sha256: sha256(res.stdout), ref: null }]
     out.reproduce = `npm audit --json --package-lock-only (at ${ctx.commitSha.slice(0, 7)})`
     return out

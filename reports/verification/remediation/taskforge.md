@@ -1,6 +1,6 @@
 # TaskForge: issue reports
 
-As of 2026-10-27T03:40:00Z, commit 11975d0278c7f04db5033c0461295c734e3b4134. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
+As of 2026-10-27T01:56:27Z, commit 11975d0278c7f04db5033c0461295c734e3b4134. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
 
 ## accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive
 
@@ -8,7 +8,7 @@ As of 2026-10-27T03:40:00Z, commit 11975d0278c7f04db5033c0461295c734e3b4134. One
 - Commit: 11975d0278c7f04db5033c0461295c734e3b4134
 - Gate(s): wcag-22-aa
 - Severity: low; kind: evidence-gap; release impact: blocks verification of wcag-22-aa
-- Evidence: ev-taskforge-accessibility-11975d0-5d28a392
+- Evidence: ev-taskforge-accessibility-11975d0-fe387eac
 
 ### Reproduction
 
@@ -43,12 +43,12 @@ The accessibility collector reports pass at the new commit, and the verifier rec
 - Commit: 11975d0278c7f04db5033c0461295c734e3b4134
 - Gate(s): automated-checks
 - Severity: unclassified; kind: access; release impact: blocks verification of automated-checks
-- Evidence: ev-taskforge-ci-results-11975d0-6ee2dff9
+- Evidence: ev-taskforge-ci-results-11975d0-e6837581
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project taskforge --collector ci-results --execute
+node scripts/verify/cli.mjs run --project taskforge --collector ci-results
 ```
 
 ### Root cause
@@ -78,7 +78,7 @@ The ci-results collector reports pass at the new commit, and the verifier record
 - Commit: 11975d0278c7f04db5033c0461295c734e3b4134
 - Gate(s): security-privacy-review
 - Severity: high; kind: defect; release impact: blocks verification of security-privacy-review
-- Evidence: ev-taskforge-dependency-audit-11975d0-930082be
+- Evidence: ev-taskforge-dependency-audit-11975d0-b1e62bb2
 
 ### Reproduction
 
@@ -113,12 +113,12 @@ The dependency-audit collector reports pass at the new commit, and the verifier 
 - Commit: 11975d0278c7f04db5033c0461295c734e3b4134
 - Gate(s): deployment-rollback, production-deployment
 - Severity: unclassified; kind: access; release impact: blocks verification of deployment-rollback, production-deployment
-- Evidence: ev-taskforge-deployment-health-11975d0-6024ae7e
+- Evidence: ev-taskforge-deployment-health-11975d0-6ad29e0a
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project taskforge --collector deployment-health --execute
+node scripts/verify/cli.mjs run --project taskforge --collector deployment-health
 ```
 
 ### Root cause
@@ -149,7 +149,7 @@ The deployment-health collector reports pass at the new commit, and the verifier
 - Commit: 11975d0278c7f04db5033c0461295c734e3b4134
 - Gate(s): documentation-accurate
 - Severity: low; kind: evidence-gap; release impact: blocks verification of documentation-accurate
-- Evidence: ev-taskforge-documentation-11975d0-132d686c
+- Evidence: ev-taskforge-documentation-11975d0-61e05b6b
 
 ### Reproduction
 
@@ -184,7 +184,7 @@ The documentation collector reports pass at the new commit, and the verifier rec
 - Commit: 11975d0278c7f04db5033c0461295c734e3b4134
 - Gate(s): security-privacy-review, sensitive-data-handling
 - Severity: low; kind: evidence-gap; release impact: blocks verification of security-privacy-review, sensitive-data-handling
-- Evidence: ev-taskforge-secret-scan-11975d0-8442003a
+- Evidence: ev-taskforge-secret-scan-11975d0-8237b1bd
 
 ### Reproduction
 

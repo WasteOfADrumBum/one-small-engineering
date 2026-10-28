@@ -1,6 +1,6 @@
 # One Small AI Workforce: issue reports
 
-As of 2026-10-27T03:40:00Z, commit c70d8b117c3c5a046583e7ee83016d4a3ed4b065. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
+As of 2026-10-27T01:56:27Z, commit c70d8b117c3c5a046583e7ee83016d4a3ed4b065. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
 
 ## accessibility: no checkout
 
@@ -8,12 +8,12 @@ As of 2026-10-27T03:40:00Z, commit c70d8b117c3c5a046583e7ee83016d4a3ed4b065. One
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): wcag-22-aa
 - Severity: unclassified; kind: access; release impact: blocks verification of wcag-22-aa
-- Evidence: ev-one-small-ai-workforce-accessibility-c70d8b1-51744bcd
+- Evidence: ev-one-small-ai-workforce-accessibility-c70d8b1-a1500480
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector accessibility --execute
+node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector accessibility
 ```
 
 ### Root cause
@@ -43,12 +43,12 @@ The accessibility collector reports pass at the new commit, and the verifier rec
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): automated-checks, critical-workflows, e2e-critical-workflows
 - Severity: unclassified; kind: access; release impact: blocks verification of automated-checks, critical-workflows, e2e-critical-workflows
-- Evidence: ev-one-small-ai-workforce-build-test-c70d8b1-b96eb217
+- Evidence: ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector build-test --execute
+node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector build-test
 ```
 
 ### Root cause
@@ -80,12 +80,12 @@ The build-test collector reports pass at the new commit, and the verifier record
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): automated-checks
 - Severity: unclassified; kind: access; release impact: blocks verification of automated-checks
-- Evidence: ev-one-small-ai-workforce-ci-results-c70d8b1-d29eecc7
+- Evidence: ev-one-small-ai-workforce-ci-results-c70d8b1-e50e2e11
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector ci-results --execute
+node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector ci-results
 ```
 
 ### Root cause
@@ -115,12 +115,12 @@ The ci-results collector reports pass at the new commit, and the verifier record
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): security-privacy-review
 - Severity: unclassified; kind: access; release impact: blocks verification of security-privacy-review
-- Evidence: ev-one-small-ai-workforce-dependency-audit-c70d8b1-9621791e
+- Evidence: ev-one-small-ai-workforce-dependency-audit-c70d8b1-8417e8f4
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector dependency-audit --execute
+node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector dependency-audit
 ```
 
 ### Root cause
@@ -150,7 +150,7 @@ The dependency-audit collector reports pass at the new commit, and the verifier 
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): deployment-rollback, production-deployment
 - Severity: low; kind: evidence-gap; release impact: blocks verification of deployment-rollback, production-deployment
-- Evidence: ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410
+- Evidence: ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65
 
 ### Reproduction
 
@@ -186,12 +186,12 @@ The deployment-health collector reports pass at the new commit, and the verifier
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): documentation-accurate
 - Severity: unclassified; kind: access; release impact: blocks verification of documentation-accurate
-- Evidence: ev-one-small-ai-workforce-documentation-c70d8b1-3bb81c01
+- Evidence: ev-one-small-ai-workforce-documentation-c70d8b1-06b855f1
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector documentation --execute
+node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector documentation
 ```
 
 ### Root cause
@@ -221,12 +221,12 @@ The documentation collector reports pass at the new commit, and the verifier rec
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): automated-checks
 - Severity: unclassified; kind: access; release impact: blocks verification of automated-checks
-- Evidence: ev-one-small-ai-workforce-lint-format-types-c70d8b1-1e2a62c6
+- Evidence: ev-one-small-ai-workforce-lint-format-types-c70d8b1-547f714e
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector lint-format-types --execute
+node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector lint-format-types
 ```
 
 ### Root cause
@@ -256,12 +256,12 @@ The lint-format-types collector reports pass at the new commit, and the verifier
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): none (context)
 - Severity: unclassified; kind: access; release impact: context only; no gate depends on it
-- Evidence: ev-one-small-ai-workforce-repo-structure-c70d8b1-681715fd
+- Evidence: ev-one-small-ai-workforce-repo-structure-c70d8b1-2cf1a4f1
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector repo-structure --execute
+node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector repo-structure
 ```
 
 ### Root cause
@@ -291,12 +291,12 @@ The repo-structure collector reports pass.
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): security-privacy-review, sensitive-data-handling
 - Severity: unclassified; kind: access; release impact: blocks verification of security-privacy-review, sensitive-data-handling
-- Evidence: ev-one-small-ai-workforce-secret-scan-c70d8b1-c894ee6e
+- Evidence: ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector secret-scan --execute
+node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector secret-scan
 ```
 
 ### Root cause

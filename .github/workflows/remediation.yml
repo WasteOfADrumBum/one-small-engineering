@@ -1,25 +1,39 @@
 name: Remediation PR (manual, gated)
 
-# Opens ONE draft remediation PR in a project repository from a reviewed plan file committed to
-# this repository (docs/verification.md#remediation). Off by default. It writes only when all of
-# these hold:
+# Opens ONE draft remediation PR in a project repository (docs/engineering.md#execute,
+# docs/verification.md#remediation). Off by default. It writes only when all of these hold:
 #   - a person starts it by hand (there is no schedule and no other trigger),
 #   - it runs from main, so the code holding the token is code the owner merged,
 #   - the repository variable REMEDIATION_WRITE_ENABLED is 'true',
 #   - the confirm input is typed exactly, and
 #   - the REMEDIATION_TOKEN secret is a fine-grained token scoped to the target repository with
 #     contents and pull-requests write only.
-# The code refuses merges, approvals, deletions, existing branches, protected refs and workflow
-# files whatever the plan says (scripts/verify/remediation.mjs).
+# Two sources:
+#   issue + digest  (Phase 5) the proposal is prepared again in a step that holds no token, and the
+#                   PR is opened only if its digest equals the digest the owner reviewed in the
+#                   prepare artifact and no remediation PR already covers the issue.
+#   plan            (Phase 4) a reviewed plan file committed under verification/remediation/.
+# The code refuses merges, approvals, deletions, existing branches, protected refs, protected
+# repositories (ModsPack) and workflow files whatever the input says (scripts/verify/remediation.mjs).
 on:
   workflow_dispatch:
     inputs:
+      issue:
+        description: 'Phase 5: issue id from reports/engineering/queue.md (for example taskforge:advisory:high-production)'
+        required: false
+        default: ''
+      digest:
+        description: 'Phase 5: sha256 digest of the proposal you reviewed (prepare artifact)'
+        required: false
+        default: ''
       plan:
-        description: 'Path of the reviewed plan JSON in this repository (verification/remediation/<name>.json)'
-        required: true
+        description: 'Phase 4: path of a reviewed plan JSON (verification/remediation/<name>.json)'
+        required: false
+        default: ''
       repository:
-        description: 'Target repository URL (must match the plan)'
-        required: true
+        description: 'Phase 4: target repository URL (must match the plan)'
+        required: false
+        default: ''
       confirm:
         description: 'Type: create one draft remediation PR'
         required: true
@@ -34,7 +48,7 @@ jobs:
   open-draft-pr:
     if: github.ref == 'refs/heads/main' && vars.REMEDIATION_WRITE_ENABLED == 'true' && inputs.confirm == 'create one draft remediation PR'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     permissions:
       contents: read
     steps:
@@ -43,13 +57,39 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version: 22
+          node-version: 24
+      - uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+        if: inputs.issue != ''
+        with:
+          path: |
+            engineering/state.json
+            verification/evidence/
+            verification/runs/
+          key: engineering-state-${{ github.run_id }}
+          restore-keys: engineering-state-
+      - name: Prepare the proposal again (no token in this step; no project code runs)
+        if: inputs.issue != ''
+        env:
+          ISSUE: ${{ inputs.issue }}
+        run: |
+          set -euo pipefail
+          case "$ISSUE" in *[!a-z0-9:+-]*) echo "issue id has unexpected characters"; exit 1 ;; esac
+          project="${ISSUE%%:*}"
+          node scripts/engineering/cli.mjs prepare --project "$project" --out "$RUNNER_TEMP/proposals" --work "$RUNNER_TEMP/work"
       - name: Open the draft PR
         env:
           REMEDIATION_TOKEN: ${{ secrets.REMEDIATION_TOKEN }}
           REMEDIATION_WRITE_ENABLED: ${{ vars.REMEDIATION_WRITE_ENABLED }}
+          ISSUE: ${{ inputs.issue }}
+          DIGEST: ${{ inputs.digest }}
           PLAN: ${{ inputs.plan }}
           TARGET: ${{ inputs.repository }}
         run: |
-          case "$PLAN" in *..*) echo "plan path must not contain .."; exit 1 ;; verification/remediation/*.json) ;; *) echo "plan must be under verification/remediation/"; exit 1 ;; esac
-          node scripts/verify/cli.mjs remediate --plan "$PLAN" --repository "$TARGET" --confirm
+          set -euo pipefail
+          if [ -n "$ISSUE" ]; then
+            file="$RUNNER_TEMP/proposals/$(printf '%s' "$ISSUE" | tr ':' '-').json"
+            node scripts/engineering/cli.mjs execute --proposal "$file" --digest "$DIGEST" --confirm
+          else
+            case "$PLAN" in *..*) echo "plan path must not contain .."; exit 1 ;; verification/remediation/*.json) ;; *) echo "plan must be under verification/remediation/"; exit 1 ;; esac
+            node scripts/verify/cli.mjs remediate --plan "$PLAN" --repository "$TARGET" --confirm
+          fi

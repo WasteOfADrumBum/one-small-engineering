@@ -5,6 +5,7 @@ import { join } from 'node:path'
 import { tmpdir } from 'node:os'
 import { collect, chooseTarget, applicableGates, collectorsFor } from './orchestrator.mjs'
 import { checkEvidence } from './evidence.mjs'
+import { apiClients } from './cli.mjs'
 import { fakeRunner, realRegistry, policy, SHA } from '../../fixtures/verify/helpers.mjs'
 
 const pol = policy()
@@ -133,4 +134,24 @@ test('governance fields are never touched: the registry object is unchanged by c
   const before = JSON.stringify(registry)
   await collect({ registry, policy: pol, policyHash: 'h', profiles: { projects: {} }, ledgers: new Map(), deps })
   assert.equal(JSON.stringify(registry), before)
+})
+
+test('CI collection for a private project uses the reader credential, a public one the job token (Codex review finding 2)', async () => {
+  const seen = []
+  const fetchImpl = async (url, init) => { seen.push({ url, auth: init.headers.authorization }); return new Response(JSON.stringify({ total_count: 0, check_runs: [] }), { status: 200, headers: { 'content-type': 'application/json' } }) }
+  const env = { GITHUB_TOKEN: 'fake-hub-token', SYNC_READER_TOKEN: 'fake-reader-token' }
+  const reposFor = ids => Object.fromEntries(ids.map(id => [repoUrl(id), { sha: SHA }]))
+  const ciRun = async (ids, clients, execute = false) => {
+    const { registry, deps } = setup({ repos: reposFor(ids), execute })
+    Object.assign(deps, clients)
+    seen.length = 0
+    await collect({ registry, policy: pol, policyHash: 'h', profiles: { projects: {} }, ledgers: new Map(), projectIds: ids, onlyCollectors: ['ci-results'], deps })
+    return seen.map(s => [s.url.match(/repos\/[^/]+\/([^/]+)/)[1], s.auth])
+  }
+  assert.deepEqual(await ciRun(['one-small-ai-workforce', 'cortex'], apiClients(env, { fetchImpl })), [['cortex-brain-task', 'Bearer fake-hub-token'], ['one-small-ai-workforce', 'Bearer fake-reader-token']])
+  // A run that executes project code never holds the reader, for the API as for git.
+  assert.deepEqual(await ciRun(['one-small-ai-workforce'], apiClients(env, { fetchImpl, execute: true }), true), [['one-small-ai-workforce', 'Bearer fake-hub-token']])
+  // Without a reader the job token is tried and the result is reported, never a silent pass.
+  assert.deepEqual(await ciRun(['one-small-ai-workforce'], apiClients({ GITHUB_TOKEN: 'fake-hub-token' }, { fetchImpl })), [['one-small-ai-workforce', 'Bearer fake-hub-token']])
+  assert.equal(apiClients(env, { network: false }).githubFor({ visibility: 'private' }), null)
 })

@@ -1,6 +1,6 @@
 # Cortex: issue reports
 
-As of 2026-10-27T03:40:00Z, commit ec49fd7907e9c901e6e4871732c7fe51881e5d3d. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
+As of 2026-10-27T01:56:27Z, commit ec49fd7907e9c901e6e4871732c7fe51881e5d3d. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
 
 ## accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive
 
@@ -8,7 +8,7 @@ As of 2026-10-27T03:40:00Z, commit ec49fd7907e9c901e6e4871732c7fe51881e5d3d. One
 - Commit: ec49fd7907e9c901e6e4871732c7fe51881e5d3d
 - Gate(s): wcag-22-aa
 - Severity: low; kind: evidence-gap; release impact: blocks verification of wcag-22-aa
-- Evidence: ev-cortex-accessibility-ec49fd7-27cfef71
+- Evidence: ev-cortex-accessibility-ec49fd7-81ba90a1
 
 ### Reproduction
 
@@ -43,12 +43,12 @@ The accessibility collector reports pass at the new commit, and the verifier rec
 - Commit: ec49fd7907e9c901e6e4871732c7fe51881e5d3d
 - Gate(s): automated-checks
 - Severity: unclassified; kind: access; release impact: blocks verification of automated-checks
-- Evidence: ev-cortex-ci-results-ec49fd7-cdd510f0
+- Evidence: ev-cortex-ci-results-ec49fd7-bf09a281
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project cortex --collector ci-results --execute
+node scripts/verify/cli.mjs run --project cortex --collector ci-results
 ```
 
 ### Root cause
@@ -78,12 +78,12 @@ The ci-results collector reports pass at the new commit, and the verifier record
 - Commit: ec49fd7907e9c901e6e4871732c7fe51881e5d3d
 - Gate(s): deployment-rollback, production-deployment
 - Severity: unclassified; kind: access; release impact: blocks verification of deployment-rollback, production-deployment
-- Evidence: ev-cortex-deployment-health-ec49fd7-805608a7
+- Evidence: ev-cortex-deployment-health-ec49fd7-a18cb9e8
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project cortex --collector deployment-health --execute
+node scripts/verify/cli.mjs run --project cortex --collector deployment-health
 ```
 
 ### Root cause
@@ -114,7 +114,7 @@ The deployment-health collector reports pass at the new commit, and the verifier
 - Commit: ec49fd7907e9c901e6e4871732c7fe51881e5d3d
 - Gate(s): documentation-accurate
 - Severity: low; kind: evidence-gap; release impact: blocks verification of documentation-accurate
-- Evidence: ev-cortex-documentation-ec49fd7-e08f6339
+- Evidence: ev-cortex-documentation-ec49fd7-f2ca9d57
 
 ### Reproduction
 
@@ -149,7 +149,7 @@ The documentation collector reports pass at the new commit, and the verifier rec
 - Commit: ec49fd7907e9c901e6e4871732c7fe51881e5d3d
 - Gate(s): automated-checks
 - Severity: low; kind: evidence-gap; release impact: blocks verification of automated-checks
-- Evidence: ev-cortex-lint-format-types-ec49fd7-4b9bec16
+- Evidence: ev-cortex-lint-format-types-ec49fd7-de308fcc
 
 ### Reproduction
 
@@ -184,7 +184,7 @@ The lint-format-types collector reports pass at the new commit, and the verifier
 - Commit: ec49fd7907e9c901e6e4871732c7fe51881e5d3d
 - Gate(s): none (context)
 - Severity: low; kind: evidence-gap; release impact: context only; no gate depends on it
-- Evidence: ev-cortex-repo-structure-ec49fd7-0105455c
+- Evidence: ev-cortex-repo-structure-ec49fd7-cae23b60
 
 ### Reproduction
 

@@ -9,6 +9,7 @@ Registry sync (Actions)   collect (contents: read) ─┬─ report  stage A: pl
                                                     └─ write   stages B/C, main only: draft sync/<project> PRs + "Registry sync status" issue
 Validate registry         npm run check on every PR, push to main, and dispatched on sync/* branches (plus the field-ownership guard)
 Main integrity            push to main + every 6 h: flags any change to main that is not a merged PR
+Engineering orchestrator  every 6 h + manual: read-only observe run over all eight projects; reports/engineering/ in the job summary and artifact (docs/engineering.md)
 You                       review the draft sync PR, mark it ready, merge it (or close it)
 ```
 

@@ -24,6 +24,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { validateText, parseDefinitionOfDone, redactSensitive } from '../validate-registry.mjs'
 import { createClient } from '../sync/github.mjs'
 import { createRunner } from './exec.mjs'
+import { withGitReader, gitReaderFrom } from './workspace.mjs'
 import { loadLedger, sha256, iso, checkEvidence, staleness } from './evidence.mjs'
 import { loadVerifications, judgeVerification, verificationId, METHODS } from './verification.mjs'
 import { collect, requestsFor, applicableGates } from './orchestrator.mjs'
@@ -105,7 +106,7 @@ export function checkPolicy(policy, registry) {
 }
 
 // Targets from the latest run; projects not in it fall back to the candidate or snapshot.
-function targetsFrom(state) {
+export function targetsFrom(state) {
   const t = new Map()
   for (const p of state.registry.projects.filter(p => p.tier !== 'legacy')) {
     const r = (state.runs.runs || []).find(x => x.project === p.id)
@@ -143,6 +144,18 @@ function writeFiles(dir, files) {
   for (const [k, v] of Object.entries(files)) { const f = join(dir, k); mkdirSync(dirname(f), { recursive: true }); writeFileSync(f, v) }
 }
 
+// GitHub API clients for collectors. A private project is read with the read-only reader
+// credential (the hub's job token cannot see it); every other project with the job token. The
+// reader is withheld from runs that execute project code, as for git (gitReaderFrom).
+export function apiClients(env, { network = true, execute = false, fetchImpl = globalThis.fetch } = {}) {
+  if (!network) return { github: null, githubFor: () => null }
+  const mk = token => createClient({ token: token || undefined, fetchImpl, maxRetries: 2, baseDelayMs: 1000 })
+  const github = mk(env.GITHUB_TOKEN)
+  const reader = gitReaderFrom(env, { execute })
+  const privateGithub = reader ? mk(reader) : null
+  return { github, githubFor: p => (p.visibility === 'private' && privateGithub) || github }
+}
+
 function provenance(o, env) {
   const gha = env.GITHUB_ACTIONS === 'true'
   const runner = createRunner()
@@ -178,13 +191,13 @@ export async function main(argv, { now = () => new Date(), log = console.log, er
     if (o.command === 'run') {
       const ids = o.projects.length ? o.projects : null
       for (const id of ids || []) if (!state.registry.projects.some(p => p.id === id && p.tier !== 'legacy')) throw new UsageError(`no active project "${id}"`)
-      const run = createRunner()
+      const run = withGitReader(createRunner(), gitReaderFrom(env, { execute: o.execute }))
       const workRoot = o.work ? resolve(o.work) : mkdtempSync(join(tmpdir(), 'ose-verify-'))
-      const github = o.network ? createClient({ token: env.GITHUB_TOKEN || undefined, fetchImpl, maxRetries: 2, baseDelayMs: 1000 }) : null
+      const { github, githubFor } = apiClients(env, { network: o.network, execute: o.execute, fetchImpl })
       const result = await collect({
         registry: state.registry, policy: state.policy, policyHash: state.policyHash, profiles: state.profiles, ledgers: state.ledgers,
         projectIds: ids, onlyCollectors: o.collectors.length ? o.collectors : null, incremental: o.incremental,
-        deps: { run, github, fetch: o.network ? fetchImpl : null, now, workRoot, execute: o.execute, provenance: provenance(o, env), installTools: toolInstaller(run, workRoot) }
+        deps: { run, github, githubFor, fetch: o.network ? fetchImpl : null, now, workRoot, execute: o.execute, provenance: provenance(o, env), installTools: toolInstaller(run, workRoot) }
       })
       for (const [id, evidence] of result.ledgers) {
         if (ids && !ids.includes(id)) continue

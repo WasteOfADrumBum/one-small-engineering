@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-27T03:40:00Z",
+  "asOf": "2026-10-27T01:56:27Z",
   "id": "one-small-photography",
   "name": "One Small Photography",
   "tier": "showcase",
@@ -56,24 +56,24 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-photography-build-test-45a74ba-1883a99f",
+          "id": "ev-one-small-photography-build-test-45a74ba-1c559c0f",
           "collector": "build-test",
           "result": "pass",
-          "executedAt": "2026-10-27T01:01:14Z",
+          "executedAt": "2026-10-27T01:52:01Z",
           "summary": "build and test: 2 check(s) passed"
         },
         {
-          "id": "ev-one-small-photography-ci-results-45a74ba-32fcc3c6",
+          "id": "ev-one-small-photography-ci-results-45a74ba-b919d9a0",
           "collector": "ci-results",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:01:14Z",
+          "executedAt": "2026-10-27T01:56:25Z",
           "summary": "CI results: not readable"
         },
         {
-          "id": "ev-one-small-photography-lint-format-types-45a74ba-e909ffaa",
+          "id": "ev-one-small-photography-lint-format-types-45a74ba-040ed0be",
           "collector": "lint-format-types",
           "result": "pass",
-          "executedAt": "2026-10-27T00:51:42Z",
+          "executedAt": "2026-10-27T01:52:15Z",
           "summary": "lint, format and types: 3 check(s) passed"
         }
       ],
@@ -97,17 +97,17 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-photography-dependency-audit-45a74ba-c75a1f11",
+          "id": "ev-one-small-photography-dependency-audit-45a74ba-e4c11401",
           "collector": "dependency-audit",
           "result": "pass",
-          "executedAt": "2026-10-27T00:51:44Z",
+          "executedAt": "2026-10-27T01:52:17Z",
           "summary": "dependency audit: critical 0, high 0, moderate 4, low 0, info 0"
         },
         {
-          "id": "ev-one-small-photography-secret-scan-45a74ba-38ccfe10",
+          "id": "ev-one-small-photography-secret-scan-45a74ba-3a0e0c19",
           "collector": "secret-scan",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:51:44Z",
+          "executedAt": "2026-10-27T01:52:17Z",
           "summary": "secret scan: 2 of 3 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -130,10 +130,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-photography-accessibility-45a74ba-933f23e4",
+          "id": "ev-one-small-photography-accessibility-45a74ba-5ad5aff3",
           "collector": "accessibility",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:51:44Z",
+          "executedAt": "2026-10-27T01:52:17Z",
           "summary": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive"
         }
       ],
@@ -192,10 +192,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-photography-build-test-45a74ba-1883a99f",
+          "id": "ev-one-small-photography-build-test-45a74ba-1c559c0f",
           "collector": "build-test",
           "result": "pass",
-          "executedAt": "2026-10-27T01:01:14Z",
+          "executedAt": "2026-10-27T01:52:01Z",
           "summary": "build and test: 2 check(s) passed"
         }
       ],
@@ -218,10 +218,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-photography-deployment-health-45a74ba-a51e90f7",
+          "id": "ev-one-small-photography-deployment-health-45a74ba-6f7249e7",
           "collector": "deployment-health",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:01:14Z",
+          "executedAt": "2026-10-27T01:56:25Z",
           "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive"
         }
       ],
@@ -244,10 +244,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-photography-documentation-45a74ba-34cb2a4c",
+          "id": "ev-one-small-photography-documentation-45a74ba-a1411b23",
           "collector": "documentation",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T00:51:44Z",
+          "executedAt": "2026-10-27T01:52:17Z",
           "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -344,7 +344,7 @@
   "mergeEligible": false,
   "releaseEligible": false,
   "lastVerification": null,
-  "lastCollection": "2026-10-27T01:01:14Z",
+  "lastCollection": "2026-10-27T01:56:25Z",
   "nextAction": "Resolve blocker scope-document-missing.",
   "findings": [
     {
@@ -353,7 +353,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
       "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
       "collector": "accessibility",
-      "evidenceId": "ev-one-small-photography-accessibility-45a74ba-933f23e4",
+      "evidenceId": "ev-one-small-photography-accessibility-45a74ba-5ad5aff3",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -376,7 +376,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
       "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
       "collector": "ci-results",
-      "evidenceId": "ev-one-small-photography-ci-results-45a74ba-32fcc3c6",
+      "evidenceId": "ev-one-small-photography-ci-results-45a74ba-b919d9a0",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -384,7 +384,7 @@
       ],
       "releaseImpact": "blocks verification of automated-checks",
       "title": "CI results: not readable",
-      "reproduction": "node scripts/verify/cli.mjs run --project one-small-photography --collector ci-results --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-photography --collector ci-results",
       "rootCause": null,
       "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
       "proposedFix": null,
@@ -399,7 +399,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
       "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
       "collector": "deployment-health",
-      "evidenceId": "ev-one-small-photography-deployment-health-45a74ba-a51e90f7",
+      "evidenceId": "ev-one-small-photography-deployment-health-45a74ba-6f7249e7",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -407,7 +407,7 @@
       ],
       "releaseImpact": "blocks verification of production-deployment",
       "title": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive",
-      "reproduction": "node scripts/verify/cli.mjs run --project one-small-photography --collector deployment-health --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-photography --collector deployment-health",
       "rootCause": null,
       "failureReason": "could not reach https://one-small-photography.vercel.app from this runner",
       "proposedFix": null,
@@ -422,7 +422,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
       "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
       "collector": "documentation",
-      "evidenceId": "ev-one-small-photography-documentation-45a74ba-34cb2a4c",
+      "evidenceId": "ev-one-small-photography-documentation-45a74ba-a1411b23",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -445,7 +445,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
       "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
       "collector": "repo-structure",
-      "evidenceId": "ev-one-small-photography-repo-structure-45a74ba-2c295a50",
+      "evidenceId": "ev-one-small-photography-repo-structure-45a74ba-761de6c0",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [],
@@ -464,7 +464,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
       "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
       "collector": "secret-scan",
-      "evidenceId": "ev-one-small-photography-secret-scan-45a74ba-38ccfe10",
+      "evidenceId": "ev-one-small-photography-secret-scan-45a74ba-3a0e0c19",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -508,6 +508,12 @@
           "result": "pass"
         },
         {
+          "id": "ev-one-small-photography-build-test-45a74ba-1c559c0f",
+          "digest": "5c54c7f36f64173e9f12ee19ddcf1393e46079a58b566e2a46963c8ff930a39f",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
           "id": "ev-one-small-photography-build-test-45a74ba-469ea48f",
           "digest": "431c9dfdc7f71549d18d635ea2bd9b79bd8307a40d7e35e59f33d52ceb435123",
           "collector": "build-test",
@@ -524,6 +530,30 @@
           "digest": "381e54d993bafc4ef779ae3e957f9fed21e48b66d3824dcb7cceedfc8e45e368",
           "collector": "ci-results",
           "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-photography-ci-results-45a74ba-acd0e7e8",
+          "digest": "039b90e9c7e2b1d878a8ae2d82423f664012db98bcf070ecd935abe59475ae9f",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-photography-ci-results-45a74ba-b919d9a0",
+          "digest": "99ff72dd8b884d812a8808dd39877ed79dbcebdfbc9db0ab09f25d60dafeda88",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-photography-ci-results-45a74ba-f4281eac",
+          "digest": "e1253874a11068e8625a9253e38962f2ce8db96b76ff9b60eb35fa4f716779dc",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-photography-lint-format-types-45a74ba-040ed0be",
+          "digest": "764c212390cd5a8a5279dc38d9d65db27b5a62fddee3f34cf307cf4c29ec7b67",
+          "collector": "lint-format-types",
+          "result": "pass"
         },
         {
           "id": "ev-one-small-photography-lint-format-types-45a74ba-e909ffaa",
@@ -549,8 +579,20 @@
           "result": "pass"
         },
         {
+          "id": "ev-one-small-photography-dependency-audit-45a74ba-e4c11401",
+          "digest": "df8f9258cc02ec95e65db9c4d4e5cfaca9aad1b16e22f31dc9647877fb48f79f",
+          "collector": "dependency-audit",
+          "result": "pass"
+        },
+        {
           "id": "ev-one-small-photography-secret-scan-45a74ba-38ccfe10",
           "digest": "97198cd0d1aa6157b5bb3856aeb3e379602ac36ac7bf9942b67a408e284554e4",
+          "collector": "secret-scan",
+          "result": "inconclusive"
+        },
+        {
+          "id": "ev-one-small-photography-secret-scan-45a74ba-3a0e0c19",
+          "digest": "c860e738b0aace7db784ab332f1bca9835226211a1e59a5f93ea37eb855db081",
           "collector": "secret-scan",
           "result": "inconclusive"
         }
@@ -565,6 +607,12 @@
       "automation": "partial",
       "humanOnly": false,
       "evidence": [
+        {
+          "id": "ev-one-small-photography-accessibility-45a74ba-5ad5aff3",
+          "digest": "208c3feab710df3359cdb033c9d4d84f9cc034d55e29dada2585f4fc2eae4fbe",
+          "collector": "accessibility",
+          "result": "inconclusive"
+        },
         {
           "id": "ev-one-small-photography-accessibility-45a74ba-933f23e4",
           "digest": "0b5eb6809de91323863990296f9f0a9e57356fcb38fd43aa5a0e164dbd530ddd",
@@ -609,6 +657,12 @@
           "result": "pass"
         },
         {
+          "id": "ev-one-small-photography-build-test-45a74ba-1c559c0f",
+          "digest": "5c54c7f36f64173e9f12ee19ddcf1393e46079a58b566e2a46963c8ff930a39f",
+          "collector": "build-test",
+          "result": "pass"
+        },
+        {
           "id": "ev-one-small-photography-build-test-45a74ba-469ea48f",
           "digest": "431c9dfdc7f71549d18d635ea2bd9b79bd8307a40d7e35e59f33d52ceb435123",
           "collector": "build-test",
@@ -625,6 +679,24 @@
       "automation": "partial",
       "humanOnly": false,
       "evidence": [
+        {
+          "id": "ev-one-small-photography-deployment-health-45a74ba-36845369",
+          "digest": "ef6886dbb5558a7077a5f3ed3f9e8203a19ebd403775db83dd8baa1e0d377340",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-photography-deployment-health-45a74ba-4e156a51",
+          "digest": "06f2ee43556d5bace29f9499f8c911986b07c6bf62245928f9c2e44685968b91",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-photography-deployment-health-45a74ba-6f7249e7",
+          "digest": "b2109631f6586d2c5d0f14d8e047f2846cd8d3f1d7a54678ab654d7f3bcde2a6",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
         {
           "id": "ev-one-small-photography-deployment-health-45a74ba-75c80d8d",
           "digest": "eda815b27e4cb74bf3ff62585af361a1eb432eab0139691829fa083f21cdd210",
@@ -651,6 +723,12 @@
         {
           "id": "ev-one-small-photography-documentation-45a74ba-34cb2a4c",
           "digest": "29d748658add0423c2b33720457e7d4bbbaf2501aa33f562b4e1d4012def6c97",
+          "collector": "documentation",
+          "result": "inconclusive"
+        },
+        {
+          "id": "ev-one-small-photography-documentation-45a74ba-a1411b23",
+          "digest": "9b88ebae2f3ab0f7ea272171d0c246dec8a409db3ee8b38f4ff52dda30796153",
           "collector": "documentation",
           "result": "inconclusive"
         }

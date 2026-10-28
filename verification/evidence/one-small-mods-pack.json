@@ -3,6 +3,738 @@
   "evidence": [
     {
       "schema": 1,
+      "id": "ev-one-small-mods-pack-ci-results-80cc269-35769d7e",
+      "project": "one-small-mods-pack",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "ref": "modspack-2-0",
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "d9ab955af0aff63c",
+      "execute": false,
+      "executedAt": "2026-10-27T01:56:22Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:56:22Z"
+      },
+      "digest": "4b39d9da0ad2f2aec666dda46cb70a77fed062b563804f9e789c12b5ad74dd0b"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-mods-pack-ci-results-80cc269-ad9b54c8",
+      "project": "one-small-mods-pack",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "ref": "modspack-2-0",
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "d9ab955af0aff63c",
+      "execute": false,
+      "executedAt": "2026-10-27T01:55:43Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:55:43Z"
+      },
+      "digest": "63a0c127a78e35ed3aede42b66443e39a5181f02ab8178c3133dffde3939ad97"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-mods-pack-accessibility-80cc269-ca3183a8",
+      "project": "one-small-mods-pack",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "ref": "modspack-2-0",
+      "collector": {
+        "name": "accessibility",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "f00fc30f5d462ae3",
+      "execute": true,
+      "executedAt": "2026-10-27T01:48:54Z",
+      "result": "inconclusive",
+      "summary": "accessibility: 1 of 4 check(s) passed; 3 not run or inconclusive",
+      "failureReason": "not run or inconclusive: automated accessibility run (no automated accessibility command is configured for this project); site:check (browser accessibility and layout checks) (needs a browser; not run by the collector); manual review (Screen reader (NVDA or similar), real 200%/400% zoom, text spacing and Windows forced-colors review of the generated documentation site.)",
+      "checks": [
+        {
+          "name": "automated accessibility tooling",
+          "result": "pass",
+          "detail": "axe-core"
+        },
+        {
+          "name": "automated accessibility run",
+          "result": "not_run",
+          "detail": "no automated accessibility command is configured for this project"
+        },
+        {
+          "name": "site:check (browser accessibility and layout checks)",
+          "result": "not_run",
+          "detail": "needs a browser; not run by the collector"
+        },
+        {
+          "name": "manual review",
+          "result": "not_run",
+          "detail": "Screen reader (NVDA or similar), real 200%/400% zoom, text spacing and Windows forced-colors review of the generated documentation site."
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:48:54Z"
+      },
+      "digest": "bfe9eec38ba107b640c5a27dd918a6b9f25329f98061d0304cd74514da927fca"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-mods-pack-compatibility-80cc269-fff1571b",
+      "project": "one-small-mods-pack",
+      "gates": [
+        "runtime-compatibility"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "ref": "modspack-2-0",
+      "collector": {
+        "name": "compatibility",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "c108fe797e2c0870",
+      "execute": true,
+      "executedAt": "2026-10-27T01:48:54Z",
+      "result": "fail",
+      "summary": "compatibility: 1 of 3 check(s) failed",
+      "failureReason": "failed: CI tests the engines floor",
+      "checks": [
+        {
+          "name": "engines.node declared",
+          "result": "pass",
+          "detail": ">=20"
+        },
+        {
+          "name": "CI tests the engines floor",
+          "result": "fail",
+          "detail": "floor 20, CI Node 22"
+        },
+        {
+          "name": "collector runtime satisfies engines",
+          "result": "pass",
+          "detail": "collector Node 24.22.1"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:48:54Z"
+      },
+      "digest": "1d841f5eb4638ed085279ae4e4549246077d5ee9ff82fde538509a8bb52b01e8"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-mods-pack-dependency-audit-80cc269-573eddb2",
+      "project": "one-small-mods-pack",
+      "gates": [
+        "security-privacy-review",
+        "supply-chain-review"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "ref": "modspack-2-0",
+      "collector": {
+        "name": "dependency-audit",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "acb2b6e65e1ad910",
+      "execute": true,
+      "executedAt": "2026-10-27T01:48:54Z",
+      "result": "pass",
+      "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "npm audit",
+          "result": "pass",
+          "detail": "critical 0, high 0, moderate 0, low 0, info 0 across 67 packages"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "npm-audit.json",
+          "sha256": "0cf44ff6814be303a4ccb2181d69e204f7db4134abae30f7fd1300dcda875c89",
+          "ref": null
+        }
+      ],
+      "reproduce": "npm audit --json --package-lock-only (at 80cc269)",
+      "details": {
+        "advisories": [],
+        "productionAudit": "not run"
+      },
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:48:54Z"
+      },
+      "digest": "0e6e0bc0626e9ae92e2f308074bc85aa5195779e703305f1895f2f1187eeaf2b"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-mods-pack-documentation-80cc269-c7ec0915",
+      "project": "one-small-mods-pack",
+      "gates": [
+        "documentation-accurate",
+        "public-docs-accurate",
+        "upgrade-rollback-uninstall-docs"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "ref": "modspack-2-0",
+      "collector": {
+        "name": "documentation",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "a1f253c7e281c2ac",
+      "execute": true,
+      "executedAt": "2026-10-27T01:48:54Z",
+      "result": "inconclusive",
+      "summary": "documentation: 5 of 6 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "checks": [
+        {
+          "name": "README",
+          "result": "pass",
+          "detail": "195 lines"
+        },
+        {
+          "name": "README install or usage section",
+          "result": "pass",
+          "detail": "heading naming install, usage, setup or getting started"
+        },
+        {
+          "name": "relative links resolve",
+          "result": "pass",
+          "detail": "35 Markdown file(s)"
+        },
+        {
+          "name": "CHANGELOG",
+          "result": "pass",
+          "detail": "CHANGELOG.md"
+        },
+        {
+          "name": "upgrade, rollback and uninstall documented",
+          "result": "pass",
+          "detail": "all three mentioned"
+        },
+        {
+          "name": "accuracy against behaviour",
+          "result": "not_run",
+          "detail": "whether the documentation matches the product is a manual review"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:48:54Z"
+      },
+      "digest": "15a29faa9054ef1b9fc20108e77e2baa30f4f8b260ea04b42a53276c1e6698e4"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-mods-pack-release-packaging-80cc269-3663499d",
+      "project": "one-small-mods-pack",
+      "gates": [
+        "ci-release-pipeline",
+        "clean-consumer-install",
+        "package-archive-inspection",
+        "package-metadata-exports",
+        "versioning-changelog"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "ref": "modspack-2-0",
+      "collector": {
+        "name": "release-packaging",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "ddc7fbe25d5caff5",
+      "execute": true,
+      "executedAt": "2026-10-27T01:48:54Z",
+      "result": "fail",
+      "summary": "release packaging: 1 of 10 check(s) failed",
+      "failureReason": "failed: publish workflow",
+      "checks": [
+        {
+          "name": "name and version",
+          "result": "pass",
+          "detail": "one-small-modspack@2.0.0"
+        },
+        {
+          "name": "license",
+          "result": "pass",
+          "detail": "MIT"
+        },
+        {
+          "name": "publishable",
+          "result": "pass",
+          "detail": "not private"
+        },
+        {
+          "name": "entry points declared",
+          "result": "pass",
+          "detail": "bin"
+        },
+        {
+          "name": "files allowlist",
+          "result": "pass",
+          "detail": "13 pattern(s)"
+        },
+        {
+          "name": "engines and repository metadata",
+          "result": "pass",
+          "detail": "present"
+        },
+        {
+          "name": "version matches the registry target",
+          "result": "pass",
+          "detail": "package 2.0.0, target 2.0.0"
+        },
+        {
+          "name": "CHANGELOG top entry matches the version",
+          "result": "pass",
+          "detail": "top entry 2.0.0"
+        },
+        {
+          "name": "publish workflow",
+          "result": "fail",
+          "detail": "no workflow runs npm publish (1 workflow(s))"
+        },
+        {
+          "name": "npm pack contents",
+          "result": "pass",
+          "detail": "82 files"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "npm-pack-listing",
+          "sha256": "db79cf2abb3659203522d185dec753593dc479e1ff458e6ef2a81c97bd0569f8",
+          "ref": "82 files"
+        }
+      ],
+      "reproduce": "npm run build && npm pack --dry-run --json --ignore-scripts",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:48:54Z"
+      },
+      "digest": "4657833a7e67175c9bb3eaf15158acce53b4da283724ba7e9f671524fee86ff8"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-mods-pack-secret-scan-80cc269-a0ebfced",
+      "project": "one-small-mods-pack",
+      "gates": [
+        "security-privacy-review",
+        "sensitive-data-handling"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "ref": "modspack-2-0",
+      "collector": {
+        "name": "secret-scan",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "15046aaac6a2b818",
+      "execute": true,
+      "executedAt": "2026-10-27T01:48:54Z",
+      "result": "pass",
+      "summary": "secret scan: 3 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "credential patterns outside tests and docs",
+          "result": "pass",
+          "detail": "155 files scanned"
+        },
+        {
+          "name": "committed .env files with sensitive keys",
+          "result": "pass",
+          "detail": "none"
+        },
+        {
+          "name": "credential-shaped values in tests and docs",
+          "result": "pass",
+          "detail": "none"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "secret-scan-locations",
+          "sha256": "5aa7ef3c22f93c238f713bd927f2b728a8f452a6f8222cf0bd45922f31951b9f",
+          "ref": "4 location(s), values withheld"
+        }
+      ],
+      "reproduce": "node scripts/verify/cli.mjs collect --project <id> --collector secret-scan",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:48:54Z"
+      },
+      "digest": "93f444d30115bd889b9a4e2be8195a25648395603aa87e6e5ae48ad6c4924be6"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-mods-pack-ci-results-80cc269-fdd23412",
+      "project": "one-small-mods-pack",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "ref": "modspack-2-0",
+      "collector": {
+        "name": "ci-results",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "566b6f2ddb25b8be",
+      "execute": true,
+      "executedAt": "2026-10-27T01:48:53Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-03T01:48:53Z"
+      },
+      "digest": "1eb7109f61de50bbfe012505dc7d6747f744d10034ae6b82dad4f5e186c5d648"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-mods-pack-lint-format-types-80cc269-5c6b44ce",
+      "project": "one-small-mods-pack",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "ref": "modspack-2-0",
+      "collector": {
+        "name": "lint-format-types",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "2caaec324cf6bcd2",
+      "execute": true,
+      "executedAt": "2026-10-27T01:48:53Z",
+      "result": "pass",
+      "summary": "lint, format and types: 2 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "typecheck:cli",
+          "result": "pass",
+          "detail": null
+        },
+        {
+          "name": "shared",
+          "result": "pass",
+          "detail": "> node scripts/check-shared.mjs\nPASS hooks/config.ts: 5 identical copies\nPASS hooks/bash-writes.ts: 3 identical copies"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": "git clone https://github.com/WasteOfADrumBum/one-small-mods-pack && git -C <dir> checkout 80cc269ebb7c20aca5f6ca03214954726fb494f7 && npm ci --ignore-scripts && npx --no-install tsc -p tsconfig.cli.json && npm run shared",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:48:53Z"
+      },
+      "digest": "a8dc33d8d565be11778b9fb16e8c4b3efdd15039d08411b413f07f89ead97918"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-mods-pack-build-test-80cc269-1fdd6619",
+      "project": "one-small-mods-pack",
+      "gates": [
+        "automated-checks",
+        "critical-workflows",
+        "e2e-critical-workflows"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "ref": "modspack-2-0",
+      "collector": {
+        "name": "build-test",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "950cc00ab4e0e9ae",
+      "execute": true,
+      "executedAt": "2026-10-27T01:48:52Z",
+      "result": "pass",
+      "summary": "build and test: 4 check(s) passed; 1 delegated to other collectors",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "build",
+          "result": "pass",
+          "detail": "> one-small-modspack@2.0.0 build\n> node scripts/build.mjs\nbuilt dist/modspack.mjs and dist/lib.mjs"
+        },
+        {
+          "name": "test:cli",
+          "result": "pass",
+          "detail": "ℹ skipped 0\nℹ todo 0\nℹ duration_ms 6428.368067"
+        },
+        {
+          "name": "validate (plugin manifests)",
+          "result": "pass",
+          "detail": "  ❯ ./register.ts gating hook without .catch: classic.Stop\n  ❯ ./register.ts calls: $.fs.exists, $.fs.read (via check, readConfigFile), $.fs.stat, $.process.run (via dirtyFiles, runAxe, runEslint), $.ui.log (via readConfigFile), $.ui.status (via showStatus), $.ui.toast\n✔ Validation passed"
+        },
+        {
+          "name": "test (mod tests under the harness)",
+          "result": "pass",
+          "detail": " 23 pass\n 0 fail\nRan 23 tests across 1 file. [0.84s]"
+        },
+        {
+          "name": "windows job",
+          "result": "delegated",
+          "detail": "covered by the ci-results collector: native Windows checks run only on windows-latest in the project's CI"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": "git clone https://github.com/WasteOfADrumBum/one-small-mods-pack && git -C <dir> checkout 80cc269ebb7c20aca5f6ca03214954726fb494f7 && npm ci --ignore-scripts && npm run build && npm run test:cli && npm run validate && npm test",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:48:52Z"
+      },
+      "digest": "39f899cf14fe27ce1077defff6cd397a673d17e81c86c5b14ab1cfa4204677c9"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-mods-pack-repo-structure-80cc269-2ef4a8fe",
+      "project": "one-small-mods-pack",
+      "gates": [],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "ref": "modspack-2-0",
+      "collector": {
+        "name": "repo-structure",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "46cd84b3aeb9cb0b",
+      "execute": true,
+      "executedAt": "2026-10-27T01:48:27Z",
+      "result": "pass",
+      "summary": "repository structure: 5 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "package.json",
+          "result": "pass",
+          "detail": "one-small-modspack@2.0.0"
+        },
+        {
+          "name": "lockfile",
+          "result": "pass",
+          "detail": "package-lock.json"
+        },
+        {
+          "name": "readme",
+          "result": "pass",
+          "detail": "README.md"
+        },
+        {
+          "name": "license",
+          "result": "pass",
+          "detail": "present"
+        },
+        {
+          "name": "workflows",
+          "result": "pass",
+          "detail": "ci.yml"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "file-list",
+          "sha256": "1f44589ec2474d18d5efd2347ce1ba2093c7969a6d00f095ab78273a85c2ff19",
+          "ref": "135 files"
+        }
+      ],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run) via engineering:check",
+        "toolchain": {
+          "node": "24.22.1",
+          "npm": "11.21.1",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-26T01:48:27Z"
+      },
+      "digest": "8d3652ec679a5b373fc6193e2c3ba42e11e384d4cef1d756ce5db9d7e06d3150"
+    },
+    {
+      "schema": 1,
       "id": "ev-one-small-mods-pack-build-test-80cc269-9a91ed75",
       "project": "one-small-mods-pack",
       "gates": [

@@ -98,6 +98,27 @@ test('CI results: missing credentials, inaccessible, rate limited, malformed, fa
   assert.deepEqual(ciResults.gates, ['automated-checks'], 'CI success speaks only for automated checks')
 })
 
+test('CI results: a token without Checks read falls back to Actions workflow runs, partial and labelled as such (Codex review finding 3)', async () => {
+  const calls = []
+  const routes = routes => ({ get: async path => { calls.push(path); const [, v] = Object.entries(routes).find(([k]) => path.includes(k)) || []; if (v instanceof Error) throw v; return v } })
+  const denied = new GitHubError('x', 403, '')
+  let r = await ciResults.collect(ctx({ github: routes({ '/check-runs': denied, '/actions/runs': { workflow_runs: [{ name: 'CI', status: 'completed', conclusion: 'success', html_url: 'https://github.com/x/y/actions/runs/1' }] } }) }))
+  assert.deepEqual(calls.map(c => c.split('?')[0].split('/').slice(-2).join('/')), [`${SHA}/check-runs`, 'actions/runs'])
+  assert.equal(r.result, 'inconclusive', 'green workflow runs are not the whole CI picture')
+  assert.match(r.failureReason, /checks from other apps.*lacks permission \(HTTP 403\).*workflow runs used instead/)
+  assert.equal(r.artifacts[0].ref, 'https://github.com/x/y/actions/runs/1')
+  r = await ciResults.collect(ctx({ github: routes({ '/check-runs': denied, '/actions/runs': { workflow_runs: [{ name: 'CI', status: 'completed', conclusion: 'failure' }] } }) }))
+  assert.equal(r.result, 'fail')
+  r = await ciResults.collect(ctx({ github: routes({ '/check-runs': denied, '/actions/runs': denied }) }))
+  assert.equal(r.result, 'unavailable')
+  assert.match(r.failureReason, /check runs: .*403.*; workflow runs: .*403/)
+  // Other failures do not fall back: rate limits and outages stay unavailable as before.
+  calls.length = 0
+  r = await ciResults.collect(ctx({ github: routes({ '/check-runs': new GitHubError('x', 429, ''), '/actions/runs': { workflow_runs: [] } }) }))
+  assert.equal(r.result, 'unavailable')
+  assert.equal(calls.length, 1)
+})
+
 test('dependency audit: parses npm audit; high advisories fail; malformed or network failure is unavailable', () => {
   const audit = (meta, extra = {}) => fakeRunner({ commands: { 'npm audit --json --package-lock-only --fetch-retries=2 --fetch-timeout=120000': { status: 0, stdout: JSON.stringify({ metadata: { vulnerabilities: meta, dependencies: { total: 3 } }, ...extra }) } } })
   assert.equal(dependencyAudit.collect(ctx({ run: audit({ critical: 0, high: 0, moderate: 2, low: 0, info: 0, total: 2 }) })).result, 'pass')

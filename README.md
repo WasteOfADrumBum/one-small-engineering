@@ -91,6 +91,10 @@ All eight active projects have a `sync` block (observe mode: nothing is needed i
 
 [`reports/verification/dashboard.md`](reports/verification/dashboard.md) extends the completion dashboard with collector evidence: for every project the evaluated commit, readiness, the six gate states (independently verified, passed by builder, failed, inconclusive, not tested, not applicable), missing verification, stale evidence, blockers by severity, merge and release eligibility, and the next action. Collectors in [`scripts/verify/`](scripts/verify/) gather evidence at exact commits; only a separate verifier's own record, checked against [`verification/policy.json`](verification/policy.json), makes a gate count. How it works: [docs/verification.md](docs/verification.md).
 
+## Engineering orchestrator
+
+[`reports/engineering/dashboard.md`](reports/engineering/dashboard.md) answers "what needs my attention right now?" across all eight projects. [`npm run engineering:check`](docs/engineering.md) runs sync, collection, verification, readiness, dependency analysis and prioritization in one pass (read-only; every six hours in [engineering.yml](.github/workflows/engineering.yml)), and writes one ranked, deduplicated action queue, a dependency impact report and the release state of every project. Candidate fixes are prepared as reviewed-before-use proposals; opening one draft PR needs the owner's explicit, gated authorization. How it works and how to operate it: [docs/engineering.md](docs/engineering.md).
+
 ## Updating release status
 
 1. Branch from `main` and edit the project's entry.
@@ -115,6 +119,9 @@ npm run sync:pilot    # read-only ModsPack pilot: seven checks against live GitH
 npm run readiness     # release readiness for every project, from the registry alone
 npm run release:reports -- --as-of <UTC time>  # dashboard, per-project readiness and release prep (reports/)
 npm run release:check   # are the committed reports current?
+npm run engineering:check   # observe all projects: sync, collect, verify, evaluate, prioritize (read-only on GitHub)
+npm run engineering:report -- --check   # are the committed engineering reports current? (offline)
+npm run engineering:prepare  # candidate fixes as local proposal files; writes nothing to GitHub
 ```
 
 CI ([`.github/workflows/validate.yml`](.github/workflows/validate.yml)) runs `npm run check` on every pull request and on pushes to `main`, with read-only permissions, plus the field-ownership guard on `sync/*` branches. [Main integrity](.github/workflows/main-integrity.yml) runs on push and every six hours and flags any change to `main` that did not come from a merged PR. These are detection and code-level controls, not branch protection, which GitHub Free does not enforce on this private repository.
@@ -135,13 +142,17 @@ scripts/validate-registry.test.mjs  validator tests
 scripts/readiness.mjs           release readiness and evidence summary (Definition of Done, not CI)
 scripts/sync/                   registry sync: collect, plan, guard, write, status, stage, pilot, onboard (+ tests)
 scripts/release/                release readiness engine, blockers, dependencies, reports, release preparation (+ tests)
-reports/                        generated dashboard, per-project readiness and release preparation drafts
+scripts/verify/                 evidence collectors, verification rules, overlay, remediation guard (+ tests)
+scripts/engineering/            orchestrator: monitor, dependencies, release states, queue, prepare/execute, reports (+ tests)
+engineering/                    orchestrator state (generated) and the tracked remediation PR list (owner-reviewed)
+verification/                   verification policy, project profiles, evidence ledgers and run log
+reports/                        generated dashboards: readiness (reports/), verification (reports/verification/), engineering (reports/engineering/)
 release/                        inputs for release preparation (pinned changelog snapshots)
 schemas/                        project config, observation and AI assessment schemas
 sync/field-ownership.json       the fields automation may change
 templates/project/              files onboarding generates for a project repository
 agents/                         shared AI specs: project assessor, onboarding
 fixtures/sync/                  in-memory GitHub used by the tests
-docs/                           sync design, operations runbook and owner setup
+docs/                           sync, readiness, verification and orchestrator docs; operations runbook; owner setup
 .github/                        PR template, workflows, Copilot instructions and prompts
 ```
