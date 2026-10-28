@@ -2,7 +2,7 @@
   "kind": "one-small-engineering/verification-dashboard",
   "command": "npm run verify:report",
   "asOf": "2026-10-27T01:56:27Z",
-  "registryHash": "1a7e4cac0711e578af796f7cbb13a0814856f18d6f06b43d00f12e50d76542c5",
+  "registryHash": "b3f3033d0d260577a40fa71094e6ea741bdb1af2610d6ab2e53e87bef356f6dc",
   "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
   "policyVersion": 1,
   "runs": [

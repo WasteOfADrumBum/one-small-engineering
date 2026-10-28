@@ -69,7 +69,11 @@ test('switching a project to integrated keeps its pinned identity', () => {
 
 test('an unpinned project (private, no reader yet) is pinned once; a pinned id is never replaced', () => {
   const reg = loadRegistry()
-  assert.equal(reg.projects.find(p => p.id === 'one-small-ai-workforce').sync.repositoryId, null)
+  // The registry pins the id verified through the reader (2026-10-27); a different id is refused.
+  assert.equal(reg.projects.find(p => p.id === 'one-small-ai-workforce').sync.repositoryId, 1417207069)
+  assert.throws(() => onboard(reg, { projectId: 'one-small-ai-workforce', repo: repo('WasteOfADrumBum/one-small-ai-workforce', 4242), now: NOW }), /investigate before re-pinning/)
+  // Before onboarding it was unpinned: that state is pinned once.
+  reg.projects.find(p => p.id === 'one-small-ai-workforce').sync.repositoryId = null
   const r = onboard(reg, { projectId: 'one-small-ai-workforce', repo: repo('WasteOfADrumBum/one-small-ai-workforce', 4242, { private: true }), now: NOW })
   assert.equal(r.project.sync.repositoryId, 4242)
   valid(r.registry)

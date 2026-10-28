@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/dashboard",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-10-26T01:36:00Z",
+  "asOf": "2026-10-27T03:40:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "1a7e4cac0711e578af796f7cbb13a0814856f18d6f06b43d00f12e50d76542c5",
+  "registrySha256": "b3f3033d0d260577a40fa71094e6ea741bdb1af2610d6ab2e53e87bef356f6dc",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "projects": [
     {
