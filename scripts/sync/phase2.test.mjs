@@ -35,7 +35,7 @@ const observe = async (overrides, registry = loadRegistry()) => collect({ projec
 
 // Discovery ---------------------------------------------------------------------
 
-test('all eight active projects are registered, sync-enabled and pinned where readable', () => {
+test('all eight active projects are registered, sync-enabled and pinned', () => {
   const reg = loadRegistry()
   const active = reg.projects.filter(p => p.lifecycle === 'active')
   assert.deepEqual(active.map(p => p.repository.split('/').pop()), ['one-small-mods-pack', 'one-small-ui', 'joshsmall-site', 'one-small-studio', 'one-small-photography', 'TaskForge', 'cortex-brain-task', 'one-small-ai-workforce'])
@@ -44,7 +44,7 @@ test('all eight active projects are registered, sync-enabled and pinned where re
     assert.equal(p.sync.mode, 'observe', `${p.id} stays observe-only: no file is required in the project repository`)
     if (p.visibility === 'public') assert.ok(Number.isInteger(p.sync.repositoryId), `${p.id} is pinned`)
   }
-  assert.equal(byId(reg, 'one-small-ai-workforce').sync.repositoryId, null, 'private and not yet readable: unpinned')
+  assert.equal(byId(reg, 'one-small-ai-workforce').sync.repositoryId, 1417207069, 'private: pinned through the reader credential')
 })
 
 // Access failures ---------------------------------------------------------------
@@ -55,8 +55,9 @@ test('a private repository without the reader credential, and with one that cann
   const reg = loadRegistry()
   const without = await collectAll({ registry: reg, only: 'one-small-ai-workforce', clients: { publicReader: clientFor(gh), privateReader: null }, now: NOW })
   assert.equal(without[0].error.code, 'needs-reader-token')
-  // A reader that is configured but cannot pin the identity yet: refused before any read.
+  // A reader that is configured but the identity is not pinned yet (as before onboarding): refused before any read.
   const reader = clientFor(gh)
+  byId(reg, 'one-small-ai-workforce').sync.repositoryId = null
   const unpinned = await collectAll({ registry: reg, only: 'one-small-ai-workforce', clients: { publicReader: reader, privateReader: reader }, now: NOW })
   assert.equal(unpinned[0].error.code, 'identity-unpinned')
   assert.match(unpinned[0].error.message, /npm run onboard -- one-small-ai-workforce/)
