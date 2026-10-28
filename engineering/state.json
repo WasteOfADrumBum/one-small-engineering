@@ -2,368 +2,398 @@
   "findings": {
     "cortex:access:deployment-health": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "cortex"
     },
     "cortex:blocker:no-ci-workflow": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "cortex"
     },
     "cortex:blocker:spec-open-questions": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "cortex"
     },
     "cortex:blocker:v2-phases-incomplete": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "cortex"
     },
     "cortex:collector:accessibility": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "cortex"
     },
     "cortex:collector:documentation": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "cortex"
     },
     "cortex:collector:lint-format-types": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "cortex"
     },
     "cortex:collector:repo-structure": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "cortex"
     },
     "cortex:verification": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "cortex"
     },
     "one-small-ai-workforce:access:accessibility+build-test+dependency-audit+documentation+lint-format-types+repo-structure+secret-scan": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-ai-workforce"
     },
     "one-small-ai-workforce:blocker:scope-document-missing": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-ai-workforce"
     },
     "one-small-ai-workforce:collector:deployment-health": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
+      "project": "one-small-ai-workforce"
+    },
+    "one-small-ai-workforce:stale-evidence": {
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-ai-workforce"
     },
     "one-small-ai-workforce:verification": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-ai-workforce"
     },
     "one-small-mods-pack:blocker:codex-interactive-trust": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-mods-pack"
     },
     "one-small-mods-pack:blocker:copilot-gemini-runtime-untested": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-mods-pack"
     },
     "one-small-mods-pack:blocker:manual-screen-reader-review": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-mods-pack"
     },
     "one-small-mods-pack:blocker:manual-zoom-forced-colors-review": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-mods-pack"
     },
     "one-small-mods-pack:blocker:npm-ownership-access": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-mods-pack"
     },
     "one-small-mods-pack:blocker:pr-description-stale": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-mods-pack"
     },
     "one-small-mods-pack:blocker:publish-pipeline-missing": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-mods-pack"
     },
     "one-small-mods-pack:blocker:release-authorization": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-mods-pack"
     },
     "one-small-mods-pack:collector:accessibility": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-mods-pack"
     },
     "one-small-mods-pack:collector:compatibility": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-mods-pack"
     },
     "one-small-mods-pack:collector:documentation": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-mods-pack"
     },
     "one-small-mods-pack:collector:release-packaging": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-mods-pack"
     },
     "one-small-mods-pack:verification": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-mods-pack"
     },
     "one-small-photography:access:deployment-health": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-photography"
     },
     "one-small-photography:blocker:scope-document-missing": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-photography"
     },
     "one-small-photography:collector:accessibility": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
+      "project": "one-small-photography"
+    },
+    "one-small-photography:collector:build-test": {
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-photography"
     },
     "one-small-photography:collector:documentation": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
+      "project": "one-small-photography"
+    },
+    "one-small-photography:collector:lint-format-types": {
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-photography"
     },
     "one-small-photography:collector:repo-structure": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-photography"
     },
     "one-small-photography:collector:secret-scan": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
+      "project": "one-small-photography"
+    },
+    "one-small-photography:stale-evidence": {
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-photography"
     },
     "one-small-photography:verification": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-photography"
     },
     "one-small-studio:access:deployment-health": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
-      "project": "one-small-studio"
-    },
-    "one-small-studio:advisory:high-production": {
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-studio"
     },
     "one-small-studio:blocker:scope-document-missing": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-studio"
     },
     "one-small-studio:collector:accessibility": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
+      "project": "one-small-studio"
+    },
+    "one-small-studio:collector:build-test": {
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-studio"
     },
     "one-small-studio:collector:documentation": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
+      "project": "one-small-studio"
+    },
+    "one-small-studio:collector:lint-format-types": {
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-studio"
     },
     "one-small-studio:collector:repo-structure": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
+      "project": "one-small-studio"
+    },
+    "one-small-studio:stale-evidence": {
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-studio"
     },
     "one-small-studio:verification": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-studio"
     },
     "one-small-ui:access:deployment-health": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-ui"
     },
     "one-small-ui:advisory:critical-dev": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-ui"
     },
     "one-small-ui:advisory:moderate": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-ui"
     },
     "one-small-ui:blocker:scope-document-missing": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-ui"
     },
     "one-small-ui:collector:accessibility": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-ui"
     },
     "one-small-ui:collector:compatibility": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-ui"
     },
     "one-small-ui:collector:documentation": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-ui"
     },
     "one-small-ui:collector:release-packaging": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-ui"
     },
     "one-small-ui:verification": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "one-small-ui"
     },
     "personal-portfolio:access:deployment-health": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
-      "project": "personal-portfolio"
-    },
-    "personal-portfolio:advisory:critical-production": {
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
-      "project": "personal-portfolio"
-    },
-    "personal-portfolio:advisory:high-dev": {
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "personal-portfolio"
     },
     "personal-portfolio:blocker:no-ci-workflow": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "personal-portfolio"
     },
     "personal-portfolio:blocker:readme-boilerplate": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "personal-portfolio"
     },
     "personal-portfolio:blocker:scope-document-missing": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "personal-portfolio"
     },
     "personal-portfolio:collector:accessibility": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
+      "project": "personal-portfolio"
+    },
+    "personal-portfolio:collector:build-test": {
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "personal-portfolio"
     },
     "personal-portfolio:collector:documentation": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
+      "project": "personal-portfolio"
+    },
+    "personal-portfolio:collector:lint-format-types": {
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "personal-portfolio"
     },
     "personal-portfolio:collector:repo-structure": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
+      "project": "personal-portfolio"
+    },
+    "personal-portfolio:stale-evidence": {
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "personal-portfolio"
     },
     "personal-portfolio:verification": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "personal-portfolio"
     },
     "portfolio:access:ci-results": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
-      "project": "portfolio"
-    },
-    "portfolio:ownership": {
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "portfolio"
     },
     "taskforge:access:deployment-health": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
-      "project": "taskforge"
-    },
-    "taskforge:advisory:high-dev": {
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
-      "project": "taskforge"
-    },
-    "taskforge:advisory:high-production": {
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
-      "project": "taskforge"
-    },
-    "taskforge:advisory:moderate": {
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "taskforge"
     },
     "taskforge:blocker:backup-restore-unverified": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "taskforge"
     },
     "taskforge:blocker:project-status-stale": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "taskforge"
     },
     "taskforge:collector:accessibility": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
+      "project": "taskforge"
+    },
+    "taskforge:collector:build-test": {
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "taskforge"
     },
     "taskforge:collector:documentation": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
+      "project": "taskforge"
+    },
+    "taskforge:collector:lint-format-types": {
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "taskforge"
     },
     "taskforge:collector:secret-scan": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "taskforge"
     },
     "taskforge:scope": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
+      "project": "taskforge"
+    },
+    "taskforge:stale-evidence": {
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "taskforge"
     },
     "taskforge:verification": {
       "firstSeen": "2026-10-27T01:55:19Z",
-      "lastSeen": "2026-10-27T01:56:27Z",
+      "lastSeen": "2026-10-28T21:07:08Z",
       "project": "taskforge"
     }
   },
   "lastRun": {
     "api": "unavailable (statuses kept from the last run that could read them)",
-    "at": "2026-10-27T01:56:27Z",
+    "at": "2026-10-28T21:07:08Z",
     "changed": [],
     "collected": [
       "cortex",
@@ -377,11 +407,11 @@
     ],
     "execute": false,
     "executor": "local",
-    "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental)",
+    "invokedBy": "local run",
     "mode": "observe",
     "runUrl": null,
     "skipped": [],
-    "startedAt": "2026-10-27T01:56:19Z"
+    "startedAt": "2026-10-28T21:06:44Z"
   },
   "projects": {
     "cortex": {
@@ -425,7 +455,7 @@
         "repoRefs": [],
         "workflows": []
       },
-      "observedAt": "2026-10-27T01:56:19Z",
+      "observedAt": "2026-10-28T21:06:44Z",
       "previousRevision": null,
       "ref": null,
       "releaseState": "not_ready",
@@ -440,7 +470,7 @@
           "state": "not_ready"
         }
       ],
-      "observedAt": "2026-10-27T01:56:19Z",
+      "observedAt": "2026-10-28T21:06:44Z",
       "ref": null,
       "releaseState": "not_ready",
       "revision": null
@@ -491,7 +521,7 @@
           ".github/workflows/ci.yml"
         ]
       },
-      "observedAt": "2026-10-27T01:56:19Z",
+      "observedAt": "2026-10-28T21:06:44Z",
       "previousRevision": null,
       "ref": "modspack-2-0",
       "releaseState": "blocked",
@@ -500,7 +530,7 @@
     "one-small-photography": {
       "access": "ok",
       "accessReason": null,
-      "changedAt": "2026-10-27T01:55:16Z",
+      "changedAt": "2026-10-28T21:04:07Z",
       "history": [
         {
           "at": "2026-10-27T01:55:19Z",
@@ -508,8 +538,8 @@
         }
       ],
       "manifest": {
-        "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
-        "digest": "b9c9478b9494bac92f6c80814ec2cb189b600bfd3a7a14146912052c966451ff",
+        "commitSha": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+        "digest": "eae776f684e7b9fb785f67265f6583554828fa937ba3ed92695bcee4f0189b2b",
         "locked": {
           "@astrojs/check": "0.9.10",
           "@astrojs/react": "7.0.0",
@@ -523,6 +553,7 @@
           "@fontsource-variable/fraunces": "5.3.0",
           "@fontsource-variable/inter": "5.3.0",
           "@fontsource/caveat": "5.3.0",
+          "@fontsource/cinzel-decorative": "5.3.0",
           "@neondatabase/serverless": "1.2.0",
           "@tailwindcss/vite": "4.3.3",
           "@types/node": "22.20.5",
@@ -566,6 +597,7 @@
               "@fontsource-variable/fraunces": "^5.3.0",
               "@fontsource-variable/inter": "^5.3.0",
               "@fontsource/caveat": "^5.3.0",
+              "@fontsource/cinzel-decorative": "^5.3.0",
               "@neondatabase/serverless": "^1.2.0",
               "@tailwindcss/vite": "^4.3.3",
               "astro": "^7.3.5",
@@ -614,16 +646,16 @@
           ".github/workflows/ci.yml"
         ]
       },
-      "observedAt": "2026-10-27T01:56:19Z",
-      "previousRevision": null,
+      "observedAt": "2026-10-28T21:06:44Z",
+      "previousRevision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
       "ref": null,
       "releaseState": "not_ready",
-      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f"
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b"
     },
     "one-small-studio": {
       "access": "ok",
       "accessReason": null,
-      "changedAt": "2026-10-27T01:55:16Z",
+      "changedAt": "2026-10-28T21:04:07Z",
       "history": [
         {
           "at": "2026-10-27T01:55:19Z",
@@ -631,8 +663,8 @@
         }
       ],
       "manifest": {
-        "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
-        "digest": "60d1681de8e8dac00ac3f9bb68f5c146c707b116d17e4c6e0290dde511697f40",
+        "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+        "digest": "cbf46b6feaab66c889b3b2ba85f01e5bca0ccd7088036116c3774d59c94867fc",
         "locked": {
           "@axe-core/playwright": "4.14.0",
           "@eslint/js": "10.0.1",
@@ -673,7 +705,7 @@
           "typescript-eslint": "8.71.1",
           "vite": "8.3.4",
           "vitest": "5.0.5",
-          "zod": "4.6.5"
+          "zod": "4.6.7"
         },
         "lockfile": true,
         "packages": [
@@ -737,11 +769,11 @@
           ".github/workflows/ci.yml"
         ]
       },
-      "observedAt": "2026-10-27T01:56:19Z",
-      "previousRevision": null,
+      "observedAt": "2026-10-28T21:06:44Z",
+      "previousRevision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
       "ref": null,
       "releaseState": "not_ready",
-      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049"
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e"
     },
     "one-small-ui": {
       "access": "ok",
@@ -867,7 +899,7 @@
           ".github/workflows/ci.yml"
         ]
       },
-      "observedAt": "2026-10-27T01:56:19Z",
+      "observedAt": "2026-10-28T21:06:44Z",
       "previousRevision": null,
       "ref": null,
       "releaseState": "not_ready",
@@ -876,7 +908,7 @@
     "personal-portfolio": {
       "access": "ok",
       "accessReason": null,
-      "changedAt": "2026-10-27T01:55:16Z",
+      "changedAt": "2026-10-28T21:04:07Z",
       "history": [
         {
           "at": "2026-10-27T01:55:19Z",
@@ -884,18 +916,18 @@
         }
       ],
       "manifest": {
-        "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
-        "digest": "cf40d9fb39ab7fcd9269dc07bcfc60db3d35f4c7d70b1165f229d66e4e04708c",
+        "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+        "digest": "f5bed622c1db29b02d3d199ec6f1e644fe45575e8ca801d2f04158a1f130f455",
         "locked": {
           "@tailwindcss/postcss": "4.3.3",
           "@types/node": "20.19.43",
           "@types/react": "19.3.0",
           "@types/react-dom": "19.3.0",
           "eslint": "9.39.5",
-          "eslint-config-next": "16.3.8",
+          "eslint-config-next": "16.4.3",
           "lucide-react": "1.52.0",
           "motion": "14.0.0",
-          "next": "16.3.8",
+          "next": "16.4.3",
           "react": "19.2.8",
           "react-dom": "19.2.8",
           "resend": "6.32.0",
@@ -908,7 +940,7 @@
             "dependencies": {
               "lucide-react": "^1.52.0",
               "motion": "^14.0.0",
-              "next": "16.3.8",
+              "next": "16.4.3",
               "react": "19.2.8",
               "react-dom": "19.2.8",
               "resend": "^6.32.0"
@@ -919,7 +951,7 @@
               "@types/react": "^19",
               "@types/react-dom": "^19",
               "eslint": "^9",
-              "eslint-config-next": "16.3.8",
+              "eslint-config-next": "16.4.3",
               "tailwindcss": "^4",
               "typescript": "^5"
             },
@@ -934,16 +966,16 @@
         "repoRefs": [],
         "workflows": []
       },
-      "observedAt": "2026-10-27T01:56:19Z",
-      "previousRevision": null,
+      "observedAt": "2026-10-28T21:06:44Z",
+      "previousRevision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
       "ref": null,
       "releaseState": "not_ready",
-      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174"
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302"
     },
     "taskforge": {
       "access": "ok",
       "accessReason": null,
-      "changedAt": "2026-10-27T01:55:16Z",
+      "changedAt": "2026-10-28T21:04:07Z",
       "history": [
         {
           "at": "2026-10-27T01:55:19Z",
@@ -951,8 +983,8 @@
         }
       ],
       "manifest": {
-        "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
-        "digest": "9b5612331fb4461de0cb6ad8a867472e030da5c37c658e15959667cae0d513b9",
+        "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+        "digest": "1415378d8d347a39b0036262f667eb4d43021ba3c56f3f4d7892330702d46cf7",
         "locked": {
           "@eslint/js": "9.39.5",
           "@playwright/test": "1.63.0",
@@ -1013,11 +1045,11 @@
           ".github/workflows/ci.yml"
         ]
       },
-      "observedAt": "2026-10-27T01:56:19Z",
-      "previousRevision": null,
+      "observedAt": "2026-10-28T21:06:44Z",
+      "previousRevision": "11975d0278c7f04db5033c0461295c734e3b4134",
       "ref": null,
       "releaseState": "not_ready",
-      "revision": "11975d0278c7f04db5033c0461295c734e3b4134"
+      "revision": "f9f14be45796bf5919e58f6b34ee1636ecd48a77"
     }
   },
   "pullRequests": [

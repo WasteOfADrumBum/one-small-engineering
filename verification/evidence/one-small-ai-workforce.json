@@ -3,6 +3,723 @@
   "evidence": [
     {
       "schema": 1,
+      "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-8770fa90",
+      "project": "one-small-ai-workforce",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "ref": null,
+      "collector": {
+        "name": "accessibility",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "21a6e29e51bd57dd",
+      "execute": false,
+      "executedAt": "2026-10-28T21:07:08Z",
+      "result": "unavailable",
+      "summary": "accessibility: no checkout",
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:07:08Z"
+      },
+      "digest": "a7ea97198e2f2e099db8db2f2e78281f649b7c84b1de67f9ff3564e8a01bb1be"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ai-workforce-build-test-c70d8b1-73f101ba",
+      "project": "one-small-ai-workforce",
+      "gates": [
+        "automated-checks",
+        "critical-workflows",
+        "e2e-critical-workflows"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "ref": null,
+      "collector": {
+        "name": "build-test",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "46dab306dfcc6786",
+      "execute": false,
+      "executedAt": "2026-10-28T21:07:08Z",
+      "result": "unavailable",
+      "summary": "build and test: no checkout",
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:07:08Z"
+      },
+      "digest": "a76c9eaffaa94bc3998c4b6855028388635a62c01dbffaa72598d96d7ad57d88"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-1f512833",
+      "project": "one-small-ai-workforce",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "1cb5c81ff64074ae",
+      "execute": false,
+      "executedAt": "2026-10-28T21:07:08Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:07:08Z"
+      },
+      "digest": "1a3052083e2441dc8637f47583aaed02860a81453cd0175da2a293d06fecd8ff"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-ad200744",
+      "project": "one-small-ai-workforce",
+      "gates": [
+        "security-privacy-review",
+        "supply-chain-review"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "ref": null,
+      "collector": {
+        "name": "dependency-audit",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "6b84fb49f66fee73",
+      "execute": false,
+      "executedAt": "2026-10-28T21:07:08Z",
+      "result": "unavailable",
+      "summary": "dependency audit: no checkout",
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:07:08Z"
+      },
+      "digest": "4495245895da0bf15a6cef245b6563056a24fe470792b5b21f9cc83ff7b1a613"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ai-workforce-documentation-c70d8b1-ffee6cea",
+      "project": "one-small-ai-workforce",
+      "gates": [
+        "documentation-accurate",
+        "public-docs-accurate",
+        "upgrade-rollback-uninstall-docs"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "ref": null,
+      "collector": {
+        "name": "documentation",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "e0a6fc44bf8f7c15",
+      "execute": false,
+      "executedAt": "2026-10-28T21:07:08Z",
+      "result": "unavailable",
+      "summary": "documentation: no checkout",
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:07:08Z"
+      },
+      "digest": "fb012d3e09674f78cc9423acd8cf339442cd6c2a6971ce787e58018288723f24"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-0e87bc58",
+      "project": "one-small-ai-workforce",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "ref": null,
+      "collector": {
+        "name": "lint-format-types",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "ece3c1172f9ab42f",
+      "execute": false,
+      "executedAt": "2026-10-28T21:07:08Z",
+      "result": "unavailable",
+      "summary": "lint, format and types: no checkout",
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:07:08Z"
+      },
+      "digest": "eb200651d6c975806cfd942a4e05157e9ef1965dd1bd3468e120528bd03fee81"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ai-workforce-repo-structure-c70d8b1-956c945b",
+      "project": "one-small-ai-workforce",
+      "gates": [],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "ref": null,
+      "collector": {
+        "name": "repo-structure",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "efa1949d9742f51c",
+      "execute": false,
+      "executedAt": "2026-10-28T21:07:08Z",
+      "result": "unavailable",
+      "summary": "repository not readable",
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:07:08Z"
+      },
+      "digest": "93adbbf3d9d6def0ec58c253319083440a8dad616febe7e18478d70d418a1948"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-ade537e3",
+      "project": "one-small-ai-workforce",
+      "gates": [
+        "security-privacy-review",
+        "sensitive-data-handling"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "ref": null,
+      "collector": {
+        "name": "secret-scan",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "2bd786721d148c9a",
+      "execute": false,
+      "executedAt": "2026-10-28T21:07:08Z",
+      "result": "unavailable",
+      "summary": "secret scan: no checkout",
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:07:08Z"
+      },
+      "digest": "8731fed333a0af0a850fd4e9854d61a6fa29294c6e593118ebb38e9c66f53ab4"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-16e78852",
+      "project": "one-small-ai-workforce",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "ref": null,
+      "collector": {
+        "name": "accessibility",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "21a6e29e51bd57dd",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:34Z",
+      "result": "unavailable",
+      "summary": "accessibility: no checkout",
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:34Z"
+      },
+      "digest": "d7e5bebdb9eaf4a45d1a5f3cea7caba6d4ac46e9ac42dfb1fae9b791256143f1"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ai-workforce-build-test-c70d8b1-dfd953a4",
+      "project": "one-small-ai-workforce",
+      "gates": [
+        "automated-checks",
+        "critical-workflows",
+        "e2e-critical-workflows"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "ref": null,
+      "collector": {
+        "name": "build-test",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "46dab306dfcc6786",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:34Z",
+      "result": "unavailable",
+      "summary": "build and test: no checkout",
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:34Z"
+      },
+      "digest": "54a8c6296be8c93c2d04b42231f693539d9b40835cdfaee39d62dafb992f0962"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-14044d1b",
+      "project": "one-small-ai-workforce",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "1cb5c81ff64074ae",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:34Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:04:34Z"
+      },
+      "digest": "1429eb9bdaaa03bb287a2a8c5d3701752fefb1677eeb998ca9b3098a3984476d"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-aeeabd8a",
+      "project": "one-small-ai-workforce",
+      "gates": [
+        "security-privacy-review",
+        "supply-chain-review"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "ref": null,
+      "collector": {
+        "name": "dependency-audit",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "6b84fb49f66fee73",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:34Z",
+      "result": "unavailable",
+      "summary": "dependency audit: no checkout",
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:04:34Z"
+      },
+      "digest": "eb41cc04999c7a6f3754e9cb44c820991ee9dac28853496aa1d35da965d32a02"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810",
+      "project": "one-small-ai-workforce",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "6c5ca18519c29286",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:34Z",
+      "result": "inconclusive",
+      "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive",
+      "failureReason": "not run or inconclusive: deployment configuration (no checkout); health check (no productionUrl in the registry)",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "inconclusive",
+          "detail": "no checkout"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "no productionUrl in the registry"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-29T21:04:34Z"
+      },
+      "digest": "ee182f3f25f9a40b649cdee5edec4b88a56624a48c7cf1fcb7efcdee35016d60"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ai-workforce-documentation-c70d8b1-9230e55c",
+      "project": "one-small-ai-workforce",
+      "gates": [
+        "documentation-accurate",
+        "public-docs-accurate",
+        "upgrade-rollback-uninstall-docs"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "ref": null,
+      "collector": {
+        "name": "documentation",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "e0a6fc44bf8f7c15",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:34Z",
+      "result": "unavailable",
+      "summary": "documentation: no checkout",
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:34Z"
+      },
+      "digest": "b151d62147fe59b0c52f2fc9e82cfc573694b81ff3c5cc2f9f9b6b0970ef9b65"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-3d760e4d",
+      "project": "one-small-ai-workforce",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "ref": null,
+      "collector": {
+        "name": "lint-format-types",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "ece3c1172f9ab42f",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:34Z",
+      "result": "unavailable",
+      "summary": "lint, format and types: no checkout",
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:34Z"
+      },
+      "digest": "4ca217e06a6a3111664790223f4a8b3a51942963a9820ec6b55a1219677ce2ca"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ai-workforce-repo-structure-c70d8b1-559afd1d",
+      "project": "one-small-ai-workforce",
+      "gates": [],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "ref": null,
+      "collector": {
+        "name": "repo-structure",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "efa1949d9742f51c",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:34Z",
+      "result": "unavailable",
+      "summary": "repository not readable",
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:34Z"
+      },
+      "digest": "10dde0d6d95951b761ca2d9833251d914257ec3ac8f53903ddbaaf8947942558"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-4ad7a258",
+      "project": "one-small-ai-workforce",
+      "gates": [
+        "security-privacy-review",
+        "sensitive-data-handling"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "ref": null,
+      "collector": {
+        "name": "secret-scan",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "2bd786721d148c9a",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:34Z",
+      "result": "unavailable",
+      "summary": "secret scan: no checkout",
+      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:34Z"
+      },
+      "digest": "ad732dcb55fa9f9c3d63f1be9a58ac5554d0c76e5ed2ff81aff59ff00cee52f2"
+    },
+    {
+      "schema": 1,
       "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-a1500480",
       "project": "one-small-ai-workforce",
       "gates": [
@@ -1384,173 +2101,6 @@
     },
     {
       "schema": 1,
-      "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-71442670",
-      "project": "one-small-ai-workforce",
-      "gates": [
-        "wcag-22-aa"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
-      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
-      "ref": null,
-      "collector": {
-        "name": "accessibility",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "bea702111b8d4470",
-      "execute": true,
-      "executedAt": "2026-10-27T00:56:07Z",
-      "result": "unavailable",
-      "summary": "accessibility: no checkout",
-      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
-      "checks": [],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 30 day(s) after collection",
-        "expiresAt": "2026-11-26T00:56:07Z"
-      },
-      "digest": "912ae34c42fdb37ebd5b3e6f1e9737347e28f168e35cdd179f6f8d3b9cf474ac"
-    },
-    {
-      "schema": 1,
-      "id": "ev-one-small-ai-workforce-build-test-c70d8b1-362731a7",
-      "project": "one-small-ai-workforce",
-      "gates": [
-        "automated-checks",
-        "critical-workflows",
-        "e2e-critical-workflows"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
-      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
-      "ref": null,
-      "collector": {
-        "name": "build-test",
-        "version": "1.1.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "775e2c9fac72f9e1",
-      "execute": true,
-      "executedAt": "2026-10-27T00:56:07Z",
-      "result": "unavailable",
-      "summary": "build and test: no checkout",
-      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
-      "checks": [],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 30 day(s) after collection",
-        "expiresAt": "2026-11-26T00:56:07Z"
-      },
-      "digest": "a891faceb95f0396f936b583ba4fe8378be403c62abcc0680675c5a1b3cb1b73"
-    },
-    {
-      "schema": 1,
-      "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-a83d10da",
-      "project": "one-small-ai-workforce",
-      "gates": [
-        "automated-checks"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
-      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
-      "ref": null,
-      "collector": {
-        "name": "ci-results",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "6c8e8b0a4123fc54",
-      "execute": true,
-      "executedAt": "2026-10-27T00:56:07Z",
-      "result": "unavailable",
-      "summary": "CI results: not readable",
-      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
-      "checks": [],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 7 day(s) after collection",
-        "expiresAt": "2026-11-03T00:56:07Z"
-      },
-      "digest": "84cd087576e30872898dd62f7bc48ad43c17cbb0ac27812bee18563528f7daa3"
-    },
-    {
-      "schema": 1,
-      "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-ca5ee6f6",
-      "project": "one-small-ai-workforce",
-      "gates": [
-        "security-privacy-review",
-        "supply-chain-review"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
-      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
-      "ref": null,
-      "collector": {
-        "name": "dependency-audit",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "334979ae7847ee1c",
-      "execute": true,
-      "executedAt": "2026-10-27T00:56:07Z",
-      "result": "unavailable",
-      "summary": "dependency audit: no checkout",
-      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
-      "checks": [],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 7 day(s) after collection",
-        "expiresAt": "2026-11-03T00:56:07Z"
-      },
-      "digest": "4b96c73df3d2d8975956c542d44613a3eb6be59d8386e0ba765fb1dafa168658"
-    },
-    {
-      "schema": 1,
       "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410",
       "project": "one-small-ai-workforce",
       "gates": [
@@ -1601,171 +2151,6 @@
         "expiresAt": "2026-10-28T00:56:07Z"
       },
       "digest": "e24fb89f0237e7f01d7512a30d7bcb7472891d804a3a31ef8bbf6efcea83f9b6"
-    },
-    {
-      "schema": 1,
-      "id": "ev-one-small-ai-workforce-documentation-c70d8b1-13c3e86a",
-      "project": "one-small-ai-workforce",
-      "gates": [
-        "documentation-accurate",
-        "public-docs-accurate",
-        "upgrade-rollback-uninstall-docs"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
-      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
-      "ref": null,
-      "collector": {
-        "name": "documentation",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "89ac5905e09f027e",
-      "execute": true,
-      "executedAt": "2026-10-27T00:56:07Z",
-      "result": "unavailable",
-      "summary": "documentation: no checkout",
-      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
-      "checks": [],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 30 day(s) after collection",
-        "expiresAt": "2026-11-26T00:56:07Z"
-      },
-      "digest": "7ab0a2493a8492c63c64a7adbd26724437e05e433f97b438086f6d7253f15820"
-    },
-    {
-      "schema": 1,
-      "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-f96f96b8",
-      "project": "one-small-ai-workforce",
-      "gates": [
-        "automated-checks"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
-      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
-      "ref": null,
-      "collector": {
-        "name": "lint-format-types",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "910399d905bcfed7",
-      "execute": true,
-      "executedAt": "2026-10-27T00:56:07Z",
-      "result": "unavailable",
-      "summary": "lint, format and types: no checkout",
-      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
-      "checks": [],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 30 day(s) after collection",
-        "expiresAt": "2026-11-26T00:56:07Z"
-      },
-      "digest": "6a1a6f7bbace62841b5198e227edd91e5a47f5f6ecc57cb3e4c859a1c867963f"
-    },
-    {
-      "schema": 1,
-      "id": "ev-one-small-ai-workforce-repo-structure-c70d8b1-8d7881a9",
-      "project": "one-small-ai-workforce",
-      "gates": [],
-      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
-      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
-      "ref": null,
-      "collector": {
-        "name": "repo-structure",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "1bf0d7eca44449fc",
-      "execute": true,
-      "executedAt": "2026-10-27T00:56:07Z",
-      "result": "unavailable",
-      "summary": "repository not readable",
-      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
-      "checks": [],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 30 day(s) after collection",
-        "expiresAt": "2026-11-26T00:56:07Z"
-      },
-      "digest": "54aa536840928a1435ebb2d3fd3f0c17edc3d9ecfc357bbeca5b52d8696d32e6"
-    },
-    {
-      "schema": 1,
-      "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-f25d1452",
-      "project": "one-small-ai-workforce",
-      "gates": [
-        "security-privacy-review",
-        "sensitive-data-handling"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
-      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
-      "ref": null,
-      "collector": {
-        "name": "secret-scan",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "ba5a84968b6aef90",
-      "execute": true,
-      "executedAt": "2026-10-27T00:56:07Z",
-      "result": "unavailable",
-      "summary": "secret scan: no checkout",
-      "failureReason": "repository not found or not visible without a reader credential (private repositories need one)",
-      "checks": [],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 30 day(s) after collection",
-        "expiresAt": "2026-11-26T00:56:07Z"
-      },
-      "digest": "a4be5ca75cf74b14f11acde0e4d33f8e003cffa96fa1cf762144b903bceae17d"
     }
   ]
 }

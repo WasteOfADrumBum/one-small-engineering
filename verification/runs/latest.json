@@ -1,8 +1,8 @@
 {
-  "collectedAt": "2026-10-27T01:56:26Z",
+  "collectedAt": "2026-10-28T21:07:07Z",
   "executor": "local",
   "runUrl": null,
-  "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental) via engineering:check",
+  "invokedBy": "local run via engineering:check",
   "execute": false,
   "remediation": {
     "personal-portfolio": [
@@ -39,13 +39,13 @@
         {
           "name": "ci-results",
           "result": "unavailable",
-          "evidenceId": "ev-cortex-ci-results-ec49fd7-bf09a281",
+          "evidenceId": "ev-cortex-ci-results-ec49fd7-330a5ec7",
           "reused": false
         },
         {
           "name": "deployment-health",
           "result": "unavailable",
-          "evidenceId": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
+          "evidenceId": "ev-cortex-deployment-health-ec49fd7-80f95d1a",
           "reused": false
         }
       ]
@@ -64,49 +64,49 @@
         {
           "name": "repo-structure",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ai-workforce-repo-structure-c70d8b1-2cf1a4f1",
+          "evidenceId": "ev-one-small-ai-workforce-repo-structure-c70d8b1-956c945b",
           "reused": false
         },
         {
           "name": "build-test",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
+          "evidenceId": "ev-one-small-ai-workforce-build-test-c70d8b1-73f101ba",
           "reused": false
         },
         {
           "name": "lint-format-types",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-547f714e",
+          "evidenceId": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-0e87bc58",
           "reused": false
         },
         {
           "name": "ci-results",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ai-workforce-ci-results-c70d8b1-e50e2e11",
+          "evidenceId": "ev-one-small-ai-workforce-ci-results-c70d8b1-1f512833",
           "reused": false
         },
         {
           "name": "dependency-audit",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-8417e8f4",
+          "evidenceId": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-ad200744",
           "reused": false
         },
         {
           "name": "secret-scan",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c",
+          "evidenceId": "ev-one-small-ai-workforce-secret-scan-c70d8b1-ade537e3",
           "reused": false
         },
         {
           "name": "accessibility",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ai-workforce-accessibility-c70d8b1-a1500480",
+          "evidenceId": "ev-one-small-ai-workforce-accessibility-c70d8b1-8770fa90",
           "reused": false
         },
         {
           "name": "documentation",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ai-workforce-documentation-c70d8b1-06b855f1",
+          "evidenceId": "ev-one-small-ai-workforce-documentation-c70d8b1-ffee6cea",
           "reused": false
         }
       ]
@@ -125,7 +125,7 @@
         {
           "name": "ci-results",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-mods-pack-ci-results-80cc269-35769d7e",
+          "evidenceId": "ev-one-small-mods-pack-ci-results-80cc269-bd14b314",
           "reused": false
         }
       ]
@@ -135,22 +135,22 @@
       "access": "ok",
       "accessReason": null,
       "target": {
-        "sha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+        "sha": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
         "source": "live head of main",
-        "liveSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
-        "drift": "registry snapshot is 2471b18; live head is 45a74ba (registry sync refreshes it)"
+        "liveSha": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+        "drift": "registry snapshot is 2471b18; live head is fa2d17f (registry sync refreshes it)"
       },
       "collectors": [
         {
           "name": "ci-results",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-photography-ci-results-45a74ba-b919d9a0",
+          "evidenceId": "ev-one-small-photography-ci-results-fa2d17f-05128f81",
           "reused": false
         },
         {
           "name": "deployment-health",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-photography-deployment-health-45a74ba-6f7249e7",
+          "evidenceId": "ev-one-small-photography-deployment-health-fa2d17f-f67b9da9",
           "reused": false
         }
       ]
@@ -160,22 +160,22 @@
       "access": "ok",
       "accessReason": null,
       "target": {
-        "sha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+        "sha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
         "source": "live head of main",
-        "liveSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
-        "drift": "registry snapshot is 923fb11; live head is 175cef6 (registry sync refreshes it)"
+        "liveSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+        "drift": "registry snapshot is 923fb11; live head is d6854de (registry sync refreshes it)"
       },
       "collectors": [
         {
           "name": "ci-results",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-studio-ci-results-175cef6-372b3f9b",
+          "evidenceId": "ev-one-small-studio-ci-results-d6854de-fa913bb0",
           "reused": false
         },
         {
           "name": "deployment-health",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-studio-deployment-health-175cef6-eac0aff6",
+          "evidenceId": "ev-one-small-studio-deployment-health-d6854de-970cfe92",
           "reused": false
         }
       ]
@@ -194,13 +194,13 @@
         {
           "name": "ci-results",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ui-ci-results-94438ee-b0dee17e",
+          "evidenceId": "ev-one-small-ui-ci-results-94438ee-0475c8d2",
           "reused": false
         },
         {
           "name": "deployment-health",
           "result": "unavailable",
-          "evidenceId": "ev-one-small-ui-deployment-health-94438ee-4b57ce2e",
+          "evidenceId": "ev-one-small-ui-deployment-health-94438ee-ae0893ff",
           "reused": false
         }
       ]
@@ -210,22 +210,22 @@
       "access": "ok",
       "accessReason": null,
       "target": {
-        "sha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+        "sha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
         "source": "live head of main",
-        "liveSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
-        "drift": null
+        "liveSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+        "drift": "registry snapshot is 684ef3c; live head is 56ea76e (registry sync refreshes it)"
       },
       "collectors": [
         {
           "name": "ci-results",
           "result": "unavailable",
-          "evidenceId": "ev-personal-portfolio-ci-results-684ef3c-c2193761",
+          "evidenceId": "ev-personal-portfolio-ci-results-56ea76e-ea76ee50",
           "reused": false
         },
         {
           "name": "deployment-health",
           "result": "unavailable",
-          "evidenceId": "ev-personal-portfolio-deployment-health-684ef3c-45447d7c",
+          "evidenceId": "ev-personal-portfolio-deployment-health-56ea76e-439cbcc3",
           "reused": false
         }
       ]
@@ -235,22 +235,22 @@
       "access": "ok",
       "accessReason": null,
       "target": {
-        "sha": "11975d0278c7f04db5033c0461295c734e3b4134",
+        "sha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
         "source": "live head of main",
-        "liveSha": "11975d0278c7f04db5033c0461295c734e3b4134",
-        "drift": null
+        "liveSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+        "drift": "registry snapshot is 11975d0; live head is f9f14be (registry sync refreshes it)"
       },
       "collectors": [
         {
           "name": "ci-results",
           "result": "unavailable",
-          "evidenceId": "ev-taskforge-ci-results-11975d0-e6837581",
+          "evidenceId": "ev-taskforge-ci-results-f9f14be-ef462fd9",
           "reused": false
         },
         {
           "name": "deployment-health",
           "result": "unavailable",
-          "evidenceId": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
+          "evidenceId": "ev-taskforge-deployment-health-f9f14be-69d2920c",
           "reused": false
         }
       ]

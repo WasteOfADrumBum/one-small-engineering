@@ -3,6 +3,194 @@
   "evidence": [
     {
       "schema": 1,
+      "id": "ev-one-small-ui-ci-results-94438ee-0475c8d2",
+      "project": "one-small-ui",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "5b1e79839f963fbb",
+      "execute": false,
+      "executedAt": "2026-10-28T21:06:50Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:06:50Z"
+      },
+      "digest": "8eda4ce5ba353b8f8bd7fa8f3ba9905fe3cb85bf47bfac2d5762308436cd5832"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ui-deployment-health-94438ee-ae0893ff",
+      "project": "one-small-ui",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "a175d471c563dcd6",
+      "execute": false,
+      "executedAt": "2026-10-28T21:06:50Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://one-small-ui.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "vercel.json"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://one-small-ui.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-29T21:06:50Z"
+      },
+      "digest": "4dd75ffbcdda07f3cfd54c56274a345d499a2f890088c17244ba2df5e278ce00"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ui-deployment-health-94438ee-9d247db9",
+      "project": "one-small-ui",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "a175d471c563dcd6",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:14Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://one-small-ui.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "vercel.json"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://one-small-ui.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-29T21:04:14Z"
+      },
+      "digest": "2f29ddd50173d3b86998b56d8b96e628ec37aef4cfa8d3c97eef46cab98a3d05"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-ui-ci-results-94438ee-722a0f4b",
+      "project": "one-small-ui",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "5b1e79839f963fbb",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:13Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:04:13Z"
+      },
+      "digest": "9f150a77bae1bb381aceb8fdf461bf20673feb918d3528ed9566b0da6de0e4a0"
+    },
+    {
+      "schema": 1,
       "id": "ev-one-small-ui-ci-results-94438ee-b0dee17e",
       "project": "one-small-ui",
       "gates": [
@@ -1317,59 +1505,6 @@
     },
     {
       "schema": 1,
-      "id": "ev-one-small-ui-deployment-health-94438ee-c9739e90",
-      "project": "one-small-ui",
-      "gates": [
-        "deployment-rollback",
-        "production-deployment"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
-      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
-      "ref": null,
-      "collector": {
-        "name": "deployment-health",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "563b4ff2d40cdb8e",
-      "execute": true,
-      "executedAt": "2026-10-27T00:48:07Z",
-      "result": "unavailable",
-      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
-      "failureReason": "could not reach https://one-small-ui.vercel.app from this runner",
-      "checks": [
-        {
-          "name": "deployment configuration",
-          "result": "pass",
-          "detail": "vercel.json"
-        },
-        {
-          "name": "health check",
-          "result": "not_run",
-          "detail": "https://one-small-ui.vercel.app: network error"
-        }
-      ],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 1 day(s) after collection",
-        "expiresAt": "2026-10-28T00:48:07Z"
-      },
-      "digest": "2124a4dddd49916a96ddaa0e6a4375d130ae7c7f850b8152173e9f8278f354e4"
-    },
-    {
-      "schema": 1,
       "id": "ev-one-small-ui-documentation-94438ee-46de4908",
       "project": "one-small-ui",
       "gates": [
@@ -1505,47 +1640,6 @@
         "expiresAt": "2026-11-26T00:48:07Z"
       },
       "digest": "e57d9c50189ef800a428bb8295f3cede6f4ea456427bc0482f003907f8bd218a"
-    },
-    {
-      "schema": 1,
-      "id": "ev-one-small-ui-ci-results-94438ee-811505f7",
-      "project": "one-small-ui",
-      "gates": [
-        "automated-checks"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
-      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
-      "ref": null,
-      "collector": {
-        "name": "ci-results",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "54708b92d36afc24",
-      "execute": true,
-      "executedAt": "2026-10-27T00:48:06Z",
-      "result": "unavailable",
-      "summary": "CI results: not readable",
-      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
-      "checks": [],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 7 day(s) after collection",
-        "expiresAt": "2026-11-03T00:48:06Z"
-      },
-      "digest": "6b80d45e94dd4d07c8b723a939e4e887852e82a6ee295bd17c03b3d1130bf9bb"
     },
     {
       "schema": 1,

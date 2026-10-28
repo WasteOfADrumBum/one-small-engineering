@@ -11,7 +11,7 @@
 import { readFileSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
-import { SYNC_RECORDER, redactSensitive } from './validate-registry.mjs'
+import { SYNC_RECORDER, redactSensitive, sameParty } from './validate-registry.mjs'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const norm = s => (s || '').trim().toLowerCase()
@@ -32,14 +32,14 @@ export const VERDICT_TEXT = {
 export function provenance(p) {
   const builder = norm(p.ownership.builder)
   const verifier = norm(p.ownership.verifier)
-  const independent = Boolean(builder && verifier && builder !== verifier)
+  const independent = Boolean(builder && verifier && !sameParty(builder, verifier))
   const approval = new Set(p.approval.status === 'approved' ? p.approval.evidenceRefs : [])
   const c = { observation: 0, builderReported: 0, independentlyVerified: 0, passWithoutVerifier: 0, failed: 0, ownerApproval: 0 }
   for (const e of p.evidence) {
     if (approval.has(e.id)) c.ownerApproval++
     const manualPass = e.result === 'pass' && !NON_PROVING_TYPES.has(e.type) && (!e.origin || e.origin === 'manual') && norm(e.recordedBy) !== norm(SYNC_RECORDER)
     if (e.result === 'builder_reported') c.builderReported++
-    else if (manualPass && independent && norm(e.recordedBy) !== builder) c.independentlyVerified++
+    else if (manualPass && independent && !sameParty(e.recordedBy, builder)) c.independentlyVerified++
     else if (manualPass) c.passWithoutVerifier++
     else if (e.result === 'fail') c.failed++
     else if (e.result === 'informational' || e.result === 'inconclusive') c.observation++
@@ -52,9 +52,9 @@ export function provenance(p) {
 export function gateProven(p, g) {
   const builder = norm(p.ownership.builder)
   const verifier = norm(p.ownership.verifier)
-  if (!builder || !verifier || builder === verifier) return false
+  if (!builder || !verifier || sameParty(builder, verifier)) return false
   const byId = new Map(p.evidence.map(e => [e.id, e]))
-  return g.evidenceRefs.map(r => byId.get(r)).some(e => e && e.result === 'pass' && !NON_PROVING_TYPES.has(e.type) && (!e.origin || e.origin === 'manual') && norm(e.recordedBy) !== builder)
+  return g.evidenceRefs.map(r => byId.get(r)).some(e => e && e.result === 'pass' && !NON_PROVING_TYPES.has(e.type) && (!e.origin || e.origin === 'manual') && !sameParty(e.recordedBy, builder))
 }
 
 // Latest automated CI on the recorded head: shown for context, labelled builder-reported.
@@ -87,7 +87,7 @@ export function readiness(p) {
   if (!r.targetVersion) reasons.push('no target version')
   if (!r.scopeDocument) reasons.push('no scope document')
   if (!own.builder || !own.verifier) reasons.push('builder and verifier not both assigned')
-  else if (norm(own.builder) === norm(own.verifier)) reasons.push('builder and verifier are the same')
+  else if (sameParty(own.builder, own.verifier)) reasons.push('builder and verifier are the same party')
 
   let verdict
   if (!reasons.length) verdict = p.approval.status !== 'approved' ? 'awaiting-owner-approval' : r.releaseStatus === 'released' ? 'released' : 'approved-not-released'

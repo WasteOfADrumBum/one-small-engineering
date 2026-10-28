@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/release-preparation",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-10-27T03:40:00Z",
+  "asOf": "2026-10-28T21:06:36Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "b3f3033d0d260577a40fa71094e6ea741bdb1af2610d6ab2e53e87bef356f6dc",
+  "registrySha256": "330a267023ad4d7f6201549b7b037b17e3ca08f5e2d02d7e8d0c23c9ea26de40",
   "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
   "project": {
     "id": "one-small-ui",
@@ -27,8 +27,8 @@
       }
     ],
     "ownership": {
-      "builder": null,
-      "verifier": null,
+      "builder": "Claude Code",
+      "verifier": "Joshua Small",
       "approvalOwner": "Joshua Small"
     },
     "approval": {
@@ -57,13 +57,13 @@
         "applicable": 18,
         "verified": 0
       },
-      "blockingFindings": 5,
+      "blockingFindings": 4,
       "registryBlockers": 1,
       "missingIndependentVerification": [
         "automated-checks"
       ],
       "candidateMoved": false,
-      "ownershipValid": false,
+      "ownershipValid": true,
       "approvalRecorded": false,
       "eligibility": "not-scoped",
       "releaseReady": false
@@ -75,7 +75,6 @@
         "state": "not_started",
         "provenance": "none",
         "missing": [
-          "builder and independent verifier are not both assigned",
           "evidence for this gate"
         ]
       },
@@ -84,7 +83,6 @@
         "state": "not_started",
         "provenance": "none",
         "missing": [
-          "builder and independent verifier are not both assigned",
           "evidence for this gate"
         ]
       }
@@ -95,7 +93,6 @@
         "state": "not_started",
         "provenance": "none",
         "missing": [
-          "builder and independent verifier are not both assigned",
           "evidence for this gate"
         ]
       },
@@ -104,7 +101,6 @@
         "state": "not_started",
         "provenance": "none",
         "missing": [
-          "builder and independent verifier are not both assigned",
           "evidence for this gate"
         ]
       },
@@ -113,7 +109,6 @@
         "state": "not_started",
         "provenance": "none",
         "missing": [
-          "builder and independent verifier are not both assigned",
           "evidence for this gate"
         ]
       }
@@ -207,19 +202,6 @@
           "evidenceRefs": [],
           "rule": "approval.status approved with evidence, by the approval owner",
           "action": "Ask Joshua Small to review the evidence and approve or decline the release."
-        },
-        {
-          "id": "auto-ownership",
-          "origin": "derived",
-          "status": "proposed",
-          "category": "evidence",
-          "severity": null,
-          "blocks": "release",
-          "gates": [],
-          "description": "Independent verification impossible: builder and independent verifier are not both assigned.",
-          "evidenceRefs": [],
-          "rule": "ownership.builder and ownership.verifier must be named, different and not automation",
-          "action": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision)."
         }
       ],
       "postRelease": []
@@ -242,17 +224,6 @@
         "rank": 2,
         "priority": 3,
         "bucket": "Missing required verification",
-        "source": "auto-ownership",
-        "origin": "derived",
-        "blocks": "release",
-        "gates": [],
-        "text": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision).",
-        "summary": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision)."
-      },
-      {
-        "rank": 3,
-        "priority": 3,
-        "bucket": "Missing required verification",
         "source": "auto-critical-workflows-unverified",
         "origin": "derived",
         "blocks": "release",
@@ -263,7 +234,7 @@
         "summary": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
       },
       {
-        "rank": 4,
+        "rank": 3,
         "priority": 3,
         "bucket": "Missing required verification",
         "source": "auto-missing-verification",
@@ -314,7 +285,7 @@
       },
       {
         "item": "Builder and a different, independent verifier assigned",
-        "done": false
+        "done": true
       },
       {
         "item": "Every applicable pre-publication gate independently verified on current evidence (0/18)",

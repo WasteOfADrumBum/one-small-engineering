@@ -52,13 +52,13 @@ test('record is refused in CI: automation never records verification', async () 
   assert.ok(!existsSync(join(dir, 'verification/verifications')))
 })
 
-test('record refuses a verification that would not count, and writes nothing (real registry: no verifier)', async () => {
+test('record refuses a verification that would not count, and writes nothing (real registry: Claude is not the named verifier)', async () => {
   const pack = ev('release-packaging', 'pass', { gates: ['package-metadata-exports'], commitSha: realRegistry().projects[0].release.candidate.headSha })
   const dir = sandbox({ ledger: [pack] })
   const c = capture()
   const code = await main(['record', '--project', 'one-small-mods-pack', '--gate', 'package-metadata-exports', '--verifier', 'Claude Code', '--kind', 'ai', '--tool', 'Claude Code', '--method', 're-executed', '--result', 'pass', '--evidence', pack.id, '--attestation', 'https://github.com/x/y/pull/1', '--notes', 'I checked my own work and it is fine.', '--verified-at', '2026-10-27T01:30:00Z'], { ...c, root: dir, env: LOCAL, now: NOW })
   assert.equal(code, 1)
-  assert.match(c.err.join(''), /does not name both a builder and a verifier/)
+  assert.match(c.err.join(''), /is not the verifier named in the registry \(Joshua Small\)/)
   assert.match(c.err.join(''), /not permitted/)
   assert.ok(!existsSync(join(dir, 'verification/verifications')))
 })

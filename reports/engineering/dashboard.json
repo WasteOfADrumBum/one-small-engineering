@@ -1,8 +1,8 @@
 {
   "kind": "one-small-engineering/engineering-dashboard",
   "schema": 1,
-  "command": "npm run engineering:report -- --as-of 2026-10-27T01:56:27Z",
-  "asOf": "2026-10-27T01:56:27Z",
+  "command": "npm run engineering:report -- --as-of 2026-10-28T21:07:08Z",
+  "asOf": "2026-10-28T21:07:08Z",
   "overview": {
     "activeProjects": 8,
     "readyForRelease": 0,
@@ -11,10 +11,10 @@
     "failingCi": 0,
     "ciUnknown": 8,
     "security": {
-      "critical": 1,
-      "high": 2,
+      "critical": 0,
+      "high": 0,
       "medium": 1,
-      "low": 4
+      "low": 1
     },
     "verificationCoverage": {
       "verified": 0,
@@ -22,7 +22,7 @@
     },
     "openRemediationPRs": 3,
     "unreviewedRemediationPRs": 0,
-    "staleEvidence": 0,
+    "staleEvidence": 54,
     "dependencyRisks": 0,
     "inaccessible": [
       "one-small-ai-workforce"
@@ -37,9 +37,9 @@
       "released": 0
     },
     "queue": {
-      "automatic": 0,
-      "independent-verification": 25,
-      "owner-decision": 34,
+      "automatic": 5,
+      "independent-verification": 33,
+      "owner-decision": 27,
       "blocked-credentials": 8,
       "informational": 5
     }
@@ -55,7 +55,7 @@
       "liveRevision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
       "revisionSeenSince": "2026-10-27T01:55:16Z",
       "access": "readable",
-      "lastCollection": "2026-10-27T01:56:22Z",
+      "lastCollection": "2026-10-28T21:06:49Z",
       "ci": "unavailable",
       "readiness": {
         "percentage": 0,
@@ -63,13 +63,13 @@
         "applicableGates": 21,
         "verifiedGates": 0,
         "eligibility": "not-eligible",
-        "ownershipValid": false
+        "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
-        "passed_by_builder": 4,
+        "passed_by_builder": 3,
         "failed": 6,
-        "inconclusive": 4,
+        "inconclusive": 5,
         "not_tested": 7,
         "not_applicable": 1
       },
@@ -130,8 +130,7 @@
           "publish-pipeline-missing",
           "release-authorization",
           "auto-critical-workflows-unverified",
-          "auto-missing-verification",
-          "auto-ownership"
+          "auto-missing-verification"
         ],
         "dependencyReadiness": [],
         "manualTesting": [
@@ -154,8 +153,7 @@
           "published-artifact-matches"
         ],
         "approvalsRequired": [
-          "Joshua Small (release approval, recorded in the registry with evidence)",
-          "an independent verifier must be assigned in the registry"
+          "Joshua Small (release approval, recorded in the registry with evidence)"
         ],
         "versionRecommendation": "2.0.0 (registry target; current 0.1.0)",
         "preparation": [],
@@ -224,7 +222,7 @@
         "low": 0
       },
       "nextAction": "Resolve codex-interactive-trust in one-small-mods-pack.",
-      "queueItems": 15
+      "queueItems": 14
     },
     {
       "id": "one-small-ui",
@@ -236,7 +234,7 @@
       "liveRevision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
       "revisionSeenSince": "2026-10-27T01:55:16Z",
       "access": "readable",
-      "lastCollection": "2026-10-27T01:56:23Z",
+      "lastCollection": "2026-10-28T21:06:50Z",
       "ci": "unavailable",
       "readiness": {
         "percentage": 0,
@@ -244,7 +242,7 @@
         "applicableGates": 22,
         "verifiedGates": 0,
         "eligibility": "not-scoped",
-        "ownershipValid": false
+        "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
@@ -302,8 +300,7 @@
           "scope-document-missing",
           "auto-critical-workflows-unverified",
           "auto-missing-verification",
-          "auto-owner-approval",
-          "auto-ownership"
+          "auto-owner-approval"
         ],
         "dependencyReadiness": [],
         "manualTesting": [
@@ -327,8 +324,7 @@
           "published-artifact-matches"
         ],
         "approvalsRequired": [
-          "Joshua Small (release approval, recorded in the registry with evidence)",
-          "an independent verifier must be assigned in the registry"
+          "Joshua Small (release approval, recorded in the registry with evidence)"
         ],
         "versionRecommendation": "0.6.0 (registry target; current 0.5.0)",
         "preparation": [],
@@ -362,19 +358,19 @@
         "low": 1
       },
       "nextAction": "Resolve scope-document-missing in one-small-ui.",
-      "queueItems": 11
+      "queueItems": 10
     },
     {
       "id": "personal-portfolio",
       "name": "Personal Portfolio",
       "tier": "showcase",
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
       "revisionSource": "live head of main",
-      "liveRevision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
-      "revisionSeenSince": "2026-10-27T01:55:16Z",
+      "liveRevision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "revisionSeenSince": "2026-10-28T21:04:07Z",
       "access": "readable",
-      "lastCollection": "2026-10-27T01:56:23Z",
+      "lastCollection": "2026-10-28T21:06:53Z",
       "ci": "unavailable",
       "readiness": {
         "percentage": 0,
@@ -382,13 +378,13 @@
         "applicableGates": 10,
         "verifiedGates": 0,
         "eligibility": "not-scoped",
-        "ownershipValid": false
+        "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
         "passed_by_builder": 1,
-        "failed": 1,
-        "inconclusive": 4,
+        "failed": 0,
+        "inconclusive": 5,
         "not_tested": 4,
         "not_applicable": 0
       },
@@ -407,7 +403,7 @@
       },
       "releasePlan": {
         "state": "not_ready",
-        "candidateRevision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+        "candidateRevision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
         "candidateSource": "live head of main",
         "applicableGates": 10,
         "verifiedGates": 0,
@@ -430,8 +426,7 @@
           "scope-document-missing",
           "auto-critical-workflows-unverified",
           "auto-missing-verification",
-          "auto-owner-approval",
-          "auto-ownership"
+          "auto-owner-approval"
         ],
         "dependencyReadiness": [],
         "manualTesting": [
@@ -446,8 +441,7 @@
           "no-release-blockers (human only)"
         ],
         "approvalsRequired": [
-          "Joshua Small (release approval, recorded in the registry with evidence)",
-          "an independent verifier must be assigned in the registry"
+          "Joshua Small (release approval, recorded in the registry with evidence)"
         ],
         "versionRecommendation": "none: the owner sets release.targetVersion when a release is scoped",
         "preparation": [],
@@ -485,12 +479,12 @@
       },
       "previousReleaseState": null,
       "security": {
-        "critical": 1,
+        "critical": 0,
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       },
-      "nextAction": "Review https://github.com/WasteOfADrumBum/joshsmall-site/pull/17.",
+      "nextAction": "Resolve no-ci-workflow in personal-portfolio.",
       "queueItems": 12
     },
     {
@@ -498,12 +492,12 @@
       "name": "One Small Studio",
       "tier": "showcase",
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
       "revisionSource": "live head of main",
-      "liveRevision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
-      "revisionSeenSince": "2026-10-27T01:55:16Z",
+      "liveRevision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "revisionSeenSince": "2026-10-28T21:04:07Z",
       "access": "readable",
-      "lastCollection": "2026-10-27T01:56:24Z",
+      "lastCollection": "2026-10-28T21:06:55Z",
       "ci": "unavailable",
       "readiness": {
         "percentage": 0,
@@ -511,13 +505,13 @@
         "applicableGates": 10,
         "verifiedGates": 0,
         "eligibility": "not-scoped",
-        "ownershipValid": false
+        "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
         "passed_by_builder": 2,
-        "failed": 1,
-        "inconclusive": 3,
+        "failed": 0,
+        "inconclusive": 4,
         "not_tested": 4,
         "not_applicable": 0
       },
@@ -536,7 +530,7 @@
       },
       "releasePlan": {
         "state": "not_ready",
-        "candidateRevision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+        "candidateRevision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
         "candidateSource": "live head of main",
         "applicableGates": 10,
         "verifiedGates": 0,
@@ -557,8 +551,7 @@
           "scope-document-missing",
           "auto-critical-workflows-unverified",
           "auto-missing-verification",
-          "auto-owner-approval",
-          "auto-ownership"
+          "auto-owner-approval"
         ],
         "dependencyReadiness": [],
         "manualTesting": [
@@ -573,8 +566,7 @@
           "no-release-blockers (human only)"
         ],
         "approvalsRequired": [
-          "Joshua Small (release approval, recorded in the registry with evidence)",
-          "an independent verifier must be assigned in the registry"
+          "Joshua Small (release approval, recorded in the registry with evidence)"
         ],
         "versionRecommendation": "none: the owner sets release.targetVersion when a release is scoped",
         "preparation": [],
@@ -603,24 +595,24 @@
       "previousReleaseState": null,
       "security": {
         "critical": 0,
-        "high": 1,
+        "high": 0,
         "medium": 0,
         "low": 0
       },
       "nextAction": "Resolve scope-document-missing in one-small-studio.",
-      "queueItems": 9
+      "queueItems": 10
     },
     {
       "id": "one-small-photography",
       "name": "One Small Photography",
       "tier": "showcase",
       "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
-      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
       "revisionSource": "live head of main",
-      "liveRevision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
-      "revisionSeenSince": "2026-10-27T01:55:16Z",
+      "liveRevision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "revisionSeenSince": "2026-10-28T21:04:07Z",
       "access": "readable",
-      "lastCollection": "2026-10-27T01:56:25Z",
+      "lastCollection": "2026-10-28T21:06:58Z",
       "ci": "unavailable",
       "readiness": {
         "percentage": 0,
@@ -628,13 +620,13 @@
         "applicableGates": 10,
         "verifiedGates": 0,
         "eligibility": "not-scoped",
-        "ownershipValid": false
+        "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
-        "passed_by_builder": 2,
+        "passed_by_builder": 1,
         "failed": 0,
-        "inconclusive": 4,
+        "inconclusive": 5,
         "not_tested": 4,
         "not_applicable": 0
       },
@@ -653,7 +645,7 @@
       },
       "releasePlan": {
         "state": "not_ready",
-        "candidateRevision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+        "candidateRevision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
         "candidateSource": "live head of main",
         "applicableGates": 10,
         "verifiedGates": 0,
@@ -674,8 +666,7 @@
           "scope-document-missing",
           "auto-critical-workflows-unverified",
           "auto-missing-verification",
-          "auto-owner-approval",
-          "auto-ownership"
+          "auto-owner-approval"
         ],
         "dependencyReadiness": [],
         "manualTesting": [
@@ -690,8 +681,7 @@
           "no-release-blockers (human only)"
         ],
         "approvalsRequired": [
-          "Joshua Small (release approval, recorded in the registry with evidence)",
-          "an independent verifier must be assigned in the registry"
+          "Joshua Small (release approval, recorded in the registry with evidence)"
         ],
         "versionRecommendation": "none: the owner sets release.targetVersion when a release is scoped",
         "preparation": [],
@@ -725,19 +715,19 @@
         "low": 0
       },
       "nextAction": "Resolve scope-document-missing in one-small-photography.",
-      "queueItems": 9
+      "queueItems": 11
     },
     {
       "id": "taskforge",
       "name": "TaskForge",
       "tier": "application",
       "repository": "https://github.com/WasteOfADrumBum/TaskForge",
-      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "revision": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
       "revisionSource": "live head of main",
-      "liveRevision": "11975d0278c7f04db5033c0461295c734e3b4134",
-      "revisionSeenSince": "2026-10-27T01:55:16Z",
+      "liveRevision": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+      "revisionSeenSince": "2026-10-28T21:04:07Z",
       "access": "readable",
-      "lastCollection": "2026-10-27T01:56:25Z",
+      "lastCollection": "2026-10-28T21:06:59Z",
       "ci": "unavailable",
       "readiness": {
         "percentage": 0,
@@ -745,13 +735,13 @@
         "applicableGates": 20,
         "verifiedGates": 0,
         "eligibility": "not-scoped",
-        "ownershipValid": false
+        "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
-        "passed_by_builder": 3,
-        "failed": 1,
-        "inconclusive": 5,
+        "passed_by_builder": 1,
+        "failed": 0,
+        "inconclusive": 8,
         "not_tested": 11,
         "not_applicable": 0
       },
@@ -770,7 +760,7 @@
       },
       "releasePlan": {
         "state": "not_ready",
-        "candidateRevision": "11975d0278c7f04db5033c0461295c734e3b4134",
+        "candidateRevision": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
         "candidateSource": "live head of main",
         "applicableGates": 20,
         "verifiedGates": 0,
@@ -803,7 +793,6 @@
           "auto-critical-workflows-unverified",
           "auto-missing-verification",
           "auto-owner-approval",
-          "auto-ownership",
           "auto-scope-missing"
         ],
         "dependencyReadiness": [],
@@ -829,8 +818,7 @@
           "user-data-isolation"
         ],
         "approvalsRequired": [
-          "Joshua Small (release approval, recorded in the registry with evidence)",
-          "an independent verifier must be assigned in the registry"
+          "Joshua Small (release approval, recorded in the registry with evidence)"
         ],
         "versionRecommendation": "none: the owner sets release.targetVersion when a release is scoped",
         "preparation": [],
@@ -864,12 +852,12 @@
       "previousReleaseState": null,
       "security": {
         "critical": 0,
-        "high": 1,
+        "high": 0,
         "medium": 0,
-        "low": 2
+        "low": 0
       },
       "nextAction": "Resolve backup-restore-unverified in taskforge.",
-      "queueItems": 13
+      "queueItems": 12
     },
     {
       "id": "cortex",
@@ -881,7 +869,7 @@
       "liveRevision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
       "revisionSeenSince": "2026-10-27T01:55:16Z",
       "access": "readable",
-      "lastCollection": "2026-10-27T01:56:26Z",
+      "lastCollection": "2026-10-28T21:07:06Z",
       "ci": "unavailable",
       "readiness": {
         "percentage": 0,
@@ -889,7 +877,7 @@
         "applicableGates": 20,
         "verifiedGates": 0,
         "eligibility": "not-scoped",
-        "ownershipValid": false
+        "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
@@ -947,8 +935,7 @@
           "v2-phases-incomplete",
           "auto-critical-workflows-unverified",
           "auto-missing-verification",
-          "auto-owner-approval",
-          "auto-ownership"
+          "auto-owner-approval"
         ],
         "dependencyReadiness": [
           "confirmed declared: integrates one-small-ui",
@@ -976,8 +963,7 @@
           "user-data-isolation"
         ],
         "approvalsRequired": [
-          "Joshua Small (release approval, recorded in the registry with evidence)",
-          "an independent verifier must be assigned in the registry"
+          "Joshua Small (release approval, recorded in the registry with evidence)"
         ],
         "versionRecommendation": "none: the owner sets release.targetVersion when a release is scoped",
         "preparation": [],
@@ -1021,7 +1007,7 @@
         "low": 0
       },
       "nextAction": "Resolve no-ci-workflow in cortex.",
-      "queueItems": 11
+      "queueItems": 10
     },
     {
       "id": "one-small-ai-workforce",
@@ -1033,7 +1019,7 @@
       "liveRevision": null,
       "revisionSeenSince": null,
       "access": "not-visible: repository not found or not visible without a reader credential (private repositories need one)",
-      "lastCollection": "2026-10-27T01:56:26Z",
+      "lastCollection": "2026-10-28T21:07:08Z",
       "ci": "unavailable",
       "readiness": {
         "percentage": 0,
@@ -1041,13 +1027,13 @@
         "applicableGates": 20,
         "verifiedGates": 0,
         "eligibility": "not-scoped",
-        "ownershipValid": false
+        "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
-        "passed_by_builder": 1,
+        "passed_by_builder": 0,
         "failed": 0,
-        "inconclusive": 8,
+        "inconclusive": 9,
         "not_tested": 11,
         "not_applicable": 0
       },
@@ -1097,8 +1083,7 @@
           "scope-document-missing",
           "auto-critical-workflows-unverified",
           "auto-missing-verification",
-          "auto-owner-approval",
-          "auto-ownership"
+          "auto-owner-approval"
         ],
         "dependencyReadiness": [],
         "manualTesting": [
@@ -1123,8 +1108,7 @@
           "user-data-isolation"
         ],
         "approvalsRequired": [
-          "Joshua Small (release approval, recorded in the registry with evidence)",
-          "an independent verifier must be assigned in the registry"
+          "Joshua Small (release approval, recorded in the registry with evidence)"
         ],
         "versionRecommendation": "none: the owner sets release.targetVersion when a release is scoped",
         "preparation": [],
@@ -1167,50 +1151,7 @@
       "projects": [
         "personal-portfolio"
       ],
-      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
-      "rootCause": "npm audit at 684ef3c: next (critical, direct, production, fix available via next@16.4.3)",
-      "complexity": "small",
-      "validation": [
-        "npm ci --ignore-scripts and the project test suite pass at the fix commit",
-        "dependency-audit collector reports no critical/high advisories",
-        "an independent verifier records supply-chain-review"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "ev-personal-portfolio-dependency-audit-684ef3c-448e5446"
-      ],
-      "relatedPRs": [
-        {
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/17",
-          "status": "unknown",
-          "reviewed": null,
-          "openedFor": "684ef3ce76d62919045cea65259e8bf52f1c6174"
-        }
-      ],
-      "crossProject": [],
-      "id": "personal-portfolio:advisory:critical-production",
-      "project": "personal-portfolio",
-      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-      "priority": 1,
-      "severity": "critical",
-      "kind": "vulnerability",
-      "title": "1 critical advisories in production dependencies: next",
-      "impact": "Reachable from production dependencies. Release impact: blocks supply-chain-review and security-privacy-review.",
-      "proposedCorrection": "Lockfile-only update within declared ranges (npm audit fix, without --force).",
-      "actionClass": "owner-decision",
-      "autoFix": null,
-      "nextAction": "Review https://github.com/WasteOfADrumBum/joshsmall-site/pull/17.",
-      "priorityText": "Critical security",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 2,
-      "projects": [
-        "personal-portfolio"
-      ],
-      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
       "rootCause": "Registry blocker no-ci-workflow (ci, blocks release).",
       "complexity": "medium",
       "validation": [
@@ -1239,7 +1180,7 @@
       "isNew": false
     },
     {
-      "rank": 3,
+      "rank": 2,
       "projects": [
         "cortex"
       ],
@@ -1272,7 +1213,7 @@
       "isNew": false
     },
     {
-      "rank": 4,
+      "rank": 3,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1305,7 +1246,7 @@
       "isNew": false
     },
     {
-      "rank": 5,
+      "rank": 4,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1338,7 +1279,7 @@
       "isNew": false
     },
     {
-      "rank": 6,
+      "rank": 5,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1371,7 +1312,7 @@
       "isNew": false
     },
     {
-      "rank": 7,
+      "rank": 6,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1404,7 +1345,7 @@
       "isNew": false
     },
     {
-      "rank": 8,
+      "rank": 7,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1441,7 +1382,7 @@
       "isNew": false
     },
     {
-      "rank": 9,
+      "rank": 8,
       "projects": [
         "one-small-ui"
       ],
@@ -1474,11 +1415,11 @@
       "isNew": false
     },
     {
-      "rank": 10,
+      "rank": 9,
       "projects": [
         "personal-portfolio"
       ],
-      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
       "rootCause": "Registry blocker scope-document-missing (scope, blocks release).",
       "complexity": "large",
       "validation": [
@@ -1507,11 +1448,11 @@
       "isNew": false
     },
     {
-      "rank": 11,
+      "rank": 10,
       "projects": [
         "one-small-studio"
       ],
-      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
       "rootCause": "Registry blocker scope-document-missing (scope, blocks release).",
       "complexity": "large",
       "validation": [
@@ -1540,11 +1481,11 @@
       "isNew": false
     },
     {
-      "rank": 12,
+      "rank": 11,
       "projects": [
         "one-small-photography"
       ],
-      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
       "rootCause": "Registry blocker scope-document-missing (scope, blocks release).",
       "complexity": "large",
       "validation": [
@@ -1573,11 +1514,11 @@
       "isNew": false
     },
     {
-      "rank": 13,
+      "rank": 12,
       "projects": [
         "taskforge"
       ],
-      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "revision": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
       "rootCause": "Registry blocker backup-restore-unverified (workflow, blocks release).",
       "complexity": "medium",
       "validation": [
@@ -1606,11 +1547,11 @@
       "isNew": false
     },
     {
-      "rank": 14,
+      "rank": 13,
       "projects": [
         "taskforge"
       ],
-      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "revision": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
       "rootCause": "Registry blocker project-status-stale (stale-evidence, blocks release).",
       "complexity": "medium",
       "validation": [
@@ -1639,7 +1580,7 @@
       "isNew": false
     },
     {
-      "rank": 15,
+      "rank": 14,
       "projects": [
         "cortex"
       ],
@@ -1672,7 +1613,7 @@
       "isNew": false
     },
     {
-      "rank": 16,
+      "rank": 15,
       "projects": [
         "cortex"
       ],
@@ -1705,7 +1646,7 @@
       "isNew": false
     },
     {
-      "rank": 17,
+      "rank": 16,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -1738,95 +1679,7 @@
       "isNew": false
     },
     {
-      "rank": 18,
-      "projects": [
-        "one-small-studio"
-      ],
-      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
-      "rootCause": "npm audit at 175cef6: body-parser (high, production, fix available); zod (high, direct, production, fix available)",
-      "complexity": "small",
-      "validation": [
-        "npm ci --ignore-scripts and the project test suite pass at the fix commit",
-        "dependency-audit collector reports no critical/high advisories",
-        "an independent verifier records supply-chain-review"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "ev-one-small-studio-dependency-audit-175cef6-0f866491"
-      ],
-      "relatedPRs": [
-        {
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/16",
-          "status": "unknown",
-          "reviewed": null,
-          "openedFor": "175cef6bafbc0322e0d54cf3e543aafa1626a049"
-        }
-      ],
-      "crossProject": [
-        "one-small-photography"
-      ],
-      "id": "one-small-studio:advisory:high-production",
-      "project": "one-small-studio",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-      "priority": 4,
-      "severity": "high",
-      "kind": "vulnerability",
-      "title": "2 high advisories in production dependencies: body-parser, zod",
-      "impact": "Reachable from production dependencies. Release impact: blocks supply-chain-review and security-privacy-review.",
-      "proposedCorrection": "Lockfile-only update within declared ranges (npm audit fix, without --force).",
-      "actionClass": "owner-decision",
-      "autoFix": null,
-      "nextAction": "Review https://github.com/WasteOfADrumBum/one-small-studio/pull/16.",
-      "priorityText": "High-severity vulnerability",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 19,
-      "projects": [
-        "taskforge"
-      ],
-      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
-      "rootCause": "npm audit at 11975d0: body-parser (high, production, fix available)",
-      "complexity": "small",
-      "validation": [
-        "npm ci --ignore-scripts and the project test suite pass at the fix commit",
-        "dependency-audit collector reports no critical/high advisories",
-        "an independent verifier records supply-chain-review"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "ev-taskforge-dependency-audit-11975d0-b1e62bb2"
-      ],
-      "relatedPRs": [
-        {
-          "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/43",
-          "status": "unknown",
-          "reviewed": null,
-          "openedFor": "11975d0278c7f04db5033c0461295c734e3b4134"
-        }
-      ],
-      "crossProject": [],
-      "id": "taskforge:advisory:high-production",
-      "project": "taskforge",
-      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
-      "priority": 4,
-      "severity": "high",
-      "kind": "vulnerability",
-      "title": "1 high advisories in production dependencies: body-parser",
-      "impact": "Reachable from production dependencies. Release impact: blocks supply-chain-review and security-privacy-review.",
-      "proposedCorrection": "Lockfile-only update within declared ranges (npm audit fix, without --force).",
-      "actionClass": "owner-decision",
-      "autoFix": null,
-      "nextAction": "Review https://github.com/WasteOfADrumBum/TaskForge/pull/43.",
-      "priorityText": "High-severity vulnerability",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 20,
+      "rank": 17,
       "projects": [
         "one-small-ui"
       ],
@@ -1865,7 +1718,7 @@
       "isNew": false
     },
     {
-      "rank": 21,
+      "rank": 18,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1898,7 +1751,7 @@
       "isNew": false
     },
     {
-      "rank": 22,
+      "rank": 19,
       "projects": [
         "one-small-ui"
       ],
@@ -1931,7 +1784,7 @@
       "isNew": false
     },
     {
-      "rank": 23,
+      "rank": 20,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1964,7 +1817,7 @@
       "isNew": false
     },
     {
-      "rank": 24,
+      "rank": 21,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1997,7 +1850,7 @@
       "isNew": false
     },
     {
-      "rank": 25,
+      "rank": 22,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2030,7 +1883,7 @@
       "isNew": false
     },
     {
-      "rank": 26,
+      "rank": 23,
       "projects": [
         "one-small-ui"
       ],
@@ -2063,11 +1916,11 @@
       "isNew": false
     },
     {
-      "rank": 27,
+      "rank": 24,
       "projects": [
         "personal-portfolio"
       ],
-      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
       "rootCause": "not run or inconclusive: automated accessibility tooling (none declared in package.json); automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
       "complexity": "small",
       "validation": [
@@ -2075,7 +1928,7 @@
       ],
       "confidence": "medium",
       "evidence": [
-        "ev-personal-portfolio-accessibility-684ef3c-baee89e7"
+        "ev-personal-portfolio-accessibility-56ea76e-a1e62722"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -2096,11 +1949,11 @@
       "isNew": false
     },
     {
-      "rank": 28,
+      "rank": 25,
       "projects": [
         "one-small-studio"
       ],
-      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
       "rootCause": "not run or inconclusive: automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
       "complexity": "small",
       "validation": [
@@ -2108,7 +1961,7 @@
       ],
       "confidence": "medium",
       "evidence": [
-        "ev-one-small-studio-accessibility-175cef6-fb594e90"
+        "ev-one-small-studio-accessibility-d6854de-a3117ac6"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -2129,11 +1982,11 @@
       "isNew": false
     },
     {
-      "rank": 29,
+      "rank": 26,
       "projects": [
         "one-small-photography"
       ],
-      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
       "rootCause": "not run or inconclusive: automated accessibility tooling (none declared in package.json); automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
       "complexity": "small",
       "validation": [
@@ -2141,7 +1994,7 @@
       ],
       "confidence": "medium",
       "evidence": [
-        "ev-one-small-photography-accessibility-45a74ba-5ad5aff3"
+        "ev-one-small-photography-accessibility-fa2d17f-1abce92c"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -2162,11 +2015,11 @@
       "isNew": false
     },
     {
-      "rank": 30,
+      "rank": 27,
       "projects": [
         "taskforge"
       ],
-      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "revision": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
       "rootCause": "not run or inconclusive: automated accessibility tooling (none declared in package.json); automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
       "complexity": "small",
       "validation": [
@@ -2174,7 +2027,7 @@
       ],
       "confidence": "medium",
       "evidence": [
-        "ev-taskforge-accessibility-11975d0-fe387eac"
+        "ev-taskforge-accessibility-f9f14be-9670cd35"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -2195,7 +2048,7 @@
       "isNew": false
     },
     {
-      "rank": 31,
+      "rank": 28,
       "projects": [
         "cortex"
       ],
@@ -2228,55 +2081,7 @@
       "isNew": false
     },
     {
-      "rank": 32,
-      "projects": [
-        "one-small-mods-pack",
-        "one-small-ui",
-        "personal-portfolio",
-        "one-small-studio",
-        "one-small-photography",
-        "taskforge",
-        "cortex",
-        "one-small-ai-workforce"
-      ],
-      "revision": null,
-      "rootCause": "ownership.builder / ownership.verifier are null in the registry (owner rule: assign when a release is scoped).",
-      "complexity": "trivial",
-      "validation": [
-        "registry validator passes",
-        "verification records by the assigned verifier are accepted"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "registry:one-small-mods-pack:ownership",
-        "registry:one-small-ui:ownership",
-        "registry:personal-portfolio:ownership",
-        "registry:one-small-studio:ownership",
-        "registry:one-small-photography:ownership",
-        "registry:taskforge:ownership",
-        "registry:cortex:ownership",
-        "registry:one-small-ai-workforce:ownership"
-      ],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "portfolio:ownership",
-      "project": "portfolio",
-      "repository": null,
-      "priority": 7,
-      "severity": "high",
-      "kind": "governance",
-      "title": "8 project(s) have no builder and independent verifier assigned, so no gate can be independently verified",
-      "impact": "Every project stays at 0% verified readiness.",
-      "proposedCorrection": "Assign a builder and a different, independent verifier for each project with a scoped release (registry PR).",
-      "actionClass": "owner-decision",
-      "nextAction": "Assign builder and verifier per project (owner decision).",
-      "priorityText": "Missing verification or documentation",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 33,
+      "rank": 29,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2309,7 +2114,7 @@
       "isNew": false
     },
     {
-      "rank": 34,
+      "rank": 30,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2363,7 +2168,7 @@
       "isNew": false
     },
     {
-      "rank": 35,
+      "rank": 31,
       "projects": [
         "one-small-ui"
       ],
@@ -2375,7 +2180,7 @@
       ],
       "confidence": "high",
       "evidence": [
-        "ev-one-small-ui-deployment-health-94438ee-4b57ce2e"
+        "ev-one-small-ui-deployment-health-94438ee-ae0893ff"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -2400,7 +2205,7 @@
       "isNew": false
     },
     {
-      "rank": 36,
+      "rank": 32,
       "projects": [
         "one-small-ui"
       ],
@@ -2437,7 +2242,7 @@
       "isNew": false
     },
     {
-      "rank": 37,
+      "rank": 33,
       "projects": [
         "one-small-ui"
       ],
@@ -2492,11 +2297,11 @@
       "isNew": false
     },
     {
-      "rank": 38,
+      "rank": 34,
       "projects": [
         "personal-portfolio"
       ],
-      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
       "rootCause": "could not reach https://joshsmall-portfolio.vercel.app from this runner",
       "complexity": "trivial",
       "validation": [
@@ -2504,7 +2309,7 @@
       ],
       "confidence": "high",
       "evidence": [
-        "ev-personal-portfolio-deployment-health-684ef3c-45447d7c"
+        "ev-personal-portfolio-deployment-health-56ea76e-439cbcc3"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -2529,11 +2334,11 @@
       "isNew": false
     },
     {
-      "rank": 39,
+      "rank": 35,
       "projects": [
         "personal-portfolio"
       ],
-      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
       "rootCause": "Registry blocker readme-boilerplate (documentation, blocks release).",
       "complexity": "medium",
       "validation": [
@@ -2562,11 +2367,11 @@
       "isNew": false
     },
     {
-      "rank": 40,
+      "rank": 36,
       "projects": [
         "personal-portfolio"
       ],
-      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
       "rootCause": null,
       "complexity": "medium",
       "validation": [
@@ -2605,11 +2410,11 @@
       "isNew": false
     },
     {
-      "rank": 41,
+      "rank": 37,
       "projects": [
         "one-small-studio"
       ],
-      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
       "rootCause": "could not reach https://one-small-studio.vercel.app from this runner",
       "complexity": "trivial",
       "validation": [
@@ -2617,7 +2422,7 @@
       ],
       "confidence": "high",
       "evidence": [
-        "ev-one-small-studio-deployment-health-175cef6-eac0aff6"
+        "ev-one-small-studio-deployment-health-d6854de-970cfe92"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -2642,11 +2447,11 @@
       "isNew": false
     },
     {
-      "rank": 42,
+      "rank": 38,
       "projects": [
         "one-small-studio"
       ],
-      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
       "rootCause": null,
       "complexity": "medium",
       "validation": [
@@ -2685,11 +2490,11 @@
       "isNew": false
     },
     {
-      "rank": 43,
+      "rank": 39,
       "projects": [
         "one-small-photography"
       ],
-      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
       "rootCause": "could not reach https://one-small-photography.vercel.app from this runner",
       "complexity": "trivial",
       "validation": [
@@ -2697,7 +2502,7 @@
       ],
       "confidence": "high",
       "evidence": [
-        "ev-one-small-photography-deployment-health-45a74ba-6f7249e7"
+        "ev-one-small-photography-deployment-health-fa2d17f-f67b9da9"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -2722,11 +2527,11 @@
       "isNew": false
     },
     {
-      "rank": 44,
+      "rank": 40,
       "projects": [
         "one-small-photography"
       ],
-      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
       "rootCause": null,
       "complexity": "medium",
       "validation": [
@@ -2765,11 +2570,11 @@
       "isNew": false
     },
     {
-      "rank": 45,
+      "rank": 41,
       "projects": [
         "taskforge"
       ],
-      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "revision": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
       "rootCause": "could not reach https://taskforge-alpha-six.vercel.app from this runner",
       "complexity": "trivial",
       "validation": [
@@ -2777,7 +2582,7 @@
       ],
       "confidence": "high",
       "evidence": [
-        "ev-taskforge-deployment-health-11975d0-6ad29e0a"
+        "ev-taskforge-deployment-health-f9f14be-69d2920c"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -2802,11 +2607,11 @@
       "isNew": false
     },
     {
-      "rank": 46,
+      "rank": 42,
       "projects": [
         "taskforge"
       ],
-      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "revision": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
       "rootCause": null,
       "complexity": "medium",
       "validation": [
@@ -2833,11 +2638,11 @@
       "isNew": false
     },
     {
-      "rank": 47,
+      "rank": 43,
       "projects": [
         "taskforge"
       ],
-      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "revision": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
       "rootCause": null,
       "complexity": "medium",
       "validation": [
@@ -2886,7 +2691,7 @@
       "isNew": false
     },
     {
-      "rank": 48,
+      "rank": 44,
       "projects": [
         "cortex"
       ],
@@ -2898,7 +2703,7 @@
       ],
       "confidence": "high",
       "evidence": [
-        "ev-cortex-deployment-health-ec49fd7-a18cb9e8"
+        "ev-cortex-deployment-health-ec49fd7-80f95d1a"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -2923,7 +2728,7 @@
       "isNew": false
     },
     {
-      "rank": 49,
+      "rank": 45,
       "projects": [
         "cortex"
       ],
@@ -2976,7 +2781,7 @@
       "isNew": false
     },
     {
-      "rank": 50,
+      "rank": 46,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -2988,13 +2793,13 @@
       ],
       "confidence": "high",
       "evidence": [
-        "ev-one-small-ai-workforce-accessibility-c70d8b1-a1500480",
-        "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
-        "ev-one-small-ai-workforce-dependency-audit-c70d8b1-8417e8f4",
-        "ev-one-small-ai-workforce-documentation-c70d8b1-06b855f1",
-        "ev-one-small-ai-workforce-lint-format-types-c70d8b1-547f714e",
-        "ev-one-small-ai-workforce-repo-structure-c70d8b1-2cf1a4f1",
-        "ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c"
+        "ev-one-small-ai-workforce-accessibility-c70d8b1-8770fa90",
+        "ev-one-small-ai-workforce-build-test-c70d8b1-73f101ba",
+        "ev-one-small-ai-workforce-dependency-audit-c70d8b1-ad200744",
+        "ev-one-small-ai-workforce-documentation-c70d8b1-ffee6cea",
+        "ev-one-small-ai-workforce-lint-format-types-c70d8b1-0e87bc58",
+        "ev-one-small-ai-workforce-repo-structure-c70d8b1-956c945b",
+        "ev-one-small-ai-workforce-secret-scan-c70d8b1-ade537e3"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -3025,7 +2830,7 @@
       "isNew": false
     },
     {
-      "rank": 51,
+      "rank": 47,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -3078,7 +2883,7 @@
       "isNew": false
     },
     {
-      "rank": 52,
+      "rank": 48,
       "projects": [
         "one-small-mods-pack",
         "one-small-ui",
@@ -3097,14 +2902,14 @@
       ],
       "confidence": "high",
       "evidence": [
-        "ev-one-small-mods-pack-ci-results-80cc269-35769d7e",
-        "ev-one-small-ui-ci-results-94438ee-b0dee17e",
-        "ev-personal-portfolio-ci-results-684ef3c-c2193761",
-        "ev-one-small-studio-ci-results-175cef6-372b3f9b",
-        "ev-one-small-photography-ci-results-45a74ba-b919d9a0",
-        "ev-taskforge-ci-results-11975d0-e6837581",
-        "ev-cortex-ci-results-ec49fd7-bf09a281",
-        "ev-one-small-ai-workforce-ci-results-c70d8b1-e50e2e11"
+        "ev-one-small-mods-pack-ci-results-80cc269-bd14b314",
+        "ev-one-small-ui-ci-results-94438ee-0475c8d2",
+        "ev-personal-portfolio-ci-results-56ea76e-ea76ee50",
+        "ev-one-small-studio-ci-results-d6854de-fa913bb0",
+        "ev-one-small-photography-ci-results-fa2d17f-05128f81",
+        "ev-taskforge-ci-results-f9f14be-ef462fd9",
+        "ev-cortex-ci-results-ec49fd7-330a5ec7",
+        "ev-one-small-ai-workforce-ci-results-c70d8b1-1f512833"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -3129,7 +2934,7 @@
       "isNew": false
     },
     {
-      "rank": 53,
+      "rank": 49,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -3162,7 +2967,7 @@
       "isNew": false
     },
     {
-      "rank": 54,
+      "rank": 50,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -3197,7 +3002,7 @@
       "isNew": false
     },
     {
-      "rank": 55,
+      "rank": 51,
       "projects": [
         "one-small-ui"
       ],
@@ -3232,11 +3037,45 @@
       "isNew": false
     },
     {
-      "rank": 56,
+      "rank": 52,
       "projects": [
         "personal-portfolio"
       ],
-      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "rootCause": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "complexity": "small",
+      "validation": [
+        "automated-checks: re-executed by the verifier",
+        "critical-workflows: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-personal-portfolio-build-test-56ea76e-03122acd"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:collector:build-test",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "build and test: project code was not executed",
+      "impact": "blocks verification of automated-checks, critical-workflows",
+      "proposedCorrection": "Configure or run the missing check, then re-collect.",
+      "actionClass": "independent-verification",
+      "nextAction": "Complete build-test for personal-portfolio.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "isNew": false
+    },
+    {
+      "rank": 53,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
       "rootCause": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
       "complexity": "small",
       "validation": [
@@ -3244,7 +3083,7 @@
       ],
       "confidence": "medium",
       "evidence": [
-        "ev-personal-portfolio-documentation-684ef3c-b200612c"
+        "ev-personal-portfolio-documentation-56ea76e-85fea46c"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -3265,11 +3104,123 @@
       "isNew": false
     },
     {
+      "rank": 54,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "rootCause": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "complexity": "small",
+      "validation": [
+        "automated-checks: re-executed by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-personal-portfolio-lint-format-types-56ea76e-4b2bfc2f"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:collector:lint-format-types",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "lint, format and types: project code was not executed",
+      "impact": "blocks verification of automated-checks",
+      "proposedCorrection": "Configure or run the missing check, then re-collect.",
+      "actionClass": "independent-verification",
+      "nextAction": "Complete lint-format-types for personal-portfolio.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "isNew": false
+    },
+    {
+      "rank": 55,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "rootCause": "ev-personal-portfolio-lint-format-types-684ef3c-ff61bbd5: collected for 684ef3c, not the evaluated commit 56ea76e; ev-personal-portfolio-build-test-684ef3c-9f9d4de2: collected for 684ef3c, not the evaluated commit 56ea76e; ev-personal-portfolio-build-test-684ef3c-0bc913a4: collected for 684ef3c, not the evaluated commit 56ea76e",
+      "complexity": "trivial",
+      "validation": [
+        "verify:freshness reports 0 for the project"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-personal-portfolio-lint-format-types-684ef3c-ff61bbd5",
+        "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
+        "ev-personal-portfolio-build-test-684ef3c-0bc913a4",
+        "ev-personal-portfolio-lint-format-types-684ef3c-3a80bae8",
+        "ev-personal-portfolio-build-test-684ef3c-de39ee7e",
+        "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
+        "ev-personal-portfolio-secret-scan-684ef3c-a6bbdbf4",
+        "ev-personal-portfolio-secret-scan-684ef3c-c8ba0893",
+        "ev-personal-portfolio-dependency-audit-684ef3c-6a355138",
+        "ev-personal-portfolio-accessibility-684ef3c-baee89e7",
+        "ev-personal-portfolio-accessibility-684ef3c-7f948fd0",
+        "ev-personal-portfolio-documentation-684ef3c-b200612c",
+        "ev-personal-portfolio-documentation-684ef3c-207e2e00"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:stale-evidence",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "low",
+      "kind": "stale",
+      "title": "13 evidence record(s) are stale or for another commit",
+      "impact": "Stale evidence counts for nothing.",
+      "proposedCorrection": "Re-collect (the next scheduled run, or a manual engineering run with execute for build and test).",
+      "actionClass": "automatic",
+      "nextAction": "Re-collect evidence for personal-portfolio.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Automatically actionable",
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "isNew": false
+    },
+    {
+      "rank": 56,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "rootCause": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "complexity": "small",
+      "validation": [
+        "automated-checks: re-executed by the verifier",
+        "critical-workflows: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-one-small-studio-build-test-d6854de-f7c2444f"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:collector:build-test",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "build and test: project code was not executed",
+      "impact": "blocks verification of automated-checks, critical-workflows",
+      "proposedCorrection": "Configure or run the missing check, then re-collect.",
+      "actionClass": "independent-verification",
+      "nextAction": "Complete build-test for one-small-studio.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "isNew": false
+    },
+    {
       "rank": 57,
       "projects": [
         "one-small-studio"
       ],
-      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
       "rootCause": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
       "complexity": "small",
       "validation": [
@@ -3277,7 +3228,7 @@
       ],
       "confidence": "medium",
       "evidence": [
-        "ev-one-small-studio-documentation-175cef6-5daa9695"
+        "ev-one-small-studio-documentation-d6854de-f5f494e3"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -3300,9 +3251,121 @@
     {
       "rank": 58,
       "projects": [
+        "one-small-studio"
+      ],
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "rootCause": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "complexity": "small",
+      "validation": [
+        "automated-checks: re-executed by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-one-small-studio-lint-format-types-d6854de-e3c97668"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:collector:lint-format-types",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "lint, format and types: project code was not executed",
+      "impact": "blocks verification of automated-checks",
+      "proposedCorrection": "Configure or run the missing check, then re-collect.",
+      "actionClass": "independent-verification",
+      "nextAction": "Complete lint-format-types for one-small-studio.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "isNew": false
+    },
+    {
+      "rank": 59,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "rootCause": "ev-one-small-studio-lint-format-types-175cef6-cf237cfb: collected for 175cef6, not the evaluated commit d6854de; ev-one-small-studio-build-test-175cef6-516f03e4: collected for 175cef6, not the evaluated commit d6854de; ev-one-small-studio-build-test-175cef6-294dde20: collected for 175cef6, not the evaluated commit d6854de",
+      "complexity": "trivial",
+      "validation": [
+        "verify:freshness reports 0 for the project"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-one-small-studio-lint-format-types-175cef6-cf237cfb",
+        "ev-one-small-studio-build-test-175cef6-516f03e4",
+        "ev-one-small-studio-build-test-175cef6-294dde20",
+        "ev-one-small-studio-lint-format-types-175cef6-90de18f0",
+        "ev-one-small-studio-build-test-175cef6-b269e3ac",
+        "ev-one-small-studio-dependency-audit-175cef6-0f866491",
+        "ev-one-small-studio-secret-scan-175cef6-fb6abe5b",
+        "ev-one-small-studio-dependency-audit-175cef6-fd8b01aa",
+        "ev-one-small-studio-secret-scan-175cef6-7a3a0299",
+        "ev-one-small-studio-accessibility-175cef6-fb594e90",
+        "ev-one-small-studio-accessibility-175cef6-363512db",
+        "ev-one-small-studio-documentation-175cef6-5daa9695",
+        "ev-one-small-studio-documentation-175cef6-4ba9575d"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:stale-evidence",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "low",
+      "kind": "stale",
+      "title": "13 evidence record(s) are stale or for another commit",
+      "impact": "Stale evidence counts for nothing.",
+      "proposedCorrection": "Re-collect (the next scheduled run, or a manual engineering run with execute for build and test).",
+      "actionClass": "automatic",
+      "nextAction": "Re-collect evidence for one-small-studio.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Automatically actionable",
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "isNew": false
+    },
+    {
+      "rank": 60,
+      "projects": [
         "one-small-photography"
       ],
-      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "complexity": "small",
+      "validation": [
+        "automated-checks: re-executed by the verifier",
+        "critical-workflows: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-one-small-photography-build-test-fa2d17f-6207ff46"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:collector:build-test",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "build and test: project code was not executed",
+      "impact": "blocks verification of automated-checks, critical-workflows",
+      "proposedCorrection": "Configure or run the missing check, then re-collect.",
+      "actionClass": "independent-verification",
+      "nextAction": "Complete build-test for one-small-photography.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "isNew": false
+    },
+    {
+      "rank": 61,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
       "rootCause": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
       "complexity": "small",
       "validation": [
@@ -3310,7 +3373,7 @@
       ],
       "confidence": "medium",
       "evidence": [
-        "ev-one-small-photography-documentation-45a74ba-a1411b23"
+        "ev-one-small-photography-documentation-fa2d17f-25b82d41"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -3331,11 +3394,44 @@
       "isNew": false
     },
     {
-      "rank": 59,
+      "rank": 62,
       "projects": [
         "one-small-photography"
       ],
-      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "complexity": "small",
+      "validation": [
+        "automated-checks: re-executed by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-one-small-photography-lint-format-types-fa2d17f-5a25ef9a"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:collector:lint-format-types",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "lint, format and types: project code was not executed",
+      "impact": "blocks verification of automated-checks",
+      "proposedCorrection": "Configure or run the missing check, then re-collect.",
+      "actionClass": "independent-verification",
+      "nextAction": "Complete lint-format-types for one-small-photography.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "isNew": false
+    },
+    {
+      "rank": 63,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
       "rootCause": "not run or inconclusive: credential-shaped values in tests and docs (needs human review (often deliberate fixtures): .github/workflows/ci.yml:42 (credentials in URL))",
       "complexity": "small",
       "validation": [
@@ -3343,7 +3439,7 @@
       ],
       "confidence": "medium",
       "evidence": [
-        "ev-one-small-photography-secret-scan-45a74ba-3a0e0c19"
+        "ev-one-small-photography-secret-scan-fa2d17f-ea7ed43e"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -3364,11 +3460,91 @@
       "isNew": false
     },
     {
-      "rank": 60,
+      "rank": 64,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": "ev-one-small-photography-lint-format-types-45a74ba-040ed0be: collected for 45a74ba, not the evaluated commit fa2d17f; ev-one-small-photography-build-test-45a74ba-1c559c0f: collected for 45a74ba, not the evaluated commit fa2d17f; ev-one-small-photography-build-test-45a74ba-1883a99f: collected for 45a74ba, not the evaluated commit fa2d17f",
+      "complexity": "trivial",
+      "validation": [
+        "verify:freshness reports 0 for the project"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-one-small-photography-lint-format-types-45a74ba-040ed0be",
+        "ev-one-small-photography-build-test-45a74ba-1c559c0f",
+        "ev-one-small-photography-build-test-45a74ba-1883a99f",
+        "ev-one-small-photography-lint-format-types-45a74ba-e909ffaa",
+        "ev-one-small-photography-build-test-45a74ba-469ea48f",
+        "ev-one-small-photography-dependency-audit-45a74ba-e4c11401",
+        "ev-one-small-photography-secret-scan-45a74ba-3a0e0c19",
+        "ev-one-small-photography-dependency-audit-45a74ba-c75a1f11",
+        "ev-one-small-photography-secret-scan-45a74ba-38ccfe10",
+        "ev-one-small-photography-accessibility-45a74ba-5ad5aff3",
+        "ev-one-small-photography-accessibility-45a74ba-933f23e4",
+        "ev-one-small-photography-documentation-45a74ba-a1411b23",
+        "ev-one-small-photography-documentation-45a74ba-34cb2a4c"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:stale-evidence",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "low",
+      "kind": "stale",
+      "title": "13 evidence record(s) are stale or for another commit",
+      "impact": "Stale evidence counts for nothing.",
+      "proposedCorrection": "Re-collect (the next scheduled run, or a manual engineering run with execute for build and test).",
+      "actionClass": "automatic",
+      "nextAction": "Re-collect evidence for one-small-photography.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Automatically actionable",
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "isNew": false
+    },
+    {
+      "rank": 65,
       "projects": [
         "taskforge"
       ],
-      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "revision": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+      "rootCause": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "complexity": "small",
+      "validation": [
+        "automated-checks: re-executed by the verifier",
+        "critical-workflows: manual review by the verifier",
+        "e2e-critical-workflows: manual review by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-taskforge-build-test-f9f14be-3185b8aa"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "taskforge:collector:build-test",
+      "project": "taskforge",
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "build and test: project code was not executed",
+      "impact": "blocks verification of automated-checks, critical-workflows, e2e-critical-workflows",
+      "proposedCorrection": "Configure or run the missing check, then re-collect.",
+      "actionClass": "independent-verification",
+      "nextAction": "Complete build-test for taskforge.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "isNew": false
+    },
+    {
+      "rank": 66,
+      "projects": [
+        "taskforge"
+      ],
+      "revision": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
       "rootCause": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
       "complexity": "small",
       "validation": [
@@ -3376,7 +3552,7 @@
       ],
       "confidence": "medium",
       "evidence": [
-        "ev-taskforge-documentation-11975d0-61e05b6b"
+        "ev-taskforge-documentation-f9f14be-b74ed9aa"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -3397,11 +3573,44 @@
       "isNew": false
     },
     {
-      "rank": 61,
+      "rank": 67,
       "projects": [
         "taskforge"
       ],
-      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
+      "revision": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+      "rootCause": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "complexity": "small",
+      "validation": [
+        "automated-checks: re-executed by the verifier"
+      ],
+      "confidence": "medium",
+      "evidence": [
+        "ev-taskforge-lint-format-types-f9f14be-f82161a2"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "taskforge:collector:lint-format-types",
+      "project": "taskforge",
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "priority": 7,
+      "severity": "low",
+      "kind": "evidence-gap",
+      "title": "lint, format and types: project code was not executed",
+      "impact": "blocks verification of automated-checks",
+      "proposedCorrection": "Configure or run the missing check, then re-collect.",
+      "actionClass": "independent-verification",
+      "nextAction": "Complete lint-format-types for taskforge.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires independent verification",
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "isNew": false
+    },
+    {
+      "rank": 68,
+      "projects": [
+        "taskforge"
+      ],
+      "revision": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
       "rootCause": "not run or inconclusive: credential-shaped values in tests and docs (needs human review (often deliberate fixtures): server/src/ai/ollama.test.ts:111 (credentials in URL); server/src/app.test.ts:62 (credentials in URL))",
       "complexity": "small",
       "validation": [
@@ -3410,7 +3619,7 @@
       ],
       "confidence": "medium",
       "evidence": [
-        "ev-taskforge-secret-scan-11975d0-8237b1bd"
+        "ev-taskforge-secret-scan-f9f14be-22746d50"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -3431,7 +3640,52 @@
       "isNew": false
     },
     {
-      "rank": 62,
+      "rank": 69,
+      "projects": [
+        "taskforge"
+      ],
+      "revision": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+      "rootCause": "ev-taskforge-lint-format-types-11975d0-7b0942a4: collected for 11975d0, not the evaluated commit f9f14be; ev-taskforge-build-test-11975d0-dc105b8c: collected for 11975d0, not the evaluated commit f9f14be; ev-taskforge-build-test-11975d0-d17e1159: collected for 11975d0, not the evaluated commit f9f14be",
+      "complexity": "trivial",
+      "validation": [
+        "verify:freshness reports 0 for the project"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-taskforge-lint-format-types-11975d0-7b0942a4",
+        "ev-taskforge-build-test-11975d0-dc105b8c",
+        "ev-taskforge-build-test-11975d0-d17e1159",
+        "ev-taskforge-lint-format-types-11975d0-bd0a2724",
+        "ev-taskforge-build-test-11975d0-e8803dfb",
+        "ev-taskforge-dependency-audit-11975d0-b1e62bb2",
+        "ev-taskforge-secret-scan-11975d0-8237b1bd",
+        "ev-taskforge-secret-scan-11975d0-8442003a",
+        "ev-taskforge-dependency-audit-11975d0-930082be",
+        "ev-taskforge-accessibility-11975d0-fe387eac",
+        "ev-taskforge-accessibility-11975d0-5d28a392",
+        "ev-taskforge-documentation-11975d0-61e05b6b",
+        "ev-taskforge-documentation-11975d0-132d686c"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "taskforge:stale-evidence",
+      "project": "taskforge",
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "priority": 7,
+      "severity": "low",
+      "kind": "stale",
+      "title": "13 evidence record(s) are stale or for another commit",
+      "impact": "Stale evidence counts for nothing.",
+      "proposedCorrection": "Re-collect (the next scheduled run, or a manual engineering run with execute for build and test).",
+      "actionClass": "automatic",
+      "nextAction": "Re-collect evidence for taskforge.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Automatically actionable",
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "isNew": false
+    },
+    {
+      "rank": 70,
       "projects": [
         "cortex"
       ],
@@ -3464,7 +3718,7 @@
       "isNew": false
     },
     {
-      "rank": 63,
+      "rank": 71,
       "projects": [
         "cortex"
       ],
@@ -3497,7 +3751,7 @@
       "isNew": false
     },
     {
-      "rank": 64,
+      "rank": 72,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -3510,7 +3764,7 @@
       ],
       "confidence": "medium",
       "evidence": [
-        "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65"
+        "ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -3531,7 +3785,41 @@
       "isNew": false
     },
     {
-      "rank": 65,
+      "rank": 73,
+      "projects": [
+        "one-small-ai-workforce"
+      ],
+      "revision": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+      "rootCause": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65: expired 2026-10-28; ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410: expired 2026-10-28",
+      "complexity": "trivial",
+      "validation": [
+        "verify:freshness reports 0 for the project"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
+        "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ai-workforce:stale-evidence",
+      "project": "one-small-ai-workforce",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "priority": 7,
+      "severity": "low",
+      "kind": "stale",
+      "title": "2 evidence record(s) are stale or for another commit",
+      "impact": "Stale evidence counts for nothing.",
+      "proposedCorrection": "Re-collect (the next scheduled run, or a manual engineering run with execute for build and test).",
+      "actionClass": "automatic",
+      "nextAction": "Re-collect evidence for one-small-ai-workforce.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Automatically actionable",
+      "firstSeen": "2026-10-28T21:04:34Z",
+      "isNew": false
+    },
+    {
+      "rank": 74,
       "projects": [
         "one-small-ui"
       ],
@@ -3567,57 +3855,11 @@
       "isNew": false
     },
     {
-      "rank": 66,
+      "rank": 75,
       "projects": [
         "personal-portfolio"
       ],
-      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
-      "rootCause": "npm audit at 684ef3c: zod (high, dev only, fix available)",
-      "complexity": "small",
-      "validation": [
-        "npm ci --ignore-scripts and the project test suite pass at the fix commit",
-        "dependency-audit collector reports no critical/high advisories",
-        "an independent verifier records supply-chain-review"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "ev-personal-portfolio-dependency-audit-684ef3c-448e5446"
-      ],
-      "relatedPRs": [
-        {
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/17",
-          "status": "unknown",
-          "reviewed": null,
-          "openedFor": "684ef3ce76d62919045cea65259e8bf52f1c6174"
-        }
-      ],
-      "crossProject": [
-        "one-small-photography",
-        "one-small-studio"
-      ],
-      "id": "personal-portfolio:advisory:high-dev",
-      "project": "personal-portfolio",
-      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-      "priority": 8,
-      "severity": "low",
-      "kind": "vulnerability",
-      "title": "1 high advisories in development tooling only (not shipped): zod",
-      "impact": "Not in the shipped bundle or server; affects build and test tooling. Release impact: supply-chain-review stays unverified.",
-      "proposedCorrection": "Lockfile-only update within declared ranges (npm audit fix, without --force).",
-      "actionClass": "owner-decision",
-      "autoFix": null,
-      "nextAction": "Review https://github.com/WasteOfADrumBum/joshsmall-site/pull/17.",
-      "priorityText": "Lower-priority technical debt",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 67,
-      "projects": [
-        "personal-portfolio"
-      ],
-      "revision": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
       "rootCause": "not run or inconclusive: license (absent); workflows (no GitHub Actions workflows)",
       "complexity": "small",
       "validation": [
@@ -3625,7 +3867,7 @@
       ],
       "confidence": "medium",
       "evidence": [
-        "ev-personal-portfolio-repo-structure-684ef3c-0662185a"
+        "ev-personal-portfolio-repo-structure-56ea76e-fb62f904"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -3646,11 +3888,11 @@
       "isNew": false
     },
     {
-      "rank": 68,
+      "rank": 76,
       "projects": [
         "one-small-studio"
       ],
-      "revision": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
       "rootCause": "not run or inconclusive: license (absent)",
       "complexity": "small",
       "validation": [
@@ -3658,7 +3900,7 @@
       ],
       "confidence": "medium",
       "evidence": [
-        "ev-one-small-studio-repo-structure-175cef6-6574efd3"
+        "ev-one-small-studio-repo-structure-d6854de-4cd6c1c4"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -3679,11 +3921,11 @@
       "isNew": false
     },
     {
-      "rank": 69,
+      "rank": 77,
       "projects": [
         "one-small-photography"
       ],
-      "revision": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
       "rootCause": "not run or inconclusive: license (absent)",
       "complexity": "small",
       "validation": [
@@ -3691,7 +3933,7 @@
       ],
       "confidence": "medium",
       "evidence": [
-        "ev-one-small-photography-repo-structure-45a74ba-761de6c0"
+        "ev-one-small-photography-repo-structure-fa2d17f-12f4047a"
       ],
       "relatedPRs": [],
       "crossProject": [],
@@ -3712,100 +3954,7 @@
       "isNew": false
     },
     {
-      "rank": 70,
-      "projects": [
-        "taskforge"
-      ],
-      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
-      "rootCause": "npm audit at 11975d0: undici (high, dev only, fix available); vite (high, direct, dev only, fix available); zod (high, dev only, fix available)",
-      "complexity": "small",
-      "validation": [
-        "npm ci --ignore-scripts and the project test suite pass at the fix commit",
-        "dependency-audit collector reports no critical/high advisories",
-        "an independent verifier records supply-chain-review"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "ev-taskforge-dependency-audit-11975d0-b1e62bb2"
-      ],
-      "relatedPRs": [
-        {
-          "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/43",
-          "status": "unknown",
-          "reviewed": null,
-          "openedFor": "11975d0278c7f04db5033c0461295c734e3b4134"
-        }
-      ],
-      "crossProject": [
-        "one-small-photography",
-        "one-small-studio"
-      ],
-      "id": "taskforge:advisory:high-dev",
-      "project": "taskforge",
-      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
-      "priority": 8,
-      "severity": "low",
-      "kind": "vulnerability",
-      "title": "3 high advisories in development tooling only (not shipped): undici, vite, zod",
-      "impact": "Not in the shipped bundle or server; affects build and test tooling. Release impact: supply-chain-review stays unverified.",
-      "proposedCorrection": "Lockfile-only update within declared ranges (npm audit fix, without --force).",
-      "actionClass": "owner-decision",
-      "autoFix": null,
-      "nextAction": "Review https://github.com/WasteOfADrumBum/TaskForge/pull/43.",
-      "priorityText": "Lower-priority technical debt",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 71,
-      "projects": [
-        "taskforge"
-      ],
-      "revision": "11975d0278c7f04db5033c0461295c734e3b4134",
-      "rootCause": "npm audit at 11975d0: @vitest/mocker (moderate, dev only, fix available); ip-address (moderate, production, fix available); vitest (moderate, direct, dev only, fix available)",
-      "complexity": "small",
-      "validation": [
-        "npm ci --ignore-scripts and the project test suite pass at the fix commit",
-        "dependency-audit collector reports no critical/high advisories",
-        "an independent verifier records supply-chain-review"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "ev-taskforge-dependency-audit-11975d0-b1e62bb2"
-      ],
-      "relatedPRs": [
-        {
-          "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/43",
-          "status": "unknown",
-          "reviewed": null,
-          "openedFor": "11975d0278c7f04db5033c0461295c734e3b4134"
-        }
-      ],
-      "crossProject": [
-        "one-small-photography",
-        "one-small-studio",
-        "one-small-ui"
-      ],
-      "id": "taskforge:advisory:moderate",
-      "project": "taskforge",
-      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
-      "priority": 8,
-      "severity": "low",
-      "kind": "vulnerability",
-      "title": "3 moderate advisories: @vitest/mocker, ip-address, vitest",
-      "impact": "Low; tracked as technical debt.",
-      "proposedCorrection": "Lockfile-only update within declared ranges (npm audit fix, without --force).",
-      "actionClass": "owner-decision",
-      "autoFix": null,
-      "nextAction": "Review https://github.com/WasteOfADrumBum/TaskForge/pull/43.",
-      "priorityText": "Lower-priority technical debt",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 72,
+      "rank": 78,
       "projects": [
         "cortex"
       ],
@@ -4120,33 +4269,6 @@
             "fix": "major"
           }
         ]
-      },
-      {
-        "name": "zod",
-        "projects": {
-          "one-small-photography": {
-            "spec": "^4.6.7",
-            "locked": "4.6.7",
-            "dev": false
-          },
-          "one-small-studio": {
-            "spec": "^4.6.5",
-            "locked": "4.6.5",
-            "dev": false
-          }
-        },
-        "majors": [
-          4
-        ],
-        "divergent": false,
-        "advisories": [
-          {
-            "project": "one-small-studio",
-            "severity": "high",
-            "production": true,
-            "fix": "available"
-          }
-        ]
       }
     ],
     "sharedPackageCount": 27,
@@ -4216,7 +4338,7 @@
   ],
   "run": {
     "api": "unavailable (statuses kept from the last run that could read them)",
-    "at": "2026-10-27T01:56:27Z",
+    "at": "2026-10-28T21:07:08Z",
     "changed": [],
     "collected": [
       "cortex",
@@ -4230,11 +4352,11 @@
     ],
     "execute": false,
     "executor": "local",
-    "invokedBy": "Claude Code cloud session (Phase 5 live orchestration run, incremental)",
+    "invokedBy": "local run",
     "mode": "observe",
     "runUrl": null,
     "skipped": [],
-    "startedAt": "2026-10-27T01:56:19Z"
+    "startedAt": "2026-10-28T21:06:44Z"
   },
   "policyVersion": 1,
   "overlayErrors": []

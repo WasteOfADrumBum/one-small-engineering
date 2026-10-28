@@ -3,6 +3,88 @@
   "evidence": [
     {
       "schema": 1,
+      "id": "ev-one-small-mods-pack-ci-results-80cc269-bd14b314",
+      "project": "one-small-mods-pack",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "ref": "modspack-2-0",
+      "collector": {
+        "name": "ci-results",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "726fe53d496eb454",
+      "execute": false,
+      "executedAt": "2026-10-28T21:06:49Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:06:49Z"
+      },
+      "digest": "1386892abad0d81340a558d764c821b983a9a65ad5b4a3cf9879d157aba3d56e"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-mods-pack-ci-results-80cc269-4677e3ea",
+      "project": "one-small-mods-pack",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "ref": "modspack-2-0",
+      "collector": {
+        "name": "ci-results",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "726fe53d496eb454",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:12Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:04:12Z"
+      },
+      "digest": "7560af10aa65e2402055f4021d59e3bb6dbd6cbd9a254ac8e4bcac4af628b859"
+    },
+    {
+      "schema": 1,
       "id": "ev-one-small-mods-pack-ci-results-80cc269-35769d7e",
       "project": "one-small-mods-pack",
       "gates": [
@@ -1255,47 +1337,6 @@
         "expiresAt": "2026-11-26T00:45:42Z"
       },
       "digest": "47161efe079d3fcd2e8490bcda20d4e4a6e6afcc146b173bd5256f03789bd7e4"
-    },
-    {
-      "schema": 1,
-      "id": "ev-one-small-mods-pack-ci-results-80cc269-40fdb2d7",
-      "project": "one-small-mods-pack",
-      "gates": [
-        "automated-checks"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
-      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
-      "ref": "modspack-2-0",
-      "collector": {
-        "name": "ci-results",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "9f6bcc86824c8b32",
-      "execute": true,
-      "executedAt": "2026-10-27T00:45:41Z",
-      "result": "unavailable",
-      "summary": "CI results: not readable",
-      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
-      "checks": [],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 7 day(s) after collection",
-        "expiresAt": "2026-11-03T00:45:41Z"
-      },
-      "digest": "c17cda48975909e77bc555775d6d153254c954619d58489b1929b5b9f86bb2d1"
     },
     {
       "schema": 1,

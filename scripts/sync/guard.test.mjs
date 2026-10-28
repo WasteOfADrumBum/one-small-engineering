@@ -114,7 +114,7 @@ test('paths and branch names', () => {
 
 test('CLI guard on a real git history: passes a sync change, fails an extra file', async () => {
   const dir = mkdtempSync(join(tmpdir(), 'guard-'))
-  for (const d of ['projects', 'sync', 'scripts', 'schemas', 'standards']) cpSync(resolve(ROOT, d), join(dir, d), { recursive: true })
+  for (const d of ['projects', 'sync', 'scripts', 'schemas', 'standards', 'verification']) cpSync(resolve(ROOT, d), join(dir, d), { recursive: true })
   const git = (...a) => execFileSync('git', a, { cwd: dir, encoding: 'utf8', env: { ...process.env, GIT_AUTHOR_NAME: 't', GIT_AUTHOR_EMAIL: 't@t', GIT_COMMITTER_NAME: 't', GIT_COMMITTER_EMAIL: 't@t' } })
   git('init', '-q', '-b', 'main')
   git('add', '.')

@@ -1,19 +1,19 @@
 # One Small Studio: issue reports
 
-As of 2026-10-27T01:56:27Z, commit 175cef6bafbc0322e0d54cf3e543aafa1626a049. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
+As of 2026-10-28T21:07:08Z, commit d6854deb5cb40e248a7b464f7995b08ce93aaf5e. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
 
 ## accessibility: 1 of 3 check(s) passed; 2 not run or inconclusive
 
 - Project: one-small-studio (https://github.com/WasteOfADrumBum/one-small-studio)
-- Commit: 175cef6bafbc0322e0d54cf3e543aafa1626a049
+- Commit: d6854deb5cb40e248a7b464f7995b08ce93aaf5e
 - Gate(s): wcag-22-aa
 - Severity: low; kind: evidence-gap; release impact: blocks verification of wcag-22-aa
-- Evidence: ev-one-small-studio-accessibility-175cef6-fb594e90
+- Evidence: ev-one-small-studio-accessibility-d6854de-a3117ac6
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-studio --collector accessibility --execute
+node scripts/verify/cli.mjs run --project one-small-studio --collector accessibility
 ```
 
 ### Root cause
@@ -37,13 +37,49 @@ The accessibility collector reports pass at the new commit, and the verifier rec
 - wcag-22-aa: manual review by the verifier
 
 
+## build and test: project code was not executed
+
+- Project: one-small-studio (https://github.com/WasteOfADrumBum/one-small-studio)
+- Commit: d6854deb5cb40e248a7b464f7995b08ce93aaf5e
+- Gate(s): automated-checks, critical-workflows
+- Severity: low; kind: evidence-gap; release impact: blocks verification of automated-checks, critical-workflows
+- Evidence: ev-one-small-studio-build-test-d6854de-f7c2444f
+
+### Reproduction
+
+```text
+node scripts/verify/cli.mjs run --project one-small-studio --collector build-test
+```
+
+### Root cause
+
+Not established. The collector could not decide; see the failure reason.
+
+### Failure reason
+
+execution is disabled for this run (pass --execute in an isolated job to run project commands)
+
+### Proposed fix
+
+No fix proposed by automation. A person decides the fix.
+
+### Acceptance criteria
+
+The build-test collector reports pass at the new commit, and the verifier records it for automated-checks, critical-workflows.
+
+### Verification required
+
+- automated-checks: re-executed by the verifier
+- critical-workflows: manual review by the verifier
+
+
 ## CI results: not readable
 
 - Project: one-small-studio (https://github.com/WasteOfADrumBum/one-small-studio)
-- Commit: 175cef6bafbc0322e0d54cf3e543aafa1626a049
+- Commit: d6854deb5cb40e248a7b464f7995b08ce93aaf5e
 - Gate(s): automated-checks
 - Severity: unclassified; kind: access; release impact: blocks verification of automated-checks
-- Evidence: ev-one-small-studio-ci-results-175cef6-372b3f9b
+- Evidence: ev-one-small-studio-ci-results-d6854de-fa913bb0
 
 ### Reproduction
 
@@ -72,48 +108,13 @@ The ci-results collector reports pass at the new commit, and the verifier record
 - automated-checks: re-executed by the verifier
 
 
-## dependency audit: critical 0, high 2, moderate 0, low 0, info 0
-
-- Project: one-small-studio (https://github.com/WasteOfADrumBum/one-small-studio)
-- Commit: 175cef6bafbc0322e0d54cf3e543aafa1626a049
-- Gate(s): security-privacy-review
-- Severity: high; kind: defect; release impact: blocks verification of security-privacy-review
-- Evidence: ev-one-small-studio-dependency-audit-175cef6-0f866491
-
-### Reproduction
-
-```text
-npm audit --json --package-lock-only (at 175cef6)
-```
-
-### Root cause
-
-npm audit: critical 0, high 2, moderate 0, low 0, info 0 across 443 packages
-
-### Failure reason
-
-critical or high advisories: body-parser, zod
-
-### Proposed fix
-
-No fix proposed by automation. A person decides the fix.
-
-### Acceptance criteria
-
-The dependency-audit collector reports pass at the new commit, and the verifier records it for security-privacy-review.
-
-### Verification required
-
-- security-privacy-review: manual review by the verifier
-
-
 ## deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive
 
 - Project: one-small-studio (https://github.com/WasteOfADrumBum/one-small-studio)
-- Commit: 175cef6bafbc0322e0d54cf3e543aafa1626a049
+- Commit: d6854deb5cb40e248a7b464f7995b08ce93aaf5e
 - Gate(s): production-deployment
 - Severity: unclassified; kind: access; release impact: blocks verification of production-deployment
-- Evidence: ev-one-small-studio-deployment-health-175cef6-eac0aff6
+- Evidence: ev-one-small-studio-deployment-health-d6854de-970cfe92
 
 ### Reproduction
 
@@ -145,15 +146,15 @@ The deployment-health collector reports pass at the new commit, and the verifier
 ## documentation: 3 of 4 check(s) passed; 1 not run or inconclusive
 
 - Project: one-small-studio (https://github.com/WasteOfADrumBum/one-small-studio)
-- Commit: 175cef6bafbc0322e0d54cf3e543aafa1626a049
+- Commit: d6854deb5cb40e248a7b464f7995b08ce93aaf5e
 - Gate(s): documentation-accurate
 - Severity: low; kind: evidence-gap; release impact: blocks verification of documentation-accurate
-- Evidence: ev-one-small-studio-documentation-175cef6-5daa9695
+- Evidence: ev-one-small-studio-documentation-d6854de-f5f494e3
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-studio --collector documentation --execute
+node scripts/verify/cli.mjs run --project one-small-studio --collector documentation
 ```
 
 ### Root cause
@@ -177,18 +178,53 @@ The documentation collector reports pass at the new commit, and the verifier rec
 - documentation-accurate: manual review by the verifier
 
 
-## repository structure: 4 of 5 check(s) passed; 1 not run or inconclusive
+## lint, format and types: project code was not executed
 
 - Project: one-small-studio (https://github.com/WasteOfADrumBum/one-small-studio)
-- Commit: 175cef6bafbc0322e0d54cf3e543aafa1626a049
-- Gate(s): none (context)
-- Severity: low; kind: evidence-gap; release impact: context only; no gate depends on it
-- Evidence: ev-one-small-studio-repo-structure-175cef6-6574efd3
+- Commit: d6854deb5cb40e248a7b464f7995b08ce93aaf5e
+- Gate(s): automated-checks
+- Severity: low; kind: evidence-gap; release impact: blocks verification of automated-checks
+- Evidence: ev-one-small-studio-lint-format-types-d6854de-e3c97668
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-studio --collector repo-structure --execute
+node scripts/verify/cli.mjs run --project one-small-studio --collector lint-format-types
+```
+
+### Root cause
+
+Not established. The collector could not decide; see the failure reason.
+
+### Failure reason
+
+execution is disabled for this run (pass --execute in an isolated job to run project commands)
+
+### Proposed fix
+
+No fix proposed by automation. A person decides the fix.
+
+### Acceptance criteria
+
+The lint-format-types collector reports pass at the new commit, and the verifier records it for automated-checks.
+
+### Verification required
+
+- automated-checks: re-executed by the verifier
+
+
+## repository structure: 4 of 5 check(s) passed; 1 not run or inconclusive
+
+- Project: one-small-studio (https://github.com/WasteOfADrumBum/one-small-studio)
+- Commit: d6854deb5cb40e248a7b464f7995b08ce93aaf5e
+- Gate(s): none (context)
+- Severity: low; kind: evidence-gap; release impact: context only; no gate depends on it
+- Evidence: ev-one-small-studio-repo-structure-d6854de-4cd6c1c4
+
+### Reproduction
+
+```text
+node scripts/verify/cli.mjs run --project one-small-studio --collector repo-structure
 ```
 
 ### Root cause

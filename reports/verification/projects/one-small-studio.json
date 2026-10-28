@@ -1,15 +1,15 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-27T01:56:27Z",
+  "asOf": "2026-10-28T21:07:08Z",
   "id": "one-small-studio",
   "name": "One Small Studio",
   "tier": "showcase",
   "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
   "target": {
-    "sha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+    "sha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
     "source": "live head of main",
-    "liveSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
-    "drift": "registry snapshot is 923fb11; live head is 175cef6 (registry sync refreshes it)"
+    "liveSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+    "drift": "registry snapshot is 923fb11; live head is d6854de (registry sync refreshes it)"
   },
   "readiness": {
     "percentage": 0,
@@ -17,13 +17,13 @@
     "applicableGates": 10,
     "verifiedGates": 0,
     "eligibility": "not-scoped",
-    "ownershipValid": false
+    "ownershipValid": true
   },
   "gateStates": {
     "independently_verified": 0,
     "passed_by_builder": 2,
-    "failed": 1,
-    "inconclusive": 3,
+    "failed": 0,
+    "inconclusive": 4,
     "not_tested": 4,
     "not_applicable": 0
   },
@@ -41,7 +41,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -56,32 +55,52 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
+          "id": "ev-one-small-studio-build-test-d6854de-f7c2444f",
           "collector": "build-test",
-          "result": "pass",
-          "executedAt": "2026-10-27T01:51:19Z",
-          "summary": "build and test: 2 check(s) passed"
+          "result": "inconclusive",
+          "executedAt": "2026-10-28T21:04:18Z",
+          "summary": "build and test: project code was not executed"
         },
         {
-          "id": "ev-one-small-studio-ci-results-175cef6-372b3f9b",
+          "id": "ev-one-small-studio-ci-results-d6854de-fa913bb0",
           "collector": "ci-results",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:56:24Z",
+          "executedAt": "2026-10-28T21:06:54Z",
           "summary": "CI results: not readable"
         },
         {
-          "id": "ev-one-small-studio-lint-format-types-175cef6-cf237cfb",
+          "id": "ev-one-small-studio-lint-format-types-d6854de-e3c97668",
           "collector": "lint-format-types",
-          "result": "pass",
-          "executedAt": "2026-10-27T01:51:30Z",
-          "summary": "lint, format and types: 3 check(s) passed"
+          "result": "inconclusive",
+          "executedAt": "2026-10-28T21:04:18Z",
+          "summary": "lint, format and types: project code was not executed"
         }
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-one-small-studio-lint-format-types-175cef6-cf237cfb",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-build-test-175cef6-294dde20",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-lint-format-types-175cef6-90de18f0",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-build-test-175cef6-b269e3ac",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        }
+      ],
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
         "registry notes: Latest default-branch CI passed at 923fb11. The target release scope is not frozen, so this does not verify the release; re-run on the release candidate"
       ],
@@ -89,7 +108,7 @@
     },
     {
       "id": "security-privacy-review",
-      "state": "failed",
+      "state": "passed_by_builder",
       "engineState": "not_started",
       "applicable": true,
       "automation": "partial",
@@ -97,25 +116,41 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
+          "id": "ev-one-small-studio-dependency-audit-d6854de-6ed21926",
           "collector": "dependency-audit",
-          "result": "fail",
-          "executedAt": "2026-10-27T01:51:32Z",
-          "summary": "dependency audit: critical 0, high 2, moderate 0, low 0, info 0"
+          "result": "pass",
+          "executedAt": "2026-10-28T21:04:19Z",
+          "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0"
         },
         {
-          "id": "ev-one-small-studio-secret-scan-175cef6-fb6abe5b",
+          "id": "ev-one-small-studio-secret-scan-d6854de-d3926880",
           "collector": "secret-scan",
           "result": "pass",
-          "executedAt": "2026-10-27T01:51:32Z",
+          "executedAt": "2026-10-28T21:04:19Z",
           "summary": "secret scan: 3 check(s) passed"
         }
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-secret-scan-175cef6-fb6abe5b",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-dependency-audit-175cef6-fd8b01aa",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-secret-scan-175cef6-7a3a0299",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        }
+      ],
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -130,18 +165,26 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-studio-accessibility-175cef6-fb594e90",
+          "id": "ev-one-small-studio-accessibility-d6854de-a3117ac6",
           "collector": "accessibility",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T01:51:32Z",
+          "executedAt": "2026-10-28T21:04:19Z",
           "summary": "accessibility: 1 of 3 check(s) passed; 2 not run or inconclusive"
         }
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-one-small-studio-accessibility-175cef6-fb594e90",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-accessibility-175cef6-363512db",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        }
+      ],
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -159,7 +202,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -177,14 +219,13 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
     },
     {
       "id": "critical-workflows",
-      "state": "passed_by_builder",
+      "state": "inconclusive",
       "engineState": "not_started",
       "applicable": true,
       "automation": "partial",
@@ -192,18 +233,30 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
+          "id": "ev-one-small-studio-build-test-d6854de-f7c2444f",
           "collector": "build-test",
-          "result": "pass",
-          "executedAt": "2026-10-27T01:51:19Z",
-          "summary": "build and test: 2 check(s) passed"
+          "result": "inconclusive",
+          "executedAt": "2026-10-28T21:04:18Z",
+          "summary": "build and test: project code was not executed"
         }
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-build-test-175cef6-294dde20",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-build-test-175cef6-b269e3ac",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        }
+      ],
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -218,10 +271,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-studio-deployment-health-175cef6-eac0aff6",
+          "id": "ev-one-small-studio-deployment-health-d6854de-970cfe92",
           "collector": "deployment-health",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:56:24Z",
+          "executedAt": "2026-10-28T21:06:55Z",
           "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -229,7 +282,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "After the authorized publication or deployment, verify it and record evidence."
@@ -244,18 +296,26 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-studio-documentation-175cef6-5daa9695",
+          "id": "ev-one-small-studio-documentation-d6854de-f5f494e3",
           "collector": "documentation",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T01:51:32Z",
+          "executedAt": "2026-10-28T21:04:19Z",
           "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive"
         }
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-one-small-studio-documentation-175cef6-5daa9695",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-documentation-175cef6-4ba9575d",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        }
+      ],
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -273,7 +333,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -291,7 +350,60 @@
     "documentation-accurate",
     "no-release-blockers"
   ],
-  "staleEvidence": [],
+  "staleEvidence": [
+    {
+      "id": "ev-one-small-studio-lint-format-types-175cef6-cf237cfb",
+      "reason": "collected for 175cef6, not the evaluated commit d6854de"
+    },
+    {
+      "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
+      "reason": "collected for 175cef6, not the evaluated commit d6854de"
+    },
+    {
+      "id": "ev-one-small-studio-build-test-175cef6-294dde20",
+      "reason": "collected for 175cef6, not the evaluated commit d6854de"
+    },
+    {
+      "id": "ev-one-small-studio-lint-format-types-175cef6-90de18f0",
+      "reason": "collected for 175cef6, not the evaluated commit d6854de"
+    },
+    {
+      "id": "ev-one-small-studio-build-test-175cef6-b269e3ac",
+      "reason": "collected for 175cef6, not the evaluated commit d6854de"
+    },
+    {
+      "id": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
+      "reason": "collected for 175cef6, not the evaluated commit d6854de"
+    },
+    {
+      "id": "ev-one-small-studio-secret-scan-175cef6-fb6abe5b",
+      "reason": "collected for 175cef6, not the evaluated commit d6854de"
+    },
+    {
+      "id": "ev-one-small-studio-dependency-audit-175cef6-fd8b01aa",
+      "reason": "collected for 175cef6, not the evaluated commit d6854de"
+    },
+    {
+      "id": "ev-one-small-studio-secret-scan-175cef6-7a3a0299",
+      "reason": "collected for 175cef6, not the evaluated commit d6854de"
+    },
+    {
+      "id": "ev-one-small-studio-accessibility-175cef6-fb594e90",
+      "reason": "collected for 175cef6, not the evaluated commit d6854de"
+    },
+    {
+      "id": "ev-one-small-studio-accessibility-175cef6-363512db",
+      "reason": "collected for 175cef6, not the evaluated commit d6854de"
+    },
+    {
+      "id": "ev-one-small-studio-documentation-175cef6-5daa9695",
+      "reason": "collected for 175cef6, not the evaluated commit d6854de"
+    },
+    {
+      "id": "ev-one-small-studio-documentation-175cef6-4ba9575d",
+      "reason": "collected for 175cef6, not the evaluated commit d6854de"
+    }
+  ],
   "blockers": [
     {
       "id": "scope-document-missing",
@@ -324,36 +436,28 @@
       "blocks": "release",
       "category": "approval",
       "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
-    },
-    {
-      "id": "auto-ownership",
-      "origin": "derived",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "evidence",
-      "description": "Independent verification impossible: builder and independent verifier are not both assigned."
     }
   ],
   "blockersBySeverity": {
     "critical": 0,
-    "high": 1,
+    "high": 0,
     "medium": 0,
     "low": 0,
-    "unclassified": 5
+    "unclassified": 4
   },
   "mergeEligible": false,
   "releaseEligible": false,
   "lastVerification": null,
-  "lastCollection": "2026-10-27T01:56:24Z",
-  "nextAction": "Fix dependency-audit at 175cef6: dependency audit: critical 0, high 2, moderate 0, low 0, info 0.",
+  "lastCollection": "2026-10-28T21:06:55Z",
+  "nextAction": "Resolve blocker scope-document-missing.",
   "findings": [
     {
-      "id": "one-small-studio:accessibility:175cef6",
+      "id": "one-small-studio:accessibility:d6854de",
       "project": "one-small-studio",
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
       "collector": "accessibility",
-      "evidenceId": "ev-one-small-studio-accessibility-175cef6-fb594e90",
+      "evidenceId": "ev-one-small-studio-accessibility-d6854de-a3117ac6",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -361,7 +465,7 @@
       ],
       "releaseImpact": "blocks verification of wcag-22-aa",
       "title": "accessibility: 1 of 3 check(s) passed; 2 not run or inconclusive",
-      "reproduction": "node scripts/verify/cli.mjs run --project one-small-studio --collector accessibility --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-studio --collector accessibility",
       "rootCause": null,
       "failureReason": "not run or inconclusive: automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
       "proposedFix": null,
@@ -371,12 +475,37 @@
       ]
     },
     {
-      "id": "one-small-studio:ci-results:175cef6",
+      "id": "one-small-studio:build-test:d6854de",
       "project": "one-small-studio",
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "collector": "build-test",
+      "evidenceId": "ev-one-small-studio-build-test-d6854de-f7c2444f",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [
+        "automated-checks",
+        "critical-workflows"
+      ],
+      "releaseImpact": "blocks verification of automated-checks, critical-workflows",
+      "title": "build and test: project code was not executed",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-studio --collector build-test",
+      "rootCause": null,
+      "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "proposedFix": null,
+      "acceptance": "The build-test collector reports pass at the new commit, and the verifier records it for automated-checks, critical-workflows.",
+      "verification": [
+        "automated-checks: re-executed by the verifier",
+        "critical-workflows: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-studio:ci-results:d6854de",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
       "collector": "ci-results",
-      "evidenceId": "ev-one-small-studio-ci-results-175cef6-372b3f9b",
+      "evidenceId": "ev-one-small-studio-ci-results-d6854de-fa913bb0",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -394,35 +523,12 @@
       ]
     },
     {
-      "id": "one-small-studio:dependency-audit:175cef6",
+      "id": "one-small-studio:deployment-health:d6854de",
       "project": "one-small-studio",
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
-      "collector": "dependency-audit",
-      "evidenceId": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
-      "kind": "defect",
-      "severity": "high",
-      "gates": [
-        "security-privacy-review"
-      ],
-      "releaseImpact": "blocks verification of security-privacy-review",
-      "title": "dependency audit: critical 0, high 2, moderate 0, low 0, info 0",
-      "reproduction": "npm audit --json --package-lock-only (at 175cef6)",
-      "rootCause": "npm audit: critical 0, high 2, moderate 0, low 0, info 0 across 443 packages",
-      "failureReason": "critical or high advisories: body-parser, zod",
-      "proposedFix": null,
-      "acceptance": "The dependency-audit collector reports pass at the new commit, and the verifier records it for security-privacy-review.",
-      "verification": [
-        "security-privacy-review: manual review by the verifier"
-      ]
-    },
-    {
-      "id": "one-small-studio:deployment-health:175cef6",
-      "project": "one-small-studio",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
       "collector": "deployment-health",
-      "evidenceId": "ev-one-small-studio-deployment-health-175cef6-eac0aff6",
+      "evidenceId": "ev-one-small-studio-deployment-health-d6854de-970cfe92",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -440,12 +546,12 @@
       ]
     },
     {
-      "id": "one-small-studio:documentation:175cef6",
+      "id": "one-small-studio:documentation:d6854de",
       "project": "one-small-studio",
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
       "collector": "documentation",
-      "evidenceId": "ev-one-small-studio-documentation-175cef6-5daa9695",
+      "evidenceId": "ev-one-small-studio-documentation-d6854de-f5f494e3",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -453,7 +559,7 @@
       ],
       "releaseImpact": "blocks verification of documentation-accurate",
       "title": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
-      "reproduction": "node scripts/verify/cli.mjs run --project one-small-studio --collector documentation --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-studio --collector documentation",
       "rootCause": null,
       "failureReason": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
       "proposedFix": null,
@@ -463,18 +569,41 @@
       ]
     },
     {
-      "id": "one-small-studio:repo-structure:175cef6",
+      "id": "one-small-studio:lint-format-types:d6854de",
       "project": "one-small-studio",
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "collector": "lint-format-types",
+      "evidenceId": "ev-one-small-studio-lint-format-types-d6854de-e3c97668",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [
+        "automated-checks"
+      ],
+      "releaseImpact": "blocks verification of automated-checks",
+      "title": "lint, format and types: project code was not executed",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-studio --collector lint-format-types",
+      "rootCause": null,
+      "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "proposedFix": null,
+      "acceptance": "The lint-format-types collector reports pass at the new commit, and the verifier records it for automated-checks.",
+      "verification": [
+        "automated-checks: re-executed by the verifier"
+      ]
+    },
+    {
+      "id": "one-small-studio:repo-structure:d6854de",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
       "collector": "repo-structure",
-      "evidenceId": "ev-one-small-studio-repo-structure-175cef6-6574efd3",
+      "evidenceId": "ev-one-small-studio-repo-structure-d6854de-4cd6c1c4",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [],
       "releaseImpact": "context only; no gate depends on it",
       "title": "repository structure: 4 of 5 check(s) passed; 1 not run or inconclusive",
-      "reproduction": "node scripts/verify/cli.mjs run --project one-small-studio --collector repo-structure --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project one-small-studio --collector repo-structure",
       "rootCause": null,
       "failureReason": "not run or inconclusive: license (absent)",
       "proposedFix": null,
@@ -498,8 +627,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "automated-checks",
@@ -507,22 +636,10 @@
       "humanOnly": false,
       "evidence": [
         {
-          "id": "ev-one-small-studio-build-test-175cef6-294dde20",
-          "digest": "caa87ec0dd58ebaf54e6529134472bd20ecd4e66373076331584924303374124",
+          "id": "ev-one-small-studio-build-test-d6854de-f7c2444f",
+          "digest": "bf18c025de4eca8705db2a780b2d6ed5f9f508091005eaa0e11725360280bb6f",
           "collector": "build-test",
-          "result": "pass"
-        },
-        {
-          "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
-          "digest": "dcb9383d0174073428dec8c4dcb46fa5b0f27708793c73ed061dc89a9f63344d",
-          "collector": "build-test",
-          "result": "pass"
-        },
-        {
-          "id": "ev-one-small-studio-build-test-175cef6-b269e3ac",
-          "digest": "bd3aeb36f44753fc8ec589fb342d768dcd2e1579609d927ce1a2a2b8cf061fed",
-          "collector": "build-test",
-          "result": "pass"
+          "result": "inconclusive"
         },
         {
           "id": "ev-one-small-studio-ci-results-175cef6-276b0f38",
@@ -543,34 +660,34 @@
           "result": "unavailable"
         },
         {
-          "id": "ev-one-small-studio-ci-results-175cef6-c73120b6",
-          "digest": "6b80fac7bc3b3012d3e236e6c109884aa031a467ed1eec693351c8004076c52d",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
           "id": "ev-one-small-studio-ci-results-175cef6-f298f2b3",
           "digest": "7eed04f5ef59c7e9b6bbc289a6d256eaaf83bb9a7e1c9a1c3acef00ff4f56eab",
           "collector": "ci-results",
           "result": "unavailable"
         },
         {
-          "id": "ev-one-small-studio-lint-format-types-175cef6-90de18f0",
-          "digest": "98a7fc12005e4f1fdc3b6d04d35a58f3a783fae0caa36a331e8f8318b5887336",
-          "collector": "lint-format-types",
-          "result": "pass"
+          "id": "ev-one-small-studio-ci-results-d6854de-0c1a754d",
+          "digest": "e43c3a07d6768834272822ae7128ba2644f31bd525571182c5a7a89d88c45c0d",
+          "collector": "ci-results",
+          "result": "unavailable"
         },
         {
-          "id": "ev-one-small-studio-lint-format-types-175cef6-cf237cfb",
-          "digest": "494fa9fcf5902b1caf5d3162785403d7f33b4f251aaaf3eefb7c8078cb8fb1c1",
+          "id": "ev-one-small-studio-ci-results-d6854de-fa913bb0",
+          "digest": "7e623c738c239a3a7bd793bce87fb002d0cf90076878c2b031f51c218c96c41b",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-studio-lint-format-types-d6854de-e3c97668",
+          "digest": "27ded0294409bb66059a367770f961baf35b0f5f852659c7269c77505dec0b16",
           "collector": "lint-format-types",
-          "result": "pass"
+          "result": "inconclusive"
         }
       ],
       "missingCollectors": [],
       "method": "re-executed",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "security-privacy-review",
@@ -578,34 +695,22 @@
       "humanOnly": false,
       "evidence": [
         {
-          "id": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
-          "digest": "91da9d70ee7e65679430607e1eca2ee25a3c003cc0cdc2abd4c2162945b46b04",
+          "id": "ev-one-small-studio-dependency-audit-d6854de-6ed21926",
+          "digest": "c54519b319d6fbfec9bcec6879cb642a8c05af7d4b3e079eaaa1d04de51d3b09",
           "collector": "dependency-audit",
-          "result": "fail"
-        },
-        {
-          "id": "ev-one-small-studio-dependency-audit-175cef6-fd8b01aa",
-          "digest": "f37df86536baf16179f3bf8980d4852bccf1e25f6d937792787eb4e5408a03a8",
-          "collector": "dependency-audit",
-          "result": "fail"
-        },
-        {
-          "id": "ev-one-small-studio-secret-scan-175cef6-7a3a0299",
-          "digest": "516803fa0522dcc6d495b96b3d629f473a6f5791107cf5dad1b58ffc139e92b5",
-          "collector": "secret-scan",
           "result": "pass"
         },
         {
-          "id": "ev-one-small-studio-secret-scan-175cef6-fb6abe5b",
-          "digest": "2e356c0d394df7895ae230e8f416006e8aec0d9178611dadb997b8fe7828f057",
+          "id": "ev-one-small-studio-secret-scan-d6854de-d3926880",
+          "digest": "7d63f84b909eb0b62396b05fdc337e47a6fbb1ae0a2692f1778b664d8de72fe6",
           "collector": "secret-scan",
           "result": "pass"
         }
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "wcag-22-aa",
@@ -613,22 +718,16 @@
       "humanOnly": false,
       "evidence": [
         {
-          "id": "ev-one-small-studio-accessibility-175cef6-363512db",
-          "digest": "108be59aa6cbce7a7d0fb4b8e0039c32bb808a732c4912e6b0e0c2e6d006a709",
-          "collector": "accessibility",
-          "result": "inconclusive"
-        },
-        {
-          "id": "ev-one-small-studio-accessibility-175cef6-fb594e90",
-          "digest": "4b3906b5d28e228d698b331a1c22580c8c25739579bc79e7a1118aaf232c71a0",
+          "id": "ev-one-small-studio-accessibility-d6854de-a3117ac6",
+          "digest": "fd140eb70b0b968077e850b2b36dc3997b823296b4ac52489e192ec940514863",
           "collector": "accessibility",
           "result": "inconclusive"
         }
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "keyboard-screen-reader",
@@ -637,8 +736,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "responsive-layouts",
@@ -647,8 +746,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "critical-workflows",
@@ -656,28 +755,16 @@
       "humanOnly": false,
       "evidence": [
         {
-          "id": "ev-one-small-studio-build-test-175cef6-294dde20",
-          "digest": "caa87ec0dd58ebaf54e6529134472bd20ecd4e66373076331584924303374124",
+          "id": "ev-one-small-studio-build-test-d6854de-f7c2444f",
+          "digest": "bf18c025de4eca8705db2a780b2d6ed5f9f508091005eaa0e11725360280bb6f",
           "collector": "build-test",
-          "result": "pass"
-        },
-        {
-          "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
-          "digest": "dcb9383d0174073428dec8c4dcb46fa5b0f27708793c73ed061dc89a9f63344d",
-          "collector": "build-test",
-          "result": "pass"
-        },
-        {
-          "id": "ev-one-small-studio-build-test-175cef6-b269e3ac",
-          "digest": "bd3aeb36f44753fc8ec589fb342d768dcd2e1579609d927ce1a2a2b8cf061fed",
-          "collector": "build-test",
-          "result": "pass"
+          "result": "inconclusive"
         }
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "production-deployment",
@@ -697,12 +784,6 @@
           "result": "unavailable"
         },
         {
-          "id": "ev-one-small-studio-deployment-health-175cef6-8d0ebc02",
-          "digest": "d756d8d0e6e67a2b081f16e6912ef5f6ec7cc06a320f3b689aad6bb362e07da8",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
           "id": "ev-one-small-studio-deployment-health-175cef6-eac0aff6",
           "digest": "bdb97732369a50069900480ff73e4147f8c39d73cd7b95c0b41746d18bf590f5",
           "collector": "deployment-health",
@@ -713,12 +794,24 @@
           "digest": "84250f6a84b0aca48465b9fd737f1100f3eb831b683ec103fd11d8ed09a05b85",
           "collector": "deployment-health",
           "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-studio-deployment-health-d6854de-970cfe92",
+          "digest": "521c0f44a9f04e470bc995e84cf59bdb364b5b31c944f01bb9c75268d4aca7f4",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-studio-deployment-health-d6854de-e1fe086a",
+          "digest": "b8866f309e5b03db75e5ea558ec8abc7b2fe03ec02fbfeb2c8115cc97c11d32c",
+          "collector": "deployment-health",
+          "result": "unavailable"
         }
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "documentation-accurate",
@@ -726,22 +819,16 @@
       "humanOnly": false,
       "evidence": [
         {
-          "id": "ev-one-small-studio-documentation-175cef6-4ba9575d",
-          "digest": "441378ae7ff5c85f2dbee6d45e448773096c4b5b25141e730598e363b7d5e8ea",
-          "collector": "documentation",
-          "result": "inconclusive"
-        },
-        {
-          "id": "ev-one-small-studio-documentation-175cef6-5daa9695",
-          "digest": "10f36168b361aab19eb16b3a795419a5a5137f87f1eb21c3a4fd78f8716ac1d9",
+          "id": "ev-one-small-studio-documentation-d6854de-f5f494e3",
+          "digest": "0218a715c56baac0958cd81e581d8bed01b83c70f3104e926c0c204f611e2dad",
           "collector": "documentation",
           "result": "inconclusive"
         }
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "no-release-blockers",
@@ -750,8 +837,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     }
   ]
 }

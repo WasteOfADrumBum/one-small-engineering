@@ -1,6 +1,6 @@
 # Cortex: issue reports
 
-As of 2026-10-27T01:56:27Z, commit ec49fd7907e9c901e6e4871732c7fe51881e5d3d. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
+As of 2026-10-28T21:07:08Z, commit ec49fd7907e9c901e6e4871732c7fe51881e5d3d. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
 
 ## accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive
 
@@ -43,7 +43,7 @@ The accessibility collector reports pass at the new commit, and the verifier rec
 - Commit: ec49fd7907e9c901e6e4871732c7fe51881e5d3d
 - Gate(s): automated-checks
 - Severity: unclassified; kind: access; release impact: blocks verification of automated-checks
-- Evidence: ev-cortex-ci-results-ec49fd7-bf09a281
+- Evidence: ev-cortex-ci-results-ec49fd7-330a5ec7
 
 ### Reproduction
 
@@ -78,7 +78,7 @@ The ci-results collector reports pass at the new commit, and the verifier record
 - Commit: ec49fd7907e9c901e6e4871732c7fe51881e5d3d
 - Gate(s): deployment-rollback, production-deployment
 - Severity: unclassified; kind: access; release impact: blocks verification of deployment-rollback, production-deployment
-- Evidence: ev-cortex-deployment-health-ec49fd7-a18cb9e8
+- Evidence: ev-cortex-deployment-health-ec49fd7-80f95d1a
 
 ### Reproduction
 

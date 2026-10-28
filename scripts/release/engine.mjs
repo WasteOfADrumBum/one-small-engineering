@@ -19,7 +19,7 @@
 //   applicable gate is verified and current, no blocker is open, and Joshua Small's approval is
 //   recorded with evidence.
 
-import { SYNC_RECORDER } from '../validate-registry.mjs'
+import { SYNC_RECORDER, sameParty } from '../validate-registry.mjs'
 import { gateProven } from '../readiness.mjs'
 import { dependencyFindings } from './dependencies.mjs'
 
@@ -118,7 +118,7 @@ export function ownershipState(p) {
   const verifier = norm(p.ownership.verifier)
   const automation = norm(SYNC_RECORDER)
   if (!builder || !verifier) return { valid: false, reason: 'builder and independent verifier are not both assigned' }
-  if (builder === verifier) return { valid: false, reason: 'builder and verifier are the same identity' }
+  if (sameParty(builder, verifier)) return { valid: false, reason: 'builder and verifier are the same identity or AI tool family' }
   if (builder === automation || verifier === automation) return { valid: false, reason: 'automation cannot be the builder or verifier' }
   return { valid: true, reason: null }
 }
@@ -129,7 +129,7 @@ export function classifyEvidence(p, e, ownership = ownershipState(p)) {
   if (e.result === 'fail') return 'failed'
   if (e.result === 'builder_reported') return 'builder-reported'
   if (e.result === 'pass' && manual && !NON_PROVING_TYPES.has(e.type) && norm(e.recordedBy) !== norm(SYNC_RECORDER)) {
-    return ownership.valid && norm(e.recordedBy) !== norm(p.ownership.builder) ? 'independent' : 'pass-without-independent-verifier'
+    return ownership.valid && !sameParty(e.recordedBy, p.ownership.builder) ? 'independent' : 'pass-without-independent-verifier'
   }
   return 'observation'
 }

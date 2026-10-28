@@ -1,15 +1,15 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-27T01:56:27Z",
+  "asOf": "2026-10-28T21:07:08Z",
   "id": "personal-portfolio",
   "name": "Personal Portfolio",
   "tier": "showcase",
   "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
   "target": {
-    "sha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+    "sha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
     "source": "live head of main",
-    "liveSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
-    "drift": null
+    "liveSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+    "drift": "registry snapshot is 684ef3c; live head is 56ea76e (registry sync refreshes it)"
   },
   "readiness": {
     "percentage": 0,
@@ -17,13 +17,13 @@
     "applicableGates": 10,
     "verifiedGates": 0,
     "eligibility": "not-scoped",
-    "ownershipValid": false
+    "ownershipValid": true
   },
   "gateStates": {
     "independently_verified": 0,
     "passed_by_builder": 1,
-    "failed": 1,
-    "inconclusive": 4,
+    "failed": 0,
+    "inconclusive": 5,
     "not_tested": 4,
     "not_applicable": 0
   },
@@ -41,7 +41,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -56,39 +55,59 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
+          "id": "ev-personal-portfolio-build-test-56ea76e-03122acd",
           "collector": "build-test",
-          "result": "pass",
-          "executedAt": "2026-10-27T01:50:58Z",
-          "summary": "build and test: 2 check(s) passed"
+          "result": "inconclusive",
+          "executedAt": "2026-10-28T21:04:16Z",
+          "summary": "build and test: project code was not executed"
         },
         {
-          "id": "ev-personal-portfolio-ci-results-684ef3c-c2193761",
+          "id": "ev-personal-portfolio-ci-results-56ea76e-ea76ee50",
           "collector": "ci-results",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:56:23Z",
+          "executedAt": "2026-10-28T21:06:52Z",
           "summary": "CI results: not readable"
         },
         {
-          "id": "ev-personal-portfolio-lint-format-types-684ef3c-ff61bbd5",
+          "id": "ev-personal-portfolio-lint-format-types-56ea76e-4b2bfc2f",
           "collector": "lint-format-types",
-          "result": "pass",
-          "executedAt": "2026-10-27T01:51:01Z",
-          "summary": "lint, format and types: 1 check(s) passed"
+          "result": "inconclusive",
+          "executedAt": "2026-10-28T21:04:16Z",
+          "summary": "lint, format and types: project code was not executed"
         }
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-personal-portfolio-lint-format-types-684ef3c-ff61bbd5",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-build-test-684ef3c-0bc913a4",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-lint-format-types-684ef3c-3a80bae8",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-build-test-684ef3c-de39ee7e",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        }
+      ],
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
     },
     {
       "id": "security-privacy-review",
-      "state": "failed",
+      "state": "passed_by_builder",
       "engineState": "not_started",
       "applicable": true,
       "automation": "partial",
@@ -96,25 +115,41 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
+          "id": "ev-personal-portfolio-dependency-audit-56ea76e-a7e719b8",
           "collector": "dependency-audit",
-          "result": "fail",
-          "executedAt": "2026-10-27T01:51:04Z",
-          "summary": "dependency audit: critical 1, high 1, moderate 0, low 0, info 0"
+          "result": "pass",
+          "executedAt": "2026-10-28T21:04:17Z",
+          "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0"
         },
         {
-          "id": "ev-personal-portfolio-secret-scan-684ef3c-a6bbdbf4",
+          "id": "ev-personal-portfolio-secret-scan-56ea76e-556244d6",
           "collector": "secret-scan",
           "result": "pass",
-          "executedAt": "2026-10-27T01:51:04Z",
+          "executedAt": "2026-10-28T21:04:17Z",
           "summary": "secret scan: 3 check(s) passed"
         }
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-secret-scan-684ef3c-a6bbdbf4",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-secret-scan-684ef3c-c8ba0893",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-dependency-audit-684ef3c-6a355138",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        }
+      ],
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -129,18 +164,26 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-personal-portfolio-accessibility-684ef3c-baee89e7",
+          "id": "ev-personal-portfolio-accessibility-56ea76e-a1e62722",
           "collector": "accessibility",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T01:51:04Z",
+          "executedAt": "2026-10-28T21:04:17Z",
           "summary": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive"
         }
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-personal-portfolio-accessibility-684ef3c-baee89e7",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-accessibility-684ef3c-7f948fd0",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        }
+      ],
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -158,7 +201,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -176,14 +218,13 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
     },
     {
       "id": "critical-workflows",
-      "state": "passed_by_builder",
+      "state": "inconclusive",
       "engineState": "not_started",
       "applicable": true,
       "automation": "partial",
@@ -191,18 +232,30 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
+          "id": "ev-personal-portfolio-build-test-56ea76e-03122acd",
           "collector": "build-test",
-          "result": "pass",
-          "executedAt": "2026-10-27T01:50:58Z",
-          "summary": "build and test: 2 check(s) passed"
+          "result": "inconclusive",
+          "executedAt": "2026-10-28T21:04:16Z",
+          "summary": "build and test: project code was not executed"
         }
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-build-test-684ef3c-0bc913a4",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-build-test-684ef3c-de39ee7e",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        }
+      ],
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -217,10 +270,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-personal-portfolio-deployment-health-684ef3c-45447d7c",
+          "id": "ev-personal-portfolio-deployment-health-56ea76e-439cbcc3",
           "collector": "deployment-health",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:56:23Z",
+          "executedAt": "2026-10-28T21:06:53Z",
           "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive"
         }
       ],
@@ -228,7 +281,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "After the authorized publication or deployment, verify it and record evidence."
@@ -243,18 +295,26 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-personal-portfolio-documentation-684ef3c-b200612c",
+          "id": "ev-personal-portfolio-documentation-56ea76e-85fea46c",
           "collector": "documentation",
           "result": "inconclusive",
-          "executedAt": "2026-10-27T01:51:04Z",
+          "executedAt": "2026-10-28T21:04:17Z",
           "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive"
         }
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-personal-portfolio-documentation-684ef3c-b200612c",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-documentation-684ef3c-207e2e00",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        }
+      ],
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "registry notes: README is create-next-app boilerplate"
       ],
       "nextAction": "Resolve readme-boilerplate, then verify."
@@ -272,7 +332,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -290,7 +349,60 @@
     "documentation-accurate",
     "no-release-blockers"
   ],
-  "staleEvidence": [],
+  "staleEvidence": [
+    {
+      "id": "ev-personal-portfolio-lint-format-types-684ef3c-ff61bbd5",
+      "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+    },
+    {
+      "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
+      "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+    },
+    {
+      "id": "ev-personal-portfolio-build-test-684ef3c-0bc913a4",
+      "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+    },
+    {
+      "id": "ev-personal-portfolio-lint-format-types-684ef3c-3a80bae8",
+      "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+    },
+    {
+      "id": "ev-personal-portfolio-build-test-684ef3c-de39ee7e",
+      "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+    },
+    {
+      "id": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
+      "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+    },
+    {
+      "id": "ev-personal-portfolio-secret-scan-684ef3c-a6bbdbf4",
+      "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+    },
+    {
+      "id": "ev-personal-portfolio-secret-scan-684ef3c-c8ba0893",
+      "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+    },
+    {
+      "id": "ev-personal-portfolio-dependency-audit-684ef3c-6a355138",
+      "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+    },
+    {
+      "id": "ev-personal-portfolio-accessibility-684ef3c-baee89e7",
+      "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+    },
+    {
+      "id": "ev-personal-portfolio-accessibility-684ef3c-7f948fd0",
+      "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+    },
+    {
+      "id": "ev-personal-portfolio-documentation-684ef3c-b200612c",
+      "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+    },
+    {
+      "id": "ev-personal-portfolio-documentation-684ef3c-207e2e00",
+      "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+    }
+  ],
   "blockers": [
     {
       "id": "no-ci-workflow",
@@ -339,36 +451,28 @@
       "blocks": "release",
       "category": "approval",
       "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
-    },
-    {
-      "id": "auto-ownership",
-      "origin": "derived",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "evidence",
-      "description": "Independent verification impossible: builder and independent verifier are not both assigned."
     }
   ],
   "blockersBySeverity": {
     "critical": 0,
-    "high": 1,
+    "high": 0,
     "medium": 0,
     "low": 0,
-    "unclassified": 7
+    "unclassified": 6
   },
   "mergeEligible": false,
   "releaseEligible": false,
   "lastVerification": null,
-  "lastCollection": "2026-10-27T01:56:23Z",
-  "nextAction": "Fix dependency-audit at 684ef3c: dependency audit: critical 1, high 1, moderate 0, low 0, info 0.",
+  "lastCollection": "2026-10-28T21:06:53Z",
+  "nextAction": "Resolve blocker scope-document-missing.",
   "findings": [
     {
-      "id": "personal-portfolio:accessibility:684ef3c",
+      "id": "personal-portfolio:accessibility:56ea76e",
       "project": "personal-portfolio",
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
       "collector": "accessibility",
-      "evidenceId": "ev-personal-portfolio-accessibility-684ef3c-baee89e7",
+      "evidenceId": "ev-personal-portfolio-accessibility-56ea76e-a1e62722",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -376,7 +480,7 @@
       ],
       "releaseImpact": "blocks verification of wcag-22-aa",
       "title": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive",
-      "reproduction": "node scripts/verify/cli.mjs run --project personal-portfolio --collector accessibility --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project personal-portfolio --collector accessibility",
       "rootCause": null,
       "failureReason": "not run or inconclusive: automated accessibility tooling (none declared in package.json); automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
       "proposedFix": null,
@@ -386,12 +490,37 @@
       ]
     },
     {
-      "id": "personal-portfolio:ci-results:684ef3c",
+      "id": "personal-portfolio:build-test:56ea76e",
       "project": "personal-portfolio",
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "collector": "build-test",
+      "evidenceId": "ev-personal-portfolio-build-test-56ea76e-03122acd",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [
+        "automated-checks",
+        "critical-workflows"
+      ],
+      "releaseImpact": "blocks verification of automated-checks, critical-workflows",
+      "title": "build and test: project code was not executed",
+      "reproduction": "node scripts/verify/cli.mjs run --project personal-portfolio --collector build-test",
+      "rootCause": null,
+      "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "proposedFix": null,
+      "acceptance": "The build-test collector reports pass at the new commit, and the verifier records it for automated-checks, critical-workflows.",
+      "verification": [
+        "automated-checks: re-executed by the verifier",
+        "critical-workflows: manual review by the verifier"
+      ]
+    },
+    {
+      "id": "personal-portfolio:ci-results:56ea76e",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
       "collector": "ci-results",
-      "evidenceId": "ev-personal-portfolio-ci-results-684ef3c-c2193761",
+      "evidenceId": "ev-personal-portfolio-ci-results-56ea76e-ea76ee50",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -409,35 +538,12 @@
       ]
     },
     {
-      "id": "personal-portfolio:dependency-audit:684ef3c",
+      "id": "personal-portfolio:deployment-health:56ea76e",
       "project": "personal-portfolio",
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
-      "collector": "dependency-audit",
-      "evidenceId": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
-      "kind": "defect",
-      "severity": "high",
-      "gates": [
-        "security-privacy-review"
-      ],
-      "releaseImpact": "blocks verification of security-privacy-review",
-      "title": "dependency audit: critical 1, high 1, moderate 0, low 0, info 0",
-      "reproduction": "npm audit --json --package-lock-only (at 684ef3c)",
-      "rootCause": "npm audit: critical 1, high 1, moderate 0, low 0, info 0 across 448 packages",
-      "failureReason": "critical or high advisories: next, zod",
-      "proposedFix": null,
-      "acceptance": "The dependency-audit collector reports pass at the new commit, and the verifier records it for security-privacy-review.",
-      "verification": [
-        "security-privacy-review: manual review by the verifier"
-      ]
-    },
-    {
-      "id": "personal-portfolio:deployment-health:684ef3c",
-      "project": "personal-portfolio",
-      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
       "collector": "deployment-health",
-      "evidenceId": "ev-personal-portfolio-deployment-health-684ef3c-45447d7c",
+      "evidenceId": "ev-personal-portfolio-deployment-health-56ea76e-439cbcc3",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -455,12 +561,12 @@
       ]
     },
     {
-      "id": "personal-portfolio:documentation:684ef3c",
+      "id": "personal-portfolio:documentation:56ea76e",
       "project": "personal-portfolio",
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
       "collector": "documentation",
-      "evidenceId": "ev-personal-portfolio-documentation-684ef3c-b200612c",
+      "evidenceId": "ev-personal-portfolio-documentation-56ea76e-85fea46c",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [
@@ -468,7 +574,7 @@
       ],
       "releaseImpact": "blocks verification of documentation-accurate",
       "title": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
-      "reproduction": "node scripts/verify/cli.mjs run --project personal-portfolio --collector documentation --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project personal-portfolio --collector documentation",
       "rootCause": null,
       "failureReason": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
       "proposedFix": null,
@@ -478,18 +584,41 @@
       ]
     },
     {
-      "id": "personal-portfolio:repo-structure:684ef3c",
+      "id": "personal-portfolio:lint-format-types:56ea76e",
       "project": "personal-portfolio",
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "collector": "lint-format-types",
+      "evidenceId": "ev-personal-portfolio-lint-format-types-56ea76e-4b2bfc2f",
+      "kind": "evidence-gap",
+      "severity": "low",
+      "gates": [
+        "automated-checks"
+      ],
+      "releaseImpact": "blocks verification of automated-checks",
+      "title": "lint, format and types: project code was not executed",
+      "reproduction": "node scripts/verify/cli.mjs run --project personal-portfolio --collector lint-format-types",
+      "rootCause": null,
+      "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "proposedFix": null,
+      "acceptance": "The lint-format-types collector reports pass at the new commit, and the verifier records it for automated-checks.",
+      "verification": [
+        "automated-checks: re-executed by the verifier"
+      ]
+    },
+    {
+      "id": "personal-portfolio:repo-structure:56ea76e",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
       "collector": "repo-structure",
-      "evidenceId": "ev-personal-portfolio-repo-structure-684ef3c-0662185a",
+      "evidenceId": "ev-personal-portfolio-repo-structure-56ea76e-fb62f904",
       "kind": "evidence-gap",
       "severity": "low",
       "gates": [],
       "releaseImpact": "context only; no gate depends on it",
       "title": "repository structure: 3 of 5 check(s) passed; 2 not run or inconclusive",
-      "reproduction": "node scripts/verify/cli.mjs run --project personal-portfolio --collector repo-structure --execute",
+      "reproduction": "node scripts/verify/cli.mjs run --project personal-portfolio --collector repo-structure",
       "rootCause": null,
       "failureReason": "not run or inconclusive: license (absent); workflows (no GitHub Actions workflows)",
       "proposedFix": null,
@@ -513,8 +642,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "automated-checks",
@@ -522,32 +651,26 @@
       "humanOnly": false,
       "evidence": [
         {
-          "id": "ev-personal-portfolio-build-test-684ef3c-0bc913a4",
-          "digest": "ae517abb1ef4265025f207ecb77c71501f6cfb2ef56dfe57e41b7b9ab670583f",
+          "id": "ev-personal-portfolio-build-test-56ea76e-03122acd",
+          "digest": "ca07afa76608fddf1ee52e26fe3c6537955a76eee04a395dd3b1ed48bf1b9834",
           "collector": "build-test",
-          "result": "pass"
+          "result": "inconclusive"
         },
         {
-          "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
-          "digest": "c7cd96d452ac40971e4868e0ff2951f4dea8257f0fd099e12bb690e46df858e0",
-          "collector": "build-test",
-          "result": "pass"
-        },
-        {
-          "id": "ev-personal-portfolio-build-test-684ef3c-de39ee7e",
-          "digest": "936ef8926b51a0e39d8ada3d0e328737416fabd7d6d6e92d9068ead664396fc8",
-          "collector": "build-test",
-          "result": "pass"
-        },
-        {
-          "id": "ev-personal-portfolio-ci-results-684ef3c-4e6240b2",
-          "digest": "e9add08b9741aaa83f2beec2195aaadc1982d5e63f2b7c14f6cfb7a988361121",
+          "id": "ev-personal-portfolio-ci-results-56ea76e-ea76ee50",
+          "digest": "c0f1fc1f936faf029de6cb19e63198330ce95a8df403fcf765140242c59390d2",
           "collector": "ci-results",
           "result": "unavailable"
         },
         {
-          "id": "ev-personal-portfolio-ci-results-684ef3c-972d7e12",
-          "digest": "d748b474f8d180f2588bc68c8d861d5ddc5861a50f03cfc88ce5c8283391484a",
+          "id": "ev-personal-portfolio-ci-results-56ea76e-fc63be34",
+          "digest": "8d8457d8b510bca0d1b3cb37960e18ad5ed30a5aaa93eb328a5b5251a543c8dd",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-personal-portfolio-ci-results-684ef3c-4e6240b2",
+          "digest": "e9add08b9741aaa83f2beec2195aaadc1982d5e63f2b7c14f6cfb7a988361121",
           "collector": "ci-results",
           "result": "unavailable"
         },
@@ -570,22 +693,16 @@
           "result": "unavailable"
         },
         {
-          "id": "ev-personal-portfolio-lint-format-types-684ef3c-3a80bae8",
-          "digest": "71952ced4ba6dc30d09b84289031d8ce090ad618bde363ca2e2615db343ad5f1",
+          "id": "ev-personal-portfolio-lint-format-types-56ea76e-4b2bfc2f",
+          "digest": "0ac743a03255d3c73aedbfbe4fe67b0308e41423e477b1630a882596f748e7b8",
           "collector": "lint-format-types",
-          "result": "pass"
-        },
-        {
-          "id": "ev-personal-portfolio-lint-format-types-684ef3c-ff61bbd5",
-          "digest": "e65e3d24eeb2e4e2c9d7b69452c86f5e985c7bbba8caf51f0f497b20b72651b8",
-          "collector": "lint-format-types",
-          "result": "pass"
+          "result": "inconclusive"
         }
       ],
       "missingCollectors": [],
       "method": "re-executed",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "security-privacy-review",
@@ -593,34 +710,22 @@
       "humanOnly": false,
       "evidence": [
         {
-          "id": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
-          "digest": "c0f87cb081a3fd20c74f5d91e0908f8c877b6b3f1b5fa73b0e8f19f5f8dce59c",
+          "id": "ev-personal-portfolio-dependency-audit-56ea76e-a7e719b8",
+          "digest": "d57e9ae16df66e601a8774256df588e281ddaf4e14ad695699865efc0ac40533",
           "collector": "dependency-audit",
-          "result": "fail"
-        },
-        {
-          "id": "ev-personal-portfolio-dependency-audit-684ef3c-6a355138",
-          "digest": "717e9d4328e5722d506980f01916ce37c254f004cd598d4ef247447f32b07459",
-          "collector": "dependency-audit",
-          "result": "fail"
-        },
-        {
-          "id": "ev-personal-portfolio-secret-scan-684ef3c-a6bbdbf4",
-          "digest": "6542dfe8d64c4f50e34da473a33297d23f81a1b1fcad51fff8811979c106ba45",
-          "collector": "secret-scan",
           "result": "pass"
         },
         {
-          "id": "ev-personal-portfolio-secret-scan-684ef3c-c8ba0893",
-          "digest": "d0d5726b380decb8a31c6dd3a3c34363c4adfa1b68371a74c89aa79d4775e53d",
+          "id": "ev-personal-portfolio-secret-scan-56ea76e-556244d6",
+          "digest": "2cb2dfa292a27f3932b331315244c6eacb0910e5b4448979deef7bfeed8e0cd9",
           "collector": "secret-scan",
           "result": "pass"
         }
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "wcag-22-aa",
@@ -628,22 +733,16 @@
       "humanOnly": false,
       "evidence": [
         {
-          "id": "ev-personal-portfolio-accessibility-684ef3c-7f948fd0",
-          "digest": "d109d8fa3fa9f8f4cd4e2abd25c3753593d58558d1bea65d096a21bf87b7d336",
-          "collector": "accessibility",
-          "result": "inconclusive"
-        },
-        {
-          "id": "ev-personal-portfolio-accessibility-684ef3c-baee89e7",
-          "digest": "3d5cd7951da0282ac37f16f42ccc8b273a42958035c8afc90a6427fb2e124cc4",
+          "id": "ev-personal-portfolio-accessibility-56ea76e-a1e62722",
+          "digest": "e30435ebaf8446c05cdfae08f800ecbf983d26ed64de3257ee5e78bc54d42a58",
           "collector": "accessibility",
           "result": "inconclusive"
         }
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "keyboard-screen-reader",
@@ -652,8 +751,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "responsive-layouts",
@@ -662,8 +761,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "critical-workflows",
@@ -671,34 +770,34 @@
       "humanOnly": false,
       "evidence": [
         {
-          "id": "ev-personal-portfolio-build-test-684ef3c-0bc913a4",
-          "digest": "ae517abb1ef4265025f207ecb77c71501f6cfb2ef56dfe57e41b7b9ab670583f",
+          "id": "ev-personal-portfolio-build-test-56ea76e-03122acd",
+          "digest": "ca07afa76608fddf1ee52e26fe3c6537955a76eee04a395dd3b1ed48bf1b9834",
           "collector": "build-test",
-          "result": "pass"
-        },
-        {
-          "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
-          "digest": "c7cd96d452ac40971e4868e0ff2951f4dea8257f0fd099e12bb690e46df858e0",
-          "collector": "build-test",
-          "result": "pass"
-        },
-        {
-          "id": "ev-personal-portfolio-build-test-684ef3c-de39ee7e",
-          "digest": "936ef8926b51a0e39d8ada3d0e328737416fabd7d6d6e92d9068ead664396fc8",
-          "collector": "build-test",
-          "result": "pass"
+          "result": "inconclusive"
         }
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "production-deployment",
       "automation": "partial",
       "humanOnly": false,
       "evidence": [
+        {
+          "id": "ev-personal-portfolio-deployment-health-56ea76e-403b2c5f",
+          "digest": "d92324f929af8de549d4ee20248b77adf851aa5a7809bac945bde2b3c450b7bc",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-personal-portfolio-deployment-health-56ea76e-439cbcc3",
+          "digest": "791156b08246f14033b26c4bca303977c89248a2c8f29e44606e5a01d84ecf03",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
         {
           "id": "ev-personal-portfolio-deployment-health-684ef3c-45447d7c",
           "digest": "41913376de46cb109acb26eda9ac7089d561c234be1166ea55f800bd67863d53",
@@ -718,12 +817,6 @@
           "result": "unavailable"
         },
         {
-          "id": "ev-personal-portfolio-deployment-health-684ef3c-b3ba0def",
-          "digest": "cb5ab86912057d96aabd9b8bfdd48c31ec873d998347447a4b898774acd48745",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
           "id": "ev-personal-portfolio-deployment-health-684ef3c-f1ab7588",
           "digest": "295d6d21b719cafcaea8dc67f986b77bfef45b8fe5c4a8f28c127263f5336312",
           "collector": "deployment-health",
@@ -732,8 +825,8 @@
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "documentation-accurate",
@@ -741,22 +834,16 @@
       "humanOnly": false,
       "evidence": [
         {
-          "id": "ev-personal-portfolio-documentation-684ef3c-207e2e00",
-          "digest": "1e2cc69595e77734332cff493a5e1a03242a684af595083310a5fe4e9e275cd0",
-          "collector": "documentation",
-          "result": "inconclusive"
-        },
-        {
-          "id": "ev-personal-portfolio-documentation-684ef3c-b200612c",
-          "digest": "5dc6fbf4051fa8bb29c90aa1a2d81122bfc3fae7b40fb25d83240dd345b87f53",
+          "id": "ev-personal-portfolio-documentation-56ea76e-85fea46c",
+          "digest": "a31afb56f65243a7b827204b4e4cc56a9c8b0614c46cf3b397ac38e73b3ac641",
           "collector": "documentation",
           "result": "inconclusive"
         }
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "no-release-blockers",
@@ -765,8 +852,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     }
   ]
 }

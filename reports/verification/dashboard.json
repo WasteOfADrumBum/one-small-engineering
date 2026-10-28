@@ -1,8 +1,8 @@
 {
   "kind": "one-small-engineering/verification-dashboard",
   "command": "npm run verify:report",
-  "asOf": "2026-10-27T01:56:27Z",
-  "registryHash": "b3f3033d0d260577a40fa71094e6ea741bdb1af2610d6ab2e53e87bef356f6dc",
+  "asOf": "2026-10-28T21:07:08Z",
+  "registryHash": "330a267023ad4d7f6201549b7b037b17e3ca08f5e2d02d7e8d0c23c9ea26de40",
   "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
   "policyVersion": 1,
   "runs": [
@@ -12,7 +12,7 @@
       "accessReason": null,
       "collected": 2,
       "reused": 0,
-      "executor": "local, 2026-10-27T01:56:26Z"
+      "executor": "local, 2026-10-28T21:07:07Z"
     },
     {
       "project": "one-small-ai-workforce",
@@ -20,7 +20,7 @@
       "accessReason": "repository not found or not visible without a reader credential (private repositories need one)",
       "collected": 8,
       "reused": 0,
-      "executor": "local, 2026-10-27T01:56:26Z"
+      "executor": "local, 2026-10-28T21:07:07Z"
     },
     {
       "project": "one-small-mods-pack",
@@ -28,7 +28,7 @@
       "accessReason": null,
       "collected": 1,
       "reused": 0,
-      "executor": "local, 2026-10-27T01:56:26Z"
+      "executor": "local, 2026-10-28T21:07:07Z"
     },
     {
       "project": "one-small-photography",
@@ -36,7 +36,7 @@
       "accessReason": null,
       "collected": 2,
       "reused": 0,
-      "executor": "local, 2026-10-27T01:56:26Z"
+      "executor": "local, 2026-10-28T21:07:07Z"
     },
     {
       "project": "one-small-studio",
@@ -44,7 +44,7 @@
       "accessReason": null,
       "collected": 2,
       "reused": 0,
-      "executor": "local, 2026-10-27T01:56:26Z"
+      "executor": "local, 2026-10-28T21:07:07Z"
     },
     {
       "project": "one-small-ui",
@@ -52,7 +52,7 @@
       "accessReason": null,
       "collected": 2,
       "reused": 0,
-      "executor": "local, 2026-10-27T01:56:26Z"
+      "executor": "local, 2026-10-28T21:07:07Z"
     },
     {
       "project": "personal-portfolio",
@@ -60,7 +60,7 @@
       "accessReason": null,
       "collected": 2,
       "reused": 0,
-      "executor": "local, 2026-10-27T01:56:26Z"
+      "executor": "local, 2026-10-28T21:07:07Z"
     },
     {
       "project": "taskforge",
@@ -68,7 +68,7 @@
       "accessReason": null,
       "collected": 2,
       "reused": 0,
-      "executor": "local, 2026-10-27T01:56:26Z"
+      "executor": "local, 2026-10-28T21:07:07Z"
     }
   ],
   "overlayErrors": [],
@@ -90,13 +90,13 @@
         "applicableGates": 21,
         "verifiedGates": 0,
         "eligibility": "not-eligible",
-        "ownershipValid": false
+        "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
-        "passed_by_builder": 4,
+        "passed_by_builder": 3,
         "failed": 6,
-        "inconclusive": 4,
+        "inconclusive": 5,
         "not_tested": 7,
         "not_applicable": 1
       },
@@ -113,7 +113,7 @@
         },
         {
           "id": "automated-checks",
-          "state": "passed_by_builder",
+          "state": "inconclusive",
           "automation": "full",
           "manualReviewRequired": false,
           "humanOnly": false,
@@ -124,7 +124,7 @@
               "result": "pass"
             },
             {
-              "id": "ev-one-small-mods-pack-ci-results-80cc269-35769d7e",
+              "id": "ev-one-small-mods-pack-ci-results-80cc269-bd14b314",
               "collector": "ci-results",
               "result": "unavailable"
             },
@@ -450,7 +450,7 @@
         "high": 0,
         "medium": 2,
         "low": 0,
-        "unclassified": 11
+        "unclassified": 10
       },
       "blockers": [
         {
@@ -532,21 +532,13 @@
           "blocks": "release",
           "category": "evidence",
           "description": "17 applicable pre-publication gate(s) lack current independent verification."
-        },
-        {
-          "id": "auto-ownership",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "evidence",
-          "description": "Independent verification impossible: builder and independent verifier are not both assigned."
         }
       ],
       "mergeEligible": false,
       "releaseEligible": false,
-      "lastCollection": "2026-10-27T01:56:22Z",
+      "lastCollection": "2026-10-28T21:06:49Z",
       "lastVerification": null,
-      "nextAction": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision).",
+      "nextAction": "Resolve blocker codex-interactive-trust.",
       "findings": [
         {
           "id": "one-small-mods-pack:accessibility:80cc269",
@@ -576,7 +568,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
           "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
           "collector": "ci-results",
-          "evidenceId": "ev-one-small-mods-pack-ci-results-80cc269-35769d7e",
+          "evidenceId": "ev-one-small-mods-pack-ci-results-80cc269-bd14b314",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -687,8 +679,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "automated-checks",
@@ -720,14 +712,20 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-mods-pack-ci-results-80cc269-40fdb2d7",
-              "digest": "c17cda48975909e77bc555775d6d153254c954619d58489b1929b5b9f86bb2d1",
+              "id": "ev-one-small-mods-pack-ci-results-80cc269-4677e3ea",
+              "digest": "7560af10aa65e2402055f4021d59e3bb6dbd6cbd9a254ac8e4bcac4af628b859",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
               "id": "ev-one-small-mods-pack-ci-results-80cc269-ad9b54c8",
               "digest": "63a0c127a78e35ed3aede42b66443e39a5181f02ab8178c3133dffde3939ad97",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-mods-pack-ci-results-80cc269-bd14b314",
+              "digest": "1386892abad0d81340a558d764c821b983a9a65ad5b4a3cf9879d157aba3d56e",
               "collector": "ci-results",
               "result": "unavailable"
             },
@@ -758,8 +756,8 @@
           ],
           "missingCollectors": [],
           "method": "re-executed",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "security-privacy-review",
@@ -793,8 +791,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "wcag-22-aa",
@@ -816,8 +814,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "keyboard-screen-reader",
@@ -826,8 +824,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "responsive-layouts",
@@ -836,8 +834,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "critical-workflows",
@@ -865,8 +863,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "documentation-accurate",
@@ -888,8 +886,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "no-release-blockers",
@@ -898,8 +896,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "package-metadata-exports",
@@ -921,8 +919,8 @@
           ],
           "missingCollectors": [],
           "method": "re-executed",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "clean-consumer-install",
@@ -944,8 +942,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "runtime-compatibility",
@@ -967,8 +965,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "package-archive-inspection",
@@ -990,8 +988,8 @@
           ],
           "missingCollectors": [],
           "method": "re-executed",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "supply-chain-review",
@@ -1013,8 +1011,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "ci-release-pipeline",
@@ -1036,8 +1034,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "versioning-changelog",
@@ -1059,8 +1057,8 @@
           ],
           "missingCollectors": [],
           "method": "re-executed",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "distribution-verified",
@@ -1069,8 +1067,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "release-provenance",
@@ -1079,8 +1077,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "upgrade-rollback-uninstall-docs",
@@ -1102,8 +1100,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "public-docs-accurate",
@@ -1125,8 +1123,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "published-artifact-matches",
@@ -1135,8 +1133,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         }
       ]
     },
@@ -1157,7 +1155,7 @@
         "applicableGates": 22,
         "verifiedGates": 0,
         "eligibility": "not-scoped",
-        "ownershipValid": false
+        "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
@@ -1191,7 +1189,7 @@
               "result": "pass"
             },
             {
-              "id": "ev-one-small-ui-ci-results-94438ee-b0dee17e",
+              "id": "ev-one-small-ui-ci-results-94438ee-0475c8d2",
               "collector": "ci-results",
               "result": "unavailable"
             },
@@ -1285,7 +1283,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ui-deployment-health-94438ee-4b57ce2e",
+              "id": "ev-one-small-ui-deployment-health-94438ee-ae0893ff",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -1524,7 +1522,7 @@
         "high": 1,
         "medium": 2,
         "low": 1,
-        "unclassified": 5
+        "unclassified": 4
       },
       "blockers": [
         {
@@ -1558,19 +1556,11 @@
           "blocks": "release",
           "category": "approval",
           "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
-        },
-        {
-          "id": "auto-ownership",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "evidence",
-          "description": "Independent verification impossible: builder and independent verifier are not both assigned."
         }
       ],
       "mergeEligible": false,
       "releaseEligible": false,
-      "lastCollection": "2026-10-27T01:56:23Z",
+      "lastCollection": "2026-10-28T21:06:50Z",
       "lastVerification": null,
       "nextAction": "Fix dependency-audit at 94438ee: dependency audit: critical 2, high 0, moderate 1, low 0, info 0.",
       "findings": [
@@ -1602,7 +1592,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
           "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
           "collector": "ci-results",
-          "evidenceId": "ev-one-small-ui-ci-results-94438ee-b0dee17e",
+          "evidenceId": "ev-one-small-ui-ci-results-94438ee-0475c8d2",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -1670,7 +1660,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
           "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
           "collector": "deployment-health",
-          "evidenceId": "ev-one-small-ui-deployment-health-94438ee-4b57ce2e",
+          "evidenceId": "ev-one-small-ui-deployment-health-94438ee-ae0893ff",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -1753,8 +1743,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "automated-checks",
@@ -1780,6 +1770,12 @@
               "result": "pass"
             },
             {
+              "id": "ev-one-small-ui-ci-results-94438ee-0475c8d2",
+              "digest": "8eda4ce5ba353b8f8bd7fa8f3ba9905fe3cb85bf47bfac2d5762308436cd5832",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-ui-ci-results-94438ee-090f762b",
               "digest": "d44acecad3ff6e16928a4861dbd5d8f9b8c523dcc7a91fe34feb70d4386b865d",
               "collector": "ci-results",
@@ -1798,8 +1794,8 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ui-ci-results-94438ee-811505f7",
-              "digest": "6b80d45e94dd4d07c8b723a939e4e887852e82a6ee295bd17c03b3d1130bf9bb",
+              "id": "ev-one-small-ui-ci-results-94438ee-722a0f4b",
+              "digest": "9f150a77bae1bb381aceb8fdf461bf20673feb918d3528ed9566b0da6de0e4a0",
               "collector": "ci-results",
               "result": "unavailable"
             },
@@ -1824,8 +1820,8 @@
           ],
           "missingCollectors": [],
           "method": "re-executed",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "security-privacy-review",
@@ -1859,8 +1855,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "wcag-22-aa",
@@ -1882,8 +1878,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "keyboard-screen-reader",
@@ -1892,8 +1888,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "responsive-layouts",
@@ -1902,8 +1898,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "critical-workflows",
@@ -1931,8 +1927,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "production-deployment",
@@ -1964,16 +1960,22 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ui-deployment-health-94438ee-c9739e90",
-              "digest": "2124a4dddd49916a96ddaa0e6a4375d130ae7c7f850b8152173e9f8278f354e4",
+              "id": "ev-one-small-ui-deployment-health-94438ee-9d247db9",
+              "digest": "2f29ddd50173d3b86998b56d8b96e628ec37aef4cfa8d3c97eef46cab98a3d05",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ui-deployment-health-94438ee-ae0893ff",
+              "digest": "4dd75ffbcdda07f3cfd54c56274a345d499a2f890088c17244ba2df5e278ce00",
               "collector": "deployment-health",
               "result": "unavailable"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "documentation-accurate",
@@ -1995,8 +1997,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "no-release-blockers",
@@ -2005,8 +2007,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "package-metadata-exports",
@@ -2028,8 +2030,8 @@
           ],
           "missingCollectors": [],
           "method": "re-executed",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "clean-consumer-install",
@@ -2051,8 +2053,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "runtime-compatibility",
@@ -2074,8 +2076,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "package-archive-inspection",
@@ -2097,8 +2099,8 @@
           ],
           "missingCollectors": [],
           "method": "re-executed",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "supply-chain-review",
@@ -2120,8 +2122,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "ci-release-pipeline",
@@ -2143,8 +2145,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "versioning-changelog",
@@ -2166,8 +2168,8 @@
           ],
           "missingCollectors": [],
           "method": "re-executed",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "distribution-verified",
@@ -2176,8 +2178,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "release-provenance",
@@ -2186,8 +2188,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "upgrade-rollback-uninstall-docs",
@@ -2209,8 +2211,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "public-docs-accurate",
@@ -2232,8 +2234,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "published-artifact-matches",
@@ -2242,8 +2244,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         }
       ]
     },
@@ -2253,10 +2255,10 @@
       "tier": "showcase",
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
       "target": {
-        "sha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+        "sha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
         "source": "live head of main",
-        "liveSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
-        "drift": null
+        "liveSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+        "drift": "registry snapshot is 684ef3c; live head is 56ea76e (registry sync refreshes it)"
       },
       "readiness": {
         "percentage": 0,
@@ -2264,13 +2266,13 @@
         "applicableGates": 10,
         "verifiedGates": 0,
         "eligibility": "not-scoped",
-        "ownershipValid": false
+        "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
         "passed_by_builder": 1,
-        "failed": 1,
-        "inconclusive": 4,
+        "failed": 0,
+        "inconclusive": 5,
         "not_tested": 4,
         "not_applicable": 0
       },
@@ -2293,43 +2295,43 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
+              "id": "ev-personal-portfolio-build-test-56ea76e-03122acd",
               "collector": "build-test",
-              "result": "pass"
+              "result": "inconclusive"
             },
             {
-              "id": "ev-personal-portfolio-ci-results-684ef3c-c2193761",
+              "id": "ev-personal-portfolio-ci-results-56ea76e-ea76ee50",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-personal-portfolio-lint-format-types-684ef3c-ff61bbd5",
+              "id": "ev-personal-portfolio-lint-format-types-56ea76e-4b2bfc2f",
               "collector": "lint-format-types",
-              "result": "pass"
+              "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 5,
           "verifications": []
         },
         {
           "id": "security-privacy-review",
-          "state": "failed",
+          "state": "passed_by_builder",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
+              "id": "ev-personal-portfolio-dependency-audit-56ea76e-a7e719b8",
               "collector": "dependency-audit",
-              "result": "fail"
+              "result": "pass"
             },
             {
-              "id": "ev-personal-portfolio-secret-scan-684ef3c-a6bbdbf4",
+              "id": "ev-personal-portfolio-secret-scan-56ea76e-556244d6",
               "collector": "secret-scan",
               "result": "pass"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 4,
           "verifications": []
         },
         {
@@ -2340,12 +2342,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-personal-portfolio-accessibility-684ef3c-baee89e7",
+              "id": "ev-personal-portfolio-accessibility-56ea76e-a1e62722",
               "collector": "accessibility",
               "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 2,
           "verifications": []
         },
         {
@@ -2370,18 +2372,18 @@
         },
         {
           "id": "critical-workflows",
-          "state": "passed_by_builder",
+          "state": "inconclusive",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
+              "id": "ev-personal-portfolio-build-test-56ea76e-03122acd",
               "collector": "build-test",
-              "result": "pass"
+              "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 3,
           "verifications": []
         },
         {
@@ -2392,7 +2394,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-personal-portfolio-deployment-health-684ef3c-45447d7c",
+              "id": "ev-personal-portfolio-deployment-health-56ea76e-439cbcc3",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -2408,12 +2410,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-personal-portfolio-documentation-684ef3c-b200612c",
+              "id": "ev-personal-portfolio-documentation-56ea76e-85fea46c",
               "collector": "documentation",
               "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 2,
           "verifications": []
         },
         {
@@ -2439,13 +2441,66 @@
         "documentation-accurate",
         "no-release-blockers"
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-personal-portfolio-lint-format-types-684ef3c-ff61bbd5",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-build-test-684ef3c-0bc913a4",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-lint-format-types-684ef3c-3a80bae8",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-build-test-684ef3c-de39ee7e",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-secret-scan-684ef3c-a6bbdbf4",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-secret-scan-684ef3c-c8ba0893",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-dependency-audit-684ef3c-6a355138",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-accessibility-684ef3c-baee89e7",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-accessibility-684ef3c-7f948fd0",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-documentation-684ef3c-b200612c",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        },
+        {
+          "id": "ev-personal-portfolio-documentation-684ef3c-207e2e00",
+          "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
+        }
+      ],
       "blockersBySeverity": {
         "critical": 0,
-        "high": 1,
+        "high": 0,
         "medium": 0,
         "low": 0,
-        "unclassified": 7
+        "unclassified": 6
       },
       "blockers": [
         {
@@ -2495,29 +2550,21 @@
           "blocks": "release",
           "category": "approval",
           "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
-        },
-        {
-          "id": "auto-ownership",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "evidence",
-          "description": "Independent verification impossible: builder and independent verifier are not both assigned."
         }
       ],
       "mergeEligible": false,
       "releaseEligible": false,
-      "lastCollection": "2026-10-27T01:56:23Z",
+      "lastCollection": "2026-10-28T21:06:53Z",
       "lastVerification": null,
-      "nextAction": "Fix dependency-audit at 684ef3c: dependency audit: critical 1, high 1, moderate 0, low 0, info 0.",
+      "nextAction": "Resolve blocker scope-document-missing.",
       "findings": [
         {
-          "id": "personal-portfolio:accessibility:684ef3c",
+          "id": "personal-portfolio:accessibility:56ea76e",
           "project": "personal-portfolio",
           "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-          "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+          "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
           "collector": "accessibility",
-          "evidenceId": "ev-personal-portfolio-accessibility-684ef3c-baee89e7",
+          "evidenceId": "ev-personal-portfolio-accessibility-56ea76e-a1e62722",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -2534,12 +2581,36 @@
           ]
         },
         {
-          "id": "personal-portfolio:ci-results:684ef3c",
+          "id": "personal-portfolio:build-test:56ea76e",
           "project": "personal-portfolio",
           "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-          "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+          "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+          "collector": "build-test",
+          "evidenceId": "ev-personal-portfolio-build-test-56ea76e-03122acd",
+          "kind": "evidence-gap",
+          "severity": "low",
+          "gates": [
+            "automated-checks",
+            "critical-workflows"
+          ],
+          "releaseImpact": "blocks verification of automated-checks, critical-workflows",
+          "title": "build and test: project code was not executed",
+          "rootCause": null,
+          "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+          "proposedFix": null,
+          "acceptance": "The build-test collector reports pass at the new commit, and the verifier records it for automated-checks, critical-workflows.",
+          "verification": [
+            "automated-checks: re-executed by the verifier",
+            "critical-workflows: manual review by the verifier"
+          ]
+        },
+        {
+          "id": "personal-portfolio:ci-results:56ea76e",
+          "project": "personal-portfolio",
+          "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+          "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
           "collector": "ci-results",
-          "evidenceId": "ev-personal-portfolio-ci-results-684ef3c-c2193761",
+          "evidenceId": "ev-personal-portfolio-ci-results-56ea76e-ea76ee50",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -2556,34 +2627,12 @@
           ]
         },
         {
-          "id": "personal-portfolio:dependency-audit:684ef3c",
+          "id": "personal-portfolio:deployment-health:56ea76e",
           "project": "personal-portfolio",
           "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-          "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
-          "collector": "dependency-audit",
-          "evidenceId": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
-          "kind": "defect",
-          "severity": "high",
-          "gates": [
-            "security-privacy-review"
-          ],
-          "releaseImpact": "blocks verification of security-privacy-review",
-          "title": "dependency audit: critical 1, high 1, moderate 0, low 0, info 0",
-          "rootCause": "npm audit: critical 1, high 1, moderate 0, low 0, info 0 across 448 packages",
-          "failureReason": "critical or high advisories: next, zod",
-          "proposedFix": null,
-          "acceptance": "The dependency-audit collector reports pass at the new commit, and the verifier records it for security-privacy-review.",
-          "verification": [
-            "security-privacy-review: manual review by the verifier"
-          ]
-        },
-        {
-          "id": "personal-portfolio:deployment-health:684ef3c",
-          "project": "personal-portfolio",
-          "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-          "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+          "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
           "collector": "deployment-health",
-          "evidenceId": "ev-personal-portfolio-deployment-health-684ef3c-45447d7c",
+          "evidenceId": "ev-personal-portfolio-deployment-health-56ea76e-439cbcc3",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -2600,12 +2649,12 @@
           ]
         },
         {
-          "id": "personal-portfolio:documentation:684ef3c",
+          "id": "personal-portfolio:documentation:56ea76e",
           "project": "personal-portfolio",
           "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-          "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+          "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
           "collector": "documentation",
-          "evidenceId": "ev-personal-portfolio-documentation-684ef3c-b200612c",
+          "evidenceId": "ev-personal-portfolio-documentation-56ea76e-85fea46c",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -2622,12 +2671,34 @@
           ]
         },
         {
-          "id": "personal-portfolio:repo-structure:684ef3c",
+          "id": "personal-portfolio:lint-format-types:56ea76e",
           "project": "personal-portfolio",
           "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-          "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+          "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+          "collector": "lint-format-types",
+          "evidenceId": "ev-personal-portfolio-lint-format-types-56ea76e-4b2bfc2f",
+          "kind": "evidence-gap",
+          "severity": "low",
+          "gates": [
+            "automated-checks"
+          ],
+          "releaseImpact": "blocks verification of automated-checks",
+          "title": "lint, format and types: project code was not executed",
+          "rootCause": null,
+          "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+          "proposedFix": null,
+          "acceptance": "The lint-format-types collector reports pass at the new commit, and the verifier records it for automated-checks.",
+          "verification": [
+            "automated-checks: re-executed by the verifier"
+          ]
+        },
+        {
+          "id": "personal-portfolio:repo-structure:56ea76e",
+          "project": "personal-portfolio",
+          "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+          "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
           "collector": "repo-structure",
-          "evidenceId": "ev-personal-portfolio-repo-structure-684ef3c-0662185a",
+          "evidenceId": "ev-personal-portfolio-repo-structure-56ea76e-fb62f904",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [],
@@ -2655,8 +2726,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "automated-checks",
@@ -2664,32 +2735,26 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-personal-portfolio-build-test-684ef3c-0bc913a4",
-              "digest": "ae517abb1ef4265025f207ecb77c71501f6cfb2ef56dfe57e41b7b9ab670583f",
+              "id": "ev-personal-portfolio-build-test-56ea76e-03122acd",
+              "digest": "ca07afa76608fddf1ee52e26fe3c6537955a76eee04a395dd3b1ed48bf1b9834",
               "collector": "build-test",
-              "result": "pass"
+              "result": "inconclusive"
             },
             {
-              "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
-              "digest": "c7cd96d452ac40971e4868e0ff2951f4dea8257f0fd099e12bb690e46df858e0",
-              "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-personal-portfolio-build-test-684ef3c-de39ee7e",
-              "digest": "936ef8926b51a0e39d8ada3d0e328737416fabd7d6d6e92d9068ead664396fc8",
-              "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-personal-portfolio-ci-results-684ef3c-4e6240b2",
-              "digest": "e9add08b9741aaa83f2beec2195aaadc1982d5e63f2b7c14f6cfb7a988361121",
+              "id": "ev-personal-portfolio-ci-results-56ea76e-ea76ee50",
+              "digest": "c0f1fc1f936faf029de6cb19e63198330ce95a8df403fcf765140242c59390d2",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-personal-portfolio-ci-results-684ef3c-972d7e12",
-              "digest": "d748b474f8d180f2588bc68c8d861d5ddc5861a50f03cfc88ce5c8283391484a",
+              "id": "ev-personal-portfolio-ci-results-56ea76e-fc63be34",
+              "digest": "8d8457d8b510bca0d1b3cb37960e18ad5ed30a5aaa93eb328a5b5251a543c8dd",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-personal-portfolio-ci-results-684ef3c-4e6240b2",
+              "digest": "e9add08b9741aaa83f2beec2195aaadc1982d5e63f2b7c14f6cfb7a988361121",
               "collector": "ci-results",
               "result": "unavailable"
             },
@@ -2712,22 +2777,16 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-personal-portfolio-lint-format-types-684ef3c-3a80bae8",
-              "digest": "71952ced4ba6dc30d09b84289031d8ce090ad618bde363ca2e2615db343ad5f1",
+              "id": "ev-personal-portfolio-lint-format-types-56ea76e-4b2bfc2f",
+              "digest": "0ac743a03255d3c73aedbfbe4fe67b0308e41423e477b1630a882596f748e7b8",
               "collector": "lint-format-types",
-              "result": "pass"
-            },
-            {
-              "id": "ev-personal-portfolio-lint-format-types-684ef3c-ff61bbd5",
-              "digest": "e65e3d24eeb2e4e2c9d7b69452c86f5e985c7bbba8caf51f0f497b20b72651b8",
-              "collector": "lint-format-types",
-              "result": "pass"
+              "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "re-executed",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "security-privacy-review",
@@ -2735,34 +2794,22 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
-              "digest": "c0f87cb081a3fd20c74f5d91e0908f8c877b6b3f1b5fa73b0e8f19f5f8dce59c",
+              "id": "ev-personal-portfolio-dependency-audit-56ea76e-a7e719b8",
+              "digest": "d57e9ae16df66e601a8774256df588e281ddaf4e14ad695699865efc0ac40533",
               "collector": "dependency-audit",
-              "result": "fail"
-            },
-            {
-              "id": "ev-personal-portfolio-dependency-audit-684ef3c-6a355138",
-              "digest": "717e9d4328e5722d506980f01916ce37c254f004cd598d4ef247447f32b07459",
-              "collector": "dependency-audit",
-              "result": "fail"
-            },
-            {
-              "id": "ev-personal-portfolio-secret-scan-684ef3c-a6bbdbf4",
-              "digest": "6542dfe8d64c4f50e34da473a33297d23f81a1b1fcad51fff8811979c106ba45",
-              "collector": "secret-scan",
               "result": "pass"
             },
             {
-              "id": "ev-personal-portfolio-secret-scan-684ef3c-c8ba0893",
-              "digest": "d0d5726b380decb8a31c6dd3a3c34363c4adfa1b68371a74c89aa79d4775e53d",
+              "id": "ev-personal-portfolio-secret-scan-56ea76e-556244d6",
+              "digest": "2cb2dfa292a27f3932b331315244c6eacb0910e5b4448979deef7bfeed8e0cd9",
               "collector": "secret-scan",
               "result": "pass"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "wcag-22-aa",
@@ -2770,22 +2817,16 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-personal-portfolio-accessibility-684ef3c-7f948fd0",
-              "digest": "d109d8fa3fa9f8f4cd4e2abd25c3753593d58558d1bea65d096a21bf87b7d336",
-              "collector": "accessibility",
-              "result": "inconclusive"
-            },
-            {
-              "id": "ev-personal-portfolio-accessibility-684ef3c-baee89e7",
-              "digest": "3d5cd7951da0282ac37f16f42ccc8b273a42958035c8afc90a6427fb2e124cc4",
+              "id": "ev-personal-portfolio-accessibility-56ea76e-a1e62722",
+              "digest": "e30435ebaf8446c05cdfae08f800ecbf983d26ed64de3257ee5e78bc54d42a58",
               "collector": "accessibility",
               "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "keyboard-screen-reader",
@@ -2794,8 +2835,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "responsive-layouts",
@@ -2804,8 +2845,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "critical-workflows",
@@ -2813,34 +2854,34 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-personal-portfolio-build-test-684ef3c-0bc913a4",
-              "digest": "ae517abb1ef4265025f207ecb77c71501f6cfb2ef56dfe57e41b7b9ab670583f",
+              "id": "ev-personal-portfolio-build-test-56ea76e-03122acd",
+              "digest": "ca07afa76608fddf1ee52e26fe3c6537955a76eee04a395dd3b1ed48bf1b9834",
               "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-personal-portfolio-build-test-684ef3c-9f9d4de2",
-              "digest": "c7cd96d452ac40971e4868e0ff2951f4dea8257f0fd099e12bb690e46df858e0",
-              "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-personal-portfolio-build-test-684ef3c-de39ee7e",
-              "digest": "936ef8926b51a0e39d8ada3d0e328737416fabd7d6d6e92d9068ead664396fc8",
-              "collector": "build-test",
-              "result": "pass"
+              "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "production-deployment",
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-personal-portfolio-deployment-health-56ea76e-403b2c5f",
+              "digest": "d92324f929af8de549d4ee20248b77adf851aa5a7809bac945bde2b3c450b7bc",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-personal-portfolio-deployment-health-56ea76e-439cbcc3",
+              "digest": "791156b08246f14033b26c4bca303977c89248a2c8f29e44606e5a01d84ecf03",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
             {
               "id": "ev-personal-portfolio-deployment-health-684ef3c-45447d7c",
               "digest": "41913376de46cb109acb26eda9ac7089d561c234be1166ea55f800bd67863d53",
@@ -2860,12 +2901,6 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-personal-portfolio-deployment-health-684ef3c-b3ba0def",
-              "digest": "cb5ab86912057d96aabd9b8bfdd48c31ec873d998347447a4b898774acd48745",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
               "id": "ev-personal-portfolio-deployment-health-684ef3c-f1ab7588",
               "digest": "295d6d21b719cafcaea8dc67f986b77bfef45b8fe5c4a8f28c127263f5336312",
               "collector": "deployment-health",
@@ -2874,8 +2909,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "documentation-accurate",
@@ -2883,22 +2918,16 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-personal-portfolio-documentation-684ef3c-207e2e00",
-              "digest": "1e2cc69595e77734332cff493a5e1a03242a684af595083310a5fe4e9e275cd0",
-              "collector": "documentation",
-              "result": "inconclusive"
-            },
-            {
-              "id": "ev-personal-portfolio-documentation-684ef3c-b200612c",
-              "digest": "5dc6fbf4051fa8bb29c90aa1a2d81122bfc3fae7b40fb25d83240dd345b87f53",
+              "id": "ev-personal-portfolio-documentation-56ea76e-85fea46c",
+              "digest": "a31afb56f65243a7b827204b4e4cc56a9c8b0614c46cf3b397ac38e73b3ac641",
               "collector": "documentation",
               "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "no-release-blockers",
@@ -2907,8 +2936,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         }
       ]
     },
@@ -2918,10 +2947,10 @@
       "tier": "showcase",
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
       "target": {
-        "sha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+        "sha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
         "source": "live head of main",
-        "liveSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
-        "drift": "registry snapshot is 923fb11; live head is 175cef6 (registry sync refreshes it)"
+        "liveSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+        "drift": "registry snapshot is 923fb11; live head is d6854de (registry sync refreshes it)"
       },
       "readiness": {
         "percentage": 0,
@@ -2929,13 +2958,13 @@
         "applicableGates": 10,
         "verifiedGates": 0,
         "eligibility": "not-scoped",
-        "ownershipValid": false
+        "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
         "passed_by_builder": 2,
-        "failed": 1,
-        "inconclusive": 3,
+        "failed": 0,
+        "inconclusive": 4,
         "not_tested": 4,
         "not_applicable": 0
       },
@@ -2958,43 +2987,43 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
+              "id": "ev-one-small-studio-build-test-d6854de-f7c2444f",
               "collector": "build-test",
-              "result": "pass"
+              "result": "inconclusive"
             },
             {
-              "id": "ev-one-small-studio-ci-results-175cef6-372b3f9b",
+              "id": "ev-one-small-studio-ci-results-d6854de-fa913bb0",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-studio-lint-format-types-175cef6-cf237cfb",
+              "id": "ev-one-small-studio-lint-format-types-d6854de-e3c97668",
               "collector": "lint-format-types",
-              "result": "pass"
+              "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 5,
           "verifications": []
         },
         {
           "id": "security-privacy-review",
-          "state": "failed",
+          "state": "passed_by_builder",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
+              "id": "ev-one-small-studio-dependency-audit-d6854de-6ed21926",
               "collector": "dependency-audit",
-              "result": "fail"
+              "result": "pass"
             },
             {
-              "id": "ev-one-small-studio-secret-scan-175cef6-fb6abe5b",
+              "id": "ev-one-small-studio-secret-scan-d6854de-d3926880",
               "collector": "secret-scan",
               "result": "pass"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 4,
           "verifications": []
         },
         {
@@ -3005,12 +3034,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-studio-accessibility-175cef6-fb594e90",
+              "id": "ev-one-small-studio-accessibility-d6854de-a3117ac6",
               "collector": "accessibility",
               "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 2,
           "verifications": []
         },
         {
@@ -3035,18 +3064,18 @@
         },
         {
           "id": "critical-workflows",
-          "state": "passed_by_builder",
+          "state": "inconclusive",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
+              "id": "ev-one-small-studio-build-test-d6854de-f7c2444f",
               "collector": "build-test",
-              "result": "pass"
+              "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 3,
           "verifications": []
         },
         {
@@ -3057,7 +3086,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-studio-deployment-health-175cef6-eac0aff6",
+              "id": "ev-one-small-studio-deployment-health-d6854de-970cfe92",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -3073,12 +3102,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-studio-documentation-175cef6-5daa9695",
+              "id": "ev-one-small-studio-documentation-d6854de-f5f494e3",
               "collector": "documentation",
               "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 2,
           "verifications": []
         },
         {
@@ -3104,13 +3133,66 @@
         "documentation-accurate",
         "no-release-blockers"
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-one-small-studio-lint-format-types-175cef6-cf237cfb",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-build-test-175cef6-294dde20",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-lint-format-types-175cef6-90de18f0",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-build-test-175cef6-b269e3ac",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-secret-scan-175cef6-fb6abe5b",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-dependency-audit-175cef6-fd8b01aa",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-secret-scan-175cef6-7a3a0299",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-accessibility-175cef6-fb594e90",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-accessibility-175cef6-363512db",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-documentation-175cef6-5daa9695",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-documentation-175cef6-4ba9575d",
+          "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        }
+      ],
       "blockersBySeverity": {
         "critical": 0,
-        "high": 1,
+        "high": 0,
         "medium": 0,
         "low": 0,
-        "unclassified": 5
+        "unclassified": 4
       },
       "blockers": [
         {
@@ -3144,29 +3226,21 @@
           "blocks": "release",
           "category": "approval",
           "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
-        },
-        {
-          "id": "auto-ownership",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "evidence",
-          "description": "Independent verification impossible: builder and independent verifier are not both assigned."
         }
       ],
       "mergeEligible": false,
       "releaseEligible": false,
-      "lastCollection": "2026-10-27T01:56:24Z",
+      "lastCollection": "2026-10-28T21:06:55Z",
       "lastVerification": null,
-      "nextAction": "Fix dependency-audit at 175cef6: dependency audit: critical 0, high 2, moderate 0, low 0, info 0.",
+      "nextAction": "Resolve blocker scope-document-missing.",
       "findings": [
         {
-          "id": "one-small-studio:accessibility:175cef6",
+          "id": "one-small-studio:accessibility:d6854de",
           "project": "one-small-studio",
           "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-          "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+          "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
           "collector": "accessibility",
-          "evidenceId": "ev-one-small-studio-accessibility-175cef6-fb594e90",
+          "evidenceId": "ev-one-small-studio-accessibility-d6854de-a3117ac6",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -3183,12 +3257,36 @@
           ]
         },
         {
-          "id": "one-small-studio:ci-results:175cef6",
+          "id": "one-small-studio:build-test:d6854de",
           "project": "one-small-studio",
           "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-          "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+          "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+          "collector": "build-test",
+          "evidenceId": "ev-one-small-studio-build-test-d6854de-f7c2444f",
+          "kind": "evidence-gap",
+          "severity": "low",
+          "gates": [
+            "automated-checks",
+            "critical-workflows"
+          ],
+          "releaseImpact": "blocks verification of automated-checks, critical-workflows",
+          "title": "build and test: project code was not executed",
+          "rootCause": null,
+          "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+          "proposedFix": null,
+          "acceptance": "The build-test collector reports pass at the new commit, and the verifier records it for automated-checks, critical-workflows.",
+          "verification": [
+            "automated-checks: re-executed by the verifier",
+            "critical-workflows: manual review by the verifier"
+          ]
+        },
+        {
+          "id": "one-small-studio:ci-results:d6854de",
+          "project": "one-small-studio",
+          "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+          "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
           "collector": "ci-results",
-          "evidenceId": "ev-one-small-studio-ci-results-175cef6-372b3f9b",
+          "evidenceId": "ev-one-small-studio-ci-results-d6854de-fa913bb0",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -3205,34 +3303,12 @@
           ]
         },
         {
-          "id": "one-small-studio:dependency-audit:175cef6",
+          "id": "one-small-studio:deployment-health:d6854de",
           "project": "one-small-studio",
           "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-          "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
-          "collector": "dependency-audit",
-          "evidenceId": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
-          "kind": "defect",
-          "severity": "high",
-          "gates": [
-            "security-privacy-review"
-          ],
-          "releaseImpact": "blocks verification of security-privacy-review",
-          "title": "dependency audit: critical 0, high 2, moderate 0, low 0, info 0",
-          "rootCause": "npm audit: critical 0, high 2, moderate 0, low 0, info 0 across 443 packages",
-          "failureReason": "critical or high advisories: body-parser, zod",
-          "proposedFix": null,
-          "acceptance": "The dependency-audit collector reports pass at the new commit, and the verifier records it for security-privacy-review.",
-          "verification": [
-            "security-privacy-review: manual review by the verifier"
-          ]
-        },
-        {
-          "id": "one-small-studio:deployment-health:175cef6",
-          "project": "one-small-studio",
-          "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-          "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+          "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
           "collector": "deployment-health",
-          "evidenceId": "ev-one-small-studio-deployment-health-175cef6-eac0aff6",
+          "evidenceId": "ev-one-small-studio-deployment-health-d6854de-970cfe92",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -3249,12 +3325,12 @@
           ]
         },
         {
-          "id": "one-small-studio:documentation:175cef6",
+          "id": "one-small-studio:documentation:d6854de",
           "project": "one-small-studio",
           "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-          "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+          "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
           "collector": "documentation",
-          "evidenceId": "ev-one-small-studio-documentation-175cef6-5daa9695",
+          "evidenceId": "ev-one-small-studio-documentation-d6854de-f5f494e3",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -3271,12 +3347,34 @@
           ]
         },
         {
-          "id": "one-small-studio:repo-structure:175cef6",
+          "id": "one-small-studio:lint-format-types:d6854de",
           "project": "one-small-studio",
           "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-          "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
+          "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+          "collector": "lint-format-types",
+          "evidenceId": "ev-one-small-studio-lint-format-types-d6854de-e3c97668",
+          "kind": "evidence-gap",
+          "severity": "low",
+          "gates": [
+            "automated-checks"
+          ],
+          "releaseImpact": "blocks verification of automated-checks",
+          "title": "lint, format and types: project code was not executed",
+          "rootCause": null,
+          "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+          "proposedFix": null,
+          "acceptance": "The lint-format-types collector reports pass at the new commit, and the verifier records it for automated-checks.",
+          "verification": [
+            "automated-checks: re-executed by the verifier"
+          ]
+        },
+        {
+          "id": "one-small-studio:repo-structure:d6854de",
+          "project": "one-small-studio",
+          "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+          "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
           "collector": "repo-structure",
-          "evidenceId": "ev-one-small-studio-repo-structure-175cef6-6574efd3",
+          "evidenceId": "ev-one-small-studio-repo-structure-d6854de-4cd6c1c4",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [],
@@ -3304,8 +3402,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "automated-checks",
@@ -3313,22 +3411,10 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-one-small-studio-build-test-175cef6-294dde20",
-              "digest": "caa87ec0dd58ebaf54e6529134472bd20ecd4e66373076331584924303374124",
+              "id": "ev-one-small-studio-build-test-d6854de-f7c2444f",
+              "digest": "bf18c025de4eca8705db2a780b2d6ed5f9f508091005eaa0e11725360280bb6f",
               "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
-              "digest": "dcb9383d0174073428dec8c4dcb46fa5b0f27708793c73ed061dc89a9f63344d",
-              "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-studio-build-test-175cef6-b269e3ac",
-              "digest": "bd3aeb36f44753fc8ec589fb342d768dcd2e1579609d927ce1a2a2b8cf061fed",
-              "collector": "build-test",
-              "result": "pass"
+              "result": "inconclusive"
             },
             {
               "id": "ev-one-small-studio-ci-results-175cef6-276b0f38",
@@ -3349,34 +3435,34 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-studio-ci-results-175cef6-c73120b6",
-              "digest": "6b80fac7bc3b3012d3e236e6c109884aa031a467ed1eec693351c8004076c52d",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
               "id": "ev-one-small-studio-ci-results-175cef6-f298f2b3",
               "digest": "7eed04f5ef59c7e9b6bbc289a6d256eaaf83bb9a7e1c9a1c3acef00ff4f56eab",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-studio-lint-format-types-175cef6-90de18f0",
-              "digest": "98a7fc12005e4f1fdc3b6d04d35a58f3a783fae0caa36a331e8f8318b5887336",
-              "collector": "lint-format-types",
-              "result": "pass"
+              "id": "ev-one-small-studio-ci-results-d6854de-0c1a754d",
+              "digest": "e43c3a07d6768834272822ae7128ba2644f31bd525571182c5a7a89d88c45c0d",
+              "collector": "ci-results",
+              "result": "unavailable"
             },
             {
-              "id": "ev-one-small-studio-lint-format-types-175cef6-cf237cfb",
-              "digest": "494fa9fcf5902b1caf5d3162785403d7f33b4f251aaaf3eefb7c8078cb8fb1c1",
+              "id": "ev-one-small-studio-ci-results-d6854de-fa913bb0",
+              "digest": "7e623c738c239a3a7bd793bce87fb002d0cf90076878c2b031f51c218c96c41b",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-studio-lint-format-types-d6854de-e3c97668",
+              "digest": "27ded0294409bb66059a367770f961baf35b0f5f852659c7269c77505dec0b16",
               "collector": "lint-format-types",
-              "result": "pass"
+              "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "re-executed",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "security-privacy-review",
@@ -3384,34 +3470,22 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
-              "digest": "91da9d70ee7e65679430607e1eca2ee25a3c003cc0cdc2abd4c2162945b46b04",
+              "id": "ev-one-small-studio-dependency-audit-d6854de-6ed21926",
+              "digest": "c54519b319d6fbfec9bcec6879cb642a8c05af7d4b3e079eaaa1d04de51d3b09",
               "collector": "dependency-audit",
-              "result": "fail"
-            },
-            {
-              "id": "ev-one-small-studio-dependency-audit-175cef6-fd8b01aa",
-              "digest": "f37df86536baf16179f3bf8980d4852bccf1e25f6d937792787eb4e5408a03a8",
-              "collector": "dependency-audit",
-              "result": "fail"
-            },
-            {
-              "id": "ev-one-small-studio-secret-scan-175cef6-7a3a0299",
-              "digest": "516803fa0522dcc6d495b96b3d629f473a6f5791107cf5dad1b58ffc139e92b5",
-              "collector": "secret-scan",
               "result": "pass"
             },
             {
-              "id": "ev-one-small-studio-secret-scan-175cef6-fb6abe5b",
-              "digest": "2e356c0d394df7895ae230e8f416006e8aec0d9178611dadb997b8fe7828f057",
+              "id": "ev-one-small-studio-secret-scan-d6854de-d3926880",
+              "digest": "7d63f84b909eb0b62396b05fdc337e47a6fbb1ae0a2692f1778b664d8de72fe6",
               "collector": "secret-scan",
               "result": "pass"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "wcag-22-aa",
@@ -3419,22 +3493,16 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-one-small-studio-accessibility-175cef6-363512db",
-              "digest": "108be59aa6cbce7a7d0fb4b8e0039c32bb808a732c4912e6b0e0c2e6d006a709",
-              "collector": "accessibility",
-              "result": "inconclusive"
-            },
-            {
-              "id": "ev-one-small-studio-accessibility-175cef6-fb594e90",
-              "digest": "4b3906b5d28e228d698b331a1c22580c8c25739579bc79e7a1118aaf232c71a0",
+              "id": "ev-one-small-studio-accessibility-d6854de-a3117ac6",
+              "digest": "fd140eb70b0b968077e850b2b36dc3997b823296b4ac52489e192ec940514863",
               "collector": "accessibility",
               "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "keyboard-screen-reader",
@@ -3443,8 +3511,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "responsive-layouts",
@@ -3453,8 +3521,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "critical-workflows",
@@ -3462,28 +3530,16 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-one-small-studio-build-test-175cef6-294dde20",
-              "digest": "caa87ec0dd58ebaf54e6529134472bd20ecd4e66373076331584924303374124",
+              "id": "ev-one-small-studio-build-test-d6854de-f7c2444f",
+              "digest": "bf18c025de4eca8705db2a780b2d6ed5f9f508091005eaa0e11725360280bb6f",
               "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-studio-build-test-175cef6-516f03e4",
-              "digest": "dcb9383d0174073428dec8c4dcb46fa5b0f27708793c73ed061dc89a9f63344d",
-              "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-studio-build-test-175cef6-b269e3ac",
-              "digest": "bd3aeb36f44753fc8ec589fb342d768dcd2e1579609d927ce1a2a2b8cf061fed",
-              "collector": "build-test",
-              "result": "pass"
+              "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "production-deployment",
@@ -3503,12 +3559,6 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-studio-deployment-health-175cef6-8d0ebc02",
-              "digest": "d756d8d0e6e67a2b081f16e6912ef5f6ec7cc06a320f3b689aad6bb362e07da8",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
               "id": "ev-one-small-studio-deployment-health-175cef6-eac0aff6",
               "digest": "bdb97732369a50069900480ff73e4147f8c39d73cd7b95c0b41746d18bf590f5",
               "collector": "deployment-health",
@@ -3519,12 +3569,24 @@
               "digest": "84250f6a84b0aca48465b9fd737f1100f3eb831b683ec103fd11d8ed09a05b85",
               "collector": "deployment-health",
               "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-studio-deployment-health-d6854de-970cfe92",
+              "digest": "521c0f44a9f04e470bc995e84cf59bdb364b5b31c944f01bb9c75268d4aca7f4",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-studio-deployment-health-d6854de-e1fe086a",
+              "digest": "b8866f309e5b03db75e5ea558ec8abc7b2fe03ec02fbfeb2c8115cc97c11d32c",
+              "collector": "deployment-health",
+              "result": "unavailable"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "documentation-accurate",
@@ -3532,22 +3594,16 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-one-small-studio-documentation-175cef6-4ba9575d",
-              "digest": "441378ae7ff5c85f2dbee6d45e448773096c4b5b25141e730598e363b7d5e8ea",
-              "collector": "documentation",
-              "result": "inconclusive"
-            },
-            {
-              "id": "ev-one-small-studio-documentation-175cef6-5daa9695",
-              "digest": "10f36168b361aab19eb16b3a795419a5a5137f87f1eb21c3a4fd78f8716ac1d9",
+              "id": "ev-one-small-studio-documentation-d6854de-f5f494e3",
+              "digest": "0218a715c56baac0958cd81e581d8bed01b83c70f3104e926c0c204f611e2dad",
               "collector": "documentation",
               "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "no-release-blockers",
@@ -3556,8 +3612,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         }
       ]
     },
@@ -3567,10 +3623,10 @@
       "tier": "showcase",
       "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
       "target": {
-        "sha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+        "sha": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
         "source": "live head of main",
-        "liveSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
-        "drift": "registry snapshot is 2471b18; live head is 45a74ba (registry sync refreshes it)"
+        "liveSha": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+        "drift": "registry snapshot is 2471b18; live head is fa2d17f (registry sync refreshes it)"
       },
       "readiness": {
         "percentage": 0,
@@ -3578,13 +3634,13 @@
         "applicableGates": 10,
         "verifiedGates": 0,
         "eligibility": "not-scoped",
-        "ownershipValid": false
+        "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
-        "passed_by_builder": 2,
+        "passed_by_builder": 1,
         "failed": 0,
-        "inconclusive": 4,
+        "inconclusive": 5,
         "not_tested": 4,
         "not_applicable": 0
       },
@@ -3607,22 +3663,22 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-photography-build-test-45a74ba-1c559c0f",
+              "id": "ev-one-small-photography-build-test-fa2d17f-6207ff46",
               "collector": "build-test",
-              "result": "pass"
+              "result": "inconclusive"
             },
             {
-              "id": "ev-one-small-photography-ci-results-45a74ba-b919d9a0",
+              "id": "ev-one-small-photography-ci-results-fa2d17f-05128f81",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-photography-lint-format-types-45a74ba-040ed0be",
+              "id": "ev-one-small-photography-lint-format-types-fa2d17f-5a25ef9a",
               "collector": "lint-format-types",
-              "result": "pass"
+              "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 5,
           "verifications": []
         },
         {
@@ -3633,17 +3689,17 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-photography-dependency-audit-45a74ba-e4c11401",
+              "id": "ev-one-small-photography-dependency-audit-fa2d17f-7b1ff911",
               "collector": "dependency-audit",
               "result": "pass"
             },
             {
-              "id": "ev-one-small-photography-secret-scan-45a74ba-3a0e0c19",
+              "id": "ev-one-small-photography-secret-scan-fa2d17f-ea7ed43e",
               "collector": "secret-scan",
               "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 4,
           "verifications": []
         },
         {
@@ -3654,12 +3710,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-photography-accessibility-45a74ba-5ad5aff3",
+              "id": "ev-one-small-photography-accessibility-fa2d17f-1abce92c",
               "collector": "accessibility",
               "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 2,
           "verifications": []
         },
         {
@@ -3684,18 +3740,18 @@
         },
         {
           "id": "critical-workflows",
-          "state": "passed_by_builder",
+          "state": "inconclusive",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-photography-build-test-45a74ba-1c559c0f",
+              "id": "ev-one-small-photography-build-test-fa2d17f-6207ff46",
               "collector": "build-test",
-              "result": "pass"
+              "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 3,
           "verifications": []
         },
         {
@@ -3706,7 +3762,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-photography-deployment-health-45a74ba-6f7249e7",
+              "id": "ev-one-small-photography-deployment-health-fa2d17f-f67b9da9",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -3722,12 +3778,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-photography-documentation-45a74ba-a1411b23",
+              "id": "ev-one-small-photography-documentation-fa2d17f-25b82d41",
               "collector": "documentation",
               "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 2,
           "verifications": []
         },
         {
@@ -3753,13 +3809,66 @@
         "documentation-accurate",
         "no-release-blockers"
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-one-small-photography-lint-format-types-45a74ba-040ed0be",
+          "reason": "collected for 45a74ba, not the evaluated commit fa2d17f"
+        },
+        {
+          "id": "ev-one-small-photography-build-test-45a74ba-1c559c0f",
+          "reason": "collected for 45a74ba, not the evaluated commit fa2d17f"
+        },
+        {
+          "id": "ev-one-small-photography-build-test-45a74ba-1883a99f",
+          "reason": "collected for 45a74ba, not the evaluated commit fa2d17f"
+        },
+        {
+          "id": "ev-one-small-photography-lint-format-types-45a74ba-e909ffaa",
+          "reason": "collected for 45a74ba, not the evaluated commit fa2d17f"
+        },
+        {
+          "id": "ev-one-small-photography-build-test-45a74ba-469ea48f",
+          "reason": "collected for 45a74ba, not the evaluated commit fa2d17f"
+        },
+        {
+          "id": "ev-one-small-photography-dependency-audit-45a74ba-e4c11401",
+          "reason": "collected for 45a74ba, not the evaluated commit fa2d17f"
+        },
+        {
+          "id": "ev-one-small-photography-secret-scan-45a74ba-3a0e0c19",
+          "reason": "collected for 45a74ba, not the evaluated commit fa2d17f"
+        },
+        {
+          "id": "ev-one-small-photography-dependency-audit-45a74ba-c75a1f11",
+          "reason": "collected for 45a74ba, not the evaluated commit fa2d17f"
+        },
+        {
+          "id": "ev-one-small-photography-secret-scan-45a74ba-38ccfe10",
+          "reason": "collected for 45a74ba, not the evaluated commit fa2d17f"
+        },
+        {
+          "id": "ev-one-small-photography-accessibility-45a74ba-5ad5aff3",
+          "reason": "collected for 45a74ba, not the evaluated commit fa2d17f"
+        },
+        {
+          "id": "ev-one-small-photography-accessibility-45a74ba-933f23e4",
+          "reason": "collected for 45a74ba, not the evaluated commit fa2d17f"
+        },
+        {
+          "id": "ev-one-small-photography-documentation-45a74ba-a1411b23",
+          "reason": "collected for 45a74ba, not the evaluated commit fa2d17f"
+        },
+        {
+          "id": "ev-one-small-photography-documentation-45a74ba-34cb2a4c",
+          "reason": "collected for 45a74ba, not the evaluated commit fa2d17f"
+        }
+      ],
       "blockersBySeverity": {
         "critical": 0,
         "high": 0,
         "medium": 0,
         "low": 0,
-        "unclassified": 5
+        "unclassified": 4
       },
       "blockers": [
         {
@@ -3793,29 +3902,21 @@
           "blocks": "release",
           "category": "approval",
           "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
-        },
-        {
-          "id": "auto-ownership",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "evidence",
-          "description": "Independent verification impossible: builder and independent verifier are not both assigned."
         }
       ],
       "mergeEligible": false,
       "releaseEligible": false,
-      "lastCollection": "2026-10-27T01:56:25Z",
+      "lastCollection": "2026-10-28T21:06:58Z",
       "lastVerification": null,
       "nextAction": "Resolve blocker scope-document-missing.",
       "findings": [
         {
-          "id": "one-small-photography:accessibility:45a74ba",
+          "id": "one-small-photography:accessibility:fa2d17f",
           "project": "one-small-photography",
           "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
-          "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+          "commitSha": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
           "collector": "accessibility",
-          "evidenceId": "ev-one-small-photography-accessibility-45a74ba-5ad5aff3",
+          "evidenceId": "ev-one-small-photography-accessibility-fa2d17f-1abce92c",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -3832,12 +3933,36 @@
           ]
         },
         {
-          "id": "one-small-photography:ci-results:45a74ba",
+          "id": "one-small-photography:build-test:fa2d17f",
           "project": "one-small-photography",
           "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
-          "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+          "commitSha": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+          "collector": "build-test",
+          "evidenceId": "ev-one-small-photography-build-test-fa2d17f-6207ff46",
+          "kind": "evidence-gap",
+          "severity": "low",
+          "gates": [
+            "automated-checks",
+            "critical-workflows"
+          ],
+          "releaseImpact": "blocks verification of automated-checks, critical-workflows",
+          "title": "build and test: project code was not executed",
+          "rootCause": null,
+          "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+          "proposedFix": null,
+          "acceptance": "The build-test collector reports pass at the new commit, and the verifier records it for automated-checks, critical-workflows.",
+          "verification": [
+            "automated-checks: re-executed by the verifier",
+            "critical-workflows: manual review by the verifier"
+          ]
+        },
+        {
+          "id": "one-small-photography:ci-results:fa2d17f",
+          "project": "one-small-photography",
+          "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+          "commitSha": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
           "collector": "ci-results",
-          "evidenceId": "ev-one-small-photography-ci-results-45a74ba-b919d9a0",
+          "evidenceId": "ev-one-small-photography-ci-results-fa2d17f-05128f81",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -3854,12 +3979,12 @@
           ]
         },
         {
-          "id": "one-small-photography:deployment-health:45a74ba",
+          "id": "one-small-photography:deployment-health:fa2d17f",
           "project": "one-small-photography",
           "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
-          "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+          "commitSha": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
           "collector": "deployment-health",
-          "evidenceId": "ev-one-small-photography-deployment-health-45a74ba-6f7249e7",
+          "evidenceId": "ev-one-small-photography-deployment-health-fa2d17f-f67b9da9",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -3876,12 +4001,12 @@
           ]
         },
         {
-          "id": "one-small-photography:documentation:45a74ba",
+          "id": "one-small-photography:documentation:fa2d17f",
           "project": "one-small-photography",
           "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
-          "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+          "commitSha": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
           "collector": "documentation",
-          "evidenceId": "ev-one-small-photography-documentation-45a74ba-a1411b23",
+          "evidenceId": "ev-one-small-photography-documentation-fa2d17f-25b82d41",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -3898,12 +4023,34 @@
           ]
         },
         {
-          "id": "one-small-photography:repo-structure:45a74ba",
+          "id": "one-small-photography:lint-format-types:fa2d17f",
           "project": "one-small-photography",
           "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
-          "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+          "commitSha": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+          "collector": "lint-format-types",
+          "evidenceId": "ev-one-small-photography-lint-format-types-fa2d17f-5a25ef9a",
+          "kind": "evidence-gap",
+          "severity": "low",
+          "gates": [
+            "automated-checks"
+          ],
+          "releaseImpact": "blocks verification of automated-checks",
+          "title": "lint, format and types: project code was not executed",
+          "rootCause": null,
+          "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+          "proposedFix": null,
+          "acceptance": "The lint-format-types collector reports pass at the new commit, and the verifier records it for automated-checks.",
+          "verification": [
+            "automated-checks: re-executed by the verifier"
+          ]
+        },
+        {
+          "id": "one-small-photography:repo-structure:fa2d17f",
+          "project": "one-small-photography",
+          "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+          "commitSha": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
           "collector": "repo-structure",
-          "evidenceId": "ev-one-small-photography-repo-structure-45a74ba-761de6c0",
+          "evidenceId": "ev-one-small-photography-repo-structure-fa2d17f-12f4047a",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [],
@@ -3916,12 +4063,12 @@
           "verification": []
         },
         {
-          "id": "one-small-photography:secret-scan:45a74ba",
+          "id": "one-small-photography:secret-scan:fa2d17f",
           "project": "one-small-photography",
           "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
-          "commitSha": "45a74bad8a05c47ed7d6027dfb76e621dc16ef8f",
+          "commitSha": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
           "collector": "secret-scan",
-          "evidenceId": "ev-one-small-photography-secret-scan-45a74ba-3a0e0c19",
+          "evidenceId": "ev-one-small-photography-secret-scan-fa2d17f-ea7ed43e",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -3948,8 +4095,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "automated-checks",
@@ -3957,28 +4104,10 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-one-small-photography-build-test-45a74ba-1883a99f",
-              "digest": "82b144204292aa5d9c4f6cda5bbb78ab68242360ea748978fecfdc53c6d253df",
+              "id": "ev-one-small-photography-build-test-fa2d17f-6207ff46",
+              "digest": "129536f8936876c788ea2ae0320f8bb0323c25fa4445fa4ae0a4ac5f6cf85f0f",
               "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-photography-build-test-45a74ba-1c559c0f",
-              "digest": "5c54c7f36f64173e9f12ee19ddcf1393e46079a58b566e2a46963c8ff930a39f",
-              "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-photography-build-test-45a74ba-469ea48f",
-              "digest": "431c9dfdc7f71549d18d635ea2bd9b79bd8307a40d7e35e59f33d52ceb435123",
-              "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-photography-ci-results-45a74ba-001ddf5f",
-              "digest": "b718feddb87143c832e8c279d90692a0dff63e6b6f8d571168a6f3130f5329c3",
-              "collector": "ci-results",
-              "result": "unavailable"
+              "result": "inconclusive"
             },
             {
               "id": "ev-one-small-photography-ci-results-45a74ba-32fcc3c6",
@@ -4005,22 +4134,28 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-photography-lint-format-types-45a74ba-040ed0be",
-              "digest": "764c212390cd5a8a5279dc38d9d65db27b5a62fddee3f34cf307cf4c29ec7b67",
-              "collector": "lint-format-types",
-              "result": "pass"
+              "id": "ev-one-small-photography-ci-results-fa2d17f-05128f81",
+              "digest": "a748e38b1e834f6e0f52ed0915cf925b43c4bba6bbeb16fb479716b4dbc7eb61",
+              "collector": "ci-results",
+              "result": "unavailable"
             },
             {
-              "id": "ev-one-small-photography-lint-format-types-45a74ba-e909ffaa",
-              "digest": "957202957f2ca063b57e5615cf62e33b436952fb8ddfc2fd5f4f622baae54a9e",
+              "id": "ev-one-small-photography-ci-results-fa2d17f-23a42739",
+              "digest": "c0fe36c45791a2ddde6b981813fbed3e7908a3c65da606a2c1c657b2be351205",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-photography-lint-format-types-fa2d17f-5a25ef9a",
+              "digest": "bd5fc347aedffa6e793e4ef7d1a25b719479215c1f13c7603cf4724579801608",
               "collector": "lint-format-types",
-              "result": "pass"
+              "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "re-executed",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "security-privacy-review",
@@ -4028,34 +4163,22 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-one-small-photography-dependency-audit-45a74ba-c75a1f11",
-              "digest": "e46ae7094250d0cf4e224ce2dfd0fe656f58d9102dd49cc3f15b7842b5303d7b",
+              "id": "ev-one-small-photography-dependency-audit-fa2d17f-7b1ff911",
+              "digest": "cc21e232bb92278d047fc08967529ce6826e2b4a5223fe4077705551e448c56d",
               "collector": "dependency-audit",
               "result": "pass"
             },
             {
-              "id": "ev-one-small-photography-dependency-audit-45a74ba-e4c11401",
-              "digest": "df8f9258cc02ec95e65db9c4d4e5cfaca9aad1b16e22f31dc9647877fb48f79f",
-              "collector": "dependency-audit",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-photography-secret-scan-45a74ba-38ccfe10",
-              "digest": "97198cd0d1aa6157b5bb3856aeb3e379602ac36ac7bf9942b67a408e284554e4",
-              "collector": "secret-scan",
-              "result": "inconclusive"
-            },
-            {
-              "id": "ev-one-small-photography-secret-scan-45a74ba-3a0e0c19",
-              "digest": "c860e738b0aace7db784ab332f1bca9835226211a1e59a5f93ea37eb855db081",
+              "id": "ev-one-small-photography-secret-scan-fa2d17f-ea7ed43e",
+              "digest": "f566b93db81518d641b0d3911b46c36d517a01cdc4fb5d73471e9d77dd0cc934",
               "collector": "secret-scan",
               "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "wcag-22-aa",
@@ -4063,22 +4186,16 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-one-small-photography-accessibility-45a74ba-5ad5aff3",
-              "digest": "208c3feab710df3359cdb033c9d4d84f9cc034d55e29dada2585f4fc2eae4fbe",
-              "collector": "accessibility",
-              "result": "inconclusive"
-            },
-            {
-              "id": "ev-one-small-photography-accessibility-45a74ba-933f23e4",
-              "digest": "0b5eb6809de91323863990296f9f0a9e57356fcb38fd43aa5a0e164dbd530ddd",
+              "id": "ev-one-small-photography-accessibility-fa2d17f-1abce92c",
+              "digest": "5a7ca44242ec44fe3e6d5a8a9931f2e10033da7ae7b18ee3307caceffdcbb1e5",
               "collector": "accessibility",
               "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "keyboard-screen-reader",
@@ -4087,8 +4204,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "responsive-layouts",
@@ -4097,8 +4214,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "critical-workflows",
@@ -4106,28 +4223,16 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-one-small-photography-build-test-45a74ba-1883a99f",
-              "digest": "82b144204292aa5d9c4f6cda5bbb78ab68242360ea748978fecfdc53c6d253df",
+              "id": "ev-one-small-photography-build-test-fa2d17f-6207ff46",
+              "digest": "129536f8936876c788ea2ae0320f8bb0323c25fa4445fa4ae0a4ac5f6cf85f0f",
               "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-photography-build-test-45a74ba-1c559c0f",
-              "digest": "5c54c7f36f64173e9f12ee19ddcf1393e46079a58b566e2a46963c8ff930a39f",
-              "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-photography-build-test-45a74ba-469ea48f",
-              "digest": "431c9dfdc7f71549d18d635ea2bd9b79bd8307a40d7e35e59f33d52ceb435123",
-              "collector": "build-test",
-              "result": "pass"
+              "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "production-deployment",
@@ -4153,22 +4258,28 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-photography-deployment-health-45a74ba-75c80d8d",
-              "digest": "eda815b27e4cb74bf3ff62585af361a1eb432eab0139691829fa083f21cdd210",
+              "id": "ev-one-small-photography-deployment-health-45a74ba-a51e90f7",
+              "digest": "740b64b29458dc2fa27c4b286bbb1470694df9cbd9bf730a552a198f3d71eab4",
               "collector": "deployment-health",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-photography-deployment-health-45a74ba-a51e90f7",
-              "digest": "740b64b29458dc2fa27c4b286bbb1470694df9cbd9bf730a552a198f3d71eab4",
+              "id": "ev-one-small-photography-deployment-health-fa2d17f-ac05308c",
+              "digest": "3f2ab09fbd645667b0c16cefdaade244caf07a4741427ae853ad6d45fac2953f",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-photography-deployment-health-fa2d17f-f67b9da9",
+              "digest": "ffb5f0484341cc675b8380861f04440c9c774427b681e186f979cba923e13712",
               "collector": "deployment-health",
               "result": "unavailable"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "documentation-accurate",
@@ -4176,22 +4287,16 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-one-small-photography-documentation-45a74ba-34cb2a4c",
-              "digest": "29d748658add0423c2b33720457e7d4bbbaf2501aa33f562b4e1d4012def6c97",
-              "collector": "documentation",
-              "result": "inconclusive"
-            },
-            {
-              "id": "ev-one-small-photography-documentation-45a74ba-a1411b23",
-              "digest": "9b88ebae2f3ab0f7ea272171d0c246dec8a409db3ee8b38f4ff52dda30796153",
+              "id": "ev-one-small-photography-documentation-fa2d17f-25b82d41",
+              "digest": "c4831048ddcb22e5e4120c509df900c080cd9ac4f0e38c9eaa9864dfb40d21bc",
               "collector": "documentation",
               "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "no-release-blockers",
@@ -4200,8 +4305,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         }
       ]
     },
@@ -4211,10 +4316,10 @@
       "tier": "application",
       "repository": "https://github.com/WasteOfADrumBum/TaskForge",
       "target": {
-        "sha": "11975d0278c7f04db5033c0461295c734e3b4134",
+        "sha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
         "source": "live head of main",
-        "liveSha": "11975d0278c7f04db5033c0461295c734e3b4134",
-        "drift": null
+        "liveSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+        "drift": "registry snapshot is 11975d0; live head is f9f14be (registry sync refreshes it)"
       },
       "readiness": {
         "percentage": 0,
@@ -4222,13 +4327,13 @@
         "applicableGates": 20,
         "verifiedGates": 0,
         "eligibility": "not-scoped",
-        "ownershipValid": false
+        "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
-        "passed_by_builder": 3,
-        "failed": 1,
-        "inconclusive": 5,
+        "passed_by_builder": 1,
+        "failed": 0,
+        "inconclusive": 8,
         "not_tested": 11,
         "not_applicable": 0
       },
@@ -4251,43 +4356,43 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-build-test-11975d0-dc105b8c",
+              "id": "ev-taskforge-build-test-f9f14be-3185b8aa",
               "collector": "build-test",
-              "result": "pass"
+              "result": "inconclusive"
             },
             {
-              "id": "ev-taskforge-ci-results-11975d0-e6837581",
+              "id": "ev-taskforge-ci-results-f9f14be-ef462fd9",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-taskforge-lint-format-types-11975d0-7b0942a4",
+              "id": "ev-taskforge-lint-format-types-f9f14be-f82161a2",
               "collector": "lint-format-types",
-              "result": "pass"
+              "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 5,
           "verifications": []
         },
         {
           "id": "security-privacy-review",
-          "state": "failed",
+          "state": "inconclusive",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-dependency-audit-11975d0-b1e62bb2",
+              "id": "ev-taskforge-dependency-audit-f9f14be-a2610ff3",
               "collector": "dependency-audit",
-              "result": "fail"
+              "result": "pass"
             },
             {
-              "id": "ev-taskforge-secret-scan-11975d0-8237b1bd",
+              "id": "ev-taskforge-secret-scan-f9f14be-22746d50",
               "collector": "secret-scan",
               "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 4,
           "verifications": []
         },
         {
@@ -4298,12 +4403,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-accessibility-11975d0-fe387eac",
+              "id": "ev-taskforge-accessibility-f9f14be-9670cd35",
               "collector": "accessibility",
               "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 2,
           "verifications": []
         },
         {
@@ -4328,18 +4433,18 @@
         },
         {
           "id": "critical-workflows",
-          "state": "passed_by_builder",
+          "state": "inconclusive",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-build-test-11975d0-dc105b8c",
+              "id": "ev-taskforge-build-test-f9f14be-3185b8aa",
               "collector": "build-test",
-              "result": "pass"
+              "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 3,
           "verifications": []
         },
         {
@@ -4350,7 +4455,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
+              "id": "ev-taskforge-deployment-health-f9f14be-69d2920c",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -4366,12 +4471,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-documentation-11975d0-61e05b6b",
+              "id": "ev-taskforge-documentation-f9f14be-b74ed9aa",
               "collector": "documentation",
               "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 2,
           "verifications": []
         },
         {
@@ -4412,12 +4517,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-secret-scan-11975d0-8237b1bd",
+              "id": "ev-taskforge-secret-scan-f9f14be-22746d50",
               "collector": "secret-scan",
               "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 2,
           "verifications": []
         },
         {
@@ -4468,7 +4573,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
+              "id": "ev-taskforge-deployment-health-f9f14be-69d2920c",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -4478,18 +4583,18 @@
         },
         {
           "id": "e2e-critical-workflows",
-          "state": "passed_by_builder",
+          "state": "inconclusive",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-build-test-11975d0-dc105b8c",
+              "id": "ev-taskforge-build-test-f9f14be-3185b8aa",
               "collector": "build-test",
-              "result": "pass"
+              "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 3,
           "verifications": []
         },
         {
@@ -4525,13 +4630,66 @@
         "e2e-critical-workflows",
         "user-data-isolation"
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-taskforge-lint-format-types-11975d0-7b0942a4",
+          "reason": "collected for 11975d0, not the evaluated commit f9f14be"
+        },
+        {
+          "id": "ev-taskforge-build-test-11975d0-dc105b8c",
+          "reason": "collected for 11975d0, not the evaluated commit f9f14be"
+        },
+        {
+          "id": "ev-taskforge-build-test-11975d0-d17e1159",
+          "reason": "collected for 11975d0, not the evaluated commit f9f14be"
+        },
+        {
+          "id": "ev-taskforge-lint-format-types-11975d0-bd0a2724",
+          "reason": "collected for 11975d0, not the evaluated commit f9f14be"
+        },
+        {
+          "id": "ev-taskforge-build-test-11975d0-e8803dfb",
+          "reason": "collected for 11975d0, not the evaluated commit f9f14be"
+        },
+        {
+          "id": "ev-taskforge-dependency-audit-11975d0-b1e62bb2",
+          "reason": "collected for 11975d0, not the evaluated commit f9f14be"
+        },
+        {
+          "id": "ev-taskforge-secret-scan-11975d0-8237b1bd",
+          "reason": "collected for 11975d0, not the evaluated commit f9f14be"
+        },
+        {
+          "id": "ev-taskforge-secret-scan-11975d0-8442003a",
+          "reason": "collected for 11975d0, not the evaluated commit f9f14be"
+        },
+        {
+          "id": "ev-taskforge-dependency-audit-11975d0-930082be",
+          "reason": "collected for 11975d0, not the evaluated commit f9f14be"
+        },
+        {
+          "id": "ev-taskforge-accessibility-11975d0-fe387eac",
+          "reason": "collected for 11975d0, not the evaluated commit f9f14be"
+        },
+        {
+          "id": "ev-taskforge-accessibility-11975d0-5d28a392",
+          "reason": "collected for 11975d0, not the evaluated commit f9f14be"
+        },
+        {
+          "id": "ev-taskforge-documentation-11975d0-61e05b6b",
+          "reason": "collected for 11975d0, not the evaluated commit f9f14be"
+        },
+        {
+          "id": "ev-taskforge-documentation-11975d0-132d686c",
+          "reason": "collected for 11975d0, not the evaluated commit f9f14be"
+        }
+      ],
       "blockersBySeverity": {
         "critical": 0,
-        "high": 1,
+        "high": 0,
         "medium": 0,
         "low": 0,
-        "unclassified": 7
+        "unclassified": 6
       },
       "blockers": [
         {
@@ -4575,14 +4733,6 @@
           "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
         },
         {
-          "id": "auto-ownership",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "evidence",
-          "description": "Independent verification impossible: builder and independent verifier are not both assigned."
-        },
-        {
           "id": "auto-scope-missing",
           "origin": "derived",
           "severity": "unclassified",
@@ -4593,17 +4743,17 @@
       ],
       "mergeEligible": false,
       "releaseEligible": false,
-      "lastCollection": "2026-10-27T01:56:25Z",
+      "lastCollection": "2026-10-28T21:06:59Z",
       "lastVerification": null,
-      "nextAction": "Fix dependency-audit at 11975d0: dependency audit: critical 0, high 4, moderate 3, low 0, info 0.",
+      "nextAction": "Choose the target version for the scoped release and record it as release.targetVersion in the registry.",
       "findings": [
         {
-          "id": "taskforge:accessibility:11975d0",
+          "id": "taskforge:accessibility:f9f14be",
           "project": "taskforge",
           "repository": "https://github.com/WasteOfADrumBum/TaskForge",
-          "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+          "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
           "collector": "accessibility",
-          "evidenceId": "ev-taskforge-accessibility-11975d0-fe387eac",
+          "evidenceId": "ev-taskforge-accessibility-f9f14be-9670cd35",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -4620,12 +4770,38 @@
           ]
         },
         {
-          "id": "taskforge:ci-results:11975d0",
+          "id": "taskforge:build-test:f9f14be",
           "project": "taskforge",
           "repository": "https://github.com/WasteOfADrumBum/TaskForge",
-          "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+          "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+          "collector": "build-test",
+          "evidenceId": "ev-taskforge-build-test-f9f14be-3185b8aa",
+          "kind": "evidence-gap",
+          "severity": "low",
+          "gates": [
+            "automated-checks",
+            "critical-workflows",
+            "e2e-critical-workflows"
+          ],
+          "releaseImpact": "blocks verification of automated-checks, critical-workflows, e2e-critical-workflows",
+          "title": "build and test: project code was not executed",
+          "rootCause": null,
+          "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+          "proposedFix": null,
+          "acceptance": "The build-test collector reports pass at the new commit, and the verifier records it for automated-checks, critical-workflows, e2e-critical-workflows.",
+          "verification": [
+            "automated-checks: re-executed by the verifier",
+            "critical-workflows: manual review by the verifier",
+            "e2e-critical-workflows: manual review by the verifier"
+          ]
+        },
+        {
+          "id": "taskforge:ci-results:f9f14be",
+          "project": "taskforge",
+          "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+          "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
           "collector": "ci-results",
-          "evidenceId": "ev-taskforge-ci-results-11975d0-e6837581",
+          "evidenceId": "ev-taskforge-ci-results-f9f14be-ef462fd9",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -4642,34 +4818,12 @@
           ]
         },
         {
-          "id": "taskforge:dependency-audit:11975d0",
+          "id": "taskforge:deployment-health:f9f14be",
           "project": "taskforge",
           "repository": "https://github.com/WasteOfADrumBum/TaskForge",
-          "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
-          "collector": "dependency-audit",
-          "evidenceId": "ev-taskforge-dependency-audit-11975d0-b1e62bb2",
-          "kind": "defect",
-          "severity": "high",
-          "gates": [
-            "security-privacy-review"
-          ],
-          "releaseImpact": "blocks verification of security-privacy-review",
-          "title": "dependency audit: critical 0, high 4, moderate 3, low 0, info 0",
-          "rootCause": "npm audit: critical 0, high 4, moderate 3, low 0, info 0 across 1101 packages",
-          "failureReason": "critical or high advisories: body-parser, undici, vite, zod",
-          "proposedFix": null,
-          "acceptance": "The dependency-audit collector reports pass at the new commit, and the verifier records it for security-privacy-review.",
-          "verification": [
-            "security-privacy-review: manual review by the verifier"
-          ]
-        },
-        {
-          "id": "taskforge:deployment-health:11975d0",
-          "project": "taskforge",
-          "repository": "https://github.com/WasteOfADrumBum/TaskForge",
-          "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+          "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
           "collector": "deployment-health",
-          "evidenceId": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
+          "evidenceId": "ev-taskforge-deployment-health-f9f14be-69d2920c",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -4688,12 +4842,12 @@
           ]
         },
         {
-          "id": "taskforge:documentation:11975d0",
+          "id": "taskforge:documentation:f9f14be",
           "project": "taskforge",
           "repository": "https://github.com/WasteOfADrumBum/TaskForge",
-          "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+          "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
           "collector": "documentation",
-          "evidenceId": "ev-taskforge-documentation-11975d0-61e05b6b",
+          "evidenceId": "ev-taskforge-documentation-f9f14be-b74ed9aa",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -4710,12 +4864,34 @@
           ]
         },
         {
-          "id": "taskforge:secret-scan:11975d0",
+          "id": "taskforge:lint-format-types:f9f14be",
           "project": "taskforge",
           "repository": "https://github.com/WasteOfADrumBum/TaskForge",
-          "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+          "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+          "collector": "lint-format-types",
+          "evidenceId": "ev-taskforge-lint-format-types-f9f14be-f82161a2",
+          "kind": "evidence-gap",
+          "severity": "low",
+          "gates": [
+            "automated-checks"
+          ],
+          "releaseImpact": "blocks verification of automated-checks",
+          "title": "lint, format and types: project code was not executed",
+          "rootCause": null,
+          "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+          "proposedFix": null,
+          "acceptance": "The lint-format-types collector reports pass at the new commit, and the verifier records it for automated-checks.",
+          "verification": [
+            "automated-checks: re-executed by the verifier"
+          ]
+        },
+        {
+          "id": "taskforge:secret-scan:f9f14be",
+          "project": "taskforge",
+          "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+          "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
           "collector": "secret-scan",
-          "evidenceId": "ev-taskforge-secret-scan-11975d0-8237b1bd",
+          "evidenceId": "ev-taskforge-secret-scan-f9f14be-22746d50",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -4749,8 +4925,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "automated-checks",
@@ -4758,22 +4934,10 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-taskforge-build-test-11975d0-d17e1159",
-              "digest": "29327708b9dcadebe90ec5123be359eb28ce9735081a45de06464b919fbf7b87",
+              "id": "ev-taskforge-build-test-f9f14be-3185b8aa",
+              "digest": "02f2616e5500898f956c3c94dbce007a7b2ea9595ceb1c16216b7a0a921c11a1",
               "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-taskforge-build-test-11975d0-dc105b8c",
-              "digest": "9f260089a2a9b09329e9e213d2bf2db4f93109ac74b2e99dc8ab8fa6572454ee",
-              "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-taskforge-build-test-11975d0-e8803dfb",
-              "digest": "dd105da118a815152d36cbad738cd521b1aad705de6184ae15b9dec5f8864018",
-              "collector": "build-test",
-              "result": "fail"
+              "result": "inconclusive"
             },
             {
               "id": "ev-taskforge-ci-results-11975d0-4b02f52c",
@@ -4794,34 +4958,34 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-taskforge-ci-results-11975d0-dec5234f",
-              "digest": "fafe544a979122e813e250515a6826ae8718bf5d2a89c0d38b92683fea96cbd1",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
               "id": "ev-taskforge-ci-results-11975d0-e6837581",
               "digest": "e0f3f6cd3d81c4cea740f8dba15d98ceab2590c2bbb8a347f3caef5dba858d9d",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-taskforge-lint-format-types-11975d0-7b0942a4",
-              "digest": "4194f921e21d4e3ada5c0f6cd88c9383e536ef9966446950c2a329fe523aacc8",
-              "collector": "lint-format-types",
-              "result": "pass"
+              "id": "ev-taskforge-ci-results-f9f14be-731842ea",
+              "digest": "91f53eea12fe610b940a640ab600cabd07b1fcb5bc9cd50afa570722871b6598",
+              "collector": "ci-results",
+              "result": "unavailable"
             },
             {
-              "id": "ev-taskforge-lint-format-types-11975d0-bd0a2724",
-              "digest": "a19b8ad8ebc7e6c7075dd27c959e355fa5c9eafe9afd4a84b26f759d387ac087",
+              "id": "ev-taskforge-ci-results-f9f14be-ef462fd9",
+              "digest": "44e63d8701be18cb65bd40d8f612cf573b2213052af69af4f29e5c76c72768fc",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-taskforge-lint-format-types-f9f14be-f82161a2",
+              "digest": "6baf8ed765a706f7d307a4355541bfbe129bba0568dd7e1b08807511458b5581",
               "collector": "lint-format-types",
-              "result": "pass"
+              "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "re-executed",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "security-privacy-review",
@@ -4829,34 +4993,22 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-taskforge-dependency-audit-11975d0-930082be",
-              "digest": "a9a9b3bc1831cf135a1825c0eb5b6b6d7f1f0fcbab90fa921ef532ff9befa916",
+              "id": "ev-taskforge-dependency-audit-f9f14be-a2610ff3",
+              "digest": "39494e11800109dd47c207dd1805420d279dbb6fb79ca7f238612656aee62649",
               "collector": "dependency-audit",
-              "result": "fail"
+              "result": "pass"
             },
             {
-              "id": "ev-taskforge-dependency-audit-11975d0-b1e62bb2",
-              "digest": "54f56475adcb1a7e5562ad20423343d37374b116127813d4f6895a424aed19ba",
-              "collector": "dependency-audit",
-              "result": "fail"
-            },
-            {
-              "id": "ev-taskforge-secret-scan-11975d0-8237b1bd",
-              "digest": "5adf39324b1c679d62d9c00d8a4241430cdbd76676b3d96163f3d0530aed731d",
-              "collector": "secret-scan",
-              "result": "inconclusive"
-            },
-            {
-              "id": "ev-taskforge-secret-scan-11975d0-8442003a",
-              "digest": "b4edc975b11c7d8e235cd658d34f3627c2f067892ac93c081154bdd5270001cc",
+              "id": "ev-taskforge-secret-scan-f9f14be-22746d50",
+              "digest": "b094cac87aee7a7fa0f72ad764d99829e444d70a25b367ea9b4f4f23a5f787af",
               "collector": "secret-scan",
               "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "wcag-22-aa",
@@ -4864,22 +5016,16 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-taskforge-accessibility-11975d0-5d28a392",
-              "digest": "42ccb097e51ecae3fd774c59ad7b259b5be07728190c08f4034e7062a75501e1",
-              "collector": "accessibility",
-              "result": "inconclusive"
-            },
-            {
-              "id": "ev-taskforge-accessibility-11975d0-fe387eac",
-              "digest": "226284e7c6310c5ae5d25182aec97b051a990190e411c7ebfceef34f6720ba43",
+              "id": "ev-taskforge-accessibility-f9f14be-9670cd35",
+              "digest": "1e828cf5e1f46d1a1b05c109340937ba8c37086c58a7e57613dafc19a83448ce",
               "collector": "accessibility",
               "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "keyboard-screen-reader",
@@ -4888,8 +5034,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "responsive-layouts",
@@ -4898,8 +5044,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "critical-workflows",
@@ -4907,28 +5053,16 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-taskforge-build-test-11975d0-d17e1159",
-              "digest": "29327708b9dcadebe90ec5123be359eb28ce9735081a45de06464b919fbf7b87",
+              "id": "ev-taskforge-build-test-f9f14be-3185b8aa",
+              "digest": "02f2616e5500898f956c3c94dbce007a7b2ea9595ceb1c16216b7a0a921c11a1",
               "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-taskforge-build-test-11975d0-dc105b8c",
-              "digest": "9f260089a2a9b09329e9e213d2bf2db4f93109ac74b2e99dc8ab8fa6572454ee",
-              "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-taskforge-build-test-11975d0-e8803dfb",
-              "digest": "dd105da118a815152d36cbad738cd521b1aad705de6184ae15b9dec5f8864018",
-              "collector": "build-test",
-              "result": "fail"
+              "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "production-deployment",
@@ -4948,12 +5082,6 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-taskforge-deployment-health-11975d0-bc460bf9",
-              "digest": "311dc5b5e2e5c4d5090fb8e83a7a9bf60ec7cd81bc66d183e831032fd8dd865f",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
               "id": "ev-taskforge-deployment-health-11975d0-e9164135",
               "digest": "3a30cf14ca85f5408d4eaa5a20c7e128e4dce94538715625c7bdb1e0e1920f51",
               "collector": "deployment-health",
@@ -4964,12 +5092,24 @@
               "digest": "816873a751d556e5c8ae0f7b1ec7ef194d0656c06b4117d1f9f67acc88dc08ab",
               "collector": "deployment-health",
               "result": "unavailable"
+            },
+            {
+              "id": "ev-taskforge-deployment-health-f9f14be-571df69b",
+              "digest": "c16243102c7779b7edab7a21428387412d642ba7e31d47bc2c65f243489423df",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-taskforge-deployment-health-f9f14be-69d2920c",
+              "digest": "3f2db64fce10f164414471d1c710a21122e8b43adaba0e364496e4d3c8654e95",
+              "collector": "deployment-health",
+              "result": "unavailable"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "documentation-accurate",
@@ -4977,22 +5117,16 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-taskforge-documentation-11975d0-132d686c",
-              "digest": "a3af3ce638114e300408148c1fd0926f76e656da6eaaf4d21991bf353dfacd4e",
-              "collector": "documentation",
-              "result": "inconclusive"
-            },
-            {
-              "id": "ev-taskforge-documentation-11975d0-61e05b6b",
-              "digest": "8155c17c4afa31b757ef36f41ca84e9cacddfb141a4ca999ceef27faeac38589",
+              "id": "ev-taskforge-documentation-f9f14be-b74ed9aa",
+              "digest": "0310adb4bb12339f4c18f44440d6b9f15bff0f4bfc7302279e31eafcf9715fd5",
               "collector": "documentation",
               "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "no-release-blockers",
@@ -5001,8 +5135,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "authentication",
@@ -5011,8 +5145,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "authorization-boundaries",
@@ -5021,8 +5155,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "sensitive-data-handling",
@@ -5030,22 +5164,16 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-taskforge-secret-scan-11975d0-8237b1bd",
-              "digest": "5adf39324b1c679d62d9c00d8a4241430cdbd76676b3d96163f3d0530aed731d",
-              "collector": "secret-scan",
-              "result": "inconclusive"
-            },
-            {
-              "id": "ev-taskforge-secret-scan-11975d0-8442003a",
-              "digest": "b4edc975b11c7d8e235cd658d34f3627c2f067892ac93c081154bdd5270001cc",
+              "id": "ev-taskforge-secret-scan-f9f14be-22746d50",
+              "digest": "b094cac87aee7a7fa0f72ad764d99829e444d70a25b367ea9b4f4f23a5f787af",
               "collector": "secret-scan",
               "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "api-integration-security",
@@ -5054,8 +5182,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "integration-failure-handling",
@@ -5064,8 +5192,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "backup-recovery",
@@ -5074,8 +5202,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "audit-logging",
@@ -5084,8 +5212,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "deployment-rollback",
@@ -5105,12 +5233,6 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-taskforge-deployment-health-11975d0-bc460bf9",
-              "digest": "311dc5b5e2e5c4d5090fb8e83a7a9bf60ec7cd81bc66d183e831032fd8dd865f",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
               "id": "ev-taskforge-deployment-health-11975d0-e9164135",
               "digest": "3a30cf14ca85f5408d4eaa5a20c7e128e4dce94538715625c7bdb1e0e1920f51",
               "collector": "deployment-health",
@@ -5121,12 +5243,24 @@
               "digest": "816873a751d556e5c8ae0f7b1ec7ef194d0656c06b4117d1f9f67acc88dc08ab",
               "collector": "deployment-health",
               "result": "unavailable"
+            },
+            {
+              "id": "ev-taskforge-deployment-health-f9f14be-571df69b",
+              "digest": "c16243102c7779b7edab7a21428387412d642ba7e31d47bc2c65f243489423df",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-taskforge-deployment-health-f9f14be-69d2920c",
+              "digest": "3f2db64fce10f164414471d1c710a21122e8b43adaba0e364496e4d3c8654e95",
+              "collector": "deployment-health",
+              "result": "unavailable"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "e2e-critical-workflows",
@@ -5134,28 +5268,16 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-taskforge-build-test-11975d0-d17e1159",
-              "digest": "29327708b9dcadebe90ec5123be359eb28ce9735081a45de06464b919fbf7b87",
+              "id": "ev-taskforge-build-test-f9f14be-3185b8aa",
+              "digest": "02f2616e5500898f956c3c94dbce007a7b2ea9595ceb1c16216b7a0a921c11a1",
               "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-taskforge-build-test-11975d0-dc105b8c",
-              "digest": "9f260089a2a9b09329e9e213d2bf2db4f93109ac74b2e99dc8ab8fa6572454ee",
-              "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-taskforge-build-test-11975d0-e8803dfb",
-              "digest": "dd105da118a815152d36cbad738cd521b1aad705de6184ae15b9dec5f8864018",
-              "collector": "build-test",
-              "result": "fail"
+              "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "user-data-isolation",
@@ -5164,8 +5286,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         }
       ]
     },
@@ -5186,7 +5308,7 @@
         "applicableGates": 20,
         "verifiedGates": 0,
         "eligibility": "not-scoped",
-        "ownershipValid": false
+        "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
@@ -5220,7 +5342,7 @@
               "result": "pass"
             },
             {
-              "id": "ev-cortex-ci-results-ec49fd7-bf09a281",
+              "id": "ev-cortex-ci-results-ec49fd7-330a5ec7",
               "collector": "ci-results",
               "result": "unavailable"
             },
@@ -5314,7 +5436,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
+              "id": "ev-cortex-deployment-health-ec49fd7-80f95d1a",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -5432,7 +5554,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
+              "id": "ev-cortex-deployment-health-ec49fd7-80f95d1a",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -5495,7 +5617,7 @@
         "high": 0,
         "medium": 0,
         "low": 0,
-        "unclassified": 7
+        "unclassified": 6
       },
       "blockers": [
         {
@@ -5545,19 +5667,11 @@
           "blocks": "release",
           "category": "approval",
           "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
-        },
-        {
-          "id": "auto-ownership",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "evidence",
-          "description": "Independent verification impossible: builder and independent verifier are not both assigned."
         }
       ],
       "mergeEligible": false,
       "releaseEligible": false,
-      "lastCollection": "2026-10-27T01:56:26Z",
+      "lastCollection": "2026-10-28T21:07:06Z",
       "lastVerification": null,
       "nextAction": "Resolve blocker spec-open-questions.",
       "findings": [
@@ -5589,7 +5703,7 @@
           "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
           "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
           "collector": "ci-results",
-          "evidenceId": "ev-cortex-ci-results-ec49fd7-bf09a281",
+          "evidenceId": "ev-cortex-ci-results-ec49fd7-330a5ec7",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -5611,7 +5725,7 @@
           "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
           "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
           "collector": "deployment-health",
-          "evidenceId": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
+          "evidenceId": "ev-cortex-deployment-health-ec49fd7-80f95d1a",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -5702,8 +5816,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "automated-checks",
@@ -5729,20 +5843,26 @@
               "result": "unavailable"
             },
             {
+              "id": "ev-cortex-ci-results-ec49fd7-330a5ec7",
+              "digest": "42d8708316e475425ce1860a075bc08ed13ad9fe10469129af8cf3eed9b37006",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-cortex-ci-results-ec49fd7-692a94aa",
               "digest": "d107a86b75196c84af6c039c2ef7b60de52b8ac0397b80d9b75c9a2872f4129a",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-cortex-ci-results-ec49fd7-bf09a281",
-              "digest": "d6cf78d3d5a26c3c8c0372643376d721bef969b33c1c93fe7cd612e0ef6c596e",
+              "id": "ev-cortex-ci-results-ec49fd7-86e96770",
+              "digest": "8440071cf46191ce6b6a5d5240223e3047305684326c93d0f7605b3e99f504d3",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-cortex-ci-results-ec49fd7-c1e79b00",
-              "digest": "4d1b86c224c14bfa6f67340a085bd9042fe42f437c3300354d142c7c9d68fc1b",
+              "id": "ev-cortex-ci-results-ec49fd7-bf09a281",
+              "digest": "d6cf78d3d5a26c3c8c0372643376d721bef969b33c1c93fe7cd612e0ef6c596e",
               "collector": "ci-results",
               "result": "unavailable"
             },
@@ -5767,8 +5887,8 @@
           ],
           "missingCollectors": [],
           "method": "re-executed",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "security-privacy-review",
@@ -5802,8 +5922,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "wcag-22-aa",
@@ -5825,8 +5945,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "keyboard-screen-reader",
@@ -5835,8 +5955,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "responsive-layouts",
@@ -5845,8 +5965,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "critical-workflows",
@@ -5868,8 +5988,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "production-deployment",
@@ -5895,22 +6015,28 @@
               "result": "unavailable"
             },
             {
+              "id": "ev-cortex-deployment-health-ec49fd7-80f95d1a",
+              "digest": "30b3b0877eaa3f334de7bc6e567348eaa8fa81701daf5a1a3cd657c058b54b2e",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
               "digest": "34c21a661061dc3fd3eb4067b239de349a3449c94c9f4592542dfba6bf7c50bc",
               "collector": "deployment-health",
               "result": "unavailable"
             },
             {
-              "id": "ev-cortex-deployment-health-ec49fd7-ca79944d",
-              "digest": "f477d1df4e6c0d281d31ea859d3336dd10918e7131b19900141b917e61ebfc1e",
+              "id": "ev-cortex-deployment-health-ec49fd7-d9026ec3",
+              "digest": "4ae838646936caaeea3099a10f7823ebef08e655545b126a2d44a6d2a64fc7f5",
               "collector": "deployment-health",
               "result": "unavailable"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "documentation-accurate",
@@ -5932,8 +6058,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "no-release-blockers",
@@ -5942,8 +6068,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "authentication",
@@ -5952,8 +6078,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "authorization-boundaries",
@@ -5962,8 +6088,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "sensitive-data-handling",
@@ -5985,8 +6111,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "api-integration-security",
@@ -5995,8 +6121,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "integration-failure-handling",
@@ -6005,8 +6131,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "backup-recovery",
@@ -6015,8 +6141,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "audit-logging",
@@ -6025,8 +6151,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "deployment-rollback",
@@ -6052,22 +6178,28 @@
               "result": "unavailable"
             },
             {
+              "id": "ev-cortex-deployment-health-ec49fd7-80f95d1a",
+              "digest": "30b3b0877eaa3f334de7bc6e567348eaa8fa81701daf5a1a3cd657c058b54b2e",
+              "collector": "deployment-health",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
               "digest": "34c21a661061dc3fd3eb4067b239de349a3449c94c9f4592542dfba6bf7c50bc",
               "collector": "deployment-health",
               "result": "unavailable"
             },
             {
-              "id": "ev-cortex-deployment-health-ec49fd7-ca79944d",
-              "digest": "f477d1df4e6c0d281d31ea859d3336dd10918e7131b19900141b917e61ebfc1e",
+              "id": "ev-cortex-deployment-health-ec49fd7-d9026ec3",
+              "digest": "4ae838646936caaeea3099a10f7823ebef08e655545b126a2d44a6d2a64fc7f5",
               "collector": "deployment-health",
               "result": "unavailable"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "e2e-critical-workflows",
@@ -6089,8 +6221,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "user-data-isolation",
@@ -6099,8 +6231,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         }
       ]
     },
@@ -6121,13 +6253,13 @@
         "applicableGates": 20,
         "verifiedGates": 0,
         "eligibility": "not-scoped",
-        "ownershipValid": false
+        "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
-        "passed_by_builder": 1,
+        "passed_by_builder": 0,
         "failed": 0,
-        "inconclusive": 8,
+        "inconclusive": 9,
         "not_tested": 11,
         "not_applicable": 0
       },
@@ -6144,23 +6276,23 @@
         },
         {
           "id": "automated-checks",
-          "state": "passed_by_builder",
+          "state": "inconclusive",
           "automation": "full",
           "manualReviewRequired": false,
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-73f101ba",
               "collector": "build-test",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-e50e2e11",
+              "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-1f512833",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-547f714e",
+              "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-0e87bc58",
               "collector": "lint-format-types",
               "result": "unavailable"
             }
@@ -6176,12 +6308,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-8417e8f4",
+              "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-ad200744",
               "collector": "dependency-audit",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c",
+              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-ade537e3",
               "collector": "secret-scan",
               "result": "unavailable"
             }
@@ -6197,7 +6329,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-a1500480",
+              "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-8770fa90",
               "collector": "accessibility",
               "result": "unavailable"
             }
@@ -6233,7 +6365,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-73f101ba",
               "collector": "build-test",
               "result": "unavailable"
             }
@@ -6249,12 +6381,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
+              "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810",
               "collector": "deployment-health",
               "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 2,
           "verifications": []
         },
         {
@@ -6265,7 +6397,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-documentation-c70d8b1-06b855f1",
+              "id": "ev-one-small-ai-workforce-documentation-c70d8b1-ffee6cea",
               "collector": "documentation",
               "result": "unavailable"
             }
@@ -6311,7 +6443,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c",
+              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-ade537e3",
               "collector": "secret-scan",
               "result": "unavailable"
             }
@@ -6367,12 +6499,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
+              "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810",
               "collector": "deployment-health",
               "result": "inconclusive"
             }
           ],
-          "staleEvidence": 0,
+          "staleEvidence": 2,
           "verifications": []
         },
         {
@@ -6383,7 +6515,7 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-73f101ba",
               "collector": "build-test",
               "result": "unavailable"
             }
@@ -6424,13 +6556,22 @@
         "e2e-critical-workflows",
         "user-data-isolation"
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
+          "reason": "expired 2026-10-28"
+        },
+        {
+          "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410",
+          "reason": "expired 2026-10-28"
+        }
+      ],
       "blockersBySeverity": {
         "critical": 0,
         "high": 0,
         "medium": 0,
         "low": 0,
-        "unclassified": 5
+        "unclassified": 4
       },
       "blockers": [
         {
@@ -6464,19 +6605,11 @@
           "blocks": "release",
           "category": "approval",
           "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
-        },
-        {
-          "id": "auto-ownership",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "evidence",
-          "description": "Independent verification impossible: builder and independent verifier are not both assigned."
         }
       ],
       "mergeEligible": false,
       "releaseEligible": false,
-      "lastCollection": "2026-10-27T01:56:26Z",
+      "lastCollection": "2026-10-28T21:07:08Z",
       "lastVerification": null,
       "nextAction": "Resolve blocker scope-document-missing.",
       "findings": [
@@ -6486,7 +6619,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "accessibility",
-          "evidenceId": "ev-one-small-ai-workforce-accessibility-c70d8b1-a1500480",
+          "evidenceId": "ev-one-small-ai-workforce-accessibility-c70d8b1-8770fa90",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -6508,7 +6641,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "build-test",
-          "evidenceId": "ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd",
+          "evidenceId": "ev-one-small-ai-workforce-build-test-c70d8b1-73f101ba",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -6534,7 +6667,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "ci-results",
-          "evidenceId": "ev-one-small-ai-workforce-ci-results-c70d8b1-e50e2e11",
+          "evidenceId": "ev-one-small-ai-workforce-ci-results-c70d8b1-1f512833",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -6556,7 +6689,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "dependency-audit",
-          "evidenceId": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-8417e8f4",
+          "evidenceId": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-ad200744",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -6578,7 +6711,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "deployment-health",
-          "evidenceId": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
+          "evidenceId": "ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810",
           "kind": "evidence-gap",
           "severity": "low",
           "gates": [
@@ -6602,7 +6735,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "documentation",
-          "evidenceId": "ev-one-small-ai-workforce-documentation-c70d8b1-06b855f1",
+          "evidenceId": "ev-one-small-ai-workforce-documentation-c70d8b1-ffee6cea",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -6624,7 +6757,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "lint-format-types",
-          "evidenceId": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-547f714e",
+          "evidenceId": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-0e87bc58",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -6646,7 +6779,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "repo-structure",
-          "evidenceId": "ev-one-small-ai-workforce-repo-structure-c70d8b1-2cf1a4f1",
+          "evidenceId": "ev-one-small-ai-workforce-repo-structure-c70d8b1-956c945b",
           "kind": "access",
           "severity": "unclassified",
           "gates": [],
@@ -6664,7 +6797,7 @@
           "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
           "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
           "collector": "secret-scan",
-          "evidenceId": "ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c",
+          "evidenceId": "ev-one-small-ai-workforce-secret-scan-c70d8b1-ade537e3",
           "kind": "access",
           "severity": "unclassified",
           "gates": [
@@ -6693,8 +6826,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "automated-checks",
@@ -6708,14 +6841,14 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-362731a7",
-              "digest": "a891faceb95f0396f936b583ba4fe8378be403c62abcc0680675c5a1b3cb1b73",
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-61ee42d8",
+              "digest": "637c0994687ed6f43cd55d387d667334cdaec0170f0da47f3123d9fa6c9b665f",
               "collector": "build-test",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-61ee42d8",
-              "digest": "637c0994687ed6f43cd55d387d667334cdaec0170f0da47f3123d9fa6c9b665f",
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-73f101ba",
+              "digest": "a76c9eaffaa94bc3998c4b6855028388635a62c01dbffaa72598d96d7ad57d88",
               "collector": "build-test",
               "result": "unavailable"
             },
@@ -6732,14 +6865,26 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-7f896de6",
-              "digest": "a94e86a3c13bad2b68f1f172385e05fb6bd7cc3ef5910bddad303660778435e6",
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-dfd953a4",
+              "digest": "54a8c6296be8c93c2d04b42231f693539d9b40835cdfaee39d62dafb992f0962",
+              "collector": "build-test",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-14044d1b",
+              "digest": "1429eb9bdaaa03bb287a2a8c5d3701752fefb1677eeb998ca9b3098a3984476d",
               "collector": "ci-results",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-a83d10da",
-              "digest": "84cd087576e30872898dd62f7bc48ad43c17cbb0ac27812bee18563528f7daa3",
+              "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-1f512833",
+              "digest": "1a3052083e2441dc8637f47583aaed02860a81453cd0175da2a293d06fecd8ff",
+              "collector": "ci-results",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-ci-results-c70d8b1-7f896de6",
+              "digest": "a94e86a3c13bad2b68f1f172385e05fb6bd7cc3ef5910bddad303660778435e6",
               "collector": "ci-results",
               "result": "unavailable"
             },
@@ -6762,6 +6907,12 @@
               "result": "unavailable"
             },
             {
+              "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-0e87bc58",
+              "digest": "eb200651d6c975806cfd942a4e05157e9ef1965dd1bd3468e120528bd03fee81",
+              "collector": "lint-format-types",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-1e2a62c6",
               "digest": "4cd821e33b9a5c1a5691bed9615b7df808780b207b15bb7dfc3d92ab48ea3d10",
               "collector": "lint-format-types",
@@ -6770,6 +6921,12 @@
             {
               "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-332471aa",
               "digest": "439aaa670188b4dc13c744ad5bba88db5aaa11311b0b74d46e0494e73ae23458",
+              "collector": "lint-format-types",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-3d760e4d",
+              "digest": "4ca217e06a6a3111664790223f4a8b3a51942963a9820ec6b55a1219677ce2ca",
               "collector": "lint-format-types",
               "result": "unavailable"
             },
@@ -6784,18 +6941,12 @@
               "digest": "c56ee93979f481b9d99d6a8e05b028741d05f294a878f23827f815f294fced22",
               "collector": "lint-format-types",
               "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-ai-workforce-lint-format-types-c70d8b1-f96f96b8",
-              "digest": "6a1a6f7bbace62841b5198e227edd91e5a47f5f6ecc57cb3e4c859a1c867963f",
-              "collector": "lint-format-types",
-              "result": "unavailable"
             }
           ],
           "missingCollectors": [],
           "method": "re-executed",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "security-privacy-review",
@@ -6821,20 +6972,38 @@
               "result": "unavailable"
             },
             {
+              "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-ad200744",
+              "digest": "4495245895da0bf15a6cef245b6563056a24fe470792b5b21f9cc83ff7b1a613",
+              "collector": "dependency-audit",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-aeeabd8a",
+              "digest": "eb41cc04999c7a6f3754e9cb44c820991ee9dac28853496aa1d35da965d32a02",
+              "collector": "dependency-audit",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-c759f6b9",
               "digest": "c080d8161d14823293a1c1c303179de0f9285467c8366b028a9444f4589dbae7",
               "collector": "dependency-audit",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ai-workforce-dependency-audit-c70d8b1-ca5ee6f6",
-              "digest": "4b96c73df3d2d8975956c542d44613a3eb6be59d8386e0ba765fb1dafa168658",
-              "collector": "dependency-audit",
+              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-4ad7a258",
+              "digest": "ad732dcb55fa9f9c3d63f1be9a58ac5554d0c76e5ed2ff81aff59ff00cee52f2",
+              "collector": "secret-scan",
               "result": "unavailable"
             },
             {
               "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-6b35d7b9",
               "digest": "8a5b5bf3ee77cd52922db7cf9384ef9680641956ca81c4db8e1a7d9c545a68fa",
+              "collector": "secret-scan",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-ade537e3",
+              "digest": "8731fed333a0af0a850fd4e9854d61a6fa29294c6e593118ebb38e9c66f53ab4",
               "collector": "secret-scan",
               "result": "unavailable"
             },
@@ -6855,24 +7024,24 @@
               "digest": "2278ed73dac8a4f45773ac9f51350f0dd2c9f4c1a5adfc7326bed858b6d0c417",
               "collector": "secret-scan",
               "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-f25d1452",
-              "digest": "a4be5ca75cf74b14f11acde0e4d33f8e003cffa96fa1cf762144b903bceae17d",
-              "collector": "secret-scan",
-              "result": "unavailable"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "wcag-22-aa",
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
+            {
+              "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-16e78852",
+              "digest": "d7e5bebdb9eaf4a45d1a5f3cea7caba6d4ac46e9ac42dfb1fae9b791256143f1",
+              "collector": "accessibility",
+              "result": "unavailable"
+            },
             {
               "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-23a85e5a",
               "digest": "848a7e7e43cce09fc77cf1e8a008789f95215b85515df4940761b466dbca0b77",
@@ -6886,8 +7055,8 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-71442670",
-              "digest": "912ae34c42fdb37ebd5b3e6f1e9737347e28f168e35cdd179f6f8d3b9cf474ac",
+              "id": "ev-one-small-ai-workforce-accessibility-c70d8b1-8770fa90",
+              "digest": "a7ea97198e2f2e099db8db2f2e78281f649b7c84b1de67f9ff3564e8a01bb1be",
               "collector": "accessibility",
               "result": "unavailable"
             },
@@ -6906,8 +7075,8 @@
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "keyboard-screen-reader",
@@ -6916,8 +7085,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "responsive-layouts",
@@ -6926,8 +7095,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "critical-workflows",
@@ -6941,14 +7110,14 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-362731a7",
-              "digest": "a891faceb95f0396f936b583ba4fe8378be403c62abcc0680675c5a1b3cb1b73",
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-61ee42d8",
+              "digest": "637c0994687ed6f43cd55d387d667334cdaec0170f0da47f3123d9fa6c9b665f",
               "collector": "build-test",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-61ee42d8",
-              "digest": "637c0994687ed6f43cd55d387d667334cdaec0170f0da47f3123d9fa6c9b665f",
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-73f101ba",
+              "digest": "a76c9eaffaa94bc3998c4b6855028388635a62c01dbffaa72598d96d7ad57d88",
               "collector": "build-test",
               "result": "unavailable"
             },
@@ -6963,12 +7132,18 @@
               "digest": "de3253e8b7f10661e7af535a1c162433b75ea2a081902831f9a7600263f8341d",
               "collector": "build-test",
               "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-dfd953a4",
+              "digest": "54a8c6296be8c93c2d04b42231f693539d9b40835cdfaee39d62dafb992f0962",
+              "collector": "build-test",
+              "result": "unavailable"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "production-deployment",
@@ -6976,22 +7151,16 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410",
-              "digest": "e24fb89f0237e7f01d7512a30d7bcb7472891d804a3a31ef8bbf6efcea83f9b6",
-              "collector": "deployment-health",
-              "result": "inconclusive"
-            },
-            {
-              "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
-              "digest": "7a00078947964d8d64aa5e7e72417e4fcbf66dfc8c696f78f13b4071a2758b00",
+              "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810",
+              "digest": "ee182f3f25f9a40b649cdee5edec4b88a56624a48c7cf1fcb7efcdee35016d60",
               "collector": "deployment-health",
               "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "documentation-accurate",
@@ -7001,12 +7170,6 @@
             {
               "id": "ev-one-small-ai-workforce-documentation-c70d8b1-06b855f1",
               "digest": "f71116a47a1d2f889d901e86366f32ff3798a647f247163993016eef7e65ad37",
-              "collector": "documentation",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-ai-workforce-documentation-c70d8b1-13c3e86a",
-              "digest": "7ab0a2493a8492c63c64a7adbd26724437e05e433f97b438086f6d7253f15820",
               "collector": "documentation",
               "result": "unavailable"
             },
@@ -7027,12 +7190,24 @@
               "digest": "d3bc3f45561f3a6bd03de43787ec6c1013334d1661d3b3246640b1088b64b971",
               "collector": "documentation",
               "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-documentation-c70d8b1-9230e55c",
+              "digest": "b151d62147fe59b0c52f2fc9e82cfc573694b81ff3c5cc2f9f9b6b0970ef9b65",
+              "collector": "documentation",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-documentation-c70d8b1-ffee6cea",
+              "digest": "fb012d3e09674f78cc9423acd8cf339442cd6c2a6971ce787e58018288723f24",
+              "collector": "documentation",
+              "result": "unavailable"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "no-release-blockers",
@@ -7041,8 +7216,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "authentication",
@@ -7051,8 +7226,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "authorization-boundaries",
@@ -7061,8 +7236,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "sensitive-data-handling",
@@ -7070,8 +7245,20 @@
           "humanOnly": false,
           "evidence": [
             {
+              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-4ad7a258",
+              "digest": "ad732dcb55fa9f9c3d63f1be9a58ac5554d0c76e5ed2ff81aff59ff00cee52f2",
+              "collector": "secret-scan",
+              "result": "unavailable"
+            },
+            {
               "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-6b35d7b9",
               "digest": "8a5b5bf3ee77cd52922db7cf9384ef9680641956ca81c4db8e1a7d9c545a68fa",
+              "collector": "secret-scan",
+              "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-ade537e3",
+              "digest": "8731fed333a0af0a850fd4e9854d61a6fa29294c6e593118ebb38e9c66f53ab4",
               "collector": "secret-scan",
               "result": "unavailable"
             },
@@ -7092,18 +7279,12 @@
               "digest": "2278ed73dac8a4f45773ac9f51350f0dd2c9f4c1a5adfc7326bed858b6d0c417",
               "collector": "secret-scan",
               "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-ai-workforce-secret-scan-c70d8b1-f25d1452",
-              "digest": "a4be5ca75cf74b14f11acde0e4d33f8e003cffa96fa1cf762144b903bceae17d",
-              "collector": "secret-scan",
-              "result": "unavailable"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "api-integration-security",
@@ -7112,8 +7293,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "integration-failure-handling",
@@ -7122,8 +7303,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "backup-recovery",
@@ -7132,8 +7313,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "audit-logging",
@@ -7142,8 +7323,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         },
         {
           "gate": "deployment-rollback",
@@ -7151,22 +7332,16 @@
           "humanOnly": false,
           "evidence": [
             {
-              "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410",
-              "digest": "e24fb89f0237e7f01d7512a30d7bcb7472891d804a3a31ef8bbf6efcea83f9b6",
-              "collector": "deployment-health",
-              "result": "inconclusive"
-            },
-            {
-              "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
-              "digest": "7a00078947964d8d64aa5e7e72417e4fcbf66dfc8c696f78f13b4071a2758b00",
+              "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810",
+              "digest": "ee182f3f25f9a40b649cdee5edec4b88a56624a48c7cf1fcb7efcdee35016d60",
               "collector": "deployment-health",
               "result": "inconclusive"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "e2e-critical-workflows",
@@ -7180,14 +7355,14 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-362731a7",
-              "digest": "a891faceb95f0396f936b583ba4fe8378be403c62abcc0680675c5a1b3cb1b73",
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-61ee42d8",
+              "digest": "637c0994687ed6f43cd55d387d667334cdaec0170f0da47f3123d9fa6c9b665f",
               "collector": "build-test",
               "result": "unavailable"
             },
             {
-              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-61ee42d8",
-              "digest": "637c0994687ed6f43cd55d387d667334cdaec0170f0da47f3123d9fa6c9b665f",
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-73f101ba",
+              "digest": "a76c9eaffaa94bc3998c4b6855028388635a62c01dbffaa72598d96d7ad57d88",
               "collector": "build-test",
               "result": "unavailable"
             },
@@ -7202,12 +7377,18 @@
               "digest": "de3253e8b7f10661e7af535a1c162433b75ea2a081902831f9a7600263f8341d",
               "collector": "build-test",
               "result": "unavailable"
+            },
+            {
+              "id": "ev-one-small-ai-workforce-build-test-c70d8b1-dfd953a4",
+              "digest": "54a8c6296be8c93c2d04b42231f693539d9b40835cdfaee39d62dafb992f0962",
+              "collector": "build-test",
+              "result": "unavailable"
             }
           ],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "ready for verifier"
         },
         {
           "gate": "user-data-isolation",
@@ -7216,8 +7397,8 @@
           "evidence": [],
           "missingCollectors": [],
           "method": "manual-test",
-          "routedTo": null,
-          "status": "blocked: no independent verifier assigned in the registry"
+          "routedTo": "Joshua Small",
+          "status": "manual verification only"
         }
       ]
     }

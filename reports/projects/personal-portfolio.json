@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-10-27T03:40:00Z",
+  "asOf": "2026-10-28T21:06:36Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "b3f3033d0d260577a40fa71094e6ea741bdb1af2610d6ab2e53e87bef356f6dc",
+  "registrySha256": "330a267023ad4d7f6201549b7b037b17e3ca08f5e2d02d7e8d0c23c9ea26de40",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "personal-portfolio",
@@ -23,8 +23,8 @@
       "lastSyncedAt": null,
       "lastEvidenceAt": "2026-10-22T16:33:00Z",
       "ownership": {
-        "builder": null,
-        "verifier": null,
+        "builder": "Claude Code",
+        "verifier": "Joshua Small",
         "approvalOwner": "Joshua Small"
       },
       "approval": {
@@ -60,11 +60,11 @@
           "applicable": 9,
           "verified": 0
         },
-        "blockingFindings": 7,
+        "blockingFindings": 6,
         "registryBlockers": 3,
         "missingIndependentVerification": [],
         "candidateMoved": false,
-        "ownershipValid": false,
+        "ownershipValid": true,
         "approvalRecorded": false,
         "eligibility": "not-scoped",
         "releaseReady": false
@@ -82,7 +82,6 @@
           "lastObservedAt": null,
           "failed": false,
           "missing": [
-            "builder and independent verifier are not both assigned",
             "evidence for this gate"
           ],
           "notes": null,
@@ -103,7 +102,6 @@
           "lastObservedAt": null,
           "failed": false,
           "missing": [
-            "builder and independent verifier are not both assigned",
             "evidence for this gate"
           ],
           "notes": null,
@@ -124,7 +122,6 @@
           "lastObservedAt": null,
           "failed": false,
           "missing": [
-            "builder and independent verifier are not both assigned",
             "evidence for this gate"
           ],
           "notes": null,
@@ -143,7 +140,6 @@
           "lastObservedAt": null,
           "failed": false,
           "missing": [
-            "builder and independent verifier are not both assigned",
             "evidence for this gate"
           ],
           "notes": null,
@@ -162,7 +158,6 @@
           "lastObservedAt": null,
           "failed": false,
           "missing": [
-            "builder and independent verifier are not both assigned",
             "evidence for this gate"
           ],
           "notes": null,
@@ -181,7 +176,6 @@
           "lastObservedAt": null,
           "failed": false,
           "missing": [
-            "builder and independent verifier are not both assigned",
             "evidence for this gate"
           ],
           "notes": null,
@@ -200,7 +194,6 @@
           "lastObservedAt": null,
           "failed": false,
           "missing": [
-            "builder and independent verifier are not both assigned",
             "evidence for this gate"
           ],
           "notes": null,
@@ -221,7 +214,6 @@
           "lastObservedAt": null,
           "failed": false,
           "missing": [
-            "builder and independent verifier are not both assigned",
             "evidence for this gate"
           ],
           "notes": null,
@@ -253,7 +245,6 @@
           "lastObservedAt": "2026-10-22T16:33:00Z",
           "failed": false,
           "missing": [
-            "builder and independent verifier are not both assigned",
             "registry notes: README is create-next-app boilerplate"
           ],
           "notes": "README is create-next-app boilerplate.",
@@ -274,7 +265,6 @@
           "lastObservedAt": null,
           "failed": false,
           "missing": [
-            "builder and independent verifier are not both assigned",
             "evidence for this gate"
           ],
           "notes": null,
@@ -386,19 +376,6 @@
             "evidenceRefs": [],
             "rule": "approval.status approved with evidence, by the approval owner",
             "action": "Ask Joshua Small to review the evidence and approve or decline the release."
-          },
-          {
-            "id": "auto-ownership",
-            "origin": "derived",
-            "status": "proposed",
-            "category": "evidence",
-            "severity": null,
-            "blocks": "release",
-            "gates": [],
-            "description": "Independent verification impossible: builder and independent verifier are not both assigned.",
-            "evidenceRefs": [],
-            "rule": "ownership.builder and ownership.verifier must be named, different and not automation",
-            "action": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision)."
           }
         ],
         "postRelease": []
@@ -421,17 +398,6 @@
           "rank": 2,
           "priority": 3,
           "bucket": "Missing required verification",
-          "source": "auto-ownership",
-          "origin": "derived",
-          "blocks": "release",
-          "gates": [],
-          "text": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision).",
-          "summary": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision)."
-        },
-        {
-          "rank": 3,
-          "priority": 3,
-          "bucket": "Missing required verification",
           "source": "auto-critical-workflows-unverified",
           "origin": "derived",
           "blocks": "release",
@@ -442,7 +408,7 @@
           "summary": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
         },
         {
-          "rank": 4,
+          "rank": 3,
           "priority": 3,
           "bucket": "Missing required verification",
           "source": "auto-missing-verification",
@@ -462,7 +428,7 @@
           "summary": "Produce evidence for security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts."
         },
         {
-          "rank": 5,
+          "rank": 4,
           "priority": 4,
           "bucket": "Failed or missing CI",
           "source": "no-ci-workflow",
@@ -475,7 +441,7 @@
           "summary": "Resolve blocker no-ci-workflow."
         },
         {
-          "rank": 6,
+          "rank": 5,
           "priority": 7,
           "bucket": "Documentation and lower priority",
           "source": "readme-boilerplate",

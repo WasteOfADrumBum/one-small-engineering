@@ -218,8 +218,8 @@
         ]
       },
       "ownership": {
-        "builder": null,
-        "verifier": null,
+        "builder": "ChatGPT",
+        "verifier": "Joshua Small",
         "approvalOwner": "Joshua Small"
       },
       "approval": {
@@ -563,8 +563,8 @@
         "enhancements": []
       },
       "ownership": {
-        "builder": null,
-        "verifier": null,
+        "builder": "Claude Code",
+        "verifier": "Joshua Small",
         "approvalOwner": "Joshua Small"
       },
       "approval": {
@@ -867,8 +867,8 @@
         "enhancements": []
       },
       "ownership": {
-        "builder": null,
-        "verifier": null,
+        "builder": "Claude Code",
+        "verifier": "Joshua Small",
         "approvalOwner": "Joshua Small"
       },
       "approval": {
@@ -1043,8 +1043,8 @@
         ]
       },
       "ownership": {
-        "builder": null,
-        "verifier": null,
+        "builder": "Claude Code",
+        "verifier": "Joshua Small",
         "approvalOwner": "Joshua Small"
       },
       "approval": {
@@ -1219,8 +1219,8 @@
         ]
       },
       "ownership": {
-        "builder": null,
-        "verifier": null,
+        "builder": "Claude Code",
+        "verifier": "Joshua Small",
         "approvalOwner": "Joshua Small"
       },
       "approval": {
@@ -1409,8 +1409,8 @@
         ]
       },
       "ownership": {
-        "builder": null,
-        "verifier": null,
+        "builder": "Claude Code",
+        "verifier": "Joshua Small",
         "approvalOwner": "Joshua Small"
       },
       "approval": {
@@ -1691,8 +1691,8 @@
         "enhancements": []
       },
       "ownership": {
-        "builder": null,
-        "verifier": null,
+        "builder": "Claude Code",
+        "verifier": "Joshua Small",
         "approvalOwner": "Joshua Small"
       },
       "approval": {
@@ -1965,8 +1965,8 @@
         "enhancements": []
       },
       "ownership": {
-        "builder": null,
-        "verifier": null,
+        "builder": "GitHub Copilot",
+        "verifier": "Joshua Small",
         "approvalOwner": "Joshua Small"
       },
       "approval": {
