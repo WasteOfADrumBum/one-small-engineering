@@ -1,6 +1,6 @@
 # OneSmallUI: issue reports
 
-As of 2026-10-27T01:56:27Z, commit 94438ee63ed8c72c027be4d58fc0b168236d213d. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
+As of 2026-10-28T21:07:08Z, commit 94438ee63ed8c72c027be4d58fc0b168236d213d. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
 
 ## accessibility: 2 of 3 check(s) passed; 1 not run or inconclusive
 
@@ -43,7 +43,7 @@ The accessibility collector reports pass at the new commit, and the verifier rec
 - Commit: 94438ee63ed8c72c027be4d58fc0b168236d213d
 - Gate(s): automated-checks
 - Severity: unclassified; kind: access; release impact: blocks verification of automated-checks
-- Evidence: ev-one-small-ui-ci-results-94438ee-b0dee17e
+- Evidence: ev-one-small-ui-ci-results-94438ee-0475c8d2
 
 ### Reproduction
 
@@ -149,7 +149,7 @@ The dependency-audit collector reports pass at the new commit, and the verifier 
 - Commit: 94438ee63ed8c72c027be4d58fc0b168236d213d
 - Gate(s): production-deployment
 - Severity: unclassified; kind: access; release impact: blocks verification of production-deployment
-- Evidence: ev-one-small-ui-deployment-health-94438ee-4b57ce2e
+- Evidence: ev-one-small-ui-deployment-health-94438ee-ae0893ff
 
 ### Reproduction
 

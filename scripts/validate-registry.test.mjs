@@ -218,6 +218,17 @@ test('builder and verifier must differ', () => {
   rejects(r, 'builder and verifier must be different')
 })
 
+test('builder and verifier from the same AI tool family are not independent', () => {
+  const { r, p } = releasedFixture(); p.ownership.verifier = 'Claude (second session)'
+  rejects(r, 'builder and verifier must be different parties')
+})
+
+test('a pass recorded by the builder\'s AI tool family does not verify a gate', () => {
+  const { r, p } = releasedFixture()
+  p.evidence.find(e => e.id === 'studio-qa-record').recordedBy = 'Claude Code (Phase 0 baseline, read-only GitHub inspection)'
+  rejects(r, 'recorded by someone other than the builder')
+})
+
 test('verified release needs a verifier', () => {
   const { r, p } = releasedFixture(); p.ownership.verifier = null
   rejects(r, 'needs both a builder and an independent verifier')

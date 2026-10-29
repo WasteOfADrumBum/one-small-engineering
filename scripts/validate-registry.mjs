@@ -13,6 +13,27 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const DEFAULT_REGISTRY = resolve(ROOT, 'projects/registry.json')
 const DEFAULT_SCHEMA = resolve(ROOT, 'projects/registry.schema.json')
 const DEFAULT_DOD = resolve(ROOT, 'standards/definition-of-done.md')
+// AI tool families come from the owner-controlled verification policy, so the registry rules and
+// the verifier (scripts/verify/verification.mjs) agree on who counts as the same party.
+const TOOL_FAMILIES = JSON.parse(readFileSync(resolve(ROOT, 'verification/policy.json'), 'utf8')).toolFamilies
+
+const familyOf = n => {
+  for (const [family, names] of Object.entries(TOOL_FAMILIES)) {
+    if (!family.startsWith('$') && names.some(x => n.includes(x.toLowerCase()))) return family
+  }
+  return null
+}
+
+// Same party for independence: the same name, or the same AI tool family ("Claude Code (Phase 0
+// baseline)" is the builder "Claude Code"; a second Claude session is not independent of the first).
+export function sameParty(a, b) {
+  const x = String(a || '').trim().toLowerCase()
+  const y = String(b || '').trim().toLowerCase()
+  if (!x || !y) return false
+  if (x === y) return true
+  const f = familyOf(x)
+  return Boolean(f && f === familyOf(y))
+}
 
 // ---------------------------------------------------------------------------
 // Minimal JSON Schema (2020-12 subset) evaluator. Only the keywords below are
@@ -314,8 +335,8 @@ export function checkRules(registry, { now = new Date(), dod = parseDefinitionOf
         const builder = norm(p.ownership.builder)
         const verifier = norm(p.ownership.verifier)
         if (!builder || !verifier) err(gp, 'a verified gate needs both ownership.builder and ownership.verifier assigned')
-        else if (builder === verifier) err(gp, 'a verified gate needs a verifier different from the builder')
-        else if (!refs.some(e => e.result === 'pass' && !NON_PROVING_TYPES.has(e.type) && norm(e.recordedBy) !== builder)) err(gp, 'a verified gate needs "pass" evidence recorded by someone other than the builder (builder results stay builder_reported until independently re-checked)')
+        else if (sameParty(builder, verifier)) err(gp, 'a verified gate needs a verifier different from the builder')
+        else if (!refs.some(e => e.result === 'pass' && !NON_PROVING_TYPES.has(e.type) && !sameParty(e.recordedBy, builder))) err(gp, 'a verified gate needs "pass" evidence recorded by someone other than the builder (builder results stay builder_reported until independently re-checked)')
         if (g.verifiedAt && new Date(g.verifiedAt) > updated) err(gp, 'verifiedAt is later than registry lastUpdatedAt')
         if (g.id === 'no-release-blockers' && openBlockers.length) err(gp, `cannot be verified while ${openBlockers.length} blocker(s) are open`)
       } else if (g.verifiedAt !== null) {
@@ -345,8 +366,8 @@ export function checkRules(registry, { now = new Date(), dod = parseDefinitionOf
     if (p.sync && p.sync.lastSyncedAt && new Date(p.sync.lastSyncedAt) > updated) err(`${at}.sync`, 'lastSyncedAt is later than registry lastUpdatedAt')
     // A public repository can always be read, so its identity must be pinned before it syncs.
     if (p.sync && p.sync.repositoryId === null && p.visibility === 'public') err(`${at}.sync`, 'a public repository must have its repositoryId pinned (npm run onboard)')
-    if (own.builder && own.verifier && norm(own.builder) === norm(own.verifier)) {
-      err(`${at}.ownership`, 'builder and verifier must be different for independent acceptance')
+    if (own.builder && own.verifier && sameParty(own.builder, own.verifier)) {
+      err(`${at}.ownership`, 'builder and verifier must be different parties (not the same AI tool family) for independent acceptance')
     }
     if (r.releaseStatus === 'released') {
       if (p.approval.status !== 'approved') err(`${at}.approval`, 'releaseStatus released needs human approval (approval.status approved)')

@@ -1,6 +1,6 @@
 # One Small AI Workforce: issue reports
 
-As of 2026-10-27T01:56:27Z, commit c70d8b117c3c5a046583e7ee83016d4a3ed4b065. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
+As of 2026-10-28T21:07:08Z, commit c70d8b117c3c5a046583e7ee83016d4a3ed4b065. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
 
 ## accessibility: no checkout
 
@@ -8,7 +8,7 @@ As of 2026-10-27T01:56:27Z, commit c70d8b117c3c5a046583e7ee83016d4a3ed4b065. One
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): wcag-22-aa
 - Severity: unclassified; kind: access; release impact: blocks verification of wcag-22-aa
-- Evidence: ev-one-small-ai-workforce-accessibility-c70d8b1-a1500480
+- Evidence: ev-one-small-ai-workforce-accessibility-c70d8b1-8770fa90
 
 ### Reproduction
 
@@ -43,7 +43,7 @@ The accessibility collector reports pass at the new commit, and the verifier rec
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): automated-checks, critical-workflows, e2e-critical-workflows
 - Severity: unclassified; kind: access; release impact: blocks verification of automated-checks, critical-workflows, e2e-critical-workflows
-- Evidence: ev-one-small-ai-workforce-build-test-c70d8b1-821d76cd
+- Evidence: ev-one-small-ai-workforce-build-test-c70d8b1-73f101ba
 
 ### Reproduction
 
@@ -80,7 +80,7 @@ The build-test collector reports pass at the new commit, and the verifier record
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): automated-checks
 - Severity: unclassified; kind: access; release impact: blocks verification of automated-checks
-- Evidence: ev-one-small-ai-workforce-ci-results-c70d8b1-e50e2e11
+- Evidence: ev-one-small-ai-workforce-ci-results-c70d8b1-1f512833
 
 ### Reproduction
 
@@ -115,7 +115,7 @@ The ci-results collector reports pass at the new commit, and the verifier record
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): security-privacy-review
 - Severity: unclassified; kind: access; release impact: blocks verification of security-privacy-review
-- Evidence: ev-one-small-ai-workforce-dependency-audit-c70d8b1-8417e8f4
+- Evidence: ev-one-small-ai-workforce-dependency-audit-c70d8b1-ad200744
 
 ### Reproduction
 
@@ -150,12 +150,12 @@ The dependency-audit collector reports pass at the new commit, and the verifier 
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): deployment-rollback, production-deployment
 - Severity: low; kind: evidence-gap; release impact: blocks verification of deployment-rollback, production-deployment
-- Evidence: ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65
+- Evidence: ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810
 
 ### Reproduction
 
 ```text
-node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector deployment-health --execute
+node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector deployment-health
 ```
 
 ### Root cause
@@ -186,7 +186,7 @@ The deployment-health collector reports pass at the new commit, and the verifier
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): documentation-accurate
 - Severity: unclassified; kind: access; release impact: blocks verification of documentation-accurate
-- Evidence: ev-one-small-ai-workforce-documentation-c70d8b1-06b855f1
+- Evidence: ev-one-small-ai-workforce-documentation-c70d8b1-ffee6cea
 
 ### Reproduction
 
@@ -221,7 +221,7 @@ The documentation collector reports pass at the new commit, and the verifier rec
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): automated-checks
 - Severity: unclassified; kind: access; release impact: blocks verification of automated-checks
-- Evidence: ev-one-small-ai-workforce-lint-format-types-c70d8b1-547f714e
+- Evidence: ev-one-small-ai-workforce-lint-format-types-c70d8b1-0e87bc58
 
 ### Reproduction
 
@@ -256,7 +256,7 @@ The lint-format-types collector reports pass at the new commit, and the verifier
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): none (context)
 - Severity: unclassified; kind: access; release impact: context only; no gate depends on it
-- Evidence: ev-one-small-ai-workforce-repo-structure-c70d8b1-2cf1a4f1
+- Evidence: ev-one-small-ai-workforce-repo-structure-c70d8b1-956c945b
 
 ### Reproduction
 
@@ -291,7 +291,7 @@ The repo-structure collector reports pass.
 - Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
 - Gate(s): security-privacy-review, sensitive-data-handling
 - Severity: unclassified; kind: access; release impact: blocks verification of security-privacy-review, sensitive-data-handling
-- Evidence: ev-one-small-ai-workforce-secret-scan-c70d8b1-e8bbb86c
+- Evidence: ev-one-small-ai-workforce-secret-scan-c70d8b1-ade537e3
 
 ### Reproduction
 

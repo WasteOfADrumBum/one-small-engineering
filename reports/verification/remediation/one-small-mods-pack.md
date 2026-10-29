@@ -1,6 +1,6 @@
 # One Small ModsPack: issue reports
 
-As of 2026-10-27T01:56:27Z, commit 80cc269ebb7c20aca5f6ca03214954726fb494f7. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
+As of 2026-10-28T21:07:08Z, commit 80cc269ebb7c20aca5f6ca03214954726fb494f7. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
 
 ## accessibility: 1 of 4 check(s) passed; 3 not run or inconclusive
 
@@ -43,7 +43,7 @@ The accessibility collector reports pass at the new commit, and the verifier rec
 - Commit: 80cc269ebb7c20aca5f6ca03214954726fb494f7
 - Gate(s): automated-checks
 - Severity: unclassified; kind: access; release impact: blocks verification of automated-checks
-- Evidence: ev-one-small-mods-pack-ci-results-80cc269-35769d7e
+- Evidence: ev-one-small-mods-pack-ci-results-80cc269-bd14b314
 
 ### Reproduction
 

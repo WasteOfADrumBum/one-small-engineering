@@ -3,6 +3,592 @@
   "evidence": [
     {
       "schema": 1,
+      "id": "ev-personal-portfolio-deployment-health-56ea76e-439cbcc3",
+      "project": "personal-portfolio",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "15adcfeb27aa86fe",
+      "execute": false,
+      "executedAt": "2026-10-28T21:06:53Z",
+      "result": "unavailable",
+      "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive",
+      "failureReason": "could not reach https://joshsmall-portfolio.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "inconclusive",
+          "detail": "no deployment configuration file found"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://joshsmall-portfolio.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-29T21:06:53Z"
+      },
+      "digest": "791156b08246f14033b26c4bca303977c89248a2c8f29e44606e5a01d84ecf03"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-ci-results-56ea76e-ea76ee50",
+      "project": "personal-portfolio",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "75d478da816d5336",
+      "execute": false,
+      "executedAt": "2026-10-28T21:06:52Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:06:52Z"
+      },
+      "digest": "c0f1fc1f936faf029de6cb19e63198330ce95a8df403fcf765140242c59390d2"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-accessibility-56ea76e-a1e62722",
+      "project": "personal-portfolio",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "ref": null,
+      "collector": {
+        "name": "accessibility",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "253702c9a6c220f4",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:17Z",
+      "result": "inconclusive",
+      "summary": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive",
+      "failureReason": "not run or inconclusive: automated accessibility tooling (none declared in package.json); automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
+      "checks": [
+        {
+          "name": "automated accessibility tooling",
+          "result": "inconclusive",
+          "detail": "none declared in package.json"
+        },
+        {
+          "name": "automated accessibility run",
+          "result": "not_run",
+          "detail": "no automated accessibility command is configured for this project"
+        },
+        {
+          "name": "manual review",
+          "result": "not_run",
+          "detail": "Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA."
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:17Z"
+      },
+      "digest": "e30435ebaf8446c05cdfae08f800ecbf983d26ed64de3257ee5e78bc54d42a58"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-dependency-audit-56ea76e-a7e719b8",
+      "project": "personal-portfolio",
+      "gates": [
+        "security-privacy-review",
+        "supply-chain-review"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "ref": null,
+      "collector": {
+        "name": "dependency-audit",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "448c56ef30c128f4",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:17Z",
+      "result": "pass",
+      "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "npm audit",
+          "result": "pass",
+          "detail": "critical 0, high 0, moderate 0, low 0, info 0 across 448 packages"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "npm-audit.json",
+          "sha256": "a8acfe4caf098fa2a16998bf8f74426b8799f4d511741d252d2ece6cf6c67b1f",
+          "ref": null
+        }
+      ],
+      "reproduce": "npm audit --json --package-lock-only (at 56ea76e)",
+      "details": {
+        "advisories": [],
+        "productionAudit": "not run"
+      },
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:04:17Z"
+      },
+      "digest": "d57e9ae16df66e601a8774256df588e281ddaf4e14ad695699865efc0ac40533"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-deployment-health-56ea76e-403b2c5f",
+      "project": "personal-portfolio",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "15adcfeb27aa86fe",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:17Z",
+      "result": "unavailable",
+      "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive",
+      "failureReason": "could not reach https://joshsmall-portfolio.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "inconclusive",
+          "detail": "no deployment configuration file found"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://joshsmall-portfolio.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-29T21:04:17Z"
+      },
+      "digest": "d92324f929af8de549d4ee20248b77adf851aa5a7809bac945bde2b3c450b7bc"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-documentation-56ea76e-85fea46c",
+      "project": "personal-portfolio",
+      "gates": [
+        "documentation-accurate",
+        "public-docs-accurate",
+        "upgrade-rollback-uninstall-docs"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "ref": null,
+      "collector": {
+        "name": "documentation",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "cd608c2de2ac11ae",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:17Z",
+      "result": "inconclusive",
+      "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "checks": [
+        {
+          "name": "README",
+          "result": "pass",
+          "detail": "37 lines"
+        },
+        {
+          "name": "README install or usage section",
+          "result": "pass",
+          "detail": "heading naming install, usage, setup or getting started"
+        },
+        {
+          "name": "relative links resolve",
+          "result": "pass",
+          "detail": "3 Markdown file(s)"
+        },
+        {
+          "name": "accuracy against behaviour",
+          "result": "not_run",
+          "detail": "whether the documentation matches the product is a manual review"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:17Z"
+      },
+      "digest": "a31afb56f65243a7b827204b4e4cc56a9c8b0614c46cf3b397ac38e73b3ac641"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-secret-scan-56ea76e-556244d6",
+      "project": "personal-portfolio",
+      "gates": [
+        "security-privacy-review",
+        "sensitive-data-handling"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "ref": null,
+      "collector": {
+        "name": "secret-scan",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "67b94839561fb5c6",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:17Z",
+      "result": "pass",
+      "summary": "secret scan: 3 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "credential patterns outside tests and docs",
+          "result": "pass",
+          "detail": "41 files scanned"
+        },
+        {
+          "name": "committed .env files with sensitive keys",
+          "result": "pass",
+          "detail": "none"
+        },
+        {
+          "name": "credential-shaped values in tests and docs",
+          "result": "pass",
+          "detail": "none"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "secret-scan-locations",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "ref": "0 location(s), values withheld"
+        }
+      ],
+      "reproduce": "node scripts/verify/cli.mjs collect --project <id> --collector secret-scan",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:17Z"
+      },
+      "digest": "2cb2dfa292a27f3932b331315244c6eacb0910e5b4448979deef7bfeed8e0cd9"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-build-test-56ea76e-03122acd",
+      "project": "personal-portfolio",
+      "gates": [
+        "automated-checks",
+        "critical-workflows",
+        "e2e-critical-workflows"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "ref": null,
+      "collector": {
+        "name": "build-test",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "31c52f37b08f4cd7",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:16Z",
+      "result": "inconclusive",
+      "summary": "build and test: project code was not executed",
+      "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:16Z"
+      },
+      "digest": "ca07afa76608fddf1ee52e26fe3c6537955a76eee04a395dd3b1ed48bf1b9834"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-ci-results-56ea76e-fc63be34",
+      "project": "personal-portfolio",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "75d478da816d5336",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:16Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:04:16Z"
+      },
+      "digest": "8d8457d8b510bca0d1b3cb37960e18ad5ed30a5aaa93eb328a5b5251a543c8dd"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-lint-format-types-56ea76e-4b2bfc2f",
+      "project": "personal-portfolio",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "ref": null,
+      "collector": {
+        "name": "lint-format-types",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "9f2b4153f5a7935f",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:16Z",
+      "result": "inconclusive",
+      "summary": "lint, format and types: project code was not executed",
+      "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:16Z"
+      },
+      "digest": "0ac743a03255d3c73aedbfbe4fe67b0308e41423e477b1630a882596f748e7b8"
+    },
+    {
+      "schema": 1,
+      "id": "ev-personal-portfolio-repo-structure-56ea76e-fb62f904",
+      "project": "personal-portfolio",
+      "gates": [],
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "commitSha": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "ref": null,
+      "collector": {
+        "name": "repo-structure",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "54f106e052e280c2",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:16Z",
+      "result": "inconclusive",
+      "summary": "repository structure: 3 of 5 check(s) passed; 2 not run or inconclusive",
+      "failureReason": "not run or inconclusive: license (absent); workflows (no GitHub Actions workflows)",
+      "checks": [
+        {
+          "name": "package.json",
+          "result": "pass",
+          "detail": "joshsmall-site@0.1.0 (private)"
+        },
+        {
+          "name": "lockfile",
+          "result": "pass",
+          "detail": "package-lock.json"
+        },
+        {
+          "name": "readme",
+          "result": "pass",
+          "detail": "README.md"
+        },
+        {
+          "name": "license",
+          "result": "inconclusive",
+          "detail": "absent"
+        },
+        {
+          "name": "workflows",
+          "result": "inconclusive",
+          "detail": "no GitHub Actions workflows"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "file-list",
+          "sha256": "1a60e04b70efaf3746ec3974f78a738f063b9602c7dc486d2d9d6ab1168bc032",
+          "ref": "59 files"
+        }
+      ],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:16Z"
+      },
+      "digest": "ae895d5a379d3e2443372b2b6f10f0233261f4d15194851298950bf811d349e3"
+    },
+    {
+      "schema": 1,
       "id": "ev-personal-portfolio-ci-results-684ef3c-c2193761",
       "project": "personal-portfolio",
       "gates": [
@@ -921,59 +1507,6 @@
     },
     {
       "schema": 1,
-      "id": "ev-personal-portfolio-deployment-health-684ef3c-b3ba0def",
-      "project": "personal-portfolio",
-      "gates": [
-        "deployment-rollback",
-        "production-deployment"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
-      "ref": null,
-      "collector": {
-        "name": "deployment-health",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "df25836bbc2c8b3f",
-      "execute": true,
-      "executedAt": "2026-10-27T00:49:27Z",
-      "result": "unavailable",
-      "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive",
-      "failureReason": "could not reach https://joshsmall-portfolio.vercel.app from this runner",
-      "checks": [
-        {
-          "name": "deployment configuration",
-          "result": "inconclusive",
-          "detail": "no deployment configuration file found"
-        },
-        {
-          "name": "health check",
-          "result": "not_run",
-          "detail": "https://joshsmall-portfolio.vercel.app: network error"
-        }
-      ],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 1 day(s) after collection",
-        "expiresAt": "2026-10-28T00:49:27Z"
-      },
-      "digest": "cb5ab86912057d96aabd9b8bfdd48c31ec873d998347447a4b898774acd48745"
-    },
-    {
-      "schema": 1,
       "id": "ev-personal-portfolio-documentation-684ef3c-207e2e00",
       "project": "personal-portfolio",
       "gates": [
@@ -1153,47 +1686,6 @@
         "expiresAt": "2026-11-03T00:49:26Z"
       },
       "digest": "717e9d4328e5722d506980f01916ce37c254f004cd598d4ef247447f32b07459"
-    },
-    {
-      "schema": 1,
-      "id": "ev-personal-portfolio-ci-results-684ef3c-972d7e12",
-      "project": "personal-portfolio",
-      "gates": [
-        "automated-checks"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-      "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
-      "ref": null,
-      "collector": {
-        "name": "ci-results",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "acd035d392b280cc",
-      "execute": true,
-      "executedAt": "2026-10-27T00:49:25Z",
-      "result": "unavailable",
-      "summary": "CI results: not readable",
-      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
-      "checks": [],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 7 day(s) after collection",
-        "expiresAt": "2026-11-03T00:49:25Z"
-      },
-      "digest": "d748b474f8d180f2588bc68c8d861d5ddc5861a50f03cfc88ce5c8283391484a"
     },
     {
       "schema": 1,

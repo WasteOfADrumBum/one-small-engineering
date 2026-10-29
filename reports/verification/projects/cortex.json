@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-27T01:56:27Z",
+  "asOf": "2026-10-28T21:07:08Z",
   "id": "cortex",
   "name": "Cortex",
   "tier": "application",
@@ -17,7 +17,7 @@
     "applicableGates": 20,
     "verifiedGates": 0,
     "eligibility": "not-scoped",
-    "ownershipValid": false
+    "ownershipValid": true
   },
   "gateStates": {
     "independently_verified": 0,
@@ -41,7 +41,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -63,10 +62,10 @@
           "summary": "build and test: 1 check(s) passed"
         },
         {
-          "id": "ev-cortex-ci-results-ec49fd7-bf09a281",
+          "id": "ev-cortex-ci-results-ec49fd7-330a5ec7",
           "collector": "ci-results",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:56:26Z",
+          "executedAt": "2026-10-28T21:07:00Z",
           "summary": "CI results: not readable"
         },
         {
@@ -81,7 +80,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -114,7 +112,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -140,7 +137,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -158,7 +154,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -176,7 +171,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -202,7 +196,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -217,10 +210,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
+          "id": "ev-cortex-deployment-health-ec49fd7-80f95d1a",
           "collector": "deployment-health",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:56:26Z",
+          "executedAt": "2026-10-28T21:07:06Z",
           "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -228,7 +221,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "After the authorized publication or deployment, verify it and record evidence."
@@ -254,7 +246,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -272,7 +263,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -290,7 +280,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -308,7 +297,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -334,7 +322,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate",
         "registry notes: High priority: the planned Finances ingest handles personal financial summaries; the spec requires auth, an 8-digit account-number rule and rate limiting"
       ],
@@ -353,7 +340,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -371,7 +357,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -389,7 +374,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -407,7 +391,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -422,10 +405,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
+          "id": "ev-cortex-deployment-health-ec49fd7-80f95d1a",
           "collector": "deployment-health",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:56:26Z",
+          "executedAt": "2026-10-28T21:07:06Z",
           "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -433,7 +416,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -459,7 +441,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -477,7 +458,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -554,14 +534,6 @@
       "blocks": "release",
       "category": "approval",
       "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
-    },
-    {
-      "id": "auto-ownership",
-      "origin": "derived",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "evidence",
-      "description": "Independent verification impossible: builder and independent verifier are not both assigned."
     }
   ],
   "blockersBySeverity": {
@@ -569,12 +541,12 @@
     "high": 0,
     "medium": 0,
     "low": 0,
-    "unclassified": 7
+    "unclassified": 6
   },
   "mergeEligible": false,
   "releaseEligible": false,
   "lastVerification": null,
-  "lastCollection": "2026-10-27T01:56:26Z",
+  "lastCollection": "2026-10-28T21:07:06Z",
   "nextAction": "Resolve blocker spec-open-questions.",
   "findings": [
     {
@@ -606,7 +578,7 @@
       "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
       "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
       "collector": "ci-results",
-      "evidenceId": "ev-cortex-ci-results-ec49fd7-bf09a281",
+      "evidenceId": "ev-cortex-ci-results-ec49fd7-330a5ec7",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -629,7 +601,7 @@
       "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
       "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
       "collector": "deployment-health",
-      "evidenceId": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
+      "evidenceId": "ev-cortex-deployment-health-ec49fd7-80f95d1a",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -725,8 +697,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "automated-checks",
@@ -752,20 +724,26 @@
           "result": "unavailable"
         },
         {
+          "id": "ev-cortex-ci-results-ec49fd7-330a5ec7",
+          "digest": "42d8708316e475425ce1860a075bc08ed13ad9fe10469129af8cf3eed9b37006",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-cortex-ci-results-ec49fd7-692a94aa",
           "digest": "d107a86b75196c84af6c039c2ef7b60de52b8ac0397b80d9b75c9a2872f4129a",
           "collector": "ci-results",
           "result": "unavailable"
         },
         {
-          "id": "ev-cortex-ci-results-ec49fd7-bf09a281",
-          "digest": "d6cf78d3d5a26c3c8c0372643376d721bef969b33c1c93fe7cd612e0ef6c596e",
+          "id": "ev-cortex-ci-results-ec49fd7-86e96770",
+          "digest": "8440071cf46191ce6b6a5d5240223e3047305684326c93d0f7605b3e99f504d3",
           "collector": "ci-results",
           "result": "unavailable"
         },
         {
-          "id": "ev-cortex-ci-results-ec49fd7-c1e79b00",
-          "digest": "4d1b86c224c14bfa6f67340a085bd9042fe42f437c3300354d142c7c9d68fc1b",
+          "id": "ev-cortex-ci-results-ec49fd7-bf09a281",
+          "digest": "d6cf78d3d5a26c3c8c0372643376d721bef969b33c1c93fe7cd612e0ef6c596e",
           "collector": "ci-results",
           "result": "unavailable"
         },
@@ -790,8 +768,8 @@
       ],
       "missingCollectors": [],
       "method": "re-executed",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "security-privacy-review",
@@ -825,8 +803,8 @@
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "wcag-22-aa",
@@ -848,8 +826,8 @@
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "keyboard-screen-reader",
@@ -858,8 +836,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "responsive-layouts",
@@ -868,8 +846,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "critical-workflows",
@@ -891,8 +869,8 @@
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "production-deployment",
@@ -918,22 +896,28 @@
           "result": "unavailable"
         },
         {
+          "id": "ev-cortex-deployment-health-ec49fd7-80f95d1a",
+          "digest": "30b3b0877eaa3f334de7bc6e567348eaa8fa81701daf5a1a3cd657c058b54b2e",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
           "digest": "34c21a661061dc3fd3eb4067b239de349a3449c94c9f4592542dfba6bf7c50bc",
           "collector": "deployment-health",
           "result": "unavailable"
         },
         {
-          "id": "ev-cortex-deployment-health-ec49fd7-ca79944d",
-          "digest": "f477d1df4e6c0d281d31ea859d3336dd10918e7131b19900141b917e61ebfc1e",
+          "id": "ev-cortex-deployment-health-ec49fd7-d9026ec3",
+          "digest": "4ae838646936caaeea3099a10f7823ebef08e655545b126a2d44a6d2a64fc7f5",
           "collector": "deployment-health",
           "result": "unavailable"
         }
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "documentation-accurate",
@@ -955,8 +939,8 @@
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "no-release-blockers",
@@ -965,8 +949,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "authentication",
@@ -975,8 +959,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "authorization-boundaries",
@@ -985,8 +969,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "sensitive-data-handling",
@@ -1008,8 +992,8 @@
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "api-integration-security",
@@ -1018,8 +1002,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "integration-failure-handling",
@@ -1028,8 +1012,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "backup-recovery",
@@ -1038,8 +1022,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "audit-logging",
@@ -1048,8 +1032,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "deployment-rollback",
@@ -1075,22 +1059,28 @@
           "result": "unavailable"
         },
         {
+          "id": "ev-cortex-deployment-health-ec49fd7-80f95d1a",
+          "digest": "30b3b0877eaa3f334de7bc6e567348eaa8fa81701daf5a1a3cd657c058b54b2e",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
           "digest": "34c21a661061dc3fd3eb4067b239de349a3449c94c9f4592542dfba6bf7c50bc",
           "collector": "deployment-health",
           "result": "unavailable"
         },
         {
-          "id": "ev-cortex-deployment-health-ec49fd7-ca79944d",
-          "digest": "f477d1df4e6c0d281d31ea859d3336dd10918e7131b19900141b917e61ebfc1e",
+          "id": "ev-cortex-deployment-health-ec49fd7-d9026ec3",
+          "digest": "4ae838646936caaeea3099a10f7823ebef08e655545b126a2d44a6d2a64fc7f5",
           "collector": "deployment-health",
           "result": "unavailable"
         }
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "e2e-critical-workflows",
@@ -1112,8 +1102,8 @@
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "user-data-isolation",
@@ -1122,8 +1112,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     }
   ]
 }

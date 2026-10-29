@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-27T01:56:27Z",
+  "asOf": "2026-10-28T21:07:08Z",
   "id": "one-small-ui",
   "name": "OneSmallUI",
   "tier": "library",
@@ -17,7 +17,7 @@
     "applicableGates": 22,
     "verifiedGates": 0,
     "eligibility": "not-scoped",
-    "ownershipValid": false
+    "ownershipValid": true
   },
   "gateStates": {
     "independently_verified": 0,
@@ -41,7 +41,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -63,10 +62,10 @@
           "summary": "build and test: 2 check(s) passed"
         },
         {
-          "id": "ev-one-small-ui-ci-results-94438ee-b0dee17e",
+          "id": "ev-one-small-ui-ci-results-94438ee-0475c8d2",
           "collector": "ci-results",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:56:23Z",
+          "executedAt": "2026-10-28T21:06:50Z",
           "summary": "CI results: not readable"
         },
         {
@@ -81,7 +80,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
         "registry notes: Latest default-branch CI passed at 94438ee. The target release scope is not frozen, so this does not verify the release; re-run on the release candidate"
       ],
@@ -115,7 +113,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -141,7 +138,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -159,7 +155,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -177,7 +172,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -203,7 +197,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -218,10 +211,10 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-ui-deployment-health-94438ee-4b57ce2e",
+          "id": "ev-one-small-ui-deployment-health-94438ee-ae0893ff",
           "collector": "deployment-health",
           "result": "unavailable",
-          "executedAt": "2026-10-27T01:56:23Z",
+          "executedAt": "2026-10-28T21:06:50Z",
           "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive"
         }
       ],
@@ -229,7 +222,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "After the authorized publication or deployment, verify it and record evidence."
@@ -255,7 +247,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -273,7 +264,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -299,7 +289,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -325,7 +314,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -351,7 +339,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -377,7 +364,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -403,7 +389,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -429,7 +414,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -455,7 +439,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -473,7 +456,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "After the authorized publication or deployment, verify it and record evidence."
@@ -491,7 +473,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "After the authorized publication or deployment, verify it and record evidence."
@@ -517,7 +498,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -543,7 +523,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
@@ -561,7 +540,6 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "builder and independent verifier are not both assigned",
         "evidence for this gate"
       ],
       "nextAction": "After the authorized publication or deployment, verify it and record evidence."
@@ -624,14 +602,6 @@
       "blocks": "release",
       "category": "approval",
       "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
-    },
-    {
-      "id": "auto-ownership",
-      "origin": "derived",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "evidence",
-      "description": "Independent verification impossible: builder and independent verifier are not both assigned."
     }
   ],
   "blockersBySeverity": {
@@ -639,12 +609,12 @@
     "high": 1,
     "medium": 2,
     "low": 1,
-    "unclassified": 5
+    "unclassified": 4
   },
   "mergeEligible": false,
   "releaseEligible": false,
   "lastVerification": null,
-  "lastCollection": "2026-10-27T01:56:23Z",
+  "lastCollection": "2026-10-28T21:06:50Z",
   "nextAction": "Fix dependency-audit at 94438ee: dependency audit: critical 2, high 0, moderate 1, low 0, info 0.",
   "findings": [
     {
@@ -676,7 +646,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
       "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
       "collector": "ci-results",
-      "evidenceId": "ev-one-small-ui-ci-results-94438ee-b0dee17e",
+      "evidenceId": "ev-one-small-ui-ci-results-94438ee-0475c8d2",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -747,7 +717,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
       "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
       "collector": "deployment-health",
-      "evidenceId": "ev-one-small-ui-deployment-health-94438ee-4b57ce2e",
+      "evidenceId": "ev-one-small-ui-deployment-health-94438ee-ae0893ff",
       "kind": "access",
       "severity": "unclassified",
       "gates": [
@@ -834,8 +804,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "automated-checks",
@@ -861,6 +831,12 @@
           "result": "pass"
         },
         {
+          "id": "ev-one-small-ui-ci-results-94438ee-0475c8d2",
+          "digest": "8eda4ce5ba353b8f8bd7fa8f3ba9905fe3cb85bf47bfac2d5762308436cd5832",
+          "collector": "ci-results",
+          "result": "unavailable"
+        },
+        {
           "id": "ev-one-small-ui-ci-results-94438ee-090f762b",
           "digest": "d44acecad3ff6e16928a4861dbd5d8f9b8c523dcc7a91fe34feb70d4386b865d",
           "collector": "ci-results",
@@ -879,8 +855,8 @@
           "result": "unavailable"
         },
         {
-          "id": "ev-one-small-ui-ci-results-94438ee-811505f7",
-          "digest": "6b80d45e94dd4d07c8b723a939e4e887852e82a6ee295bd17c03b3d1130bf9bb",
+          "id": "ev-one-small-ui-ci-results-94438ee-722a0f4b",
+          "digest": "9f150a77bae1bb381aceb8fdf461bf20673feb918d3528ed9566b0da6de0e4a0",
           "collector": "ci-results",
           "result": "unavailable"
         },
@@ -905,8 +881,8 @@
       ],
       "missingCollectors": [],
       "method": "re-executed",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "security-privacy-review",
@@ -940,8 +916,8 @@
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "wcag-22-aa",
@@ -963,8 +939,8 @@
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "keyboard-screen-reader",
@@ -973,8 +949,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "responsive-layouts",
@@ -983,8 +959,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "critical-workflows",
@@ -1012,8 +988,8 @@
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "production-deployment",
@@ -1045,16 +1021,22 @@
           "result": "unavailable"
         },
         {
-          "id": "ev-one-small-ui-deployment-health-94438ee-c9739e90",
-          "digest": "2124a4dddd49916a96ddaa0e6a4375d130ae7c7f850b8152173e9f8278f354e4",
+          "id": "ev-one-small-ui-deployment-health-94438ee-9d247db9",
+          "digest": "2f29ddd50173d3b86998b56d8b96e628ec37aef4cfa8d3c97eef46cab98a3d05",
+          "collector": "deployment-health",
+          "result": "unavailable"
+        },
+        {
+          "id": "ev-one-small-ui-deployment-health-94438ee-ae0893ff",
+          "digest": "4dd75ffbcdda07f3cfd54c56274a345d499a2f890088c17244ba2df5e278ce00",
           "collector": "deployment-health",
           "result": "unavailable"
         }
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "documentation-accurate",
@@ -1076,8 +1058,8 @@
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "no-release-blockers",
@@ -1086,8 +1068,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "package-metadata-exports",
@@ -1109,8 +1091,8 @@
       ],
       "missingCollectors": [],
       "method": "re-executed",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "clean-consumer-install",
@@ -1132,8 +1114,8 @@
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "runtime-compatibility",
@@ -1155,8 +1137,8 @@
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "package-archive-inspection",
@@ -1178,8 +1160,8 @@
       ],
       "missingCollectors": [],
       "method": "re-executed",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "supply-chain-review",
@@ -1201,8 +1183,8 @@
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "ci-release-pipeline",
@@ -1224,8 +1206,8 @@
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "versioning-changelog",
@@ -1247,8 +1229,8 @@
       ],
       "missingCollectors": [],
       "method": "re-executed",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "distribution-verified",
@@ -1257,8 +1239,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "release-provenance",
@@ -1267,8 +1249,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     },
     {
       "gate": "upgrade-rollback-uninstall-docs",
@@ -1290,8 +1272,8 @@
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "public-docs-accurate",
@@ -1313,8 +1295,8 @@
       ],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "ready for verifier"
     },
     {
       "gate": "published-artifact-matches",
@@ -1323,8 +1305,8 @@
       "evidence": [],
       "missingCollectors": [],
       "method": "manual-test",
-      "routedTo": null,
-      "status": "blocked: no independent verifier assigned in the registry"
+      "routedTo": "Joshua Small",
+      "status": "manual verification only"
     }
   ]
 }

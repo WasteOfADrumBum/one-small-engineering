@@ -3,6 +3,194 @@
   "evidence": [
     {
       "schema": 1,
+      "id": "ev-cortex-deployment-health-ec49fd7-80f95d1a",
+      "project": "cortex",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "1a62e8621155f004",
+      "execute": false,
+      "executedAt": "2026-10-28T21:07:06Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://cortex-brain-nu.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "vercel.json"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://cortex-brain-nu.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-29T21:07:06Z"
+      },
+      "digest": "30b3b0877eaa3f334de7bc6e567348eaa8fa81701daf5a1a3cd657c058b54b2e"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-ci-results-ec49fd7-330a5ec7",
+      "project": "cortex",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "40c9cca4027fa0e8",
+      "execute": false,
+      "executedAt": "2026-10-28T21:07:00Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:07:00Z"
+      },
+      "digest": "42d8708316e475425ce1860a075bc08ed13ad9fe10469129af8cf3eed9b37006"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-deployment-health-ec49fd7-d9026ec3",
+      "project": "cortex",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "1a62e8621155f004",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:33Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://cortex-brain-nu.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "vercel.json"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://cortex-brain-nu.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-29T21:04:33Z"
+      },
+      "digest": "4ae838646936caaeea3099a10f7823ebef08e655545b126a2d44a6d2a64fc7f5"
+    },
+    {
+      "schema": 1,
+      "id": "ev-cortex-ci-results-ec49fd7-86e96770",
+      "project": "cortex",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "40c9cca4027fa0e8",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:27Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:04:27Z"
+      },
+      "digest": "8440071cf46191ce6b6a5d5240223e3047305684326c93d0f7605b3e99f504d3"
+    },
+    {
+      "schema": 1,
       "id": "ev-cortex-ci-results-ec49fd7-bf09a281",
       "project": "cortex",
       "gates": [
@@ -894,59 +1082,6 @@
     },
     {
       "schema": 1,
-      "id": "ev-cortex-deployment-health-ec49fd7-ca79944d",
-      "project": "cortex",
-      "gates": [
-        "deployment-rollback",
-        "production-deployment"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
-      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
-      "ref": null,
-      "collector": {
-        "name": "deployment-health",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "ec74229cd0941988",
-      "execute": true,
-      "executedAt": "2026-10-27T00:56:06Z",
-      "result": "unavailable",
-      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
-      "failureReason": "could not reach https://cortex-brain-nu.vercel.app from this runner",
-      "checks": [
-        {
-          "name": "deployment configuration",
-          "result": "pass",
-          "detail": "vercel.json"
-        },
-        {
-          "name": "health check",
-          "result": "not_run",
-          "detail": "https://cortex-brain-nu.vercel.app: network error"
-        }
-      ],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 1 day(s) after collection",
-        "expiresAt": "2026-10-28T00:56:06Z"
-      },
-      "digest": "f477d1df4e6c0d281d31ea859d3336dd10918e7131b19900141b917e61ebfc1e"
-    },
-    {
-      "schema": 1,
       "id": "ev-cortex-documentation-ec49fd7-e08f6339",
       "project": "cortex",
       "gates": [
@@ -1121,47 +1256,6 @@
         "expiresAt": "2026-11-26T00:56:05Z"
       },
       "digest": "0f5e33663973ef9eb8655d52ea3daa966703e8ab953f0b5cd0cff182a00646ee"
-    },
-    {
-      "schema": 1,
-      "id": "ev-cortex-ci-results-ec49fd7-c1e79b00",
-      "project": "cortex",
-      "gates": [
-        "automated-checks"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
-      "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
-      "ref": null,
-      "collector": {
-        "name": "ci-results",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "6d563f0372436736",
-      "execute": true,
-      "executedAt": "2026-10-27T00:56:05Z",
-      "result": "unavailable",
-      "summary": "CI results: not readable",
-      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
-      "checks": [],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 7 day(s) after collection",
-        "expiresAt": "2026-11-03T00:56:05Z"
-      },
-      "digest": "4d1b86c224c14bfa6f67340a085bd9042fe42f437c3300354d142c7c9d68fc1b"
     },
     {
       "schema": 1,

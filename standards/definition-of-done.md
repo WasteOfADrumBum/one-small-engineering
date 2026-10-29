@@ -28,7 +28,7 @@ Evidence is never promoted from `builder_reported` to `pass` by editing its resu
 
 A gate is **verified** only when:
 
-- `ownership.builder` and `ownership.verifier` are both assigned and are different identities (they stay `null` until the release is scoped);
+- `ownership.builder` and `ownership.verifier` are both assigned and are different identities (they may be assigned before the release is scoped);
 - it links at least one evidence record whose `result` is `pass`, recorded by someone other than the builder;
 - that evidence is not repository metadata;
 - the evidence applies to the target release (the commit or deployment being released), not an older one.

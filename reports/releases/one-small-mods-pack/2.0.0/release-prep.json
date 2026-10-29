@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/release-preparation",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-10-27T03:40:00Z",
+  "asOf": "2026-10-28T21:06:36Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "b3f3033d0d260577a40fa71094e6ea741bdb1af2610d6ab2e53e87bef356f6dc",
+  "registrySha256": "330a267023ad4d7f6201549b7b037b17e3ca08f5e2d02d7e8d0c23c9ea26de40",
   "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
   "project": {
     "id": "one-small-mods-pack",
@@ -42,8 +42,8 @@
       }
     ],
     "ownership": {
-      "builder": null,
-      "verifier": null,
+      "builder": "ChatGPT",
+      "verifier": "Joshua Small",
       "approvalOwner": "Joshua Small"
     },
     "approval": {
@@ -72,10 +72,9 @@
         "applicable": 18,
         "verified": 0
       },
-      "blockingFindings": 11,
+      "blockingFindings": 10,
       "registryBlockers": 8,
       "missingIndependentVerification": [
-        "automated-checks",
         "wcag-22-aa",
         "keyboard-screen-reader",
         "responsive-layouts",
@@ -84,13 +83,12 @@
         "runtime-compatibility",
         "package-archive-inspection",
         "supply-chain-review",
-        "ci-release-pipeline",
         "versioning-changelog",
         "upgrade-rollback-uninstall-docs",
         "public-docs-accurate"
       ],
       "candidateMoved": false,
-      "ownershipValid": false,
+      "ownershipValid": true,
       "approvalRecorded": false,
       "eligibility": "not-eligible",
       "releaseReady": false
@@ -102,7 +100,6 @@
         "state": "not_started",
         "provenance": "none",
         "missing": [
-          "builder and independent verifier are not both assigned",
           "evidence for this gate",
           "registry notes: Security test suite and dependency audit are builder-reported; no independent security review recorded yet"
         ]
@@ -112,7 +109,6 @@
         "state": "in_progress",
         "provenance": "builder-reported",
         "missing": [
-          "builder and independent verifier are not both assigned",
           "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
           "registry notes: Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE"
         ]
@@ -124,7 +120,6 @@
         "state": "in_progress",
         "provenance": "builder-reported",
         "missing": [
-          "builder and independent verifier are not both assigned",
           "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
           "registry notes: Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding"
         ]
@@ -134,7 +129,6 @@
         "state": "in_progress",
         "provenance": "builder-reported",
         "missing": [
-          "builder and independent verifier are not both assigned",
           "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
           "registry notes: Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED"
         ]
@@ -144,7 +138,6 @@
         "state": "in_progress",
         "provenance": "builder-reported",
         "missing": [
-          "builder and independent verifier are not both assigned",
           "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
           "registry notes: Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED"
         ]
@@ -155,7 +148,7 @@
         "id": "msp-ci-pr3-head",
         "type": "workflow_run",
         "result": "pass",
-        "provenance": "pass-without-independent-verifier",
+        "provenance": "independent",
         "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
         "verifiedAt": "2026-10-22T16:33:00Z",
         "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/39813140190",
@@ -354,19 +347,6 @@
           "evidenceRefs": [],
           "rule": "every applicable gate needs independent pass evidence",
           "action": null
-        },
-        {
-          "id": "auto-ownership",
-          "origin": "derived",
-          "status": "proposed",
-          "category": "evidence",
-          "severity": null,
-          "blocks": "release",
-          "gates": [],
-          "description": "Independent verification impossible: builder and independent verifier are not both assigned.",
-          "evidenceRefs": [],
-          "rule": "ownership.builder and ownership.verifier must be named, different and not automation",
-          "action": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision)."
         }
       ],
       "postRelease": [
@@ -392,17 +372,6 @@
         "rank": 1,
         "priority": 3,
         "bucket": "Missing required verification",
-        "source": "auto-ownership",
-        "origin": "derived",
-        "blocks": "release",
-        "gates": [],
-        "text": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision).",
-        "summary": "Record the builder and a different, independent verifier in the registry ownership block (an owner decision)."
-      },
-      {
-        "rank": 2,
-        "priority": 3,
-        "bucket": "Missing required verification",
         "source": "codex-interactive-trust",
         "origin": "registry",
         "blocks": "release",
@@ -413,7 +382,7 @@
         "summary": "Resolve blocker codex-interactive-trust."
       },
       {
-        "rank": 3,
+        "rank": 2,
         "priority": 3,
         "bucket": "Missing required verification",
         "source": "copilot-gemini-runtime-untested",
@@ -427,7 +396,7 @@
         "summary": "Resolve blocker copilot-gemini-runtime-untested."
       },
       {
-        "rank": 4,
+        "rank": 3,
         "priority": 3,
         "bucket": "Missing required verification",
         "source": "auto-critical-workflows-unverified",
@@ -440,7 +409,7 @@
         "summary": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
       },
       {
-        "rank": 5,
+        "rank": 4,
         "priority": 3,
         "bucket": "Missing required verification",
         "source": "auto-missing-verification",
@@ -465,11 +434,11 @@
           "upgrade-rollback-uninstall-docs",
           "public-docs-accurate"
         ],
-        "text": "Independently re-check the builder evidence for automated-checks, clean-consumer-install, package-archive-inspection, supply-chain-review, versioning-changelog, upgrade-rollback-uninstall-docs; produce evidence for scope-complete, security-privacy-review, package-metadata-exports; then verify wcag-22-aa, keyboard-screen-reader, responsive-layouts, critical-workflows, documentation-accurate, runtime-compatibility, ci-release-pipeline, public-docs-accurate once their blockers are resolved.",
-        "summary": "Independently re-check the builder evidence for automated-checks, clean-consumer-install, package-archive-inspection, supply-chain-review..."
+        "text": "Independently re-check the builder evidence for clean-consumer-install, package-archive-inspection, supply-chain-review, versioning-changelog, upgrade-rollback-uninstall-docs; produce evidence for scope-complete, automated-checks, security-privacy-review, package-metadata-exports; then verify wcag-22-aa, keyboard-screen-reader, responsive-layouts, critical-workflows, documentation-accurate, runtime-compatibility, ci-release-pipeline, public-docs-accurate once their blockers are resolved.",
+        "summary": "Independently re-check the builder evidence for clean-consumer-install, package-archive-inspection, supply-chain-review..."
       },
       {
-        "rank": 6,
+        "rank": 5,
         "priority": 5,
         "bucket": "Accessibility release blockers",
         "source": "manual-screen-reader-review",
@@ -483,7 +452,7 @@
         "summary": "Resolve blocker manual-screen-reader-review."
       },
       {
-        "rank": 7,
+        "rank": 6,
         "priority": 5,
         "bucket": "Accessibility release blockers",
         "source": "manual-zoom-forced-colors-review",
@@ -497,7 +466,7 @@
         "summary": "Resolve blocker manual-zoom-forced-colors-review."
       },
       {
-        "rank": 8,
+        "rank": 7,
         "priority": 6,
         "bucket": "Missing release artifacts",
         "source": "npm-ownership-access",
@@ -511,7 +480,7 @@
         "summary": "Resolve blocker npm-ownership-access."
       },
       {
-        "rank": 9,
+        "rank": 8,
         "priority": 6,
         "bucket": "Missing release artifacts",
         "source": "publish-pipeline-missing",
@@ -525,7 +494,7 @@
         "summary": "Resolve blocker publish-pipeline-missing."
       },
       {
-        "rank": 10,
+        "rank": 9,
         "priority": 7,
         "bucket": "Documentation and lower priority",
         "source": "pr-description-stale",
@@ -562,7 +531,7 @@
       },
       {
         "item": "Builder and a different, independent verifier assigned",
-        "done": false
+        "done": true
       },
       {
         "item": "Every applicable pre-publication gate independently verified on current evidence (0/18)",
@@ -598,11 +567,6 @@
   },
   "unverified": {
     "evidence": [
-      {
-        "gate": "automated-checks",
-        "evidence": "msp-ci-pr3-head",
-        "provenance": "pass-without-independent-verifier"
-      },
       {
         "gate": "wcag-22-aa",
         "evidence": "msp-release-verification",
@@ -647,11 +611,6 @@
         "gate": "supply-chain-review",
         "evidence": "msp-release-verification",
         "provenance": "builder-reported"
-      },
-      {
-        "gate": "ci-release-pipeline",
-        "evidence": "msp-ci-pr3-head",
-        "provenance": "pass-without-independent-verifier"
       },
       {
         "gate": "versioning-changelog",

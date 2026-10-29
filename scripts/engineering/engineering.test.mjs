@@ -295,7 +295,10 @@ test('deduplication: one id per underlying issue; shared environment problems me
   const again = { ...issue, autoFix: { type: 'npm-audit-fix', packages: ['zod'] }, actionClass: 'automatic', relatedPRs: [] }
   attachPullRequests([again], [{ url: `${R}TaskForge/pull/43`, covers: ['taskforge:advisory'], status: 'merged' }])
   assert.equal(again.actionClass, 'automatic')
-  assert.equal(ownershipIssue(reg)[0].projects.length, 8, 'one owner action, one portfolio issue')
+  assert.deepEqual(ownershipIssue(reg), [], 'every active project names a builder and a verifier')
+  const unassigned = structuredClone(reg)
+  for (const p of unassigned.projects) p.ownership = { ...p.ownership, builder: null, verifier: null }
+  assert.equal(ownershipIssue(unassigned)[0].projects.length, 8, 'one owner action, one portfolio issue')
 })
 
 // ---- release states and approvals ----

@@ -45,7 +45,7 @@ Only **independent** evidence verifies a gate. A record is independent when all 
 
 - `result` is `pass`, its origin is manual, and its type is not `repository_metadata`;
 - `ownership.builder` and `ownership.verifier` are both named, different, and neither is automation;
-- it was recorded by someone other than the builder.
+- it was recorded by someone other than the builder or the builder's AI tool family (`toolFamilies` in `verification/policy.json`).
 
 Every other record is still shown, with its class: *pass without an independent verifier* (for example the Phase 0 baseline records), *builder-reported*, *observation* (informational, sync, AI assessment, metadata) or *failed*. A passing CI run, an open PR or a deployment is evidence of one thing; it never verifies a gate by itself.
 

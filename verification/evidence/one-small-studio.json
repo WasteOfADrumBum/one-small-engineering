@@ -3,6 +3,592 @@
   "evidence": [
     {
       "schema": 1,
+      "id": "ev-one-small-studio-deployment-health-d6854de-970cfe92",
+      "project": "one-small-studio",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "4ca315b845974ce8",
+      "execute": false,
+      "executedAt": "2026-10-28T21:06:55Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://one-small-studio.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "vercel.json"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://one-small-studio.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-29T21:06:55Z"
+      },
+      "digest": "521c0f44a9f04e470bc995e84cf59bdb364b5b31c944f01bb9c75268d4aca7f4"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-ci-results-d6854de-fa913bb0",
+      "project": "one-small-studio",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "967b8c34164c3d0f",
+      "execute": false,
+      "executedAt": "2026-10-28T21:06:54Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:06:54Z"
+      },
+      "digest": "7e623c738c239a3a7bd793bce87fb002d0cf90076878c2b031f51c218c96c41b"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-accessibility-d6854de-a3117ac6",
+      "project": "one-small-studio",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "ref": null,
+      "collector": {
+        "name": "accessibility",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "3bd0d3dae22d706a",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:19Z",
+      "result": "inconclusive",
+      "summary": "accessibility: 1 of 3 check(s) passed; 2 not run or inconclusive",
+      "failureReason": "not run or inconclusive: automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
+      "checks": [
+        {
+          "name": "automated accessibility tooling",
+          "result": "pass",
+          "detail": "@axe-core/playwright"
+        },
+        {
+          "name": "automated accessibility run",
+          "result": "not_run",
+          "detail": "no automated accessibility command is configured for this project"
+        },
+        {
+          "name": "manual review",
+          "result": "not_run",
+          "detail": "Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA."
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:19Z"
+      },
+      "digest": "fd140eb70b0b968077e850b2b36dc3997b823296b4ac52489e192ec940514863"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-dependency-audit-d6854de-6ed21926",
+      "project": "one-small-studio",
+      "gates": [
+        "security-privacy-review",
+        "supply-chain-review"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "ref": null,
+      "collector": {
+        "name": "dependency-audit",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "796d39b5bded4e6a",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:19Z",
+      "result": "pass",
+      "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "npm audit",
+          "result": "pass",
+          "detail": "critical 0, high 0, moderate 0, low 0, info 0 across 443 packages"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "npm-audit.json",
+          "sha256": "d324213f86d8e02cc65a74bfd92bbbac1f26f2bb44969f8d6e842ef90fb20e4d",
+          "ref": null
+        }
+      ],
+      "reproduce": "npm audit --json --package-lock-only (at d6854de)",
+      "details": {
+        "advisories": [],
+        "productionAudit": "not run"
+      },
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:04:19Z"
+      },
+      "digest": "c54519b319d6fbfec9bcec6879cb642a8c05af7d4b3e079eaaa1d04de51d3b09"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-deployment-health-d6854de-e1fe086a",
+      "project": "one-small-studio",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "4ca315b845974ce8",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:19Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://one-small-studio.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "vercel.json"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://one-small-studio.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-29T21:04:19Z"
+      },
+      "digest": "b8866f309e5b03db75e5ea558ec8abc7b2fe03ec02fbfeb2c8115cc97c11d32c"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-documentation-d6854de-f5f494e3",
+      "project": "one-small-studio",
+      "gates": [
+        "documentation-accurate",
+        "public-docs-accurate",
+        "upgrade-rollback-uninstall-docs"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "ref": null,
+      "collector": {
+        "name": "documentation",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "43ee1c80186fb78c",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:19Z",
+      "result": "inconclusive",
+      "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "checks": [
+        {
+          "name": "README",
+          "result": "pass",
+          "detail": "55 lines"
+        },
+        {
+          "name": "README install or usage section",
+          "result": "pass",
+          "detail": "heading naming install, usage, setup or getting started"
+        },
+        {
+          "name": "relative links resolve",
+          "result": "pass",
+          "detail": "1 Markdown file(s)"
+        },
+        {
+          "name": "accuracy against behaviour",
+          "result": "not_run",
+          "detail": "whether the documentation matches the product is a manual review"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:19Z"
+      },
+      "digest": "0218a715c56baac0958cd81e581d8bed01b83c70f3104e926c0c204f611e2dad"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-secret-scan-d6854de-d3926880",
+      "project": "one-small-studio",
+      "gates": [
+        "security-privacy-review",
+        "sensitive-data-handling"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "ref": null,
+      "collector": {
+        "name": "secret-scan",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "27ca0a7767261064",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:19Z",
+      "result": "pass",
+      "summary": "secret scan: 3 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "credential patterns outside tests and docs",
+          "result": "pass",
+          "detail": "106 files scanned"
+        },
+        {
+          "name": "committed .env files with sensitive keys",
+          "result": "pass",
+          "detail": "none"
+        },
+        {
+          "name": "credential-shaped values in tests and docs",
+          "result": "pass",
+          "detail": "none"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "secret-scan-locations",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "ref": "0 location(s), values withheld"
+        }
+      ],
+      "reproduce": "node scripts/verify/cli.mjs collect --project <id> --collector secret-scan",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:19Z"
+      },
+      "digest": "7d63f84b909eb0b62396b05fdc337e47a6fbb1ae0a2692f1778b664d8de72fe6"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-build-test-d6854de-f7c2444f",
+      "project": "one-small-studio",
+      "gates": [
+        "automated-checks",
+        "critical-workflows",
+        "e2e-critical-workflows"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "ref": null,
+      "collector": {
+        "name": "build-test",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "aafb5081e37a2fbe",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:18Z",
+      "result": "inconclusive",
+      "summary": "build and test: project code was not executed",
+      "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:18Z"
+      },
+      "digest": "bf18c025de4eca8705db2a780b2d6ed5f9f508091005eaa0e11725360280bb6f"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-ci-results-d6854de-0c1a754d",
+      "project": "one-small-studio",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "967b8c34164c3d0f",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:18Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:04:18Z"
+      },
+      "digest": "e43c3a07d6768834272822ae7128ba2644f31bd525571182c5a7a89d88c45c0d"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-lint-format-types-d6854de-e3c97668",
+      "project": "one-small-studio",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "ref": null,
+      "collector": {
+        "name": "lint-format-types",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "18bdbe86666e6eeb",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:18Z",
+      "result": "inconclusive",
+      "summary": "lint, format and types: project code was not executed",
+      "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:18Z"
+      },
+      "digest": "27ded0294409bb66059a367770f961baf35b0f5f852659c7269c77505dec0b16"
+    },
+    {
+      "schema": 1,
+      "id": "ev-one-small-studio-repo-structure-d6854de-4cd6c1c4",
+      "project": "one-small-studio",
+      "gates": [],
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "ref": null,
+      "collector": {
+        "name": "repo-structure",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "597b8a47af37e69c",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:18Z",
+      "result": "inconclusive",
+      "summary": "repository structure: 4 of 5 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "not run or inconclusive: license (absent)",
+      "checks": [
+        {
+          "name": "package.json",
+          "result": "pass",
+          "detail": "one-small-studio@0.1.0 (private)"
+        },
+        {
+          "name": "lockfile",
+          "result": "pass",
+          "detail": "package-lock.json"
+        },
+        {
+          "name": "readme",
+          "result": "pass",
+          "detail": "README.md"
+        },
+        {
+          "name": "license",
+          "result": "inconclusive",
+          "detail": "absent"
+        },
+        {
+          "name": "workflows",
+          "result": "pass",
+          "detail": "ci.yml"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "file-list",
+          "sha256": "c3d8258eb529bb6555ff1a0e7ec828800b05008ca31ffcb0d11f52e7d96c79d3",
+          "ref": "110 files"
+        }
+      ],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:18Z"
+      },
+      "digest": "76f3ab450cf29a4ab6bdd4c54649331d11055e095f65ef1e51ceb2abe4e0bdac"
+    },
+    {
+      "schema": 1,
       "id": "ev-one-small-studio-ci-results-175cef6-372b3f9b",
       "project": "one-small-studio",
       "gates": [
@@ -984,59 +1570,6 @@
     },
     {
       "schema": 1,
-      "id": "ev-one-small-studio-deployment-health-175cef6-8d0ebc02",
-      "project": "one-small-studio",
-      "gates": [
-        "deployment-rollback",
-        "production-deployment"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
-      "ref": null,
-      "collector": {
-        "name": "deployment-health",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "1e28d5219301685a",
-      "execute": true,
-      "executedAt": "2026-10-27T00:50:19Z",
-      "result": "unavailable",
-      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
-      "failureReason": "could not reach https://one-small-studio.vercel.app from this runner",
-      "checks": [
-        {
-          "name": "deployment configuration",
-          "result": "pass",
-          "detail": "vercel.json"
-        },
-        {
-          "name": "health check",
-          "result": "not_run",
-          "detail": "https://one-small-studio.vercel.app: network error"
-        }
-      ],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 1 day(s) after collection",
-        "expiresAt": "2026-10-28T00:50:19Z"
-      },
-      "digest": "d756d8d0e6e67a2b081f16e6912ef5f6ec7cc06a320f3b689aad6bb362e07da8"
-    },
-    {
-      "schema": 1,
       "id": "ev-one-small-studio-documentation-175cef6-4ba9575d",
       "project": "one-small-studio",
       "gates": [
@@ -1162,47 +1695,6 @@
         "expiresAt": "2026-11-26T00:50:19Z"
       },
       "digest": "516803fa0522dcc6d495b96b3d629f473a6f5791107cf5dad1b58ffc139e92b5"
-    },
-    {
-      "schema": 1,
-      "id": "ev-one-small-studio-ci-results-175cef6-c73120b6",
-      "project": "one-small-studio",
-      "gates": [
-        "automated-checks"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-      "commitSha": "175cef6bafbc0322e0d54cf3e543aafa1626a049",
-      "ref": null,
-      "collector": {
-        "name": "ci-results",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "aa01f7f79c031bda",
-      "execute": true,
-      "executedAt": "2026-10-27T00:50:18Z",
-      "result": "unavailable",
-      "summary": "CI results: not readable",
-      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
-      "checks": [],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 7 day(s) after collection",
-        "expiresAt": "2026-11-03T00:50:18Z"
-      },
-      "digest": "6b80fac7bc3b3012d3e236e6c109884aa031a467ed1eec693351c8004076c52d"
     },
     {
       "schema": 1,

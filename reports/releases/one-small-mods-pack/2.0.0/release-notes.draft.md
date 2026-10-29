@@ -1,6 +1,6 @@
 # One Small ModsPack 2.0.0 release notes (draft)
 
-> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 21 applicable gates independently verified (0%); 11 open blocker(s). Generated 2026-10-27T03:40:00Z.
+> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 21 applicable gates independently verified (0%); 10 open blocker(s). Generated 2026-10-28T21:06:36Z.
 
 ## Highlights
 
@@ -34,7 +34,7 @@ _From CHANGELOG.md at 80cc269; builder-authored._
 ## Verification status
 
 - 0 of 21 applicable release gates independently verified.
-- Builder-reported, awaiting independent verification: automated-checks, wcag-22-aa, keyboard-screen-reader, responsive-layouts, no-release-blockers, clean-consumer-install, runtime-compatibility, package-archive-inspection, supply-chain-review, ci-release-pipeline, versioning-changelog, upgrade-rollback-uninstall-docs, public-docs-accurate.
+- Builder-reported, awaiting independent verification: wcag-22-aa, keyboard-screen-reader, responsive-layouts, no-release-blockers, clean-consumer-install, runtime-compatibility, package-archive-inspection, supply-chain-review, versioning-changelog, upgrade-rollback-uninstall-docs, public-docs-accurate.
 
 ## Known limitations
 

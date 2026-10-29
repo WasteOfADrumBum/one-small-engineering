@@ -3,6 +3,592 @@
   "evidence": [
     {
       "schema": 1,
+      "id": "ev-taskforge-deployment-health-f9f14be-69d2920c",
+      "project": "taskforge",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "d901d1b6577d5e53",
+      "execute": false,
+      "executedAt": "2026-10-28T21:06:59Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://taskforge-alpha-six.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "render.yaml"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://taskforge-alpha-six.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-29T21:06:59Z"
+      },
+      "digest": "3f2db64fce10f164414471d1c710a21122e8b43adaba0e364496e4d3c8654e95"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-ci-results-f9f14be-ef462fd9",
+      "project": "taskforge",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "f11232fbcfa125af",
+      "execute": false,
+      "executedAt": "2026-10-28T21:06:58Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:06:58Z"
+      },
+      "digest": "44e63d8701be18cb65bd40d8f612cf573b2213052af69af4f29e5c76c72768fc"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-accessibility-f9f14be-9670cd35",
+      "project": "taskforge",
+      "gates": [
+        "wcag-22-aa"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+      "ref": null,
+      "collector": {
+        "name": "accessibility",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "b37613a4e30a7a50",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:26Z",
+      "result": "inconclusive",
+      "summary": "accessibility: 0 of 3 check(s) passed; 3 not run or inconclusive",
+      "failureReason": "not run or inconclusive: automated accessibility tooling (none declared in package.json); automated accessibility run (no automated accessibility command is configured for this project); manual review (Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA.)",
+      "checks": [
+        {
+          "name": "automated accessibility tooling",
+          "result": "inconclusive",
+          "detail": "none declared in package.json"
+        },
+        {
+          "name": "automated accessibility run",
+          "result": "not_run",
+          "detail": "no automated accessibility command is configured for this project"
+        },
+        {
+          "name": "manual review",
+          "result": "not_run",
+          "detail": "Keyboard, screen reader, zoom and contrast review by a person is required for WCAG 2.2 AA."
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:26Z"
+      },
+      "digest": "1e828cf5e1f46d1a1b05c109340937ba8c37086c58a7e57613dafc19a83448ce"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-dependency-audit-f9f14be-a2610ff3",
+      "project": "taskforge",
+      "gates": [
+        "security-privacy-review",
+        "supply-chain-review"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+      "ref": null,
+      "collector": {
+        "name": "dependency-audit",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "80c4bc4c78fd6f51",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:26Z",
+      "result": "pass",
+      "summary": "dependency audit: critical 0, high 0, moderate 0, low 6, info 0",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "npm audit",
+          "result": "pass",
+          "detail": "critical 0, high 0, moderate 0, low 6, info 0 across 1101 packages"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "npm-audit.json",
+          "sha256": "b30ece57d24741ecffe7a1cd8620b5c5725a08abdc26ce4aba4de3c4f1a87b85",
+          "ref": null
+        }
+      ],
+      "reproduce": "npm audit --json --package-lock-only (at f9f14be)",
+      "details": {
+        "advisories": [],
+        "productionAudit": "not run"
+      },
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:04:26Z"
+      },
+      "digest": "39494e11800109dd47c207dd1805420d279dbb6fb79ca7f238612656aee62649"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-deployment-health-f9f14be-571df69b",
+      "project": "taskforge",
+      "gates": [
+        "deployment-rollback",
+        "production-deployment"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+      "ref": null,
+      "collector": {
+        "name": "deployment-health",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "d901d1b6577d5e53",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:26Z",
+      "result": "unavailable",
+      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "could not reach https://taskforge-alpha-six.vercel.app from this runner",
+      "checks": [
+        {
+          "name": "deployment configuration",
+          "result": "pass",
+          "detail": "render.yaml"
+        },
+        {
+          "name": "health check",
+          "result": "not_run",
+          "detail": "https://taskforge-alpha-six.vercel.app: network error"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 1 day(s) after collection",
+        "expiresAt": "2026-10-29T21:04:26Z"
+      },
+      "digest": "c16243102c7779b7edab7a21428387412d642ba7e31d47bc2c65f243489423df"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-documentation-f9f14be-b74ed9aa",
+      "project": "taskforge",
+      "gates": [
+        "documentation-accurate",
+        "public-docs-accurate",
+        "upgrade-rollback-uninstall-docs"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+      "ref": null,
+      "collector": {
+        "name": "documentation",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "33e2fd20adff3015",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:26Z",
+      "result": "inconclusive",
+      "summary": "documentation: 3 of 4 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "not run or inconclusive: accuracy against behaviour (whether the documentation matches the product is a manual review)",
+      "checks": [
+        {
+          "name": "README",
+          "result": "pass",
+          "detail": "220 lines"
+        },
+        {
+          "name": "README install or usage section",
+          "result": "pass",
+          "detail": "heading naming install, usage, setup or getting started"
+        },
+        {
+          "name": "relative links resolve",
+          "result": "pass",
+          "detail": "49 Markdown file(s)"
+        },
+        {
+          "name": "accuracy against behaviour",
+          "result": "not_run",
+          "detail": "whether the documentation matches the product is a manual review"
+        }
+      ],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:26Z"
+      },
+      "digest": "0310adb4bb12339f4c18f44440d6b9f15bff0f4bfc7302279e31eafcf9715fd5"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-secret-scan-f9f14be-22746d50",
+      "project": "taskforge",
+      "gates": [
+        "security-privacy-review",
+        "sensitive-data-handling"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+      "ref": null,
+      "collector": {
+        "name": "secret-scan",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "dfe66d2c23b5e783",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:26Z",
+      "result": "inconclusive",
+      "summary": "secret scan: 2 of 3 check(s) passed; 1 not run or inconclusive",
+      "failureReason": "not run or inconclusive: credential-shaped values in tests and docs (needs human review (often deliberate fixtures): server/src/ai/ollama.test.ts:111 (credentials in URL); server/src/app.test.ts:62 (credentials in URL))",
+      "checks": [
+        {
+          "name": "credential patterns outside tests and docs",
+          "result": "pass",
+          "detail": "374 files scanned"
+        },
+        {
+          "name": "committed .env files with sensitive keys",
+          "result": "pass",
+          "detail": "none; committed without sensitive keys (names only checked): client/.env.test"
+        },
+        {
+          "name": "credential-shaped values in tests and docs",
+          "result": "inconclusive",
+          "detail": "needs human review (often deliberate fixtures): server/src/ai/ollama.test.ts:111 (credentials in URL); server/src/app.test.ts:62 (credentials in URL)"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "secret-scan-locations",
+          "sha256": "d9412630a1661bcfc9242c00dbca430c37a6b4e74460a1266a112e790c8cc13e",
+          "ref": "3 location(s), values withheld"
+        }
+      ],
+      "reproduce": "node scripts/verify/cli.mjs collect --project <id> --collector secret-scan",
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:26Z"
+      },
+      "digest": "b094cac87aee7a7fa0f72ad764d99829e444d70a25b367ea9b4f4f23a5f787af"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-build-test-f9f14be-3185b8aa",
+      "project": "taskforge",
+      "gates": [
+        "automated-checks",
+        "critical-workflows",
+        "e2e-critical-workflows"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+      "ref": null,
+      "collector": {
+        "name": "build-test",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "485c2046bd7135b6",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:24Z",
+      "result": "inconclusive",
+      "summary": "build and test: project code was not executed",
+      "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:24Z"
+      },
+      "digest": "02f2616e5500898f956c3c94dbce007a7b2ea9595ceb1c16216b7a0a921c11a1"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-ci-results-f9f14be-731842ea",
+      "project": "taskforge",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+      "ref": null,
+      "collector": {
+        "name": "ci-results",
+        "version": "1.1.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "f11232fbcfa125af",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:24Z",
+      "result": "unavailable",
+      "summary": "CI results: not readable",
+      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 7 day(s) after collection",
+        "expiresAt": "2026-11-04T21:04:24Z"
+      },
+      "digest": "91f53eea12fe610b940a640ab600cabd07b1fcb5bc9cd50afa570722871b6598"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-lint-format-types-f9f14be-f82161a2",
+      "project": "taskforge",
+      "gates": [
+        "automated-checks"
+      ],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+      "ref": null,
+      "collector": {
+        "name": "lint-format-types",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "c4839eeddfa1f0ed",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:24Z",
+      "result": "inconclusive",
+      "summary": "lint, format and types: project code was not executed",
+      "failureReason": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
+      "checks": [],
+      "artifacts": [],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:24Z"
+      },
+      "digest": "6baf8ed765a706f7d307a4355541bfbe129bba0568dd7e1b08807511458b5581"
+    },
+    {
+      "schema": 1,
+      "id": "ev-taskforge-repo-structure-f9f14be-78d0a410",
+      "project": "taskforge",
+      "gates": [],
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "commitSha": "f9f14be45796bf5919e58f6b34ee1636ecd48a77",
+      "ref": null,
+      "collector": {
+        "name": "repo-structure",
+        "version": "1.0.0"
+      },
+      "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
+      "cacheKey": "9a1b0e1a6bfecd07",
+      "execute": false,
+      "executedAt": "2026-10-28T21:04:24Z",
+      "result": "pass",
+      "summary": "repository structure: 5 check(s) passed",
+      "failureReason": null,
+      "checks": [
+        {
+          "name": "package.json",
+          "result": "pass",
+          "detail": "taskforge@(no version) (private)"
+        },
+        {
+          "name": "lockfile",
+          "result": "pass",
+          "detail": "package-lock.json"
+        },
+        {
+          "name": "readme",
+          "result": "pass",
+          "detail": "README.md"
+        },
+        {
+          "name": "license",
+          "result": "pass",
+          "detail": "present"
+        },
+        {
+          "name": "workflows",
+          "result": "pass",
+          "detail": "ci.yml"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "file-list",
+          "sha256": "e8fe5993c51cbd48a9a8b553cc53ade4a1b60343f5e5296a98c8c383c15199f7",
+          "ref": "390 files"
+        }
+      ],
+      "reproduce": null,
+      "provenance": {
+        "collectorIdentity": "One Small Engineering Verify",
+        "executor": "local",
+        "runUrl": null,
+        "invokedBy": "local run via engineering:check",
+        "toolchain": {
+          "node": "22.22.0",
+          "npm": "10.9.4",
+          "os": "linux"
+        }
+      },
+      "freshness": {
+        "policy": "commit-bound; expires 30 day(s) after collection",
+        "expiresAt": "2026-11-27T21:04:24Z"
+      },
+      "digest": "321eadcac0d9be7be022a11ead955fba5b7629442159f9ebb6b7eba81990001b"
+    },
+    {
+      "schema": 1,
       "id": "ev-taskforge-ci-results-11975d0-e6837581",
       "project": "taskforge",
       "gates": [
@@ -965,59 +1551,6 @@
     },
     {
       "schema": 1,
-      "id": "ev-taskforge-deployment-health-11975d0-bc460bf9",
-      "project": "taskforge",
-      "gates": [
-        "deployment-rollback",
-        "production-deployment"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
-      "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
-      "ref": null,
-      "collector": {
-        "name": "deployment-health",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "41dc671ad98c0109",
-      "execute": true,
-      "executedAt": "2026-10-27T00:56:02Z",
-      "result": "unavailable",
-      "summary": "deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive",
-      "failureReason": "could not reach https://taskforge-alpha-six.vercel.app from this runner",
-      "checks": [
-        {
-          "name": "deployment configuration",
-          "result": "pass",
-          "detail": "render.yaml"
-        },
-        {
-          "name": "health check",
-          "result": "not_run",
-          "detail": "https://taskforge-alpha-six.vercel.app: network error"
-        }
-      ],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 1 day(s) after collection",
-        "expiresAt": "2026-10-28T00:56:02Z"
-      },
-      "digest": "311dc5b5e2e5c4d5090fb8e83a7a9bf60ec7cd81bc66d183e831032fd8dd865f"
-    },
-    {
-      "schema": 1,
       "id": "ev-taskforge-documentation-11975d0-132d686c",
       "project": "taskforge",
       "gates": [
@@ -1197,47 +1730,6 @@
         "expiresAt": "2026-11-03T00:56:01Z"
       },
       "digest": "a9a9b3bc1831cf135a1825c0eb5b6b6d7f1f0fcbab90fa921ef532ff9befa916"
-    },
-    {
-      "schema": 1,
-      "id": "ev-taskforge-ci-results-11975d0-dec5234f",
-      "project": "taskforge",
-      "gates": [
-        "automated-checks"
-      ],
-      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
-      "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
-      "ref": null,
-      "collector": {
-        "name": "ci-results",
-        "version": "1.0.0"
-      },
-      "policyHash": "8fe0f4b9032dd8822732e1722c887348fbe4c2983012377c36081d701f7b6a27",
-      "cacheKey": "26a2443a0af09a55",
-      "execute": true,
-      "executedAt": "2026-10-27T00:56:00Z",
-      "result": "unavailable",
-      "summary": "CI results: not readable",
-      "failureReason": "check runs: the token was rejected (HTTP 401); it is missing, expired or revoked",
-      "checks": [],
-      "artifacts": [],
-      "reproduce": null,
-      "provenance": {
-        "collectorIdentity": "One Small Engineering Verify",
-        "executor": "local",
-        "runUrl": null,
-        "invokedBy": "Claude Code cloud session (Phase 4 eight-project run)",
-        "toolchain": {
-          "node": "22.22.0",
-          "npm": "10.9.4",
-          "os": "linux"
-        }
-      },
-      "freshness": {
-        "policy": "commit-bound; expires 7 day(s) after collection",
-        "expiresAt": "2026-11-03T00:56:00Z"
-      },
-      "digest": "fafe544a979122e813e250515a6826ae8718bf5d2a89c0d38b92683fea96cbd1"
     },
     {
       "schema": 1,
