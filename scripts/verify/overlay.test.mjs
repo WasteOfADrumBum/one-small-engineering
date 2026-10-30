@@ -83,6 +83,19 @@ test('stale evidence: evidence for another commit is reported stale and does not
   assert.equal(a.gates.find(g => g.id === 'package-metadata-exports').state, 'inconclusive')
 })
 
+test('an access failure at an older commit does not hide evidence at the target; one at the target stays visible', () => {
+  const later = new Date(Date.parse(LIVE.collectedAt) + 600_000).toISOString().replace(/\.\d{3}Z$/, 'Z')
+  const read = ev('repo-structure', 'inconclusive')
+  // What the execute job leaves behind: it has no reader, so it records the old snapshot as unreadable.
+  const oldFailure = ev('repo-structure', 'unavailable', { commitSha: SHA2, at: later })
+  const kinds = a => a.findings.filter(f => f.collector === 'repo-structure').map(f => f.kind)
+  assert.deepEqual(kinds(assess({ evidence: [pack, read, oldFailure] })), ['evidence-gap'])
+  // A genuine failure to read the target commit is still reported, even after older readable evidence.
+  const failure = ev('repo-structure', 'unavailable', { at: later })
+  assert.deepEqual(kinds(assess({ evidence: [pack, read, failure] })), ['access'])
+  assert.deepEqual(kinds(assess({ evidence: [pack, failure] })), ['access'])
+})
+
 test('the real registry is never modified, and nothing is applied if the derived registry would be invalid', () => {
   const r = fixtureRegistry()
   const snapshot = JSON.stringify(r)

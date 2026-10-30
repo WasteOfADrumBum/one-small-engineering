@@ -113,8 +113,11 @@ export function checkEvidence(e) {
 }
 
 // Why a record cannot be used for `commitSha` at `asOf`, or null when it is current.
+// An access failure never expires, so it stays visible until a later run reads the repository,
+// but it only speaks for the commit it was recorded at: one recorded at an older commit (for
+// example by the execute job, which has no reader) must not hide evidence at the current one.
 export function staleness(e, { commitSha, asOf }) {
-  if (e.result === 'unavailable') return null
+  if (e.result === 'unavailable') return commitSha && e.commitSha && e.commitSha !== commitSha ? `access failure recorded for ${String(e.commitSha).slice(0, 7)}, not the evaluated commit ${commitSha.slice(0, 7)}` : null
   if (commitSha && e.commitSha !== commitSha) return `collected for ${String(e.commitSha).slice(0, 7)}, not the evaluated commit ${commitSha.slice(0, 7)}`
   const t = asOf.getTime()
   if (new Date(e.executedAt).getTime() > t) return 'dated after the evaluation time'

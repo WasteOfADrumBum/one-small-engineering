@@ -59,6 +59,15 @@ test('stale and mismatched evidence: wrong commit, expired, or dated in the futu
   assert.match(staleness(ci, { commitSha: SHA, asOf: new Date('2026-11-04T00:00:00Z') }), /expired/, 'ci-results expires after 7 days')
 })
 
+test('access failures: current at their own commit and when no commit is known, stale at any other commit', () => {
+  const u = ev('repo-structure', 'unavailable')
+  assert.equal(staleness(u, { commitSha: SHA, asOf: new Date('2026-12-31T00:00:00Z') }), null, 'a real access failure never expires')
+  assert.equal(staleness(u, { commitSha: null, asOf: new Date('2026-10-28T00:00:00Z') }), null)
+  assert.match(staleness(u, { commitSha: SHA2, asOf: new Date('2026-10-28T00:00:00Z') }), /access failure recorded for aaaaaaa, not the evaluated commit bbbbbbb/)
+  const noCommit = ev('repo-structure', 'unavailable', { commitSha: null })
+  assert.equal(staleness(noCommit, { commitSha: SHA, asOf: new Date('2026-10-28T00:00:00Z') }), null, 'a failure before any commit was resolved stays visible')
+})
+
 test('ledgers reject duplicates, forged and foreign records; merging is idempotent and ordered', () => {
   const a = ev('build-test', 'pass', { at: T0 })
   const b = ev('secret-scan', 'pass', { at: '2026-10-27T01:05:00Z' })
