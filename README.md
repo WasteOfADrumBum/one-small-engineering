@@ -53,7 +53,7 @@ Beyond the schema (required fields, enums, UTC timestamps, https URLs, SHAs):
 1. Project IDs, evidence IDs and repository URLs are unique (URLs case-insensitively, across all three lists).
 2. `gateCatalog` equals the gate tables in `standards/definition-of-done.md` for every tier, in both directions (and the schema's gate list matches them), and each project lists exactly the gates of its tier. A required gate cannot be dropped silently.
 3. Every evidence reference resolves to an evidence record in the same project.
-4. A `verified` gate has a date, an assigned builder and a different verifier, and at least one `pass` evidence record that is not repository metadata and was recorded by someone other than the builder. `builder_reported` evidence never verifies a gate.
+4. A `verified` gate has a date, an assigned builder and a different verifier, and at least one `pass` evidence record that is not repository metadata and was recorded by the assigned verifier. `builder_reported` evidence never verifies a gate.
 5. A `not_applicable` gate has an explicit rationale (at least 20 characters). A `resolved` blocker links evidence of its resolution (not repository metadata), and `scope-document-missing` cannot be resolved while `scopeDocument` is null.
 6. `releaseStatus` `verified` or `released` requires every gate verified or not applicable, no open blockers, a scope document, and a different builder and verifier. `released` also requires approval and `currentVersion` equal to `targetVersion`.
 7. Approval can only be given by the approval owner, with evidence, after verification.

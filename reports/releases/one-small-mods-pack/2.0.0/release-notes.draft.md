@@ -34,7 +34,7 @@ _From CHANGELOG.md at c747cbd; builder-authored._
 ## Verification status
 
 - 0 of 21 applicable release gates independently verified.
-- Builder-reported, awaiting independent verification: wcag-22-aa, keyboard-screen-reader, responsive-layouts, no-release-blockers, clean-consumer-install, runtime-compatibility, package-archive-inspection, supply-chain-review, versioning-changelog, upgrade-rollback-uninstall-docs, public-docs-accurate.
+- Builder-reported, awaiting independent verification: automated-checks, wcag-22-aa, keyboard-screen-reader, responsive-layouts, no-release-blockers, clean-consumer-install, runtime-compatibility, package-archive-inspection, supply-chain-review, ci-release-pipeline, versioning-changelog, upgrade-rollback-uninstall-docs, public-docs-accurate.
 
 ## Known limitations
 

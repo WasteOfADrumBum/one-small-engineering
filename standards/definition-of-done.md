@@ -24,12 +24,12 @@ Each gate has a stable ID. The IDs are the `gateCatalog` in [`projects/registry.
 | `pass` / `fail` | The verifier, after re-running or re-checking the result themselves | Yes (`pass`), if it applies to the target release. |
 | `informational` | Anyone recording a fact (repository metadata, a published version) | No. |
 
-Evidence is never promoted from `builder_reported` to `pass` by editing its result. The verifier records a new evidence record of their own after re-checking. The validator rejects a verified gate whose only `pass` evidence was recorded by the builder.
+Evidence is never promoted from `builder_reported` to `pass` by editing its result. The verifier records a new evidence record of their own after re-checking. The validator rejects a verified gate whose only `pass` evidence was recorded by anyone other than the assigned verifier, including the builder.
 
 A gate is **verified** only when:
 
 - `ownership.builder` and `ownership.verifier` are both assigned and are different identities (they may be assigned before the release is scoped);
-- it links at least one evidence record whose `result` is `pass`, recorded by someone other than the builder;
+- it links at least one evidence record whose `result` is `pass`, recorded by the assigned verifier (a pass recorded by the builder or by any third party verifies nothing);
 - that evidence is not repository metadata;
 - the evidence applies to the target release (the commit or deployment being released), not an older one.
 

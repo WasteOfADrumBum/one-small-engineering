@@ -331,12 +331,13 @@ export function checkRules(registry, { now = new Date(), dod = parseDefinitionOf
         if (!g.verifiedAt) err(gp, 'a verified gate needs verifiedAt')
         if (g.evidenceRefs.length === 0) err(gp, 'a verified gate needs at least one evidence reference')
         else if (!refs.some(e => e.result === 'pass' && !NON_PROVING_TYPES.has(e.type))) err(gp, 'a verified gate needs evidence with result "pass" (repository metadata and builder-reported results do not count)')
-        // Independent verification: separate, named builder and verifier, and proof not recorded by the builder.
+        // Independent verification: separate, named builder and verifier, and proof recorded by that verifier.
+        // A pass recorded by anyone else (a third AI tool, a Phase 0 baseline) verifies nothing.
         const builder = norm(p.ownership.builder)
         const verifier = norm(p.ownership.verifier)
         if (!builder || !verifier) err(gp, 'a verified gate needs both ownership.builder and ownership.verifier assigned')
         else if (sameParty(builder, verifier)) err(gp, 'a verified gate needs a verifier different from the builder')
-        else if (!refs.some(e => e.result === 'pass' && !NON_PROVING_TYPES.has(e.type) && !sameParty(e.recordedBy, builder))) err(gp, 'a verified gate needs "pass" evidence recorded by someone other than the builder (builder results stay builder_reported until independently re-checked)')
+        else if (!refs.some(e => e.result === 'pass' && !NON_PROVING_TYPES.has(e.type) && sameParty(e.recordedBy, verifier) && !sameParty(e.recordedBy, builder))) err(gp, 'a verified gate needs "pass" evidence recorded by the assigned verifier (builder results stay builder_reported until the verifier re-checks them)')
         if (g.verifiedAt && new Date(g.verifiedAt) > updated) err(gp, 'verifiedAt is later than registry lastUpdatedAt')
         if (g.id === 'no-release-blockers' && openBlockers.length) err(gp, `cannot be verified while ${openBlockers.length} blocker(s) are open`)
       } else if (g.verifiedAt !== null) {

@@ -55,7 +55,7 @@ A PR is opened only when one of these differs from `main`: the default-branch he
 
 `npm run readiness` (and a section in every status report and sync PR) computes each project's readiness from the registry under the Definition of Done: gates satisfied by independent verification, in progress, blocked, not started and not applicable, open blockers, and a verdict (`not-scoped`, `not-ready`, `awaiting-owner-approval`, `approved-not-released`, `released`). A gate counts as satisfied only with a verifier's own `pass` record, exactly as the validator requires. CI results are shown beside it, labelled builder-reported: green CI never changes the verdict, and nothing but Joshua Small's approval moves a project past `awaiting-owner-approval`.
 
-Evidence is counted in four kinds, kept apart: observation (`informational`), builder-reported, independently verified (`pass` by someone other than the builder, never automation), and owner approval.
+Evidence is counted in four kinds, kept apart: observation (`informational`), builder-reported, independently verified (`pass` recorded by the assigned verifier, never the builder or automation), and owner approval.
 
 ## Builder-reported versus verified
 

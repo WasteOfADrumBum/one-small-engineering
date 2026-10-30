@@ -358,7 +358,21 @@ test('readiness: a pass recorded before a verifier was assigned is not counted a
   assert.equal(e.independentlyVerified, 0, 'Phase 0 pass records predate any builder or verifier')
   assert.equal(e.passWithoutVerifier, 1)
   assert.match(renderReadiness(reg, { only: 'taskforge' }), /1 pass record\(s\) made before a verifier was assigned, which verify nothing yet/)
-  assert.equal(provenance(tf(releasable())).independentlyVerified, 2)
+  // Only the verifier's own record counts: the Phase 0 baseline pass (recorded by Claude Code,
+  // neither builder nor verifier here) stays a pass without a verifier.
+  const ready = provenance(tf(releasable()))
+  assert.equal(ready.independentlyVerified, 1)
+  assert.equal(ready.passWithoutVerifier, 1)
+})
+
+test('readiness: a pass recorded by a third party is not independent, and cannot satisfy a gate', () => {
+  const reg = releasable()
+  const p = tf(reg)
+  p.evidence.find(e => e.id === 'tf-verify').recordedBy = 'GitHub Copilot'
+  assert.equal(provenance(p).independentlyVerified, 0)
+  const x = readiness(p)
+  assert.equal(x.gates.satisfied.length, 0)
+  assert.equal(x.gates.unproven.length, p.releaseGates.length)
 })
 
 test('a private package.json version raises no distribution suggestion; a publishable one does', async () => {

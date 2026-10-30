@@ -30,7 +30,7 @@ function releasedFixture() {
   const r = clone()
   const p = project(r, 'one-small-studio')
   const T = '2026-10-22T16:00:00Z'
-  p.evidence.push({ id: 'studio-qa-record', type: 'manual_test', url: 'https://github.com/WasteOfADrumBum/one-small-studio/pull/99', commitSha: 'a'.repeat(40), verifiedAt: T, result: 'pass', description: 'Fixture: committed QA record.', recordedBy: 'Fixture verifier' })
+  p.evidence.push({ id: 'studio-qa-record', type: 'manual_test', url: 'https://github.com/WasteOfADrumBum/one-small-studio/pull/99', commitSha: 'a'.repeat(40), verifiedAt: T, result: 'pass', description: 'Fixture: committed QA record.', recordedBy: 'ChatGPT Codex' })
   p.evidence.push({ id: 'studio-owner-approval', type: 'pull_request', url: 'https://github.com/WasteOfADrumBum/one-small-studio/pull/99#pullrequestreview-1', commitSha: 'a'.repeat(40), verifiedAt: T, result: 'pass', description: 'Fixture: owner approving review.', recordedBy: 'Joshua Small' })
   p.releaseGates = p.releaseGates.map(g => ({ ...g, status: 'verified', evidenceRefs: ['studio-qa-record'], verifiedAt: T, notes: null }))
   p.release = { ...p.release, currentVersion: '1.0.0', targetVersion: '1.0.0', releaseStatus: 'released', scopeDocument: 'https://github.com/WasteOfADrumBum/one-small-studio/blob/main/docs/scope.md', blockers: [] }
@@ -166,7 +166,7 @@ test('a verified gate needs separate, assigned builder and verifier', () => {
 test('builder-recorded results cannot verify a gate', () => {
   const { r, p } = releasedFixture()
   p.evidence.find(e => e.id === 'studio-qa-record').recordedBy = 'Claude Code'
-  rejects(r, 'recorded by someone other than the builder')
+  rejects(r, 'recorded by the assigned verifier')
   const { r: r2, p: p2 } = releasedFixture()
   p2.evidence.find(e => e.id === 'studio-qa-record').result = 'builder_reported'
   rejects(r2, 'needs evidence with result "pass"')
@@ -226,7 +226,18 @@ test('builder and verifier from the same AI tool family are not independent', ()
 test('a pass recorded by the builder\'s AI tool family does not verify a gate', () => {
   const { r, p } = releasedFixture()
   p.evidence.find(e => e.id === 'studio-qa-record').recordedBy = 'Claude Code (Phase 0 baseline, read-only GitHub inspection)'
-  rejects(r, 'recorded by someone other than the builder')
+  rejects(r, 'recorded by the assigned verifier')
+})
+
+test('a pass recorded by a third party, not the assigned verifier, does not verify a gate', () => {
+  // A different AI tool is not the builder, but unless the registry names it as verifier its
+  // pass is not independent verification (a Phase 0 baseline record, for example).
+  const { r, p } = releasedFixture()
+  p.evidence.find(e => e.id === 'studio-qa-record').recordedBy = 'GitHub Copilot'
+  rejects(r, 'recorded by the assigned verifier')
+  const { r: r2, p: p2 } = releasedFixture()
+  p2.evidence.find(e => e.id === 'studio-qa-record').recordedBy = 'Joshua Small'
+  rejects(r2, 'recorded by the assigned verifier')
 })
 
 test('verified release needs a verifier', () => {
