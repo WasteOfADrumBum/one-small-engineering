@@ -1,8 +1,8 @@
 {
   "kind": "one-small-engineering/engineering-dashboard",
   "schema": 1,
-  "command": "npm run engineering:report -- --as-of 2026-10-30T12:14:00Z",
-  "asOf": "2026-10-30T12:14:00Z",
+  "command": "npm run engineering:report -- --as-of 2026-10-30T15:00:00Z",
+  "asOf": "2026-10-30T15:00:00Z",
   "overview": {
     "activeProjects": 8,
     "readyForRelease": 0,
@@ -2121,7 +2121,7 @@
       "nextAction": "automated-checks: current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd; registry notes: CI green on PR #3 head 80cc269. The PR is under active testing; re-check on the final head.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-30T12:14:00Z",
+      "firstSeen": "2026-10-30T15:00:00Z",
       "isNew": true
     },
     {
@@ -2152,7 +2152,7 @@
       "nextAction": "ci-release-pipeline: current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd; registry notes: CI exists for checks (contents: read). There is no release or publish pipeline yet.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-30T12:14:00Z",
+      "firstSeen": "2026-10-30T15:00:00Z",
       "isNew": true
     },
     {
@@ -2183,7 +2183,7 @@
       "nextAction": "clean-consumer-install: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports an artifact test that packs, installs, validates and initializes every platform.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-30T12:14:00Z",
+      "firstSeen": "2026-10-30T15:00:00Z",
       "isNew": true
     },
     {
@@ -2214,7 +2214,7 @@
       "nextAction": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-30T12:14:00Z",
+      "firstSeen": "2026-10-30T15:00:00Z",
       "isNew": true
     },
     {
@@ -2245,7 +2245,7 @@
       "nextAction": "package-archive-inspection: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports an 82-file tarball reviewed with an artifact regression test; not independently re-inspected.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-30T12:14:00Z",
+      "firstSeen": "2026-10-30T15:00:00Z",
       "isNew": true
     },
     {
@@ -2276,7 +2276,7 @@
       "nextAction": "public-docs-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate c747cbd; registry notes: README, CHANGELOG and limitations reviewed by the builder; compatibility claims come from the catalog.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-30T12:14:00Z",
+      "firstSeen": "2026-10-30T15:00:00Z",
       "isNew": true
     },
     {
@@ -2307,7 +2307,7 @@
       "nextAction": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-30T12:14:00Z",
+      "firstSeen": "2026-10-30T15:00:00Z",
       "isNew": true
     },
     {
@@ -2338,7 +2338,7 @@
       "nextAction": "runtime-compatibility: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate c747cbd; registry notes: Claude Code harness PASS; Codex discovery and trust-bypassed hook enforcement live; Copilot/Gemini runtime NOT TESTED; Node 20 partial, CI runs Node 22 only.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-30T12:14:00Z",
+      "firstSeen": "2026-10-30T15:00:00Z",
       "isNew": true
     },
     {
@@ -2369,7 +2369,7 @@
       "nextAction": "scope-complete: current evidence: msp-pr-3 is for 80cc269, not the release candidate c747cbd; registry notes: Scope is PR #3 plus the go/no-go checklist in release-verification.md; open checklist items remain.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-30T12:14:00Z",
+      "firstSeen": "2026-10-30T15:00:00Z",
       "isNew": true
     },
     {
@@ -2400,7 +2400,7 @@
       "nextAction": "supply-chain-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-30T12:14:00Z",
+      "firstSeen": "2026-10-30T15:00:00Z",
       "isNew": true
     },
     {
@@ -2431,7 +2431,7 @@
       "nextAction": "upgrade-rollback-uninstall-docs: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Install, update and modspack uninstall --yes documented in docs/getting-started.md (builder-reported).",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-30T12:14:00Z",
+      "firstSeen": "2026-10-30T15:00:00Z",
       "isNew": true
     },
     {
@@ -2462,7 +2462,7 @@
       "nextAction": "versioning-changelog: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: CHANGELOG 2.0.0 (unreleased) with mod version list and a consistency test (builder-reported).",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-30T12:14:00Z",
+      "firstSeen": "2026-10-30T15:00:00Z",
       "isNew": true
     },
     {
@@ -2493,7 +2493,7 @@
       "nextAction": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-30T12:14:00Z",
+      "firstSeen": "2026-10-30T15:00:00Z",
       "isNew": true
     },
     {

@@ -23,13 +23,13 @@ Phase 2 re-verified the read side on 2026-10-24 for all eight projects with `con
 
 The read side was first verified on 2026-10-23 with the real `GITHUB_TOKEN` inside GitHub Actions (temporary read-only probe jobs on PR #3, since removed: [run 39956158523](https://github.com/WasteOfADrumBum/one-small-engineering/actions/runs/39956158523/job/120422394988) at `14abd29` with `contents: read`, and [run 39956339593](https://github.com/WasteOfADrumBum/one-small-engineering/actions/runs/39956339593/job/120423000544) at `63a3152` with the read scopes added). With `contents: read` alone the token read every TaskForge and ModsPack call collect makes, and the hub's commits, compare and activity log; the real `run.mjs collect` and a dry run succeeded for both projects. `GET /commits/{sha}/pulls`, the hub's PR and issue lists and Validate registry runs returned 403 with `contents: read` alone and 200 with `pull-requests: read`, `issues: read` and `actions: read` added; the real Main integrity window scan then passed (8 commits accepted, 0 problems). The token reported a limit of 5,000 requests per hour.
 
-Not verified, because it needs a write or a merge: creating `sync/*` branches, draft PRs and the status issue, dispatching Validate registry, the "Allow GitHub Actions to create and approve pull requests" setting, the scheduled trigger itself, and whether a dispatched validation run shows as a check on the sync PR.
+The write side was verified live at stage B on 2026-10-30: manual run [41058415273](https://github.com/WasteOfADrumBum/one-small-engineering/actions/runs/41058415273) created the `sync/*` branches, one draft PR per project (#12–#19), updated the status issue (#5) and dispatched Validate registry on each branch; after main moved, sync rebuilt the same PRs on the new main; a repeat run ([41062022635](https://github.com/WasteOfADrumBum/one-small-engineering/actions/runs/41062022635)) reported every project `unchanged`. Still not observed: a scheduled run with writes (stage C).
 
 | Job | Token | Permissions | Reads or writes | Confirmed by |
 | --- | --- | --- | --- | --- |
 | Registry sync / collect | `GITHUB_TOKEN` | `contents: read` | Reads public project repos: repo, branch, contents (config file, `package.json`), pulls, PR files, Actions runs, releases, tags, compare | **Verified** in Actions for all seven public projects (see above). |
 | Registry sync / report (stage A) | `GITHUB_TOKEN` | `contents: read` | Nothing: plans, guards and validates in the job, writes the job summary | Same code path **verified** in the probe run above. |
-| Registry sync / write (stages B, C) | `GITHUB_TOKEN` | `contents: write`, `pull-requests: write`, `issues: write`, `actions: write` | Hub only: the status issue, `sync/*` branches, draft PRs, a dispatch of Validate registry | Read side **verified** (`pull-requests`, `issues` and `actions` read). Writes **unverified** live; tested only against the in-memory GitHub: the status issue, a draft PR from `sync/<id>` with a Validate registry run on its head commit, no duplicate on rerun. |
+| Registry sync / write (stages B, C) | `GITHUB_TOKEN` | `contents: write`, `pull-requests: write`, `issues: write`, `actions: write` | Hub only: the status issue, `sync/*` branches, draft PRs, a dispatch of Validate registry | **Verified** live at stage B (manual runs, 2026-10-30): branches, draft PRs, status issue, Validate registry dispatch, no duplicate on rerun. Scheduled writes (stage C) not yet observed. |
 | Main integrity | `GITHUB_TOKEN` | `contents: read`, `pull-requests: read` | Hub only: compare, commits, the PRs for a commit, repository activity log | **Verified** in Actions: `pull-requests: read` is required (403 without it). |
 | Validate registry | `GITHUB_TOKEN` | `contents: read` | Hub checkout only | Already running on PRs. |
 
@@ -64,6 +64,8 @@ The job token cannot read a private repository other than this one. When AI Work
 - Simpler: a fine-grained personal access token, read-only for those repositories, 90-day expiry, stored as the secret `SYNC_READER_TOKEN` (already wired into the collect job).
 
 Until then a private project reports `needs-reader-token` in the status issue. Once the credential exists, pin the repository id with `GITHUB_TOKEN=<reader token> npm run onboard -- one-small-ai-workforce` in a hub PR (its `repositoryId` is `null` until then, and collection refuses with `identity-unpinned`).
+
+Status 2026-10-30: done. `SYNC_READER_TOKEN` is set and AI Workforce's repository id is pinned (`1417207069`); sync and the orchestrator both read it. A 401 later means the token expired: rotate it.
 
 ## Optional hardening
 

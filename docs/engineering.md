@@ -80,7 +80,7 @@ Top-level `permissions: {}`; every job asks for read permissions only; actions a
 
 1. Run the workflow by hand with `mode: observe`, `execute: true` (or locally `npm run engineering:check -- --execute`; use the Node version a project's `engines` asks for).
 2. Download the `engineering-<run>` artifact, or read the dashboard in the job summary.
-3. The verifier named in the registry re-checks the evidence for the exact commit and records it outside CI: `npm run verify:record -- ...` ([docs/verification.md](verification.md#independent-verification)). Open a PR with the record. Only that raises readiness.
+3. The verifier named in the registry re-checks the evidence for the exact commit and records it outside CI: `npm run verify:record -- ...` ([step by step](verification.md#recording-a-verification)). Open a PR with the record. Only that raises readiness.
 4. To keep evidence from an Actions run, commit `verification/evidence/` and `engineering/state.json` from the artifact in a hub PR.
 
 ## Remediation authorization workflow
@@ -128,7 +128,7 @@ Issue ids carry no commit (`project:source:key`), so the same problem keeps its 
 | --- | --- | --- |
 | `another orchestrator run holds engineering/.lock` | A local run is active, or one crashed | Wait; a lock older than three hours is replaced automatically, or delete the file if no run is active |
 | `engineering/state.json is not valid JSON` / `is invalid` | Hand edit or bad merge | `git checkout -- engineering/state.json`, or delete it: the next run rebuilds it (first-seen dates restart) |
-| AI Workforce "not readable" | No reader credential, or the token does not cover that repository | Add `SYNC_READER_TOKEN` with access to one-small-ai-workforce, or take the project out of monitoring by owner decision |
+| AI Workforce "not readable" | `SYNC_READER_TOKEN` expired, revoked or no longer covers that repository | Rotate the secret (read-only, that repository only), then run `mode: observe` by hand. An access failure recorded by an earlier execute run (which holds no reader) no longer hides current evidence |
 | Registry sync `identity-unpinned` for AI Workforce | The registry has no repository id for it | `GITHUB_TOKEN=<reader token> npm run onboard -- one-small-ai-workforce` in a hub PR (docs/sync-setup.md) |
 | ci-results, PR status or sync drift "unavailable" | GitHub API not reachable from that machine, or rate-limited | Run in Actions; statuses from the last successful read are kept and labelled |
 | build-test "inconclusive: below the engines floor" | Runner Node older than the project needs | Run with the Node version the project declares (the workflow uses Node 24) |

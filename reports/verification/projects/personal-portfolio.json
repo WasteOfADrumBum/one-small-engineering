@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-30T12:14:00Z",
+  "asOf": "2026-10-30T15:00:00Z",
   "id": "personal-portfolio",
   "name": "Personal Portfolio",
   "tier": "showcase",
@@ -669,30 +669,6 @@
           "result": "unavailable"
         },
         {
-          "id": "ev-personal-portfolio-ci-results-684ef3c-4e6240b2",
-          "digest": "e9add08b9741aaa83f2beec2195aaadc1982d5e63f2b7c14f6cfb7a988361121",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-personal-portfolio-ci-results-684ef3c-c2193761",
-          "digest": "9b4bfebbb213e18517fe6dac32902cee2c436ad2a1ddfde15ccedc0dde9ffd5d",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-personal-portfolio-ci-results-684ef3c-e6eafba3",
-          "digest": "bf57fe92d4c3596096d8a49b790903403c5af73d5944340f21e016f2bb7a5988",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-personal-portfolio-ci-results-684ef3c-f67d778c",
-          "digest": "4ecde34aac21f3ca492abb752b8a575da7a2378b2ed1f3aaa4b4b89d1ab2e949",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
           "id": "ev-personal-portfolio-lint-format-types-56ea76e-4b2bfc2f",
           "digest": "0ac743a03255d3c73aedbfbe4fe67b0308e41423e477b1630a882596f748e7b8",
           "collector": "lint-format-types",
@@ -795,30 +771,6 @@
         {
           "id": "ev-personal-portfolio-deployment-health-56ea76e-439cbcc3",
           "digest": "791156b08246f14033b26c4bca303977c89248a2c8f29e44606e5a01d84ecf03",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-personal-portfolio-deployment-health-684ef3c-45447d7c",
-          "digest": "41913376de46cb109acb26eda9ac7089d561c234be1166ea55f800bd67863d53",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-personal-portfolio-deployment-health-684ef3c-79f176d5",
-          "digest": "1be68d85940c96bd62542b222c4acc578da768033394fb3195913dae69904789",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-personal-portfolio-deployment-health-684ef3c-95957ec8",
-          "digest": "0b5817a60583401f42b4db6141f582eb8a69cf691fbc72cf467844de457d946c",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-personal-portfolio-deployment-health-684ef3c-f1ab7588",
-          "digest": "295d6d21b719cafcaea8dc67f986b77bfef45b8fe5c4a8f28c127263f5336312",
           "collector": "deployment-health",
           "result": "unavailable"
         }

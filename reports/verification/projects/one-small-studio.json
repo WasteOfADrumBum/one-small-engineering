@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-30T12:14:00Z",
+  "asOf": "2026-10-30T15:00:00Z",
   "id": "one-small-studio",
   "name": "One Small Studio",
   "tier": "showcase",
@@ -642,30 +642,6 @@
           "result": "inconclusive"
         },
         {
-          "id": "ev-one-small-studio-ci-results-175cef6-276b0f38",
-          "digest": "bef09b10a27faa491656a828caeb7df99ac4847f43032105ccf219c849f3b738",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-one-small-studio-ci-results-175cef6-372b3f9b",
-          "digest": "6ae9e714d69be28e718fd8ed67899c9b39fabefa9191c8d2b9924753b06a1c65",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-one-small-studio-ci-results-175cef6-b43c4ef0",
-          "digest": "66b50c1ea9fd7cd19c6fe871a2b789c7c48b96e03e706ba79bb24a09a4da17a6",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-one-small-studio-ci-results-175cef6-f298f2b3",
-          "digest": "7eed04f5ef59c7e9b6bbc289a6d256eaaf83bb9a7e1c9a1c3acef00ff4f56eab",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
           "id": "ev-one-small-studio-ci-results-d6854de-0c1a754d",
           "digest": "e43c3a07d6768834272822ae7128ba2644f31bd525571182c5a7a89d88c45c0d",
           "collector": "ci-results",
@@ -771,30 +747,6 @@
       "automation": "partial",
       "humanOnly": false,
       "evidence": [
-        {
-          "id": "ev-one-small-studio-deployment-health-175cef6-14945802",
-          "digest": "8fe09051e663cf8cf17e22126bfd32732f343a98e6944034a0dd5ecfb097e104",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-one-small-studio-deployment-health-175cef6-5899dff3",
-          "digest": "881f12f2231304b57944b3adc0cfa84fd9df260ecb1bb0d2db525d51ae1a62af",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-one-small-studio-deployment-health-175cef6-eac0aff6",
-          "digest": "bdb97732369a50069900480ff73e4147f8c39d73cd7b95c0b41746d18bf590f5",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-one-small-studio-deployment-health-175cef6-f5e271b7",
-          "digest": "84250f6a84b0aca48465b9fd737f1100f3eb831b683ec103fd11d8ed09a05b85",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
         {
           "id": "ev-one-small-studio-deployment-health-d6854de-970cfe92",
           "digest": "521c0f44a9f04e470bc995e84cf59bdb364b5b31c944f01bb9c75268d4aca7f4",

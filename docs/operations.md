@@ -10,10 +10,80 @@ Registry sync (Actions)   collect (contents: read) ─┬─ report  stage A: pl
 Validate registry         npm run check on every PR, push to main, and dispatched on sync/* branches (plus the field-ownership guard)
 Main integrity            push to main + every 6 h: flags any change to main that is not a merged PR
 Engineering orchestrator  every 6 h + manual: read-only observe run over all eight projects; reports/engineering/ in the job summary and artifact (docs/engineering.md)
+Verify / Remediation      manual (Verify also on PRs); remediation writes are off unless REMEDIATION_WRITE_ENABLED=true
 You                       review the draft sync PR, mark it ready, merge it (or close it)
 ```
 
-Nothing is ever written to a project repository. Project repositories need no file, secret or workflow (all eight are in `observe` mode).
+Nothing is ever written to a project repository except one reviewed remediation draft PR, which is off by default. Project repositories need no file, secret or workflow (all eight are in `observe` mode).
+
+## Operator quick reference
+
+Every workflow in this repository, what starts it, and what it may change. "Hub" means this repository only.
+
+| Workflow | Automatic trigger | Manual trigger | Reads | Writes | Output |
+| --- | --- | --- | --- | --- | --- |
+| Registry sync (`registry-sync.yml`) | `23 */6 * * *` UTC; runs only at stage C, otherwise the scheduled run shows as **skipped** | Run workflow (optionally one project, dry run) | All eight project repositories | Stage B/C only, hub only: `sync/<id>` branches, draft PRs, the **Registry sync status** issue (#5), a Validate registry dispatch | Job summary; status issue |
+| Main integrity (`main-integrity.yml`) | Push to main and `47 */6 * * *` | Run workflow | Hub commits, PRs, activity log | Nothing | Red run when main changed without a merged PR |
+| Validate registry (`validate.yml`) | Every PR and push to main | Run workflow (sync dispatches it on `sync/*`) | Hub checkout | Nothing | Check on the PR |
+| Engineering orchestrator (`engineering.yml`) | `17 */6 * * *`, observe only | `mode: observe` (optionally `execute: true`) or `mode: prepare` | All eight projects; `SYNC_READER_TOKEN` for AI Workforce | Nothing on GitHub. State in the Actions cache | Job summary; `engineering-<run>` artifact, 30 days |
+| Verify (`verify.yml`) | PRs touching verification code, policy or the registry | Run workflow | Projects at the evaluated commit | Nothing | Artifact, 30 days |
+| Remediation (`remediation.yml`) | Never | By hand from main, with confirmation text | One target repository | One draft PR, only when `REMEDIATION_WRITE_ENABLED=true` and `REMEDIATION_TOKEN` are set. **Off by default**: `REMEDIATION_WRITE_ENABLED` is unset | The draft PR |
+
+No workflow merges, approves, tags, publishes or deploys. Release approval is Joshua Small's alone and is recorded by hand ([release.md](../standards/release.md)).
+
+### Credentials
+
+| Credential | Where | Permissions | Used by |
+| --- | --- | --- | --- |
+| `GITHUB_TOKEN` | automatic, per job | Declared per job; read-only everywhere except the sync write job (`contents`, `pull-requests`, `issues`, `actions`: write, hub only) | All workflows |
+| `SYNC_READER_TOKEN` | repository secret | Read-only, scoped to `one-small-ai-workforce` | Sync collect and orchestrator observe. Never given to a job that runs project code |
+| `REMEDIATION_TOKEN` | repository secret, optional | `contents` + `pull-requests` write on one target repository | Remediation only |
+
+### Pausing and stopping
+
+- Stop scheduled registry writes: set `SYNC_STAGE=B` (manual writes only) or `A` (no writes). Takes effect on the next run.
+- Stop one workflow entirely: Actions → the workflow → **Disable workflow**.
+- Stop one project: `sync.enabled: false` in the registry, in a hub PR.
+- Remediation writes are already off; keep `REMEDIATION_WRITE_ENABLED` unset.
+
+### Evidence states
+
+| State | Meaning | What to do |
+| --- | --- | --- |
+| Current | Collected at the evaluated commit, inside its freshness window | Nothing |
+| Stale | Older than its window, or for another commit | The next run refreshes it; run the orchestrator by hand to refresh now |
+| Unavailable | The repository or API could not be read. It counts only for the commit it was recorded at, so an old access failure cannot hide newer evidence | See [Diagnosing an unreadable project](#diagnosing-an-unreadable-project) |
+| Inconclusive | The collector ran but could not decide (for example Node older than the project's `engines`) | Re-run with the right runtime |
+| Passed by builder | Collector or builder evidence passed. **Not** independent verification | The verifier records their own check ([verification.md](verification.md#recording-a-verification)) |
+
+Unavailable, stale and inconclusive are never treated as a pass.
+
+### Diagnosing an unreadable project
+
+1. Read the project's row in the status issue or the orchestrator job summary: the error names the call, HTTP status and missing permission.
+2. Public project: check the repository still exists under the registry URL (renamed or made private gives 404).
+3. AI Workforce: a 401 means `SYNC_READER_TOKEN` expired; rotate it. A 403/404 means it no longer covers the repository.
+4. A `repo-id-mismatch` means the repository was recreated or transferred: investigate before re-pinning.
+5. Re-run the orchestrator by hand with `mode: observe`; the project's Access column should read `readable`.
+
+### Where artifacts live
+
+| What | Where |
+| --- | --- |
+| Registry (source of truth) | `projects/registry.json` |
+| Release readiness, dashboard, release prep | `reports/` (regenerate with `npm run release:reports`) |
+| Verification reports and evidence ledgers | `reports/verification/`, `verification/evidence/` |
+| Independent verification records | `verification/verifications/<id>.json` |
+| Orchestrator reports and state | `reports/engineering/`, `engineering/state.json`; latest run in its Actions artifact |
+| Sync history | The **Registry sync status** issue and merged `sync(<id>)` PRs |
+
+### Verified operating history
+
+Recorded facts only. Anything not listed is not claimed.
+
+- 2026-10-30, stage B: manual run [41058415273](https://github.com/WasteOfADrumBum/one-small-engineering/actions/runs/41058415273) opened one draft PR per project (#12–#19). After #11 merged, runs [41060417477](https://github.com/WasteOfADrumBum/one-small-engineering/actions/runs/41060417477) and [41060483998](https://github.com/WasteOfADrumBum/one-small-engineering/actions/runs/41060483998) rebuilt them on the new main; all eight passed Validate registry and the field-ownership guard and were merged. Idempotency run [41062022635](https://github.com/WasteOfADrumBum/one-small-engineering/actions/runs/41062022635): all eight `unchanged`, no new commit or PR.
+- 2026-10-30, orchestrator observe run [41063279932](https://github.com/WasteOfADrumBum/one-small-engineering/actions/runs/41063279932): all eight projects readable, including private AI Workforce through `SYNC_READER_TOKEN`.
+- Stage C: the owner set `SYNC_STAGE=C` on 2026-10-30. No scheduled write run has been observed yet; every earlier scheduled sync run was skipped (stages A and B), for example [41056310510](https://github.com/WasteOfADrumBum/one-small-engineering/actions/runs/41056310510). Scheduled runs start some minutes after :23.
 
 ## Activation stages
 

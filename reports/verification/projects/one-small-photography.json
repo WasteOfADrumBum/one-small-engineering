@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-30T12:14:00Z",
+  "asOf": "2026-10-30T15:00:00Z",
   "id": "one-small-photography",
   "name": "One Small Photography",
   "tier": "showcase",
@@ -660,30 +660,6 @@
           "result": "inconclusive"
         },
         {
-          "id": "ev-one-small-photography-ci-results-45a74ba-32fcc3c6",
-          "digest": "381e54d993bafc4ef779ae3e957f9fed21e48b66d3824dcb7cceedfc8e45e368",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-one-small-photography-ci-results-45a74ba-acd0e7e8",
-          "digest": "039b90e9c7e2b1d878a8ae2d82423f664012db98bcf070ecd935abe59475ae9f",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-one-small-photography-ci-results-45a74ba-b919d9a0",
-          "digest": "99ff72dd8b884d812a8808dd39877ed79dbcebdfbc9db0ab09f25d60dafeda88",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-one-small-photography-ci-results-45a74ba-f4281eac",
-          "digest": "e1253874a11068e8625a9253e38962f2ce8db96b76ff9b60eb35fa4f716779dc",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
           "id": "ev-one-small-photography-ci-results-fa2d17f-05128f81",
           "digest": "a748e38b1e834f6e0f52ed0915cf925b43c4bba6bbeb16fb479716b4dbc7eb61",
           "collector": "ci-results",
@@ -789,30 +765,6 @@
       "automation": "partial",
       "humanOnly": false,
       "evidence": [
-        {
-          "id": "ev-one-small-photography-deployment-health-45a74ba-36845369",
-          "digest": "ef6886dbb5558a7077a5f3ed3f9e8203a19ebd403775db83dd8baa1e0d377340",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-one-small-photography-deployment-health-45a74ba-4e156a51",
-          "digest": "06f2ee43556d5bace29f9499f8c911986b07c6bf62245928f9c2e44685968b91",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-one-small-photography-deployment-health-45a74ba-6f7249e7",
-          "digest": "b2109631f6586d2c5d0f14d8e047f2846cd8d3f1d7a54678ab654d7f3bcde2a6",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-one-small-photography-deployment-health-45a74ba-a51e90f7",
-          "digest": "740b64b29458dc2fa27c4b286bbb1470694df9cbd9bf730a552a198f3d71eab4",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
         {
           "id": "ev-one-small-photography-deployment-health-fa2d17f-ac05308c",
           "digest": "3f2ab09fbd645667b0c16cefdaade244caf07a4741427ae853ad6d45fac2953f",
