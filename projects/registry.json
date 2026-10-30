@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-10-30T12:03:32Z",
+  "lastUpdatedAt": "2026-10-30T13:06:02Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -537,7 +537,19 @@
         "defaultBranch": "main",
         "headSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
         "archived": false,
-        "observedAt": "2026-10-22T16:33:00Z"
+        "observedAt": "2026-10-30T13:06:02Z",
+        "visibility": "public",
+        "latestTag": {
+          "name": "v0.5.0",
+          "version": "0.5.0",
+          "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d"
+        },
+        "package": {
+          "status": "observed",
+          "name": "onesmallui-monorepo",
+          "version": "0.5.0",
+          "private": true
+        }
       },
       "openPullRequests": [],
       "release": {
@@ -616,6 +628,18 @@
           "result": "pass",
           "description": "CI on main at 94438ee succeeded (check, build, Playwright layout and a11y on ubuntu and windows matrix).",
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "sync-one-small-ui-run-ci-yml-94438ee-hvdw69o-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/38903087292",
+          "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+          "verifiedAt": "2026-10-16T12:55:15Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 94438ee (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-ui:workflow_run:ci.yml/94438ee/hvdw69o/1"
         }
       ],
       "releaseGates": [
@@ -798,9 +822,9 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1411378047,
-        "lastSyncedAt": null,
-        "lastSyncedHead": null,
-        "configSource": null
+        "lastSyncedAt": "2026-10-30T13:06:02Z",
+        "lastSyncedHead": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+        "configSource": "defaults"
       }
     },
     {
