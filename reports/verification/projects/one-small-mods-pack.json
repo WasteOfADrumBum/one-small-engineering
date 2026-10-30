@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-28T21:07:08Z",
+  "asOf": "2026-10-30T12:14:00Z",
   "id": "one-small-mods-pack",
   "name": "One Small ModsPack",
   "tier": "library",
@@ -23,15 +23,15 @@
     "independently_verified": 0,
     "passed_by_builder": 3,
     "failed": 6,
-    "inconclusive": 5,
-    "not_tested": 7,
+    "inconclusive": 8,
+    "not_tested": 4,
     "not_applicable": 1
   },
   "gates": [
     {
       "id": "scope-complete",
-      "state": "not_tested",
-      "engineState": "in_progress",
+      "state": "inconclusive",
+      "engineState": "unknown_stale",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -41,14 +41,15 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
+        "current evidence: msp-pr-3 is for 80cc269, not the release candidate c747cbd",
         "registry notes: Scope is PR #3 plus the go/no-go checklist in release-verification.md; open checklist items remain"
       ],
-      "nextAction": "Finish the work and record evidence, then have the verifier re-check."
+      "nextAction": "Re-collect evidence for the current release candidate and have the verifier re-check it."
     },
     {
       "id": "automated-checks",
       "state": "inconclusive",
-      "engineState": "in_progress",
+      "engineState": "unknown_stale",
       "applicable": true,
       "automation": "full",
       "manualReviewRequired": false,
@@ -80,9 +81,10 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
+        "current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd",
         "registry notes: CI green on PR #3 head 80cc269. The PR is under active testing; re-check on the final head"
       ],
-      "nextAction": "Finish the work and record evidence, then have the verifier re-check."
+      "nextAction": "Re-collect evidence for the current release candidate and have the verifier re-check it."
     },
     {
       "id": "security-privacy-review",
@@ -120,7 +122,7 @@
     {
       "id": "wcag-22-aa",
       "state": "inconclusive",
-      "engineState": "in_progress",
+      "engineState": "unknown_stale",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -139,14 +141,15 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd",
         "registry notes: Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding"
       ],
-      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+      "nextAction": "Re-collect evidence for the current release candidate and have the verifier re-check it."
     },
     {
       "id": "keyboard-screen-reader",
-      "state": "not_tested",
-      "engineState": "in_progress",
+      "state": "inconclusive",
+      "engineState": "unknown_stale",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -157,14 +160,15 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd",
         "registry notes: Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED"
       ],
-      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+      "nextAction": "Re-collect evidence for the current release candidate and have the verifier re-check it."
     },
     {
       "id": "responsive-layouts",
-      "state": "not_tested",
-      "engineState": "in_progress",
+      "state": "inconclusive",
+      "engineState": "unknown_stale",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -175,9 +179,10 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd",
         "registry notes: Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED"
       ],
-      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+      "nextAction": "Re-collect evidence for the current release candidate and have the verifier re-check it."
     },
     {
       "id": "critical-workflows",
@@ -258,6 +263,7 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd",
         "registry notes: Open blockers are listed under release.blockers"
       ],
       "nextAction": "Resolve pr-description-stale, codex-interactive-trust, copilot-gemini-runtime-untested, manual-screen-reader-review, manual-zoom-forced-colors-review, npm-ownership-access, publish-pipeline-missing, release-authorization, then verify."
@@ -290,7 +296,7 @@
     {
       "id": "clean-consumer-install",
       "state": "failed",
-      "engineState": "in_progress",
+      "engineState": "unknown_stale",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -309,14 +315,15 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd",
         "registry notes: Builder reports an artifact test that packs, installs, validates and initializes every platform"
       ],
-      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+      "nextAction": "Re-collect evidence for the current release candidate and have the verifier re-check it."
     },
     {
       "id": "runtime-compatibility",
       "state": "failed",
-      "engineState": "in_progress",
+      "engineState": "unknown_stale",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -335,14 +342,16 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd",
+        "current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate c747cbd",
         "registry notes: Claude Code harness PASS; Codex discovery and trust-bypassed hook enforcement live; Copilot/Gemini runtime NOT TESTED; Node 20 partial, CI runs Node 22 only"
       ],
-      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+      "nextAction": "Re-collect evidence for the current release candidate and have the verifier re-check it."
     },
     {
       "id": "package-archive-inspection",
       "state": "failed",
-      "engineState": "in_progress",
+      "engineState": "unknown_stale",
       "applicable": true,
       "automation": "full",
       "manualReviewRequired": false,
@@ -361,14 +370,15 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd",
         "registry notes: Builder reports an 82-file tarball reviewed with an artifact regression test; not independently re-inspected"
       ],
-      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+      "nextAction": "Re-collect evidence for the current release candidate and have the verifier re-check it."
     },
     {
       "id": "supply-chain-review",
       "state": "passed_by_builder",
-      "engineState": "in_progress",
+      "engineState": "unknown_stale",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -387,14 +397,15 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd",
         "registry notes: Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE"
       ],
-      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+      "nextAction": "Re-collect evidence for the current release candidate and have the verifier re-check it."
     },
     {
       "id": "ci-release-pipeline",
       "state": "failed",
-      "engineState": "in_progress",
+      "engineState": "unknown_stale",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -412,14 +423,15 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
+        "current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd",
         "registry notes: CI exists for checks (contents: read). There is no release or publish pipeline yet"
       ],
-      "nextAction": "Finish the work and record evidence, then have the verifier re-check."
+      "nextAction": "Re-collect evidence for the current release candidate and have the verifier re-check it."
     },
     {
       "id": "versioning-changelog",
       "state": "failed",
-      "engineState": "in_progress",
+      "engineState": "unknown_stale",
       "applicable": true,
       "automation": "full",
       "manualReviewRequired": false,
@@ -438,9 +450,10 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd",
         "registry notes: CHANGELOG 2.0.0 (unreleased) with mod version list and a consistency test (builder-reported)"
       ],
-      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+      "nextAction": "Re-collect evidence for the current release candidate and have the verifier re-check it."
     },
     {
       "id": "distribution-verified",
@@ -481,7 +494,7 @@
     {
       "id": "upgrade-rollback-uninstall-docs",
       "state": "inconclusive",
-      "engineState": "in_progress",
+      "engineState": "unknown_stale",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -500,14 +513,15 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd",
         "registry notes: Install, update and modspack uninstall --yes documented in docs/getting-started.md (builder-reported)"
       ],
-      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+      "nextAction": "Re-collect evidence for the current release candidate and have the verifier re-check it."
     },
     {
       "id": "public-docs-accurate",
       "state": "inconclusive",
-      "engineState": "in_progress",
+      "engineState": "unknown_stale",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -526,9 +540,11 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd",
+        "current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate c747cbd",
         "registry notes: README, CHANGELOG and limitations reviewed by the builder; compatibility claims come from the catalog"
       ],
-      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+      "nextAction": "Re-collect evidence for the current release candidate and have the verifier re-check it."
     },
     {
       "id": "published-artifact-matches",
@@ -652,7 +668,111 @@
       "severity": "unclassified",
       "blocks": "release",
       "category": "evidence",
-      "description": "17 applicable pre-publication gate(s) lack current independent verification."
+      "description": "4 applicable pre-publication gate(s) lack current independent verification."
+    },
+    {
+      "id": "auto-stale-automated-checks",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "stale-evidence",
+      "description": "automated-checks: current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd; registry notes: CI green on PR #3 head 80cc269. The PR is under active testing; re-check on the final head."
+    },
+    {
+      "id": "auto-stale-ci-release-pipeline",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "stale-evidence",
+      "description": "ci-release-pipeline: current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd; registry notes: CI exists for checks (contents: read). There is no release or publish pipeline yet."
+    },
+    {
+      "id": "auto-stale-clean-consumer-install",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "stale-evidence",
+      "description": "clean-consumer-install: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports an artifact test that packs, installs, validates and initializes every platform."
+    },
+    {
+      "id": "auto-stale-keyboard-screen-reader",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "stale-evidence",
+      "description": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED."
+    },
+    {
+      "id": "auto-stale-package-archive-inspection",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "stale-evidence",
+      "description": "package-archive-inspection: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports an 82-file tarball reviewed with an artifact regression test; not independently re-inspected."
+    },
+    {
+      "id": "auto-stale-public-docs-accurate",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "stale-evidence",
+      "description": "public-docs-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate c747cbd; registry notes: README, CHANGELOG and limitations reviewed by the builder; compatibility claims come from the catalog."
+    },
+    {
+      "id": "auto-stale-responsive-layouts",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "stale-evidence",
+      "description": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED."
+    },
+    {
+      "id": "auto-stale-runtime-compatibility",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "stale-evidence",
+      "description": "runtime-compatibility: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate c747cbd; registry notes: Claude Code harness PASS; Codex discovery and trust-bypassed hook enforcement live; Copilot/Gemini runtime NOT TESTED; Node 20 partial, CI runs Node 22 only."
+    },
+    {
+      "id": "auto-stale-scope-complete",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "stale-evidence",
+      "description": "scope-complete: current evidence: msp-pr-3 is for 80cc269, not the release candidate c747cbd; registry notes: Scope is PR #3 plus the go/no-go checklist in release-verification.md; open checklist items remain."
+    },
+    {
+      "id": "auto-stale-supply-chain-review",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "stale-evidence",
+      "description": "supply-chain-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE."
+    },
+    {
+      "id": "auto-stale-upgrade-rollback-uninstall-docs",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "stale-evidence",
+      "description": "upgrade-rollback-uninstall-docs: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Install, update and modspack uninstall --yes documented in docs/getting-started.md (builder-reported)."
+    },
+    {
+      "id": "auto-stale-versioning-changelog",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "stale-evidence",
+      "description": "versioning-changelog: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: CHANGELOG 2.0.0 (unreleased) with mod version list and a consistency test (builder-reported)."
+    },
+    {
+      "id": "auto-stale-wcag-22-aa",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "stale-evidence",
+      "description": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding."
     }
   ],
   "blockersBySeverity": {
@@ -660,7 +780,7 @@
     "high": 0,
     "medium": 2,
     "low": 0,
-    "unclassified": 10
+    "unclassified": 23
   },
   "mergeEligible": false,
   "releaseEligible": false,
@@ -797,13 +917,7 @@
     }
   ],
   "verifications": [],
-  "relatedPullRequests": [
-    {
-      "number": 3,
-      "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/pull/3",
-      "draft": true
-    }
-  ],
+  "relatedPullRequests": [],
   "remediation": [],
   "verificationRequests": [
     {

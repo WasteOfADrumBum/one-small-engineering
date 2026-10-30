@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-28T21:07:08Z",
+  "asOf": "2026-10-30T12:14:00Z",
   "id": "one-small-ai-workforce",
   "name": "One Small AI Workforce",
   "tier": "application",
@@ -208,16 +208,12 @@
       "automation": "partial",
       "manualReviewRequired": true,
       "humanOnly": false,
-      "collectorEvidence": [
+      "collectorEvidence": [],
+      "staleEvidence": [
         {
           "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810",
-          "collector": "deployment-health",
-          "result": "inconclusive",
-          "executedAt": "2026-10-28T21:04:34Z",
-          "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive"
-        }
-      ],
-      "staleEvidence": [
+          "reason": "expired 2026-10-29"
+        },
         {
           "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
           "reason": "expired 2026-10-28"
@@ -411,16 +407,12 @@
       "automation": "partial",
       "manualReviewRequired": true,
       "humanOnly": false,
-      "collectorEvidence": [
+      "collectorEvidence": [],
+      "staleEvidence": [
         {
           "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810",
-          "collector": "deployment-health",
-          "result": "inconclusive",
-          "executedAt": "2026-10-28T21:04:34Z",
-          "summary": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive"
-        }
-      ],
-      "staleEvidence": [
+          "reason": "expired 2026-10-29"
+        },
         {
           "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
           "reason": "expired 2026-10-28"
@@ -503,6 +495,10 @@
     "user-data-isolation"
   ],
   "staleEvidence": [
+    {
+      "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810",
+      "reason": "expired 2026-10-29"
+    },
     {
       "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
       "reason": "expired 2026-10-28"
@@ -653,31 +649,6 @@
       "acceptance": "The dependency-audit collector reports pass at the new commit, and the verifier records it for security-privacy-review.",
       "verification": [
         "security-privacy-review: manual review by the verifier"
-      ]
-    },
-    {
-      "id": "one-small-ai-workforce:deployment-health:c70d8b1",
-      "project": "one-small-ai-workforce",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
-      "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
-      "collector": "deployment-health",
-      "evidenceId": "ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810",
-      "kind": "evidence-gap",
-      "severity": "low",
-      "gates": [
-        "deployment-rollback",
-        "production-deployment"
-      ],
-      "releaseImpact": "blocks verification of deployment-rollback, production-deployment",
-      "title": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive",
-      "reproduction": "node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector deployment-health",
-      "rootCause": null,
-      "failureReason": "not run or inconclusive: deployment configuration (no checkout); health check (no productionUrl in the registry)",
-      "proposedFix": null,
-      "acceptance": "The deployment-health collector reports pass at the new commit, and the verifier records it for deployment-rollback, production-deployment.",
-      "verification": [
-        "deployment-rollback: manual review by the verifier",
-        "production-deployment: manual review by the verifier"
       ]
     },
     {
@@ -1105,18 +1076,13 @@
       "gate": "production-deployment",
       "automation": "partial",
       "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810",
-          "digest": "ee182f3f25f9a40b649cdee5edec4b88a56624a48c7cf1fcb7efcdee35016d60",
-          "collector": "deployment-health",
-          "result": "inconclusive"
-        }
+      "evidence": [],
+      "missingCollectors": [
+        "deployment-health"
       ],
-      "missingCollectors": [],
       "method": "manual-test",
       "routedTo": "Joshua Small",
-      "status": "ready for verifier"
+      "status": "waiting for evidence"
     },
     {
       "gate": "documentation-accurate",
@@ -1286,18 +1252,13 @@
       "gate": "deployment-rollback",
       "automation": "partial",
       "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810",
-          "digest": "ee182f3f25f9a40b649cdee5edec4b88a56624a48c7cf1fcb7efcdee35016d60",
-          "collector": "deployment-health",
-          "result": "inconclusive"
-        }
+      "evidence": [],
+      "missingCollectors": [
+        "deployment-health"
       ],
-      "missingCollectors": [],
       "method": "manual-test",
       "routedTo": "Joshua Small",
-      "status": "ready for verifier"
+      "status": "waiting for evidence"
     },
     {
       "gate": "e2e-critical-workflows",

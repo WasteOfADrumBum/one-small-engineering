@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-10-27T03:37:12Z",
+  "lastUpdatedAt": "2026-10-30T12:03:32Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -74,30 +74,22 @@
       "productionUrl": null,
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "367cede6ffba17de9bf2d3a20968a3e1cd1b3371",
+        "headSha": "c747cbd6a9c3baddf2adca42798cd05f9511cef1",
         "archived": false,
-        "observedAt": "2026-10-22T16:33:00Z"
+        "observedAt": "2026-10-30T12:03:32Z"
       },
-      "openPullRequests": [
-        {
-          "number": 3,
-          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/pull/3",
-          "title": "One Small ModsPack 2.0 (draft): toolkit and pre-release verification",
-          "headSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
-          "draft": true
-        }
-      ],
+      "openPullRequests": [],
       "release": {
         "currentVersion": "0.1.0",
         "currentVersionSource": "Not an npm or tagged release. main holds package.json guardrail-mods 0.1.0 (private) and four 0.1.0 Claude Code mods installable from the repository as a plugin marketplace. No git tags or GitHub releases exist.",
         "targetVersion": "2.0.0",
         "releaseStatus": "in_progress",
-        "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/docs/release-verification.md",
+        "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/c747cbd6a9c3baddf2adca42798cd05f9511cef1/docs/release-verification.md",
         "candidate": {
           "pullRequest": 3,
-          "ref": "modspack-2-0",
-          "headSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
-          "observedAt": "2026-10-26T01:16:08Z"
+          "ref": "main",
+          "headSha": "c747cbd6a9c3baddf2adca42798cd05f9511cef1",
+          "observedAt": "2026-10-30T12:03:32Z"
         },
         "blockers": [
           {
@@ -249,6 +241,16 @@
           "result": "informational",
           "description": "PR #3 open as draft, mergeable (clean), 23 commits, 111 files, +9978/-41. Description states NO-GO for release.",
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "msp-pr-3-merged",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/pull/3",
+          "commitSha": "c747cbd6a9c3baddf2adca42798cd05f9511cef1",
+          "verifiedAt": "2026-10-30T12:03:32Z",
+          "result": "informational",
+          "description": "PR #3 merged into main 2026-10-29T14:38:53Z as c747cbd; the modspack-2-0 branch is deleted. The merge tree is identical to the PR's final head c579f6d, whose only change from 80cc269 is docs/release-verification.md (owner scope decision of 2026-10-29 deferring the manual accessibility, Codex trust and Copilot/Gemini checks; deployment and publication stay NO-GO). package.json at c747cbd: one-small-modspack 2.0.0. The push CI run on c747cbd concluded success (registry sync stage A observation of 2026-10-30). Evidence recorded at 80cc269 does not apply to this candidate until re-collected and re-verified.",
+          "recordedBy": "Claude Code (operational acceptance 2026-10-30, read-only git and registry sync inspection)"
         },
         {
           "id": "msp-ci-pr3-head",

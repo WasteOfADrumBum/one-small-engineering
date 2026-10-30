@@ -117,6 +117,8 @@ const awaitCollectors = await import('../verify/collectors.mjs')
 
 test('monitoring: revisions come from git; a private repository without a reader is recorded as not visible, never as empty', () => {
   const reg = realRegistry()
+  // Pin a candidate on a release branch, whatever the live registry records today.
+  reg.projects.find(p => p.id === 'one-small-mods-pack').release.candidate.ref = 'modspack-2-0'
   const repos = {}
   for (const p of reg.projects.filter(p => p.tier !== 'legacy')) repos[p.repository] = { sha: SHA, private: p.visibility !== 'public' }
   const run = fakeRunner({ repos })

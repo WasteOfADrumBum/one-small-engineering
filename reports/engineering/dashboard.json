@@ -1,8 +1,8 @@
 {
   "kind": "one-small-engineering/engineering-dashboard",
   "schema": 1,
-  "command": "npm run engineering:report -- --as-of 2026-10-28T21:07:08Z",
-  "asOf": "2026-10-28T21:07:08Z",
+  "command": "npm run engineering:report -- --as-of 2026-10-30T12:14:00Z",
+  "asOf": "2026-10-30T12:14:00Z",
   "overview": {
     "activeProjects": 8,
     "readyForRelease": 0,
@@ -22,7 +22,7 @@
     },
     "openRemediationPRs": 3,
     "unreviewedRemediationPRs": 0,
-    "staleEvidence": 54,
+    "staleEvidence": 55,
     "dependencyRisks": 0,
     "inaccessible": [
       "one-small-ai-workforce"
@@ -38,8 +38,8 @@
     },
     "queue": {
       "automatic": 5,
-      "independent-verification": 33,
-      "owner-decision": 27,
+      "independent-verification": 32,
+      "owner-decision": 40,
       "blocked-credentials": 8,
       "informational": 5
     }
@@ -69,8 +69,8 @@
         "independently_verified": 0,
         "passed_by_builder": 3,
         "failed": 6,
-        "inconclusive": 5,
-        "not_tested": 7,
+        "inconclusive": 8,
+        "not_tested": 4,
         "not_applicable": 1
       },
       "release": {
@@ -81,8 +81,8 @@
         ],
         "candidate": {
           "pullRequest": 3,
-          "ref": "modspack-2-0",
-          "sha": "80cc269ebb7c20aca5f6ca03214954726fb494f7"
+          "ref": "main",
+          "sha": "c747cbd6a9c3baddf2adca42798cd05f9511cef1"
         },
         "approval": {
           "valid": false,
@@ -92,8 +92,8 @@
       },
       "releasePlan": {
         "state": "blocked",
-        "candidateRevision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
-        "candidateSource": "PR #3 (modspack-2-0)",
+        "candidateRevision": "c747cbd6a9c3baddf2adca42798cd05f9511cef1",
+        "candidateSource": "PR #3 (main)",
         "applicableGates": 21,
         "verifiedGates": 0,
         "readinessPercent": 0,
@@ -130,7 +130,20 @@
           "publish-pipeline-missing",
           "release-authorization",
           "auto-critical-workflows-unverified",
-          "auto-missing-verification"
+          "auto-missing-verification",
+          "auto-stale-automated-checks",
+          "auto-stale-ci-release-pipeline",
+          "auto-stale-clean-consumer-install",
+          "auto-stale-keyboard-screen-reader",
+          "auto-stale-package-archive-inspection",
+          "auto-stale-public-docs-accurate",
+          "auto-stale-responsive-layouts",
+          "auto-stale-runtime-compatibility",
+          "auto-stale-scope-complete",
+          "auto-stale-supply-chain-review",
+          "auto-stale-upgrade-rollback-uninstall-docs",
+          "auto-stale-versioning-changelog",
+          "auto-stale-wcag-22-aa"
         ],
         "dependencyReadiness": [],
         "manualTesting": [
@@ -208,7 +221,7 @@
           "description": "No owner authorization yet for merge, tag, npm publish or deployment."
         }
       ],
-      "openPullRequests": 1,
+      "openPullRequests": 0,
       "sync": {
         "changes": [],
         "reason": "token-rejected: GET /repos/WasteOfADrumBum/one-small-mods-pack: the token was rejected (HTTP 401); it is missing, expired or revoked",
@@ -222,7 +235,7 @@
         "low": 0
       },
       "nextAction": "Resolve codex-interactive-trust in one-small-mods-pack.",
-      "queueItems": 14
+      "queueItems": 27
     },
     {
       "id": "one-small-ui",
@@ -1142,7 +1155,7 @@
         "low": 0
       },
       "nextAction": "Resolve scope-document-missing in one-small-ai-workforce.",
-      "queueItems": 6
+      "queueItems": 5
     }
   ],
   "queue": [
@@ -2086,6 +2099,409 @@
         "one-small-mods-pack"
       ],
       "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-automated-checks",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "automated-checks: current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd; registry notes: CI green on PR #3 head 80cc269. The PR is under active testing; re-check on the final head.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "automated-checks: current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd; registry notes: CI green on PR #3 head 80cc269. The PR is under active testing; re-check on the final head.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-30T12:14:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 30,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-ci-release-pipeline",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "ci-release-pipeline: current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd; registry notes: CI exists for checks (contents: read). There is no release or publish pipeline yet.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "ci-release-pipeline: current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd; registry notes: CI exists for checks (contents: read). There is no release or publish pipeline yet.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-30T12:14:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 31,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-clean-consumer-install",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "clean-consumer-install: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports an artifact test that packs, installs, validates and initializes every platform.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "clean-consumer-install: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports an artifact test that packs, installs, validates and initializes every platform.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-30T12:14:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 32,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-keyboard-screen-reader",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-30T12:14:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 33,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-package-archive-inspection",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "package-archive-inspection: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports an 82-file tarball reviewed with an artifact regression test; not independently re-inspected.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "package-archive-inspection: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports an 82-file tarball reviewed with an artifact regression test; not independently re-inspected.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-30T12:14:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 34,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-public-docs-accurate",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "public-docs-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate c747cbd; registry notes: README, CHANGELOG and limitations reviewed by the builder; compatibility claims come from the catalog.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "public-docs-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate c747cbd; registry notes: README, CHANGELOG and limitations reviewed by the builder; compatibility claims come from the catalog.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-30T12:14:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 35,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-responsive-layouts",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-30T12:14:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 36,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-runtime-compatibility",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "runtime-compatibility: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate c747cbd; registry notes: Claude Code harness PASS; Codex discovery and trust-bypassed hook enforcement live; Copilot/Gemini runtime NOT TESTED; Node 20 partial, CI runs Node 22 only.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "runtime-compatibility: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate c747cbd; registry notes: Claude Code harness PASS; Codex discovery and trust-bypassed hook enforcement live; Copilot/Gemini runtime NOT TESTED; Node 20 partial, CI runs Node 22 only.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-30T12:14:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 37,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-scope-complete",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "scope-complete: current evidence: msp-pr-3 is for 80cc269, not the release candidate c747cbd; registry notes: Scope is PR #3 plus the go/no-go checklist in release-verification.md; open checklist items remain.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "scope-complete: current evidence: msp-pr-3 is for 80cc269, not the release candidate c747cbd; registry notes: Scope is PR #3 plus the go/no-go checklist in release-verification.md; open checklist items remain.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-30T12:14:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 38,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-supply-chain-review",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "supply-chain-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "supply-chain-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-30T12:14:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 39,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-upgrade-rollback-uninstall-docs",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "upgrade-rollback-uninstall-docs: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Install, update and modspack uninstall --yes documented in docs/getting-started.md (builder-reported).",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "upgrade-rollback-uninstall-docs: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Install, update and modspack uninstall --yes documented in docs/getting-started.md (builder-reported).",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-30T12:14:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 40,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-versioning-changelog",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "versioning-changelog: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: CHANGELOG 2.0.0 (unreleased) with mod version list and a consistency test (builder-reported).",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "versioning-changelog: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: CHANGELOG 2.0.0 (unreleased) with mod version list and a consistency test (builder-reported).",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-30T12:14:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 41,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-wcag-22-aa",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-30T12:14:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 42,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
       "rootCause": "Registry blocker pr-description-stale (documentation, blocks merge).",
       "complexity": "medium",
       "validation": [
@@ -2114,7 +2530,7 @@
       "isNew": false
     },
     {
-      "rank": 30,
+      "rank": 43,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2168,7 +2584,7 @@
       "isNew": false
     },
     {
-      "rank": 31,
+      "rank": 44,
       "projects": [
         "one-small-ui"
       ],
@@ -2205,7 +2621,7 @@
       "isNew": false
     },
     {
-      "rank": 32,
+      "rank": 45,
       "projects": [
         "one-small-ui"
       ],
@@ -2242,7 +2658,7 @@
       "isNew": false
     },
     {
-      "rank": 33,
+      "rank": 46,
       "projects": [
         "one-small-ui"
       ],
@@ -2297,7 +2713,7 @@
       "isNew": false
     },
     {
-      "rank": 34,
+      "rank": 47,
       "projects": [
         "personal-portfolio"
       ],
@@ -2334,7 +2750,7 @@
       "isNew": false
     },
     {
-      "rank": 35,
+      "rank": 48,
       "projects": [
         "personal-portfolio"
       ],
@@ -2367,7 +2783,7 @@
       "isNew": false
     },
     {
-      "rank": 36,
+      "rank": 49,
       "projects": [
         "personal-portfolio"
       ],
@@ -2410,7 +2826,7 @@
       "isNew": false
     },
     {
-      "rank": 37,
+      "rank": 50,
       "projects": [
         "one-small-studio"
       ],
@@ -2447,7 +2863,7 @@
       "isNew": false
     },
     {
-      "rank": 38,
+      "rank": 51,
       "projects": [
         "one-small-studio"
       ],
@@ -2490,7 +2906,7 @@
       "isNew": false
     },
     {
-      "rank": 39,
+      "rank": 52,
       "projects": [
         "one-small-photography"
       ],
@@ -2527,7 +2943,7 @@
       "isNew": false
     },
     {
-      "rank": 40,
+      "rank": 53,
       "projects": [
         "one-small-photography"
       ],
@@ -2570,7 +2986,7 @@
       "isNew": false
     },
     {
-      "rank": 41,
+      "rank": 54,
       "projects": [
         "taskforge"
       ],
@@ -2607,7 +3023,7 @@
       "isNew": false
     },
     {
-      "rank": 42,
+      "rank": 55,
       "projects": [
         "taskforge"
       ],
@@ -2638,7 +3054,7 @@
       "isNew": false
     },
     {
-      "rank": 43,
+      "rank": 56,
       "projects": [
         "taskforge"
       ],
@@ -2691,7 +3107,7 @@
       "isNew": false
     },
     {
-      "rank": 44,
+      "rank": 57,
       "projects": [
         "cortex"
       ],
@@ -2728,7 +3144,7 @@
       "isNew": false
     },
     {
-      "rank": 45,
+      "rank": 58,
       "projects": [
         "cortex"
       ],
@@ -2781,7 +3197,7 @@
       "isNew": false
     },
     {
-      "rank": 46,
+      "rank": 59,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -2830,7 +3246,7 @@
       "isNew": false
     },
     {
-      "rank": 47,
+      "rank": 60,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -2883,7 +3299,7 @@
       "isNew": false
     },
     {
-      "rank": 48,
+      "rank": 61,
       "projects": [
         "one-small-mods-pack",
         "one-small-ui",
@@ -2934,7 +3350,7 @@
       "isNew": false
     },
     {
-      "rank": 49,
+      "rank": 62,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2967,7 +3383,7 @@
       "isNew": false
     },
     {
-      "rank": 50,
+      "rank": 63,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -3002,7 +3418,7 @@
       "isNew": false
     },
     {
-      "rank": 51,
+      "rank": 64,
       "projects": [
         "one-small-ui"
       ],
@@ -3037,7 +3453,7 @@
       "isNew": false
     },
     {
-      "rank": 52,
+      "rank": 65,
       "projects": [
         "personal-portfolio"
       ],
@@ -3071,7 +3487,7 @@
       "isNew": false
     },
     {
-      "rank": 53,
+      "rank": 66,
       "projects": [
         "personal-portfolio"
       ],
@@ -3104,7 +3520,7 @@
       "isNew": false
     },
     {
-      "rank": 54,
+      "rank": 67,
       "projects": [
         "personal-portfolio"
       ],
@@ -3137,7 +3553,7 @@
       "isNew": false
     },
     {
-      "rank": 55,
+      "rank": 68,
       "projects": [
         "personal-portfolio"
       ],
@@ -3182,7 +3598,7 @@
       "isNew": false
     },
     {
-      "rank": 56,
+      "rank": 69,
       "projects": [
         "one-small-studio"
       ],
@@ -3216,7 +3632,7 @@
       "isNew": false
     },
     {
-      "rank": 57,
+      "rank": 70,
       "projects": [
         "one-small-studio"
       ],
@@ -3249,7 +3665,7 @@
       "isNew": false
     },
     {
-      "rank": 58,
+      "rank": 71,
       "projects": [
         "one-small-studio"
       ],
@@ -3282,7 +3698,7 @@
       "isNew": false
     },
     {
-      "rank": 59,
+      "rank": 72,
       "projects": [
         "one-small-studio"
       ],
@@ -3327,7 +3743,7 @@
       "isNew": false
     },
     {
-      "rank": 60,
+      "rank": 73,
       "projects": [
         "one-small-photography"
       ],
@@ -3361,7 +3777,7 @@
       "isNew": false
     },
     {
-      "rank": 61,
+      "rank": 74,
       "projects": [
         "one-small-photography"
       ],
@@ -3394,7 +3810,7 @@
       "isNew": false
     },
     {
-      "rank": 62,
+      "rank": 75,
       "projects": [
         "one-small-photography"
       ],
@@ -3427,7 +3843,7 @@
       "isNew": false
     },
     {
-      "rank": 63,
+      "rank": 76,
       "projects": [
         "one-small-photography"
       ],
@@ -3460,7 +3876,7 @@
       "isNew": false
     },
     {
-      "rank": 64,
+      "rank": 77,
       "projects": [
         "one-small-photography"
       ],
@@ -3505,7 +3921,7 @@
       "isNew": false
     },
     {
-      "rank": 65,
+      "rank": 78,
       "projects": [
         "taskforge"
       ],
@@ -3540,7 +3956,7 @@
       "isNew": false
     },
     {
-      "rank": 66,
+      "rank": 79,
       "projects": [
         "taskforge"
       ],
@@ -3573,7 +3989,7 @@
       "isNew": false
     },
     {
-      "rank": 67,
+      "rank": 80,
       "projects": [
         "taskforge"
       ],
@@ -3606,7 +4022,7 @@
       "isNew": false
     },
     {
-      "rank": 68,
+      "rank": 81,
       "projects": [
         "taskforge"
       ],
@@ -3640,7 +4056,7 @@
       "isNew": false
     },
     {
-      "rank": 69,
+      "rank": 82,
       "projects": [
         "taskforge"
       ],
@@ -3685,7 +4101,7 @@
       "isNew": false
     },
     {
-      "rank": 70,
+      "rank": 83,
       "projects": [
         "cortex"
       ],
@@ -3718,7 +4134,7 @@
       "isNew": false
     },
     {
-      "rank": 71,
+      "rank": 84,
       "projects": [
         "cortex"
       ],
@@ -3751,52 +4167,19 @@
       "isNew": false
     },
     {
-      "rank": 72,
+      "rank": 85,
       "projects": [
         "one-small-ai-workforce"
       ],
       "revision": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
-      "rootCause": "not run or inconclusive: deployment configuration (no checkout); health check (no productionUrl in the registry)",
-      "complexity": "small",
-      "validation": [
-        "deployment-rollback: manual review by the verifier",
-        "production-deployment: manual review by the verifier"
-      ],
-      "confidence": "medium",
-      "evidence": [
-        "ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810"
-      ],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "one-small-ai-workforce:collector:deployment-health",
-      "project": "one-small-ai-workforce",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
-      "priority": 7,
-      "severity": "low",
-      "kind": "evidence-gap",
-      "title": "deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive",
-      "impact": "blocks verification of deployment-rollback, production-deployment",
-      "proposedCorrection": "Configure or run the missing check, then re-collect.",
-      "actionClass": "independent-verification",
-      "nextAction": "Complete deployment-health for one-small-ai-workforce.",
-      "priorityText": "Missing verification or documentation",
-      "actionText": "Requires independent verification",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 73,
-      "projects": [
-        "one-small-ai-workforce"
-      ],
-      "revision": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
-      "rootCause": "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65: expired 2026-10-28; ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410: expired 2026-10-28",
+      "rootCause": "ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810: expired 2026-10-29; ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65: expired 2026-10-28; ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410: expired 2026-10-28",
       "complexity": "trivial",
       "validation": [
         "verify:freshness reports 0 for the project"
       ],
       "confidence": "high",
       "evidence": [
+        "ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810",
         "ev-one-small-ai-workforce-deployment-health-c70d8b1-3207da65",
         "ev-one-small-ai-workforce-deployment-health-c70d8b1-115e0410"
       ],
@@ -3808,7 +4191,7 @@
       "priority": 7,
       "severity": "low",
       "kind": "stale",
-      "title": "2 evidence record(s) are stale or for another commit",
+      "title": "3 evidence record(s) are stale or for another commit",
       "impact": "Stale evidence counts for nothing.",
       "proposedCorrection": "Re-collect (the next scheduled run, or a manual engineering run with execute for build and test).",
       "actionClass": "automatic",
@@ -3819,7 +4202,7 @@
       "isNew": false
     },
     {
-      "rank": 74,
+      "rank": 86,
       "projects": [
         "one-small-ui"
       ],
@@ -3855,7 +4238,7 @@
       "isNew": false
     },
     {
-      "rank": 75,
+      "rank": 87,
       "projects": [
         "personal-portfolio"
       ],
@@ -3888,7 +4271,7 @@
       "isNew": false
     },
     {
-      "rank": 76,
+      "rank": 88,
       "projects": [
         "one-small-studio"
       ],
@@ -3921,7 +4304,7 @@
       "isNew": false
     },
     {
-      "rank": 77,
+      "rank": 89,
       "projects": [
         "one-small-photography"
       ],
@@ -3954,7 +4337,7 @@
       "isNew": false
     },
     {
-      "rank": 78,
+      "rank": 90,
       "projects": [
         "cortex"
       ],

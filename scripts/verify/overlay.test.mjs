@@ -1,7 +1,9 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { verificationAssessment, applyVerifications, GATE_STATES, registryEvidenceId } from './overlay.mjs'
-import { ev, verification, fixtureRegistry, realRegistry, policy, schema, dodText, SHA, SHA2, AS_OF } from '../../fixtures/verify/helpers.mjs'
+import { liveEv as ev, liveVerification as verification, fixtureRegistry, realRegistry, policy, schema, dodText, SHA, SHA2, LIVE } from '../../fixtures/verify/helpers.mjs'
+
+const AS_OF = new Date(LIVE.asOf)
 
 const pol = policy()
 const sch = schema()
@@ -24,7 +26,7 @@ test('one valid independent verification raises readiness by exactly one gate', 
   assert.equal(after.readiness.percentage, Math.floor(1000 / 21) / 10)
   assert.equal(after.readiness.previousPercentage, 0)
   assert.equal(after.gates.find(g => g.id === 'package-metadata-exports').state, 'independently_verified')
-  assert.equal(after.lastVerification, '2026-10-27T01:30:00Z')
+  assert.equal(after.lastVerification, LIVE.verifiedAt)
 })
 
 test('false readiness increases: no invalid record moves the score', () => {

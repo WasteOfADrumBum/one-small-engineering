@@ -1,6 +1,6 @@
 # OneSmallUI 0.6.0 release notes (draft)
 
-> **Draft, not approved, not published.** Status: Not scoped (no target version or scope document). 0 of 22 applicable gates independently verified (0%); 4 open blocker(s). Generated 2026-10-28T21:06:36Z.
+> **Draft, not approved, not published.** Status: Not scoped (no target version or scope document). 0 of 22 applicable gates independently verified (0%); 4 open blocker(s). Generated 2026-10-30T12:14:00Z.
 
 ## Highlights
 
