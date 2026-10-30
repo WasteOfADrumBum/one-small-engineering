@@ -2,9 +2,9 @@
   "$comment": "Optional inputs for release preparation (scripts/release/cli.mjs). Changelog snapshots are builder-authored text copied read-only from a project repository at a pinned commit; they supply wording for drafts only and never change a gate, blocker or percentage. sha256 guards the copy against edits.",
   "changelogs": {
     "one-small-mods-pack": {
-      "path": "release/snapshots/one-small-mods-pack-80cc269-CHANGELOG.md",
-      "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/CHANGELOG.md",
-      "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "path": "release/snapshots/one-small-mods-pack-c747cbd-CHANGELOG.md",
+      "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/c747cbd6a9c3baddf2adca42798cd05f9511cef1/CHANGELOG.md",
+      "commitSha": "c747cbd6a9c3baddf2adca42798cd05f9511cef1",
       "sha256": "97634621ee314faed525f91a314e86337fad00a8b8a45ef30f3992d6f4f53b29"
     }
   }

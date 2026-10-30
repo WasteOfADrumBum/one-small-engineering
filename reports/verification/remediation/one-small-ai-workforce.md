@@ -1,6 +1,6 @@
 # One Small AI Workforce: issue reports
 
-As of 2026-10-28T21:07:08Z, commit c70d8b117c3c5a046583e7ee83016d4a3ed4b065. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
+As of 2026-10-30T12:14:00Z, commit c70d8b117c3c5a046583e7ee83016d4a3ed4b065. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
 
 ## accessibility: no checkout
 
@@ -142,42 +142,6 @@ The dependency-audit collector reports pass at the new commit, and the verifier 
 ### Verification required
 
 - security-privacy-review: manual review by the verifier
-
-
-## deployment health: 0 of 2 check(s) passed; 2 not run or inconclusive
-
-- Project: one-small-ai-workforce (https://github.com/WasteOfADrumBum/one-small-ai-workforce)
-- Commit: c70d8b117c3c5a046583e7ee83016d4a3ed4b065
-- Gate(s): deployment-rollback, production-deployment
-- Severity: low; kind: evidence-gap; release impact: blocks verification of deployment-rollback, production-deployment
-- Evidence: ev-one-small-ai-workforce-deployment-health-c70d8b1-d972a810
-
-### Reproduction
-
-```text
-node scripts/verify/cli.mjs run --project one-small-ai-workforce --collector deployment-health
-```
-
-### Root cause
-
-Not established. The collector could not decide; see the failure reason.
-
-### Failure reason
-
-not run or inconclusive: deployment configuration (no checkout); health check (no productionUrl in the registry)
-
-### Proposed fix
-
-No fix proposed by automation. A person decides the fix.
-
-### Acceptance criteria
-
-The deployment-health collector reports pass at the new commit, and the verifier records it for deployment-rollback, production-deployment.
-
-### Verification required
-
-- deployment-rollback: manual review by the verifier
-- production-deployment: manual review by the verifier
 
 
 ## documentation: no checkout

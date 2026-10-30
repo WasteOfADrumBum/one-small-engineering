@@ -21,8 +21,9 @@ const registryText = read('projects/registry.json')
 const dodText = read('standards/definition-of-done.md')
 const schema = JSON.parse(read('projects/registry.schema.json'))
 const inputsText = read('release/inputs.json')
-// Must not be earlier than the registry's lastUpdatedAt (a future registry is invalid).
-const AS_OF = '2026-10-27T03:40:00Z'
+// Must not be earlier than the registry's lastUpdatedAt (a future registry is invalid), so it
+// follows the registry: 2026-10-27T03:40Z, or the first hour after a later lastUpdatedAt.
+const AS_OF = new Date(Math.max(Date.parse('2026-10-27T03:40:00Z'), Math.ceil(Date.parse(JSON.parse(registryText).lastUpdatedAt) / 3600_000) * 3600_000)).toISOString().replace(/\.\d{3}Z$/, 'Z')
 const CLI = resolve(ROOT, 'scripts/release/cli.mjs')
 const inputs = () => loadInputs(inputsText, p => read(p))
 const gen = (over = {}) => generate({ registryText, schema, dodText, inputs: inputs(), asOf: AS_OF, ...over })
@@ -126,7 +127,9 @@ test('release preparation never claims approval, publication or verification', (
   assert.match(prep, /- \[x\] Release candidate commit recorded and unchanged/)
   const json = JSON.parse(files[`${dir}release-prep.json`])
   assert.equal(json.derived.ownerChecklist.find(c => /approves/.test(c.item)).done, false)
-  assert.equal(json.unverified.changelog.source.commitSha, '80cc269ebb7c20aca5f6ca03214954726fb494f7')
+  // The changelog snapshot is pinned to the release candidate commit.
+  const candidate = JSON.parse(registryText).projects.find(p => p.id === 'one-small-mods-pack').release.candidate.headSha
+  assert.equal(json.unverified.changelog.source.commitSha, candidate)
   assert.equal(json.unverified.changelog.stale, false)
   const notes = files[`${dir}release-notes.draft.md`]
   assert.match(notes, /\*\*Draft, not approved, not published\.\*\*/)

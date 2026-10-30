@@ -1,10 +1,10 @@
 # One Small ModsPack 2.0.0 release notes (draft)
 
-> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 21 applicable gates independently verified (0%); 10 open blocker(s). Generated 2026-10-28T21:06:36Z.
+> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 21 applicable gates independently verified (0%); 23 open blocker(s). Generated 2026-10-30T12:14:00Z.
 
 ## Highlights
 
-_From CHANGELOG.md at 80cc269; builder-authored, not independently verified._
+_From CHANGELOG.md at c747cbd; builder-authored, not independently verified._
 
 - `modspack` command line tool: inspect, init, doctor, uninstall, check, security, privacy, accessibility, release-check, agents, skills, validate, hook.
 - Six agent roles and twelve shared Agent Skills.
@@ -16,7 +16,7 @@ _From CHANGELOG.md at 80cc269; builder-authored, not independently verified._
 
 ## Fixes
 
-_From CHANGELOG.md at 80cc269; builder-authored._
+_From CHANGELOG.md at c747cbd; builder-authored._
 
 - npm artifact: `package.json` `files` listed `mods/*/hooks`, `mods/*/scripts`, `agents`, `skills`, `catalog`, `schema` and `docs` as bare directories, which npm does not expand through the `*` pattern; the tarball shipped no guard hook modules or helper scripts (55 files). They are now `/**` patterns (82 files), and the artifact test compares every file under each mod's `hooks` and `scripts` with the tarball listing.
 - Website: in Windows high contrast (forced colors) the home page button lost its only boundary; it now keeps a 2px `ButtonText` border. `scripts/site-browser-check.mjs` also checks forced colors and text spacing, and no longer crashes its own server on a missing file.

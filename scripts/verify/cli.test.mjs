@@ -5,7 +5,10 @@ import { join, dirname, resolve } from 'node:path'
 import { tmpdir } from 'node:os'
 import { fileURLToPath } from 'node:url'
 import { main, parseArgs, UsageError, checkPolicy, loadState } from './cli.mjs'
-import { ev, fixtureRegistry, realRegistry, policy, read, SHA } from '../../fixtures/verify/helpers.mjs'
+import { liveEv as ev, fixtureRegistry, realRegistry, policy, read, SHA, LIVE } from '../../fixtures/verify/helpers.mjs'
+
+const VERIFIED_AT = LIVE.verifiedAt
+const AS_OF_ISO = LIVE.asOf
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..')
 
@@ -18,7 +21,7 @@ function sandbox({ registry = realRegistry(), ledger = null } = {}) {
   return dir
 }
 const capture = () => { const out = []; const err = []; return { out, err, log: s => out.push(s), error: s => err.push(s) } }
-const NOW = () => new Date('2026-10-27T02:00:00Z')
+const NOW = () => new Date(AS_OF_ISO)
 const LOCAL = { PATH: process.env.PATH }
 
 test('usage errors exit 2', async () => {
@@ -56,7 +59,7 @@ test('record refuses a verification that would not count, and writes nothing (re
   const pack = ev('release-packaging', 'pass', { gates: ['package-metadata-exports'], commitSha: realRegistry().projects[0].release.candidate.headSha })
   const dir = sandbox({ ledger: [pack] })
   const c = capture()
-  const code = await main(['record', '--project', 'one-small-mods-pack', '--gate', 'package-metadata-exports', '--verifier', 'Claude Code', '--kind', 'ai', '--tool', 'Claude Code', '--method', 're-executed', '--result', 'pass', '--evidence', pack.id, '--attestation', 'https://github.com/x/y/pull/1', '--notes', 'I checked my own work and it is fine.', '--verified-at', '2026-10-27T01:30:00Z'], { ...c, root: dir, env: LOCAL, now: NOW })
+  const code = await main(['record', '--project', 'one-small-mods-pack', '--gate', 'package-metadata-exports', '--verifier', 'Claude Code', '--kind', 'ai', '--tool', 'Claude Code', '--method', 're-executed', '--result', 'pass', '--evidence', pack.id, '--attestation', 'https://github.com/x/y/pull/1', '--notes', 'I checked my own work and it is fine.', '--verified-at', VERIFIED_AT], { ...c, root: dir, env: LOCAL, now: NOW })
   assert.equal(code, 1)
   assert.match(c.err.join(''), /is not the verifier named in the registry \(Joshua Small\)/)
   assert.match(c.err.join(''), /not permitted/)
@@ -67,17 +70,17 @@ test('end to end (fixture): a valid verification is recorded, raises readiness b
   const pack = ev('release-packaging', 'pass', { gates: ['package-metadata-exports'] })
   const dir = sandbox({ registry: fixtureRegistry(), ledger: [pack] })
   let c = capture()
-  assert.equal(await main(['report', '--as-of', '2026-10-27T02:00:00Z'], { ...c, root: dir, env: LOCAL }), 0)
+  assert.equal(await main(['report', '--as-of', AS_OF_ISO], { ...c, root: dir, env: LOCAL }), 0)
   assert.match(c.out.join('\n'), /one-small-mods-pack: 0% \(0\/21 verified\)/)
   c = capture()
-  assert.equal(await main(['record', '--project', 'one-small-mods-pack', '--gate', 'package-metadata-exports', '--verifier', 'Joshua Small', '--kind', 'human', '--method', 're-executed', '--result', 'pass', '--evidence', pack.id, '--attestation', 'https://github.com/x/y/pull/1#pullrequestreview-1', '--notes', 'Re-ran npm pack and read package.json at the candidate commit.', '--verified-at', '2026-10-27T01:30:00Z'], { ...c, root: dir, env: LOCAL, now: NOW }), 0, c.err.join('\n'))
+  assert.equal(await main(['record', '--project', 'one-small-mods-pack', '--gate', 'package-metadata-exports', '--verifier', 'Joshua Small', '--kind', 'human', '--method', 're-executed', '--result', 'pass', '--evidence', pack.id, '--attestation', 'https://github.com/x/y/pull/1#pullrequestreview-1', '--notes', 'Re-ran npm pack and read package.json at the candidate commit.', '--verified-at', VERIFIED_AT], { ...c, root: dir, env: LOCAL, now: NOW }), 0, c.err.join('\n'))
   const file = JSON.parse(readFileSync(join(dir, 'verification/verifications/one-small-mods-pack.json'), 'utf8'))
   assert.equal(file.verifications.length, 1)
   // Recording the same thing twice is a no-op.
-  assert.equal(await main(['record', '--project', 'one-small-mods-pack', '--gate', 'package-metadata-exports', '--verifier', 'Joshua Small', '--kind', 'human', '--method', 're-executed', '--result', 'pass', '--evidence', pack.id, '--attestation', 'https://github.com/x/y/pull/1#pullrequestreview-1', '--notes', 'Re-ran npm pack and read package.json at the candidate commit.', '--verified-at', '2026-10-27T01:30:00Z'], { ...capture(), root: dir, env: LOCAL, now: NOW }), 0)
+  assert.equal(await main(['record', '--project', 'one-small-mods-pack', '--gate', 'package-metadata-exports', '--verifier', 'Joshua Small', '--kind', 'human', '--method', 're-executed', '--result', 'pass', '--evidence', pack.id, '--attestation', 'https://github.com/x/y/pull/1#pullrequestreview-1', '--notes', 'Re-ran npm pack and read package.json at the candidate commit.', '--verified-at', VERIFIED_AT], { ...capture(), root: dir, env: LOCAL, now: NOW }), 0)
   assert.equal(JSON.parse(readFileSync(join(dir, 'verification/verifications/one-small-mods-pack.json'), 'utf8')).verifications.length, 1)
   c = capture()
-  assert.equal(await main(['report', '--as-of', '2026-10-27T02:00:00Z'], { ...c, root: dir, env: LOCAL }), 0)
+  assert.equal(await main(['report', '--as-of', AS_OF_ISO], { ...c, root: dir, env: LOCAL }), 0)
   assert.match(c.out.join('\n'), /one-small-mods-pack: 4\.7% \(1\/21 verified\)/)
   assert.equal(await main(['check'], { ...capture(), root: dir, env: LOCAL }), 0)
   // A hand edit or a stray file makes check fail.
@@ -92,7 +95,7 @@ test('forged ledgers stop report generation instead of being read', async () => 
   const forged = { ...ev('release-packaging', 'fail', { gates: ['package-metadata-exports'] }), result: 'pass', failureReason: null }
   const dir = sandbox({ registry: fixtureRegistry(), ledger: [forged] })
   const c = capture()
-  assert.equal(await main(['report', '--as-of', '2026-10-27T02:00:00Z'], { ...c, root: dir, env: LOCAL }), 1)
+  assert.equal(await main(['report', '--as-of', AS_OF_ISO], { ...c, root: dir, env: LOCAL }), 1)
   assert.match(c.err.join(''), /digest does not match/)
 })
 

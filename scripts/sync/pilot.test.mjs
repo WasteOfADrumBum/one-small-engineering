@@ -18,6 +18,16 @@ const dod = parseDefinitionOfDone(readFileSync(resolve(ROOT, 'standards/definiti
 const validate = r => validateRegistry(r, schema, { dod })
 const MP_HEAD = '367cede6ffba17de9bf2d3a20968a3e1cd1b3371'
 const mpOf = r => r.projects.find(p => p.id === 'one-small-mods-pack')
+// The fake world models ModsPack as of the pilot (main at 367cede, PR #3 open as a draft), so
+// the registry snapshot is pinned to that state rather than whatever the live registry records.
+function pilotRegistry() {
+  const r = loadRegistry()
+  const mp = mpOf(r)
+  const pr = modspackState().pulls[0]
+  mp.repositorySnapshot = { ...mp.repositorySnapshot, headSha: MP_HEAD }
+  mp.openPullRequests = [{ number: pr.number, url: `${mp.repository}/pull/${pr.number}`, title: pr.title, headSha: pr.headSha, draft: pr.draft }]
+  return r
+}
 
 function mpWorld(overrides = {}, { withHub = false } = {}) {
   const gh = new FakeGitHub()
@@ -42,7 +52,7 @@ function changed(state) {
 
 test('pilot: real-shaped ModsPack state passes all seven checks and writes nothing', async () => {
   const { gh, client } = mpWorld()
-  const r = await runPilot({ registry: loadRegistry(), client, now: NOW, validate })
+  const r = await runPilot({ registry: pilotRegistry(), client, now: NOW, validate })
   assert.equal(r.passed, true, JSON.stringify(r.checks, null, 2))
   assert.equal(r.checks.length, 7)
   assert.ok(gh.calls.every(c => c.method === 'GET'), 'the pilot only reads')
@@ -57,7 +67,7 @@ test('pilot: real-shaped ModsPack state passes all seven checks and writes nothi
 test('pilot: a meaningful ModsPack change gives the correct proposal and no governance change', async () => {
   const { state, client } = mpWorld()
   const next = changed(state)
-  const r = await runPilot({ registry: loadRegistry(), client, now: NOW, validate })
+  const r = await runPilot({ registry: pilotRegistry(), client, now: NOW, validate })
   assert.equal(r.passed, true, JSON.stringify(r.checks, null, 2))
   const c = r.proposal.changes.join('\n')
   assert.match(c, new RegExp(`moved from 367cede to ${next.slice(0, 7)} \\(fast-forward\\)`))
@@ -104,7 +114,7 @@ test('pilot: governance view covers blockers, gates, ownership, approval and man
 
 test('pilot: an unchanged second run is a no-op; a moved head is not mistaken for a duplicate', async () => {
   const { client } = mpWorld()
-  const r = await runPilot({ registry: loadRegistry(), client, now: NOW, validate })
+  const r = await runPilot({ registry: pilotRegistry(), client, now: NOW, validate })
   assert.match(r.checks[6].detail, /no material change/)
   // Re-planning the second observation against the applied proposal changes nothing at all.
   assert.equal(r.observations[1].head.relation, 'unchanged')
@@ -114,7 +124,7 @@ test('pilot: a force push on ModsPack main is reported as a rewrite with a re-ch
   const { state, client } = mpWorld()
   state.headSha = fakeSha('mp-rewritten')
   state.ancestry = { [MP_HEAD]: 'diverged' }
-  const r = await runPilot({ registry: loadRegistry(), client, now: NOW, validate })
+  const r = await runPilot({ registry: pilotRegistry(), client, now: NOW, validate })
   assert.equal(r.passed, true)
   assert.ok(r.proposal.changes.some(c => /history was rewritten: 367cede is not an ancestor/.test(c)))
   assert.ok(r.proposal.suggestions.some(s => /Re-check the \d+ manual evidence record/.test(s)))

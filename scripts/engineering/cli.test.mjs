@@ -6,12 +6,12 @@ import { tmpdir } from 'node:os'
 import { fileURLToPath } from 'node:url'
 import { main, parseArgs, UsageError } from './cli.mjs'
 import { prepareOne, executeRefusals, executeProposal, proposalDigest, selectForPrepare, branchFor } from './prepare.mjs'
-import { ev, fixtureRegistry, realRegistry, policy, fakeRunner, SHA, SHA2 } from '../../fixtures/verify/helpers.mjs'
+import { liveEv as ev, fixtureRegistry, realRegistry, policy, fakeRunner, SHA, SHA2, LIVE } from '../../fixtures/verify/helpers.mjs'
 import { digestOf } from '../verify/evidence.mjs'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..')
 const R = 'https://github.com/WasteOfADrumBum/'
-const T = '2026-10-27T02:00:00Z'
+const T = LIVE.asOf
 const NOW = () => new Date(T)
 const LOCAL = { PATH: process.env.PATH }
 const capture = () => { const out = []; const err = []; return { out, err, log: s => out.push(s), error: s => err.push(s) } }

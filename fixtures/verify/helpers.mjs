@@ -18,6 +18,14 @@ export const SHA2 = 'b'.repeat(40)
 export const T0 = '2026-10-27T01:00:00Z'
 export const AS_OF = new Date('2026-10-27T02:00:00Z')
 
+// Clock for tests that run against the live registry: collection, verification and assessment
+// half an hour apart, starting at T0 or at the first hour after the registry's lastUpdatedAt,
+// whichever is later. A registry dated after "now" is invalid, so a fixed clock would break
+// every time the registry is updated.
+const iso = ms => new Date(ms).toISOString().replace(/\.\d{3}Z$/, 'Z')
+const START = Math.max(Date.parse(T0), Math.ceil(Date.parse(realRegistry().lastUpdatedAt) / 3600_000) * 3600_000)
+export const LIVE = { collectedAt: iso(START), verifiedAt: iso(START + 1800_000), asOf: iso(START + 3600_000) }
+
 // The real registry with ModsPack given a builder and an independent verifier (fixture only:
 // the real registry has neither), and the candidate moved to SHA so evidence can match it.
 export function fixtureRegistry({ builder = 'Claude Code', verifier = 'Joshua Small', candidate = SHA } = {}) {
@@ -58,6 +66,10 @@ export function verification(over = {}) {
     ...over
   }
 }
+
+// ev() and verification() on the live-registry clock.
+export const liveEv = (collector, result = 'pass', opts = {}) => ev(collector, result, { at: LIVE.collectedAt, ...opts })
+export const liveVerification = (over = {}) => verification({ verifiedAt: LIVE.verifiedAt, ...over })
 
 // A temporary directory holding `files` ({ path: content }).
 export function tempTree(files) {

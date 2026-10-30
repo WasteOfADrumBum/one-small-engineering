@@ -19,6 +19,8 @@ const SHA = 'a'.repeat(40)
 const SHA2 = 'b'.repeat(40)
 
 const load = () => JSON.parse(registryText)
+// Fixture records are dated T; the live registry may have been updated since, never earlier.
+const atLeast = (a, b) => (a > b ? a : b)
 const byId = (r, id) => r.projects.find(p => p.id === id)
 const assess = (r, opts = {}) => assessRegistry(r, { dodText, asOf: AS_OF, ...opts })
 const one = (r, id, opts) => assess(r, opts).projects.find(p => p.id === id)
@@ -54,7 +56,7 @@ function verifiedProject(r, id, { approved = true, recordedBy = 'Codex verifier'
 test('fixtures used below are valid registries (so engine results are about real inputs)', () => {
   const r = load()
   for (const id of ['one-small-studio', 'one-small-ui', 'taskforge']) verifiedProject(r, id)
-  r.lastUpdatedAt = '2026-10-26T01:59:00Z'
+  r.lastUpdatedAt = atLeast(r.lastUpdatedAt, '2026-10-26T01:59:00Z')
   assert.deepEqual(validate(r), [])
 })
 
@@ -391,7 +393,7 @@ test('dependencies: cycles are found once each; only release-required cycles fai
   studio.evidence.push({ id: 'studio-dep-ev', type: 'document', url: `${studio.repository}/blob/x`, commitSha: null, verifiedAt: T, result: 'informational', description: 'Fixture.', recordedBy: 'Claude Code' })
   ui.dependencies = [{ project: 'one-small-studio', relationship: 'integrates', requiredForRelease: false, minVersion: null, reason: 'x', evidenceRefs: ['ui-dep-ev'] }]
   studio.dependencies = [{ project: 'one-small-ui', relationship: 'uses-components', requiredForRelease: false, minVersion: null, reason: 'x', evidenceRefs: ['studio-dep-ev'] }]
-  r.lastUpdatedAt = '2026-10-26T01:59:00Z'
+  r.lastUpdatedAt = atLeast(r.lastUpdatedAt, '2026-10-26T01:59:00Z')
   assert.deepEqual(validate(r), [], 'an optional cycle is legal')
   const a = assess(r)
   assert.deepEqual(a.dependencyCycles, [['one-small-studio', 'one-small-ui', 'one-small-studio']])

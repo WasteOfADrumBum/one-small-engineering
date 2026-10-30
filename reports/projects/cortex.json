@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-10-28T21:06:36Z",
+  "asOf": "2026-10-30T12:14:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "330a267023ad4d7f6201549b7b037b17e3ca08f5e2d02d7e8d0c23c9ea26de40",
+  "registrySha256": "00f0b600811b4b55d6c463d5d4f4346bc09c085b57c8b1da83e7e3296424cdcd",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "cortex",

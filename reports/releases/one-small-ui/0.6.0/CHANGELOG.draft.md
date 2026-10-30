@@ -1,6 +1,6 @@
 # Changelog draft for OneSmallUI 0.6.0
 
-> Draft generated 2026-10-28T21:06:36Z. Review it against verified evidence before copying it into the project repository. Status: Not scoped (no target version or scope document). 0 of 22 applicable gates independently verified (0%); 4 open blocker(s).
+> Draft generated 2026-10-30T12:14:00Z. Review it against verified evidence before copying it into the project repository. Status: Not scoped (no target version or scope document). 0 of 22 applicable gates independently verified (0%); 4 open blocker(s).
 
 ## 0.6.0 (unreleased)
 

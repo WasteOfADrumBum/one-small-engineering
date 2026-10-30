@@ -1,6 +1,6 @@
 # OneSmallUI 0.6.0: completion checklist
 
-Derived as of 2026-10-28T21:06:36Z. Status: Not scoped (no target version or scope document). 0 of 22 applicable gates independently verified (0%); 4 open blocker(s).
+Derived as of 2026-10-30T12:14:00Z. Status: Not scoped (no target version or scope document). 0 of 22 applicable gates independently verified (0%); 4 open blocker(s).
 
 1. [ ] Resolve blocker scope-document-missing: No v0.6.0 / Phase 5 page-blocks scope document exists in the repository; scope cannot be frozen.
 2. [ ] Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.
