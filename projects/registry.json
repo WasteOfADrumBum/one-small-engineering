@@ -2057,9 +2057,17 @@
       "productionUrl": null,
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+        "headSha": "0d62a7142baf93dc64c2fe5c48e625d175f9b0bc",
         "archived": false,
-        "observedAt": "2026-10-22T17:20:00Z"
+        "observedAt": "2026-10-30T13:06:02Z",
+        "visibility": "private",
+        "latestTag": null,
+        "package": {
+          "status": "observed",
+          "name": "one-small-ai-workforce",
+          "version": "0.1.0",
+          "private": true
+        }
       },
       "openPullRequests": [],
       "release": {
@@ -2118,6 +2126,18 @@
           "result": "pass",
           "description": "CI job lint-test-build succeeded at c70d8b1.",
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "sync-one-small-ai-workforce-run-ci-yml-0d62a71-iphn09q-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ai-workforce/actions/runs/40723363358",
+          "commitSha": "0d62a7142baf93dc64c2fe5c48e625d175f9b0bc",
+          "verifiedAt": "2026-10-28T16:11:45Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 0d62a71 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-ai-workforce:workflow_run:ci.yml/0d62a71/iphn09q/1"
         }
       ],
       "releaseGates": [
@@ -2285,9 +2305,9 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1417207069,
-        "lastSyncedAt": null,
-        "lastSyncedHead": null,
-        "configSource": null
+        "lastSyncedAt": "2026-10-30T13:06:02Z",
+        "lastSyncedHead": "0d62a7142baf93dc64c2fe5c48e625d175f9b0bc",
+        "configSource": "defaults"
       }
     }
   ],
