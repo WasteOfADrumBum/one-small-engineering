@@ -123,13 +123,14 @@ export function ownershipState(p) {
   return { valid: true, reason: null }
 }
 
-// The class of one evidence record. Only "independent" can verify a gate.
+// The class of one evidence record. Only "independent" can verify a gate: a pass recorded by
+// the assigned verifier. A pass recorded by anyone else verifies nothing.
 export function classifyEvidence(p, e, ownership = ownershipState(p)) {
   const manual = !e.origin || e.origin === 'manual'
   if (e.result === 'fail') return 'failed'
   if (e.result === 'builder_reported') return 'builder-reported'
   if (e.result === 'pass' && manual && !NON_PROVING_TYPES.has(e.type) && norm(e.recordedBy) !== norm(SYNC_RECORDER)) {
-    return ownership.valid && !sameParty(e.recordedBy, p.ownership.builder) ? 'independent' : 'pass-without-independent-verifier'
+    return ownership.valid && sameParty(e.recordedBy, p.ownership.verifier) && !sameParty(e.recordedBy, p.ownership.builder) ? 'independent' : 'pass-without-independent-verifier'
   }
   return 'observation'
 }

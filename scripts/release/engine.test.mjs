@@ -170,6 +170,9 @@ test('provenance: each evidence class is told apart', () => {
   const e = over => ({ id: 'x', type: 'manual_test', result: 'pass', recordedBy: 'Codex verifier', verifiedAt: T, ...over })
   assert.equal(classifyEvidence(p, e({}), own), 'independent')
   assert.equal(classifyEvidence(p, e({ recordedBy: 'Claude Code' }), own), 'pass-without-independent-verifier')
+  // Neither builder nor verifier: a third party's pass is not independent verification.
+  assert.equal(classifyEvidence(p, e({ recordedBy: 'GitHub Copilot' }), own), 'pass-without-independent-verifier')
+  assert.equal(classifyEvidence(p, e({ recordedBy: 'Joshua Small' }), own), 'pass-without-independent-verifier')
   assert.equal(classifyEvidence(p, e({ result: 'builder_reported' }), own), 'builder-reported')
   assert.equal(classifyEvidence(p, e({ result: 'informational' }), own), 'observation')
   assert.equal(classifyEvidence(p, e({ type: 'repository_metadata' }), own), 'observation')

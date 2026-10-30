@@ -21,9 +21,9 @@
   },
   "gateStates": {
     "independently_verified": 0,
-    "passed_by_builder": 0,
+    "passed_by_builder": 1,
     "failed": 0,
-    "inconclusive": 9,
+    "inconclusive": 8,
     "not_tested": 11,
     "not_applicable": 0
   },
@@ -47,7 +47,7 @@
     },
     {
       "id": "automated-checks",
-      "state": "inconclusive",
+      "state": "passed_by_builder",
       "engineState": "not_started",
       "applicable": true,
       "automation": "full",
@@ -80,9 +80,10 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
         "registry notes: Default-branch CI passed at c70d8b1, but no release scope exists yet, so the gate stays not_verified"
       ],
-      "nextAction": "Produce evidence for this gate."
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
     {
       "id": "security-privacy-review",

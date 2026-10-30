@@ -28,7 +28,8 @@ export const VERDICT_TEXT = {
 // The four kinds of evidence, kept apart: what automation observed, what a builder reports,
 // what an independent verifier re-checked, and what the owner approved. A pass recorded
 // while no separate builder and verifier are assigned is counted on its own: it cannot
-// verify a gate until the release is scoped and a verifier re-checks it.
+// verify a gate until the release is scoped and a verifier re-checks it. Only a pass recorded
+// by the assigned verifier is independent; one recorded by any other party verifies nothing.
 export function provenance(p) {
   const builder = norm(p.ownership.builder)
   const verifier = norm(p.ownership.verifier)
@@ -39,7 +40,7 @@ export function provenance(p) {
     if (approval.has(e.id)) c.ownerApproval++
     const manualPass = e.result === 'pass' && !NON_PROVING_TYPES.has(e.type) && (!e.origin || e.origin === 'manual') && norm(e.recordedBy) !== norm(SYNC_RECORDER)
     if (e.result === 'builder_reported') c.builderReported++
-    else if (manualPass && independent && !sameParty(e.recordedBy, builder)) c.independentlyVerified++
+    else if (manualPass && independent && sameParty(e.recordedBy, verifier) && !sameParty(e.recordedBy, builder)) c.independentlyVerified++
     else if (manualPass) c.passWithoutVerifier++
     else if (e.result === 'fail') c.failed++
     else if (e.result === 'informational' || e.result === 'inconclusive') c.observation++
@@ -54,7 +55,7 @@ export function gateProven(p, g) {
   const verifier = norm(p.ownership.verifier)
   if (!builder || !verifier || sameParty(builder, verifier)) return false
   const byId = new Map(p.evidence.map(e => [e.id, e]))
-  return g.evidenceRefs.map(r => byId.get(r)).some(e => e && e.result === 'pass' && !NON_PROVING_TYPES.has(e.type) && (!e.origin || e.origin === 'manual') && !sameParty(e.recordedBy, builder))
+  return g.evidenceRefs.map(r => byId.get(r)).some(e => e && e.result === 'pass' && !NON_PROVING_TYPES.has(e.type) && (!e.origin || e.origin === 'manual') && sameParty(e.recordedBy, verifier) && !sameParty(e.recordedBy, builder))
 }
 
 // Latest automated CI on the recorded head: shown for context, labelled builder-reported.

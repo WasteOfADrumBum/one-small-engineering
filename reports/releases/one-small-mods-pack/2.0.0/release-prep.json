@@ -68,6 +68,7 @@
       "blockingFindings": 23,
       "registryBlockers": 8,
       "missingIndependentVerification": [
+        "automated-checks",
         "wcag-22-aa",
         "keyboard-screen-reader",
         "responsive-layouts",
@@ -76,6 +77,7 @@
         "runtime-compatibility",
         "package-archive-inspection",
         "supply-chain-review",
+        "ci-release-pipeline",
         "versioning-changelog",
         "upgrade-rollback-uninstall-docs",
         "public-docs-accurate"
@@ -145,7 +147,7 @@
         "id": "msp-ci-pr3-head",
         "type": "workflow_run",
         "result": "pass",
-        "provenance": "independent",
+        "provenance": "pass-without-independent-verifier",
         "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
         "verifiedAt": "2026-10-22T16:33:00Z",
         "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/39813140190",
@@ -342,7 +344,7 @@
           "gates": [
             "automated-checks"
           ],
-          "description": "automated-checks: current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd; registry notes: CI green on PR #3 head 80cc269. The PR is under active testing; re-check on the final head.",
+          "description": "automated-checks: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd; registry notes: CI green on PR #3 head 80cc269. The PR is under active testing; re-check on the final head.",
           "evidenceRefs": [
             "msp-ci-pr3-head"
           ],
@@ -359,7 +361,7 @@
           "gates": [
             "ci-release-pipeline"
           ],
-          "description": "ci-release-pipeline: current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd; registry notes: CI exists for checks (contents: read). There is no release or publish pipeline yet.",
+          "description": "ci-release-pipeline: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd; registry notes: CI exists for checks (contents: read). There is no release or publish pipeline yet.",
           "evidenceRefs": [
             "msp-ci-pr3-head"
           ],
@@ -931,6 +933,11 @@
   "unverified": {
     "evidence": [
       {
+        "gate": "automated-checks",
+        "evidence": "msp-ci-pr3-head",
+        "provenance": "pass-without-independent-verifier"
+      },
+      {
         "gate": "wcag-22-aa",
         "evidence": "msp-release-verification",
         "provenance": "builder-reported"
@@ -974,6 +981,11 @@
         "gate": "supply-chain-review",
         "evidence": "msp-release-verification",
         "provenance": "builder-reported"
+      },
+      {
+        "gate": "ci-release-pipeline",
+        "evidence": "msp-ci-pr3-head",
+        "provenance": "pass-without-independent-verifier"
       },
       {
         "gate": "versioning-changelog",
