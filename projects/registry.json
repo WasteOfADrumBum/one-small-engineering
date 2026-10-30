@@ -1457,9 +1457,17 @@
       "productionUrl": "https://taskforge-alpha-six.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+        "headSha": "ef37e9ef57531537a8323e027531110c0257ec09",
         "archived": false,
-        "observedAt": "2026-10-22T16:33:00Z"
+        "observedAt": "2026-10-30T13:06:02Z",
+        "visibility": "public",
+        "latestTag": null,
+        "package": {
+          "status": "observed",
+          "name": "taskforge",
+          "version": null,
+          "private": true
+        }
       },
       "openPullRequests": [],
       "release": {
@@ -1544,6 +1552,18 @@
           "result": "builder_reported",
           "description": "Project status: Phase 1 and 2 complete; bounded Phase 3 in progress; backup/restore not verified. Last updated 2026-10-09.",
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "sync-taskforge-run-ci-yml-ef37e9e-ish8ii9-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/actions/runs/40904085681",
+          "commitSha": "ef37e9ef57531537a8323e027531110c0257ec09",
+          "verifiedAt": "2026-10-29T15:46:42Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at ef37e9e (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "taskforge:workflow_run:ci.yml/ef37e9e/ish8ii9/1"
         }
       ],
       "releaseGates": [
@@ -1714,9 +1734,9 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 962181990,
-        "lastSyncedAt": null,
-        "lastSyncedHead": null,
-        "configSource": null
+        "lastSyncedAt": "2026-10-30T13:06:02Z",
+        "lastSyncedHead": "ef37e9ef57531537a8323e027531110c0257ec09",
+        "configSource": "defaults"
       }
     },
     {
