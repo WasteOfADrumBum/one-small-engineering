@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-10-30T12:03:32Z",
+  "lastUpdatedAt": "2026-10-30T13:06:02Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -76,7 +76,15 @@
         "defaultBranch": "main",
         "headSha": "c747cbd6a9c3baddf2adca42798cd05f9511cef1",
         "archived": false,
-        "observedAt": "2026-10-30T12:03:32Z"
+        "observedAt": "2026-10-30T13:06:02Z",
+        "visibility": "public",
+        "latestTag": null,
+        "package": {
+          "status": "observed",
+          "name": "one-small-modspack",
+          "version": "2.0.0",
+          "private": false
+        }
       },
       "openPullRequests": [],
       "release": {
@@ -311,6 +319,18 @@
           "result": "informational",
           "description": "Read-only clone of the release candidate: .github/workflows holds only ci.yml (checks; permissions declared). There is no release or publish workflow, so nothing can publish with npm provenance yet.",
           "recordedBy": "Claude Code (Phase 3 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "sync-one-small-mods-pack-run-ci-yml-c747cbd-isazfmo-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/40893584352",
+          "commitSha": "c747cbd6a9c3baddf2adca42798cd05f9511cef1",
+          "verifiedAt": "2026-10-29T14:40:02Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at c747cbd (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-mods-pack:workflow_run:ci.yml/c747cbd/isazfmo/1"
         }
       ],
       "releaseGates": [
@@ -520,9 +540,9 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1413933787,
-        "lastSyncedAt": null,
-        "lastSyncedHead": null,
-        "configSource": null
+        "lastSyncedAt": "2026-10-30T13:06:02Z",
+        "lastSyncedHead": "c747cbd6a9c3baddf2adca42798cd05f9511cef1",
+        "configSource": "defaults"
       }
     },
     {
