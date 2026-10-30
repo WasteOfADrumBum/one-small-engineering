@@ -1751,7 +1751,15 @@
         "defaultBranch": "main",
         "headSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
         "archived": false,
-        "observedAt": "2026-10-22T16:33:00Z"
+        "observedAt": "2026-10-30T13:06:02Z",
+        "visibility": "public",
+        "latestTag": null,
+        "package": {
+          "status": "observed",
+          "name": "cortex-brain-task",
+          "version": null,
+          "private": true
+        }
       },
       "openPullRequests": [],
       "release": {
@@ -2034,9 +2042,9 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1413298530,
-        "lastSyncedAt": null,
-        "lastSyncedHead": null,
-        "configSource": null
+        "lastSyncedAt": "2026-10-30T13:06:02Z",
+        "lastSyncedHead": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+        "configSource": "defaults"
       }
     },
     {
