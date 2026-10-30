@@ -9,7 +9,7 @@ import { guardRegistryChange, guardPaths, projectIdFromBranch } from './guard.mj
 import { plan } from './plan.mjs'
 import { collect } from './collect.mjs'
 import { ROOT, serializeRegistry } from './lib.mjs'
-import { world, loadRegistry, NOW } from '../../fixtures/sync/scenario.mjs'
+import { world, loadRegistry, registryText, NOW } from '../../fixtures/sync/scenario.mjs'
 
 const tf = r => r.projects.find(p => p.id === 'taskforge')
 
@@ -115,6 +115,8 @@ test('paths and branch names', () => {
 test('CLI guard on a real git history: passes a sync change, fails an extra file', async () => {
   const dir = mkdtempSync(join(tmpdir(), 'guard-'))
   for (const d of ['projects', 'sync', 'scripts', 'schemas', 'standards', 'verification']) cpSync(resolve(ROOT, d), join(dir, d), { recursive: true })
+  // The base is the same frozen registry the sync change below is planned from.
+  writeFileSync(join(dir, 'projects/registry.json'), registryText())
   const git = (...a) => execFileSync('git', a, { cwd: dir, encoding: 'utf8', env: { ...process.env, GIT_AUTHOR_NAME: 't', GIT_AUTHOR_EMAIL: 't@t', GIT_COMMITTER_NAME: 't', GIT_COMMITTER_EMAIL: 't@t' } })
   git('init', '-q', '-b', 'main')
   git('add', '.')

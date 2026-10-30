@@ -1,4 +1,6 @@
-// Shared test scenario: the committed registry plus a fake TaskForge repository.
+// Shared test scenario: a frozen copy of the registry plus a fake TaskForge repository.
+// The copy is the registry as it stood before the first Stage B sync PRs merged, so merging
+// real sync updates (new heads, bootstrapped snapshot fields) never breaks these fixtures.
 import { readFileSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -7,7 +9,7 @@ import { createClient } from '../../scripts/sync/github.mjs'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..')
 export const NOW = new Date('2026-10-23T06:23:00Z')
-export const registryText = () => readFileSync(resolve(ROOT, 'projects/registry.json'), 'utf8')
+export const registryText = () => readFileSync(resolve(ROOT, 'fixtures/sync/registry-baseline.json'), 'utf8')
 export const loadRegistry = () => JSON.parse(registryText())
 export const TF_HEAD = '11975d0278c7f04db5033c0461295c734e3b4134'
 export { fakeSha }

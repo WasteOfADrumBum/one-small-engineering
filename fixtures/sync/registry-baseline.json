@@ -1,0 +1,2518 @@
+{
+  "$schema": "./registry.schema.json",
+  "schemaVersion": "1.3.0",
+  "lastUpdatedAt": "2026-10-30T12:03:32Z",
+  "approvalOwner": "Joshua Small",
+  "gateCatalog": {
+    "showcase": [
+      "scope-complete",
+      "automated-checks",
+      "security-privacy-review",
+      "wcag-22-aa",
+      "keyboard-screen-reader",
+      "responsive-layouts",
+      "critical-workflows",
+      "production-deployment",
+      "documentation-accurate",
+      "no-release-blockers"
+    ],
+    "library": [
+      "scope-complete",
+      "automated-checks",
+      "security-privacy-review",
+      "wcag-22-aa",
+      "keyboard-screen-reader",
+      "responsive-layouts",
+      "critical-workflows",
+      "production-deployment",
+      "documentation-accurate",
+      "no-release-blockers",
+      "package-metadata-exports",
+      "clean-consumer-install",
+      "runtime-compatibility",
+      "package-archive-inspection",
+      "supply-chain-review",
+      "ci-release-pipeline",
+      "versioning-changelog",
+      "distribution-verified",
+      "release-provenance",
+      "upgrade-rollback-uninstall-docs",
+      "public-docs-accurate",
+      "published-artifact-matches"
+    ],
+    "application": [
+      "scope-complete",
+      "automated-checks",
+      "security-privacy-review",
+      "wcag-22-aa",
+      "keyboard-screen-reader",
+      "responsive-layouts",
+      "critical-workflows",
+      "production-deployment",
+      "documentation-accurate",
+      "no-release-blockers",
+      "authentication",
+      "authorization-boundaries",
+      "sensitive-data-handling",
+      "api-integration-security",
+      "integration-failure-handling",
+      "backup-recovery",
+      "audit-logging",
+      "deployment-rollback",
+      "e2e-critical-workflows",
+      "user-data-isolation"
+    ]
+  },
+  "projects": [
+    {
+      "id": "one-small-mods-pack",
+      "name": "One Small ModsPack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "tier": "library",
+      "visibility": "public",
+      "lifecycle": "active",
+      "productionUrl": null,
+      "repositorySnapshot": {
+        "defaultBranch": "main",
+        "headSha": "c747cbd6a9c3baddf2adca42798cd05f9511cef1",
+        "archived": false,
+        "observedAt": "2026-10-30T12:03:32Z"
+      },
+      "openPullRequests": [],
+      "release": {
+        "currentVersion": "0.1.0",
+        "currentVersionSource": "Not an npm or tagged release. main holds package.json guardrail-mods 0.1.0 (private) and four 0.1.0 Claude Code mods installable from the repository as a plugin marketplace. No git tags or GitHub releases exist.",
+        "targetVersion": "2.0.0",
+        "releaseStatus": "in_progress",
+        "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/c747cbd6a9c3baddf2adca42798cd05f9511cef1/docs/release-verification.md",
+        "candidate": {
+          "pullRequest": 3,
+          "ref": "main",
+          "headSha": "c747cbd6a9c3baddf2adca42798cd05f9511cef1",
+          "observedAt": "2026-10-30T12:03:32Z"
+        },
+        "blockers": [
+          {
+            "id": "manual-screen-reader-review",
+            "description": "Screen reader review (NVDA or similar) of the generated documentation site is NOT TESTED.",
+            "status": "open",
+            "evidenceRefs": [
+              "msp-release-verification"
+            ],
+            "category": "accessibility",
+            "blocks": "release",
+            "gates": [
+              "keyboard-screen-reader",
+              "wcag-22-aa"
+            ]
+          },
+          {
+            "id": "manual-zoom-forced-colors-review",
+            "description": "Real 200%/400% browser zoom, text spacing and Windows forced-colors review is NOT TESTED (only viewport-width and emulated checks).",
+            "status": "open",
+            "evidenceRefs": [
+              "msp-release-verification"
+            ],
+            "category": "accessibility",
+            "blocks": "release",
+            "gates": [
+              "responsive-layouts",
+              "wcag-22-aa"
+            ]
+          },
+          {
+            "id": "copilot-gemini-runtime-untested",
+            "description": "Copilot and Gemini CLI hook enforcement and custom agents are NOT TESTED; either test in authenticated runtimes or record an owner decision to ship them as experimental.",
+            "status": "open",
+            "evidenceRefs": [
+              "msp-release-verification",
+              "msp-compatibility-catalog"
+            ],
+            "category": "workflow",
+            "blocks": "release",
+            "gates": [
+              "runtime-compatibility",
+              "public-docs-accurate"
+            ]
+          },
+          {
+            "id": "codex-interactive-trust",
+            "description": "Codex hook enforcement verified only with trust bypassed; interactive /hooks trust not confirmed.",
+            "status": "open",
+            "evidenceRefs": [
+              "msp-release-verification"
+            ],
+            "category": "workflow",
+            "blocks": "release",
+            "gates": [
+              "runtime-compatibility"
+            ]
+          },
+          {
+            "id": "npm-ownership-access",
+            "description": "npm ownership of one-small-modspack and publish access not confirmed; the name is currently unpublished.",
+            "status": "open",
+            "evidenceRefs": [
+              "msp-npm-name-check"
+            ],
+            "category": "distribution",
+            "blocks": "release",
+            "gates": [
+              "distribution-verified",
+              "ci-release-pipeline"
+            ]
+          },
+          {
+            "id": "pr-description-stale",
+            "description": "PR #3 description disagrees with docs/release-verification.md at the same head (dependency audit INCONCLUSIVE vs PASS; 55 vs 82 packed files; 85 vs 89 CLI tests). Reconcile before review.",
+            "status": "open",
+            "evidenceRefs": [
+              "msp-pr-3",
+              "msp-release-verification"
+            ],
+            "category": "documentation",
+            "blocks": "merge",
+            "gates": [
+              "documentation-accurate"
+            ]
+          },
+          {
+            "id": "publish-pipeline-missing",
+            "description": "No release or publish workflow exists at the candidate commit (only ci.yml), so the package cannot be published from CI with npm provenance. Add a least-privilege publish workflow (manual trigger, npm --provenance) or record an owner decision on how 2.0.0 is published. Proposed by Claude Code in the Phase 3 PR for owner review.",
+            "status": "open",
+            "evidenceRefs": [
+              "msp-workflows-80cc269"
+            ],
+            "category": "distribution",
+            "blocks": "release",
+            "gates": [
+              "ci-release-pipeline",
+              "release-provenance"
+            ]
+          },
+          {
+            "id": "release-authorization",
+            "description": "No owner authorization yet for merge, tag, npm publish or deployment.",
+            "status": "open",
+            "evidenceRefs": [
+              "msp-pr-3"
+            ],
+            "category": "approval",
+            "blocks": "release",
+            "gates": []
+          }
+        ],
+        "nextAction": "Finish the manual accessibility checks and the Copilot/Gemini decision in the active PR #3 testing session, reconcile the PR description with release-verification.md, then request independent verification of the final head.",
+        "enhancements": [
+          "Plugin icon artwork and plugin-directory submission (not needed for npm or local use).",
+          "Add Node 20 to the CI matrix to back the engines claim.",
+          "Optional hosting of the generated documentation site."
+        ]
+      },
+      "ownership": {
+        "builder": "ChatGPT",
+        "verifier": "Joshua Small",
+        "approvalOwner": "Joshua Small"
+      },
+      "approval": {
+        "status": "pending",
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidenceRefs": []
+      },
+      "lastVerifiedAt": "2026-10-22T16:33:00Z",
+      "evidence": [
+        {
+          "id": "msp-repo-metadata",
+          "type": "repository_metadata",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+          "commitSha": "367cede6ffba17de9bf2d3a20968a3e1cd1b3371",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "informational",
+          "description": "Public, not archived, default branch main at 367cede (merge of PR #2). No tags or GitHub releases.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "msp-pr-3",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/pull/3",
+          "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "informational",
+          "description": "PR #3 open as draft, mergeable (clean), 23 commits, 111 files, +9978/-41. Description states NO-GO for release.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "msp-pr-3-merged",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/pull/3",
+          "commitSha": "c747cbd6a9c3baddf2adca42798cd05f9511cef1",
+          "verifiedAt": "2026-10-30T12:03:32Z",
+          "result": "informational",
+          "description": "PR #3 merged into main 2026-10-29T14:38:53Z as c747cbd; the modspack-2-0 branch is deleted. The merge tree is identical to the PR's final head c579f6d, whose only change from 80cc269 is docs/release-verification.md (owner scope decision of 2026-10-29 deferring the manual accessibility, Codex trust and Copilot/Gemini checks; deployment and publication stay NO-GO). package.json at c747cbd: one-small-modspack 2.0.0. The push CI run on c747cbd concluded success (registry sync stage A observation of 2026-10-30). Evidence recorded at 80cc269 does not apply to this candidate until re-collected and re-verified.",
+          "recordedBy": "Claude Code (operational acceptance 2026-10-30, read-only git and registry sync inspection)"
+        },
+        {
+          "id": "msp-ci-pr3-head",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/39813140190",
+          "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "pass",
+          "description": "CI run on PR #3 head: jobs cli, mods (Claude Code 2.1.304 harness) and windows all succeeded.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "msp-release-verification",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/docs/release-verification.md",
+          "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "builder_reported",
+          "description": "Builder pre-release verification checkpoint (third pass, 2026-10-22): NO-GO, with PASS, NOT TESTED and open go/no-go items. Not independently re-run.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "msp-compatibility-catalog",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/catalog/compatibility.json",
+          "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "builder_reported",
+          "description": "Per-platform capability matrix with verification level (static, harness, runtime) for Claude Code, Codex, Copilot and Gemini CLI.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "msp-npm-name-check",
+          "type": "package",
+          "url": "https://www.npmjs.com/package/one-small-modspack",
+          "commitSha": null,
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "informational",
+          "description": "registry.npmjs.org returned Not found for one-small-modspack: the package is unpublished. This does not prove name ownership.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "msp-pr3-candidate-2026-10-26",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/one-small-engineering/actions/runs/40253380621",
+          "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+          "verifiedAt": "2026-10-26T01:16:13Z",
+          "result": "informational",
+          "description": "Phase 3 read-only probe of the ModsPack release candidate: PR #3 still open as draft and mergeable (clean), head 80cc269 unchanged since 2026-10-22; the only workflow run on that head is the CI run already recorded as msp-ci-pr3-head (attempt 1, success: cli, mods, windows); no reviews or comments on PR #3; no tags and no GitHub releases; registry.npmjs.org returns 404 for one-small-modspack. The package.json at the head names one-small-modspack 2.0.0 (public).",
+          "recordedBy": "Claude Code (Phase 3 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "msp-workflows-80cc269",
+          "type": "commit",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/tree/80cc269ebb7c20aca5f6ca03214954726fb494f7/.github/workflows",
+          "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+          "verifiedAt": "2026-10-26T01:31:00Z",
+          "result": "informational",
+          "description": "Read-only clone of the release candidate: .github/workflows holds only ci.yml (checks; permissions declared). There is no release or publish workflow, so nothing can publish with npm provenance yet.",
+          "recordedBy": "Claude Code (Phase 3 baseline, read-only GitHub inspection)"
+        }
+      ],
+      "releaseGates": [
+        {
+          "id": "scope-complete",
+          "status": "in_progress",
+          "evidenceRefs": [
+            "msp-pr-3"
+          ],
+          "verifiedAt": null,
+          "notes": "Scope is PR #3 plus the go/no-go checklist in release-verification.md; open checklist items remain."
+        },
+        {
+          "id": "automated-checks",
+          "status": "in_progress",
+          "evidenceRefs": [
+            "msp-ci-pr3-head"
+          ],
+          "verifiedAt": null,
+          "notes": "CI green on PR #3 head 80cc269. The PR is under active testing; re-check on the final head."
+        },
+        {
+          "id": "security-privacy-review",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": "Security test suite and dependency audit are builder-reported; no independent security review recorded yet."
+        },
+        {
+          "id": "wcag-22-aa",
+          "status": "in_progress",
+          "evidenceRefs": [
+            "msp-release-verification"
+          ],
+          "verifiedAt": null,
+          "notes": "Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding."
+        },
+        {
+          "id": "keyboard-screen-reader",
+          "status": "in_progress",
+          "evidenceRefs": [
+            "msp-release-verification"
+          ],
+          "verifiedAt": null,
+          "notes": "Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED."
+        },
+        {
+          "id": "responsive-layouts",
+          "status": "in_progress",
+          "evidenceRefs": [
+            "msp-release-verification"
+          ],
+          "verifiedAt": null,
+          "notes": "Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED."
+        },
+        {
+          "id": "critical-workflows",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "production-deployment",
+          "status": "not_applicable",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": "Owner decision 2026-10-22: ModsPack 2.0.0 ships as an npm library and a GitHub-hosted Claude Code plugin marketplace; there is no hosted service or website to deploy. Delivery is verified instead by the separate gates distribution-verified, release-provenance, clean-consumer-install, published-artifact-matches and public-docs-accurate, which stay required. Revisit if the generated documentation site is hosted as part of a release."
+        },
+        {
+          "id": "documentation-accurate",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "no-release-blockers",
+          "status": "blocked",
+          "evidenceRefs": [
+            "msp-release-verification"
+          ],
+          "verifiedAt": null,
+          "notes": "Open blockers are listed under release.blockers."
+        },
+        {
+          "id": "package-metadata-exports",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "clean-consumer-install",
+          "status": "in_progress",
+          "evidenceRefs": [
+            "msp-release-verification"
+          ],
+          "verifiedAt": null,
+          "notes": "Builder reports an artifact test that packs, installs, validates and initializes every platform."
+        },
+        {
+          "id": "runtime-compatibility",
+          "status": "in_progress",
+          "evidenceRefs": [
+            "msp-release-verification",
+            "msp-compatibility-catalog"
+          ],
+          "verifiedAt": null,
+          "notes": "Claude Code harness PASS; Codex discovery and trust-bypassed hook enforcement live; Copilot/Gemini runtime NOT TESTED; Node 20 partial, CI runs Node 22 only."
+        },
+        {
+          "id": "package-archive-inspection",
+          "status": "in_progress",
+          "evidenceRefs": [
+            "msp-release-verification"
+          ],
+          "verifiedAt": null,
+          "notes": "Builder reports an 82-file tarball reviewed with an artifact regression test; not independently re-inspected."
+        },
+        {
+          "id": "supply-chain-review",
+          "status": "in_progress",
+          "evidenceRefs": [
+            "msp-release-verification"
+          ],
+          "verifiedAt": null,
+          "notes": "Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE."
+        },
+        {
+          "id": "ci-release-pipeline",
+          "status": "in_progress",
+          "evidenceRefs": [
+            "msp-ci-pr3-head"
+          ],
+          "verifiedAt": null,
+          "notes": "CI exists for checks (contents: read). There is no release or publish pipeline yet."
+        },
+        {
+          "id": "versioning-changelog",
+          "status": "in_progress",
+          "evidenceRefs": [
+            "msp-release-verification"
+          ],
+          "verifiedAt": null,
+          "notes": "CHANGELOG 2.0.0 (unreleased) with mod version list and a consistency test (builder-reported)."
+        },
+        {
+          "id": "distribution-verified",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": "Not published. npm ownership and access unconfirmed."
+        },
+        {
+          "id": "release-provenance",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": "No publish workflow, so no npm provenance yet."
+        },
+        {
+          "id": "upgrade-rollback-uninstall-docs",
+          "status": "in_progress",
+          "evidenceRefs": [
+            "msp-release-verification"
+          ],
+          "verifiedAt": null,
+          "notes": "Install, update and modspack uninstall --yes documented in docs/getting-started.md (builder-reported)."
+        },
+        {
+          "id": "public-docs-accurate",
+          "status": "in_progress",
+          "evidenceRefs": [
+            "msp-release-verification",
+            "msp-compatibility-catalog"
+          ],
+          "verifiedAt": null,
+          "notes": "README, CHANGELOG and limitations reviewed by the builder; compatibility claims come from the catalog."
+        },
+        {
+          "id": "published-artifact-matches",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": "Nothing published yet."
+        }
+      ],
+      "modsPack": {
+        "installedVersion": null,
+        "integrationStatus": "not_applicable",
+        "adapters": [],
+        "capabilities": [],
+        "evidenceRefs": [],
+        "limitations": [
+          "This is the ModsPack repository itself; installation tracking applies to consuming projects."
+        ]
+      },
+      "missingEvidence": [
+        "Independent (non-builder) verification of any PR #3 test result.",
+        "Manual screen reader, browser zoom and forced-colors results.",
+        "Copilot and Gemini CLI runtime evidence or a recorded owner decision to ship them as experimental.",
+        "npm ownership/access confirmation.",
+        "Builder and independent verifier not assigned in the registry."
+      ],
+      "sync": {
+        "enabled": true,
+        "mode": "observe",
+        "repositoryId": 1413933787,
+        "lastSyncedAt": null,
+        "lastSyncedHead": null,
+        "configSource": null
+      }
+    },
+    {
+      "id": "one-small-ui",
+      "name": "OneSmallUI",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "tier": "library",
+      "visibility": "public",
+      "lifecycle": "active",
+      "productionUrl": "https://one-small-ui.vercel.app",
+      "repositorySnapshot": {
+        "defaultBranch": "main",
+        "headSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+        "archived": false,
+        "observedAt": "2026-10-22T16:33:00Z"
+      },
+      "openPullRequests": [],
+      "release": {
+        "currentVersion": "0.5.0",
+        "currentVersionSource": "npm @onesmall/ui latest 0.5.0 (published 2026-10-16T13:15:00Z); git tag v0.5.0 at 94438ee; CHANGELOG [0.5.0] - 2026-10-16. No GitHub release object.",
+        "targetVersion": "0.6.0",
+        "releaseStatus": "not_started",
+        "scopeDocument": null,
+        "blockers": [
+          {
+            "id": "scope-document-missing",
+            "description": "No v0.6.0 / Phase 5 page-blocks scope document exists in the repository; scope cannot be frozen.",
+            "status": "open",
+            "evidenceRefs": [
+              "ui-repo-metadata"
+            ],
+            "category": "scope",
+            "blocks": "release",
+            "gates": [
+              "scope-complete"
+            ]
+          }
+        ],
+        "nextAction": "Commit a v0.6.0 scope document (Phase 5 page blocks) to the repository and freeze scope before implementation.",
+        "enhancements": []
+      },
+      "ownership": {
+        "builder": "Claude Code",
+        "verifier": "Joshua Small",
+        "approvalOwner": "Joshua Small"
+      },
+      "approval": {
+        "status": "pending",
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidenceRefs": []
+      },
+      "lastVerifiedAt": "2026-10-22T16:33:00Z",
+      "evidence": [
+        {
+          "id": "ui-repo-metadata",
+          "type": "repository_metadata",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui",
+          "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "informational",
+          "description": "Public, not archived, default branch main at 94438ee; no open PRs. Monorepo with packages/onesmallui and apps/docs. Target 0.6.0 comes from the owner brief; no in-repo scope found.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "ui-tag-v0-5-0",
+          "type": "release",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/tree/v0.5.0",
+          "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "informational",
+          "description": "Git tag v0.5.0 points at 94438ee (current main head).",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "ui-npm-0-5-0",
+          "type": "package",
+          "url": "https://www.npmjs.com/package/@onesmall/ui/v/0.5.0",
+          "commitSha": null,
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "informational",
+          "description": "npm registry lists @onesmall/ui versions 0.0.0-stage, 0.1.0 and 0.5.0; dist-tag latest is 0.5.0.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "ui-ci-main",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/38903087292",
+          "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "pass",
+          "description": "CI on main at 94438ee succeeded (check, build, Playwright layout and a11y on ubuntu and windows matrix).",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        }
+      ],
+      "releaseGates": [
+        {
+          "id": "scope-complete",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "automated-checks",
+          "status": "in_progress",
+          "evidenceRefs": [
+            "ui-ci-main"
+          ],
+          "verifiedAt": null,
+          "notes": "Latest default-branch CI passed at 94438ee. The target release scope is not frozen, so this does not verify the release; re-run on the release candidate."
+        },
+        {
+          "id": "security-privacy-review",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "wcag-22-aa",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "keyboard-screen-reader",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "responsive-layouts",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "critical-workflows",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "production-deployment",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "documentation-accurate",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "no-release-blockers",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "package-metadata-exports",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "clean-consumer-install",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "runtime-compatibility",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "package-archive-inspection",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "supply-chain-review",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "ci-release-pipeline",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "versioning-changelog",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "distribution-verified",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "release-provenance",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "upgrade-rollback-uninstall-docs",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "public-docs-accurate",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "published-artifact-matches",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        }
+      ],
+      "modsPack": {
+        "installedVersion": null,
+        "integrationStatus": "not_installed",
+        "adapters": [],
+        "capabilities": [],
+        "evidenceRefs": [
+          "ui-repo-metadata"
+        ],
+        "limitations": [
+          "No modspack.config.json, .claude/guardrail-mods/ config or ModsPack instruction block found on the default branch at 94438ee. ModsPack 2.0 is unreleased (PR #3 draft)."
+        ]
+      },
+      "missingEvidence": [
+        "v0.6.0 scope document.",
+        "Whether 0.5.0 was published with npm provenance (not checked).",
+        "GitHub release object for v0.5.0 (only a tag exists).",
+        "Builder and independent verifier not assigned."
+      ],
+      "sync": {
+        "enabled": true,
+        "mode": "observe",
+        "repositoryId": 1411378047,
+        "lastSyncedAt": null,
+        "lastSyncedHead": null,
+        "configSource": null
+      }
+    },
+    {
+      "id": "personal-portfolio",
+      "name": "Personal Portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "tier": "showcase",
+      "visibility": "public",
+      "lifecycle": "active",
+      "productionUrl": "https://joshsmall-portfolio.vercel.app",
+      "repositorySnapshot": {
+        "defaultBranch": "main",
+        "headSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+        "archived": false,
+        "observedAt": "2026-10-22T16:33:00Z"
+      },
+      "openPullRequests": [],
+      "release": {
+        "currentVersion": null,
+        "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder, not a release.",
+        "targetVersion": null,
+        "releaseStatus": "in_progress",
+        "scopeDocument": null,
+        "blockers": [
+          {
+            "id": "scope-document-missing",
+            "description": "No release scope document in the repository (final audit and project showcase updates are owner-reported leads).",
+            "status": "open",
+            "evidenceRefs": [
+              "pf-repo-metadata"
+            ],
+            "category": "scope",
+            "blocks": "release",
+            "gates": [
+              "scope-complete"
+            ]
+          },
+          {
+            "id": "readme-boilerplate",
+            "description": "README.md is the unmodified create-next-app template and does not describe the site.",
+            "status": "open",
+            "evidenceRefs": [
+              "pf-repo-metadata"
+            ],
+            "category": "documentation",
+            "blocks": "release",
+            "gates": [
+              "documentation-accurate"
+            ]
+          },
+          {
+            "id": "no-ci-workflow",
+            "description": "No GitHub Actions workflow; the only commit check is the Vercel deployment status, so lint, type check and tests are not enforced on PRs.",
+            "status": "open",
+            "evidenceRefs": [
+              "pf-vercel-head"
+            ],
+            "category": "ci",
+            "blocks": "release",
+            "gates": [
+              "automated-checks"
+            ]
+          }
+        ],
+        "nextAction": "Write and commit the release scope (final audit, project showcase updates), replace the boilerplate README, and add a CI workflow running lint, build and test.",
+        "enhancements": []
+      },
+      "ownership": {
+        "builder": "Claude Code",
+        "verifier": "Joshua Small",
+        "approvalOwner": "Joshua Small"
+      },
+      "approval": {
+        "status": "pending",
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidenceRefs": []
+      },
+      "lastVerifiedAt": "2026-10-22T16:33:00Z",
+      "evidence": [
+        {
+          "id": "pf-repo-metadata",
+          "type": "repository_metadata",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site",
+          "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "informational",
+          "description": "Public, not archived, default branch main at 684ef3c (PR #16); Next.js + TypeScript; no open PRs, no .github/workflows, README is create-next-app boilerplate.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "pf-vercel-head",
+          "type": "deployment",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/deployments",
+          "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "pass",
+          "description": "Vercel commit status success and a Production deployment recorded for 684ef3c on 2026-10-21. Live behaviour not inspected.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        }
+      ],
+      "releaseGates": [
+        {
+          "id": "scope-complete",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "automated-checks",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "security-privacy-review",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "wcag-22-aa",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "keyboard-screen-reader",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "responsive-layouts",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "critical-workflows",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "production-deployment",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "documentation-accurate",
+          "status": "blocked",
+          "evidenceRefs": [
+            "pf-repo-metadata"
+          ],
+          "verifiedAt": null,
+          "notes": "README is create-next-app boilerplate."
+        },
+        {
+          "id": "no-release-blockers",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        }
+      ],
+      "modsPack": {
+        "installedVersion": null,
+        "integrationStatus": "not_installed",
+        "adapters": [],
+        "capabilities": [],
+        "evidenceRefs": [
+          "pf-repo-metadata"
+        ],
+        "limitations": [
+          "No modspack.config.json, .claude/guardrail-mods/ config or ModsPack instruction block found on the default branch at 684ef3c. ModsPack 2.0 is unreleased (PR #3 draft)."
+        ]
+      },
+      "missingEvidence": [
+        "Release scope and target version.",
+        "Any automated test or lint CI evidence.",
+        "Accessibility, security and production verification records.",
+        "Builder and independent verifier not assigned."
+      ],
+      "sync": {
+        "enabled": true,
+        "mode": "observe",
+        "repositoryId": 1406067959,
+        "lastSyncedAt": null,
+        "lastSyncedHead": null,
+        "configSource": null
+      }
+    },
+    {
+      "id": "one-small-studio",
+      "name": "One Small Studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "tier": "showcase",
+      "visibility": "public",
+      "lifecycle": "active",
+      "productionUrl": "https://one-small-studio.vercel.app",
+      "repositorySnapshot": {
+        "defaultBranch": "main",
+        "headSha": "923fb113dce0cd10b1bb12a7f53f64b774756869",
+        "archived": false,
+        "observedAt": "2026-10-22T16:33:00Z"
+      },
+      "openPullRequests": [],
+      "release": {
+        "currentVersion": null,
+        "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder.",
+        "targetVersion": null,
+        "releaseStatus": "in_progress",
+        "scopeDocument": null,
+        "blockers": [
+          {
+            "id": "scope-document-missing",
+            "description": "No release scope document in the repository (equipment showcase and final QA are owner-reported leads).",
+            "status": "open",
+            "evidenceRefs": [
+              "studio-repo-metadata"
+            ],
+            "category": "scope",
+            "blocks": "release",
+            "gates": [
+              "scope-complete"
+            ]
+          }
+        ],
+        "nextAction": "Commit a release scope (equipment showcase, final QA), then run the Showcase gates. Review the contact form API (MongoDB inbox) under the security standard.",
+        "enhancements": [
+          "Additional music and catalog content (not a code-release blocker)."
+        ]
+      },
+      "ownership": {
+        "builder": "Claude Code",
+        "verifier": "Joshua Small",
+        "approvalOwner": "Joshua Small"
+      },
+      "approval": {
+        "status": "pending",
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidenceRefs": []
+      },
+      "lastVerifiedAt": "2026-10-22T16:33:00Z",
+      "evidence": [
+        {
+          "id": "studio-repo-metadata",
+          "type": "repository_metadata",
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio",
+          "commitSha": "923fb113dce0cd10b1bb12a7f53f64b774756869",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "informational",
+          "description": "Public, not archived, default branch main at 923fb11 (PR #4). React 19 + Vite, Express API on Vercel, MongoDB contact inbox. README describes a non-commercial showcase.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "studio-ci-main",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/38742684085",
+          "commitSha": "923fb113dce0cd10b1bb12a7f53f64b774756869",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "pass",
+          "description": "CI job verify succeeded at 923fb11; Vercel status success.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        }
+      ],
+      "releaseGates": [
+        {
+          "id": "scope-complete",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "automated-checks",
+          "status": "in_progress",
+          "evidenceRefs": [
+            "studio-ci-main"
+          ],
+          "verifiedAt": null,
+          "notes": "Latest default-branch CI passed at 923fb11. The target release scope is not frozen, so this does not verify the release; re-run on the release candidate."
+        },
+        {
+          "id": "security-privacy-review",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "wcag-22-aa",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "keyboard-screen-reader",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "responsive-layouts",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "critical-workflows",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "production-deployment",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "documentation-accurate",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "no-release-blockers",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        }
+      ],
+      "modsPack": {
+        "installedVersion": null,
+        "integrationStatus": "not_installed",
+        "adapters": [],
+        "capabilities": [],
+        "evidenceRefs": [
+          "studio-repo-metadata"
+        ],
+        "limitations": [
+          "No modspack.config.json, .claude/guardrail-mods/ config or ModsPack instruction block found on the default branch at 923fb11. ModsPack 2.0 is unreleased (PR #3 draft)."
+        ]
+      },
+      "missingEvidence": [
+        "Release scope and target version.",
+        "Security review of the contact form endpoint (abuse/rate limiting, personal data retention).",
+        "Accessibility and production verification records.",
+        "Builder and independent verifier not assigned."
+      ],
+      "sync": {
+        "enabled": true,
+        "mode": "observe",
+        "repositoryId": 1410748339,
+        "lastSyncedAt": null,
+        "lastSyncedHead": null,
+        "configSource": null
+      }
+    },
+    {
+      "id": "one-small-photography",
+      "name": "One Small Photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "tier": "showcase",
+      "visibility": "public",
+      "lifecycle": "active",
+      "productionUrl": "https://one-small-photography.vercel.app",
+      "repositorySnapshot": {
+        "defaultBranch": "main",
+        "headSha": "2471b183c9886f3a1a6d148588e99fba21ceabb1",
+        "archived": false,
+        "observedAt": "2026-10-22T16:33:00Z"
+      },
+      "openPullRequests": [],
+      "release": {
+        "currentVersion": null,
+        "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder.",
+        "targetVersion": null,
+        "releaseStatus": "in_progress",
+        "scopeDocument": null,
+        "blockers": [
+          {
+            "id": "scope-document-missing",
+            "description": "No release scope document. README lists Neon Postgres and Backblaze B2 photo storage as \"next phase\"; the owner must decide whether they are in the first release scope.",
+            "status": "open",
+            "evidenceRefs": [
+              "photo-repo-metadata"
+            ],
+            "category": "scope",
+            "blocks": "release",
+            "gates": [
+              "scope-complete"
+            ]
+          }
+        ],
+        "nextAction": "Decide and commit the release scope (visual polish, whether DB/B2 infrastructure is in scope), then verify infrastructure and run the Showcase gates.",
+        "enhancements": [
+          "Additional photos and albums (not a code-release blocker)."
+        ]
+      },
+      "ownership": {
+        "builder": "Claude Code",
+        "verifier": "Joshua Small",
+        "approvalOwner": "Joshua Small"
+      },
+      "approval": {
+        "status": "pending",
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidenceRefs": []
+      },
+      "lastVerifiedAt": "2026-10-22T16:33:00Z",
+      "evidence": [
+        {
+          "id": "photo-repo-metadata",
+          "type": "repository_metadata",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography",
+          "commitSha": "2471b183c9886f3a1a6d148588e99fba21ceabb1",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "informational",
+          "description": "Public, not archived, default branch main at 2471b18 (PR #15). Astro + React islands; README marks database and photo storage as next phase. Supersedes legacy one-small-photo.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "photo-ci-main",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/39043021690",
+          "commitSha": "2471b183c9886f3a1a6d148588e99fba21ceabb1",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "pass",
+          "description": "CI job verify succeeded at 2471b18; Vercel status success.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        }
+      ],
+      "releaseGates": [
+        {
+          "id": "scope-complete",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "automated-checks",
+          "status": "in_progress",
+          "evidenceRefs": [
+            "photo-ci-main"
+          ],
+          "verifiedAt": null,
+          "notes": "Latest default-branch CI passed at 2471b18. The target release scope is not frozen, so this does not verify the release; re-run on the release candidate."
+        },
+        {
+          "id": "security-privacy-review",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "wcag-22-aa",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "keyboard-screen-reader",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "responsive-layouts",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "critical-workflows",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "production-deployment",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "documentation-accurate",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "no-release-blockers",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        }
+      ],
+      "modsPack": {
+        "installedVersion": null,
+        "integrationStatus": "not_installed",
+        "adapters": [],
+        "capabilities": [],
+        "evidenceRefs": [
+          "photo-repo-metadata"
+        ],
+        "limitations": [
+          "No modspack.config.json, .claude/guardrail-mods/ config or ModsPack instruction block found on the default branch at 2471b18. ModsPack 2.0 is unreleased (PR #3 draft)."
+        ]
+      },
+      "missingEvidence": [
+        "Release scope and target version.",
+        "Infrastructure verification (database, photo storage) if in scope.",
+        "Accessibility and production verification records.",
+        "Builder and independent verifier not assigned."
+      ],
+      "sync": {
+        "enabled": true,
+        "mode": "observe",
+        "repositoryId": 1406355122,
+        "lastSyncedAt": null,
+        "lastSyncedHead": null,
+        "configSource": null
+      }
+    },
+    {
+      "id": "taskforge",
+      "name": "TaskForge",
+      "repository": "https://github.com/WasteOfADrumBum/TaskForge",
+      "tier": "application",
+      "visibility": "public",
+      "lifecycle": "active",
+      "productionUrl": "https://taskforge-alpha-six.vercel.app",
+      "repositorySnapshot": {
+        "defaultBranch": "main",
+        "headSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+        "archived": false,
+        "observedAt": "2026-10-22T16:33:00Z"
+      },
+      "openPullRequests": [],
+      "release": {
+        "currentVersion": null,
+        "currentVersionSource": "No tags, releases or package version. Delivery is tracked by phase and KAN ticket in docs/roadmap.md and CHANGELOG.md (Unreleased).",
+        "targetVersion": null,
+        "releaseStatus": "in_progress",
+        "scopeDocument": "https://github.com/WasteOfADrumBum/TaskForge/blob/11975d0278c7f04db5033c0461295c734e3b4134/docs/phases/phase-3-knowledge.md",
+        "blockers": [
+          {
+            "id": "backup-restore-unverified",
+            "description": "docs/project-status.md records that an actual private backup and isolated MongoDB restore is not yet verified.",
+            "status": "open",
+            "evidenceRefs": [
+              "tf-project-status"
+            ],
+            "category": "workflow",
+            "blocks": "release",
+            "gates": [
+              "backup-recovery"
+            ]
+          },
+          {
+            "id": "project-status-stale",
+            "description": "docs/project-status.md (last updated 2026-10-09) lists KAN-48 as the current branch and next step, but KAN-48 is already merged on main as PR #42.",
+            "status": "open",
+            "evidenceRefs": [
+              "tf-project-status",
+              "tf-repo-metadata"
+            ],
+            "category": "stale-evidence",
+            "blocks": "release",
+            "gates": [
+              "documentation-accurate"
+            ]
+          }
+        ],
+        "nextAction": "Update docs/project-status.md after KAN-48, define the bounded Phase 3 exit criteria as the release scope, and plan backup/restore verification.",
+        "enhancements": [
+          "Phases 4-8 in docs/roadmap.md (not approved; not blockers for the Phase 3 milestone)."
+        ]
+      },
+      "ownership": {
+        "builder": "Claude Code",
+        "verifier": "Joshua Small",
+        "approvalOwner": "Joshua Small"
+      },
+      "approval": {
+        "status": "pending",
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidenceRefs": []
+      },
+      "lastVerifiedAt": "2026-10-22T16:33:00Z",
+      "evidence": [
+        {
+          "id": "tf-repo-metadata",
+          "type": "repository_metadata",
+          "url": "https://github.com/WasteOfADrumBum/TaskForge",
+          "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "informational",
+          "description": "Public, not archived, default branch main at 11975d0 (KAN-48, PR #42); no open PRs. Client on Vercel, API on Render.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "tf-ci-main",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/actions/runs/37977747687",
+          "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "pass",
+          "description": "CI job quality succeeded at 11975d0; Vercel status success.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "tf-project-status",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/blob/11975d0278c7f04db5033c0461295c734e3b4134/docs/project-status.md",
+          "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "builder_reported",
+          "description": "Project status: Phase 1 and 2 complete; bounded Phase 3 in progress; backup/restore not verified. Last updated 2026-10-09.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        }
+      ],
+      "releaseGates": [
+        {
+          "id": "scope-complete",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "automated-checks",
+          "status": "in_progress",
+          "evidenceRefs": [
+            "tf-ci-main"
+          ],
+          "verifiedAt": null,
+          "notes": "Latest default-branch CI passed at 11975d0. The target release scope is not frozen, so this does not verify the release; re-run on the release candidate."
+        },
+        {
+          "id": "security-privacy-review",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "wcag-22-aa",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "keyboard-screen-reader",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "responsive-layouts",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "critical-workflows",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "production-deployment",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "documentation-accurate",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "no-release-blockers",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "authentication",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "authorization-boundaries",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "sensitive-data-handling",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "api-integration-security",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "integration-failure-handling",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "backup-recovery",
+          "status": "not_verified",
+          "evidenceRefs": [
+            "tf-project-status"
+          ],
+          "verifiedAt": null,
+          "notes": "Recovery is documented; an actual backup and isolated restore has not been verified."
+        },
+        {
+          "id": "audit-logging",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "deployment-rollback",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "e2e-critical-workflows",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "user-data-isolation",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        }
+      ],
+      "modsPack": {
+        "installedVersion": null,
+        "integrationStatus": "not_installed",
+        "adapters": [],
+        "capabilities": [],
+        "evidenceRefs": [
+          "tf-repo-metadata"
+        ],
+        "limitations": [
+          "No modspack.config.json, .claude/guardrail-mods/ config or ModsPack instruction block found on the default branch at 11975d0. ModsPack 2.0 is unreleased (PR #3 draft)."
+        ]
+      },
+      "missingEvidence": [
+        "Phase 3 exit criteria as a frozen release scope.",
+        "Independent verification of the builder-reported Phase 1/2 evidence.",
+        "Backup/restore verification.",
+        "Builder and independent verifier not assigned."
+      ],
+      "sync": {
+        "enabled": true,
+        "mode": "observe",
+        "repositoryId": 962181990,
+        "lastSyncedAt": null,
+        "lastSyncedHead": null,
+        "configSource": null
+      }
+    },
+    {
+      "id": "cortex",
+      "name": "Cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "tier": "application",
+      "visibility": "public",
+      "lifecycle": "active",
+      "productionUrl": "https://cortex-brain-nu.vercel.app",
+      "repositorySnapshot": {
+        "defaultBranch": "main",
+        "headSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+        "archived": false,
+        "observedAt": "2026-10-22T16:33:00Z"
+      },
+      "openPullRequests": [],
+      "release": {
+        "currentVersion": null,
+        "currentVersionSource": "No tags, releases or package version.",
+        "targetVersion": null,
+        "releaseStatus": "in_progress",
+        "scopeDocument": "https://github.com/WasteOfADrumBum/cortex-brain-task/blob/ec49fd7907e9c901e6e4871732c7fe51881e5d3d/docs/cortex-v2-spec.md",
+        "blockers": [
+          {
+            "id": "no-ci-workflow",
+            "description": "No GitHub Actions workflow; npm test exists but is not enforced on PRs (only the Vercel status runs).",
+            "status": "open",
+            "evidenceRefs": [
+              "cortex-repo-metadata"
+            ],
+            "category": "ci",
+            "blocks": "release",
+            "gates": [
+              "automated-checks"
+            ]
+          },
+          {
+            "id": "v2-phases-incomplete",
+            "description": "README states Finances is a placeholder until phase 4 and News until phase 5, and Ops project cards arrive in phase 3; the v2 spec defines six phases.",
+            "status": "open",
+            "evidenceRefs": [
+              "cortex-repo-metadata"
+            ],
+            "category": "scope",
+            "blocks": "release",
+            "gates": [
+              "scope-complete"
+            ]
+          },
+          {
+            "id": "spec-open-questions",
+            "description": "The v2 spec lists five open questions for the owner (finance email hand-off, Muse check, Vault legend, news sources, briefing schedule).",
+            "status": "open",
+            "evidenceRefs": [
+              "cortex-v2-spec"
+            ],
+            "category": "scope",
+            "blocks": "release",
+            "gates": [
+              "scope-complete"
+            ]
+          }
+        ],
+        "nextAction": "Add a CI workflow running npm test, answer the v2 spec open questions, and record which of the six phases are done with evidence before starting phase 3.",
+        "enhancements": []
+      },
+      "ownership": {
+        "builder": "Claude Code",
+        "verifier": "Joshua Small",
+        "approvalOwner": "Joshua Small"
+      },
+      "approval": {
+        "status": "pending",
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidenceRefs": []
+      },
+      "lastVerifiedAt": "2026-10-22T16:33:00Z",
+      "evidence": [
+        {
+          "id": "cortex-repo-metadata",
+          "type": "repository_metadata",
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+          "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "informational",
+          "description": "Public, not archived, default branch main at ec49fd7 (PR #34); no open PRs, no .github/workflows. Plain HTML/JS with Vercel functions; read-only Drive scope per README.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "cortex-v2-spec",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/blob/ec49fd7907e9c901e6e4871732c7fe51881e5d3d/docs/cortex-v2-spec.md",
+          "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "informational",
+          "description": "Cortex v2 build spec: six phases with acceptance criteria, security/accessibility rules, open questions.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "cortex-vercel-head",
+          "type": "deployment",
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/deployments",
+          "commitSha": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+          "verifiedAt": "2026-10-22T16:33:00Z",
+          "result": "pass",
+          "description": "Vercel commit status success and a Production deployment recorded for ec49fd7 on 2026-10-14. Live behaviour not inspected.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        }
+      ],
+      "releaseGates": [
+        {
+          "id": "scope-complete",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "automated-checks",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "security-privacy-review",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "wcag-22-aa",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "keyboard-screen-reader",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "responsive-layouts",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "critical-workflows",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "production-deployment",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "documentation-accurate",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "no-release-blockers",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "authentication",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "authorization-boundaries",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "sensitive-data-handling",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": "High priority: the planned Finances ingest handles personal financial summaries; the spec requires auth, an 8-digit account-number rule and rate limiting."
+        },
+        {
+          "id": "api-integration-security",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "integration-failure-handling",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "backup-recovery",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "audit-logging",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "deployment-rollback",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "e2e-critical-workflows",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "user-data-isolation",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        }
+      ],
+      "modsPack": {
+        "installedVersion": null,
+        "integrationStatus": "not_installed",
+        "adapters": [],
+        "capabilities": [],
+        "evidenceRefs": [
+          "cortex-repo-metadata"
+        ],
+        "limitations": [
+          "No modspack.config.json, .claude/guardrail-mods/ config or ModsPack instruction block found on the default branch at ec49fd7. ModsPack 2.0 is unreleased (PR #3 draft)."
+        ]
+      },
+      "missingEvidence": [
+        "Per-phase completion evidence for the six v2 phases.",
+        "Any CI evidence for npm test.",
+        "Security review of Drive, Todoist and Calendar integrations.",
+        "Builder and independent verifier not assigned."
+      ],
+      "dependencies": [
+        {
+          "project": "one-small-ui",
+          "relationship": "integrates",
+          "requiredForRelease": false,
+          "minVersion": null,
+          "reason": "The Cortex v2 spec (Ops tab, \"Done when\") shows live GitHub status and the last three PRs for the OneSmallUI repository. Cortex reads its status; it does not need a OneSmallUI release to ship.",
+          "evidenceRefs": [
+            "cortex-v2-spec"
+          ]
+        },
+        {
+          "project": "personal-portfolio",
+          "relationship": "integrates",
+          "requiredForRelease": false,
+          "minVersion": null,
+          "reason": "The Cortex v2 spec shows live status for the Portfolio repository, and the Portfolio project card links to the Cortex demo. A status integration, not a release requirement.",
+          "evidenceRefs": [
+            "cortex-v2-spec"
+          ]
+        }
+      ],
+      "sync": {
+        "enabled": true,
+        "mode": "observe",
+        "repositoryId": 1413298530,
+        "lastSyncedAt": null,
+        "lastSyncedHead": null,
+        "configSource": null
+      }
+    },
+    {
+      "id": "one-small-ai-workforce",
+      "name": "One Small AI Workforce",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+      "tier": "application",
+      "visibility": "private",
+      "lifecycle": "active",
+      "productionUrl": null,
+      "repositorySnapshot": {
+        "defaultBranch": "main",
+        "headSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+        "archived": false,
+        "observedAt": "2026-10-22T17:20:00Z"
+      },
+      "openPullRequests": [],
+      "release": {
+        "currentVersion": null,
+        "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder.",
+        "targetVersion": null,
+        "releaseStatus": "not_started",
+        "scopeDocument": null,
+        "blockers": [
+          {
+            "id": "scope-document-missing",
+            "description": "No release scope document. The README describes a Phase 1 deterministic simulation foundation; the first release scope has not been defined.",
+            "status": "open",
+            "evidenceRefs": [
+              "aiw-repo-metadata"
+            ],
+            "category": "scope",
+            "blocks": "release",
+            "gates": [
+              "scope-complete"
+            ]
+          }
+        ],
+        "nextAction": "Define and commit the first release scope (including its relationship to TaskForge), then confirm the Application tier and run the gates.",
+        "enhancements": []
+      },
+      "ownership": {
+        "builder": "GitHub Copilot",
+        "verifier": "Joshua Small",
+        "approvalOwner": "Joshua Small"
+      },
+      "approval": {
+        "status": "pending",
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidenceRefs": []
+      },
+      "lastVerifiedAt": "2026-10-22T17:20:00Z",
+      "evidence": [
+        {
+          "id": "aiw-repo-metadata",
+          "type": "repository_metadata",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ai-workforce",
+          "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+          "verifiedAt": "2026-10-22T17:20:00Z",
+          "result": "informational",
+          "description": "Private, not archived, default branch main at c70d8b1 (PR #1, Copilot-built foundation, 2026-10-13); no open PRs. Next.js, Prisma/PostgreSQL, Auth.js credentials demo mode, depends on @onesmall/ui ^0.1.0. README: Phase 1 deterministic persisted simulation with no paid model calls or external writes.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "aiw-ci-main",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ai-workforce/actions/runs/38429535639",
+          "commitSha": "c70d8b117c3c5a046583e7ee83016d4a3ed4b065",
+          "verifiedAt": "2026-10-22T17:20:00Z",
+          "result": "pass",
+          "description": "CI job lint-test-build succeeded at c70d8b1.",
+          "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        }
+      ],
+      "releaseGates": [
+        {
+          "id": "scope-complete",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "automated-checks",
+          "status": "not_verified",
+          "evidenceRefs": [
+            "aiw-ci-main"
+          ],
+          "verifiedAt": null,
+          "notes": "Default-branch CI passed at c70d8b1, but no release scope exists yet, so the gate stays not_verified."
+        },
+        {
+          "id": "security-privacy-review",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "wcag-22-aa",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "keyboard-screen-reader",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "responsive-layouts",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "critical-workflows",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "production-deployment",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "documentation-accurate",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "no-release-blockers",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "authentication",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "authorization-boundaries",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "sensitive-data-handling",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "api-integration-security",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "integration-failure-handling",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "backup-recovery",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "audit-logging",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "deployment-rollback",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "e2e-critical-workflows",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        },
+        {
+          "id": "user-data-isolation",
+          "status": "not_verified",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": null
+        }
+      ],
+      "modsPack": {
+        "installedVersion": null,
+        "integrationStatus": "not_installed",
+        "adapters": [],
+        "capabilities": [],
+        "evidenceRefs": [
+          "aiw-repo-metadata"
+        ],
+        "limitations": [
+          "No modspack.config.json, .claude/guardrail-mods/ config or ModsPack instruction block found on the default branch at c70d8b1. ModsPack 2.0 is unreleased (PR #3 draft)."
+        ]
+      },
+      "missingEvidence": [
+        "Release scope, target version and tier confirmation (Application assumed: authentication, database, approvals).",
+        "Production URL: none set on the repository; deployment records were not accessible to this inspection.",
+        "Builder and independent verifier not assigned."
+      ],
+      "sync": {
+        "enabled": true,
+        "mode": "observe",
+        "repositoryId": 1417207069,
+        "lastSyncedAt": null,
+        "lastSyncedHead": null,
+        "configSource": null
+      }
+    }
+  ],
+  "legacyRepositories": [
+    {
+      "name": "one-small-photo",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photo",
+      "classification": "superseded",
+      "visibility": "public",
+      "archived": false,
+      "defaultBranch": "main",
+      "lastPushedAt": "2022-02-08T17:53:02Z",
+      "notes": "Old \"1SP - Website\". Superseded by one-small-photography; not the current photography site."
+    },
+    {
+      "name": "README-Generator",
+      "repository": "https://github.com/WasteOfADrumBum/README-Generator",
+      "classification": "legacy",
+      "visibility": "public",
+      "archived": false,
+      "defaultBranch": "master",
+      "lastPushedAt": "2020-12-09T03:23:10Z",
+      "notes": "Node.js README generator. No open PRs."
+    },
+    {
+      "name": "i18next_translation",
+      "repository": "https://github.com/WasteOfADrumBum/i18next_translation",
+      "classification": "legacy",
+      "visibility": "public",
+      "archived": false,
+      "defaultBranch": "main",
+      "lastPushedAt": "2024-04-08T20:29:44Z",
+      "notes": "No open PRs."
+    },
+    {
+      "name": "react-flask-edu",
+      "repository": "https://github.com/WasteOfADrumBum/react-flask-edu",
+      "classification": "legacy",
+      "visibility": "public",
+      "archived": false,
+      "defaultBranch": "master",
+      "lastPushedAt": "2023-05-15T19:43:37Z",
+      "notes": "React + Flask + PostgreSQL learning app. No open PRs."
+    },
+    {
+      "name": "WasteOfADrumBum",
+      "repository": "https://github.com/WasteOfADrumBum/WasteOfADrumBum",
+      "classification": "profile",
+      "visibility": "public",
+      "archived": false,
+      "defaultBranch": "main",
+      "lastPushedAt": "2026-09-28T13:57:54Z",
+      "notes": "GitHub profile README repository."
+    }
+  ],
+  "otherRepositories": [
+    {
+      "name": "one-small-engineering",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-engineering",
+      "classification": "governance",
+      "visibility": "private",
+      "archived": false,
+      "defaultBranch": "main",
+      "lastPushedAt": "2026-10-22T16:22:43Z",
+      "notes": "This registry repository. Not a tracked project."
+    },
+    {
+      "name": "client",
+      "repository": "https://github.com/WasteOfADrumBum/client",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2025-04-07T19:31:28Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "codecraft",
+      "repository": "https://github.com/WasteOfADrumBum/codecraft",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2023-05-22T01:07:44Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "sesame-street-actors",
+      "repository": "https://github.com/WasteOfADrumBum/sesame-street-actors",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2022-01-07T15:30:38Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "mern-review",
+      "repository": "https://github.com/WasteOfADrumBum/mern-review",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2022-01-07T15:16:11Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "mean-stack-crud-app",
+      "repository": "https://github.com/WasteOfADrumBum/mean-stack-crud-app",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2021-12-29T22:29:11Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "Sales-Automation-App",
+      "repository": "https://github.com/WasteOfADrumBum/Sales-Automation-App",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2021-12-20T16:34:47Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "project-iii",
+      "repository": "https://github.com/WasteOfADrumBum/project-iii",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2021-09-28T01:05:20Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "Web-APIs-Code-Quiz",
+      "repository": "https://github.com/WasteOfADrumBum/Web-APIs-Code-Quiz",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2021-09-26T21:38:28Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "r0b",
+      "repository": "https://github.com/WasteOfADrumBum/r0b",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-12-29T19:34:22Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "joshuamsmall",
+      "repository": "https://github.com/WasteOfADrumBum/joshuamsmall",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-11-06T22:34:49Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "hw-19-employee-directory",
+      "repository": "https://github.com/WasteOfADrumBum/hw-19-employee-directory",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-10-27T15:40:11Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "HW-18-PWA-Online-Offline-Budget-Trackers",
+      "repository": "https://github.com/WasteOfADrumBum/HW-18-PWA-Online-Offline-Budget-Trackers",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-10-20T22:31:36Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "Fitness-Tracker",
+      "repository": "https://github.com/WasteOfADrumBum/Fitness-Tracker",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-10-19T16:02:31Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "Team-Project-II",
+      "repository": "https://github.com/WasteOfADrumBum/Team-Project-II",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-10-08T23:59:59Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "MySQL-Employee-Tracker",
+      "repository": "https://github.com/WasteOfADrumBum/MySQL-Employee-Tracker",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-09-29T18:47:53Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "Node-Express-Handlebars",
+      "repository": "https://github.com/WasteOfADrumBum/Node-Express-Handlebars",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-09-29T18:43:24Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "Reverse-Engineering-Code",
+      "repository": "https://github.com/WasteOfADrumBum/Reverse-Engineering-Code",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-09-24T21:34:38Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "Gallivant",
+      "repository": "https://github.com/WasteOfADrumBum/Gallivant",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-09-20T17:22:32Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "Express-Note_Taker",
+      "repository": "https://github.com/WasteOfADrumBum/Express-Note_Taker",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-09-10T21:08:33Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "Weather-Dashboard",
+      "repository": "https://github.com/WasteOfADrumBum/Weather-Dashboard",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-09-10T21:01:24Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "Work-Day-Scheduler",
+      "repository": "https://github.com/WasteOfADrumBum/Work-Day-Scheduler",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-09-10T20:48:23Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "Template-Engine-Employee-Summary",
+      "repository": "https://github.com/WasteOfADrumBum/Template-Engine-Employee-Summary",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-08-24T14:28:11Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "ny-times",
+      "repository": "https://github.com/WasteOfADrumBum/ny-times",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-07-28T23:36:49Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "JavaScript-Password-Generator",
+      "repository": "https://github.com/WasteOfADrumBum/JavaScript-Password-Generator",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-07-19T22:34:48Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "Responsive-Portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/Responsive-Portfolio",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-06-29T03:47:12Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "Code-Refactor",
+      "repository": "https://github.com/WasteOfADrumBum/Code-Refactor",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-06-19T02:41:58Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "Student-Bio",
+      "repository": "https://github.com/WasteOfADrumBum/Student-Bio",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-06-19T02:24:02Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    },
+    {
+      "name": "my-first-repo",
+      "repository": "https://github.com/WasteOfADrumBum/my-first-repo",
+      "classification": "unclassified",
+      "visibility": "private",
+      "archived": null,
+      "defaultBranch": null,
+      "lastPushedAt": "2020-06-18T23:56:48Z",
+      "notes": "Discovered via the account repository listing. Unclassified: no evidence reviewed yet; archived status and default branch not verified. Do not treat as legacy until evidence supports a classification."
+    }
+  ]
+}
