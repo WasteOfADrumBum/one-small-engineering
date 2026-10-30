@@ -1065,9 +1065,17 @@
       "productionUrl": "https://one-small-studio.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "923fb113dce0cd10b1bb12a7f53f64b774756869",
+        "headSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
         "archived": false,
-        "observedAt": "2026-10-22T16:33:00Z"
+        "observedAt": "2026-10-30T13:06:02Z",
+        "visibility": "public",
+        "latestTag": null,
+        "package": {
+          "status": "observed",
+          "name": "one-small-studio",
+          "version": "0.1.0",
+          "private": true
+        }
       },
       "openPullRequests": [],
       "release": {
@@ -1128,6 +1136,18 @@
           "result": "pass",
           "description": "CI job verify succeeded at 923fb11; Vercel status success.",
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "sync-one-small-studio-run-ci-yml-d6854de-iphmsze-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/40723353914",
+          "commitSha": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+          "verifiedAt": "2026-10-28T16:11:46Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at d6854de (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-studio:workflow_run:ci.yml/d6854de/iphmsze/1"
         }
       ],
       "releaseGates": [
@@ -1226,9 +1246,9 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1410748339,
-        "lastSyncedAt": null,
-        "lastSyncedHead": null,
-        "configSource": null
+        "lastSyncedAt": "2026-10-30T13:06:02Z",
+        "lastSyncedHead": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+        "configSource": "defaults"
       }
     },
     {
