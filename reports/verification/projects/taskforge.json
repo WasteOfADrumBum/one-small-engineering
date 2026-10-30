@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-30T12:14:00Z",
+  "asOf": "2026-10-30T15:00:00Z",
   "id": "taskforge",
   "name": "TaskForge",
   "tier": "application",
@@ -895,30 +895,6 @@
           "result": "inconclusive"
         },
         {
-          "id": "ev-taskforge-ci-results-11975d0-4b02f52c",
-          "digest": "73c1a2c65e39b1878c9fe9adf8929be8cab7c3ff8d127633dbcdf4df18460b22",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-taskforge-ci-results-11975d0-68561bad",
-          "digest": "fa962a9864cd20195a23cb874709c7cfdf334d92dd447520d7208343ef57fd77",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-taskforge-ci-results-11975d0-6ee2dff9",
-          "digest": "3d7dbc29cf8d6d51ee38a7e291f3e2f3bbaf033993aa167b9695a8beba35a211",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-taskforge-ci-results-11975d0-e6837581",
-          "digest": "e0f3f6cd3d81c4cea740f8dba15d98ceab2590c2bbb8a347f3caef5dba858d9d",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
           "id": "ev-taskforge-ci-results-f9f14be-731842ea",
           "digest": "91f53eea12fe610b940a640ab600cabd07b1fcb5bc9cd50afa570722871b6598",
           "collector": "ci-results",
@@ -1024,30 +1000,6 @@
       "automation": "partial",
       "humanOnly": false,
       "evidence": [
-        {
-          "id": "ev-taskforge-deployment-health-11975d0-6024ae7e",
-          "digest": "f7487541fda0bfab6030af1d3cc5fd68b930b1c621fc4336e3b9db0587da5cf4",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
-          "digest": "524ee2baf07a31bcac93dd69e79304f49a0a11735c064d1278c77f88540302d1",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-taskforge-deployment-health-11975d0-e9164135",
-          "digest": "3a30cf14ca85f5408d4eaa5a20c7e128e4dce94538715625c7bdb1e0e1920f51",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-taskforge-deployment-health-11975d0-f2d7254c",
-          "digest": "816873a751d556e5c8ae0f7b1ec7ef194d0656c06b4117d1f9f67acc88dc08ab",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
         {
           "id": "ev-taskforge-deployment-health-f9f14be-571df69b",
           "digest": "c16243102c7779b7edab7a21428387412d642ba7e31d47bc2c65f243489423df",
@@ -1175,30 +1127,6 @@
       "automation": "partial",
       "humanOnly": false,
       "evidence": [
-        {
-          "id": "ev-taskforge-deployment-health-11975d0-6024ae7e",
-          "digest": "f7487541fda0bfab6030af1d3cc5fd68b930b1c621fc4336e3b9db0587da5cf4",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
-          "digest": "524ee2baf07a31bcac93dd69e79304f49a0a11735c064d1278c77f88540302d1",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-taskforge-deployment-health-11975d0-e9164135",
-          "digest": "3a30cf14ca85f5408d4eaa5a20c7e128e4dce94538715625c7bdb1e0e1920f51",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-taskforge-deployment-health-11975d0-f2d7254c",
-          "digest": "816873a751d556e5c8ae0f7b1ec7ef194d0656c06b4117d1f9f67acc88dc08ab",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
         {
           "id": "ev-taskforge-deployment-health-f9f14be-571df69b",
           "digest": "c16243102c7779b7edab7a21428387412d642ba7e31d47bc2c65f243489423df",

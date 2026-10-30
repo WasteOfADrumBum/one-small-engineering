@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/dashboard",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-10-30T12:14:00Z",
+  "asOf": "2026-10-30T15:00:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "00f0b600811b4b55d6c463d5d4f4346bc09c085b57c8b1da83e7e3296424cdcd",
+  "registrySha256": "cdc1920e36a3f0cf00ae53187304a56ea76af78ce9ef61403cea85023cbceb27",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "projects": [
     {
@@ -16,7 +16,7 @@
         "currentVersion": "0.1.0",
         "releaseStatus": "in_progress",
         "lastEvidenceAt": "2026-10-30T12:03:32Z",
-        "snapshotObservedAt": "2026-10-30T12:03:32Z"
+        "snapshotObservedAt": "2026-10-30T13:06:02Z"
       },
       "derived": {
         "percentage": 0,
@@ -38,7 +38,7 @@
         "currentVersion": "0.5.0",
         "releaseStatus": "not_started",
         "lastEvidenceAt": "2026-10-22T16:33:00Z",
-        "snapshotObservedAt": "2026-10-22T16:33:00Z"
+        "snapshotObservedAt": "2026-10-30T13:06:02Z"
       },
       "derived": {
         "percentage": 0,
@@ -60,7 +60,7 @@
         "currentVersion": null,
         "releaseStatus": "in_progress",
         "lastEvidenceAt": "2026-10-22T16:33:00Z",
-        "snapshotObservedAt": "2026-10-22T16:33:00Z"
+        "snapshotObservedAt": "2026-10-30T13:06:02Z"
       },
       "derived": {
         "percentage": 0,
@@ -81,8 +81,8 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-10-22T16:33:00Z",
-        "snapshotObservedAt": "2026-10-22T16:33:00Z"
+        "lastEvidenceAt": "2026-10-28T16:11:46Z",
+        "snapshotObservedAt": "2026-10-30T13:06:02Z"
       },
       "derived": {
         "percentage": 0,
@@ -103,8 +103,8 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-10-22T16:33:00Z",
-        "snapshotObservedAt": "2026-10-22T16:33:00Z"
+        "lastEvidenceAt": "2026-10-27T17:00:02Z",
+        "snapshotObservedAt": "2026-10-30T13:06:02Z"
       },
       "derived": {
         "percentage": 0,
@@ -125,8 +125,8 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-10-22T16:33:00Z",
-        "snapshotObservedAt": "2026-10-22T16:33:00Z"
+        "lastEvidenceAt": "2026-10-29T15:46:42Z",
+        "snapshotObservedAt": "2026-10-30T13:06:02Z"
       },
       "derived": {
         "percentage": 0,
@@ -148,7 +148,7 @@
         "currentVersion": null,
         "releaseStatus": "in_progress",
         "lastEvidenceAt": "2026-10-22T16:33:00Z",
-        "snapshotObservedAt": "2026-10-22T16:33:00Z"
+        "snapshotObservedAt": "2026-10-30T13:06:02Z"
       },
       "derived": {
         "percentage": 0,
@@ -169,8 +169,8 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "not_started",
-        "lastEvidenceAt": "2026-10-22T17:20:00Z",
-        "snapshotObservedAt": "2026-10-22T17:20:00Z"
+        "lastEvidenceAt": "2026-10-28T16:11:45Z",
+        "snapshotObservedAt": "2026-10-30T13:06:02Z"
       },
       "derived": {
         "percentage": 0,

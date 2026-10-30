@@ -71,6 +71,26 @@ Valid records are applied to an in-memory copy of the registry, which must still
 
 The three-tier Definition of Done is unchanged: the gate list per tier still comes only from [standards/definition-of-done.md](../standards/definition-of-done.md).
 
+## Recording a verification
+
+Only the verifier named in the registry does this (today Joshua Small for every project). An AI tool may prepare the checklist and the command; it never runs the review, never chooses the result and never records itself.
+
+1. Find the gate and the evaluated commit in `reports/verification/projects/<id>.md`, and the evidence ids for that commit in `verification/evidence/<id>.json`. The gate list comes from the project's tier: a showcase project has, for example, `documentation-accurate` and `security-privacy-review`, not `sensitive-data-handling`.
+2. Do the check yourself against that exact commit.
+3. Leave a public trace on github.com: a PR review, an issue comment or a commit saying what you checked and the result. Its URL is the attestation.
+4. Outside CI, run:
+
+   ```sh
+   npm run verify:record -- --project <id> --gate <gate> --verifier "Joshua Small" --kind human \
+     --method manual-test|reviewed-artifacts|re-executed --result pass|fail \
+     --evidence <evidence id> [--evidence <id>...] \
+     --attestation <github.com URL> --notes "<what you examined, at least 20 characters>"
+   ```
+
+   A pass on a partly or non-automatable gate needs `--method manual-test`. The command refuses any record that would not count and prints every failing rule.
+5. Run `npm run check` and regenerate reports (`npm run release:reports`, `npm run verify:report -- --as-of <time>`).
+6. Open a hub PR with `verification/verifications/<id>.json` and the reports. Only after it merges does readiness count the gate.
+
 ## Orchestrator
 
 For each selected project the orchestrator chooses the commit to evaluate (the registry's release candidate when one is recorded, otherwise the live default-branch head, otherwise the snapshot head; drift between them is reported), works out the applicable gates from the tier, plans the collectors those gates need, reuses current records with the same cache key (project, commit, collector version, policy and profile hash, execution mode), retries anything unavailable, runs the rest, records the results, routes ready evidence to the registry's verifier (verification requests in each project report), recalculates readiness and lists blockers and the next action.
@@ -98,6 +118,6 @@ A draft remediation PR is only for a confirmed defect with a clear fix, one PR p
 
 ## Limits
 
-- Access: private repositories (One Small AI Workforce) need a reader credential; until then every collector reports `unavailable` for them. The CI-results collector needs a working GitHub API token; a local session behind a proxy reports it unavailable.
+- Access: a private repository (One Small AI Workforce) is read through the read-only `SYNC_READER_TOKEN`; without it every collector reports `unavailable`. An `unavailable` record speaks only for the commit it was recorded at: one left at an older commit (for example by the execute job, which holds no reader) does not hide evidence at the current commit, while one at the current commit stays visible until a run reads the repository. The CI-results collector needs a working GitHub API token; a local session behind a proxy reports it unavailable.
 - Collector evidence is integrity-protected, not signed: the digest proves it was not edited, and provenance plus the run URL make it reproducible, but authorship rests on the reviewed PR that commits it. Prefer evidence from the workflow run.
 - Profiles mirror each project's CI as read at the cited commit. When a project's CI changes, update its profile in a reviewed PR.

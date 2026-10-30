@@ -1,8 +1,8 @@
 {
   "kind": "one-small-engineering/verification-dashboard",
   "command": "npm run verify:report",
-  "asOf": "2026-10-30T12:14:00Z",
-  "registryHash": "00f0b600811b4b55d6c463d5d4f4346bc09c085b57c8b1da83e7e3296424cdcd",
+  "asOf": "2026-10-30T15:00:00Z",
+  "registryHash": "cdc1920e36a3f0cf00ae53187304a56ea76af78ce9ef61403cea85023cbceb27",
   "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
   "policyVersion": 1,
   "runs": [
@@ -2851,30 +2851,6 @@
               "result": "unavailable"
             },
             {
-              "id": "ev-personal-portfolio-ci-results-684ef3c-4e6240b2",
-              "digest": "e9add08b9741aaa83f2beec2195aaadc1982d5e63f2b7c14f6cfb7a988361121",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-personal-portfolio-ci-results-684ef3c-c2193761",
-              "digest": "9b4bfebbb213e18517fe6dac32902cee2c436ad2a1ddfde15ccedc0dde9ffd5d",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-personal-portfolio-ci-results-684ef3c-e6eafba3",
-              "digest": "bf57fe92d4c3596096d8a49b790903403c5af73d5944340f21e016f2bb7a5988",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-personal-portfolio-ci-results-684ef3c-f67d778c",
-              "digest": "4ecde34aac21f3ca492abb752b8a575da7a2378b2ed1f3aaa4b4b89d1ab2e949",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
               "id": "ev-personal-portfolio-lint-format-types-56ea76e-4b2bfc2f",
               "digest": "0ac743a03255d3c73aedbfbe4fe67b0308e41423e477b1630a882596f748e7b8",
               "collector": "lint-format-types",
@@ -2977,30 +2953,6 @@
             {
               "id": "ev-personal-portfolio-deployment-health-56ea76e-439cbcc3",
               "digest": "791156b08246f14033b26c4bca303977c89248a2c8f29e44606e5a01d84ecf03",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-personal-portfolio-deployment-health-684ef3c-45447d7c",
-              "digest": "41913376de46cb109acb26eda9ac7089d561c234be1166ea55f800bd67863d53",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-personal-portfolio-deployment-health-684ef3c-79f176d5",
-              "digest": "1be68d85940c96bd62542b222c4acc578da768033394fb3195913dae69904789",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-personal-portfolio-deployment-health-684ef3c-95957ec8",
-              "digest": "0b5817a60583401f42b4db6141f582eb8a69cf691fbc72cf467844de457d946c",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-personal-portfolio-deployment-health-684ef3c-f1ab7588",
-              "digest": "295d6d21b719cafcaea8dc67f986b77bfef45b8fe5c4a8f28c127263f5336312",
               "collector": "deployment-health",
               "result": "unavailable"
             }
@@ -3515,30 +3467,6 @@
               "result": "inconclusive"
             },
             {
-              "id": "ev-one-small-studio-ci-results-175cef6-276b0f38",
-              "digest": "bef09b10a27faa491656a828caeb7df99ac4847f43032105ccf219c849f3b738",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-studio-ci-results-175cef6-372b3f9b",
-              "digest": "6ae9e714d69be28e718fd8ed67899c9b39fabefa9191c8d2b9924753b06a1c65",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-studio-ci-results-175cef6-b43c4ef0",
-              "digest": "66b50c1ea9fd7cd19c6fe871a2b789c7c48b96e03e706ba79bb24a09a4da17a6",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-studio-ci-results-175cef6-f298f2b3",
-              "digest": "7eed04f5ef59c7e9b6bbc289a6d256eaaf83bb9a7e1c9a1c3acef00ff4f56eab",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
               "id": "ev-one-small-studio-ci-results-d6854de-0c1a754d",
               "digest": "e43c3a07d6768834272822ae7128ba2644f31bd525571182c5a7a89d88c45c0d",
               "collector": "ci-results",
@@ -3644,30 +3572,6 @@
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
-            {
-              "id": "ev-one-small-studio-deployment-health-175cef6-14945802",
-              "digest": "8fe09051e663cf8cf17e22126bfd32732f343a98e6944034a0dd5ecfb097e104",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-studio-deployment-health-175cef6-5899dff3",
-              "digest": "881f12f2231304b57944b3adc0cfa84fd9df260ecb1bb0d2db525d51ae1a62af",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-studio-deployment-health-175cef6-eac0aff6",
-              "digest": "bdb97732369a50069900480ff73e4147f8c39d73cd7b95c0b41746d18bf590f5",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-studio-deployment-health-175cef6-f5e271b7",
-              "digest": "84250f6a84b0aca48465b9fd737f1100f3eb831b683ec103fd11d8ed09a05b85",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
             {
               "id": "ev-one-small-studio-deployment-health-d6854de-970cfe92",
               "digest": "521c0f44a9f04e470bc995e84cf59bdb364b5b31c944f01bb9c75268d4aca7f4",
@@ -4208,30 +4112,6 @@
               "result": "inconclusive"
             },
             {
-              "id": "ev-one-small-photography-ci-results-45a74ba-32fcc3c6",
-              "digest": "381e54d993bafc4ef779ae3e957f9fed21e48b66d3824dcb7cceedfc8e45e368",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-photography-ci-results-45a74ba-acd0e7e8",
-              "digest": "039b90e9c7e2b1d878a8ae2d82423f664012db98bcf070ecd935abe59475ae9f",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-photography-ci-results-45a74ba-b919d9a0",
-              "digest": "99ff72dd8b884d812a8808dd39877ed79dbcebdfbc9db0ab09f25d60dafeda88",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-photography-ci-results-45a74ba-f4281eac",
-              "digest": "e1253874a11068e8625a9253e38962f2ce8db96b76ff9b60eb35fa4f716779dc",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
               "id": "ev-one-small-photography-ci-results-fa2d17f-05128f81",
               "digest": "a748e38b1e834f6e0f52ed0915cf925b43c4bba6bbeb16fb479716b4dbc7eb61",
               "collector": "ci-results",
@@ -4337,30 +4217,6 @@
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
-            {
-              "id": "ev-one-small-photography-deployment-health-45a74ba-36845369",
-              "digest": "ef6886dbb5558a7077a5f3ed3f9e8203a19ebd403775db83dd8baa1e0d377340",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-photography-deployment-health-45a74ba-4e156a51",
-              "digest": "06f2ee43556d5bace29f9499f8c911986b07c6bf62245928f9c2e44685968b91",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-photography-deployment-health-45a74ba-6f7249e7",
-              "digest": "b2109631f6586d2c5d0f14d8e047f2846cd8d3f1d7a54678ab654d7f3bcde2a6",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-photography-deployment-health-45a74ba-a51e90f7",
-              "digest": "740b64b29458dc2fa27c4b286bbb1470694df9cbd9bf730a552a198f3d71eab4",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
             {
               "id": "ev-one-small-photography-deployment-health-fa2d17f-ac05308c",
               "digest": "3f2ab09fbd645667b0c16cefdaade244caf07a4741427ae853ad6d45fac2953f",
@@ -5038,30 +4894,6 @@
               "result": "inconclusive"
             },
             {
-              "id": "ev-taskforge-ci-results-11975d0-4b02f52c",
-              "digest": "73c1a2c65e39b1878c9fe9adf8929be8cab7c3ff8d127633dbcdf4df18460b22",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-taskforge-ci-results-11975d0-68561bad",
-              "digest": "fa962a9864cd20195a23cb874709c7cfdf334d92dd447520d7208343ef57fd77",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-taskforge-ci-results-11975d0-6ee2dff9",
-              "digest": "3d7dbc29cf8d6d51ee38a7e291f3e2f3bbaf033993aa167b9695a8beba35a211",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-taskforge-ci-results-11975d0-e6837581",
-              "digest": "e0f3f6cd3d81c4cea740f8dba15d98ceab2590c2bbb8a347f3caef5dba858d9d",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
               "id": "ev-taskforge-ci-results-f9f14be-731842ea",
               "digest": "91f53eea12fe610b940a640ab600cabd07b1fcb5bc9cd50afa570722871b6598",
               "collector": "ci-results",
@@ -5167,30 +4999,6 @@
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
-            {
-              "id": "ev-taskforge-deployment-health-11975d0-6024ae7e",
-              "digest": "f7487541fda0bfab6030af1d3cc5fd68b930b1c621fc4336e3b9db0587da5cf4",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
-              "digest": "524ee2baf07a31bcac93dd69e79304f49a0a11735c064d1278c77f88540302d1",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-taskforge-deployment-health-11975d0-e9164135",
-              "digest": "3a30cf14ca85f5408d4eaa5a20c7e128e4dce94538715625c7bdb1e0e1920f51",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-taskforge-deployment-health-11975d0-f2d7254c",
-              "digest": "816873a751d556e5c8ae0f7b1ec7ef194d0656c06b4117d1f9f67acc88dc08ab",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
             {
               "id": "ev-taskforge-deployment-health-f9f14be-571df69b",
               "digest": "c16243102c7779b7edab7a21428387412d642ba7e31d47bc2c65f243489423df",
@@ -5318,30 +5126,6 @@
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
-            {
-              "id": "ev-taskforge-deployment-health-11975d0-6024ae7e",
-              "digest": "f7487541fda0bfab6030af1d3cc5fd68b930b1c621fc4336e3b9db0587da5cf4",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-taskforge-deployment-health-11975d0-6ad29e0a",
-              "digest": "524ee2baf07a31bcac93dd69e79304f49a0a11735c064d1278c77f88540302d1",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-taskforge-deployment-health-11975d0-e9164135",
-              "digest": "3a30cf14ca85f5408d4eaa5a20c7e128e4dce94538715625c7bdb1e0e1920f51",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-taskforge-deployment-health-11975d0-f2d7254c",
-              "digest": "816873a751d556e5c8ae0f7b1ec7ef194d0656c06b4117d1f9f67acc88dc08ab",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
             {
               "id": "ev-taskforge-deployment-health-f9f14be-571df69b",
               "digest": "c16243102c7779b7edab7a21428387412d642ba7e31d47bc2c65f243489423df",
