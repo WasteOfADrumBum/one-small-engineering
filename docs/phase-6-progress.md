@@ -1,33 +1,23 @@
 # Phase 6 progress: autonomous coordination and cross-agent continuity
 
-Durable execution record. A new session continues from "Next action" without repeating completed stages. No credentials or transcripts belong here.
+Durable execution record; full write-up in [phase-6-final-report.md](phase-6-final-report.md). No credentials or transcripts belong here.
 
-## Baseline (Stage 0, 2026-10-31 ~02:20Z)
-
-- main `328b50c` (PR #27). No open PRs (#28-#30 never existed). 8 projects observed; Stage C live.
-- Existing: sync writer/guard/collectors, readiness, verification, orchestrator, workflows `registry-sync`, `main-integrity`, `validate`, `verify`, `engineering`, `remediation`. `AGENTS.md` and `GEMINI.md` exist (hub-scoped). No `CLAUDE.md`, Copilot instructions, `.engineering/` state, auto-merge, or event trigger.
-- No Phase 6 features were implemented before this stage.
-
-## Stages
+## Status (2026-10-31 ~04:10Z, hub main 2da10c3)
 
 | Stage | Status | Evidence |
 | --- | --- | --- |
-| 0 Baseline | complete | this file |
-| 1 Safe registry auto-merge | merged (live merge of a real sync PR still unproven) | PR #28 -> 41197d7; 34 tests; CI green |
-| 2 Durable state and handoff | hub merged (PR #29 -> 2a751df); rollout PRs open in all 8 repos | `schemas/project-state.schema.json`, `scripts/state/*`, `.github/workflows/state.yml`; rollout to 8 repos pending |
-| 3 Agent instructions and checkpoints | hub merged; installed via the same 8 rollout PRs | `standards/agent-continuity.md`, `docs/agent-continuity.md`, installer, hub CLAUDE.md/copilot-instructions; platform runtime NOT tested |
-| 4 Event-driven sync | in review | `scripts/sync/events.mjs`, `events.yml`, `templates/project/one-small-notify.yml`, `docs/event-sync.md`; live delivery NOT activated (owner secret needed) |
-| Handoff acceptance test | not started | |
-| Final validation and report | not started | |
+| 0 Baseline | complete | main was 328b50c, no open PRs |
+| 1 Safe registry auto-merge | complete, live-verified | PRs #28, #40-#43; sync PRs #32-#39 merged unattended |
+| 2 Durable state and handoff | hub complete; rollout 5 of 8 repos | PRs #29, #31; ui #29, joshsmall-site #27, photography #21, cortex #35, ai-workforce #3 |
+| 3 Agent instructions and checkpoints | complete in hub and the 5 rolled-out repos; platform runtime untested | standards/agent-continuity.md |
+| 4 Event-driven sync | code complete (PR #30); live delivery not activated | docs/event-sync.md |
+| Handoff acceptance | simulated producer/consumer passes; cross-vendor not tested | scripts/state/handoff.test.mjs |
 
-## PRs and branches
+## Open items
 
-(updated as work lands)
-
-## Blockers
-
-None recorded.
+- ModsPack PR #4 and Studio PR #18: held on purpose (candidate commit, attestation commit). TaskForge PR #45: failing `npm audit`.
+- Owner: event token (optional), UI CI runner pin, Studio attestation, sign-off.
 
 ## Next action
 
-Merge the stage 2/3 hub PR, then roll `installPlan` out to the eight project repos (one PR each), then Stage 4.
+Merge the three open project PRs when their blockers clear, then rerun `node scripts/state/cli.mjs aggregate` and confirm 8 of 8.
