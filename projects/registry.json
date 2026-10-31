@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-10-31T13:26:38Z",
+  "lastUpdatedAt": "2026-10-31T18:16:51Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -557,7 +557,7 @@
         "defaultBranch": "main",
         "headSha": "5c5bfe71df01aae70b2a95bd886fb18d73ff06a7",
         "archived": false,
-        "observedAt": "2026-10-31T13:23:34Z",
+        "observedAt": "2026-10-31T18:16:51Z",
         "visibility": "public",
         "latestTag": {
           "name": "v0.5.0",
@@ -650,16 +650,16 @@
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
         },
         {
-          "id": "sync-one-small-ui-run-ci-yml-e018723-iwr0ok0-1",
+          "id": "sync-one-small-ui-run-ci-yml-5c5bfe7-ixgil2z-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/41162381136",
-          "commitSha": "e0187230dc20a9d3a23ec80ec26c00717871a2dd",
-          "verifiedAt": "2026-10-31T03:02:54Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/41205206843",
+          "commitSha": "5c5bfe71df01aae70b2a95bd886fb18d73ff06a7",
+          "verifiedAt": "2026-10-31T13:29:02Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded failure on main at e018723 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 5c5bfe7 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-ui:workflow_run:ci.yml/e018723/iwr0ok0/1"
+          "eventKey": "one-small-ui:workflow_run:ci.yml/5c5bfe7/ixgil2z/1"
         }
       ],
       "releaseGates": [
@@ -842,7 +842,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1411378047,
-        "lastSyncedAt": "2026-10-31T13:23:34Z",
+        "lastSyncedAt": "2026-10-31T18:16:51Z",
         "lastSyncedHead": "5c5bfe71df01aae70b2a95bd886fb18d73ff06a7",
         "configSource": "defaults"
       }
