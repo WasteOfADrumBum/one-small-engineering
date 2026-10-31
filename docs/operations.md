@@ -11,7 +11,7 @@ Validate registry         npm run check on every PR, push to main, and dispatche
 Main integrity            push to main + every 6 h: flags any change to main that is not a merged PR
 Engineering orchestrator  every 6 h + manual: read-only observe run over all eight projects; reports/engineering/ in the job summary and artifact (docs/engineering.md)
 Verify / Remediation      manual (Verify also on PRs); remediation writes are off unless REMEDIATION_WRITE_ENABLED=true
-You                       review the draft sync PR, mark it ready, merge it (or close it)
+Auto-merge registry sync merges a sync PR that passes every safety check (docs/automerge.md); anything else waits for you
 ```
 
 Nothing is ever written to a project repository except one reviewed remediation draft PR, which is off by default. Project repositories need no file, secret or workflow (all eight are in `observe` mode).

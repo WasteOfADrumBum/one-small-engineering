@@ -1,0 +1,11 @@
+{
+  "$comment": "Policy for scripts/sync/automerge.mjs, which merges registry sync PRs that pass every safety check. Changing this file is a governance change that needs Joshua Small's approval. Pause without a PR: set the repository variable AUTOMERGE_PAUSED=true, add the 'hold' label to one PR, or disable the Auto-merge registry sync workflow.",
+  "version": 1,
+  "enabled": true,
+  "mergeMethod": "squash",
+  "trustedAuthors": ["github-actions[bot]"],
+  "requiredChecks": ["validate"],
+  "holdLabel": "hold",
+  "maxMergesPerRun": 8,
+  "reconcileAfterMerge": true
+}
