@@ -50,6 +50,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           AUTOMERGE_PAUSED: ${{ vars.AUTOMERGE_PAUSED }}
+          AUTOMERGE_HEAL: ${{ github.event_name == 'schedule' }}
           DRY: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
         run: |
           if [ "$DRY" = "true" ]; then node scripts/sync/automerge.mjs --dry-run; else node scripts/sync/automerge.mjs; fi

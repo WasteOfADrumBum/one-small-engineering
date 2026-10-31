@@ -149,7 +149,7 @@ async function merge({ client, pr, policy }) {
   }
 }
 
-export async function run({ client: raw, policy, validate, dryRun = false, only = null, paused = false, log = () => {} }) {
+export async function run({ client: raw, policy, validate, dryRun = false, only = null, paused = false, healStale = false, log = () => {} }) {
   const client = restrictAutomergeWrites(raw)
   const results = []
   if (!policy.enabled || paused) {
@@ -186,7 +186,9 @@ export async function run({ client: raw, policy, validate, dryRun = false, only 
   // Merging moved main, so remaining sync PRs are stale. Ask sync to rebuild them from main.
   let reconcile = null
   const remaining = results.filter(r => r.decision === 'wait' && /sync must rebuild|re-evaluated/.test(r.reasons[0] || '')).length
-  if (!dryRun && policy.reconcileAfterMerge && merges > 0 && (stale > 0 || remaining > 0)) {
+  // healStale (scheduled runs only) also rebuilds stale PRs when nothing merged in this run, e.g. after
+  // concurrent runs merged them; event-chained runs never do, so sync and auto-merge cannot ping-pong.
+  if (!dryRun && policy.reconcileAfterMerge && (merges > 0 || healStale) && (stale > 0 || remaining > 0)) {
     try {
       await client.request('POST', `${HUB}/actions/workflows/registry-sync.yml/dispatches`, { body: { ref: HUB_DEFAULT_BRANCH, inputs: { dry_run: 'false' } } })
       reconcile = 'registry sync dispatched to rebuild remaining sync PRs from the new main'
@@ -215,7 +217,7 @@ async function main(argv) {
   const token = process.env.GITHUB_TOKEN
   if (!token) throw new Error('auto-merge needs GITHUB_TOKEN')
   const client = createClient({ token })
-  const go = () => run({ client, policy: loadPolicy(), validate: validator(), dryRun, only, paused: process.env.AUTOMERGE_PAUSED === 'true', log: t => console.log(safeOutput(t)) })
+  const go = () => run({ client, policy: loadPolicy(), validate: validator(), dryRun, only, paused: process.env.AUTOMERGE_PAUSED === 'true', healStale: process.env.AUTOMERGE_HEAL === 'true', log: t => console.log(safeOutput(t)) })
   // A sync PR's validation may still be running when this is dispatched; wait for it (bounded).
   const waitingOnChecks = o => o.results.some(r => r.decision === 'wait' && /has not reported|is (queued|in_progress)/.test(r.reasons[0] || ''))
   let out = await go()

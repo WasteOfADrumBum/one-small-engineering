@@ -249,3 +249,11 @@ test('the write allowlist refuses everything outside auto-merge', () => {
 test('real registry: validator accepts the committed registry as the merge baseline', () => {
   assert.ok(Array.isArray(loadRegistry().projects))
 })
+
+test('a scheduled run heals stale PRs even when it merged nothing; a chained run does not (no ping-pong)', async () => {
+  for (const [healStale, expected] of [[true, 1], [false, 0]]) {
+    const w = world({ mutate: { main: fakeSha('main-2') } })
+    await go(w, { healStale })
+    assert.equal(w.st.dispatches.length, expected, `healStale=${healStale}`)
+  }
+})
