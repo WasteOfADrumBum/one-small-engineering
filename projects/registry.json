@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-10-30T18:25:47Z",
+  "lastUpdatedAt": "2026-10-31T00:41:31Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -857,9 +857,9 @@
       "productionUrl": "https://joshsmall-portfolio.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "4aa533de6f61f61969c7cc07d3331a0df60117ab",
+        "headSha": "64f42fc6705ffa5857a417d5967d487a56752a9a",
         "archived": false,
-        "observedAt": "2026-10-30T18:25:47Z",
+        "observedAt": "2026-10-31T00:41:31Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1050,8 +1050,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406067959,
-        "lastSyncedAt": "2026-10-30T18:25:47Z",
-        "lastSyncedHead": "4aa533de6f61f61969c7cc07d3331a0df60117ab",
+        "lastSyncedAt": "2026-10-31T00:41:31Z",
+        "lastSyncedHead": "64f42fc6705ffa5857a417d5967d487a56752a9a",
         "configSource": "defaults"
       }
     },
