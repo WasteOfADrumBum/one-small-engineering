@@ -1,0 +1,39 @@
+# Optional: tells the Engineering Hub when this repository changes, so the hub refreshes
+# within minutes instead of at its next scheduled sync (docs/event-sync.md in the hub).
+# Needs one repository secret, HUB_DISPATCH_TOKEN. Without it this workflow does nothing
+# and the hub's scheduled sync still picks every change up. It never fails this
+# repository's checks and sends only the repository name, event kind and a delivery id.
+name: Notify Engineering Hub
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review, closed]
+  check_suite:
+    types: [completed]
+  release:
+    types: [published, edited, deleted]
+
+permissions: {}
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    continue-on-error: true
+    steps:
+      - name: Send event
+        env:
+          HUB_DISPATCH_TOKEN: ${{ secrets.HUB_DISPATCH_TOKEN }}
+          KIND: ${{ github.event_name }}
+          REPO: ${{ github.repository }}
+          DELIVERY: ${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          if [ -z "$HUB_DISPATCH_TOKEN" ]; then echo "HUB_DISPATCH_TOKEN is not set; the hub will pick this change up on its schedule."; exit 0; fi
+          body=$(printf '{"event_type":"onesmall-project-event","client_payload":{"repository":"%s","kind":"%s","delivery":"%s"}}' "$REPO" "$KIND" "$DELIVERY")
+          curl --silent --show-error --fail-with-body -X POST \
+            -H "Authorization: Bearer $HUB_DISPATCH_TOKEN" -H "Accept: application/vnd.github+json" \
+            -d "$body" https://api.github.com/repos/WasteOfADrumBum/one-small-engineering/dispatches \
+            || echo "::warning::could not notify the hub; its scheduled sync will catch up"

@@ -14,9 +14,9 @@ Durable execution record. A new session continues from "Next action" without rep
 | --- | --- | --- |
 | 0 Baseline | complete | this file |
 | 1 Safe registry auto-merge | merged (live merge of a real sync PR still unproven) | PR #28 -> 41197d7; 34 tests; CI green |
-| 2 Durable state and handoff | hub side in review | `schemas/project-state.schema.json`, `scripts/state/*`, `.github/workflows/state.yml`; rollout to 8 repos pending |
-| 3 Agent instructions and checkpoints | hub side in review | `standards/agent-continuity.md`, `docs/agent-continuity.md`, installer, hub CLAUDE.md/copilot-instructions; platform runtime NOT tested |
-| 4 Event-driven sync | not started | |
+| 2 Durable state and handoff | hub merged (PR #29 -> 2a751df); rollout PRs open in all 8 repos | `schemas/project-state.schema.json`, `scripts/state/*`, `.github/workflows/state.yml`; rollout to 8 repos pending |
+| 3 Agent instructions and checkpoints | hub merged; installed via the same 8 rollout PRs | `standards/agent-continuity.md`, `docs/agent-continuity.md`, installer, hub CLAUDE.md/copilot-instructions; platform runtime NOT tested |
+| 4 Event-driven sync | in review | `scripts/sync/events.mjs`, `events.yml`, `templates/project/one-small-notify.yml`, `docs/event-sync.md`; live delivery NOT activated (owner secret needed) |
 | Handoff acceptance test | not started | |
 | Final validation and report | not started | |
 
