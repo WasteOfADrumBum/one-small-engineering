@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-10-31T18:16:51Z",
+  "lastUpdatedAt": "2026-10-31T18:18:30Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1065,9 +1065,9 @@
       "productionUrl": "https://one-small-studio.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "ea33857ec2ba1bf1ef8c4c81c4c09413188240f4",
+        "headSha": "b701805ef331941cb8d4869b0e2369f9d9526b2b",
         "archived": false,
-        "observedAt": "2026-10-31T13:24:54Z",
+        "observedAt": "2026-10-31T18:18:30Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1077,15 +1077,7 @@
           "private": true
         }
       },
-      "openPullRequests": [
-        {
-          "number": 17,
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/17",
-          "title": "Send a Content Security Policy and security headers",
-          "headSha": "755d93f35fd452a45ba0ba104b6d16f60bb9d7d5",
-          "draft": false
-        }
-      ],
+      "openPullRequests": [],
       "release": {
         "currentVersion": null,
         "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder.",
@@ -1146,16 +1138,16 @@
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
         },
         {
-          "id": "sync-one-small-studio-run-ci-yml-ea33857-ixftp97-1",
+          "id": "sync-one-small-studio-run-ci-yml-b701805-ixt0pmd-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/41204045851",
-          "commitSha": "ea33857ec2ba1bf1ef8c4c81c4c09413188240f4",
-          "verifiedAt": "2026-10-31T13:08:27Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/41226207925",
+          "commitSha": "b701805ef331941cb8d4869b0e2369f9d9526b2b",
+          "verifiedAt": "2026-10-31T17:48:54Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at ea33857 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at b701805 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-studio:workflow_run:ci.yml/ea33857/ixftp97/1"
+          "eventKey": "one-small-studio:workflow_run:ci.yml/b701805/ixt0pmd/1"
         }
       ],
       "releaseGates": [
@@ -1254,8 +1246,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1410748339,
-        "lastSyncedAt": "2026-10-31T13:24:54Z",
-        "lastSyncedHead": "ea33857ec2ba1bf1ef8c4c81c4c09413188240f4",
+        "lastSyncedAt": "2026-10-31T18:18:30Z",
+        "lastSyncedHead": "b701805ef331941cb8d4869b0e2369f9d9526b2b",
         "configSource": "defaults"
       }
     },
