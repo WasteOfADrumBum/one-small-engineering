@@ -1,20 +1,20 @@
-<!-- generated from .engineering/state.json (revision 1) -->
+<!-- generated from .engineering/state.json (revision 2) -->
 
 # Handoff: one-small-engineering-handoff-test
 
 Read this, then **verify against GitHub** (branch head, open PRs, CI) before continuing. Nothing below is independently verified.
 
-- Checkpoint: revision 1, `cp-claude-h1-0001`, 2026-10-31T13:31:00Z by Claude Code (Sonnet 5.5)
-- Written by: a local edit that the agent then pushed; confirm the branch head matches
+- Checkpoint: revision 2, `cp-codex-h1-0002`, 2026-10-31T14:18:17Z by Codex (GPT-6)
+- Written by: the hub writer (committed through the GitHub API)
 - Uncommitted work outside this checkpoint: **none**
 
 ## Continue with
 
-Resume on branch handoff-test/claude-to-codex at the recorded commit. Throwaway fixture only: do not merge to main.
+H-1 implementation complete. Keep this throwaway branch off main. Acceptance evidence and independent review remain separate from release verification. Checkpoint generated with the state library and committed through the GitHub connector; standalone CLI unavailable without a write token.
 
 ## Unfinished
 
-- uniqueSlugs()
+_none recorded_
 
 ## Blockers
 

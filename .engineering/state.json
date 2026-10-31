@@ -1,30 +1,27 @@
 {
   "stateVersion": 1,
-  "revision": 1,
-  "checkpointId": "cp-claude-h1-0001",
+  "revision": 2,
+  "checkpointId": "cp-codex-h1-0002",
   "projectId": "one-small-engineering-handoff-test",
   "repository": "https://github.com/WasteOfADrumBum/one-small-engineering",
   "hub": "https://github.com/WasteOfADrumBum/one-small-engineering",
   "recorded": {
     "branch": "handoff-test/claude-to-codex",
-    "commit": "2370fcfc0acf7f8be59bb363e3e888ae5c8475ce",
-    "recordedAt": "2026-10-31T13:31:00Z"
+    "commit": "50f4d497b3a7e8ef1332189663cbe81e7aba0140",
+    "recordedAt": "2026-10-31T14:18:17Z"
   },
   "development": {
     "milestone": "Handoff acceptance H-1",
-    "activeTask": {
-      "id": "H-1",
-      "title": "Slug helper: slugify done, uniqueSlugs remaining"
-    },
+    "activeTask": null,
     "workingBranch": "handoff-test/claude-to-codex",
     "activePr": null,
     "lastCompleted": [
-      "slugify() implemented in handoff-fixture/slug.mjs"
+      "Claude implemented slugify(); Codex preserved it.",
+      "Codex completed H-1 uniqueSlugs(); fixture tests pass (3/3).",
+      "Reconciled recorded 2370fcf with live d3a2027: the latter adds Claude checkpoint and run instructions; no open PR or workflow run existed at takeover."
     ],
-    "inProgress": [
-      "uniqueSlugs() in handoff-fixture/slug.mjs (stub throws)"
-    ],
-    "nextAction": "Implement uniqueSlugs() in handoff-fixture/slug.mjs so both uniqueSlugs tests in handoff-fixture/slug.test.mjs pass; run node --test handoff-fixture/; then checkpoint."
+    "inProgress": [],
+    "nextAction": null
   },
   "decisions": {
     "made": [],
@@ -34,30 +31,28 @@
   "verification": {
     "testsRun": [
       {
-        "command": "node --test handoff-fixture/",
-        "result": "fail",
-        "commit": "2370fcfc0acf7f8be59bb363e3e888ae5c8475ce",
-        "at": "2026-10-31T13:30:00Z",
+        "command": "node --test handoff-fixture/slug.test.mjs",
+        "result": "pass",
+        "commit": "50f4d497b3a7e8ef1332189663cbe81e7aba0140",
+        "at": "2026-10-31T14:18:00Z",
         "ciRunUrl": null
       }
     ],
     "unverifiedChanges": [
-      "slugify test passes; 2 uniqueSlugs tests fail by design (not implemented)"
+      "Local fixture tests only; no GitHub Actions run or release gate verification claimed."
     ]
   },
   "handoff": {
     "lastAgent": {
-      "tool": "Claude Code",
-      "model": "Sonnet 5.5"
+      "tool": "Codex",
+      "model": "GPT-6"
     },
-    "checkpointedAt": "2026-10-31T13:31:00Z",
-    "unfinished": [
-      "uniqueSlugs()"
-    ],
+    "checkpointedAt": "2026-10-31T14:18:17Z",
+    "unfinished": [],
     "blockers": [],
-    "continuation": "Resume on branch handoff-test/claude-to-codex at the recorded commit. Throwaway fixture only: do not merge to main.",
+    "continuation": "H-1 implementation complete. Keep this throwaway branch off main. Acceptance evidence and independent review remain separate from release verification. Checkpoint generated with the state library and committed through the GitHub connector; standalone CLI unavailable without a write token.",
     "uncommittedWorkOutsideCheckpoint": "none",
-    "persistedBy": "local-file"
+    "persistedBy": "github-api"
   },
   "provenance": {
     "claims": "agent_reported",

@@ -1,6 +1,6 @@
 # Live cross-vendor handoff: Claude to Codex (ready to run)
 
-Status: **Claude half done and pushed; Codex half PENDING.** No Codex runtime was available in the session that prepared this, so nothing here may be reported as a passed cross-vendor test until the steps below are run and the evidence section is filled in.
+Status: **Codex completed H-1; acceptance is qualified.** The fixture and checkpoint checks passed in ChatGPT Work Codex using the GitHub connector. The standalone CLI, clean clone and no-prior-context setup were not exercised. This is agent-reported evidence, not independent verification.
 
 ## Setup already done (Agent A, Claude Code, Sonnet 5.5)
 
@@ -33,5 +33,18 @@ GITHUB_TOKEN=<token with contents:write on this repo> node scripts/state/cli.mjs
 
 | Item | Result |
 | --- | --- |
-| Codex session/run reference | not run |
-| Criteria 1 to 6 | not run |
+| Codex session/run reference | ChatGPT Work Codex; code commit [50f4d49](https://github.com/WasteOfADrumBum/one-small-engineering/commit/50f4d497b3a7e8ef1332189663cbe81e7aba0140); no session URL exposed |
+| 1 | Found H-1 and uniqueSlugs next action from state.json before reading this run kit |
+| 2 | Resumed from descendant d3a2027; slugify unchanged |
+| 3 | Revision 1 to 2, Codex, 3 passing fixture tests attributed to code commit 50f4d49 |
+| 4 | independentVerification remains none |
+| 5 | State library generated revision 2 and completion (activeTask and nextAction null); GitHub connector used instead of standalone CLI |
+| 6 | applyCheckpoint with expectedRevision 1 against revision 2 throws ConflictError; live stale CLI write was not attempted |
+
+### Runtime limits
+
+- Direct git clone lacked credentials. Relevant files were fetched at the exact GitHub commit and tested locally; pushed helper content was compared with the tested copy.
+- Standalone CLI had no write token. The existing state library validated the patch and generated both views; GitHub connector committed all three files atomically with a branch-head lease.
+- Node v24.22.1: directory-form node --test handoff-fixture/ failed to resolve the directory. Explicit node --test handoff-fixture/slug.test.mjs reproduced the baseline (1 pass, 2 fail) and then passed all 3 tests.
+- No workflow run existed at takeover. Full npm run check was not run. No PR opened because this is a throwaway branch that must never merge.
+- The session received prior project context from ChatGPT, so the strict no-prior-conversation criterion is not established. An isolated CLI run remains necessary for unqualified acceptance.
