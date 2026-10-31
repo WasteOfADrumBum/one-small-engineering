@@ -1,6 +1,33 @@
 # Event-driven sync
 
-Goal: a material change in a project repository reaches the hub registry in minutes, not at the next six-hour sync, with no one merging anything.
+> **Decision (Phase 6 final integration).** The push-style event path below (`events.yml` plus a Contents-write token in eight repositories) is implemented and tested but is **kept disabled and is not recommended**: it would put a credential able to push to this repository's `main` in every project repo. The operational path is the **change watch** (`watch.yml`): an hourly, read-only comparison of each project's live head and open pull requests with the registry that dispatches the existing Registry sync only when something differs. It needs no new secret, no project-repository change, and no hosting. Worst-case latency is about one hour (previously six); the six-hour sync remains the fallback. Treat true immediate delivery as pending.
+
+## Options considered
+
+| Option | Latency | Credential exposure | Verdict |
+| --- | --- | --- | --- |
+| Six-hour sync + auto-merge only | up to 6 h | none | Safe baseline, kept as fallback |
+| Hourly change watch (**adopted**) | up to ~1 h; syncs only on change | hub `GITHUB_TOKEN` plus the existing read-only reader secret | Safe, no new secret |
+| Push events with `HUB_DISPATCH_TOKEN` in 8 repos | minutes | Contents write on this repo in every project | Rejected as designed |
+| GitHub App (webhook to hub) | seconds | narrowly scoped, one app | Best long-term; needs a hosted receiver or Actions relay: new hosting, owner decision |
+| Org-level secret or environment-scoped token | minutes | still broad | Not available on this account type; same blast radius |
+
+## Change watch (live path)
+
+```text
+hourly schedule (watch.yml, read-only)
+  -> scripts/sync/watch.mjs: GET default-branch head and open PRs per sync-enabled project
+     compare with repositorySnapshot.headSha / openPullRequests on main
+  -> changed? dispatch Registry sync (actions: write, SYNC_STAGE == C only)
+  -> Validate registry -> Auto-merge -> registry updated on main
+```
+
+Properties: unreadable projects are reported and never trigger a dispatch; the dispatch is a full sync, so changes coalesce; nothing read is written; the payload-free design means there is nothing to forge. Between a sync PR opening and merging the watch may request another idempotent sync (at most one per hour). Tested in `scripts/sync/watch.test.mjs` (detection logic) and `repo-files.test.mjs` (workflow permissions). Live behaviour is verified only by an observed run, recorded in `docs/phase-6-progress.md`.
+
+## Push events (implemented, disabled)
+
+
+Goal of the push design: a material change in a project repository reaches the hub registry in minutes, not at the next six-hour sync, with no one merging anything.
 
 ```text
 project repo event (PR / push / check suite / release / tag)
@@ -29,7 +56,7 @@ The dispatch payload is only a hint. Only the matched registry project id leaves
 | Missed events | The six-hour `registry-sync` schedule (stage C) is unchanged and reconciles anything an event never reported. Auto-merge also has its own three-hourly fallback. |
 | Stage gating | `SYNC_STAGE` still decides whether a sync may write. Events cannot enable writes. |
 
-## Activation (owner action; nothing is live until done)
+## Activation of the push design (not recommended; owner action; nothing is live until done)
 
 This repository, `events.yml` and the notify template are merged and tested, but **no real event has been delivered** because the senders are not installed. To activate:
 

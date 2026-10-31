@@ -1,0 +1,52 @@
+name: Change watch
+
+# Credential-free near-real-time refresh (docs/event-sync.md). Hourly, read-only: compares each
+# project's live head and open pull requests with the registry and, only when something
+# differs, dispatches the existing Registry sync. No project repository holds a Hub
+# credential. The six-hour Registry sync schedule remains the fallback.
+on:
+  schedule:
+    - cron: '11 * * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: change-watch
+  cancel-in-progress: false
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    outputs:
+      changed: ${{ steps.watch.outputs.changed }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - id: watch
+        name: Compare live state with the registry
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          READER_TOKEN: ${{ secrets.SYNC_READER_TOKEN }}
+        run: node scripts/sync/watch.mjs
+
+  sync:
+    needs: detect
+    if: needs.detect.outputs.changed == 'true' && vars.SYNC_STAGE == 'C' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: write   # dispatch Registry sync only
+    steps:
+      - name: Dispatch Registry sync
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: gh api -X POST "repos/$REPO/actions/workflows/registry-sync.yml/dispatches" -f ref=main -f 'inputs[dry_run]=false'
