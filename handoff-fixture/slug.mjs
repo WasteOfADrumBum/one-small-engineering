@@ -11,6 +11,14 @@ export function slugify(text) {
     .replace(/^-+|-+$/g, '')
 }
 
-export function uniqueSlugs() {
-  throw new Error('not implemented: task H-1 part 2')
+export function uniqueSlugs(titles) {
+  const used = new Set()
+  return titles.map(title => {
+    const base = slugify(title) || 'untitled'
+    let slug = base
+    let suffix = 2
+    while (used.has(slug)) slug = `${base}-${suffix++}`
+    used.add(slug)
+    return slug
+  })
 }
