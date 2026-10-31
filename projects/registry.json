@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-10-31T03:34:50Z",
+  "lastUpdatedAt": "2026-10-31T03:36:06Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -2096,9 +2096,9 @@
       "productionUrl": null,
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "0d62a7142baf93dc64c2fe5c48e625d175f9b0bc",
+        "headSha": "c89b827d1a6a5024bebd9a17cb8ac1cf6ad8ad7d",
         "archived": false,
-        "observedAt": "2026-10-30T13:06:02Z",
+        "observedAt": "2026-10-31T03:36:06Z",
         "visibility": "private",
         "latestTag": null,
         "package": {
@@ -2167,16 +2167,16 @@
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
         },
         {
-          "id": "sync-one-small-ai-workforce-run-ci-yml-0d62a71-iphn09q-1",
+          "id": "sync-one-small-ai-workforce-run-ci-yml-c89b827-iwr0ywg-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-ai-workforce/actions/runs/40723363358",
-          "commitSha": "0d62a7142baf93dc64c2fe5c48e625d175f9b0bc",
-          "verifiedAt": "2026-10-28T16:11:45Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ai-workforce/actions/runs/41162394544",
+          "commitSha": "c89b827d1a6a5024bebd9a17cb8ac1cf6ad8ad7d",
+          "verifiedAt": "2026-10-31T03:01:33Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 0d62a71 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at c89b827 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-ai-workforce:workflow_run:ci.yml/0d62a71/iphn09q/1"
+          "eventKey": "one-small-ai-workforce:workflow_run:ci.yml/c89b827/iwr0ywg/1"
         }
       ],
       "releaseGates": [
@@ -2344,8 +2344,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1417207069,
-        "lastSyncedAt": "2026-10-30T13:06:02Z",
-        "lastSyncedHead": "0d62a7142baf93dc64c2fe5c48e625d175f9b0bc",
+        "lastSyncedAt": "2026-10-31T03:36:06Z",
+        "lastSyncedHead": "c89b827d1a6a5024bebd9a17cb8ac1cf6ad8ad7d",
         "configSource": "defaults"
       }
     }
