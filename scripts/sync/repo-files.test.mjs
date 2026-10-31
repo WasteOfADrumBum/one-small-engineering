@@ -108,3 +108,17 @@ test('auto-merge workflow never checks out PR code and holds only the permission
   assert.match(t, /startsWith\(github\.event\.workflow_run\.head_branch, 'sync\/'\)/)
   assert.doesNotMatch(t, /pull-requests: write[\s\S]*(issues|packages|deployments|id-token): write/)
 })
+
+test('change watch: hourly, read-only detection, dispatches only the existing sync, holds no write beyond actions', () => {
+  for (const [eol, t] of both(read('.github/workflows/watch.yml'))) {
+    assert.match(t, /cron: '\d+ \* \* \* \*'/, eol)
+    assert.match(t, /^permissions: \{\}\r?$/m, eol)
+    const jobs = t.split(/\r?\n(?= {2}[a-z]+:\r?$)/m)
+    const detect = jobs.find(j => /^ {2}detect:/m.test(j))
+    assert.doesNotMatch(detect, /: write/, eol)
+    assert.match(t, /actions: write/, eol)
+    assert.doesNotMatch(t, /contents: write|pull-requests: write|secrets\.(?!SYNC_READER_TOKEN)/, eol)
+    assert.match(t, /vars\.SYNC_STAGE == 'C'/, eol)
+    assert.match(t, /registry-sync\.yml\/dispatches/, eol)
+  }
+})
