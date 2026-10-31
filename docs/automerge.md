@@ -6,7 +6,7 @@ Routine registry sync PRs merge without the owner. Everything else still needs a
 
 ## What triggers it
 
-- `Validate registry` finishing successfully on a `sync/*` branch (`workflow_run`), normally minutes after sync opens or updates the PR.
+- The sync write job dispatches it right after opening or updating PRs; it then waits (up to six minutes) for each PR's validation. (`workflow_run` on `Validate registry` is also configured, but live testing showed GitHub does not fire it for runs that a `GITHUB_TOKEN` dispatch started, so it is not relied on.)
 - A fallback schedule every three hours (`41 */3 * * *`), so a missed event is picked up.
 - Manual run (dry run by default).
 

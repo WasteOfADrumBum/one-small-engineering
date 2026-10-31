@@ -36,7 +36,7 @@ function world({ next = routine(loadRegistry()), mutate = {} } = {}) {
   Object.assign(st, mutate)
   const client = {
     paginate: async path => {
-      if (/\/pulls\?/.test(path)) return st.pr.state === 'open' ? [st.pr] : []
+      if (/\/pulls\?/.test(path)) { const { commits, ...summary } = st.pr; return st.pr.state === 'open' ? [summary] : [] }
       if (/\/files$/.test(path)) return Object.assign([...st.files], st.filesTruncated ? { truncated: true } : {})
       if (/check-runs$/.test(path)) return st.checks
       throw new Error(`unexpected paginate ${path}`)
@@ -223,7 +223,7 @@ test('after a merge, remaining stale sync PRs trigger a rebuild dispatch', async
   const w = world()
   const second = structuredClone(w.st.pr); second.number = 32; second.head = { ...second.head, ref: 'sync/studio', sha: fakeSha('p2') }
   const orig = w.client.paginate
-  w.client.paginate = async p => /\/pulls\?/.test(p) ? [w.st.pr, second] : orig(p)
+  w.client.paginate = async p => /\/pulls\?/.test(p) ? [{ number: 31, head: w.st.pr.head }, { number: 32, head: second.head }] : orig(p)
   const o2 = w.client.request
   w.client.request = async (m, p, o) => /\/pulls\/32\/reviews/.test(p) ? [] : /\/pulls\/32/.test(p) ? second : /commits\/.{40}$/.test(p) && p.includes(second.head.sha) ? { parents: [{ sha: MAIN }], commit: { author: { name: 'One Small Engineering Sync' } } } : o2(m, p, o)
   const out = await go(w)
