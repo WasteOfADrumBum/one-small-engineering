@@ -7,3 +7,4 @@ This repository is the One Small Engineering hub: the registry, standards and au
 - Automated sync (`scripts/sync/`) is deterministic and makes no AI calls. Do not add AI calls to it.
 - To assess a project: follow `agents/project-assessor.md` (assessor-spec: 1).
 - To onboard a project: follow `agents/onboard-project.md` (onboard-spec: 1).
+- Continuing or handing off work on any governed project: follow `standards/agent-continuity.md` (continuity contract v1) and `docs/agent-continuity.md`.

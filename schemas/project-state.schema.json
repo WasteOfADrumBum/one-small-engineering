@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/WasteOfADrumBum/one-small-engineering/schemas/project-state.schema.json",
+  "title": "Project development state (.engineering/state.json)",
+  "description": "Version 1. The one canonical, agent-neutral record of where development stands in a governed project repository. STATUS.md and HANDOFF.md are generated from it and never edited by hand. Everything here is agent-reported or human-stated: it is never independent verification (that lives only in the hub registry) and a later agent must re-check it against GitHub before relying on it. Unknown values are null or empty, never guessed.",
+  "type": "object",
+  "required": ["stateVersion", "revision", "checkpointId", "projectId", "repository", "hub", "recorded", "development", "decisions", "verification", "handoff", "provenance"],
+  "additionalProperties": false,
+  "properties": {
+    "stateVersion": { "type": "integer", "const": 1 },
+    "revision": { "description": "Increments by exactly one per checkpoint. A checkpoint names the revision it was based on and is refused if the file has moved on.", "type": "integer", "minimum": 0 },
+    "checkpointId": { "description": "Unique id of the last checkpoint (idempotency key); a repeated checkpoint with the same id is a no-op.", "type": "string", "pattern": "^[A-Za-z0-9._-]{6,64}$" },
+    "projectId": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "repository": { "type": "string", "pattern": "^https://github\\.com/WasteOfADrumBum/[A-Za-z0-9._-]+$" },
+    "hub": { "type": "string", "const": "https://github.com/WasteOfADrumBum/one-small-engineering" },
+    "recorded": {
+      "type": "object",
+      "required": ["branch", "commit", "recordedAt"],
+      "additionalProperties": false,
+      "properties": {
+        "branch": { "description": "Branch the checkpoint describes.", "type": ["string", "null"], "maxLength": 200 },
+        "commit": { "description": "Commit the agent says the checkpoint describes. Verified against GitHub by the hub, never trusted.", "type": ["string", "null"], "pattern": "^[0-9a-f]{40}$" },
+        "recordedAt": { "type": ["string", "null"], "format": "date-time" }
+      }
+    },
+    "development": {
+      "type": "object",
+      "required": ["milestone", "activeTask", "workingBranch", "activePr", "lastCompleted", "inProgress", "nextAction"],
+      "additionalProperties": false,
+      "properties": {
+        "milestone": { "type": ["string", "null"], "maxLength": 200 },
+        "activeTask": {
+          "type": ["object", "null"],
+          "required": ["id", "title"],
+          "additionalProperties": false,
+          "properties": { "id": { "type": "string", "minLength": 1, "maxLength": 80 }, "title": { "type": "string", "minLength": 1, "maxLength": 200 } }
+        },
+        "workingBranch": { "type": ["string", "null"], "maxLength": 200 },
+        "activePr": { "type": ["integer", "null"], "minimum": 1 },
+        "lastCompleted": { "type": "array", "maxItems": 20, "items": { "type": "string", "minLength": 1, "maxLength": 400 } },
+        "inProgress": { "type": "array", "maxItems": 20, "items": { "type": "string", "minLength": 1, "maxLength": 400 } },
+        "nextAction": { "description": "The exact next step for whoever continues.", "type": ["string", "null"], "maxLength": 600 }
+      }
+    },
+    "decisions": {
+      "type": "object",
+      "required": ["made", "constraints", "unresolved"],
+      "additionalProperties": false,
+      "properties": {
+        "made": {
+          "type": "array",
+          "maxItems": 50,
+          "items": {
+            "type": "object",
+            "required": ["id", "summary", "decidedBy", "humanRef", "recordedAt"],
+            "additionalProperties": false,
+            "properties": {
+              "id": { "type": "string", "minLength": 1, "maxLength": 80 },
+              "summary": { "type": "string", "minLength": 1, "maxLength": 400 },
+              "decidedBy": { "description": "human decisions must cite where the human made them (humanRef); an agent may not claim one without it.", "type": "string", "enum": ["human", "agent"] },
+              "humanRef": { "type": ["string", "null"], "maxLength": 300 },
+              "recordedAt": { "type": "string", "format": "date-time" }
+            }
+          }
+        },
+        "constraints": { "type": "array", "maxItems": 30, "items": { "type": "string", "minLength": 1, "maxLength": 400 } },
+        "unresolved": { "type": "array", "maxItems": 30, "items": { "type": "string", "minLength": 1, "maxLength": 400 } }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "required": ["testsRun", "unverifiedChanges"],
+      "additionalProperties": false,
+      "properties": {
+        "testsRun": {
+          "description": "Agent-reported runs. They are builder evidence, not independent verification.",
+          "type": "array",
+          "maxItems": 30,
+          "items": {
+            "type": "object",
+            "required": ["command", "result", "commit", "at", "ciRunUrl"],
+            "additionalProperties": false,
+            "properties": {
+              "command": { "type": "string", "minLength": 1, "maxLength": 200 },
+              "result": { "type": "string", "enum": ["pass", "fail", "not_run"] },
+              "commit": { "description": "Commit the run was made against.", "type": ["string", "null"], "pattern": "^[0-9a-f]{40}$" },
+              "at": { "type": "string", "format": "date-time" },
+              "ciRunUrl": { "type": ["string", "null"], "pattern": "^https://github\\.com/WasteOfADrumBum/[A-Za-z0-9._-]+/actions/runs/[0-9]+$" }
+            }
+          }
+        },
+        "unverifiedChanges": { "type": "array", "maxItems": 30, "items": { "type": "string", "minLength": 1, "maxLength": 400 } }
+      }
+    },
+    "handoff": {
+      "type": "object",
+      "required": ["lastAgent", "checkpointedAt", "unfinished", "blockers", "continuation", "uncommittedWorkOutsideCheckpoint", "persistedBy"],
+      "additionalProperties": false,
+      "properties": {
+        "lastAgent": {
+          "type": ["object", "null"],
+          "required": ["tool", "model"],
+          "additionalProperties": false,
+          "properties": { "tool": { "type": "string", "minLength": 1, "maxLength": 80 }, "model": { "type": ["string", "null"], "maxLength": 80 } }
+        },
+        "checkpointedAt": { "type": ["string", "null"], "format": "date-time" },
+        "unfinished": { "type": "array", "maxItems": 30, "items": { "type": "string", "minLength": 1, "maxLength": 400 } },
+        "blockers": { "type": "array", "maxItems": 30, "items": { "type": "string", "minLength": 1, "maxLength": 400 } },
+        "continuation": { "type": ["string", "null"], "maxLength": 1000 },
+        "uncommittedWorkOutsideCheckpoint": { "description": "none: the agent says everything is committed or in this checkpoint. possible: work may exist only in a local session. unknown: not stated.", "type": "string", "enum": ["none", "possible", "unknown"] },
+        "persistedBy": { "description": "github-api: the checkpoint was committed through the GitHub API by the hub writer (the commit succeeded or this file would not exist). local-file: an agent edited the file locally; it exists on GitHub only because that agent then pushed it.", "type": "string", "enum": ["github-api", "local-file"] }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["claims", "independentVerification"],
+      "additionalProperties": false,
+      "properties": {
+        "claims": { "type": "string", "const": "agent_reported" },
+        "independentVerification": { "description": "Always none here. Independent verification is recorded only in the hub registry by the assigned human verifier.", "type": "string", "const": "none" }
+      }
+    }
+  }
+}
