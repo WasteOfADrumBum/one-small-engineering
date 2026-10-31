@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-10-31T03:32:12Z",
+  "lastUpdatedAt": "2026-10-31T03:33:35Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1490,7 +1490,7 @@
         "defaultBranch": "main",
         "headSha": "ef37e9ef57531537a8323e027531110c0257ec09",
         "archived": false,
-        "observedAt": "2026-10-30T13:06:02Z",
+        "observedAt": "2026-10-31T03:33:35Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1500,7 +1500,15 @@
           "private": true
         }
       },
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 45,
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/45",
+          "title": "Install Engineering Hub continuity contract v1",
+          "headSha": "1a7291055c567ddb30b613ad81481a32bdf4db8e",
+          "draft": false
+        }
+      ],
       "release": {
         "currentVersion": null,
         "currentVersionSource": "No tags, releases or package version. Delivery is tracked by phase and KAN ticket in docs/roadmap.md and CHANGELOG.md (Unreleased).",
@@ -1765,7 +1773,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 962181990,
-        "lastSyncedAt": "2026-10-30T13:06:02Z",
+        "lastSyncedAt": "2026-10-31T03:33:35Z",
         "lastSyncedHead": "ef37e9ef57531537a8323e027531110c0257ec09",
         "configSource": "defaults"
       }
