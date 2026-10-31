@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-10-31T03:30:36Z",
+  "lastUpdatedAt": "2026-10-31T03:32:12Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1284,9 +1284,9 @@
       "productionUrl": "https://one-small-photography.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+        "headSha": "d65e0964323714c9f2f0d676df38e043aeceb676",
         "archived": false,
-        "observedAt": "2026-10-31T00:41:31Z",
+        "observedAt": "2026-10-31T03:32:12Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1365,16 +1365,16 @@
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
         },
         {
-          "id": "sync-one-small-photography-run-ci-yml-fa2d17f-imk5epw-1",
+          "id": "sync-one-small-photography-run-ci-yml-d65e096-iwr0uab-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/40546182596",
-          "commitSha": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
-          "verifiedAt": "2026-10-27T17:00:02Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41162388563",
+          "commitSha": "d65e0964323714c9f2f0d676df38e043aeceb676",
+          "verifiedAt": "2026-10-31T03:01:03Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at fa2d17f (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at d65e096 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:ci.yml/fa2d17f/imk5epw/1"
+          "eventKey": "one-small-photography:workflow_run:ci.yml/d65e096/iwr0uab/1"
         }
       ],
       "releaseGates": [
@@ -1473,8 +1473,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-10-31T00:41:31Z",
-        "lastSyncedHead": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+        "lastSyncedAt": "2026-10-31T03:32:12Z",
+        "lastSyncedHead": "d65e0964323714c9f2f0d676df38e043aeceb676",
         "configSource": "defaults"
       }
     },
