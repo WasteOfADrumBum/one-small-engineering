@@ -116,8 +116,8 @@ jobs:
           SYNC_WRITE_ENABLED: ${{ vars.SYNC_WRITE_ENABLED }}
           SYNC_DRY_RUN_INPUT: ${{ inputs.dry_run }}
         run: node scripts/sync/run.mjs write --mode auto
-      # Validate registry runs on the sync branches (dispatched above); GITHUB_TOKEN-created runs
-      # do not trigger workflow_run, so ask Auto-merge to evaluate now. It waits for the checks.
+      # Validate registry runs on the sync branches (dispatched above); runs started by a GITHUB_TOKEN dispatch
+      # do not chain further workflows, so ask Auto-merge to evaluate now. It waits for the checks.
       - name: Request auto-merge evaluation
         if: always()
         env:
