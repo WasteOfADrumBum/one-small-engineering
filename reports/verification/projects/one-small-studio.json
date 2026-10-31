@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-30T15:00:00Z",
+  "asOf": "2026-10-31T01:00:00Z",
   "id": "one-small-studio",
   "name": "One Small Studio",
   "tier": "showcase",
@@ -612,7 +612,13 @@
     }
   ],
   "verifications": [],
-  "relatedPullRequests": [],
+  "relatedPullRequests": [
+    {
+      "number": 17,
+      "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/17",
+      "draft": false
+    }
+  ],
   "remediation": [
     {
       "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/16",
