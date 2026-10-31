@@ -1,0 +1,40 @@
+name: Project state
+
+# Read-only aggregation of each project's .engineering/state.json against live GitHub
+# (scripts/state/aggregate.mjs, docs/agent-continuity.md). Writes nothing to GitHub:
+# the report is the job summary and a 30-day artifact. Projects without a state file are
+# reported as "no checkpoint", not as failures.
+on:
+  schedule:
+    - cron: '53 */6 * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: project-state
+  cancel-in-progress: false
+
+jobs:
+  aggregate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Aggregate project state
+        env:
+          # The reader token (read-only) lets the private AI Workforce repository be read.
+          GITHUB_TOKEN: ${{ secrets.SYNC_READER_TOKEN || github.token }}
+        run: node scripts/state/cli.mjs aggregate --out out/state
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: project-state-${{ github.run_id }}
+          path: out/state
+          retention-days: 30
