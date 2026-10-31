@@ -116,3 +116,11 @@ jobs:
           SYNC_WRITE_ENABLED: ${{ vars.SYNC_WRITE_ENABLED }}
           SYNC_DRY_RUN_INPUT: ${{ inputs.dry_run }}
         run: node scripts/sync/run.mjs write --mode auto
+      # Validate registry runs on the sync branches (dispatched above); GITHUB_TOKEN-created runs
+      # do not trigger workflow_run, so ask Auto-merge to evaluate now. It waits for the checks.
+      - name: Request auto-merge evaluation
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: gh api -X POST "repos/$REPO/actions/workflows/automerge.yml/dispatches" -f ref=main -f 'inputs[dry_run]=false' || echo "::warning::could not dispatch auto-merge; its schedule will pick the PRs up"

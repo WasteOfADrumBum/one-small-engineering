@@ -73,8 +73,10 @@ async function registryAt(client, sha) {
 //   wait   - may become eligible without anyone acting (checks pending, branch stale)
 //   skip   - not for automation (hold label, not a sync PR); leave it alone
 //   reject - looked like a sync PR but failed a safety check; a human should look
-export async function evaluate({ client, pr, mainSha, policy, validate }) {
+export async function evaluate({ client, pr: listed, mainSha, policy, validate }) {
   const no = (decision, ...reasons) => ({ decision, reasons })
+  // The list endpoint omits fields the checks need (commit count, mergeability); read the PR itself.
+  const pr = expectObject(await client.get(`${HUB}/pulls/${listed.number}`), 'pull request', ['number', 'head', 'base', 'state'])
   const branch = pr.head && pr.head.ref
   let projectId
   try {
@@ -122,7 +124,7 @@ export async function evaluate({ client, pr, mainSha, policy, validate }) {
     if (r.status !== 'completed') return no('wait', `check "${cleanText(r.name, 60)}" is ${r.status}`)
     if (!OK_CONCLUSIONS.has(r.conclusion)) return no('reject', `check "${cleanText(r.name, 60)}" concluded ${r.conclusion}`)
   }
-  return { decision: 'merge', reasons: ['all safety checks passed'], projectId }
+  return { decision: 'merge', reasons: ['all safety checks passed'], projectId, head: pr.head }
 }
 
 async function currentMain(client) {
@@ -165,6 +167,7 @@ export async function run({ client: raw, policy, validate, dryRun = false, only 
       const mainSha = await currentMain(client)
       const ev = await evaluate({ client, pr, mainSha, policy, validate })
       Object.assign(entry, ev)
+      if (ev.head) pr.head = ev.head
       if (ev.decision === 'wait' && /sync must rebuild/.test(ev.reasons[0])) stale++
       if (ev.decision !== 'merge') continue
       if (dryRun) { entry.decision = 'would-merge'; continue }
@@ -211,7 +214,17 @@ async function main(argv) {
   if (only !== null && !Number.isInteger(only)) throw new Error('--pr needs a number')
   const token = process.env.GITHUB_TOKEN
   if (!token) throw new Error('auto-merge needs GITHUB_TOKEN')
-  const out = await run({ client: createClient({ token }), policy: loadPolicy(), validate: validator(), dryRun, only, paused: process.env.AUTOMERGE_PAUSED === 'true', log: t => console.log(safeOutput(t)) })
+  const client = createClient({ token })
+  const go = () => run({ client, policy: loadPolicy(), validate: validator(), dryRun, only, paused: process.env.AUTOMERGE_PAUSED === 'true', log: t => console.log(safeOutput(t)) })
+  // A sync PR's validation may still be running when this is dispatched; wait for it (bounded).
+  const waitingOnChecks = o => o.results.some(r => r.decision === 'wait' && /has not reported|is (queued|in_progress)/.test(r.reasons[0] || ''))
+  let out = await go()
+  for (let i = 0; i < 12 && !dryRun && waitingOnChecks(out); i++) {
+    await new Promise(r => setTimeout(r, 30_000))
+    const next = await go()
+    next.merges += out.merges
+    out = next
+  }
   const md = render(out)
   console.log(safeOutput(md))
   if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, md)
