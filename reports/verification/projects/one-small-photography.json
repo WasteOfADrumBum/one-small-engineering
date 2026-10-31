@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-30T15:00:00Z",
+  "asOf": "2026-10-31T01:00:00Z",
   "id": "one-small-photography",
   "name": "One Small Photography",
   "tier": "showcase",
@@ -635,7 +635,13 @@
     }
   ],
   "verifications": [],
-  "relatedPullRequests": [],
+  "relatedPullRequests": [
+    {
+      "number": 20,
+      "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/20",
+      "draft": false
+    }
+  ],
   "remediation": [],
   "verificationRequests": [
     {
