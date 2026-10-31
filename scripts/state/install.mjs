@@ -44,6 +44,11 @@ export function installPlan({ project, defaultBranch, existing }) {
     files[STATE_PATHS.state] = serializeState(state)
     files[STATE_PATHS.status] = renderStatus(state)
     files[STATE_PATHS.handoff] = renderHandoff(state)
-  } else unchanged.push(STATE_PATHS.state)
+  } else {
+    unchanged.push(STATE_PATHS.state)
+    // The views are generated from the state; refresh them if they drifted, never the state.
+    const state = JSON.parse(existing[STATE_PATHS.state])
+    for (const [path, render] of [[STATE_PATHS.status, renderStatus], [STATE_PATHS.handoff, renderHandoff]]) if (existing[path] !== render(state)) files[path] = render(state)
+  }
   return { files, unchanged }
 }
