@@ -104,6 +104,7 @@ test('auto-merge workflow never checks out PR code and holds only the permission
   assert.match(t, /ref: \$\{\{ github\.event\.repository\.default_branch \}\}/)
   assert.doesNotMatch(t, /ref: \$\{\{ github\.event\.workflow_run/)
   assert.match(t, /^permissions: \{\}\r?$/m)
+  assert.match(t, /checks: read/, 'check-runs API needs checks: read (found by the first live run)')
   assert.match(t, /startsWith\(github\.event\.workflow_run\.head_branch, 'sync\/'\)/)
   assert.doesNotMatch(t, /pull-requests: write[\s\S]*(issues|packages|deployments|id-token): write/)
 })
