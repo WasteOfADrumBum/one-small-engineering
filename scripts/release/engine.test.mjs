@@ -9,7 +9,8 @@ import { assessRegistry, gateRequirements, classifyEvidence, ownershipState, sum
 import { validateRegistry, parseDefinitionOfDone, SYNC_RECORDER, dependencyCycles } from '../validate-registry.mjs'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..')
-const registryText = readFileSync(resolve(ROOT, 'projects/registry.json'), 'utf8')
+// A frozen copy, not the live registry: automated sync updates the live one (for example a project's CI turning red), which must not break unrelated tests.
+const registryText = readFileSync(resolve(ROOT, 'fixtures/sync/registry-baseline.json'), 'utf8')
 const dodText = readFileSync(resolve(ROOT, 'standards/definition-of-done.md'), 'utf8')
 const schema = JSON.parse(readFileSync(resolve(ROOT, 'projects/registry.schema.json'), 'utf8'))
 const dod = parseDefinitionOfDone(dodText)
