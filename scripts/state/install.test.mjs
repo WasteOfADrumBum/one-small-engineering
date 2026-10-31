@@ -29,8 +29,11 @@ test('an existing state is never reset; a repo already installed plans nothing',
   const first = installPlan({ project, defaultBranch: 'main', existing: {} })
   const existing = { ...first.files, '.engineering/state.json': first.files['.engineering/state.json'].replace('"revision": 0', '"revision": 5') }
   const again = installPlan({ project, defaultBranch: 'main', existing })
-  assert.deepEqual(again.files, {})
+  assert.ok(!('.engineering/state.json' in again.files), 'state is never rewritten')
+  assert.ok(!INSTRUCTION_FILES.some(f => f in again.files), 'instruction blocks already current')
   assert.ok(again.unchanged.includes('.engineering/state.json'))
+  const clean = installPlan({ project, defaultBranch: 'main', existing: first.files })
+  assert.deepEqual(clean.files, {}, 'a repo already installed plans nothing')
 })
 
 test('a broken marker is refused rather than guessed at', () => {
