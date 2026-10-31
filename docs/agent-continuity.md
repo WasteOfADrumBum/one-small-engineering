@@ -10,7 +10,7 @@ Tell any agent: *"Continue `<project>`. Follow the Engineering Hub continuity co
 
 | From → to | What to do |
 | --- | --- |
-| Claude → Codex | In Codex: *"Continue `<project>` from where Claude stopped."* Codex reads `AGENTS.md`, then HANDOFF. When it finishes it checkpoints (CLI). |
+| Claude → Codex (live test pending: see docs/handoff-acceptance/codex-task.md) | In Codex: *"Continue `<project>` from where Claude stopped."* Codex reads `AGENTS.md`, then HANDOFF. When it finishes it checkpoints (CLI). |
 | Codex → Claude | Same prompt in Claude Code. `CLAUDE.md` carries the block. |
 | Claude → ChatGPT | ChatGPT cannot read your repository by itself. Paste `.engineering/HANDOFF.md` (or let a connected GitHub integration read it) plus the resume prompt below. ChatGPT proposes a patch; apply it with the CLI or ask Claude/Codex to. |
 | ChatGPT → Grok | Same: paste the HANDOFF and resume prompt. Neither writes to GitHub on its own unless you give it that access. |
