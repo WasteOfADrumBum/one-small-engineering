@@ -4,7 +4,7 @@ As of 2026-10-31, Hub main `8d8397a`. Supersedes the open items in `phase-6-fina
 
 ## Executive summary
 
-All eight repositories now carry the continuity contract on `main`, the Hub aggregates all eight, registry sync merges unattended, and a safe near-real-time sync path is live. The one thing not done is the real two-vendor handoff: no Codex runtime was available, so it is **pending**, with the Claude half and an exact run kit ready. Phase 6 is ready for operational acceptance on everything except that one test and the owner items below.
+All eight repositories now carry the continuity contract on `main`, the Hub aggregates all eight, registry sync merges unattended, and a safe near-real-time sync path is live. The real Claude to Codex handoff has since been run and passes with qualifications (connector path, not the isolated CLI). Phase 6 is ready for operational acceptance, subject to the owner items below.
 
 ## Repository matrix
 
@@ -23,7 +23,7 @@ Aggregation: workflow run 41204353642 reported `ok` for 8 of 8. All eight record
 
 ## Handoff demonstration
 
-Not completed live. Done: throwaway branch `handoff-test/claude-to-codex` with task H-1 (`slugify` done, `uniqueSlugs` stub; 1 pass, 2 fail) and a Claude checkpoint, revision 1, `cp-claude-h1-0001`, at work commit 2370fcf. That checkpoint was written with the state library (`persistedBy: local-file`) because this session had no repository write token for the GitHub-API CLI. Pending: a fresh Codex session given only "Continue this project using its Engineering Hub continuity contract." Steps and six pass criteria are in `docs/handoff-acceptance/codex-task.md`. The producer/consumer test in `scripts/state/handoff.test.mjs` uses two simulated agents and is supporting evidence only.
+Claude to Codex handoff passed with qualifications (2026-10-31). Claude left task H-1 half done on throwaway branch `handoff-test/claude-to-codex` with checkpoint revision 1. Joshua then started ChatGPT/Codex with only "Continue this project using its Engineering Hub continuity contract." It finished `uniqueSlugs()` (commit 50f4d49, 3 of 3 fixture tests), wrote checkpoint revision 2 (2ff95e1), and nothing was merged. Claude checked the pushed branch against the six criteria: all met (table in `docs/handoff-acceptance/codex-task.md`), including a reproduced refusal of a stale revision-1 patch. Qualifications: it ran through the ChatGPT GitHub connector, not the isolated Codex CLI with a write token (still untested); Codex's transcript was not reviewed; commits show Joshua as author; no independent verification. The simulated test in `scripts/state/handoff.test.mjs` remains supporting evidence.
 
 ## Automation status
 
@@ -42,7 +42,7 @@ No Hub credential was added anywhere. Rejected: Contents-write token in eight re
 
 ## Unresolved, owner only
 
-1. Start Codex on the throwaway branch and record the result (kit ready).
+1. Optional: repeat the handoff with the isolated Codex CLI and a write token, then delete throwaway branch `handoff-test/claude-to-codex`.
 2. Joshua's Studio `documentation-accurate` verification at d6854de, and the final sign-off.
 3. Optional: decide on a GitHub App for immediate events.
 4. Cleanup: delete branch `handoff-test/claude-to-codex` after the test. Record that TaskForge override pins may be removable once upstream eslint/jest tooling ships patched ranges.
@@ -53,4 +53,4 @@ Any agent: "Continue `<project>`. Follow the Engineering Hub continuity contract
 
 ## Final recommendation
 
-Ready for operational acceptance of the Hub, sync, auto-merge, state contract and aggregation. Not claimable as fully accepted until the live Codex handoff has been run and Joshua has made the Studio attestation and sign-off.
+Ready for operational acceptance of the Hub, sync, auto-merge, state contract and aggregation. Not claimable as fully accepted until Joshua has made the Studio attestation and sign-off.
