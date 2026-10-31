@@ -13,11 +13,21 @@ Durable execution record; full write-up in [phase-6-final-report.md](phase-6-fin
 | 4 Event-driven sync | code complete (PR #30); live delivery not activated | docs/event-sync.md |
 | Handoff acceptance | simulated producer/consumer passes; cross-vendor not tested | scripts/state/handoff.test.mjs |
 
+## Final integration (2026-10-31, continuation)
+
+| Stage | Result | Evidence |
+| --- | --- | --- |
+| 1 Three integrations | complete: TaskForge audit fix #46 (fc69d2b), then TaskForge #45, Studio #18, ModsPack #4 merged; 8/8 repos carry the contract on main | PRs above; TaskForge quality green on both |
+| 2 Aggregation | 8/8 `ok` (all initial, never-checkpointed), private AI Workforce readable | Project state run 41204353642 |
+| 3 Cross-vendor handoff | **pending**: no Codex runtime available. Claude half and run kit pushed on throwaway branch `handoff-test/claude-to-codex` | docs/handoff-acceptance/codex-task.md |
+| 4 Events | push design stays disabled; hourly credential-free change watch live (hub #45, ab67ba7) | Change watch run 41205229190 flagged 4 changed repos and dispatched; sync PRs #46 to #49 auto-merged |
+| 5 CI | one-small-ui #30 pins Playwright jobs to ubuntu-24.04; all 5 checks green | one-small-ui PR #30 (5c5bfe7) |
+| 6 Validation | hub suite 449 pass; Main integrity success at ab67ba7 | see docs/phase-6-completion-report.md |
+
 ## Open items
 
-- ModsPack PR #4 and Studio PR #18: held on purpose (candidate commit, attestation commit). TaskForge PR #45: failing `npm audit`.
-- Owner: event token (optional), UI CI runner pin, Studio attestation, sign-off.
+- Live Codex handoff run (owner starts Codex; kit is ready). Studio `documentation-accurate` attestation at d6854de (Joshua). Final sign-off. Optional: GitHub App for immediate events.
 
 ## Next action
 
-Merge the three open project PRs when their blockers clear, then rerun `node scripts/state/cli.mjs aggregate` and confirm 8 of 8.
+Run the Codex half of `docs/handoff-acceptance/codex-task.md`, then record the result there and in the aggregation.
