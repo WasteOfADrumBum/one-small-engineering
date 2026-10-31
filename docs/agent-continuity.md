@@ -10,7 +10,7 @@ Tell any agent: *"Continue `<project>`. Follow the Engineering Hub continuity co
 
 | From → to | What to do |
 | --- | --- |
-| Claude → Codex (live test pending: see docs/handoff-acceptance/codex-task.md) | In Codex: *"Continue `<project>` from where Claude stopped."* Codex reads `AGENTS.md`, then HANDOFF. When it finishes it checkpoints (CLI). |
+| Claude → Codex (tested once via the ChatGPT connector, not the isolated CLI: docs/handoff-acceptance/codex-task.md) | In Codex: *"Continue `<project>` from where Claude stopped."* Codex reads `AGENTS.md`, then HANDOFF. When it finishes it checkpoints (CLI). |
 | Codex → Claude | Same prompt in Claude Code. `CLAUDE.md` carries the block. |
 | Claude → ChatGPT | ChatGPT cannot read your repository by itself. Paste `.engineering/HANDOFF.md` (or let a connected GitHub integration read it) plus the resume prompt below. ChatGPT proposes a patch; apply it with the CLI or ask Claude/Codex to. |
 | ChatGPT → Grok | Same: paste the HANDOFF and resume prompt. Neither writes to GitHub on its own unless you give it that access. |
@@ -29,7 +29,7 @@ Tell any agent: *"Continue `<project>`. Follow the Engineering Hub continuity co
 | Tool | Reads instructions from | Automatic checkpoint | Status |
 | --- | --- | --- | --- |
 | Claude Code / Cowork | `CLAUDE.md` (block installed) | Optional hooks, example below | Convention documented; **not runtime-tested here** |
-| OpenAI Codex | `AGENTS.md` (block installed) | None; explicit CLI/prompt | Convention documented; not runtime-tested |
+| OpenAI Codex | `AGENTS.md` (block installed) | None; explicit CLI/prompt | Handoff tested once via ChatGPT connector (not the isolated CLI) |
 | GitHub Copilot | `.github/copilot-instructions.md` (block installed); coding agent also reads `AGENTS.md` | None | Convention documented; not runtime-tested |
 | Gemini CLI | `GEMINI.md` (block installed) | None | Convention documented; not runtime-tested |
 | ChatGPT, Grok | Nothing in the repository is read automatically | None; paste prompts | Prompt-based only |
