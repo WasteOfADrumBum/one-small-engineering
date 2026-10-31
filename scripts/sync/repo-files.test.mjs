@@ -12,9 +12,17 @@ const crlf = text => text.replace(/\r?\n/g, '\r\n')
 const both = text => [['LF', text.replace(/\r\n/g, '\n')], ['CRLF', crlf(text)]]
 const workflows = readdirSync(resolve(ROOT, '.github/workflows')).map(f => [f, read(`.github/workflows/${f}`)])
 
-test('no workflow uses pull_request_target, workflow_run or unpinned actions', () => {
+// Phase 6 exceptions, each reviewed: the auto-merge workflow listens for workflow_run and
+// the event workflow for repository_dispatch. Both run from main, and neither checks out
+// or executes PR or payload content (asserted below).
+const ALLOWED_EVENTS = { 'automerge.yml': ['workflow_run'], 'events.yml': ['repository_dispatch'] }
+
+test('no workflow uses pull_request_target, unpinned actions or an unlisted privileged trigger', () => {
   for (const [f, text] of [...workflows, ['template', read('templates/project/one-small-report.yml')]]) {
-    assert.doesNotMatch(text, /pull_request_target|workflow_run|repository_dispatch/, f)
+    assert.doesNotMatch(text, /pull_request_target/, f)
+    for (const ev of ['workflow_run', 'repository_dispatch']) {
+      if (!(ALLOWED_EVENTS[f] || []).includes(ev)) assert.doesNotMatch(text, new RegExp(ev), f)
+    }
     for (const m of text.matchAll(/uses:\s*(\S+)/g)) assert.match(m[1], /@[0-9a-f]{40}$/, `${f}: ${m[1]} must be pinned to a commit SHA`)
     assert.match(text, /persist-credentials: false/, f)
   }
@@ -89,4 +97,13 @@ test('every AI adapter points at the shared specs and matches their versions', (
     assert.match(t, /assessor-spec: 1/, a)
   }
   for (const a of ['.claude/skills/onboard-project/SKILL.md', '.github/prompts/onboard-project.prompt.md', 'AGENTS.md', 'GEMINI.md']) assert.match(read(a), /onboard-spec: 1/, a)
+})
+
+test('auto-merge workflow never checks out PR code and holds only the permissions it needs', () => {
+  const t = read('.github/workflows/automerge.yml')
+  assert.match(t, /ref: \$\{\{ github\.event\.repository\.default_branch \}\}/)
+  assert.doesNotMatch(t, /ref: \$\{\{ github\.event\.workflow_run/)
+  assert.match(t, /^permissions: \{\}\r?$/m)
+  assert.match(t, /startsWith\(github\.event\.workflow_run\.head_branch, 'sync\/'\)/)
+  assert.doesNotMatch(t, /pull-requests: write[\s\S]*(issues|packages|deployments|id-token): write/)
 })

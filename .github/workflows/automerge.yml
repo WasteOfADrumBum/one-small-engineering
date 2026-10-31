@@ -1,0 +1,54 @@
+name: Auto-merge registry sync
+
+# Merges registry sync PRs that pass every safety check (scripts/sync/automerge.mjs,
+# policy sync/automerge.json). Runs from main only. PR content is fetched as data through
+# the API; no PR code is checked out or executed with this token.
+#
+# Pause: set repository variable AUTOMERGE_PAUSED=true, label a PR 'hold', set
+# "enabled": false in sync/automerge.json, or disable this workflow.
+on:
+  # A sync PR's validation finished (sync dispatches Validate registry on each sync branch).
+  workflow_run:
+    workflows: ['Validate registry']
+    types: [completed]
+  # Fallback if an event is missed.
+  schedule:
+    - cron: '41 */3 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run: report decisions, merge nothing'
+        type: boolean
+        default: true
+
+permissions: {}
+
+concurrency:
+  group: automerge
+  cancel-in-progress: false
+
+jobs:
+  automerge:
+    # workflow_run fires for every Validate registry run; only sync branches matter.
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && startsWith(github.event.workflow_run.head_branch, 'sync/'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write        # merge a PR into main
+      pull-requests: write   # mark ready for review, comment
+      actions: write         # dispatch Registry sync to rebuild stale sync PRs
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Evaluate and merge sync PRs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          AUTOMERGE_PAUSED: ${{ vars.AUTOMERGE_PAUSED }}
+          DRY: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        run: |
+          if [ "$DRY" = "true" ]; then node scripts/sync/automerge.mjs --dry-run; else node scripts/sync/automerge.mjs; fi
