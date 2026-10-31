@@ -37,6 +37,7 @@ jobs:
       contents: write        # merge a PR into main
       pull-requests: write   # mark ready for review, comment
       actions: write         # dispatch Registry sync to rebuild stale sync PRs
+      checks: read           # read the validate check run for a PR head
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
         with:
