@@ -37,3 +37,19 @@ test('a broken marker is refused rather than guessed at', () => {
   assert.throws(() => withBlock('<!-- one-small-engineering:continuity v1 -->\nhalf'), /unterminated/)
   assert.ok(blockText().includes('Joshua Small'))
 })
+
+test('generated views are refreshed from an existing state; the state itself is not touched', () => {
+  const first = installPlan({ project, defaultBranch: 'main', existing: {} })
+  const existing = { ...first.files, '.engineering/STATUS.md': 'drifted\n' }
+  const again = installPlan({ project, defaultBranch: 'main', existing })
+  assert.deepEqual(Object.keys(again.files), ['.engineering/STATUS.md'])
+  assert.equal(again.files['.engineering/STATUS.md'], first.files['.engineering/STATUS.md'])
+})
+
+test('generated content is Prettier-stable: blank line after a leading HTML comment and around the block markers', () => {
+  const { files } = installPlan({ project, defaultBranch: 'main', existing: {} })
+  assert.match(files['.engineering/STATUS.md'], /-->\n\n# /)
+  assert.match(files['.engineering/HANDOFF.md'], /-->\n\n# /)
+  assert.match(files['AGENTS.md'], /v1 -->\n\n## /)
+  assert.match(files['AGENTS.md'], /\n\n<!-- \/one-small/)
+})

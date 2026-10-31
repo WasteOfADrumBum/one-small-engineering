@@ -90,6 +90,7 @@ const list = (items, empty = '_none recorded_') => (items.length ? items.map(i =
 export function renderStatus(s) {
   const d = s.development
   return `<!-- generated from .engineering/state.json (revision ${s.revision}); edit state.json through a checkpoint, not this file -->
+
 # ${s.projectId}: development status
 
 All values are **agent-reported**, not independently verified. Check GitHub before relying on them.
@@ -125,6 +126,7 @@ ${list(s.verification.unverifiedChanges)}
 export function renderHandoff(s) {
   const h = s.handoff
   return `<!-- generated from .engineering/state.json (revision ${s.revision}) -->
+
 # Handoff: ${s.projectId}
 
 Read this, then **verify against GitHub** (branch head, open PRs, CI) before continuing. Nothing below is independently verified.
