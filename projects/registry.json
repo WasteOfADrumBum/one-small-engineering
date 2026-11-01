@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-01T03:21:14Z",
+  "lastUpdatedAt": "2026-11-01T04:17:43Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -555,9 +555,9 @@
       "productionUrl": "https://one-small-ui.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "fa4cb6d28c1430087ff31f1064f7a11462b206f4",
+        "headSha": "408b8844db13037a22c718b790f0d769a910803a",
         "archived": false,
-        "observedAt": "2026-11-01T03:20:02Z",
+        "observedAt": "2026-11-01T04:17:43Z",
         "visibility": "public",
         "latestTag": {
           "name": "v0.5.0",
@@ -567,7 +567,7 @@
         "package": {
           "status": "observed",
           "name": "onesmallui-monorepo",
-          "version": "0.5.0",
+          "version": "0.6.0",
           "private": true
         }
       },
@@ -650,16 +650,16 @@
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
         },
         {
-          "id": "sync-one-small-ui-run-ci-yml-fa4cb6d-iyi3w75-1",
+          "id": "sync-one-small-ui-run-ci-yml-408b884-iyjdsow-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/41268346817",
-          "commitSha": "fa4cb6d28c1430087ff31f1064f7a11462b206f4",
-          "verifiedAt": "2026-11-01T03:19:31Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/41270488448",
+          "commitSha": "408b8844db13037a22c718b790f0d769a910803a",
+          "verifiedAt": "2026-11-01T03:51:30Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at fa4cb6d (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 408b884 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-ui:workflow_run:ci.yml/fa4cb6d/iyi3w75/1"
+          "eventKey": "one-small-ui:workflow_run:ci.yml/408b884/iyjdsow/1"
         }
       ],
       "releaseGates": [
@@ -842,8 +842,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1411378047,
-        "lastSyncedAt": "2026-11-01T03:20:02Z",
-        "lastSyncedHead": "fa4cb6d28c1430087ff31f1064f7a11462b206f4",
+        "lastSyncedAt": "2026-11-01T04:17:43Z",
+        "lastSyncedHead": "408b8844db13037a22c718b790f0d769a910803a",
         "configSource": "defaults"
       }
     },
