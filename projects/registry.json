@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-01T03:20:02Z",
+  "lastUpdatedAt": "2026-11-01T03:21:14Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1263,7 +1263,7 @@
         "defaultBranch": "main",
         "headSha": "d65e0964323714c9f2f0d676df38e043aeceb676",
         "archived": false,
-        "observedAt": "2026-10-31T03:32:12Z",
+        "observedAt": "2026-11-01T03:21:14Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1278,7 +1278,7 @@
           "number": 20,
           "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/20",
           "title": "XSS audit: tighten CSP and add a regression test",
-          "headSha": "bab3a44e64ec93fab24ec017be0d6ee4df56dba8",
+          "headSha": "a918173501a17608f12f5d3495fc228e808058e2",
           "draft": false
         }
       ],
@@ -1450,7 +1450,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-10-31T03:32:12Z",
+        "lastSyncedAt": "2026-11-01T03:21:14Z",
         "lastSyncedHead": "d65e0964323714c9f2f0d676df38e043aeceb676",
         "configSource": "defaults"
       }
