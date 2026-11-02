@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-11-02T18:30:00Z",
+  "asOf": "2026-11-02T18:40:00Z",
   "id": "one-small-photography",
   "name": "One Small Photography",
   "tier": "showcase",
@@ -102,7 +102,7 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: Latest default-branch CI passed at 2471b18. The target release scope is not frozen, so this does not verify the release; re-run on the release candidate"
+        "registry notes: CI green on main at c850853 (builder evidence from sync). Verifier re-checks at the release commit"
       ],
       "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
@@ -257,9 +257,10 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
         "registry notes: Contact delivery and live galleries confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
       ],
-      "nextAction": "Finish the work and record evidence, then have the verifier re-check."
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
     {
       "id": "production-deployment",
@@ -411,7 +412,7 @@
       "severity": "unclassified",
       "blocks": "release",
       "category": "scope",
-      "description": "No approved release scope. Neon Postgres and B2 storage are no longer \"next phase\": they are built and live. Draft docs/release-scope-1.0.0.md puts them in scope as shipped; resolve when the owner approves it."
+      "description": "Scope is recorded on main in docs/RELEASE.md (Neon Postgres and B2 storage are built and live, not next phase) but not approved. Resolve when the owner records approval in section 6."
     },
     {
       "id": "auto-critical-workflows-unverified",
@@ -635,7 +636,18 @@
     }
   ],
   "verifications": [],
-  "relatedPullRequests": [],
+  "relatedPullRequests": [
+    {
+      "number": 22,
+      "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/22",
+      "draft": false
+    },
+    {
+      "number": 24,
+      "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/24",
+      "draft": false
+    }
+  ],
   "remediation": [],
   "verificationRequests": [
     {

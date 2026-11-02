@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T18:30:00Z",
+  "asOf": "2026-11-02T18:40:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "ba0dbd7f600bb5d738d5f1523572e3d2b353966a9519114ea152f02428ecaf67",
+  "registrySha256": "0e96c780bc93781ae81f869a431cebd5f56606652b83af26ef9abfa80a4ee26d",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-photography",
@@ -17,11 +17,24 @@
       "releaseStatus": "in_progress",
       "scopeDocument": null,
       "candidate": null,
-      "openPullRequests": [],
-      "head": "d9265638467e9c1cfe7e3dca9e48783a758dda7b",
-      "snapshotObservedAt": "2026-11-01T19:12:54Z",
-      "lastSyncedAt": "2026-11-01T19:12:54Z",
-      "lastEvidenceAt": "2026-11-02T18:30:00Z",
+      "openPullRequests": [
+        {
+          "number": 22,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/22",
+          "headSha": "38c925d7824fd58f557287e6f6fd1907907e7fb3",
+          "draft": false
+        },
+        {
+          "number": 24,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/24",
+          "headSha": "671388272d397ce48e0ff5458338b828e3600d7f",
+          "draft": false
+        }
+      ],
+      "head": "c850853c0ffd16042941c5030e273b47f17a0cdf",
+      "snapshotObservedAt": "2026-11-02T18:23:26Z",
+      "lastSyncedAt": "2026-11-02T18:23:26Z",
+      "lastEvidenceAt": "2026-11-02T18:40:00Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -33,10 +46,10 @@
         "approvedAt": null,
         "evidenceRefs": []
       },
-      "registryNextAction": "Owner: review and merge one-small-photography PR #22 (1.0.0 scope draft), disposition the 4 moderate build-time advisories, then record gate verifications with verify:record per docs/acceptance/closeout-2026-11-02.md.",
+      "registryNextAction": "Owner: complete docs/RELEASE.md section 6 in one-small-photography, disposition the 4 moderate build-time advisories, then record gate verifications with verify:record per docs/acceptance/closeout-2026-11-02.md.",
       "missingEvidence": [
-        "Approved release scope (draft 1.0.0 proposed).",
-        "Security review of admin auth, uploads and contact notes under standards/security.md; disposition of 4 moderate production-tree advisories (@astrojs/vercel -> @vercel/nft, build time).",
+        "Owner approval of the recorded scope (docs/RELEASE.md section 6).",
+        "Disposition of 4 moderate production-tree advisories (@astrojs/vercel -> @vercel/nft, build time).",
         "Verifier records for all ten Showcase gates.",
         "Owner approval record."
       ]
@@ -63,7 +76,8 @@
         "blockingFindings": 4,
         "registryBlockers": 1,
         "missingIndependentVerification": [
-          "automated-checks"
+          "automated-checks",
+          "critical-workflows"
         ],
         "candidateMoved": false,
         "ownershipValid": true,
@@ -112,15 +126,27 @@
               "origin": "manual",
               "provenance": "pass-without-independent-verifier",
               "stale": null
+            },
+            {
+              "id": "sync-one-small-photography-run-ci-yml-c850853-j2apy2k-1",
+              "type": "workflow_run",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41497803452",
+              "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
+              "verifiedAt": "2026-11-02T18:10:43Z",
+              "recordedBy": "One Small Engineering Sync",
+              "origin": "sync",
+              "provenance": "builder-reported",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-10-22T16:33:00Z",
+          "lastObservedAt": "2026-11-02T18:10:43Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Latest default-branch CI passed at 2471b18. The target release scope is not frozen, so this does not verify the release; re-run on the release candidate"
+            "registry notes: CI green on main at c850853 (builder evidence from sync). Verifier re-checks at the release commit"
           ],
-          "notes": "Latest default-branch CI passed at 2471b18. The target release scope is not frozen, so this does not verify the release; re-run on the release candidate.",
+          "notes": "CI green on main at c850853 (builder evidence from sync). Verifier re-checks at the release commit.",
           "blockers": [],
           "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
@@ -203,31 +229,44 @@
           "registryStatus": "in_progress",
           "state": "in_progress",
           "applicable": true,
-          "provenance": "observation",
+          "provenance": "builder-reported",
           "evidence": [
             {
               "id": "one-small-photography-owner-report-2026-11-02",
               "type": "document",
               "result": "informational",
               "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
-              "commitSha": "d9265638467e9c1cfe7e3dca9e48783a758dda7b",
-              "verifiedAt": "2026-11-02T18:30:00Z",
+              "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
+              "verifiedAt": "2026-11-02T18:40:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": null
+            },
+            {
+              "id": "sync-one-small-photography-run-production-smoke-yml-c850853-j2bbcj4-1",
+              "type": "workflow_run",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41498801968",
+              "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
+              "verifiedAt": "2026-11-02T18:15:38Z",
+              "recordedBy": "One Small Engineering Sync",
+              "origin": "sync",
+              "provenance": "builder-reported",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:30:00Z",
+          "lastObservedAt": "2026-11-02T18:40:00Z",
           "failed": false,
           "missing": [
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
             "registry notes: Contact delivery and live galleries confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
           ],
           "notes": "Contact delivery and live galleries confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
           "blockers": [
             "auto-critical-workflows-unverified"
           ],
-          "nextAction": "Finish the work and record evidence, then have the verifier re-check."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "production-deployment",
@@ -239,19 +278,19 @@
           "provenance": "observation",
           "evidence": [
             {
-              "id": "one-small-photography-vercel-d926563",
+              "id": "one-small-photography-vercel-c850853",
               "type": "deployment",
               "result": "informational",
-              "url": "https://vercel.com/task-forge3/one-small-photography/C3PpG42VGUuqzC1s8w1i54YRZHah",
-              "commitSha": "d9265638467e9c1cfe7e3dca9e48783a758dda7b",
-              "verifiedAt": "2026-11-02T18:30:00Z",
+              "url": "https://vercel.com/task-forge3/one-small-photography/2pW6dWB2DP7kMRB3zXZJQcj8RerB",
+              "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
+              "verifiedAt": "2026-11-02T18:40:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:30:00Z",
+          "lastObservedAt": "2026-11-02T18:40:00Z",
           "failed": false,
           "missing": [
             "registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production"
@@ -312,10 +351,10 @@
             "gates": [
               "scope-complete"
             ],
-            "description": "No approved release scope. Neon Postgres and B2 storage are no longer \"next phase\": they are built and live. Draft docs/release-scope-1.0.0.md puts them in scope as shipped; resolve when the owner approves it.",
+            "description": "Scope is recorded on main in docs/RELEASE.md (Neon Postgres and B2 storage are built and live, not next phase) but not approved. Resolve when the owner records approval in section 6.",
             "evidenceRefs": [
               "photo-repo-metadata",
-              "photo-closeout-pr-22"
+              "photo-release-record-c850853"
             ],
             "rule": null
           },
@@ -394,7 +433,7 @@
           "gates": [
             "scope-complete"
           ],
-          "text": "Resolve blocker scope-document-missing: No approved release scope. Neon Postgres and B2 storage are no longer \"next phase\": they are built and live. Draft docs/release-scope-1.0.0.md puts them in scope as shipped; resolve when the owner approves it.",
+          "text": "Resolve blocker scope-document-missing: Scope is recorded on main in docs/RELEASE.md (Neon Postgres and B2 storage are built and live, not next phase) but not approved. Resolve when the owner records approval in section 6.",
           "summary": "Resolve blocker scope-document-missing."
         },
         {
@@ -443,6 +482,16 @@
         "gate": "automated-checks",
         "evidence": "photo-ci-main",
         "provenance": "pass-without-independent-verifier"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "sync-one-small-photography-run-ci-yml-c850853-j2apy2k-1",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "critical-workflows",
+        "evidence": "sync-one-small-photography-run-production-smoke-yml-c850853-j2bbcj4-1",
+        "provenance": "builder-reported"
       }
     ]
   }

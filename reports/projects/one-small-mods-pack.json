@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T18:30:00Z",
+  "asOf": "2026-11-02T18:40:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "ba0dbd7f600bb5d738d5f1523572e3d2b353966a9519114ea152f02428ecaf67",
+  "registrySha256": "0e96c780bc93781ae81f869a431cebd5f56606652b83af26ef9abfa80a4ee26d",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-mods-pack",

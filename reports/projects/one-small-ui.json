@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T18:30:00Z",
+  "asOf": "2026-11-02T18:40:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "ba0dbd7f600bb5d738d5f1523572e3d2b353966a9519114ea152f02428ecaf67",
+  "registrySha256": "0e96c780bc93781ae81f869a431cebd5f56606652b83af26ef9abfa80a4ee26d",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-ui",
@@ -20,7 +20,7 @@
         "pullRequest": 34,
         "ref": "main",
         "headSha": "9a13c9e22d094a95364262a1ae89f666febac892",
-        "observedAt": "2026-11-02T18:30:00Z"
+        "observedAt": "2026-11-02T18:40:00Z"
       },
       "openPullRequests": [
         {
@@ -33,7 +33,7 @@
       "head": "408b8844db13037a22c718b790f0d769a910803a",
       "snapshotObservedAt": "2026-11-02T17:16:07Z",
       "lastSyncedAt": "2026-11-02T17:16:07Z",
-      "lastEvidenceAt": "2026-11-02T18:30:00Z",
+      "lastEvidenceAt": "2026-11-02T18:40:00Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -123,14 +123,14 @@
               "result": "builder_reported",
               "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/36",
               "commitSha": null,
-              "verifiedAt": "2026-11-02T18:30:00Z",
+              "verifiedAt": "2026-11-02T18:40:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:30:00Z",
+          "lastObservedAt": "2026-11-02T18:40:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -230,14 +230,14 @@
               "result": "informational",
               "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
               "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
-              "verifiedAt": "2026-11-02T18:30:00Z",
+              "verifiedAt": "2026-11-02T18:40:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:30:00Z",
+          "lastObservedAt": "2026-11-02T18:40:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -262,14 +262,14 @@
               "result": "informational",
               "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
               "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
-              "verifiedAt": "2026-11-02T18:30:00Z",
+              "verifiedAt": "2026-11-02T18:40:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:30:00Z",
+          "lastObservedAt": "2026-11-02T18:40:00Z",
           "failed": false,
           "missing": [
             "registry notes: Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only. Covers Chrome + Windows Narrator only"
@@ -331,14 +331,14 @@
               "result": "informational",
               "url": "https://vercel.com/task-forge3/one-small-ui/2RRhJMHdTkSYZTsuGAZrQg9TaP6S",
               "commitSha": "408b8844db13037a22c718b790f0d769a910803a",
-              "verifiedAt": "2026-11-02T18:30:00Z",
+              "verifiedAt": "2026-11-02T18:40:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": "ui-vercel-408b884 is for 408b884, not the release candidate 9a13c9e"
             }
           ],
-          "lastObservedAt": "2026-11-02T18:30:00Z",
+          "lastObservedAt": "2026-11-02T18:40:00Z",
           "failed": false,
           "missing": [
             "current evidence: ui-vercel-408b884 is for 408b884, not the release candidate 9a13c9e",
@@ -377,14 +377,14 @@
               "result": "informational",
               "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
               "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
-              "verifiedAt": "2026-11-02T18:30:00Z",
+              "verifiedAt": "2026-11-02T18:40:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:30:00Z",
+          "lastObservedAt": "2026-11-02T18:40:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -567,14 +567,14 @@
               "result": "informational",
               "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
               "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
-              "verifiedAt": "2026-11-02T18:30:00Z",
+              "verifiedAt": "2026-11-02T18:40:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:30:00Z",
+          "lastObservedAt": "2026-11-02T18:40:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -663,7 +663,7 @@
               "result": "informational",
               "url": "https://www.npmjs.com/package/@onesmall/ui/v/0.6.0",
               "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
-              "verifiedAt": "2026-11-02T18:30:00Z",
+              "verifiedAt": "2026-11-02T18:40:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
@@ -682,7 +682,7 @@
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:30:00Z",
+          "lastObservedAt": "2026-11-02T18:40:00Z",
           "failed": false,
           "missing": [
             "registry notes: npm latest is 0.6.0 under @onesmall/ui (informational, checked 2026-11-02). Verifier records"
@@ -706,14 +706,14 @@
               "result": "informational",
               "url": "https://www.npmjs.com/package/@onesmall/ui/v/0.6.0",
               "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
-              "verifiedAt": "2026-11-02T18:30:00Z",
+              "verifiedAt": "2026-11-02T18:40:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:30:00Z",
+          "lastObservedAt": "2026-11-02T18:40:00Z",
           "failed": false,
           "missing": [
             "registry notes: 0.6.0 was published without an npm provenance attestation. Owner decides: accept as unmet for 0.6.0 (blocks DoD) or record not_applicable with a rationale; trusted publishing is ROADMAP E5"
@@ -781,14 +781,14 @@
               "result": "informational",
               "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
               "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
-              "verifiedAt": "2026-11-02T18:30:00Z",
+              "verifiedAt": "2026-11-02T18:40:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:30:00Z",
+          "lastObservedAt": "2026-11-02T18:40:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -813,7 +813,7 @@
               "result": "informational",
               "url": "https://www.npmjs.com/package/@onesmall/ui/v/0.6.0",
               "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
-              "verifiedAt": "2026-11-02T18:30:00Z",
+              "verifiedAt": "2026-11-02T18:40:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
@@ -832,7 +832,7 @@
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:30:00Z",
+          "lastObservedAt": "2026-11-02T18:40:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",

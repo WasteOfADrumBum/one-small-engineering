@@ -1,8 +1,8 @@
 {
   "kind": "one-small-engineering/verification-dashboard",
   "command": "npm run verify:report",
-  "asOf": "2026-11-02T18:30:00Z",
-  "registryHash": "ba0dbd7f600bb5d738d5f1523572e3d2b353966a9519114ea152f02428ecaf67",
+  "asOf": "2026-11-02T18:40:00Z",
+  "registryHash": "0e96c780bc93781ae81f869a431cebd5f56606652b83af26ef9abfa80a4ee26d",
   "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
   "policyVersion": 1,
   "runs": [
@@ -3241,7 +3241,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "scope",
-          "description": "No approved release scope. Release scope and acceptance record proposed in closeout PR #19; resolve when the owner approves it."
+          "description": "Scope is recorded on main (docs/release/studio-release-evidence.md) and Joshua Small approved the release in the project thread on 2026-11-02 (owner-reported). The registry still needs a target version and scope document link; the release has no version or tag yet."
         },
         {
           "id": "auto-critical-workflows-unverified",
@@ -3429,8 +3429,13 @@
       ],
       "relatedPullRequests": [
         {
-          "number": 19,
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/19",
+          "number": 21,
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/21",
+          "draft": false
+        },
+        {
+          "number": 22,
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/22",
           "draft": false
         }
       ],
@@ -3875,7 +3880,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "scope",
-          "description": "No approved release scope. Neon Postgres and B2 storage are no longer \"next phase\": they are built and live. Draft docs/release-scope-1.0.0.md puts them in scope as shipped; resolve when the owner approves it."
+          "description": "Scope is recorded on main in docs/RELEASE.md (Neon Postgres and B2 storage are built and live, not next phase) but not approved. Resolve when the owner records approval in section 6."
         },
         {
           "id": "auto-critical-workflows-unverified",
@@ -4083,7 +4088,18 @@
           ]
         }
       ],
-      "relatedPullRequests": [],
+      "relatedPullRequests": [
+        {
+          "number": 22,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/22",
+          "draft": false
+        },
+        {
+          "number": 24,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/24",
+          "draft": false
+        }
+      ],
       "remediation": [],
       "verificationRequests": [
         {

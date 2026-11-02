@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-02T18:30:00Z",
+  "lastUpdatedAt": "2026-11-02T18:40:00Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -614,7 +614,7 @@
           "pullRequest": 34,
           "ref": "main",
           "headSha": "9a13c9e22d094a95364262a1ae89f666febac892",
-          "observedAt": "2026-11-02T18:30:00Z"
+          "observedAt": "2026-11-02T18:40:00Z"
         }
       },
       "ownership": {
@@ -729,7 +729,7 @@
           "type": "package",
           "url": "https://www.npmjs.com/package/@onesmall/ui/v/0.6.0",
           "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
-          "verifiedAt": "2026-11-02T18:30:00Z",
+          "verifiedAt": "2026-11-02T18:40:00Z",
           "result": "informational",
           "description": "npm @onesmall/ui 0.6.0 is dist-tag latest; dist.integrity sha512-HrIZIPxye5Iz6Zos6J2z1klZe7cFwpdikRil/Wm6geY0BGyjFyynDaXLadfdD1Ojl5LYPaTjUiW8Agymgt6jtQ== equals the candidate tarball in the readiness report. No npm provenance attestation. Checked 2026-11-02.",
           "recordedBy": "Claude Code"
@@ -739,7 +739,7 @@
           "type": "pull_request",
           "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/36",
           "commitSha": null,
-          "verifiedAt": "2026-11-02T18:30:00Z",
+          "verifiedAt": "2026-11-02T18:40:00Z",
           "result": "builder_reported",
           "description": "Open closeout PR #36 (another Claude Code thread, CI green at 4058dcb): 0.6.0 acceptance record for the owner, provenance gate, ROADMAP.md, checkpoint. Not merged.",
           "recordedBy": "Claude Code"
@@ -749,7 +749,7 @@
           "type": "deployment",
           "url": "https://vercel.com/task-forge3/one-small-ui/2RRhJMHdTkSYZTsuGAZrQg9TaP6S",
           "commitSha": "408b8844db13037a22c718b790f0d769a910803a",
-          "verifiedAt": "2026-11-02T18:30:00Z",
+          "verifiedAt": "2026-11-02T18:40:00Z",
           "result": "informational",
           "description": "Vercel production deployment dpl_2RRhJMHdTkSYZTsuGAZrQg9TaP6S (READY) serves main 408b884 for the docs site (ui.onesmall.company, one-small-ui.vercel.app). 408b884 differs from 9a13c9e only in docs and .engineering.",
           "recordedBy": "Claude Code"
@@ -759,7 +759,7 @@
           "type": "document",
           "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
           "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
-          "verifiedAt": "2026-11-02T18:30:00Z",
+          "verifiedAt": "2026-11-02T18:40:00Z",
           "result": "informational",
           "description": "Owner-reported 2026-11-02 (Joshua Small, project chat): 0.6.0 manual acceptance passed in Chrome with Windows Narrator; live docs accepted; the two documented moderate dev-only advisories accepted. Not a verify:record pass.",
           "recordedBy": "Claude Code"
@@ -1131,7 +1131,7 @@
           "type": "deployment",
           "url": "https://vercel.com/task-forge3/joshsmall-portfolio/H2W4sexCyyGjyUhDuEdMHW1hYjee",
           "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
-          "verifiedAt": "2026-11-02T18:30:00Z",
+          "verifiedAt": "2026-11-02T18:40:00Z",
           "result": "informational",
           "description": "Vercel production deployment dpl_H2W4sexCyyGjyUhDuEdMHW1hYjee (READY) serves main 1435e75; production domain https://onesmall.company. Checked 2026-11-02 through the Vercel API.",
           "recordedBy": "Claude Code"
@@ -1141,7 +1141,7 @@
           "type": "document",
           "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
           "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
-          "verifiedAt": "2026-11-02T18:30:00Z",
+          "verifiedAt": "2026-11-02T18:40:00Z",
           "result": "informational",
           "description": "Owner-reported 2026-11-02 (Joshua Small, project chat): contact emails arrive. Not a verify:record pass.",
           "recordedBy": "Claude Code"
@@ -1151,7 +1151,7 @@
           "type": "commit",
           "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/5f0a84971343fd6dc85bde2e162c90594dc8b492/README.md",
           "commitSha": "5f0a84971343fd6dc85bde2e162c90594dc8b492",
-          "verifiedAt": "2026-11-02T18:30:00Z",
+          "verifiedAt": "2026-11-02T18:40:00Z",
           "result": "informational",
           "description": "README at 5f0a849 describes the site (stack, highlights, run locally, contact); it is no longer the create-next-app template.",
           "recordedBy": "Claude Code"
@@ -1161,7 +1161,7 @@
           "type": "document",
           "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/1435e75e68df31edd52abb168d7b082844ba3e04/docs/release/2026-11-portfolio-release.md",
           "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
-          "verifiedAt": "2026-11-02T18:30:00Z",
+          "verifiedAt": "2026-11-02T18:40:00Z",
           "result": "builder_reported",
           "description": "Release record and owner acceptance checklist (docs/release/ACCEPTANCE.md) merged to main at 1435e75 through PRs #29 and #28. States ready for owner acceptance, not approved.",
           "recordedBy": "Claude Code"
@@ -1171,7 +1171,7 @@
           "type": "commit",
           "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/1435e75e68df31edd52abb168d7b082844ba3e04/.github/workflows/ci.yml",
           "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
-          "verifiedAt": "2026-11-02T18:30:00Z",
+          "verifiedAt": "2026-11-02T18:40:00Z",
           "result": "informational",
           "description": ".github/workflows/ci.yml exists on main at 1435e75 and runs on every PR and push to main (checked 2026-11-02); its first main run concluded success.",
           "recordedBy": "Claude Code"
@@ -1296,9 +1296,9 @@
       "productionUrl": "https://studio.onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "b701805ef331941cb8d4869b0e2369f9d9526b2b",
+        "headSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
         "archived": false,
-        "observedAt": "2026-11-02T17:19:08Z",
+        "observedAt": "2026-11-02T18:21:27Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1310,10 +1310,17 @@
       },
       "openPullRequests": [
         {
-          "number": 19,
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/19",
-          "title": "Close the Studio release: resilience fixes, WCAG 2.2 tests, release docs",
-          "headSha": "ba82f24bf7f71be7d59b67ac4b90ea7de883590e",
+          "number": 21,
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/21",
+          "title": "Record Studio release checks A and B as tested",
+          "headSha": "a833bb8aaa0a2d8afa384f2a565e8a4c99146b1a",
+          "draft": false
+        },
+        {
+          "number": 22,
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/22",
+          "title": "Redraw the share card as a rack faceplate",
+          "headSha": "0ee57172d0673dcab32843593c32729edbf38c25",
           "draft": false
         }
       ],
@@ -1326,11 +1333,12 @@
         "blockers": [
           {
             "id": "scope-document-missing",
-            "description": "No approved release scope. Release scope and acceptance record proposed in closeout PR #19; resolve when the owner approves it.",
+            "description": "Scope is recorded on main (docs/release/studio-release-evidence.md) and Joshua Small approved the release in the project thread on 2026-11-02 (owner-reported). The registry still needs a target version and scope document link; the release has no version or tag yet.",
             "status": "open",
             "evidenceRefs": [
               "studio-repo-metadata",
-              "studio-closeout-pr-19"
+              "studio-release-record-9310334",
+              "studio-owner-approval-2026-11-02"
             ],
             "category": "scope",
             "blocks": "release",
@@ -1339,10 +1347,10 @@
             ]
           }
         ],
-        "nextAction": "Owner: review and merge one-small-studio PR #19 (release record), then record gate verifications with verify:record per docs/acceptance/closeout-2026-11-02.md.",
+        "nextAction": "Owner approved the release in the project thread (2026-11-02). To close it in the registry: record gate verifications with verify:record per docs/acceptance/closeout-2026-11-02.md (checks A headers and B screen reader still unreported), then record the approval through a PR.",
         "enhancements": [
           "Additional music and catalog content (not a code-release blocker).",
-          "Optional items in the ROADMAP.md added by PR #19 (never reopen the release)."
+          "Optional items in ROADMAP.md (never reopen the release)."
         ]
       },
       "ownership": {
@@ -1379,33 +1387,33 @@
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
         },
         {
-          "id": "sync-one-small-studio-run-ci-yml-b701805-ixt0pmd-1",
+          "id": "sync-one-small-studio-run-ci-yml-9310334-j2b90y5-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/41226207925",
-          "commitSha": "b701805ef331941cb8d4869b0e2369f9d9526b2b",
-          "verifiedAt": "2026-10-31T17:48:54Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/41498693645",
+          "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
+          "verifiedAt": "2026-11-02T18:16:34Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at b701805 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 9310334 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-studio:workflow_run:ci.yml/b701805/ixt0pmd/1"
+          "eventKey": "one-small-studio:workflow_run:ci.yml/9310334/j2b90y5/1"
         },
         {
-          "id": "one-small-studio-vercel-b701805",
+          "id": "one-small-studio-vercel-9310334",
           "type": "deployment",
-          "url": "https://vercel.com/task-forge3/one-small-studio/CGx5ftNFpkhRbt41CG7e73zW3Jd4",
-          "commitSha": "b701805ef331941cb8d4869b0e2369f9d9526b2b",
-          "verifiedAt": "2026-11-02T18:30:00Z",
+          "url": "https://vercel.com/task-forge3/one-small-studio/FpfQVJLCJwMwXjxwNgQAa3X3mEMh",
+          "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
+          "verifiedAt": "2026-11-02T18:40:00Z",
           "result": "informational",
-          "description": "Vercel production deployment dpl_CGx5ftNFpkhRbt41CG7e73zW3Jd4 (READY) serves main b701805; production domain https://studio.onesmall.company. Checked 2026-11-02 through the Vercel API.",
+          "description": "Vercel production deployment dpl_FpfQVJLCJwMwXjxwNgQAa3X3mEMh (READY) serves main 9310334; production domain https://studio.onesmall.company. Checked 2026-11-02 through the Vercel API.",
           "recordedBy": "Claude Code"
         },
         {
           "id": "one-small-studio-owner-report-2026-11-02",
           "type": "document",
           "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
-          "commitSha": "b701805ef331941cb8d4869b0e2369f9d9526b2b",
-          "verifiedAt": "2026-11-02T18:30:00Z",
+          "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
+          "verifiedAt": "2026-11-02T18:40:00Z",
           "result": "informational",
           "description": "Owner-reported 2026-11-02 (Joshua Small, project chat): contact emails arrive and music plays. Not a verify:record pass.",
           "recordedBy": "Claude Code"
@@ -1421,13 +1429,23 @@
           "recordedBy": "Claude Code"
         },
         {
-          "id": "studio-closeout-pr-19",
-          "type": "pull_request",
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/19",
-          "commitSha": null,
-          "verifiedAt": "2026-11-02T18:30:00Z",
+          "id": "studio-release-record-9310334",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/931033490b5206a7c0bfb4ade75de30c667416ca/docs/release/studio-release-evidence.md",
+          "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
+          "verifiedAt": "2026-11-02T18:40:00Z",
           "result": "builder_reported",
-          "description": "Open closeout PR #19 (CI green at ba82f24): resilience fixes, WCAG 2.2 tests, DEPLOYMENT.md, release evidence and owner acceptance record, ROADMAP.md. Not merged.",
+          "description": "Studio release evidence and acceptance record merged to main through PRs #19 and #20 (CI green at 9310334): scope, resilience fixes, WCAG 2.2 tests, DEPLOYMENT.md, ROADMAP.md.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "studio-owner-approval-2026-11-02",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/931033490b5206a7c0bfb4ade75de30c667416ca/docs/release/studio-release-acceptance.md",
+          "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
+          "verifiedAt": "2026-11-02T18:08:00Z",
+          "result": "informational",
+          "description": "Owner-reported 2026-11-02T18:08Z (Joshua Small, project thread \"Close Studio release\"): \"I accept these risks and approve the Studio release.\" Recorded in docs/release/studio-release-acceptance.md. Not a verify:record pass and not a registry approval: no gate is verified yet.",
           "recordedBy": "Claude Code"
         }
       ],
@@ -1443,10 +1461,11 @@
           "id": "automated-checks",
           "status": "in_progress",
           "evidenceRefs": [
-            "studio-ci-main"
+            "studio-ci-main",
+            "sync-one-small-studio-run-ci-yml-9310334-j2b90y5-1"
           ],
           "verifiedAt": null,
-          "notes": "Latest default-branch CI passed at 923fb11. The target release scope is not frozen, so this does not verify the release; re-run on the release candidate."
+          "notes": "CI green on main at 9310334 (builder evidence from sync). Verifier re-checks at the release commit."
         },
         {
           "id": "security-privacy-review",
@@ -1489,7 +1508,7 @@
           "id": "production-deployment",
           "status": "in_progress",
           "evidenceRefs": [
-            "one-small-studio-vercel-b701805"
+            "one-small-studio-vercel-9310334"
           ],
           "verifiedAt": null,
           "notes": "Vercel serves the main head (informational). Verifier confirms the release commit in production."
@@ -1498,10 +1517,11 @@
           "id": "documentation-accurate",
           "status": "in_progress",
           "evidenceRefs": [
-            "studio-owner-docs-2026-10-31"
+            "studio-owner-docs-2026-10-31",
+            "studio-release-record-9310334"
           ],
           "verifiedAt": null,
-          "notes": "Owner said the documentation looks good (2026-10-31, at d6854de; README unchanged since). Needs the owner's verify:record."
+          "notes": "Owner said the documentation looks good (2026-10-31, at d6854de); README and DEPLOYMENT.md now on main at 9310334. Needs the owner's verify:record."
         },
         {
           "id": "no-release-blockers",
@@ -1524,17 +1544,16 @@
         ]
       },
       "missingEvidence": [
-        "Approved release scope (PR #19).",
-        "Security review of the contact API under standards/security.md.",
+        "Live header check (A) and screen reader check (B) from the acceptance record.",
         "Verifier records for all ten Showcase gates.",
-        "Owner approval record."
+        "Registry approval record (the approval itself is owner-reported in the acceptance record)."
       ],
       "sync": {
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1410748339,
-        "lastSyncedAt": "2026-11-02T17:19:08Z",
-        "lastSyncedHead": "b701805ef331941cb8d4869b0e2369f9d9526b2b",
+        "lastSyncedAt": "2026-11-02T18:21:27Z",
+        "lastSyncedHead": "931033490b5206a7c0bfb4ade75de30c667416ca",
         "configSource": "defaults"
       }
     },
@@ -1548,9 +1567,9 @@
       "productionUrl": "https://photo.onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "d9265638467e9c1cfe7e3dca9e48783a758dda7b",
+        "headSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
         "archived": false,
-        "observedAt": "2026-11-01T19:12:54Z",
+        "observedAt": "2026-11-02T18:23:26Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1560,7 +1579,22 @@
           "private": true
         }
       },
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 22,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/22",
+          "title": "Closeout: 1.0.0 scope draft, roadmap, CI token read-only",
+          "headSha": "38c925d7824fd58f557287e6f6fd1907907e7fb3",
+          "draft": false
+        },
+        {
+          "number": 24,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/24",
+          "title": "Add a branded social share card",
+          "headSha": "671388272d397ce48e0ff5458338b828e3600d7f",
+          "draft": false
+        }
+      ],
       "release": {
         "currentVersion": null,
         "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder.",
@@ -1570,11 +1604,11 @@
         "blockers": [
           {
             "id": "scope-document-missing",
-            "description": "No approved release scope. Neon Postgres and B2 storage are no longer \"next phase\": they are built and live. Draft docs/release-scope-1.0.0.md puts them in scope as shipped; resolve when the owner approves it.",
+            "description": "Scope is recorded on main in docs/RELEASE.md (Neon Postgres and B2 storage are built and live, not next phase) but not approved. Resolve when the owner records approval in section 6.",
             "status": "open",
             "evidenceRefs": [
               "photo-repo-metadata",
-              "photo-closeout-pr-22"
+              "photo-release-record-c850853"
             ],
             "category": "scope",
             "blocks": "release",
@@ -1583,7 +1617,7 @@
             ]
           }
         ],
-        "nextAction": "Owner: review and merge one-small-photography PR #22 (1.0.0 scope draft), disposition the 4 moderate build-time advisories, then record gate verifications with verify:record per docs/acceptance/closeout-2026-11-02.md.",
+        "nextAction": "Owner: complete docs/RELEASE.md section 6 in one-small-photography, disposition the 4 moderate build-time advisories, then record gate verifications with verify:record per docs/acceptance/closeout-2026-11-02.md.",
         "enhancements": [
           "Additional photos and albums (not a code-release blocker).",
           "Build-time advisory upgrade, CI accessibility check, contact note retention: https://github.com/WasteOfADrumBum/one-small-photography/blob/main/ROADMAP.md (never reopen the release)."
@@ -1623,35 +1657,57 @@
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
         },
         {
-          "id": "sync-one-small-photography-run-ci-yml-d926563-iznzf44-1",
+          "id": "sync-one-small-photography-run-ci-yml-c850853-j2apy2k-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41338681924",
-          "commitSha": "d9265638467e9c1cfe7e3dca9e48783a758dda7b",
-          "verifiedAt": "2026-11-01T18:52:25Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41497803452",
+          "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
+          "verifiedAt": "2026-11-02T18:10:43Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at d926563 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at c850853 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:ci.yml/d926563/iznzf44/1"
+          "eventKey": "one-small-photography:workflow_run:ci.yml/c850853/j2apy2k/1"
         },
         {
-          "id": "one-small-photography-vercel-d926563",
+          "id": "sync-one-small-photography-run-production-smoke-yml-c850853-j2bbcj4-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41498801968",
+          "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
+          "verifiedAt": "2026-11-02T18:15:38Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke\") concluded success on main at c850853 (workflow_dispatch event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-photography:workflow_run:production-smoke.yml/c850853/j2bbcj4/1"
+        },
+        {
+          "id": "one-small-photography-vercel-c850853",
           "type": "deployment",
-          "url": "https://vercel.com/task-forge3/one-small-photography/C3PpG42VGUuqzC1s8w1i54YRZHah",
-          "commitSha": "d9265638467e9c1cfe7e3dca9e48783a758dda7b",
-          "verifiedAt": "2026-11-02T18:30:00Z",
+          "url": "https://vercel.com/task-forge3/one-small-photography/2pW6dWB2DP7kMRB3zXZJQcj8RerB",
+          "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
+          "verifiedAt": "2026-11-02T18:40:00Z",
           "result": "informational",
-          "description": "Vercel production deployment dpl_C3PpG42VGUuqzC1s8w1i54YRZHah (READY) serves main d926563; production domain https://photo.onesmall.company. Checked 2026-11-02 through the Vercel API.",
+          "description": "Vercel production deployment dpl_2pW6dWB2DP7kMRB3zXZJQcj8RerB (READY) serves main c850853; production domain https://photo.onesmall.company. Checked 2026-11-02 through the Vercel API.",
           "recordedBy": "Claude Code"
         },
         {
           "id": "one-small-photography-owner-report-2026-11-02",
           "type": "document",
           "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
-          "commitSha": "d9265638467e9c1cfe7e3dca9e48783a758dda7b",
-          "verifiedAt": "2026-11-02T18:30:00Z",
+          "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
+          "verifiedAt": "2026-11-02T18:40:00Z",
           "result": "informational",
           "description": "Owner-reported 2026-11-02 (Joshua Small, project chat): contact emails arrive and galleries work live. Not a verify:record pass.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "photo-release-record-c850853",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/c850853c0ffd16042941c5030e273b47f17a0cdf/docs/RELEASE.md",
+          "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
+          "verifiedAt": "2026-11-02T18:40:00Z",
+          "result": "builder_reported",
+          "description": "Release record merged to main through PR #23 (CI and production smoke green at c850853): scope, recovery docs, checks and evidence. Section 6 approval is empty.",
           "recordedBy": "Claude Code"
         },
         {
@@ -1659,9 +1715,9 @@
           "type": "pull_request",
           "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/22",
           "commitSha": null,
-          "verifiedAt": "2026-11-02T18:30:00Z",
+          "verifiedAt": "2026-11-02T18:40:00Z",
           "result": "builder_reported",
-          "description": "Open closeout PR #22 (this thread, 38c925d): docs/release-scope-1.0.0.md draft (database and B2 storage in scope as shipped), ROADMAP.md, README rollback and links, CI token contents: read. Not merged.",
+          "description": "Open PR #22 (38c925d): draft scope and ROADMAP now superseded by PR #23; its remaining change is read-only CI token permissions.",
           "recordedBy": "Claude Code"
         }
       ],
@@ -1677,10 +1733,11 @@
           "id": "automated-checks",
           "status": "in_progress",
           "evidenceRefs": [
-            "photo-ci-main"
+            "photo-ci-main",
+            "sync-one-small-photography-run-ci-yml-c850853-j2apy2k-1"
           ],
           "verifiedAt": null,
-          "notes": "Latest default-branch CI passed at 2471b18. The target release scope is not frozen, so this does not verify the release; re-run on the release candidate."
+          "notes": "CI green on main at c850853 (builder evidence from sync). Verifier re-checks at the release commit."
         },
         {
           "id": "security-privacy-review",
@@ -1714,7 +1771,8 @@
           "id": "critical-workflows",
           "status": "in_progress",
           "evidenceRefs": [
-            "one-small-photography-owner-report-2026-11-02"
+            "one-small-photography-owner-report-2026-11-02",
+            "sync-one-small-photography-run-production-smoke-yml-c850853-j2bbcj4-1"
           ],
           "verifiedAt": null,
           "notes": "Contact delivery and live galleries confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only."
@@ -1723,7 +1781,7 @@
           "id": "production-deployment",
           "status": "in_progress",
           "evidenceRefs": [
-            "one-small-photography-vercel-d926563"
+            "one-small-photography-vercel-c850853"
           ],
           "verifiedAt": null,
           "notes": "Vercel serves the main head (informational). Verifier confirms the release commit in production."
@@ -1756,8 +1814,8 @@
         ]
       },
       "missingEvidence": [
-        "Approved release scope (draft 1.0.0 proposed).",
-        "Security review of admin auth, uploads and contact notes under standards/security.md; disposition of 4 moderate production-tree advisories (@astrojs/vercel -> @vercel/nft, build time).",
+        "Owner approval of the recorded scope (docs/RELEASE.md section 6).",
+        "Disposition of 4 moderate production-tree advisories (@astrojs/vercel -> @vercel/nft, build time).",
         "Verifier records for all ten Showcase gates.",
         "Owner approval record."
       ],
@@ -1765,8 +1823,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-11-01T19:12:54Z",
-        "lastSyncedHead": "d9265638467e9c1cfe7e3dca9e48783a758dda7b",
+        "lastSyncedAt": "2026-11-02T18:23:26Z",
+        "lastSyncedHead": "c850853c0ffd16042941c5030e273b47f17a0cdf",
         "configSource": "defaults"
       }
     },
