@@ -1,6 +1,6 @@
 # OneSmallUI 0.6.0 release notes (draft)
 
-> **Draft, not approved, not published.** Status: Not scoped (no target version or scope document). 0 of 22 applicable gates independently verified (0%); 4 open blocker(s). Generated 2026-10-31T01:00:00Z.
+> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 22 applicable gates independently verified (0%); 4 open blocker(s). Generated 2026-11-02T18:00:00Z.
 
 ## Highlights
 
@@ -9,14 +9,13 @@ _Fill in from the approved scope document._
 ## Verification status
 
 - 0 of 22 applicable release gates independently verified.
-- Builder-reported, awaiting independent verification: automated-checks.
+- Builder-reported, awaiting independent verification: scope-complete, automated-checks, wcag-22-aa, documentation-accurate, package-metadata-exports, clean-consumer-install, runtime-compatibility, package-archive-inspection, supply-chain-review, ci-release-pipeline, versioning-changelog, upgrade-rollback-uninstall-docs, public-docs-accurate, published-artifact-matches.
 
 ## Known limitations
 
-- Not yet verified: v0.6.0 scope document.
-- Not yet verified: Whether 0.5.0 was published with npm provenance (not checked).
-- Not yet verified: GitHub release object for v0.5.0 (only a tag exists).
-- Not yet verified: Builder and independent verifier not assigned.
+- Not yet verified: Verifier verify:record entries for every 0.6.0 gate at 9a13c9e (none recorded).
+- Not yet verified: npm provenance for 0.6.0 (none; owner decides whether release-provenance is unmet or not applicable).
+- Not yet verified: Owner approval record for 0.6.0.
 
 ## Upgrade, rollback and uninstall
 

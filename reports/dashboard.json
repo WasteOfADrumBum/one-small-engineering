@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/dashboard",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-10-31T01:00:00Z",
+  "asOf": "2026-11-02T18:00:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "0463acb8850877d2df8fc733ee6bfa08165a8bb425c82e65a4a5777c63271d70",
+  "registrySha256": "765e9f3236d0066a3fba8417fda8329a858e8adf203730621faf6f9dc038bfef",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "projects": [
     {
@@ -15,8 +15,8 @@
         "targetVersion": "2.0.0",
         "currentVersion": "0.1.0",
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-10-30T12:03:32Z",
-        "snapshotObservedAt": "2026-10-30T13:06:02Z"
+        "lastEvidenceAt": "2026-10-31T19:50:20Z",
+        "snapshotObservedAt": "2026-10-31T20:14:34Z"
       },
       "derived": {
         "percentage": 0,
@@ -35,20 +35,20 @@
       "tier": "library",
       "facts": {
         "targetVersion": "0.6.0",
-        "currentVersion": "0.5.0",
-        "releaseStatus": "not_started",
-        "lastEvidenceAt": "2026-10-22T16:33:00Z",
-        "snapshotObservedAt": "2026-10-30T13:06:02Z"
+        "currentVersion": "0.6.0",
+        "releaseStatus": "ready_for_review",
+        "lastEvidenceAt": "2026-11-02T18:00:00Z",
+        "snapshotObservedAt": "2026-11-02T17:16:07Z"
       },
       "derived": {
         "percentage": 0,
         "verifiedGates": 0,
         "applicableGates": 22,
         "blockingFindings": 4,
-        "registryBlockers": 1,
-        "eligibility": "not-scoped",
+        "registryBlockers": 0,
+        "eligibility": "not-eligible",
         "releaseReady": false,
-        "nextAction": "Resolve blocker scope-document-missing: No v0.6.0 / Phase 5 page-blocks scope document exists in the repository; scope cannot be frozen."
+        "nextAction": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
       }
     },
     {
@@ -59,18 +59,18 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-10-22T16:33:00Z",
-        "snapshotObservedAt": "2026-10-31T00:41:31Z"
+        "lastEvidenceAt": "2026-11-02T18:00:00Z",
+        "snapshotObservedAt": "2026-11-02T17:17:44Z"
       },
       "derived": {
         "percentage": 0,
         "verifiedGates": 0,
         "applicableGates": 10,
-        "blockingFindings": 6,
-        "registryBlockers": 3,
+        "blockingFindings": 5,
+        "registryBlockers": 2,
         "eligibility": "not-scoped",
         "releaseReady": false,
-        "nextAction": "Resolve blocker scope-document-missing: No release scope document in the repository (final audit and project showcase updates are owner-reported leads)."
+        "nextAction": "Resolve blocker scope-document-missing: No approved release scope. Release records proposed in closeout PRs #28 and #29 (overlapping); resolve when the owner approves one scope."
       }
     },
     {
@@ -81,8 +81,8 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-10-28T16:11:46Z",
-        "snapshotObservedAt": "2026-10-31T00:41:31Z"
+        "lastEvidenceAt": "2026-11-02T18:00:00Z",
+        "snapshotObservedAt": "2026-11-02T17:19:08Z"
       },
       "derived": {
         "percentage": 0,
@@ -92,7 +92,7 @@
         "registryBlockers": 1,
         "eligibility": "not-scoped",
         "releaseReady": false,
-        "nextAction": "Resolve blocker scope-document-missing: No release scope document in the repository (equipment showcase and final QA are owner-reported leads)."
+        "nextAction": "Resolve blocker scope-document-missing: No approved release scope. Release scope and acceptance record proposed in closeout PR #19; resolve when the owner approves it."
       }
     },
     {
@@ -103,8 +103,8 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-10-27T17:00:02Z",
-        "snapshotObservedAt": "2026-10-31T00:41:31Z"
+        "lastEvidenceAt": "2026-11-02T18:00:00Z",
+        "snapshotObservedAt": "2026-11-01T19:12:54Z"
       },
       "derived": {
         "percentage": 0,
@@ -114,7 +114,7 @@
         "registryBlockers": 1,
         "eligibility": "not-scoped",
         "releaseReady": false,
-        "nextAction": "Resolve blocker scope-document-missing: No release scope document. README lists Neon Postgres and Backblaze B2 photo storage as \"next phase\"; the owner must decide whether they are in the first release scope."
+        "nextAction": "Resolve blocker scope-document-missing: No approved release scope. Neon Postgres and B2 storage are no longer \"next phase\": they are built and live. Draft docs/release-scope-1.0.0.md puts them in scope as shipped; resolve when the owner approves it."
       }
     },
     {
@@ -125,8 +125,8 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-10-29T15:46:42Z",
-        "snapshotObservedAt": "2026-10-30T13:06:02Z"
+        "lastEvidenceAt": "2026-10-31T13:13:57Z",
+        "snapshotObservedAt": "2026-10-31T13:26:38Z"
       },
       "derived": {
         "percentage": 0,
@@ -148,7 +148,7 @@
         "currentVersion": null,
         "releaseStatus": "in_progress",
         "lastEvidenceAt": "2026-10-22T16:33:00Z",
-        "snapshotObservedAt": "2026-10-30T13:06:02Z"
+        "snapshotObservedAt": "2026-10-31T03:34:50Z"
       },
       "derived": {
         "percentage": 0,
@@ -169,8 +169,8 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "not_started",
-        "lastEvidenceAt": "2026-10-28T16:11:45Z",
-        "snapshotObservedAt": "2026-10-30T13:06:02Z"
+        "lastEvidenceAt": "2026-10-31T03:01:33Z",
+        "snapshotObservedAt": "2026-10-31T03:36:06Z"
       },
       "derived": {
         "percentage": 0,

@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-31T01:00:00Z",
+  "asOf": "2026-11-02T18:00:00Z",
   "id": "one-small-studio",
   "name": "One Small Studio",
   "tier": "showcase",
@@ -226,7 +226,7 @@
     {
       "id": "critical-workflows",
       "state": "inconclusive",
-      "engineState": "not_started",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -257,14 +257,14 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "registry notes: Contact form delivery and music playback confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
       ],
-      "nextAction": "Produce evidence for this gate."
+      "nextAction": "Finish the work and record evidence, then have the verifier re-check."
     },
     {
       "id": "production-deployment",
       "state": "inconclusive",
-      "engineState": "not_started",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -282,14 +282,14 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production"
       ],
-      "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+      "nextAction": "Finish the work and record evidence, then have the verifier re-check."
     },
     {
       "id": "documentation-accurate",
       "state": "inconclusive",
-      "engineState": "not_started",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -316,9 +316,9 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "registry notes: Owner said the documentation looks good (2026-10-31, at d6854de; README unchanged since). Needs the owner's verify:record"
       ],
-      "nextAction": "Produce evidence for this gate."
+      "nextAction": "Finish the work and record evidence, then have the verifier re-check."
     },
     {
       "id": "no-release-blockers",
@@ -411,7 +411,7 @@
       "severity": "unclassified",
       "blocks": "release",
       "category": "scope",
-      "description": "No release scope document in the repository (equipment showcase and final QA are owner-reported leads)."
+      "description": "No approved release scope. Release scope and acceptance record proposed in closeout PR #19; resolve when the owner approves it."
     },
     {
       "id": "auto-critical-workflows-unverified",
@@ -614,8 +614,8 @@
   "verifications": [],
   "relatedPullRequests": [
     {
-      "number": 17,
-      "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/17",
+      "number": 19,
+      "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/19",
       "draft": false
     }
   ],

@@ -85,7 +85,7 @@ export function renderStatus({ runAt, trigger, mode, results, previous = { proje
   const lines = []
   lines.push('# Registry sync status', '')
   lines.push(`Last run: ${runAt}. Trigger: ${trigger}. Mode: ${mode === 'write' ? 'write (draft PRs allowed)' : 'dry run (no branches or PRs)'}.${runUrl ? ` [Workflow run log](${runUrl}).` : ''}`, '')
-  lines.push('Automation records facts only. It never verifies a gate, resolves a blocker, changes release status or records approval; every registry PR needs Joshua Small\'s review and merge.', '')
+  lines.push('Automation records facts only. It never verifies a gate, resolves a blocker, changes release status or records approval; routine sync PRs merge only through Auto-merge after every safety check passes, and any other registry change needs Joshua Small\'s review and merge.', '')
 
   const errors = results.filter(r => r.outcome === 'error')
   lines.push('## Summary', '')

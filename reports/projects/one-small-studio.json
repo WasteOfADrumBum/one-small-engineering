@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-10-31T01:00:00Z",
+  "asOf": "2026-11-02T18:00:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "0463acb8850877d2df8fc733ee6bfa08165a8bb425c82e65a4a5777c63271d70",
+  "registrySha256": "765e9f3236d0066a3fba8417fda8329a858e8adf203730621faf6f9dc038bfef",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-studio",
@@ -19,16 +19,16 @@
       "candidate": null,
       "openPullRequests": [
         {
-          "number": 17,
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/17",
-          "headSha": "755d93f35fd452a45ba0ba104b6d16f60bb9d7d5",
+          "number": 19,
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/19",
+          "headSha": "ba82f24bf7f71be7d59b67ac4b90ea7de883590e",
           "draft": false
         }
       ],
-      "head": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
-      "snapshotObservedAt": "2026-10-31T00:41:31Z",
-      "lastSyncedAt": "2026-10-31T00:41:31Z",
-      "lastEvidenceAt": "2026-10-28T16:11:46Z",
+      "head": "b701805ef331941cb8d4869b0e2369f9d9526b2b",
+      "snapshotObservedAt": "2026-11-02T17:19:08Z",
+      "lastSyncedAt": "2026-11-02T17:19:08Z",
+      "lastEvidenceAt": "2026-11-02T18:00:00Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -40,12 +40,12 @@
         "approvedAt": null,
         "evidenceRefs": []
       },
-      "registryNextAction": "Commit a release scope (equipment showcase, final QA), then run the Showcase gates. Review the contact form API (MongoDB inbox) under the security standard.",
+      "registryNextAction": "Owner: review and merge one-small-studio PR #19 (release record), then record gate verifications with verify:record per docs/acceptance/closeout-2026-11-02.md.",
       "missingEvidence": [
-        "Release scope and target version.",
-        "Security review of the contact form endpoint (abuse/rate limiting, personal data retention).",
-        "Accessibility and production verification records.",
-        "Builder and independent verifier not assigned."
+        "Approved release scope (PR #19).",
+        "Security review of the contact API under standards/security.md.",
+        "Verifier records for all ten Showcase gates.",
+        "Owner approval record."
       ]
     },
     "derived": {
@@ -56,8 +56,8 @@
         "remainingGates": 10,
         "byState": {
           "verified": 0,
-          "in_progress": 1,
-          "not_started": 9,
+          "in_progress": 4,
+          "not_started": 6,
           "blocked": 0,
           "not_applicable": 0,
           "unknown_stale": 0
@@ -207,57 +207,96 @@
           "id": "critical-workflows",
           "requirement": "Critical user workflows (navigation, contact form, media playback, galleries) tested.",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "observation",
+          "evidence": [
+            {
+              "id": "one-small-studio-owner-report-2026-11-02",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
+              "commitSha": "b701805ef331941cb8d4869b0e2369f9d9526b2b",
+              "verifiedAt": "2026-11-02T18:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-02T18:00:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "registry notes: Contact form delivery and music playback confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
           ],
-          "notes": null,
+          "notes": "Contact form delivery and music playback confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
           "blockers": [
             "auto-critical-workflows-unverified"
           ],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": "Finish the work and record evidence, then have the verifier re-check."
         },
         {
           "id": "production-deployment",
           "requirement": "The production deployment serves the release commit and behaves as tested.",
           "phase": "post-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "observation",
+          "evidence": [
+            {
+              "id": "one-small-studio-vercel-b701805",
+              "type": "deployment",
+              "result": "informational",
+              "url": "https://vercel.com/task-forge3/one-small-studio/CGx5ftNFpkhRbt41CG7e73zW3Jd4",
+              "commitSha": "b701805ef331941cb8d4869b0e2369f9d9526b2b",
+              "verifiedAt": "2026-11-02T18:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-02T18:00:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production"
           ],
-          "notes": null,
+          "notes": "Vercel serves the main head (informational). Verifier confirms the release commit in production.",
           "blockers": [],
-          "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+          "nextAction": "Finish the work and record evidence, then have the verifier re-check."
         },
         {
           "id": "documentation-accurate",
           "requirement": "README and essential docs describe the actual project, setup and deployment.",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "observation",
+          "evidence": [
+            {
+              "id": "studio-owner-docs-2026-10-31",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
+              "commitSha": null,
+              "verifiedAt": "2026-10-31T17:48:42Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-10-31T17:48:42Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "registry notes: Owner said the documentation looks good (2026-10-31, at d6854de; README unchanged since). Needs the owner's verify:record"
           ],
-          "notes": null,
+          "notes": "Owner said the documentation looks good (2026-10-31, at d6854de; README unchanged since). Needs the owner's verify:record.",
           "blockers": [],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": "Finish the work and record evidence, then have the verifier re-check."
         },
         {
           "id": "no-release-blockers",
@@ -293,9 +332,10 @@
             "gates": [
               "scope-complete"
             ],
-            "description": "No release scope document in the repository (equipment showcase and final QA are owner-reported leads).",
+            "description": "No approved release scope. Release scope and acceptance record proposed in closeout PR #19; resolve when the owner approves it.",
             "evidenceRefs": [
-              "studio-repo-metadata"
+              "studio-repo-metadata",
+              "studio-closeout-pr-19"
             ],
             "rule": null
           },
@@ -355,6 +395,11 @@
             "id": "enhancement-1",
             "origin": "registry",
             "text": "Additional music and catalog content (not a code-release blocker)."
+          },
+          {
+            "id": "enhancement-2",
+            "origin": "registry",
+            "text": "Optional items in the ROADMAP.md added by PR #19 (never reopen the release)."
           }
         ]
       },
@@ -369,7 +414,7 @@
           "gates": [
             "scope-complete"
           ],
-          "text": "Resolve blocker scope-document-missing: No release scope document in the repository (equipment showcase and final QA are owner-reported leads).",
+          "text": "Resolve blocker scope-document-missing: No approved release scope. Release scope and acceptance record proposed in closeout PR #19; resolve when the owner approves it.",
           "summary": "Resolve blocker scope-document-missing."
         },
         {

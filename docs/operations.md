@@ -12,6 +12,8 @@ Main integrity            push to main + every 6 h: flags any change to main tha
 Engineering orchestrator  every 6 h + manual: read-only observe run over all eight projects; reports/engineering/ in the job summary and artifact (docs/engineering.md)
 Verify / Remediation      manual (Verify also on PRs); remediation writes are off unless REMEDIATION_WRITE_ENABLED=true
 Auto-merge registry sync merges a sync PR that passes every safety check (docs/automerge.md); anything else waits for you
+Change watch              hourly, read-only: compares project heads and open PRs with the registry; dispatches Registry sync on change
+Project state             every 6 h, read-only: aggregates each project's .engineering/state.json (docs/agent-continuity.md)
 ```
 
 Nothing is ever written to a project repository except one reviewed remediation draft PR, which is off by default. Project repositories need no file, secret or workflow (all eight are in `observe` mode).
@@ -27,9 +29,12 @@ Every workflow in this repository, what starts it, and what it may change. "Hub"
 | Validate registry (`validate.yml`) | Every PR and push to main | Run workflow (sync dispatches it on `sync/*`) | Hub checkout | Nothing | Check on the PR |
 | Engineering orchestrator (`engineering.yml`) | `17 */6 * * *`, observe only | `mode: observe` (optionally `execute: true`) or `mode: prepare` | All eight projects; `SYNC_READER_TOKEN` for AI Workforce | Nothing on GitHub. State in the Actions cache | Job summary; `engineering-<run>` artifact, 30 days |
 | Verify (`verify.yml`) | PRs touching verification code, policy or the registry | Run workflow | Projects at the evaluated commit | Nothing | Artifact, 30 days |
+| Auto-merge registry sync (`automerge.yml`) | `41 */3 * * *` and dispatched by Registry sync | Run workflow (optional dry run) | Open `sync/*` PRs, their checks | Hub only: merges an eligible sync PR into main (`contents`, `pull-requests`: write) | Job summary |
+| Change watch (`watch.yml`) | `11 * * * *` | Run workflow | Project heads and open PRs | Nothing; dispatches Registry sync on change | Job summary |
+| Project state (`state.yml`) | `53 */6 * * *` | Run workflow | Each project's `.engineering/state.json` | Nothing | Job summary; artifact, 30 days |
 | Remediation (`remediation.yml`) | Never | By hand from main, with confirmation text | One target repository | One draft PR, only when `REMEDIATION_WRITE_ENABLED=true` and `REMEDIATION_TOKEN` are set. **Off by default**: `REMEDIATION_WRITE_ENABLED` is unset | The draft PR |
 
-No workflow merges, approves, tags, publishes or deploys. Release approval is Joshua Small's alone and is recorded by hand ([release.md](../standards/release.md)).
+The only workflow that merges is Auto-merge, and only routine sync PRs ([automerge.md](automerge.md)); pause it with the `AUTOMERGE_PAUSED=true` variable or a `hold` label. No workflow approves, tags, publishes or deploys. Release approval is Joshua Small's alone and is recorded by hand ([release.md](../standards/release.md)).
 
 ### Credentials
 

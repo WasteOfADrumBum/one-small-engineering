@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-31T01:00:00Z",
+  "asOf": "2026-11-02T18:00:00Z",
   "id": "personal-portfolio",
   "name": "Personal Portfolio",
   "tier": "showcase",
@@ -225,7 +225,7 @@
     {
       "id": "critical-workflows",
       "state": "inconclusive",
-      "engineState": "not_started",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -256,14 +256,14 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "registry notes: Contact form delivery confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
       ],
-      "nextAction": "Produce evidence for this gate."
+      "nextAction": "Finish the work and record evidence, then have the verifier re-check."
     },
     {
       "id": "production-deployment",
       "state": "inconclusive",
-      "engineState": "not_started",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -281,14 +281,14 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production"
       ],
-      "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+      "nextAction": "Finish the work and record evidence, then have the verifier re-check."
     },
     {
       "id": "documentation-accurate",
       "state": "inconclusive",
-      "engineState": "blocked",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -315,9 +315,9 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "registry notes: README is create-next-app boilerplate"
+        "registry notes: README now describes the site; the closeout PRs add release records. Verifier reviews at the release commit"
       ],
-      "nextAction": "Resolve readme-boilerplate, then verify."
+      "nextAction": "Finish the work and record evidence, then have the verifier re-check."
     },
     {
       "id": "no-release-blockers",
@@ -410,15 +410,7 @@
       "severity": "unclassified",
       "blocks": "release",
       "category": "ci",
-      "description": "No GitHub Actions workflow; the only commit check is the Vercel deployment status, so lint, type check and tests are not enforced on PRs."
-    },
-    {
-      "id": "readme-boilerplate",
-      "origin": "registry",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "documentation",
-      "description": "README.md is the unmodified create-next-app template and does not describe the site."
+      "description": "No GitHub Actions workflow on main; lint, type check and tests are not enforced on PRs. Both open closeout PRs #28 and #29 add a CI workflow (green on their heads); resolve after one merges and CI runs green on main."
     },
     {
       "id": "scope-document-missing",
@@ -426,7 +418,7 @@
       "severity": "unclassified",
       "blocks": "release",
       "category": "scope",
-      "description": "No release scope document in the repository (final audit and project showcase updates are owner-reported leads)."
+      "description": "No approved release scope. Release records proposed in closeout PRs #28 and #29 (overlapping); resolve when the owner approves one scope."
     },
     {
       "id": "auto-critical-workflows-unverified",
@@ -458,7 +450,7 @@
     "high": 0,
     "medium": 0,
     "low": 0,
-    "unclassified": 6
+    "unclassified": 5
   },
   "mergeEligible": false,
   "releaseEligible": false,
@@ -627,7 +619,18 @@
     }
   ],
   "verifications": [],
-  "relatedPullRequests": [],
+  "relatedPullRequests": [
+    {
+      "number": 28,
+      "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/28",
+      "draft": false
+    },
+    {
+      "number": 29,
+      "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/29",
+      "draft": false
+    }
+  ],
   "remediation": [
     {
       "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/17",

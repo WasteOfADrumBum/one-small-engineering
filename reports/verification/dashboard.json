@@ -1,8 +1,8 @@
 {
   "kind": "one-small-engineering/verification-dashboard",
   "command": "npm run verify:report",
-  "asOf": "2026-10-31T01:00:00Z",
-  "registryHash": "0463acb8850877d2df8fc733ee6bfa08165a8bb425c82e65a4a5777c63271d70",
+  "asOf": "2026-11-02T18:00:00Z",
+  "registryHash": "765e9f3236d0066a3fba8417fda8329a858e8adf203730621faf6f9dc038bfef",
   "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
   "policyVersion": 1,
   "runs": [
@@ -1252,7 +1252,7 @@
         "previousPercentage": 0,
         "applicableGates": 22,
         "verifiedGates": 0,
-        "eligibility": "not-scoped",
+        "eligibility": "not-eligible",
         "ownershipValid": true
       },
       "gateStates": {
@@ -1624,14 +1624,6 @@
       },
       "blockers": [
         {
-          "id": "scope-document-missing",
-          "origin": "registry",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "scope",
-          "description": "No v0.6.0 / Phase 5 page-blocks scope document exists in the repository; scope cannot be frozen."
-        },
-        {
           "id": "auto-critical-workflows-unverified",
           "origin": "derived",
           "severity": "unclassified",
@@ -1654,6 +1646,14 @@
           "blocks": "release",
           "category": "approval",
           "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
+        },
+        {
+          "id": "auto-stale-production-deployment",
+          "origin": "derived",
+          "severity": "unclassified",
+          "blocks": "release",
+          "category": "stale-evidence",
+          "description": "production-deployment: current evidence: ui-vercel-408b884 is for 408b884, not the release candidate 9a13c9e; registry notes: The docs site is the hosted part; Vercel serves 408b884 (docs-only difference from 9a13c9e). Verifier confirms."
         }
       ],
       "mergeEligible": false,
@@ -1831,7 +1831,13 @@
           ]
         }
       ],
-      "relatedPullRequests": [],
+      "relatedPullRequests": [
+        {
+          "number": 36,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/36",
+          "draft": false
+        }
+      ],
       "remediation": [],
       "verificationRequests": [
         {
@@ -2598,7 +2604,7 @@
         "high": 0,
         "medium": 0,
         "low": 0,
-        "unclassified": 6
+        "unclassified": 5
       },
       "blockers": [
         {
@@ -2607,15 +2613,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "ci",
-          "description": "No GitHub Actions workflow; the only commit check is the Vercel deployment status, so lint, type check and tests are not enforced on PRs."
-        },
-        {
-          "id": "readme-boilerplate",
-          "origin": "registry",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "documentation",
-          "description": "README.md is the unmodified create-next-app template and does not describe the site."
+          "description": "No GitHub Actions workflow on main; lint, type check and tests are not enforced on PRs. Both open closeout PRs #28 and #29 add a CI workflow (green on their heads); resolve after one merges and CI runs green on main."
         },
         {
           "id": "scope-document-missing",
@@ -2623,7 +2621,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "scope",
-          "description": "No release scope document in the repository (final audit and project showcase updates are owner-reported leads)."
+          "description": "No approved release scope. Release records proposed in closeout PRs #28 and #29 (overlapping); resolve when the owner approves one scope."
         },
         {
           "id": "auto-critical-workflows-unverified",
@@ -2809,7 +2807,18 @@
           "verification": []
         }
       ],
-      "relatedPullRequests": [],
+      "relatedPullRequests": [
+        {
+          "number": 28,
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/28",
+          "draft": false
+        },
+        {
+          "number": 29,
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/29",
+          "draft": false
+        }
+      ],
       "remediation": [
         {
           "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/17",
@@ -3251,7 +3260,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "scope",
-          "description": "No release scope document in the repository (equipment showcase and final QA are owner-reported leads)."
+          "description": "No approved release scope. Release scope and acceptance record proposed in closeout PR #19; resolve when the owner approves it."
         },
         {
           "id": "auto-critical-workflows-unverified",
@@ -3439,8 +3448,8 @@
       ],
       "relatedPullRequests": [
         {
-          "number": 17,
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/17",
+          "number": 19,
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/19",
           "draft": false
         }
       ],
@@ -3885,7 +3894,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "scope",
-          "description": "No release scope document. README lists Neon Postgres and Backblaze B2 photo storage as \"next phase\"; the owner must decide whether they are in the first release scope."
+          "description": "No approved release scope. Neon Postgres and B2 storage are no longer \"next phase\": they are built and live. Draft docs/release-scope-1.0.0.md puts them in scope as shipped; resolve when the owner approves it."
         },
         {
           "id": "auto-critical-workflows-unverified",
@@ -4093,13 +4102,7 @@
           ]
         }
       ],
-      "relatedPullRequests": [
-        {
-          "number": 20,
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/20",
-          "draft": false
-        }
-      ],
+      "relatedPullRequests": [],
       "remediation": [],
       "verificationRequests": [
         {

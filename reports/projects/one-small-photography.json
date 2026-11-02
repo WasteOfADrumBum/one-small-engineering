@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-10-31T01:00:00Z",
+  "asOf": "2026-11-02T18:00:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "0463acb8850877d2df8fc733ee6bfa08165a8bb425c82e65a4a5777c63271d70",
+  "registrySha256": "765e9f3236d0066a3fba8417fda8329a858e8adf203730621faf6f9dc038bfef",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-photography",
@@ -17,18 +17,11 @@
       "releaseStatus": "in_progress",
       "scopeDocument": null,
       "candidate": null,
-      "openPullRequests": [
-        {
-          "number": 20,
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/20",
-          "headSha": "bab3a44e64ec93fab24ec017be0d6ee4df56dba8",
-          "draft": false
-        }
-      ],
-      "head": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
-      "snapshotObservedAt": "2026-10-31T00:41:31Z",
-      "lastSyncedAt": "2026-10-31T00:41:31Z",
-      "lastEvidenceAt": "2026-10-27T17:00:02Z",
+      "openPullRequests": [],
+      "head": "d9265638467e9c1cfe7e3dca9e48783a758dda7b",
+      "snapshotObservedAt": "2026-11-01T19:12:54Z",
+      "lastSyncedAt": "2026-11-01T19:12:54Z",
+      "lastEvidenceAt": "2026-11-02T18:00:00Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -40,12 +33,12 @@
         "approvedAt": null,
         "evidenceRefs": []
       },
-      "registryNextAction": "Decide and commit the release scope (visual polish, whether DB/B2 infrastructure is in scope), then verify infrastructure and run the Showcase gates.",
+      "registryNextAction": "Owner: review and merge one-small-photography PR #22 (1.0.0 scope draft), disposition the 4 moderate build-time advisories, then record gate verifications with verify:record per docs/acceptance/closeout-2026-11-02.md.",
       "missingEvidence": [
-        "Release scope and target version.",
-        "Infrastructure verification (database, photo storage) if in scope.",
-        "Accessibility and production verification records.",
-        "Builder and independent verifier not assigned."
+        "Approved release scope (draft 1.0.0 proposed).",
+        "Security review of admin auth, uploads and contact notes under standards/security.md; disposition of 4 moderate production-tree advisories (@astrojs/vercel -> @vercel/nft, build time).",
+        "Verifier records for all ten Showcase gates.",
+        "Owner approval record."
       ]
     },
     "derived": {
@@ -56,8 +49,8 @@
         "remainingGates": 10,
         "byState": {
           "verified": 0,
-          "in_progress": 1,
-          "not_started": 9,
+          "in_progress": 3,
+          "not_started": 7,
           "blocked": 0,
           "not_applicable": 0,
           "unknown_stale": 0
@@ -207,39 +200,65 @@
           "id": "critical-workflows",
           "requirement": "Critical user workflows (navigation, contact form, media playback, galleries) tested.",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "observation",
+          "evidence": [
+            {
+              "id": "one-small-photography-owner-report-2026-11-02",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
+              "commitSha": "d9265638467e9c1cfe7e3dca9e48783a758dda7b",
+              "verifiedAt": "2026-11-02T18:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-02T18:00:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "registry notes: Contact delivery and live galleries confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
           ],
-          "notes": null,
+          "notes": "Contact delivery and live galleries confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
           "blockers": [
             "auto-critical-workflows-unverified"
           ],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": "Finish the work and record evidence, then have the verifier re-check."
         },
         {
           "id": "production-deployment",
           "requirement": "The production deployment serves the release commit and behaves as tested.",
           "phase": "post-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "observation",
+          "evidence": [
+            {
+              "id": "one-small-photography-vercel-d926563",
+              "type": "deployment",
+              "result": "informational",
+              "url": "https://vercel.com/task-forge3/one-small-photography/C3PpG42VGUuqzC1s8w1i54YRZHah",
+              "commitSha": "d9265638467e9c1cfe7e3dca9e48783a758dda7b",
+              "verifiedAt": "2026-11-02T18:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-02T18:00:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production"
           ],
-          "notes": null,
+          "notes": "Vercel serves the main head (informational). Verifier confirms the release commit in production.",
           "blockers": [],
-          "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+          "nextAction": "Finish the work and record evidence, then have the verifier re-check."
         },
         {
           "id": "documentation-accurate",
@@ -293,9 +312,10 @@
             "gates": [
               "scope-complete"
             ],
-            "description": "No release scope document. README lists Neon Postgres and Backblaze B2 photo storage as \"next phase\"; the owner must decide whether they are in the first release scope.",
+            "description": "No approved release scope. Neon Postgres and B2 storage are no longer \"next phase\": they are built and live. Draft docs/release-scope-1.0.0.md puts them in scope as shipped; resolve when the owner approves it.",
             "evidenceRefs": [
-              "photo-repo-metadata"
+              "photo-repo-metadata",
+              "photo-closeout-pr-22"
             ],
             "rule": null
           },
@@ -355,6 +375,11 @@
             "id": "enhancement-1",
             "origin": "registry",
             "text": "Additional photos and albums (not a code-release blocker)."
+          },
+          {
+            "id": "enhancement-2",
+            "origin": "registry",
+            "text": "Build-time advisory upgrade, CI accessibility check, contact note retention: https://github.com/WasteOfADrumBum/one-small-photography/blob/main/ROADMAP.md (never reopen the release)."
           }
         ]
       },
@@ -369,7 +394,7 @@
           "gates": [
             "scope-complete"
           ],
-          "text": "Resolve blocker scope-document-missing: No release scope document. README lists Neon Postgres and Backblaze B2 photo storage as \"next phase\"; the owner must decide whether they are in the first release scope.",
+          "text": "Resolve blocker scope-document-missing: No approved release scope. Neon Postgres and B2 storage are no longer \"next phase\": they are built and live. Draft docs/release-scope-1.0.0.md puts them in scope as shipped; resolve when the owner approves it.",
           "summary": "Resolve blocker scope-document-missing."
         },
         {

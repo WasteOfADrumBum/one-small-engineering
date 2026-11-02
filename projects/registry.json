@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-02T17:19:08Z",
+  "lastUpdatedAt": "2026-11-02T18:00:00Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -584,15 +584,16 @@
         "currentVersion": "0.6.0",
         "currentVersionSource": "GitHub release v0.6.0, recorded by One Small Engineering Sync (evidence sync-one-small-ui-release-v0-6-0)",
         "targetVersion": "0.6.0",
-        "releaseStatus": "not_started",
-        "scopeDocument": null,
+        "releaseStatus": "ready_for_review",
+        "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-ui/blob/9a13c9e22d094a95364262a1ae89f666febac892/docs/releases/0.6.0-scope.md",
         "blockers": [
           {
             "id": "scope-document-missing",
-            "description": "No v0.6.0 / Phase 5 page-blocks scope document exists in the repository; scope cannot be frozen.",
-            "status": "open",
+            "description": "Superseded: the 0.6.0 scope was frozen in docs/releases/0.6.0-scope.md (hardening release; page blocks deferred to ROADMAP).",
+            "status": "resolved",
             "evidenceRefs": [
-              "ui-repo-metadata"
+              "ui-repo-metadata",
+              "ui-scope-0-6-0"
             ],
             "category": "scope",
             "blocks": "release",
@@ -601,8 +602,20 @@
             ]
           }
         ],
-        "nextAction": "Commit a v0.6.0 scope document (Phase 5 page blocks) to the repository and freeze scope before implementation.",
-        "enhancements": []
+        "nextAction": "0.6.0 is published (npm latest, tag v0.6.0 at 9a13c9e). Owner: review and merge one-small-ui PR #36 (acceptance record), record verifications at 9a13c9e with verify:record (docs/acceptance/closeout-2026-11-02.md), decide release-provenance (unmet: no npm attestation) and approve; then set lifecycle maintenance.",
+        "enhancements": [
+          "Page blocks (needs an owner spec): one-small-ui ROADMAP.md E1.",
+          "Short-viewport tests in Firefox and WebKit: ROADMAP.md E2.",
+          "Safari keyboard scrolling of non-focusable Popover bodies: ROADMAP.md E3.",
+          "npm provenance via trusted publishing: ROADMAP.md E5.",
+          "Further items in https://github.com/WasteOfADrumBum/one-small-ui/blob/main/ROADMAP.md (never reopen 0.6.0)."
+        ],
+        "candidate": {
+          "pullRequest": 34,
+          "ref": "main",
+          "headSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+          "observedAt": "2026-11-02T18:00:00Z"
+        }
       },
       "ownership": {
         "builder": "Claude Code",
@@ -680,24 +693,98 @@
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
           "eventKey": "one-small-ui:release:v0-6-0"
+        },
+        {
+          "id": "ui-scope-0-6-0",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/blob/9a13c9e22d094a95364262a1ae89f666febac892/docs/releases/0.6.0-scope.md",
+          "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+          "verifiedAt": "2026-11-01T02:00:00Z",
+          "result": "informational",
+          "description": "0.6.0 scope frozen by the builder (hardening release R1-R9; page blocks deferred). Owner published 0.6.0 from this scope on 2026-11-02.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "ui-readiness-0-6-0",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/blob/408b8844db13037a22c718b790f0d769a910803a/docs/releases/0.6.0-readiness.md",
+          "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+          "verifiedAt": "2026-11-01T03:45:00Z",
+          "result": "builder_reported",
+          "description": "Builder readiness report for 0.6.0: CI green on 9a13c9e, npm pack sha512 recorded, consumer smoke 48/48, axe 0 violations, layout 1243 checks, audit 2 moderate dev-only / 0 production.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "ui-ci-9a13c9e",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/41269483773",
+          "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+          "verifiedAt": "2026-11-01T03:37:34Z",
+          "result": "builder_reported",
+          "description": "CI on the 0.6.0 candidate commit: check (Ubuntu, Windows), Playwright layout and a11y, Consumer Node 18/20/22/24, all green (builder-reported; verifier has not re-checked).",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "ui-npm-0-6-0",
+          "type": "package",
+          "url": "https://www.npmjs.com/package/@onesmall/ui/v/0.6.0",
+          "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+          "verifiedAt": "2026-11-02T18:00:00Z",
+          "result": "informational",
+          "description": "npm @onesmall/ui 0.6.0 is dist-tag latest; dist.integrity sha512-HrIZIPxye5Iz6Zos6J2z1klZe7cFwpdikRil/Wm6geY0BGyjFyynDaXLadfdD1Ojl5LYPaTjUiW8Agymgt6jtQ== equals the candidate tarball in the readiness report. No npm provenance attestation. Checked 2026-11-02.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "ui-closeout-pr-36",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/36",
+          "commitSha": null,
+          "verifiedAt": "2026-11-02T18:00:00Z",
+          "result": "builder_reported",
+          "description": "Open closeout PR #36 (another Claude Code thread, CI green at 4058dcb): 0.6.0 acceptance record for the owner, provenance gate, ROADMAP.md, checkpoint. Not merged.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "ui-vercel-408b884",
+          "type": "deployment",
+          "url": "https://vercel.com/task-forge3/one-small-ui/2RRhJMHdTkSYZTsuGAZrQg9TaP6S",
+          "commitSha": "408b8844db13037a22c718b790f0d769a910803a",
+          "verifiedAt": "2026-11-02T18:00:00Z",
+          "result": "informational",
+          "description": "Vercel production deployment dpl_2RRhJMHdTkSYZTsuGAZrQg9TaP6S (READY) serves main 408b884 for the docs site (ui.onesmall.company, one-small-ui.vercel.app). 408b884 differs from 9a13c9e only in docs and .engineering.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "ui-owner-report-2026-11-02",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
+          "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+          "verifiedAt": "2026-11-02T18:00:00Z",
+          "result": "informational",
+          "description": "Owner-reported 2026-11-02 (Joshua Small, project chat): 0.6.0 manual acceptance passed in Chrome with Windows Narrator; live docs accepted; the two documented moderate dev-only advisories accepted. Not a verify:record pass.",
+          "recordedBy": "Claude Code"
         }
       ],
       "releaseGates": [
         {
           "id": "scope-complete",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "ui-scope-0-6-0",
+            "ui-closeout-pr-36"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Scope frozen by the builder; owner published from it. Human-only gate: needs the verifier's own record."
         },
         {
           "id": "automated-checks",
           "status": "in_progress",
           "evidenceRefs": [
-            "ui-ci-main"
+            "ui-ci-main",
+            "ui-ci-9a13c9e"
           ],
           "verifiedAt": null,
-          "notes": "Latest default-branch CI passed at 94438ee. The target release scope is not frozen, so this does not verify the release; re-run on the release candidate."
+          "notes": "CI green on candidate 9a13c9e (builder-reported). Verifier re-checks the linked CI run and records."
         },
         {
           "id": "security-privacy-review",
@@ -708,17 +795,22 @@
         },
         {
           "id": "wcag-22-aa",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "ui-readiness-0-6-0",
+            "ui-owner-report-2026-11-02"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Automated axe/jest-axe/contrast evidence (builder) plus Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only."
         },
         {
           "id": "keyboard-screen-reader",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "ui-owner-report-2026-11-02"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only. Covers Chrome + Windows Narrator only."
         },
         {
           "id": "responsive-layouts",
@@ -736,17 +828,22 @@
         },
         {
           "id": "production-deployment",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "ui-vercel-408b884"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "The docs site is the hosted part; Vercel serves 408b884 (docs-only difference from 9a13c9e). Verifier confirms."
         },
         {
           "id": "documentation-accurate",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "ui-readiness-0-6-0",
+            "ui-owner-report-2026-11-02"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Owner accepted the live docs; Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only."
         },
         {
           "id": "no-release-blockers",
@@ -757,87 +854,115 @@
         },
         {
           "id": "package-metadata-exports",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "ui-readiness-0-6-0"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
         },
         {
           "id": "clean-consumer-install",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "ui-readiness-0-6-0"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
         },
         {
           "id": "runtime-compatibility",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "ui-readiness-0-6-0"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
         },
         {
           "id": "package-archive-inspection",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "ui-readiness-0-6-0"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
         },
         {
           "id": "supply-chain-review",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "ui-readiness-0-6-0",
+            "ui-owner-report-2026-11-02"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Production audit 0; 2 moderate dev-only advisories accepted by the owner (owner-reported). Formal exception recorded in the acceptance record."
         },
         {
           "id": "ci-release-pipeline",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "ui-readiness-0-6-0"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
         },
         {
           "id": "versioning-changelog",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "ui-readiness-0-6-0"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
         },
         {
           "id": "distribution-verified",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "ui-npm-0-6-0",
+            "sync-one-small-ui-release-v0-6-0"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "npm latest is 0.6.0 under @onesmall/ui (informational, checked 2026-11-02). Verifier records."
         },
         {
           "id": "release-provenance",
           "status": "not_verified",
-          "evidenceRefs": [],
+          "evidenceRefs": [
+            "ui-npm-0-6-0"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "0.6.0 was published without an npm provenance attestation. Owner decides: accept as unmet for 0.6.0 (blocks DoD) or record not_applicable with a rationale; trusted publishing is ROADMAP E5."
         },
         {
           "id": "upgrade-rollback-uninstall-docs",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "ui-readiness-0-6-0"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
         },
         {
           "id": "public-docs-accurate",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "ui-readiness-0-6-0",
+            "ui-owner-report-2026-11-02"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Owner accepted the live docs; Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only."
         },
         {
           "id": "published-artifact-matches",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "ui-npm-0-6-0",
+            "ui-readiness-0-6-0"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "npm dist.integrity equals the candidate tarball sha512 from the readiness report (informational). Verifier records."
         }
       ],
       "modsPack": {
@@ -853,10 +978,9 @@
         ]
       },
       "missingEvidence": [
-        "v0.6.0 scope document.",
-        "Whether 0.5.0 was published with npm provenance (not checked).",
-        "GitHub release object for v0.5.0 (only a tag exists).",
-        "Builder and independent verifier not assigned."
+        "Verifier verify:record entries for every 0.6.0 gate at 9a13c9e (none recorded).",
+        "npm provenance for 0.6.0 (none; owner decides whether release-provenance is unmet or not applicable).",
+        "Owner approval record for 0.6.0."
       ],
       "sync": {
         "enabled": true,
@@ -874,7 +998,7 @@
       "tier": "showcase",
       "visibility": "public",
       "lifecycle": "active",
-      "productionUrl": "https://joshsmall-portfolio.vercel.app",
+      "productionUrl": "https://onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
         "headSha": "5f0a84971343fd6dc85bde2e162c90594dc8b492",
@@ -914,10 +1038,12 @@
         "blockers": [
           {
             "id": "scope-document-missing",
-            "description": "No release scope document in the repository (final audit and project showcase updates are owner-reported leads).",
+            "description": "No approved release scope. Release records proposed in closeout PRs #28 and #29 (overlapping); resolve when the owner approves one scope.",
             "status": "open",
             "evidenceRefs": [
-              "pf-repo-metadata"
+              "pf-repo-metadata",
+              "pf-closeout-pr-28",
+              "pf-closeout-pr-29"
             ],
             "category": "scope",
             "blocks": "release",
@@ -927,10 +1053,11 @@
           },
           {
             "id": "readme-boilerplate",
-            "description": "README.md is the unmodified create-next-app template and does not describe the site.",
-            "status": "open",
+            "description": "Superseded: README.md was rewritten for the site (verified against 5f0a849 on 2026-11-02).",
+            "status": "resolved",
             "evidenceRefs": [
-              "pf-repo-metadata"
+              "pf-repo-metadata",
+              "pf-readme-5f0a849"
             ],
             "category": "documentation",
             "blocks": "release",
@@ -940,10 +1067,12 @@
           },
           {
             "id": "no-ci-workflow",
-            "description": "No GitHub Actions workflow; the only commit check is the Vercel deployment status, so lint, type check and tests are not enforced on PRs.",
+            "description": "No GitHub Actions workflow on main; lint, type check and tests are not enforced on PRs. Both open closeout PRs #28 and #29 add a CI workflow (green on their heads); resolve after one merges and CI runs green on main.",
             "status": "open",
             "evidenceRefs": [
-              "pf-vercel-head"
+              "pf-vercel-head",
+              "pf-closeout-pr-28",
+              "pf-closeout-pr-29"
             ],
             "category": "ci",
             "blocks": "release",
@@ -952,8 +1081,10 @@
             ]
           }
         ],
-        "nextAction": "Write and commit the release scope (final audit, project showcase updates), replace the boilerplate README, and add a CI workflow running lint, build and test.",
-        "enhancements": []
+        "nextAction": "Owner: choose between overlapping closeout PRs #28 and #29 (merge one; then port the unique fixes from the other), then record gate verifications with verify:record per docs/acceptance/closeout-2026-11-02.md.",
+        "enhancements": [
+          "Optional items in the ROADMAP.md added by PR #28 or #29 (never reopen the release)."
+        ]
       },
       "ownership": {
         "builder": "Claude Code",
@@ -987,6 +1118,56 @@
           "result": "pass",
           "description": "Vercel commit status success and a Production deployment recorded for 684ef3c on 2026-10-21. Live behaviour not inspected.",
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "personal-portfolio-vercel-5f0a849",
+          "type": "deployment",
+          "url": "https://vercel.com/task-forge3/joshsmall-portfolio/2oMid2nGeu1LXQjSG9Cv1KwvAK3Y",
+          "commitSha": "5f0a84971343fd6dc85bde2e162c90594dc8b492",
+          "verifiedAt": "2026-11-02T18:00:00Z",
+          "result": "informational",
+          "description": "Vercel production deployment dpl_2oMid2nGeu1LXQjSG9Cv1KwvAK3Y (READY) serves main 5f0a849; production domain https://onesmall.company. Checked 2026-11-02 through the Vercel API.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "personal-portfolio-owner-report-2026-11-02",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
+          "commitSha": "5f0a84971343fd6dc85bde2e162c90594dc8b492",
+          "verifiedAt": "2026-11-02T18:00:00Z",
+          "result": "informational",
+          "description": "Owner-reported 2026-11-02 (Joshua Small, project chat): contact emails arrive. Not a verify:record pass.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "pf-readme-5f0a849",
+          "type": "commit",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/5f0a84971343fd6dc85bde2e162c90594dc8b492/README.md",
+          "commitSha": "5f0a84971343fd6dc85bde2e162c90594dc8b492",
+          "verifiedAt": "2026-11-02T18:00:00Z",
+          "result": "informational",
+          "description": "README at 5f0a849 describes the site (stack, highlights, run locally, contact); it is no longer the create-next-app template.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "pf-closeout-pr-28",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/28",
+          "commitSha": null,
+          "verifiedAt": "2026-11-02T18:00:00Z",
+          "result": "builder_reported",
+          "description": "Open closeout PR #28 (CI green at 0cb9506): CI workflow, production smoke workflow, contact guard, privacy note, release record and owner acceptance checklist. Overlaps PR #29; the owner merges one.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "pf-closeout-pr-29",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/29",
+          "commitSha": null,
+          "verifiedAt": "2026-11-02T18:00:00Z",
+          "result": "builder_reported",
+          "description": "Open closeout PR #29 (CI green at d824f6d): CI workflow, reduced-motion hydration fix, 400 for non-object JSON, client timeout, release record. Overlaps PR #28; the owner merges one.",
+          "recordedBy": "Claude Code"
         }
       ],
       "releaseGates": [
@@ -1034,26 +1215,31 @@
         },
         {
           "id": "critical-workflows",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "personal-portfolio-owner-report-2026-11-02"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Contact form delivery confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only."
         },
         {
           "id": "production-deployment",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "personal-portfolio-vercel-5f0a849"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Vercel serves the main head (informational). Verifier confirms the release commit in production."
         },
         {
           "id": "documentation-accurate",
-          "status": "blocked",
+          "status": "in_progress",
           "evidenceRefs": [
-            "pf-repo-metadata"
+            "pf-repo-metadata",
+            "pf-readme-5f0a849"
           ],
           "verifiedAt": null,
-          "notes": "README is create-next-app boilerplate."
+          "notes": "README now describes the site; the closeout PRs add release records. Verifier reviews at the release commit."
         },
         {
           "id": "no-release-blockers",
@@ -1076,10 +1262,10 @@
         ]
       },
       "missingEvidence": [
-        "Release scope and target version.",
-        "Any automated test or lint CI evidence.",
-        "Accessibility, security and production verification records.",
-        "Builder and independent verifier not assigned."
+        "Approved release scope (records in PRs #28/#29).",
+        "CI evidence on main (workflow in PRs #28/#29, not merged).",
+        "Verifier records for all ten Showcase gates.",
+        "Owner approval record."
       ],
       "sync": {
         "enabled": true,
@@ -1097,7 +1283,7 @@
       "tier": "showcase",
       "visibility": "public",
       "lifecycle": "active",
-      "productionUrl": "https://one-small-studio.vercel.app",
+      "productionUrl": "https://studio.onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
         "headSha": "b701805ef331941cb8d4869b0e2369f9d9526b2b",
@@ -1130,10 +1316,11 @@
         "blockers": [
           {
             "id": "scope-document-missing",
-            "description": "No release scope document in the repository (equipment showcase and final QA are owner-reported leads).",
+            "description": "No approved release scope. Release scope and acceptance record proposed in closeout PR #19; resolve when the owner approves it.",
             "status": "open",
             "evidenceRefs": [
-              "studio-repo-metadata"
+              "studio-repo-metadata",
+              "studio-closeout-pr-19"
             ],
             "category": "scope",
             "blocks": "release",
@@ -1142,9 +1329,10 @@
             ]
           }
         ],
-        "nextAction": "Commit a release scope (equipment showcase, final QA), then run the Showcase gates. Review the contact form API (MongoDB inbox) under the security standard.",
+        "nextAction": "Owner: review and merge one-small-studio PR #19 (release record), then record gate verifications with verify:record per docs/acceptance/closeout-2026-11-02.md.",
         "enhancements": [
-          "Additional music and catalog content (not a code-release blocker)."
+          "Additional music and catalog content (not a code-release blocker).",
+          "Optional items in the ROADMAP.md added by PR #19 (never reopen the release)."
         ]
       },
       "ownership": {
@@ -1191,6 +1379,46 @@
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
           "eventKey": "one-small-studio:workflow_run:ci.yml/b701805/ixt0pmd/1"
+        },
+        {
+          "id": "one-small-studio-vercel-b701805",
+          "type": "deployment",
+          "url": "https://vercel.com/task-forge3/one-small-studio/CGx5ftNFpkhRbt41CG7e73zW3Jd4",
+          "commitSha": "b701805ef331941cb8d4869b0e2369f9d9526b2b",
+          "verifiedAt": "2026-11-02T18:00:00Z",
+          "result": "informational",
+          "description": "Vercel production deployment dpl_CGx5ftNFpkhRbt41CG7e73zW3Jd4 (READY) serves main b701805; production domain https://studio.onesmall.company. Checked 2026-11-02 through the Vercel API.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "one-small-studio-owner-report-2026-11-02",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
+          "commitSha": "b701805ef331941cb8d4869b0e2369f9d9526b2b",
+          "verifiedAt": "2026-11-02T18:00:00Z",
+          "result": "informational",
+          "description": "Owner-reported 2026-11-02 (Joshua Small, project chat): contact emails arrive and music plays. Not a verify:record pass.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "studio-owner-docs-2026-10-31",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
+          "commitSha": null,
+          "verifiedAt": "2026-10-31T17:48:42Z",
+          "result": "informational",
+          "description": "Owner-reported 2026-10-31T17:48Z (Joshua Small, project chat): \"Documentation-accurate looks good\" for the README at d6854de. README is unchanged between d6854de and b701805. Not a verify:record pass.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "studio-closeout-pr-19",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/19",
+          "commitSha": null,
+          "verifiedAt": "2026-11-02T18:00:00Z",
+          "result": "builder_reported",
+          "description": "Open closeout PR #19 (CI green at ba82f24): resilience fixes, WCAG 2.2 tests, DEPLOYMENT.md, release evidence and owner acceptance record, ROADMAP.md. Not merged.",
+          "recordedBy": "Claude Code"
         }
       ],
       "releaseGates": [
@@ -1240,24 +1468,30 @@
         },
         {
           "id": "critical-workflows",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "one-small-studio-owner-report-2026-11-02"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Contact form delivery and music playback confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only."
         },
         {
           "id": "production-deployment",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "one-small-studio-vercel-b701805"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Vercel serves the main head (informational). Verifier confirms the release commit in production."
         },
         {
           "id": "documentation-accurate",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "studio-owner-docs-2026-10-31"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Owner said the documentation looks good (2026-10-31, at d6854de; README unchanged since). Needs the owner's verify:record."
         },
         {
           "id": "no-release-blockers",
@@ -1280,10 +1514,10 @@
         ]
       },
       "missingEvidence": [
-        "Release scope and target version.",
-        "Security review of the contact form endpoint (abuse/rate limiting, personal data retention).",
-        "Accessibility and production verification records.",
-        "Builder and independent verifier not assigned."
+        "Approved release scope (PR #19).",
+        "Security review of the contact API under standards/security.md.",
+        "Verifier records for all ten Showcase gates.",
+        "Owner approval record."
       ],
       "sync": {
         "enabled": true,
@@ -1301,7 +1535,7 @@
       "tier": "showcase",
       "visibility": "public",
       "lifecycle": "active",
-      "productionUrl": "https://one-small-photography.vercel.app",
+      "productionUrl": "https://photo.onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
         "headSha": "d9265638467e9c1cfe7e3dca9e48783a758dda7b",
@@ -1326,10 +1560,11 @@
         "blockers": [
           {
             "id": "scope-document-missing",
-            "description": "No release scope document. README lists Neon Postgres and Backblaze B2 photo storage as \"next phase\"; the owner must decide whether they are in the first release scope.",
+            "description": "No approved release scope. Neon Postgres and B2 storage are no longer \"next phase\": they are built and live. Draft docs/release-scope-1.0.0.md puts them in scope as shipped; resolve when the owner approves it.",
             "status": "open",
             "evidenceRefs": [
-              "photo-repo-metadata"
+              "photo-repo-metadata",
+              "photo-closeout-pr-22"
             ],
             "category": "scope",
             "blocks": "release",
@@ -1338,9 +1573,10 @@
             ]
           }
         ],
-        "nextAction": "Decide and commit the release scope (visual polish, whether DB/B2 infrastructure is in scope), then verify infrastructure and run the Showcase gates.",
+        "nextAction": "Owner: review and merge one-small-photography PR #22 (1.0.0 scope draft), disposition the 4 moderate build-time advisories, then record gate verifications with verify:record per docs/acceptance/closeout-2026-11-02.md.",
         "enhancements": [
-          "Additional photos and albums (not a code-release blocker)."
+          "Additional photos and albums (not a code-release blocker).",
+          "Build-time advisory upgrade, CI accessibility check, contact note retention: https://github.com/WasteOfADrumBum/one-small-photography/blob/main/ROADMAP.md (never reopen the release)."
         ]
       },
       "ownership": {
@@ -1387,6 +1623,36 @@
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
           "eventKey": "one-small-photography:workflow_run:ci.yml/d926563/iznzf44/1"
+        },
+        {
+          "id": "one-small-photography-vercel-d926563",
+          "type": "deployment",
+          "url": "https://vercel.com/task-forge3/one-small-photography/C3PpG42VGUuqzC1s8w1i54YRZHah",
+          "commitSha": "d9265638467e9c1cfe7e3dca9e48783a758dda7b",
+          "verifiedAt": "2026-11-02T18:00:00Z",
+          "result": "informational",
+          "description": "Vercel production deployment dpl_C3PpG42VGUuqzC1s8w1i54YRZHah (READY) serves main d926563; production domain https://photo.onesmall.company. Checked 2026-11-02 through the Vercel API.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "one-small-photography-owner-report-2026-11-02",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
+          "commitSha": "d9265638467e9c1cfe7e3dca9e48783a758dda7b",
+          "verifiedAt": "2026-11-02T18:00:00Z",
+          "result": "informational",
+          "description": "Owner-reported 2026-11-02 (Joshua Small, project chat): contact emails arrive and galleries work live. Not a verify:record pass.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "photo-closeout-pr-22",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/22",
+          "commitSha": null,
+          "verifiedAt": "2026-11-02T18:00:00Z",
+          "result": "builder_reported",
+          "description": "Open closeout PR #22 (this thread, 38c925d): docs/release-scope-1.0.0.md draft (database and B2 storage in scope as shipped), ROADMAP.md, README rollback and links, CI token contents: read. Not merged.",
+          "recordedBy": "Claude Code"
         }
       ],
       "releaseGates": [
@@ -1436,17 +1702,21 @@
         },
         {
           "id": "critical-workflows",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "one-small-photography-owner-report-2026-11-02"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Contact delivery and live galleries confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only."
         },
         {
           "id": "production-deployment",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "one-small-photography-vercel-d926563"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Vercel serves the main head (informational). Verifier confirms the release commit in production."
         },
         {
           "id": "documentation-accurate",
@@ -1476,10 +1746,10 @@
         ]
       },
       "missingEvidence": [
-        "Release scope and target version.",
-        "Infrastructure verification (database, photo storage) if in scope.",
-        "Accessibility and production verification records.",
-        "Builder and independent verifier not assigned."
+        "Approved release scope (draft 1.0.0 proposed).",
+        "Security review of admin auth, uploads and contact notes under standards/security.md; disposition of 4 moderate production-tree advisories (@astrojs/vercel -> @vercel/nft, build time).",
+        "Verifier records for all ten Showcase gates.",
+        "Owner approval record."
       ],
       "sync": {
         "enabled": true,

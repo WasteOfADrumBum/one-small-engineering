@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-10-31T01:00:00Z",
+  "asOf": "2026-11-02T18:00:00Z",
   "id": "one-small-photography",
   "name": "One Small Photography",
   "tier": "showcase",
@@ -226,7 +226,7 @@
     {
       "id": "critical-workflows",
       "state": "inconclusive",
-      "engineState": "not_started",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -257,14 +257,14 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "registry notes: Contact delivery and live galleries confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
       ],
-      "nextAction": "Produce evidence for this gate."
+      "nextAction": "Finish the work and record evidence, then have the verifier re-check."
     },
     {
       "id": "production-deployment",
       "state": "inconclusive",
-      "engineState": "not_started",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -282,9 +282,9 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production"
       ],
-      "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+      "nextAction": "Finish the work and record evidence, then have the verifier re-check."
     },
     {
       "id": "documentation-accurate",
@@ -411,7 +411,7 @@
       "severity": "unclassified",
       "blocks": "release",
       "category": "scope",
-      "description": "No release scope document. README lists Neon Postgres and Backblaze B2 photo storage as \"next phase\"; the owner must decide whether they are in the first release scope."
+      "description": "No approved release scope. Neon Postgres and B2 storage are no longer \"next phase\": they are built and live. Draft docs/release-scope-1.0.0.md puts them in scope as shipped; resolve when the owner approves it."
     },
     {
       "id": "auto-critical-workflows-unverified",
@@ -635,13 +635,7 @@
     }
   ],
   "verifications": [],
-  "relatedPullRequests": [
-    {
-      "number": 20,
-      "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/20",
-      "draft": false
-    }
-  ],
+  "relatedPullRequests": [],
   "remediation": [],
   "verificationRequests": [
     {
