@@ -15,7 +15,7 @@ The one shared prompt for adding a repository to registry sync. Works the same i
 
 ## Rules
 
-- Never merge. Joshua Small reviews and merges both PRs.
+- Never merge. Joshua Small reviews and merges both PRs (onboarding changes governance fields, so it is never eligible for auto-merge).
 - Never add credentials. A private repository needs the owner to grant the read-only reader credential (see `docs/sync-setup.md`).
 - One Small ModsPack stays observe-only until the owner says its PR #3 testing is complete. Do not add files to ModsPack.
 - Do not invent tier, scope or gate decisions. The scaffold leaves every gate `not_verified` and builder and verifier `null`.

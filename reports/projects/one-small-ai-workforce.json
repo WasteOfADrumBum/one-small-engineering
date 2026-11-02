@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-10-31T01:00:00Z",
+  "asOf": "2026-11-02T21:30:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "0463acb8850877d2df8fc733ee6bfa08165a8bb425c82e65a4a5777c63271d70",
+  "registrySha256": "178d6f7855f61feaa2d83a90b8e072d5558699ce4accbaca984880d49c2715d1",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-ai-workforce",
@@ -18,10 +18,10 @@
       "scopeDocument": null,
       "candidate": null,
       "openPullRequests": [],
-      "head": "0d62a7142baf93dc64c2fe5c48e625d175f9b0bc",
-      "snapshotObservedAt": "2026-10-30T13:06:02Z",
-      "lastSyncedAt": "2026-10-30T13:06:02Z",
-      "lastEvidenceAt": "2026-10-28T16:11:45Z",
+      "head": "c89b827d1a6a5024bebd9a17cb8ac1cf6ad8ad7d",
+      "snapshotObservedAt": "2026-10-31T03:36:06Z",
+      "lastSyncedAt": "2026-10-31T03:36:06Z",
+      "lastEvidenceAt": "2026-10-31T03:01:33Z",
       "ownership": {
         "builder": "GitHub Copilot",
         "verifier": "Joshua Small",

@@ -1,6 +1,6 @@
 # Registry sync
 
-Registry sync keeps `projects/registry.json` current without routine manual edits. It is deterministic: no AI calls, no project code, only read-only GitHub API calls and draft PRs that Joshua Small reviews and merges.
+Registry sync keeps `projects/registry.json` current without routine manual edits. It is deterministic: no AI calls, no project code, only read-only GitHub API calls and one PR per project. Since Phase 6 a routine PR that changes only automation-owned fields is merged by the [Auto-merge](automerge.md) workflow after the guard, the validator and CI pass on its exact head; every other registry change is reviewed and merged by Joshua Small.
 
 ## How it works
 
@@ -18,7 +18,8 @@ Registry sync (Run workflow; every 6 h from stage C)
                                   update the "Registry sync status" issue
 Validate registry               npm run check + guard on every sync/* branch
 Main integrity (push + every 6 h) flags any change to main that is not a merged PR
-You                             review, mark ready, merge (or close)
+Auto-merge (automerge.yml)      merges a sync PR only when every check in docs/automerge.md holds
+You                             review anything Auto-merge refuses; close or fix it
 ```
 
 - **Hub pull.** The hub reads each project. Project repositories hold no secrets and cannot write to the hub.

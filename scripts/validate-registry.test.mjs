@@ -209,6 +209,7 @@ test('approval without explicit evidence fails', () => {
 
 test('approval before verification fails', () => {
   const r = clone(); const p = project(r, 'one-small-ui')
+  p.release.releaseStatus = 'not_started'
   p.approval = { status: 'approved', approvedBy: 'Joshua Small', approvedAt: '2026-10-22T16:00:00Z', evidenceRefs: ['ui-ci-main'] }
   rejects(r, 'approval recorded while releaseStatus is not_started')
 })

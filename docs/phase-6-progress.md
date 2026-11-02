@@ -28,6 +28,10 @@ Durable execution record; full write-up in [phase-6-final-report.md](phase-6-fin
 
 - Studio `documentation-accurate` attestation at d6854de (Joshua). Final sign-off. Optional: GitHub App for immediate events.
 
+## Closeout 2026-11-02
+
+The delivery closeout and five-project reconciliation is recorded in [docs/acceptance/closeout-2026-11-02.md](acceptance/closeout-2026-11-02.md): owner-reported evidence, gate status, open PRs and the single owner checklist. Future hub work is in [ROADMAP.md](../ROADMAP.md) and never reopens Phases 0–6. Still open for the owner: the independent (non-Claude) review of the Phase 6 code, Phase 6 sign-off, and remediation writes, which stay off.
+
 ## Next action
 
-Optional isolated-CLI handoff repeat; owner attestation and sign-off.
+Owner works through the checklist in the closeout record (verify:record, scope approvals, Phase 6 sign-off). Optional isolated-CLI handoff repeat (ROADMAP E2).

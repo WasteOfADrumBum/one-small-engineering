@@ -12,7 +12,7 @@ How a One Small release moves from idea to maintenance, and how humans and AI as
 
 Builder and verifier are recorded in the registry's `ownership` block. Both may be assigned before the release is scoped (assigning verifies nothing), and both must be assigned (as different identities) before any gate can be marked verified. In practice the verifier is a person: AI verifiers must be allowed per project in `verification/policy.json`, and human-only or partly automated gates need a person's manual test ([docs/verification.md](../docs/verification.md#independent-verification)). Different AI tools (for example Claude builds, Codex verifies) count as independent; two sessions of the same tool reviewing their own work do not.
 
-Registry sync (`One Small Engineering Sync`) is automation, not a role. It records facts it reads from GitHub as `informational` or `builder_reported` evidence and proposes them in draft PRs; it can never be the builder or verifier, never verify a gate and never approve ([docs/sync.md](../docs/sync.md)).
+Registry sync (`One Small Engineering Sync`) is automation, not a role. It records facts it reads from GitHub as `informational` or `builder_reported` evidence and proposes them in PRs (routine ones merge through the [Auto-merge](../docs/automerge.md) workflow, which refuses any governance change); it can never be the builder or verifier, never verify a gate and never approve ([docs/sync.md](../docs/sync.md)).
 
 ## The release process
 

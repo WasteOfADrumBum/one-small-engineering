@@ -107,6 +107,7 @@ test('incremental refresh: current evidence is reused; a new revision, stale, un
   assert.deepEqual(refreshPlan({ registry: reg, policy: pol, policyHash: hash, ledgers: unav, revisions: new Map(), asOf: AS_OF, only }).get('one-small-mods-pack'), ['ci-results'])
   // A project on its default branch follows the live revision: evidence for an older commit is not current.
   const ui = reg.projects.find(x => x.id === 'one-small-ui')
+  ui.release.candidate = null // this case is about the default branch, not a pinned candidate
   const uiNames = refreshPlan({ registry: reg, policy: pol, ledgers: new Map(), revisions: new Map(), asOf: AS_OF, only: ['one-small-ui'] }).get('one-small-ui')
   const uiLedger = new Map([['one-small-ui', uiNames.map(n => ev(COLLECTORS.find(c => c.name === n), 'pass', { commitSha: SHA, project: 'one-small-ui' }))]])
   assert.equal(refreshPlan({ registry: reg, policy: pol, policyHash: hash, ledgers: uiLedger, revisions: new Map([['one-small-ui', SHA]]), asOf: AS_OF, only: ['one-small-ui'] }).size, 0)
