@@ -489,7 +489,7 @@
         ]
       },
       "blockers": [],
-      "openPullRequests": 0,
+      "openPullRequests": 2,
       "sync": {
         "changes": [],
         "reason": "token-rejected: GET /repos/WasteOfADrumBum/joshsmall-site: the token was rejected (HTTP 401); it is missing, expired or revoked",
@@ -734,7 +734,7 @@
           "description": "Scope is recorded on main in docs/RELEASE.md but not approved: section 6 (owner decision) is still blank at e3bc6d2. Resolve when the owner records approval there."
         }
       ],
-      "openPullRequests": 0,
+      "openPullRequests": 1,
       "sync": {
         "changes": [],
         "reason": "token-rejected: GET /repos/WasteOfADrumBum/one-small-photography: the token was rejected (HTTP 401); it is missing, expired or revoked",

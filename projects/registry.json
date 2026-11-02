@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-02T23:00:00Z",
+  "lastUpdatedAt": "2026-11-02T23:16:40Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -995,7 +995,7 @@
         "defaultBranch": "main",
         "headSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
         "archived": false,
-        "observedAt": "2026-11-02T19:13:17Z",
+        "observedAt": "2026-11-02T23:14:30Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1005,7 +1005,22 @@
           "private": true
         }
       },
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 31,
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/31",
+          "title": "Record screen-reader and 200% zoom results; map release evidence to hub gates",
+          "headSha": "49652fa4539b7cc3fb7bba815fb42406194258c3",
+          "draft": false
+        },
+        {
+          "number": 32,
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/32",
+          "title": "Re-record the Engineering Hub checkpoint in the contract v1 shape",
+          "headSha": "286ff75e35cbda95bc7f51aff03607dd6e65d62e",
+          "draft": false
+        }
+      ],
       "release": {
         "currentVersion": null,
         "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder, not a release.",
@@ -1348,7 +1363,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406067959,
-        "lastSyncedAt": "2026-11-02T19:13:17Z",
+        "lastSyncedAt": "2026-11-02T23:14:30Z",
         "lastSyncedHead": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
         "configSource": "defaults"
       }
@@ -1698,7 +1713,7 @@
         "defaultBranch": "main",
         "headSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
         "archived": false,
-        "observedAt": "2026-11-02T22:17:37Z",
+        "observedAt": "2026-11-02T23:16:40Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1708,7 +1723,15 @@
           "private": true
         }
       },
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 27,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/27",
+          "title": "Re-record the Engineering Hub checkpoint in the contract v1 shape",
+          "headSha": "06e52b748a7159a24a45de9aae6d879c82b99f6b",
+          "draft": false
+        }
+      ],
       "release": {
         "currentVersion": null,
         "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder.",
@@ -1771,18 +1794,6 @@
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
         },
         {
-          "id": "sync-one-small-photography-run-ci-yml-48efb13-j2it2mh-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41511386249",
-          "commitSha": "48efb1355dde0f9361b2f3f654453072fea15b17",
-          "verifiedAt": "2026-11-02T19:37:20Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 48efb13 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:ci.yml/48efb13/j2it2mh/1"
-        },
-        {
           "id": "one-small-photography-vercel-c850853",
           "type": "deployment",
           "url": "https://vercel.com/task-forge3/one-small-photography/2pW6dWB2DP7kMRB3zXZJQcj8RerB",
@@ -1843,6 +1854,18 @@
           "recordedBy": "Claude Code"
         },
         {
+          "id": "sync-one-small-photography-run-ci-yml-e3bc6d2-j2xb4o7-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41535743335",
+          "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
+          "verifiedAt": "2026-11-02T22:17:51Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at e3bc6d2 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-photography:workflow_run:ci.yml/e3bc6d2/j2xb4o7/1"
+        },
+        {
           "recordedBy": "Claude Code",
           "id": "photo-release-record-e3bc6d2",
           "type": "document",
@@ -1889,7 +1912,8 @@
           "evidenceRefs": [
             "photo-ci-main",
             "photo-ci-run-c850853",
-            "photo-ci-run-e3bc6d2"
+            "photo-ci-run-e3bc6d2",
+            "sync-one-small-photography-run-ci-yml-e3bc6d2-j2xb4o7-1"
           ],
           "verifiedAt": null,
           "notes": "CI green on main at c850853 and e3bc6d2 (builder evidence). Verifier re-checks at the release commit."
@@ -1989,7 +2013,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-11-02T22:17:37Z",
+        "lastSyncedAt": "2026-11-02T23:16:40Z",
         "lastSyncedHead": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
         "configSource": "defaults"
       }

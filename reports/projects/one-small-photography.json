@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T23:00:00Z",
+  "asOf": "2026-11-02T23:16:40Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "02fb1cb63fd9b8a3089fbf0d37473bcda4d09922a8599c6a4aa03502c1589662",
+  "registrySha256": "900a29f81f220403e7b663757bd1453b10750c9926b5ef08950c7aa649911ab6",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-photography",
@@ -17,10 +17,17 @@
       "releaseStatus": "in_progress",
       "scopeDocument": null,
       "candidate": null,
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 27,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/27",
+          "headSha": "06e52b748a7159a24a45de9aae6d879c82b99f6b",
+          "draft": false
+        }
+      ],
       "head": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
-      "snapshotObservedAt": "2026-11-02T22:17:37Z",
-      "lastSyncedAt": "2026-11-02T22:17:37Z",
+      "snapshotObservedAt": "2026-11-02T23:16:40Z",
+      "lastSyncedAt": "2026-11-02T23:16:40Z",
       "lastEvidenceAt": "2026-11-02T23:00:00Z",
       "ownership": {
         "builder": "Claude Code",
@@ -155,6 +162,18 @@
               "verifiedAt": "2026-11-02T23:00:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "sync-one-small-photography-run-ci-yml-e3bc6d2-j2xb4o7-1",
+              "type": "workflow_run",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41535743335",
+              "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
+              "verifiedAt": "2026-11-02T22:17:51Z",
+              "recordedBy": "One Small Engineering Sync",
+              "origin": "sync",
               "provenance": "builder-reported",
               "stale": null
             }
@@ -597,6 +616,11 @@
       {
         "gate": "automated-checks",
         "evidence": "photo-ci-run-e3bc6d2",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "sync-one-small-photography-run-ci-yml-e3bc6d2-j2xb4o7-1",
         "provenance": "builder-reported"
       },
       {

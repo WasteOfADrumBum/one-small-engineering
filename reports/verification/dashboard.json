@@ -1,8 +1,8 @@
 {
   "kind": "one-small-engineering/verification-dashboard",
   "command": "npm run verify:report",
-  "asOf": "2026-11-02T23:00:00Z",
-  "registryHash": "02fb1cb63fd9b8a3089fbf0d37473bcda4d09922a8599c6a4aa03502c1589662",
+  "asOf": "2026-11-02T23:16:40Z",
+  "registryHash": "900a29f81f220403e7b663757bd1453b10750c9926b5ef08950c7aa649911ab6",
   "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
   "policyVersion": 1,
   "runs": [
@@ -2785,7 +2785,18 @@
           "verification": []
         }
       ],
-      "relatedPullRequests": [],
+      "relatedPullRequests": [
+        {
+          "number": 31,
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/31",
+          "draft": false
+        },
+        {
+          "number": 32,
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/32",
+          "draft": false
+        }
+      ],
       "remediation": [
         {
           "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/17",
@@ -4069,7 +4080,13 @@
           ]
         }
       ],
-      "relatedPullRequests": [],
+      "relatedPullRequests": [
+        {
+          "number": 27,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/27",
+          "draft": false
+        }
+      ],
       "remediation": [],
       "verificationRequests": [
         {
