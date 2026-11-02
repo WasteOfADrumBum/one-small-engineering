@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-02T19:13:17Z",
+  "lastUpdatedAt": "2026-11-02T19:14:49Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1308,9 +1308,9 @@
       "productionUrl": "https://one-small-photography.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
+        "headSha": "9db552625ad69797cb5e8a3494457d047902d58c",
         "archived": false,
-        "observedAt": "2026-11-02T18:23:26Z",
+        "observedAt": "2026-11-02T19:14:49Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1324,15 +1324,15 @@
         {
           "number": 22,
           "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/22",
-          "title": "Closeout: 1.0.0 scope draft, roadmap, CI token read-only",
-          "headSha": "38c925d7824fd58f557287e6f6fd1907907e7fb3",
+          "title": "CI: limit the workflow token to contents: read",
+          "headSha": "e4fa1de81a7370ea7c0d00131939ec4953582240",
           "draft": false
         },
         {
-          "number": 24,
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/24",
-          "title": "Add a branded social share card",
-          "headSha": "671388272d397ce48e0ff5458338b828e3600d7f",
+          "number": 25,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/25",
+          "title": "Make \"Why One Small Photo\" about One Small Photo",
+          "headSha": "c069c20492c02d6bc200eadefa35357b28f1f9f6",
           "draft": false
         }
       ],
@@ -1396,28 +1396,16 @@
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
         },
         {
-          "id": "sync-one-small-photography-run-ci-yml-c850853-j2apy2k-1",
+          "id": "sync-one-small-photography-run-ci-yml-9db5526-j2fh1mq-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41497803452",
-          "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
-          "verifiedAt": "2026-11-02T18:10:43Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41505786242",
+          "commitSha": "9db552625ad69797cb5e8a3494457d047902d58c",
+          "verifiedAt": "2026-11-02T19:01:50Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at c850853 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 9db5526 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:ci.yml/c850853/j2apy2k/1"
-        },
-        {
-          "id": "sync-one-small-photography-run-production-smoke-yml-c850853-j2bbcj4-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41498801968",
-          "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
-          "verifiedAt": "2026-11-02T18:15:38Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke\") concluded success on main at c850853 (workflow_dispatch event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:production-smoke.yml/c850853/j2bbcj4/1"
+          "eventKey": "one-small-photography:workflow_run:ci.yml/9db5526/j2fh1mq/1"
         }
       ],
       "releaseGates": [
@@ -1516,8 +1504,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-11-02T18:23:26Z",
-        "lastSyncedHead": "c850853c0ffd16042941c5030e273b47f17a0cdf",
+        "lastSyncedAt": "2026-11-02T19:14:49Z",
+        "lastSyncedHead": "9db552625ad69797cb5e8a3494457d047902d58c",
         "configSource": "defaults"
       }
     },
