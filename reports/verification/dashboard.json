@@ -1,8 +1,8 @@
 {
   "kind": "one-small-engineering/verification-dashboard",
   "command": "npm run verify:report",
-  "asOf": "2026-11-02T21:30:00Z",
-  "registryHash": "178d6f7855f61feaa2d83a90b8e072d5558699ce4accbaca984880d49c2715d1",
+  "asOf": "2026-11-02T23:00:00Z",
+  "registryHash": "02fb1cb63fd9b8a3089fbf0d37473bcda4d09922a8599c6a4aa03502c1589662",
   "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
   "policyVersion": 1,
   "runs": [
@@ -1831,13 +1831,7 @@
           ]
         }
       ],
-      "relatedPullRequests": [
-        {
-          "number": 36,
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/36",
-          "draft": false
-        }
-      ],
+      "relatedPullRequests": [],
       "remediation": [],
       "verificationRequests": [
         {
@@ -2369,7 +2363,7 @@
         "previousPercentage": 0,
         "applicableGates": 10,
         "verifiedGates": 0,
-        "eligibility": "not-scoped",
+        "eligibility": "not-eligible",
         "ownershipValid": true
       },
       "gateStates": {
@@ -2604,17 +2598,9 @@
         "high": 0,
         "medium": 0,
         "low": 0,
-        "unclassified": 4
+        "unclassified": 3
       },
       "blockers": [
-        {
-          "id": "scope-document-missing",
-          "origin": "registry",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "scope",
-          "description": "Scope is recorded on main in docs/release/2026-11-portfolio-release.md (section 1) but not approved. Resolve when the owner approves it in docs/release/ACCEPTANCE.md."
-        },
         {
           "id": "auto-critical-workflows-unverified",
           "origin": "derived",
@@ -2644,7 +2630,7 @@
       "releaseEligible": false,
       "lastCollection": "2026-10-28T21:06:53Z",
       "lastVerification": null,
-      "nextAction": "Resolve blocker scope-document-missing.",
+      "nextAction": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.",
       "findings": [
         {
           "id": "personal-portfolio:accessibility:56ea76e",
@@ -3236,12 +3222,12 @@
       },
       "blockers": [
         {
-          "id": "scope-document-missing",
+          "id": "target-version-undecided",
           "origin": "registry",
           "severity": "unclassified",
           "blocks": "release",
-          "category": "scope",
-          "description": "Scope is recorded on main (docs/release/studio-release-evidence.md) and Joshua Small approved the release in the project thread on 2026-11-02 (owner-reported). The registry still needs a target version and scope document link; the release has no version or tag yet."
+          "category": "approval",
+          "description": "The approved release has no version number. The owner picks it (for example 1.0.0); then targetVersion is set and the release can be tagged."
         },
         {
           "id": "auto-critical-workflows-unverified",
@@ -3260,19 +3246,19 @@
           "description": "8 applicable pre-publication gate(s) lack current independent verification."
         },
         {
-          "id": "auto-owner-approval",
+          "id": "auto-scope-missing",
           "origin": "derived",
           "severity": "unclassified",
           "blocks": "release",
-          "category": "approval",
-          "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
+          "category": "scope",
+          "description": "No target version: the release cannot be scoped or verified."
         }
       ],
       "mergeEligible": false,
       "releaseEligible": false,
       "lastCollection": "2026-10-28T21:06:55Z",
       "lastVerification": null,
-      "nextAction": "Resolve blocker scope-document-missing.",
+      "nextAction": "Choose the target version for the scoped release and record it as release.targetVersion in the registry.",
       "findings": [
         {
           "id": "one-small-studio:accessibility:d6854de",
@@ -3875,7 +3861,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "scope",
-          "description": "Scope is recorded on main in docs/RELEASE.md (Neon Postgres and B2 storage are built and live, not next phase) but not approved. Resolve when the owner records approval in section 6."
+          "description": "Scope is recorded on main in docs/RELEASE.md but not approved: section 6 (owner decision) is still blank at e3bc6d2. Resolve when the owner records approval there."
         },
         {
           "id": "auto-critical-workflows-unverified",
@@ -4083,13 +4069,7 @@
           ]
         }
       ],
-      "relatedPullRequests": [
-        {
-          "number": 22,
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/22",
-          "draft": false
-        }
-      ],
+      "relatedPullRequests": [],
       "remediation": [],
       "verificationRequests": [
         {

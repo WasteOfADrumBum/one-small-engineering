@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-11-02T21:30:00Z",
+  "asOf": "2026-11-02T23:00:00Z",
   "id": "personal-portfolio",
   "name": "Personal Portfolio",
   "tier": "showcase",
@@ -16,7 +16,7 @@
     "previousPercentage": 0,
     "applicableGates": 10,
     "verifiedGates": 0,
-    "eligibility": "not-scoped",
+    "eligibility": "not-eligible",
     "ownershipValid": true
   },
   "gateStates": {
@@ -31,7 +31,7 @@
     {
       "id": "scope-complete",
       "state": "not_tested",
-      "engineState": "not_started",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -41,9 +41,10 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: Scope is section 1 of the release record; the owner approved release 1.0 on 2026-11-02. Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
       ],
-      "nextAction": "Produce evidence for this gate."
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
     {
       "id": "automated-checks",
@@ -102,14 +103,14 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: CI green on main at 1435e75 (builder evidence from sync). Verifier re-checks at the release commit"
+        "registry notes: CI green on main at 1435e75 (code) and 829ffc8 (docs-only). Builder evidence; verifier re-checks at the release commit"
       ],
       "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
     {
       "id": "security-privacy-review",
       "state": "passed_by_builder",
-      "engineState": "not_started",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -151,14 +152,15 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: Builder review in the release record (0 production advisories, history secret scan, live headers, privacy); owner approved the privacy note and accepted the three documented limits. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
       ],
-      "nextAction": "Produce evidence for this gate."
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
     {
       "id": "wcag-22-aa",
       "state": "inconclusive",
-      "engineState": "not_started",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -185,14 +187,15 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: axe WCAG 2.0/2.1/2.2 A/AA: 0 violations at three viewport/theme combinations (builder); gradient contrast and reduced motion owner-reported. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
       ],
-      "nextAction": "Produce evidence for this gate."
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
     {
       "id": "keyboard-screen-reader",
       "state": "not_tested",
-      "engineState": "not_started",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -202,14 +205,15 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: Keyboard: 68 tab stops with visible focus (builder). No screen reader pass is recorded anywhere: missing evidence. Human-only gate"
       ],
-      "nextAction": "Produce evidence for this gate."
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
     {
       "id": "responsive-layouts",
       "state": "not_tested",
-      "engineState": "not_started",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -219,9 +223,10 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: No horizontal scroll at 1440 and 390 px; axe at both widths (builder). Verifier checks on real devices or widths of their choice"
       ],
-      "nextAction": "Produce evidence for this gate."
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
     {
       "id": "critical-workflows",
@@ -258,7 +263,7 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: Contact form delivery confirmed by the owner; production smoke check green at 1435e75 (validation only, sends nothing); navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
+        "registry notes: Contact email arrives after the 1435e75 deploy (owner-reported); production smoke check green at 1435e75 (validation only). not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
       ],
       "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
@@ -283,7 +288,7 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production"
+        "registry notes: Vercel serves the main head 829ffc8 (informational). Verifier confirms the release commit in production"
       ],
       "nextAction": "Finish the work and record evidence, then have the verifier re-check."
     },
@@ -318,7 +323,7 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: README describes the site and the release record is on main. Verifier reviews at the release commit"
+        "registry notes: README describes the site; release and acceptance records on main at 829ffc8. Verifier reviews at the release commit"
       ],
       "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
@@ -335,7 +340,8 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "evidence for this gate",
+        "registry notes: No open registry blocker since scope-document-missing was resolved (2026-11-02). Human-only gate: the verifier confirms it"
       ],
       "nextAction": "Produce evidence for this gate."
     }
@@ -408,14 +414,6 @@
   ],
   "blockers": [
     {
-      "id": "scope-document-missing",
-      "origin": "registry",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "scope",
-      "description": "Scope is recorded on main in docs/release/2026-11-portfolio-release.md (section 1) but not approved. Resolve when the owner approves it in docs/release/ACCEPTANCE.md."
-    },
-    {
       "id": "auto-critical-workflows-unverified",
       "origin": "derived",
       "severity": "unclassified",
@@ -445,13 +443,13 @@
     "high": 0,
     "medium": 0,
     "low": 0,
-    "unclassified": 4
+    "unclassified": 3
   },
   "mergeEligible": false,
   "releaseEligible": false,
   "lastVerification": null,
   "lastCollection": "2026-10-28T21:06:53Z",
-  "nextAction": "Resolve blocker scope-document-missing.",
+  "nextAction": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.",
   "findings": [
     {
       "id": "personal-portfolio:accessibility:56ea76e",

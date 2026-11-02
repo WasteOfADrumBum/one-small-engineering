@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T21:30:00Z",
+  "asOf": "2026-11-02T23:00:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "178d6f7855f61feaa2d83a90b8e072d5558699ce4accbaca984880d49c2715d1",
+  "registrySha256": "02fb1cb63fd9b8a3089fbf0d37473bcda4d09922a8599c6a4aa03502c1589662",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-studio",
@@ -15,7 +15,7 @@
       "currentVersion": null,
       "targetVersion": null,
       "releaseStatus": "in_progress",
-      "scopeDocument": null,
+      "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-studio/blob/4c46d0deacc5651235685e705bca97c9ef45cc14/docs/release/studio-release-evidence.md",
       "candidate": null,
       "openPullRequests": [
         {
@@ -28,7 +28,7 @@
       "head": "62686353da06fc90974b38fce5547230ce6d5beb",
       "snapshotObservedAt": "2026-11-02T20:15:43Z",
       "lastSyncedAt": "2026-11-02T20:15:43Z",
-      "lastEvidenceAt": "2026-11-02T21:30:00Z",
+      "lastEvidenceAt": "2026-11-02T23:00:00Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -40,11 +40,12 @@
         "approvedAt": null,
         "evidenceRefs": []
       },
-      "registryNextAction": "Owner approved the release in the project thread (2026-11-02). To close it in the registry: record gate verifications with verify:record per docs/acceptance/closeout-2026-11-02.md (checks A headers and B screen reader still unreported), then record the approval through a PR.",
+      "registryNextAction": "Owner approved the release (2026-11-02 18:08 UTC) and reported checks A and B (18:15 UTC). Owner: choose the version number. Verifier (Joshua Small): record the ten Showcase gates with verify:record per docs/acceptance/phase-6-closeout-2026-11-02.md; then the registry approval can cite studio-owner-approval-2026-11-02.",
       "missingEvidence": [
-        "Live header check (A) and screen reader check (B) from the acceptance record.",
-        "Verifier records for all ten Showcase gates.",
-        "Registry approval record (the approval itself is owner-reported in the acceptance record)."
+        "Owner choice of the version number (target-version-undecided).",
+        "Verifier records (verify:record by Joshua Small) for all ten Showcase gates.",
+        "Registry approval record: the approval was given 2026-11-02 18:08 UTC (studio-owner-approval-2026-11-02) and is recorded once the gates are verified.",
+        "Version tag (owner)."
       ]
     },
     "derived": {
@@ -55,8 +56,8 @@
         "remainingGates": 10,
         "byState": {
           "verified": 0,
-          "in_progress": 4,
-          "not_started": 6,
+          "in_progress": 9,
+          "not_started": 1,
           "blocked": 0,
           "not_applicable": 0,
           "unknown_stale": 0
@@ -69,7 +70,12 @@
         "blockingFindings": 4,
         "registryBlockers": 1,
         "missingIndependentVerification": [
+          "scope-complete",
           "automated-checks",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader",
+          "responsive-layouts",
           "documentation-accurate"
         ],
         "candidateMoved": false,
@@ -83,21 +89,48 @@
           "id": "scope-complete",
           "requirement": "The approved release scope document is complete; every in-scope item is done.",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "studio-release-record-9310334",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/931033490b5206a7c0bfb4ade75de30c667416ca/docs/release/studio-release-evidence.md",
+              "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
+              "verifiedAt": "2026-11-02T21:30:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "studio-owner-approval-2026-11-02",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/931033490b5206a7c0bfb4ade75de30c667416ca/docs/release/studio-release-acceptance.md",
+              "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
+              "verifiedAt": "2026-11-02T18:08:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-02T21:30:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Scope in studio-release-evidence.md, approved by the owner 2026-11-02; version not chosen. Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
           ],
-          "notes": null,
+          "notes": "Scope in studio-release-evidence.md, approved by the owner 2026-11-02; version not chosen. Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
           "blockers": [
-            "scope-document-missing"
+            "target-version-undecided",
+            "auto-scope-missing"
           ],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "automated-checks",
@@ -131,15 +164,27 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "studio-ci-run-4c46d0d",
+              "type": "workflow_run",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/41540926857",
+              "commitSha": "4c46d0deacc5651235685e705bca97c9ef45cc14",
+              "verifiedAt": "2026-11-02T23:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-02T23:00:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: CI green on main at 9310334 (builder evidence from sync). Verifier re-checks at the release commit"
+            "registry notes: CI green on main at 9310334 and 4c46d0d (builder evidence). Verifier re-checks at the release commit"
           ],
-          "notes": "CI green on main at 9310334 (builder evidence from sync). Verifier re-checks at the release commit.",
+          "notes": "CI green on main at 9310334 and 4c46d0d (builder evidence). Verifier re-checks at the release commit.",
           "blockers": [],
           "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
@@ -147,73 +192,165 @@
           "id": "security-privacy-review",
           "requirement": "Security and privacy review completed against [security.md](security.md).",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "studio-release-record-9310334",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/931033490b5206a7c0bfb4ade75de30c667416ca/docs/release/studio-release-evidence.md",
+              "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
+              "verifiedAt": "2026-11-02T21:30:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "studio-owner-checks-ab-2026-11-02",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/4c46d0deacc5651235685e705bca97c9ef45cc14/docs/release/studio-release-acceptance.md",
+              "commitSha": "4c46d0deacc5651235685e705bca97c9ef45cc14",
+              "verifiedAt": "2026-11-02T18:15:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "studio-owner-approval-2026-11-02",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/931033490b5206a7c0bfb4ade75de30c667416ca/docs/release/studio-release-acceptance.md",
+              "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
+              "verifiedAt": "2026-11-02T18:08:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-02T21:30:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: History secret scan, npm audit 0, CSP tests (builder); live headers owner-reported (check A); risks accepted by the owner. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
           ],
-          "notes": null,
+          "notes": "History secret scan, npm audit 0, CSP tests (builder); live headers owner-reported (check A); risks accepted by the owner. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
           "blockers": [],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "wcag-22-aa",
           "requirement": "Applicable WCAG 2.2 AA success criteria verified (automated checks plus manual review).",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "studio-release-record-9310334",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/931033490b5206a7c0bfb4ade75de30c667416ca/docs/release/studio-release-evidence.md",
+              "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
+              "verifiedAt": "2026-11-02T21:30:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-02T21:30:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: axe WCAG 2.2 A/AA: 0 violations on desktop and phone, also with reduced motion and SoundCloud down (builder e2e tests). Verifier re-checks"
           ],
-          "notes": null,
+          "notes": "axe WCAG 2.2 A/AA: 0 violations on desktop and phone, also with reduced motion and SoundCloud down (builder e2e tests). Verifier re-checks.",
           "blockers": [],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "keyboard-screen-reader",
           "requirement": "Keyboard-only and screen-reader testing completed on the critical pages.",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "studio-release-record-9310334",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/931033490b5206a7c0bfb4ade75de30c667416ca/docs/release/studio-release-evidence.md",
+              "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
+              "verifiedAt": "2026-11-02T21:30:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "studio-owner-checks-ab-2026-11-02",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/4c46d0deacc5651235685e705bca97c9ef45cc14/docs/release/studio-release-acceptance.md",
+              "commitSha": "4c46d0deacc5651235685e705bca97c9ef45cc14",
+              "verifiedAt": "2026-11-02T18:15:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-02T21:30:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Keyboard tests for every control (builder); screen reader walk-through owner-reported (check B). Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
           ],
-          "notes": null,
+          "notes": "Keyboard tests for every control (builder); screen reader walk-through owner-reported (check B). Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
           "blockers": [],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "responsive-layouts",
           "requirement": "Layouts tested at phone, tablet and desktop widths and at 200% zoom.",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "studio-release-record-9310334",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/931033490b5206a7c0bfb4ade75de30c667416ca/docs/release/studio-release-evidence.md",
+              "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
+              "verifiedAt": "2026-11-02T21:30:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-02T21:30:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: axe and e2e at desktop and phone viewports (builder). Verifier checks layouts"
           ],
-          "notes": null,
+          "notes": "axe and e2e at desktop and phone viewports (builder). Verifier checks layouts.",
           "blockers": [],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "critical-workflows",
@@ -240,9 +377,9 @@
           "lastObservedAt": "2026-11-02T21:30:00Z",
           "failed": false,
           "missing": [
-            "registry notes: Contact form delivery and music playback confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
+            "registry notes: Contact email arrives and music plays (owner-reported 2026-11-02); player fallback covered by e2e/resilience.spec.ts (builder). not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
           ],
-          "notes": "Contact form delivery and music playback confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
+          "notes": "Contact email arrives and music plays (owner-reported 2026-11-02); player fallback covered by e2e/resilience.spec.ts (builder). not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
           "blockers": [
             "auto-critical-workflows-unverified"
           ],
@@ -258,6 +395,18 @@
           "provenance": "observation",
           "evidence": [
             {
+              "id": "studio-vercel-4c46d0d",
+              "type": "deployment",
+              "result": "informational",
+              "url": "https://vercel.com/task-forge3/one-small-studio/QADm8HH3U6SoXj2PZ6oE1hS1NK6z",
+              "commitSha": "4c46d0deacc5651235685e705bca97c9ef45cc14",
+              "verifiedAt": "2026-11-02T23:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
               "id": "one-small-studio-vercel-9310334",
               "type": "deployment",
               "result": "informational",
@@ -270,12 +419,12 @@
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-02T23:00:00Z",
           "failed": false,
           "missing": [
-            "registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production"
+            "registry notes: Vercel serves the main head 4c46d0d (informational). Verifier confirms the release commit in production"
           ],
-          "notes": "Vercel serves the main head (informational). Verifier confirms the release commit in production.",
+          "notes": "Vercel serves the main head 4c46d0d (informational). Verifier confirms the release commit in production.",
           "blockers": [],
           "nextAction": "Finish the work and record evidence, then have the verifier re-check."
         },
@@ -317,9 +466,9 @@
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Owner said the documentation looks good (2026-10-31, at d6854de); README and DEPLOYMENT.md now on main at 9310334. Needs the owner's verify:record"
+            "registry notes: Owner said the documentation looks good (2026-10-31, README unchanged since d6854de); DEPLOYMENT.md and release records on main. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
           ],
-          "notes": "Owner said the documentation looks good (2026-10-31, at d6854de); README and DEPLOYMENT.md now on main at 9310334. Needs the owner's verify:record.",
+          "notes": "Owner said the documentation looks good (2026-10-31, README unchanged since d6854de); DEPLOYMENT.md and release records on main. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
           "blockers": [],
           "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
@@ -335,11 +484,12 @@
           "lastObservedAt": null,
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "evidence for this gate",
+            "registry notes: target-version-undecided is open"
           ],
-          "notes": null,
+          "notes": "target-version-undecided is open.",
           "blockers": [
-            "scope-document-missing"
+            "target-version-undecided"
           ],
           "nextAction": "Produce evidence for this gate."
         }
@@ -348,19 +498,17 @@
         "merge": [],
         "release": [
           {
-            "id": "scope-document-missing",
+            "id": "target-version-undecided",
             "origin": "registry",
             "status": "open",
-            "category": "scope",
+            "category": "approval",
             "severity": null,
             "blocks": "release",
             "gates": [
               "scope-complete"
             ],
-            "description": "Scope is recorded on main (docs/release/studio-release-evidence.md) and Joshua Small approved the release in the project thread on 2026-11-02 (owner-reported). The registry still needs a target version and scope document link; the release has no version or tag yet.",
+            "description": "The approved release has no version number. The owner picks it (for example 1.0.0); then targetVersion is set and the release can be tagged.",
             "evidenceRefs": [
-              "studio-repo-metadata",
-              "studio-release-record-9310334",
               "studio-owner-approval-2026-11-02"
             ],
             "rule": null
@@ -403,17 +551,19 @@
             "action": null
           },
           {
-            "id": "auto-owner-approval",
+            "id": "auto-scope-missing",
             "origin": "derived",
             "status": "proposed",
-            "category": "approval",
+            "category": "scope",
             "severity": null,
             "blocks": "release",
-            "gates": [],
-            "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release.",
+            "gates": [
+              "scope-complete"
+            ],
+            "description": "No target version: the release cannot be scoped or verified.",
             "evidenceRefs": [],
-            "rule": "approval.status approved with evidence, by the approval owner",
-            "action": "Ask Joshua Small to review the evidence and approve or decline the release."
+            "rule": "release.targetVersion and release.scopeDocument are required before verification",
+            "action": "Choose the target version for the scoped release and record it as release.targetVersion in the registry."
           }
         ],
         "postRelease": [
@@ -434,14 +584,14 @@
           "rank": 1,
           "priority": 3,
           "bucket": "Missing required verification",
-          "source": "scope-document-missing",
-          "origin": "registry",
+          "source": "auto-scope-missing",
+          "origin": "derived",
           "blocks": "release",
           "gates": [
             "scope-complete"
           ],
-          "text": "Resolve blocker scope-document-missing: Scope is recorded on main (docs/release/studio-release-evidence.md) and Joshua Small approved the release in the project thread on 2026-11-02 (owner-reported). The registry still needs a target version and scope document link; the release has no version or tag yet.",
-          "summary": "Resolve blocker scope-document-missing."
+          "text": "Choose the target version for the scoped release and record it as release.targetVersion in the registry.",
+          "summary": "Choose the target version for the scoped release and record it as release.targetVersion in the registry."
         },
         {
           "rank": 2,
@@ -473,8 +623,8 @@
             "critical-workflows",
             "documentation-accurate"
           ],
-          "text": "Independently re-check the builder evidence for automated-checks, documentation-accurate; produce evidence for security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts; then verify scope-complete, critical-workflows once their blockers are resolved.",
-          "summary": "Independently re-check the builder evidence for automated-checks, documentation-accurate."
+          "text": "Independently re-check the builder evidence for automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate; then verify scope-complete, critical-workflows once their blockers are resolved.",
+          "summary": "Independently re-check the builder evidence for automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader..."
         }
       ],
       "dependencies": [],
@@ -486,6 +636,11 @@
     },
     "unverified": [
       {
+        "gate": "scope-complete",
+        "evidence": "studio-release-record-9310334",
+        "provenance": "builder-reported"
+      },
+      {
         "gate": "automated-checks",
         "evidence": "studio-ci-main",
         "provenance": "pass-without-independent-verifier"
@@ -493,6 +648,31 @@
       {
         "gate": "automated-checks",
         "evidence": "studio-ci-run-9310334",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "studio-ci-run-4c46d0d",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "security-privacy-review",
+        "evidence": "studio-release-record-9310334",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "wcag-22-aa",
+        "evidence": "studio-release-record-9310334",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "keyboard-screen-reader",
+        "evidence": "studio-release-record-9310334",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "responsive-layouts",
+        "evidence": "studio-release-record-9310334",
         "provenance": "builder-reported"
       },
       {

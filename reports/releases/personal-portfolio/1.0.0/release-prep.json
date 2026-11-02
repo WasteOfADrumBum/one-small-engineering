@@ -1,0 +1,433 @@
+{
+  "kind": "one-small-engineering/release-preparation",
+  "generatedBy": "npm run release:reports",
+  "asOf": "2026-11-02T23:00:00Z",
+  "staleDays": 30,
+  "engineVersion": 1,
+  "registrySha256": "02fb1cb63fd9b8a3089fbf0d37473bcda4d09922a8599c6a4aa03502c1589662",
+  "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
+  "project": {
+    "id": "personal-portfolio",
+    "name": "Personal Portfolio",
+    "tier": "showcase"
+  },
+  "facts": {
+    "currentVersion": null,
+    "targetVersion": "1.0.0",
+    "releaseStatus": "ready_for_review",
+    "scopeDocument": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
+    "candidate": null,
+    "openPullRequests": [],
+    "evidenceCommits": [
+      {
+        "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
+        "evidence": [
+          "personal-portfolio-owner-report-2026-11-02",
+          "personal-portfolio-vercel-1435e75",
+          "pf-ci-run-1435e75",
+          "pf-smoke-run-1435e75"
+        ]
+      },
+      {
+        "commitSha": "5f0a84971343fd6dc85bde2e162c90594dc8b492",
+        "evidence": [
+          "pf-readme-5f0a849"
+        ]
+      },
+      {
+        "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+        "evidence": [
+          "pf-ci-run-829ffc8",
+          "pf-owner-approval-2026-11-02",
+          "pf-owner-checks-2026-11-02",
+          "pf-release-record-829ffc8",
+          "pf-vercel-829ffc8",
+          "sync-personal-portfolio-run-ci-yml-829ffc8-j2gfhtb-1"
+        ]
+      }
+    ],
+    "ownership": {
+      "builder": "Claude Code",
+      "verifier": "Joshua Small",
+      "approvalOwner": "Joshua Small"
+    },
+    "approval": {
+      "status": "pending",
+      "approvedBy": null,
+      "approvedAt": null,
+      "evidenceRefs": []
+    }
+  },
+  "derived": {
+    "readiness": {
+      "totalGates": 10,
+      "applicableGates": 10,
+      "verifiedGates": 0,
+      "remainingGates": 10,
+      "byState": {
+        "verified": 0,
+        "in_progress": 9,
+        "not_started": 1,
+        "blocked": 0,
+        "not_applicable": 0,
+        "unknown_stale": 0
+      },
+      "percentage": 0,
+      "prePublication": {
+        "applicable": 9,
+        "verified": 0
+      },
+      "blockingFindings": 3,
+      "registryBlockers": 0,
+      "missingIndependentVerification": [
+        "scope-complete",
+        "automated-checks",
+        "security-privacy-review",
+        "wcag-22-aa",
+        "keyboard-screen-reader",
+        "responsive-layouts",
+        "critical-workflows",
+        "documentation-accurate"
+      ],
+      "candidateMoved": false,
+      "ownershipValid": true,
+      "approvalRecorded": false,
+      "eligibility": "not-eligible",
+      "releaseReady": false
+    },
+    "eligibility": "not-eligible",
+    "security": [
+      {
+        "id": "security-privacy-review",
+        "state": "in_progress",
+        "provenance": "builder-reported",
+        "missing": [
+          "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+          "registry notes: Builder review in the release record (0 production advisories, history secret scan, live headers, privacy); owner approved the privacy note and accepted the three documented limits. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
+        ]
+      }
+    ],
+    "accessibility": [
+      {
+        "id": "wcag-22-aa",
+        "state": "in_progress",
+        "provenance": "builder-reported",
+        "missing": [
+          "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+          "registry notes: axe WCAG 2.0/2.1/2.2 A/AA: 0 violations at three viewport/theme combinations (builder); gradient contrast and reduced motion owner-reported. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
+        ]
+      },
+      {
+        "id": "keyboard-screen-reader",
+        "state": "in_progress",
+        "provenance": "builder-reported",
+        "missing": [
+          "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+          "registry notes: Keyboard: 68 tab stops with visible focus (builder). No screen reader pass is recorded anywhere: missing evidence. Human-only gate"
+        ]
+      },
+      {
+        "id": "responsive-layouts",
+        "state": "in_progress",
+        "provenance": "builder-reported",
+        "missing": [
+          "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+          "registry notes: No horizontal scroll at 1440 and 390 px; axe at both widths (builder). Verifier checks on real devices or widths of their choice"
+        ]
+      }
+    ],
+    "testAndCiEvidence": [
+      {
+        "id": "pf-ci-run-1435e75",
+        "type": "workflow_run",
+        "result": "builder_reported",
+        "provenance": "builder-reported",
+        "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
+        "verifiedAt": "2026-11-02T21:30:00Z",
+        "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41499128342",
+        "stale": null
+      },
+      {
+        "id": "pf-ci-run-829ffc8",
+        "type": "workflow_run",
+        "result": "builder_reported",
+        "provenance": "builder-reported",
+        "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+        "verifiedAt": "2026-11-02T23:00:00Z",
+        "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41507393519",
+        "stale": null
+      },
+      {
+        "id": "pf-smoke-run-1435e75",
+        "type": "workflow_run",
+        "result": "builder_reported",
+        "provenance": "builder-reported",
+        "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
+        "verifiedAt": "2026-11-02T21:30:00Z",
+        "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41499238148",
+        "stale": null
+      },
+      {
+        "id": "sync-personal-portfolio-run-ci-yml-829ffc8-j2gfhtb-1",
+        "type": "workflow_run",
+        "result": "builder_reported",
+        "provenance": "builder-reported",
+        "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+        "verifiedAt": "2026-11-02T19:11:50Z",
+        "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41507393519",
+        "stale": null
+      }
+    ],
+    "blockers": {
+      "merge": [],
+      "release": [
+        {
+          "id": "auto-critical-workflows-unverified",
+          "origin": "derived",
+          "status": "proposed",
+          "category": "workflow",
+          "severity": null,
+          "blocks": "release",
+          "gates": [
+            "critical-workflows"
+          ],
+          "description": "Critical workflows are not independently verified (critical-workflows).",
+          "evidenceRefs": [],
+          "rule": "critical workflow gates must be verified before release",
+          "action": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
+        },
+        {
+          "id": "auto-missing-verification",
+          "origin": "derived",
+          "status": "proposed",
+          "category": "evidence",
+          "severity": null,
+          "blocks": "release",
+          "gates": [
+            "scope-complete",
+            "automated-checks",
+            "security-privacy-review",
+            "wcag-22-aa",
+            "keyboard-screen-reader",
+            "responsive-layouts",
+            "critical-workflows",
+            "documentation-accurate"
+          ],
+          "description": "8 applicable pre-publication gate(s) lack current independent verification.",
+          "evidenceRefs": [],
+          "rule": "every applicable gate needs independent pass evidence",
+          "action": null
+        },
+        {
+          "id": "auto-owner-approval",
+          "origin": "derived",
+          "status": "proposed",
+          "category": "approval",
+          "severity": null,
+          "blocks": "release",
+          "gates": [],
+          "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release.",
+          "evidenceRefs": [],
+          "rule": "approval.status approved with evidence, by the approval owner",
+          "action": "Ask Joshua Small to review the evidence and approve or decline the release."
+        }
+      ],
+      "postRelease": [
+        {
+          "id": "enhancement-1",
+          "origin": "registry",
+          "text": "Optional items in ROADMAP.md (never reopen the release)."
+        }
+      ]
+    },
+    "nextActions": [
+      {
+        "rank": 1,
+        "priority": 3,
+        "bucket": "Missing required verification",
+        "source": "auto-critical-workflows-unverified",
+        "origin": "derived",
+        "blocks": "release",
+        "gates": [
+          "critical-workflows"
+        ],
+        "text": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.",
+        "summary": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
+      },
+      {
+        "rank": 2,
+        "priority": 3,
+        "bucket": "Missing required verification",
+        "source": "auto-missing-verification",
+        "origin": "derived",
+        "blocks": "release",
+        "gates": [
+          "scope-complete",
+          "automated-checks",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader",
+          "responsive-layouts",
+          "critical-workflows",
+          "documentation-accurate"
+        ],
+        "text": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate; then verify critical-workflows once their blockers are resolved.",
+        "summary": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa..."
+      }
+    ],
+    "rollback": {
+      "guidance": "Promote the previous production deployment in the hosting provider (for Vercel, the previous deployment), then revert the merge on main. See standards/release.md#rollback-and-recovery.",
+      "gates": []
+    },
+    "ownerChecklist": [
+      {
+        "item": "Release scope frozen: targetVersion and scopeDocument recorded",
+        "done": true
+      },
+      {
+        "item": "Release candidate commit recorded and unchanged",
+        "done": false
+      },
+      {
+        "item": "Builder and a different, independent verifier assigned",
+        "done": true
+      },
+      {
+        "item": "Every applicable pre-publication gate independently verified on current evidence (0/9)",
+        "done": false
+      },
+      {
+        "item": "No open merge blockers",
+        "done": true
+      },
+      {
+        "item": "No open release blockers other than the approval itself",
+        "done": false
+      },
+      {
+        "item": "Changelog and release notes reviewed against verified evidence (drafts below are unverified)",
+        "done": false,
+        "manual": true
+      },
+      {
+        "item": "Joshua Small approves the release, linked as evidence in a registry PR",
+        "done": false,
+        "manual": true
+      },
+      {
+        "item": "After the authorized publication or deployment: post-publication gates verified (production-deployment)",
+        "done": false
+      },
+      {
+        "item": "Registry updated by PR: currentVersion, releaseStatus released, lifecycle maintenance",
+        "done": false
+      }
+    ]
+  },
+  "unverified": {
+    "evidence": [
+      {
+        "gate": "scope-complete",
+        "evidence": "pf-release-record-829ffc8",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "pf-ci-run-1435e75",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "pf-ci-run-829ffc8",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "sync-personal-portfolio-run-ci-yml-829ffc8-j2gfhtb-1",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "security-privacy-review",
+        "evidence": "pf-release-record-829ffc8",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "wcag-22-aa",
+        "evidence": "pf-release-record-829ffc8",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "keyboard-screen-reader",
+        "evidence": "pf-release-record-829ffc8",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "responsive-layouts",
+        "evidence": "pf-release-record-829ffc8",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "critical-workflows",
+        "evidence": "pf-smoke-run-1435e75",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "documentation-accurate",
+        "evidence": "pf-release-record-829ffc8",
+        "provenance": "builder-reported"
+      }
+    ],
+    "changelog": null,
+    "limitations": {
+      "registryMissingEvidence": [
+        "Screen reader pass (keyboard-screen-reader): none recorded.",
+        "Verifier records (verify:record by Joshua Small) for all ten Showcase gates.",
+        "Registry approval record: the approval was given 2026-11-02 19:06 UTC (pf-owner-approval-2026-11-02) and is recorded once the gates are verified.",
+        "Version tag v1.0.0 (owner)."
+      ],
+      "unverifiedGateNotes": [
+        {
+          "gate": "scope-complete",
+          "notes": "Scope is section 1 of the release record; the owner approved release 1.0 on 2026-11-02. Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it."
+        },
+        {
+          "gate": "automated-checks",
+          "notes": "CI green on main at 1435e75 (code) and 829ffc8 (docs-only). Builder evidence; verifier re-checks at the release commit."
+        },
+        {
+          "gate": "security-privacy-review",
+          "notes": "Builder review in the release record (0 production advisories, history secret scan, live headers, privacy); owner approved the privacy note and accepted the three documented limits. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it."
+        },
+        {
+          "gate": "wcag-22-aa",
+          "notes": "axe WCAG 2.0/2.1/2.2 A/AA: 0 violations at three viewport/theme combinations (builder); gradient contrast and reduced motion owner-reported. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it."
+        },
+        {
+          "gate": "keyboard-screen-reader",
+          "notes": "Keyboard: 68 tab stops with visible focus (builder). No screen reader pass is recorded anywhere: missing evidence. Human-only gate."
+        },
+        {
+          "gate": "responsive-layouts",
+          "notes": "No horizontal scroll at 1440 and 390 px; axe at both widths (builder). Verifier checks on real devices or widths of their choice."
+        },
+        {
+          "gate": "critical-workflows",
+          "notes": "Contact email arrives after the 1435e75 deploy (owner-reported); production smoke check green at 1435e75 (validation only). not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it."
+        },
+        {
+          "gate": "production-deployment",
+          "notes": "Vercel serves the main head 829ffc8 (informational). Verifier confirms the release commit in production."
+        },
+        {
+          "gate": "documentation-accurate",
+          "notes": "README describes the site; release and acceptance records on main at 829ffc8. Verifier reviews at the release commit."
+        },
+        {
+          "gate": "no-release-blockers",
+          "notes": "No open registry blocker since scope-document-missing was resolved (2026-11-02). Human-only gate: the verifier confirms it."
+        }
+      ],
+      "changelogKnownLimitations": null
+    }
+  }
+}

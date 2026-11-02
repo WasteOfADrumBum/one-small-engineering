@@ -119,7 +119,9 @@ jobs:
       # Validate registry runs on the sync branches (dispatched above); runs started by a GITHUB_TOKEN dispatch
       # do not chain further workflows, so ask Auto-merge to evaluate now. It waits for the checks.
       - name: Request auto-merge evaluation
-        if: always()
+        # A manual dry run stays a dry run end to end: it never starts a real auto-merge
+        # (GitHub Copilot review of PR #40, 2026-11-02).
+        if: always() && !(github.event_name == 'workflow_dispatch' && inputs.dry_run)
         env:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}

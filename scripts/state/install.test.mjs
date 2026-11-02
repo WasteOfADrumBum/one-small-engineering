@@ -56,3 +56,23 @@ test('generated content is Prettier-stable: blank line after a leading HTML comm
   assert.match(files['AGENTS.md'], /v1 -->\n\n## /)
   assert.match(files['AGENTS.md'], /\n\n<!-- \/one-small/)
 })
+
+test('an existing malformed or invalid state file is refused with its path, never rendered or rewritten', () => {
+  // GitHub Copilot review of PR #31, 2026-11-02.
+  const { files } = installPlan({ project, defaultBranch: 'main', existing: {} })
+  assert.throws(() => installPlan({ project, defaultBranch: 'main', existing: { ...files, '.engineering/state.json': '{ not json' } }), /\.engineering\/state\.json is not valid JSON/)
+  const wrong = JSON.stringify({ ...JSON.parse(files['.engineering/state.json']), projectId: 'someone-else' })
+  assert.throws(() => installPlan({ project, defaultBranch: 'main', existing: { ...files, '.engineering/state.json': wrong } }), /\.engineering\/state\.json is invalid/)
+})
+
+test('an existing state with missing views gets only the views, never a new state', () => {
+  // GitHub Copilot review of PR #29 (2026-11-02) asked for this; the installer already did it.
+  const { files } = installPlan({ project, defaultBranch: 'main', existing: {} })
+  const partial = { ...files }
+  delete partial['.engineering/STATUS.md']
+  delete partial['.engineering/HANDOFF.md']
+  const plan = installPlan({ project, defaultBranch: 'main', existing: partial })
+  assert.equal(plan.files['.engineering/STATUS.md'], files['.engineering/STATUS.md'])
+  assert.equal(plan.files['.engineering/HANDOFF.md'], files['.engineering/HANDOFF.md'])
+  assert.ok(!('.engineering/state.json' in plan.files))
+})

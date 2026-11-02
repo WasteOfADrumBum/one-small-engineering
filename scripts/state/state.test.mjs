@@ -140,3 +140,23 @@ test('aggregation: invalid, wrong-project and unsupported-version files surface 
   const down = { get: async () => { throw new GitHubError('x', 503, '') }, paginate: async () => [] }
   assert.equal((await aggregate({ registry: { projects: proj }, client: down })).projects[0].status, 'unavailable')
 })
+
+// GitHub Copilot review of PR #29, 2026-11-02.
+test('credentials inside a URL are caught; workflow run URLs with long ids are not flagged', () => {
+  const base = initialState({ projectId: 'taskforge', repository: 'https://github.com/WasteOfADrumBum/TaskForge', branch: 'main' })
+  const withUrl = url => ({ ...base, development: { ...base.development, lastCompleted: [`see ${url}`] } })
+  assert.match(validateState(withUrl('https://deploy:hunter2secret@example.com/x')).join(' '), /sensitive/)
+  assert.match(validateState(withUrl('https://example.com/cb?token=ghp_abcdefghijklmnopqrstuvwxyz0123456789ABCD')).join(' '), /sensitive/)
+  assert.deepEqual(validateState(withUrl('https://github.com/WasteOfADrumBum/TaskForge/actions/runs/41507393519/job/123456789012')), [])
+})
+
+test('the state CLI answers a missing target or flag with usage (exit 2), not a crash', async () => {
+  const { spawnSync } = await import('node:child_process')
+  const cli = new URL('./cli.mjs', import.meta.url).pathname
+  for (const args of [['show'], ['checkpoint'], ['checkpoint', 'WasteOfADrumBum/TaskForge'], ['validate']]) {
+    const r = spawnSync(process.execPath, [cli, ...args], { encoding: 'utf8', env: { PATH: process.env.PATH } })
+    assert.equal(r.status, 2, args.join(' '))
+    assert.match(r.stderr, /usage/, args.join(' '))
+    assert.doesNotMatch(r.stderr, /TypeError/, args.join(' '))
+  }
+})

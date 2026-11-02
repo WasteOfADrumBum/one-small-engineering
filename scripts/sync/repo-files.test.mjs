@@ -99,12 +99,25 @@ test('every AI adapter points at the shared specs and matches their versions', (
   for (const a of ['.claude/skills/onboard-project/SKILL.md', '.github/prompts/onboard-project.prompt.md', 'AGENTS.md', 'GEMINI.md']) assert.match(read(a), /onboard-spec: 1/, a)
 })
 
+test('a manual registry-sync dry run never dispatches a real auto-merge', () => {
+  // GitHub Copilot review of PR #40 (2026-11-02): the dispatch used dry_run=false unconditionally.
+  const t = read('.github/workflows/registry-sync.yml')
+  const step = t.match(/- name: Request auto-merge evaluation\r?\n([\s\S]*?)\r?\n {6}- |- name: Request auto-merge evaluation\r?\n([\s\S]*)$/)
+  assert.ok(step, 'the dispatch step exists')
+  assert.match(step[0], /if: always\(\) && !\(github\.event_name == 'workflow_dispatch' && inputs\.dry_run\)/)
+})
+
 test('auto-merge workflow never checks out PR code and holds only the permissions it needs', () => {
   const t = read('.github/workflows/automerge.yml')
   assert.match(t, /ref: \$\{\{ github\.event\.repository\.default_branch \}\}/)
   assert.doesNotMatch(t, /ref: \$\{\{ github\.event\.workflow_run/)
   assert.match(t, /^permissions: \{\}\r?$/m)
-  assert.match(t, /checks: read/, 'check-runs API needs checks: read (found by the first live run)')
+  // Anchored to the job-level permissions block, so a comment or another job cannot satisfy it
+  // (GitHub Copilot review of PR #41, 2026-11-02).
+  const perms = t.match(/^ {4}permissions:\r?\n((?: {6}[a-z-]+: (?:read|write)[^\n]*\r?\n)+)/m)
+  assert.ok(perms, 'auto-merge job has its own permissions block')
+  const granted = Object.fromEntries([...perms[1].matchAll(/^ {6}([a-z-]+): (read|write)/gm)].map(m => [m[1], m[2]]))
+  assert.deepEqual(granted, { contents: 'write', 'pull-requests': 'write', actions: 'write', checks: 'read' }, 'exactly the scopes auto-merge needs; checks: read was found by the first live run')
   assert.match(t, /startsWith\(github\.event\.workflow_run\.head_branch, 'sync\/'\)/)
   assert.doesNotMatch(t, /pull-requests: write[\s\S]*(issues|packages|deployments|id-token): write/)
 })

@@ -41,8 +41,12 @@ test('full pipeline: readiness reports for all eight projects, a dashboard row e
     assert.match(files['dashboard.md'], new RegExp(`\\(projects/${id}\\.md\\)`))
   }
   assert.equal(JSON.parse(files['dashboard.json']).projects.length, 8)
+  // Which projects have a scoped release comes from the registry itself (it changes as owners
+  // approve scopes), so the expectation is derived from it rather than pinned to a list.
   const scoped = assessment.projects.filter(p => p.facts.targetVersion).map(p => p.id).sort()
-  assert.deepEqual(scoped, ['one-small-mods-pack', 'one-small-ui'])
+  const expected = JSON.parse(registryText).projects.filter(p => p.release.targetVersion).map(p => p.id).sort()
+  assert.ok(expected.length > 0, 'at least one scoped release in the registry')
+  assert.deepEqual(scoped, expected)
   for (const id of scoped) for (const name of ['release-prep.md', 'release-prep.json', 'checklist.md', 'release-notes.draft.md', 'CHANGELOG.draft.md']) {
     assert.ok(Object.keys(files).some(k => k.startsWith(`releases/${id}/`) && k.endsWith(name)), `${id} ${name}`)
   }

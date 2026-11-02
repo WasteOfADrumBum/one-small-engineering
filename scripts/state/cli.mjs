@@ -19,6 +19,11 @@ const opt = (argv, name) => { const i = argv.indexOf(name); return i === -1 ? un
 
 async function main(argv) {
   const [cmd, target] = argv
+  // Commands that act on a repository or a file need it named; fail with usage, not a TypeError
+  // (GitHub Copilot review of PR #29, 2026-11-02).
+  if (['show', 'checkpoint'].includes(cmd) && !/^[^/\s]+\/[^/\s]+$/.test(target || '')) { console.error(`usage: cli.mjs ${cmd} <owner/repo> (see header)`); return 2 }
+  if (cmd === 'validate' && !target) { console.error('usage: cli.mjs validate <state.json>'); return 2 }
+  if (cmd === 'checkpoint') for (const flag of ['--branch', '--patch', '--expected-revision', '--agent']) if (!opt(argv, flag)) { console.error(`usage: cli.mjs checkpoint needs ${flag} (see header)`); return 2 }
   const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN
   const out = t => console.log(safeOutput(t))
   if (cmd === 'validate') {

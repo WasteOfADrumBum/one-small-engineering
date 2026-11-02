@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/dashboard",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T21:30:00Z",
+  "asOf": "2026-11-02T23:00:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "178d6f7855f61feaa2d83a90b8e072d5558699ce4accbaca984880d49c2715d1",
+  "registrySha256": "02fb1cb63fd9b8a3089fbf0d37473bcda4d09922a8599c6a4aa03502c1589662",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "projects": [
     {
@@ -37,8 +37,8 @@
         "targetVersion": "0.6.0",
         "currentVersion": "0.6.0",
         "releaseStatus": "ready_for_review",
-        "lastEvidenceAt": "2026-11-02T21:30:00Z",
-        "snapshotObservedAt": "2026-11-02T17:16:07Z"
+        "lastEvidenceAt": "2026-11-02T21:30:21Z",
+        "snapshotObservedAt": "2026-11-02T22:15:50Z"
       },
       "derived": {
         "percentage": 0,
@@ -56,21 +56,21 @@
       "name": "Personal Portfolio",
       "tier": "showcase",
       "facts": {
-        "targetVersion": null,
+        "targetVersion": "1.0.0",
         "currentVersion": null,
-        "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-02T21:30:00Z",
+        "releaseStatus": "ready_for_review",
+        "lastEvidenceAt": "2026-11-02T23:00:00Z",
         "snapshotObservedAt": "2026-11-02T19:13:17Z"
       },
       "derived": {
         "percentage": 0,
         "verifiedGates": 0,
         "applicableGates": 10,
-        "blockingFindings": 4,
-        "registryBlockers": 1,
-        "eligibility": "not-scoped",
+        "blockingFindings": 3,
+        "registryBlockers": 0,
+        "eligibility": "not-eligible",
         "releaseReady": false,
-        "nextAction": "Resolve blocker scope-document-missing: Scope is recorded on main in docs/release/2026-11-portfolio-release.md (section 1) but not approved. Resolve when the owner approves it in docs/release/ACCEPTANCE.md."
+        "nextAction": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
       }
     },
     {
@@ -81,7 +81,7 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-02T21:30:00Z",
+        "lastEvidenceAt": "2026-11-02T23:00:00Z",
         "snapshotObservedAt": "2026-11-02T20:15:43Z"
       },
       "derived": {
@@ -92,7 +92,7 @@
         "registryBlockers": 1,
         "eligibility": "not-scoped",
         "releaseReady": false,
-        "nextAction": "Resolve blocker scope-document-missing: Scope is recorded on main (docs/release/studio-release-evidence.md) and Joshua Small approved the release in the project thread on 2026-11-02 (owner-reported). The registry still needs a target version and scope document link; the release has no version or tag yet."
+        "nextAction": "Choose the target version for the scoped release and record it as release.targetVersion in the registry."
       }
     },
     {
@@ -103,8 +103,8 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-02T21:30:00Z",
-        "snapshotObservedAt": "2026-11-02T20:17:33Z"
+        "lastEvidenceAt": "2026-11-02T23:00:00Z",
+        "snapshotObservedAt": "2026-11-02T22:17:37Z"
       },
       "derived": {
         "percentage": 0,
@@ -114,7 +114,7 @@
         "registryBlockers": 1,
         "eligibility": "not-scoped",
         "releaseReady": false,
-        "nextAction": "Resolve blocker scope-document-missing: Scope is recorded on main in docs/RELEASE.md (Neon Postgres and B2 storage are built and live, not next phase) but not approved. Resolve when the owner records approval in section 6."
+        "nextAction": "Resolve blocker scope-document-missing: Scope is recorded on main in docs/RELEASE.md but not approved: section 6 (owner decision) is still blank at e3bc6d2. Resolve when the owner records approval there."
       }
     },
     {

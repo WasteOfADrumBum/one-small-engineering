@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T21:30:00Z",
+  "asOf": "2026-11-02T23:00:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "178d6f7855f61feaa2d83a90b8e072d5558699ce4accbaca984880d49c2715d1",
+  "registrySha256": "02fb1cb63fd9b8a3089fbf0d37473bcda4d09922a8599c6a4aa03502c1589662",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "taskforge",

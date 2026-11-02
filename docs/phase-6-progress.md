@@ -32,6 +32,10 @@ Durable execution record; full write-up in [phase-6-final-report.md](phase-6-fin
 
 The delivery closeout and five-project reconciliation is recorded in [docs/acceptance/closeout-2026-11-02.md](acceptance/closeout-2026-11-02.md): owner-reported evidence, gate status, open PRs and the single owner checklist. Future hub work is in [ROADMAP.md](../ROADMAP.md) and never reopens Phases 0–6. Still open for the owner: the independent (non-Claude) review of the Phase 6 code, Phase 6 sign-off, and remediation writes, which stay off.
 
+## Phase 6 closeout 2026-11-02 (second pass)
+
+Recorded in [docs/acceptance/phase-6-closeout-2026-11-02.md](acceptance/phase-6-closeout-2026-11-02.md). GitHub Copilot reviewed the nine Phase 6 code PRs (#28–#31, #40–#43, #45). All 17 findings are resolved: 13 fixed with regression tests, including a real defect where a manual Registry sync dry run started a real auto-merge (R1). The other 4 are refuted with evidence or accepted as safe. The Portfolio, Photography and Studio checkpoints were invalid against the contract (R18) and are fixed in one PR per repository. Portfolio, Photography and Studio are reconciled in the registry. Still with the owner: merging the three checkpoint PRs and this PR, deciding whether Copilot's partial-tier review counts as the independent review (or running the Codex handoff), the `verify:record` gates, and the Phase 6 sign-off.
+
 ## Next action
 
-Owner works through the checklist in the closeout record (verify:record, scope approvals, Phase 6 sign-off). Optional isolated-CLI handoff repeat (ROADMAP E2).
+Owner works through section 3 of the Phase 6 closeout record (merge the checkpoint PRs, decide the independent review, verify:record, sign-off). Optional isolated-CLI handoff repeat (ROADMAP E2).
