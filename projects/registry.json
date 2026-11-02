@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-02T20:15:43Z",
+  "lastUpdatedAt": "2026-11-02T20:17:33Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1301,9 +1301,9 @@
       "productionUrl": "https://one-small-photography.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "9db552625ad69797cb5e8a3494457d047902d58c",
+        "headSha": "48efb1355dde0f9361b2f3f654453072fea15b17",
         "archived": false,
-        "observedAt": "2026-11-02T19:14:49Z",
+        "observedAt": "2026-11-02T20:17:33Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1319,13 +1319,6 @@
           "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/22",
           "title": "CI: limit the workflow token to contents: read",
           "headSha": "e4fa1de81a7370ea7c0d00131939ec4953582240",
-          "draft": false
-        },
-        {
-          "number": 25,
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/25",
-          "title": "Make \"Why One Small Photo\" about One Small Photo",
-          "headSha": "c069c20492c02d6bc200eadefa35357b28f1f9f6",
           "draft": false
         }
       ],
@@ -1389,16 +1382,16 @@
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
         },
         {
-          "id": "sync-one-small-photography-run-ci-yml-9db5526-j2fh1mq-1",
+          "id": "sync-one-small-photography-run-ci-yml-48efb13-j2it2mh-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41505786242",
-          "commitSha": "9db552625ad69797cb5e8a3494457d047902d58c",
-          "verifiedAt": "2026-11-02T19:01:50Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41511386249",
+          "commitSha": "48efb1355dde0f9361b2f3f654453072fea15b17",
+          "verifiedAt": "2026-11-02T19:37:20Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 9db5526 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 48efb13 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:ci.yml/9db5526/j2fh1mq/1"
+          "eventKey": "one-small-photography:workflow_run:ci.yml/48efb13/j2it2mh/1"
         }
       ],
       "releaseGates": [
@@ -1497,8 +1490,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-11-02T19:14:49Z",
-        "lastSyncedHead": "9db552625ad69797cb5e8a3494457d047902d58c",
+        "lastSyncedAt": "2026-11-02T20:17:33Z",
+        "lastSyncedHead": "48efb1355dde0f9361b2f3f654453072fea15b17",
         "configSource": "defaults"
       }
     },
