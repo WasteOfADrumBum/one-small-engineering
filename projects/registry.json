@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-02T21:30:00Z",
+  "lastUpdatedAt": "2026-11-02T22:15:50Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -555,9 +555,9 @@
       "productionUrl": "https://one-small-ui.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "408b8844db13037a22c718b790f0d769a910803a",
+        "headSha": "408474cded69acbfe4fbf1d903c5d38144ece5ba",
         "archived": false,
-        "observedAt": "2026-11-02T17:16:07Z",
+        "observedAt": "2026-11-02T22:15:50Z",
         "visibility": "public",
         "latestTag": {
           "name": "v0.6.0",
@@ -571,15 +571,7 @@
           "private": true
         }
       },
-      "openPullRequests": [
-        {
-          "number": 36,
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/36",
-          "title": "docs(release): 0.6.0 closeout record, provenance gate, roadmap",
-          "headSha": "4058dcb8c8225216a342d55687a0009a2146f570",
-          "draft": false
-        }
-      ],
+      "openPullRequests": [],
       "release": {
         "currentVersion": "0.6.0",
         "currentVersionSource": "GitHub release v0.6.0, recorded by One Small Engineering Sync (evidence sync-one-small-ui-release-v0-6-0)",
@@ -671,18 +663,6 @@
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
         },
         {
-          "id": "sync-one-small-ui-run-ci-yml-408b884-iyjdsow-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/41270488448",
-          "commitSha": "408b8844db13037a22c718b790f0d769a910803a",
-          "verifiedAt": "2026-11-01T03:51:30Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 408b884 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-ui:workflow_run:ci.yml/408b884/iyjdsow/1"
-        },
-        {
           "id": "sync-one-small-ui-release-v0-6-0",
           "type": "release",
           "url": "https://github.com/WasteOfADrumBum/one-small-ui/releases/tag/v0.6.0",
@@ -763,6 +743,18 @@
           "result": "informational",
           "description": "Owner-reported 2026-11-02 (Joshua Small, project chat): 0.6.0 manual acceptance passed in Chrome with Windows Narrator; live docs accepted; the two documented moderate dev-only advisories accepted. Not a verify:record pass.",
           "recordedBy": "Claude Code"
+        },
+        {
+          "id": "sync-one-small-ui-run-ci-yml-408474c-j2so57q-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/41527952486",
+          "commitSha": "408474cded69acbfe4fbf1d903c5d38144ece5ba",
+          "verifiedAt": "2026-11-02T21:30:21Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 408474c (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-ui:workflow_run:ci.yml/408474c/j2so57q/1"
         }
       ],
       "releaseGates": [
@@ -986,8 +978,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1411378047,
-        "lastSyncedAt": "2026-11-02T17:16:07Z",
-        "lastSyncedHead": "408b8844db13037a22c718b790f0d769a910803a",
+        "lastSyncedAt": "2026-11-02T22:15:50Z",
+        "lastSyncedHead": "408474cded69acbfe4fbf1d903c5d38144ece5ba",
         "configSource": "defaults"
       }
     },
