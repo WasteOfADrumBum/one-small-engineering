@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T18:40:00Z",
+  "asOf": "2026-11-02T21:30:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "0e96c780bc93781ae81f869a431cebd5f56606652b83af26ef9abfa80a4ee26d",
+  "registrySha256": "178d6f7855f61feaa2d83a90b8e072d5558699ce4accbaca984880d49c2715d1",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-photography",
@@ -21,20 +21,14 @@
         {
           "number": 22,
           "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/22",
-          "headSha": "38c925d7824fd58f557287e6f6fd1907907e7fb3",
-          "draft": false
-        },
-        {
-          "number": 24,
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/24",
-          "headSha": "671388272d397ce48e0ff5458338b828e3600d7f",
+          "headSha": "e4fa1de81a7370ea7c0d00131939ec4953582240",
           "draft": false
         }
       ],
-      "head": "c850853c0ffd16042941c5030e273b47f17a0cdf",
-      "snapshotObservedAt": "2026-11-02T18:23:26Z",
-      "lastSyncedAt": "2026-11-02T18:23:26Z",
-      "lastEvidenceAt": "2026-11-02T18:40:00Z",
+      "head": "48efb1355dde0f9361b2f3f654453072fea15b17",
+      "snapshotObservedAt": "2026-11-02T20:17:33Z",
+      "lastSyncedAt": "2026-11-02T20:17:33Z",
+      "lastEvidenceAt": "2026-11-02T21:30:00Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -128,19 +122,19 @@
               "stale": null
             },
             {
-              "id": "sync-one-small-photography-run-ci-yml-c850853-j2apy2k-1",
+              "id": "photo-ci-run-c850853",
               "type": "workflow_run",
               "result": "builder_reported",
               "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41497803452",
               "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
-              "verifiedAt": "2026-11-02T18:10:43Z",
-              "recordedBy": "One Small Engineering Sync",
-              "origin": "sync",
+              "verifiedAt": "2026-11-02T21:30:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:10:43Z",
+          "lastObservedAt": "2026-11-02T21:30:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -237,26 +231,26 @@
               "result": "informational",
               "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
               "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
-              "verifiedAt": "2026-11-02T18:40:00Z",
+              "verifiedAt": "2026-11-02T21:30:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": null
             },
             {
-              "id": "sync-one-small-photography-run-production-smoke-yml-c850853-j2bbcj4-1",
+              "id": "photo-smoke-run-c850853",
               "type": "workflow_run",
               "result": "builder_reported",
               "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41498801968",
               "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
-              "verifiedAt": "2026-11-02T18:15:38Z",
-              "recordedBy": "One Small Engineering Sync",
-              "origin": "sync",
+              "verifiedAt": "2026-11-02T21:30:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:40:00Z",
+          "lastObservedAt": "2026-11-02T21:30:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -283,14 +277,14 @@
               "result": "informational",
               "url": "https://vercel.com/task-forge3/one-small-photography/2pW6dWB2DP7kMRB3zXZJQcj8RerB",
               "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
-              "verifiedAt": "2026-11-02T18:40:00Z",
+              "verifiedAt": "2026-11-02T21:30:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:40:00Z",
+          "lastObservedAt": "2026-11-02T21:30:00Z",
           "failed": false,
           "missing": [
             "registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production"
@@ -485,12 +479,12 @@
       },
       {
         "gate": "automated-checks",
-        "evidence": "sync-one-small-photography-run-ci-yml-c850853-j2apy2k-1",
+        "evidence": "photo-ci-run-c850853",
         "provenance": "builder-reported"
       },
       {
         "gate": "critical-workflows",
-        "evidence": "sync-one-small-photography-run-production-smoke-yml-c850853-j2bbcj4-1",
+        "evidence": "photo-smoke-run-c850853",
         "provenance": "builder-reported"
       }
     ]

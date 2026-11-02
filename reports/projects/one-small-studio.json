@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T18:40:00Z",
+  "asOf": "2026-11-02T21:30:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "0e96c780bc93781ae81f869a431cebd5f56606652b83af26ef9abfa80a4ee26d",
+  "registrySha256": "178d6f7855f61feaa2d83a90b8e072d5558699ce4accbaca984880d49c2715d1",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-studio",
@@ -23,18 +23,12 @@
           "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/21",
           "headSha": "a833bb8aaa0a2d8afa384f2a565e8a4c99146b1a",
           "draft": false
-        },
-        {
-          "number": 22,
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/22",
-          "headSha": "0ee57172d0673dcab32843593c32729edbf38c25",
-          "draft": false
         }
       ],
-      "head": "931033490b5206a7c0bfb4ade75de30c667416ca",
-      "snapshotObservedAt": "2026-11-02T18:21:27Z",
-      "lastSyncedAt": "2026-11-02T18:21:27Z",
-      "lastEvidenceAt": "2026-11-02T18:40:00Z",
+      "head": "62686353da06fc90974b38fce5547230ce6d5beb",
+      "snapshotObservedAt": "2026-11-02T20:15:43Z",
+      "lastSyncedAt": "2026-11-02T20:15:43Z",
+      "lastEvidenceAt": "2026-11-02T21:30:00Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -127,19 +121,19 @@
               "stale": null
             },
             {
-              "id": "sync-one-small-studio-run-ci-yml-9310334-j2b90y5-1",
+              "id": "studio-ci-run-9310334",
               "type": "workflow_run",
               "result": "builder_reported",
               "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/41498693645",
               "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
-              "verifiedAt": "2026-11-02T18:16:34Z",
-              "recordedBy": "One Small Engineering Sync",
-              "origin": "sync",
+              "verifiedAt": "2026-11-02T21:30:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:16:34Z",
+          "lastObservedAt": "2026-11-02T21:30:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -236,14 +230,14 @@
               "result": "informational",
               "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
               "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
-              "verifiedAt": "2026-11-02T18:40:00Z",
+              "verifiedAt": "2026-11-02T21:30:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:40:00Z",
+          "lastObservedAt": "2026-11-02T21:30:00Z",
           "failed": false,
           "missing": [
             "registry notes: Contact form delivery and music playback confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
@@ -269,14 +263,14 @@
               "result": "informational",
               "url": "https://vercel.com/task-forge3/one-small-studio/FpfQVJLCJwMwXjxwNgQAa3X3mEMh",
               "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
-              "verifiedAt": "2026-11-02T18:40:00Z",
+              "verifiedAt": "2026-11-02T21:30:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:40:00Z",
+          "lastObservedAt": "2026-11-02T21:30:00Z",
           "failed": false,
           "missing": [
             "registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production"
@@ -312,14 +306,14 @@
               "result": "builder_reported",
               "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/931033490b5206a7c0bfb4ade75de30c667416ca/docs/release/studio-release-evidence.md",
               "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
-              "verifiedAt": "2026-11-02T18:40:00Z",
+              "verifiedAt": "2026-11-02T21:30:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:40:00Z",
+          "lastObservedAt": "2026-11-02T21:30:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -498,7 +492,7 @@
       },
       {
         "gate": "automated-checks",
-        "evidence": "sync-one-small-studio-run-ci-yml-9310334-j2b90y5-1",
+        "evidence": "studio-ci-run-9310334",
         "provenance": "builder-reported"
       },
       {

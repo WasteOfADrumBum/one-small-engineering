@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T18:40:00Z",
+  "asOf": "2026-11-02T21:30:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "0e96c780bc93781ae81f869a431cebd5f56606652b83af26ef9abfa80a4ee26d",
+  "registrySha256": "178d6f7855f61feaa2d83a90b8e072d5558699ce4accbaca984880d49c2715d1",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "personal-portfolio",
@@ -18,10 +18,10 @@
       "scopeDocument": null,
       "candidate": null,
       "openPullRequests": [],
-      "head": "1435e75e68df31edd52abb168d7b082844ba3e04",
-      "snapshotObservedAt": "2026-11-02T18:19:43Z",
-      "lastSyncedAt": "2026-11-02T18:19:43Z",
-      "lastEvidenceAt": "2026-11-02T18:40:00Z",
+      "head": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+      "snapshotObservedAt": "2026-11-02T19:13:17Z",
+      "lastSyncedAt": "2026-11-02T19:13:17Z",
+      "lastEvidenceAt": "2026-11-02T21:30:00Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -103,19 +103,19 @@
           "provenance": "builder-reported",
           "evidence": [
             {
-              "id": "sync-personal-portfolio-run-ci-yml-1435e75-j2bicd2-1",
+              "id": "pf-ci-run-1435e75",
               "type": "workflow_run",
               "result": "builder_reported",
               "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41499128342",
               "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
-              "verifiedAt": "2026-11-02T18:18:43Z",
-              "recordedBy": "One Small Engineering Sync",
-              "origin": "sync",
+              "verifiedAt": "2026-11-02T21:30:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:18:43Z",
+          "lastObservedAt": "2026-11-02T21:30:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -212,26 +212,26 @@
               "result": "informational",
               "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
               "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
-              "verifiedAt": "2026-11-02T18:40:00Z",
+              "verifiedAt": "2026-11-02T21:30:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": null
             },
             {
-              "id": "sync-personal-portfolio-run-production-smoke-yml-1435e75-j2bkp38-1",
+              "id": "pf-smoke-run-1435e75",
               "type": "workflow_run",
               "result": "builder_reported",
               "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41499238148",
               "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
-              "verifiedAt": "2026-11-02T18:18:12Z",
-              "recordedBy": "One Small Engineering Sync",
-              "origin": "sync",
+              "verifiedAt": "2026-11-02T21:30:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:40:00Z",
+          "lastObservedAt": "2026-11-02T21:30:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -258,14 +258,14 @@
               "result": "informational",
               "url": "https://vercel.com/task-forge3/joshsmall-portfolio/H2W4sexCyyGjyUhDuEdMHW1hYjee",
               "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
-              "verifiedAt": "2026-11-02T18:40:00Z",
+              "verifiedAt": "2026-11-02T21:30:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:40:00Z",
+          "lastObservedAt": "2026-11-02T21:30:00Z",
           "failed": false,
           "missing": [
             "registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production"
@@ -301,7 +301,7 @@
               "result": "informational",
               "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/5f0a84971343fd6dc85bde2e162c90594dc8b492/README.md",
               "commitSha": "5f0a84971343fd6dc85bde2e162c90594dc8b492",
-              "verifiedAt": "2026-11-02T18:40:00Z",
+              "verifiedAt": "2026-11-02T21:30:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
@@ -313,14 +313,14 @@
               "result": "builder_reported",
               "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/1435e75e68df31edd52abb168d7b082844ba3e04/docs/release/2026-11-portfolio-release.md",
               "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
-              "verifiedAt": "2026-11-02T18:40:00Z",
+              "verifiedAt": "2026-11-02T21:30:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:40:00Z",
+          "lastObservedAt": "2026-11-02T21:30:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -488,12 +488,12 @@
     "unverified": [
       {
         "gate": "automated-checks",
-        "evidence": "sync-personal-portfolio-run-ci-yml-1435e75-j2bicd2-1",
+        "evidence": "pf-ci-run-1435e75",
         "provenance": "builder-reported"
       },
       {
         "gate": "critical-workflows",
-        "evidence": "sync-personal-portfolio-run-production-smoke-yml-1435e75-j2bkp38-1",
+        "evidence": "pf-smoke-run-1435e75",
         "provenance": "builder-reported"
       },
       {

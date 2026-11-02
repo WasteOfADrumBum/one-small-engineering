@@ -1,8 +1,8 @@
 {
   "kind": "one-small-engineering/verification-dashboard",
   "command": "npm run verify:report",
-  "asOf": "2026-11-02T18:40:00Z",
-  "registryHash": "0e96c780bc93781ae81f869a431cebd5f56606652b83af26ef9abfa80a4ee26d",
+  "asOf": "2026-11-02T21:30:00Z",
+  "registryHash": "178d6f7855f61feaa2d83a90b8e072d5558699ce4accbaca984880d49c2715d1",
   "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
   "policyVersion": 1,
   "runs": [
@@ -3432,11 +3432,6 @@
           "number": 21,
           "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/21",
           "draft": false
-        },
-        {
-          "number": 22,
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/22",
-          "draft": false
         }
       ],
       "remediation": [
@@ -4092,11 +4087,6 @@
         {
           "number": 22,
           "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/22",
-          "draft": false
-        },
-        {
-          "number": 24,
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/24",
           "draft": false
         }
       ],
