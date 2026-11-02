@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-02T22:17:37Z",
+  "lastUpdatedAt": "2026-11-02T22:55:00Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1009,17 +1009,17 @@
       "release": {
         "currentVersion": null,
         "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder, not a release.",
-        "targetVersion": null,
+        "targetVersion": "1.0.0",
         "releaseStatus": "in_progress",
-        "scopeDocument": null,
+        "scopeDocument": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
         "blockers": [
           {
             "id": "scope-document-missing",
-            "description": "Scope is recorded on main in docs/release/2026-11-portfolio-release.md (section 1) but not approved. Resolve when the owner approves it in docs/release/ACCEPTANCE.md.",
-            "status": "open",
+            "description": "Resolved: scope is section 1 of docs/release/2026-11-portfolio-release.md (linked at 829ffc8) and Joshua Small approved release 1.0 on 2026-11-02.",
+            "status": "resolved",
             "evidenceRefs": [
-              "pf-repo-metadata",
-              "pf-release-record-1435e75"
+              "pf-release-record-829ffc8",
+              "pf-owner-approval-2026-11-02"
             ],
             "category": "scope",
             "blocks": "release",
@@ -1054,9 +1054,20 @@
             "gates": [
               "automated-checks"
             ]
+          },
+          {
+            "id": "owner-approval-awaits-verification",
+            "description": "Joshua Small approved release 1.0 on 2026-11-02 (pf-owner-approval-2026-11-02, ACCEPTANCE.md section 5). The registry records approval only once releaseStatus is verified, which needs his own verify:record pass on every gate. Resolve by recording those passes, then setting approval in a registry PR.",
+            "status": "open",
+            "evidenceRefs": [
+              "pf-owner-approval-2026-11-02"
+            ],
+            "category": "approval",
+            "blocks": "release",
+            "gates": []
           }
         ],
-        "nextAction": "Owner: approve the scope and work through docs/release/ACCEPTANCE.md in joshsmall-site, then record gate verifications with verify:record per docs/acceptance/closeout-2026-11-02.md.",
+        "nextAction": "Joshua Small (verifier): record verify:record passes for the ten gates (commands in docs/acceptance/closeout-2026-11-02.md), then set approval to approved with pf-owner-approval-2026-11-02 in a registry PR.",
         "enhancements": [
           "Optional items in ROADMAP.md (never reopen the release)."
         ]
@@ -1175,15 +1186,58 @@
           "result": "informational",
           "description": ".github/workflows/ci.yml exists on main at 1435e75 and runs on every PR and push to main (checked 2026-11-02); its first main run concluded success.",
           "recordedBy": "Claude Code"
+        },
+        {
+          "id": "pf-owner-approval-2026-11-02",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/ACCEPTANCE.md",
+          "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+          "verifiedAt": "2026-11-02T19:06:00Z",
+          "result": "informational",
+          "description": "Owner decision 2026-11-02T19:06Z (Joshua Small, project thread \"Close portfolio release\"): \"I approve the contact form privacy note and accept the three documented limits: per-instance rate limiting, personal data remaining in git history, and the dev-only minimatch advisory. Record this as my approval in ACCEPTANCE.md section 5.\" Recorded in ACCEPTANCE.md section 5 (merged in PR #30 at 829ffc8). Not a verify:record pass; the registry approval can be set only after every gate is verified.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "pf-owner-postdeploy-2026-11-02",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/ACCEPTANCE.md",
+          "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+          "verifiedAt": "2026-11-02T18:59:00Z",
+          "result": "informational",
+          "description": "Owner-reported 2026-11-02T18:59Z (Joshua Small, project thread): contact email arrives; reduced-motion behavior passes; gradient text passes in light and dark mode; Vercel and Resend on free plans; Vercel deployment-failure and GitHub Actions failure emails enabled. Recorded in ACCEPTANCE.md section 2. Not a verify:record pass.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "pf-owner-a11y-2026-11-02",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/315bdef8450c561663ddc3bd92c4435b9782b2a8/docs/release/ACCEPTANCE.md",
+          "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+          "verifiedAt": "2026-11-02T22:17:32Z",
+          "result": "informational",
+          "description": "Owner-reported 2026-11-02T22:17Z (Joshua Small, project chat): screen-reader and 200% zoom checks \"are tested and confirmed\". Screen reader, browser and operating system not stated. Recorded in ACCEPTANCE.md section 2. Not a verify:record pass.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "pf-release-record-829ffc8",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
+          "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+          "verifiedAt": "2026-11-02T22:55:00Z",
+          "result": "builder_reported",
+          "description": "Release record at 829ffc8: scope (section 1), agent-run security, secret, dependency, privacy, axe (0 violations), keyboard (68 focus stops) and 390/1440 px layout checks. Builder evidence; the verifier re-checks.",
+          "recordedBy": "Claude Code"
         }
       ],
       "releaseGates": [
         {
           "id": "scope-complete",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "pf-release-record-829ffc8",
+            "pf-owner-approval-2026-11-02"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Scope is section 1 of the release record; Joshua Small approved release 1.0 on 2026-11-02 (owner decision). Verifier records a pass."
         },
         {
           "id": "automated-checks",
@@ -1196,38 +1250,51 @@
         },
         {
           "id": "security-privacy-review",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "pf-release-record-829ffc8",
+            "pf-owner-approval-2026-11-02"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Builder review in the release record (headers, contact abuse controls, secret scan of all commits, npm audit, privacy). Owner approved the privacy note and accepted three known limits. Verifier records a pass."
         },
         {
           "id": "wcag-22-aa",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "pf-release-record-829ffc8",
+            "pf-owner-postdeploy-2026-11-02"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "axe WCAG 2.2 A/AA 0 violations (builder); gradient-text contrast and reduced motion pass (owner-reported). Verifier records a pass."
         },
         {
           "id": "keyboard-screen-reader",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "pf-release-record-829ffc8",
+            "pf-owner-a11y-2026-11-02"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Keyboard: 68 tab stops with visible focus (builder). Screen reader passes (owner-reported 2026-11-02; screen reader not stated). Verifier records a pass."
         },
         {
           "id": "responsive-layouts",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "pf-release-record-829ffc8",
+            "pf-owner-a11y-2026-11-02"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "390x844 and 1440x900 without horizontal scroll (builder). 200% zoom passes (owner-reported 2026-11-02; browser not stated). Verifier records a pass."
         },
         {
           "id": "critical-workflows",
           "status": "in_progress",
           "evidenceRefs": [
             "personal-portfolio-owner-report-2026-11-02",
-            "pf-smoke-run-1435e75"
+            "pf-smoke-run-1435e75",
+            "pf-owner-postdeploy-2026-11-02"
           ],
           "verifiedAt": null,
           "notes": "Contact form delivery confirmed by the owner; production smoke check green at 1435e75 (validation only, sends nothing); navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only."
@@ -1247,7 +1314,8 @@
           "evidenceRefs": [
             "pf-repo-metadata",
             "pf-readme-5f0a849",
-            "pf-release-record-1435e75"
+            "pf-release-record-1435e75",
+            "pf-release-record-829ffc8"
           ],
           "verifiedAt": null,
           "notes": "README describes the site and the release record is on main. Verifier reviews at the release commit."
@@ -1273,9 +1341,8 @@
         ]
       },
       "missingEvidence": [
-        "Owner approval of the recorded scope.",
-        "Verifier records for all ten Showcase gates.",
-        "Owner approval record."
+        "Verifier verify:record passes for all ten Showcase gates.",
+        "Registry approval record (owner decision exists: pf-owner-approval-2026-11-02)."
       ],
       "sync": {
         "enabled": true,

@@ -1,6 +1,6 @@
 # OneSmallUI 0.6.0: completion checklist
 
-Derived as of 2026-11-02T21:30:00Z. Status: Not eligible for release. 0 of 22 applicable gates independently verified (0%); 4 open blocker(s).
+Derived as of 2026-11-02T22:57:15Z. Status: Not eligible for release. 0 of 22 applicable gates independently verified (0%); 4 open blocker(s).
 
 1. [ ] Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.
 2. [ ] Independently re-check the builder evidence for scope-complete, automated-checks, wcag-22-aa, documentation-accurate, package-metadata-exports, clean-consumer-install, runtime-compatibility, package-archive-inspection, supply-chain-review, ci-release-pipeline, versioning-changelog, upgrade-rollback-uninstall-docs, public-docs-accurate; produce evidence for security-privacy-review, keyboard-screen-reader, responsive-layouts; then verify critical-workflows once their blockers are resolved.
