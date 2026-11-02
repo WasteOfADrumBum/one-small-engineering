@@ -1,8 +1,8 @@
 {
   "kind": "one-small-engineering/verification-dashboard",
   "command": "npm run verify:report",
-  "asOf": "2026-11-02T18:00:00Z",
-  "registryHash": "765e9f3236d0066a3fba8417fda8329a858e8adf203730621faf6f9dc038bfef",
+  "asOf": "2026-11-02T18:30:00Z",
+  "registryHash": "ba0dbd7f600bb5d738d5f1523572e3d2b353966a9519114ea152f02428ecaf67",
   "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
   "policyVersion": 1,
   "runs": [
@@ -2604,24 +2604,16 @@
         "high": 0,
         "medium": 0,
         "low": 0,
-        "unclassified": 5
+        "unclassified": 4
       },
       "blockers": [
-        {
-          "id": "no-ci-workflow",
-          "origin": "registry",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "ci",
-          "description": "No GitHub Actions workflow on main; lint, type check and tests are not enforced on PRs. Both open closeout PRs #28 and #29 add a CI workflow (green on their heads); resolve after one merges and CI runs green on main."
-        },
         {
           "id": "scope-document-missing",
           "origin": "registry",
           "severity": "unclassified",
           "blocks": "release",
           "category": "scope",
-          "description": "No approved release scope. Release records proposed in closeout PRs #28 and #29 (overlapping); resolve when the owner approves one scope."
+          "description": "Scope is recorded on main in docs/release/2026-11-portfolio-release.md (section 1) but not approved. Resolve when the owner approves it in docs/release/ACCEPTANCE.md."
         },
         {
           "id": "auto-critical-workflows-unverified",
@@ -2807,18 +2799,7 @@
           "verification": []
         }
       ],
-      "relatedPullRequests": [
-        {
-          "number": 28,
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/28",
-          "draft": false
-        },
-        {
-          "number": 29,
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/29",
-          "draft": false
-        }
-      ],
+      "relatedPullRequests": [],
       "remediation": [
         {
           "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/17",

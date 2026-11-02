@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/dashboard",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T18:00:00Z",
+  "asOf": "2026-11-02T18:30:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "765e9f3236d0066a3fba8417fda8329a858e8adf203730621faf6f9dc038bfef",
+  "registrySha256": "ba0dbd7f600bb5d738d5f1523572e3d2b353966a9519114ea152f02428ecaf67",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "projects": [
     {
@@ -37,7 +37,7 @@
         "targetVersion": "0.6.0",
         "currentVersion": "0.6.0",
         "releaseStatus": "ready_for_review",
-        "lastEvidenceAt": "2026-11-02T18:00:00Z",
+        "lastEvidenceAt": "2026-11-02T18:30:00Z",
         "snapshotObservedAt": "2026-11-02T17:16:07Z"
       },
       "derived": {
@@ -59,18 +59,18 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-02T18:00:00Z",
-        "snapshotObservedAt": "2026-11-02T17:17:44Z"
+        "lastEvidenceAt": "2026-11-02T18:30:00Z",
+        "snapshotObservedAt": "2026-11-02T18:19:43Z"
       },
       "derived": {
         "percentage": 0,
         "verifiedGates": 0,
         "applicableGates": 10,
-        "blockingFindings": 5,
-        "registryBlockers": 2,
+        "blockingFindings": 4,
+        "registryBlockers": 1,
         "eligibility": "not-scoped",
         "releaseReady": false,
-        "nextAction": "Resolve blocker scope-document-missing: No approved release scope. Release records proposed in closeout PRs #28 and #29 (overlapping); resolve when the owner approves one scope."
+        "nextAction": "Resolve blocker scope-document-missing: Scope is recorded on main in docs/release/2026-11-portfolio-release.md (section 1) but not approved. Resolve when the owner approves it in docs/release/ACCEPTANCE.md."
       }
     },
     {
@@ -81,7 +81,7 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-02T18:00:00Z",
+        "lastEvidenceAt": "2026-11-02T18:30:00Z",
         "snapshotObservedAt": "2026-11-02T17:19:08Z"
       },
       "derived": {
@@ -103,7 +103,7 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-02T18:00:00Z",
+        "lastEvidenceAt": "2026-11-02T18:30:00Z",
         "snapshotObservedAt": "2026-11-01T19:12:54Z"
       },
       "derived": {

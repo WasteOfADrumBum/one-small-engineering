@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T18:00:00Z",
+  "asOf": "2026-11-02T18:30:00Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "765e9f3236d0066a3fba8417fda8329a858e8adf203730621faf6f9dc038bfef",
+  "registrySha256": "ba0dbd7f600bb5d738d5f1523572e3d2b353966a9519114ea152f02428ecaf67",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "personal-portfolio",
@@ -17,24 +17,11 @@
       "releaseStatus": "in_progress",
       "scopeDocument": null,
       "candidate": null,
-      "openPullRequests": [
-        {
-          "number": 28,
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/28",
-          "headSha": "0cb9506216a508f02b4696dfaa65a0afc3ff6988",
-          "draft": false
-        },
-        {
-          "number": 29,
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/29",
-          "headSha": "d824f6d055ae9ce7b0ddf538ebcd713e163af7f7",
-          "draft": false
-        }
-      ],
-      "head": "5f0a84971343fd6dc85bde2e162c90594dc8b492",
-      "snapshotObservedAt": "2026-11-02T17:17:44Z",
-      "lastSyncedAt": "2026-11-02T17:17:44Z",
-      "lastEvidenceAt": "2026-11-02T18:00:00Z",
+      "openPullRequests": [],
+      "head": "1435e75e68df31edd52abb168d7b082844ba3e04",
+      "snapshotObservedAt": "2026-11-02T18:19:43Z",
+      "lastSyncedAt": "2026-11-02T18:19:43Z",
+      "lastEvidenceAt": "2026-11-02T18:30:00Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -46,10 +33,9 @@
         "approvedAt": null,
         "evidenceRefs": []
       },
-      "registryNextAction": "Owner: choose between overlapping closeout PRs #28 and #29 (merge one; then port the unique fixes from the other), then record gate verifications with verify:record per docs/acceptance/closeout-2026-11-02.md.",
+      "registryNextAction": "Owner: approve the scope and work through docs/release/ACCEPTANCE.md in joshsmall-site, then record gate verifications with verify:record per docs/acceptance/closeout-2026-11-02.md.",
       "missingEvidence": [
-        "Approved release scope (records in PRs #28/#29).",
-        "CI evidence on main (workflow in PRs #28/#29, not merged).",
+        "Owner approval of the recorded scope.",
         "Verifier records for all ten Showcase gates.",
         "Owner approval record."
       ]
@@ -62,8 +48,8 @@
         "remainingGates": 10,
         "byState": {
           "verified": 0,
-          "in_progress": 3,
-          "not_started": 7,
+          "in_progress": 4,
+          "not_started": 6,
           "blocked": 0,
           "not_applicable": 0,
           "unknown_stale": 0
@@ -73,9 +59,13 @@
           "applicable": 9,
           "verified": 0
         },
-        "blockingFindings": 5,
-        "registryBlockers": 2,
-        "missingIndependentVerification": [],
+        "blockingFindings": 4,
+        "registryBlockers": 1,
+        "missingIndependentVerification": [
+          "automated-checks",
+          "critical-workflows",
+          "documentation-accurate"
+        ],
         "candidateMoved": false,
         "ownershipValid": true,
         "approvalRecorded": false,
@@ -107,21 +97,33 @@
           "id": "automated-checks",
           "requirement": "Applicable build, lint, type check and automated tests pass in CI on the release commit.",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "sync-personal-portfolio-run-ci-yml-1435e75-j2bicd2-1",
+              "type": "workflow_run",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41499128342",
+              "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
+              "verifiedAt": "2026-11-02T18:18:43Z",
+              "recordedBy": "One Small Engineering Sync",
+              "origin": "sync",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-02T18:18:43Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: CI green on main at 1435e75 (builder evidence from sync). Verifier re-checks at the release commit"
           ],
-          "notes": null,
-          "blockers": [
-            "no-ci-workflow"
-          ],
-          "nextAction": "Produce evidence for this gate."
+          "notes": "CI green on main at 1435e75 (builder evidence from sync). Verifier re-checks at the release commit.",
+          "blockers": [],
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "security-privacy-review",
@@ -202,31 +204,44 @@
           "registryStatus": "in_progress",
           "state": "in_progress",
           "applicable": true,
-          "provenance": "observation",
+          "provenance": "builder-reported",
           "evidence": [
             {
               "id": "personal-portfolio-owner-report-2026-11-02",
               "type": "document",
               "result": "informational",
               "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/docs/acceptance/closeout-2026-11-02.md",
-              "commitSha": "5f0a84971343fd6dc85bde2e162c90594dc8b492",
-              "verifiedAt": "2026-11-02T18:00:00Z",
+              "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
+              "verifiedAt": "2026-11-02T18:30:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": null
+            },
+            {
+              "id": "sync-personal-portfolio-run-production-smoke-yml-1435e75-j2bkp38-1",
+              "type": "workflow_run",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41499238148",
+              "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
+              "verifiedAt": "2026-11-02T18:18:12Z",
+              "recordedBy": "One Small Engineering Sync",
+              "origin": "sync",
+              "provenance": "builder-reported",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:00:00Z",
+          "lastObservedAt": "2026-11-02T18:30:00Z",
           "failed": false,
           "missing": [
-            "registry notes: Contact form delivery confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Contact form delivery confirmed by the owner; production smoke check green at 1435e75 (validation only, sends nothing); navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
           ],
-          "notes": "Contact form delivery confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
+          "notes": "Contact form delivery confirmed by the owner; production smoke check green at 1435e75 (validation only, sends nothing); navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
           "blockers": [
             "auto-critical-workflows-unverified"
           ],
-          "nextAction": "Finish the work and record evidence, then have the verifier re-check."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "production-deployment",
@@ -238,19 +253,19 @@
           "provenance": "observation",
           "evidence": [
             {
-              "id": "personal-portfolio-vercel-5f0a849",
+              "id": "personal-portfolio-vercel-1435e75",
               "type": "deployment",
               "result": "informational",
-              "url": "https://vercel.com/task-forge3/joshsmall-portfolio/2oMid2nGeu1LXQjSG9Cv1KwvAK3Y",
-              "commitSha": "5f0a84971343fd6dc85bde2e162c90594dc8b492",
-              "verifiedAt": "2026-11-02T18:00:00Z",
+              "url": "https://vercel.com/task-forge3/joshsmall-portfolio/H2W4sexCyyGjyUhDuEdMHW1hYjee",
+              "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
+              "verifiedAt": "2026-11-02T18:30:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:00:00Z",
+          "lastObservedAt": "2026-11-02T18:30:00Z",
           "failed": false,
           "missing": [
             "registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production"
@@ -266,7 +281,7 @@
           "registryStatus": "in_progress",
           "state": "in_progress",
           "applicable": true,
-          "provenance": "observation",
+          "provenance": "builder-reported",
           "evidence": [
             {
               "id": "pf-repo-metadata",
@@ -286,21 +301,34 @@
               "result": "informational",
               "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/5f0a84971343fd6dc85bde2e162c90594dc8b492/README.md",
               "commitSha": "5f0a84971343fd6dc85bde2e162c90594dc8b492",
-              "verifiedAt": "2026-11-02T18:00:00Z",
+              "verifiedAt": "2026-11-02T18:30:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "observation",
               "stale": null
+            },
+            {
+              "id": "pf-release-record-1435e75",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/1435e75e68df31edd52abb168d7b082844ba3e04/docs/release/2026-11-portfolio-release.md",
+              "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
+              "verifiedAt": "2026-11-02T18:30:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T18:00:00Z",
+          "lastObservedAt": "2026-11-02T18:30:00Z",
           "failed": false,
           "missing": [
-            "registry notes: README now describes the site; the closeout PRs add release records. Verifier reviews at the release commit"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: README describes the site and the release record is on main. Verifier reviews at the release commit"
           ],
-          "notes": "README now describes the site; the closeout PRs add release records. Verifier reviews at the release commit.",
+          "notes": "README describes the site and the release record is on main. Verifier reviews at the release commit.",
           "blockers": [],
-          "nextAction": "Finish the work and record evidence, then have the verifier re-check."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "no-release-blockers",
@@ -318,7 +346,6 @@
           ],
           "notes": null,
           "blockers": [
-            "no-ci-workflow",
             "scope-document-missing"
           ],
           "nextAction": "Produce evidence for this gate."
@@ -327,24 +354,6 @@
       "blockers": {
         "merge": [],
         "release": [
-          {
-            "id": "no-ci-workflow",
-            "origin": "registry",
-            "status": "open",
-            "category": "ci",
-            "severity": null,
-            "blocks": "release",
-            "gates": [
-              "automated-checks"
-            ],
-            "description": "No GitHub Actions workflow on main; lint, type check and tests are not enforced on PRs. Both open closeout PRs #28 and #29 add a CI workflow (green on their heads); resolve after one merges and CI runs green on main.",
-            "evidenceRefs": [
-              "pf-vercel-head",
-              "pf-closeout-pr-28",
-              "pf-closeout-pr-29"
-            ],
-            "rule": null
-          },
           {
             "id": "scope-document-missing",
             "origin": "registry",
@@ -355,11 +364,10 @@
             "gates": [
               "scope-complete"
             ],
-            "description": "No approved release scope. Release records proposed in closeout PRs #28 and #29 (overlapping); resolve when the owner approves one scope.",
+            "description": "Scope is recorded on main in docs/release/2026-11-portfolio-release.md (section 1) but not approved. Resolve when the owner approves it in docs/release/ACCEPTANCE.md.",
             "evidenceRefs": [
               "pf-repo-metadata",
-              "pf-closeout-pr-28",
-              "pf-closeout-pr-29"
+              "pf-release-record-1435e75"
             ],
             "rule": null
           },
@@ -418,7 +426,7 @@
           {
             "id": "enhancement-1",
             "origin": "registry",
-            "text": "Optional items in the ROADMAP.md added by PR #28 or #29 (never reopen the release)."
+            "text": "Optional items in ROADMAP.md (never reopen the release)."
           }
         ]
       },
@@ -433,7 +441,7 @@
           "gates": [
             "scope-complete"
           ],
-          "text": "Resolve blocker scope-document-missing: No approved release scope. Release records proposed in closeout PRs #28 and #29 (overlapping); resolve when the owner approves one scope.",
+          "text": "Resolve blocker scope-document-missing: Scope is recorded on main in docs/release/2026-11-portfolio-release.md (section 1) but not approved. Resolve when the owner approves it in docs/release/ACCEPTANCE.md.",
           "summary": "Resolve blocker scope-document-missing."
         },
         {
@@ -466,21 +474,8 @@
             "critical-workflows",
             "documentation-accurate"
           ],
-          "text": "Produce evidence for security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate; then verify scope-complete, automated-checks, critical-workflows once their blockers are resolved.",
-          "summary": "Produce evidence for security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate."
-        },
-        {
-          "rank": 4,
-          "priority": 4,
-          "bucket": "Failed or missing CI",
-          "source": "no-ci-workflow",
-          "origin": "registry",
-          "blocks": "release",
-          "gates": [
-            "automated-checks"
-          ],
-          "text": "Resolve blocker no-ci-workflow: No GitHub Actions workflow on main; lint, type check and tests are not enforced on PRs. Both open closeout PRs #28 and #29 add a CI workflow (green on their heads); resolve after one merges and CI runs green on main.",
-          "summary": "Resolve blocker no-ci-workflow."
+          "text": "Independently re-check the builder evidence for automated-checks, documentation-accurate; produce evidence for security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts; then verify scope-complete, critical-workflows once their blockers are resolved.",
+          "summary": "Independently re-check the builder evidence for automated-checks, documentation-accurate."
         }
       ],
       "dependencies": [],
@@ -490,6 +485,22 @@
         "reason": "approval is pending"
       }
     },
-    "unverified": []
+    "unverified": [
+      {
+        "gate": "automated-checks",
+        "evidence": "sync-personal-portfolio-run-ci-yml-1435e75-j2bicd2-1",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "critical-workflows",
+        "evidence": "sync-personal-portfolio-run-production-smoke-yml-1435e75-j2bkp38-1",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "documentation-accurate",
+        "evidence": "pf-release-record-1435e75",
+        "provenance": "builder-reported"
+      }
+    ]
   }
 }
