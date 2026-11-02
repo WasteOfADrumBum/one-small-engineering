@@ -148,6 +148,10 @@ test('credentials inside a URL are caught; workflow run URLs with long ids are n
   assert.match(validateState(withUrl('https://deploy:hunter2secret@example.com/x')).join(' '), /sensitive/)
   assert.match(validateState(withUrl('https://example.com/cb?token=ghp_abcdefghijklmnopqrstuvwxyz0123456789ABCD')).join(' '), /sensitive/)
   assert.deepEqual(validateState(withUrl('https://github.com/WasteOfADrumBum/TaskForge/actions/runs/41507393519/job/123456789012')), [])
+  // GitHub Copilot review of PR #73: long numbers outside a github.com path are still scanned.
+  for (const url of ['https://example.com/?token=123456789012', 'https://example.com/acct/123456789012', 'https://github.com/x/y?code=123456789012']) {
+    assert.match(validateState(withUrl(url)).join(' '), /sensitive/, url)
+  }
 })
 
 test('the state CLI answers a missing target or flag with usage (exit 2), not a crash', async () => {
