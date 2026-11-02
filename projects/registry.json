@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-02T17:19:08Z",
+  "lastUpdatedAt": "2026-11-02T18:19:43Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -877,9 +877,9 @@
       "productionUrl": "https://joshsmall-portfolio.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "5f0a84971343fd6dc85bde2e162c90594dc8b492",
+        "headSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
         "archived": false,
-        "observedAt": "2026-11-02T17:17:44Z",
+        "observedAt": "2026-11-02T18:19:43Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -889,22 +889,7 @@
           "private": true
         }
       },
-      "openPullRequests": [
-        {
-          "number": 28,
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/28",
-          "title": "Close portfolio release 1.0: CI, contact hardening, privacy note, release records",
-          "headSha": "0cb9506216a508f02b4696dfaa65a0afc3ff6988",
-          "draft": false
-        },
-        {
-          "number": 29,
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/29",
-          "title": "Close the portfolio release: CI, small fixes, release record",
-          "headSha": "d824f6d055ae9ce7b0ddf538ebcd713e163af7f7",
-          "draft": false
-        }
-      ],
+      "openPullRequests": [],
       "release": {
         "currentVersion": null,
         "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder, not a release.",
@@ -987,6 +972,30 @@
           "result": "pass",
           "description": "Vercel commit status success and a Production deployment recorded for 684ef3c on 2026-10-21. Live behaviour not inspected.",
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
+        },
+        {
+          "id": "sync-personal-portfolio-run-ci-yml-1435e75-j2bicd2-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41499128342",
+          "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
+          "verifiedAt": "2026-11-02T18:18:43Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 1435e75 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "personal-portfolio:workflow_run:ci.yml/1435e75/j2bicd2/1"
+        },
+        {
+          "id": "sync-personal-portfolio-run-production-smoke-yml-1435e75-j2bkp38-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41499238148",
+          "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
+          "verifiedAt": "2026-11-02T18:18:12Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke check\") concluded success on main at 1435e75 (workflow_dispatch event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "personal-portfolio:workflow_run:production-smoke.yml/1435e75/j2bkp38/1"
         }
       ],
       "releaseGates": [
@@ -1085,8 +1094,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406067959,
-        "lastSyncedAt": "2026-11-02T17:17:44Z",
-        "lastSyncedHead": "5f0a84971343fd6dc85bde2e162c90594dc8b492",
+        "lastSyncedAt": "2026-11-02T18:19:43Z",
+        "lastSyncedHead": "1435e75e68df31edd52abb168d7b082844ba3e04",
         "configSource": "defaults"
       }
     },
