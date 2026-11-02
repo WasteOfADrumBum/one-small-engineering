@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-02T17:17:44Z",
+  "lastUpdatedAt": "2026-11-02T17:19:08Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1102,7 +1102,7 @@
         "defaultBranch": "main",
         "headSha": "b701805ef331941cb8d4869b0e2369f9d9526b2b",
         "archived": false,
-        "observedAt": "2026-10-31T18:18:30Z",
+        "observedAt": "2026-11-02T17:19:08Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1112,7 +1112,15 @@
           "private": true
         }
       },
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 19,
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/19",
+          "title": "Close the Studio release: resilience fixes, WCAG 2.2 tests, release docs",
+          "headSha": "ba82f24bf7f71be7d59b67ac4b90ea7de883590e",
+          "draft": false
+        }
+      ],
       "release": {
         "currentVersion": null,
         "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder.",
@@ -1281,7 +1289,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1410748339,
-        "lastSyncedAt": "2026-10-31T18:18:30Z",
+        "lastSyncedAt": "2026-11-02T17:19:08Z",
         "lastSyncedHead": "b701805ef331941cb8d4869b0e2369f9d9526b2b",
         "configSource": "defaults"
       }
