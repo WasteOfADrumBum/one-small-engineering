@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-02T23:16:40Z",
+  "lastUpdatedAt": "2026-11-03T04:21:29Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -993,9 +993,9 @@
       "productionUrl": "https://onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+        "headSha": "9aab29fb774d764d6d2602325c061702c47e06ba",
         "archived": false,
-        "observedAt": "2026-11-02T23:14:30Z",
+        "observedAt": "2026-11-03T04:18:33Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1006,13 +1006,6 @@
         }
       },
       "openPullRequests": [
-        {
-          "number": 31,
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/31",
-          "title": "Record screen-reader and 200% zoom results; map release evidence to hub gates",
-          "headSha": "49652fa4539b7cc3fb7bba815fb42406194258c3",
-          "draft": false
-        },
         {
           "number": 32,
           "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/32",
@@ -1025,12 +1018,12 @@
         "currentVersion": null,
         "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder, not a release.",
         "targetVersion": "1.0.0",
-        "releaseStatus": "ready_for_review",
+        "releaseStatus": "in_progress",
         "scopeDocument": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
         "blockers": [
           {
             "id": "scope-document-missing",
-            "description": "Resolved: the release 1.0 scope is section 1 of docs/release/2026-11-portfolio-release.md; Joshua Small approved release 1.0 on 2026-11-02 19:06 UTC (ACCEPTANCE.md section 5, PR #30 merged by him at 19:09:59Z). Target version 1.0.0 follows the record's \"release 1.0\".",
+            "description": "Resolved: scope is section 1 of docs/release/2026-11-portfolio-release.md (linked at 829ffc8) and Joshua Small approved release 1.0 on 2026-11-02.",
             "status": "resolved",
             "evidenceRefs": [
               "pf-release-record-829ffc8",
@@ -1069,9 +1062,20 @@
             "gates": [
               "automated-checks"
             ]
+          },
+          {
+            "id": "owner-approval-awaits-verification",
+            "description": "Joshua Small approved release 1.0 on 2026-11-02 (pf-owner-approval-2026-11-02, ACCEPTANCE.md section 5). The registry records approval only once releaseStatus is verified, which needs his own verify:record pass on every gate. Resolve by recording those passes, then setting approval in a registry PR.",
+            "status": "open",
+            "evidenceRefs": [
+              "pf-owner-approval-2026-11-02"
+            ],
+            "category": "approval",
+            "blocks": "release",
+            "gates": []
           }
         ],
-        "nextAction": "Builder work is complete and the owner approved release 1.0 (2026-11-02). Verifier (Joshua Small): record the ten Showcase gates with verify:record per docs/acceptance/phase-6-closeout-2026-11-02.md (the screen reader pass has no evidence yet). Then the registry approval can cite pf-owner-approval-2026-11-02 and the owner tags v1.0.0.",
+        "nextAction": "Joshua Small (verifier): record verify:record passes for the ten gates (commands in docs/acceptance/closeout-2026-11-02.md), then set approval to approved with pf-owner-approval-2026-11-02 in a registry PR.",
         "enhancements": [
           "Optional items in ROADMAP.md (never reopen the release)."
         ]
@@ -1108,18 +1112,6 @@
           "result": "pass",
           "description": "Vercel commit status success and a Production deployment recorded for 684ef3c on 2026-10-21. Live behaviour not inspected.",
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
-        },
-        {
-          "id": "sync-personal-portfolio-run-ci-yml-829ffc8-j2gfhtb-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41507393519",
-          "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
-          "verifiedAt": "2026-11-02T19:11:50Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 829ffc8 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "personal-portfolio:workflow_run:ci.yml/829ffc8/j2gfhtb/1"
         },
         {
           "id": "personal-portfolio-vercel-1435e75",
@@ -1192,54 +1184,56 @@
           "recordedBy": "Claude Code"
         },
         {
-          "recordedBy": "Claude Code",
-          "id": "pf-release-record-829ffc8",
-          "type": "document",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
-          "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
-          "verifiedAt": "2026-11-02T23:00:00Z",
-          "result": "builder_reported",
-          "description": "Release 1.0 record on main at 829ffc8: scope (section 1), production identity, agent-run build/tests, security, privacy, axe WCAG 2.0/2.1/2.2 A/AA (0 violations at 1440x900 dark/light and 390x844), keyboard (68 tab stops with visible focus), no horizontal scroll at either width, slow network. Builder evidence."
-        },
-        {
-          "recordedBy": "Claude Code",
-          "id": "pf-owner-checks-2026-11-02",
-          "type": "document",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/ACCEPTANCE.md",
-          "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
-          "verifiedAt": "2026-11-02T19:01:18Z",
-          "result": "informational",
-          "description": "Owner-reported 2026-11-02 (Joshua Small, project thread \"Close portfolio release\"), recorded in ACCEPTANCE.md section 2 by PR #30: contact email arrives after the 1435e75 deploy, reduced-motion behaviour passes, gradient text contrast passes in light and dark mode, Vercel/Resend on free plans, deployment and Actions failure emails on. Not a verify:record pass."
-        },
-        {
-          "recordedBy": "Claude Code",
           "id": "pf-owner-approval-2026-11-02",
           "type": "document",
           "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/ACCEPTANCE.md",
           "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
           "verifiedAt": "2026-11-02T19:06:00Z",
           "result": "informational",
-          "description": "Owner decision 2026-11-02 19:06 UTC (Joshua Small, project thread): \"I approve the contact form privacy note and accept the three documented limits ... Record this as my approval in ACCEPTANCE.md section 5.\" Recorded in section 5 (Approved for release 1.0) by PR #30, which Joshua Small merged at 2026-11-02T19:09:59Z (829ffc8). Approves the release 1.0 scope. Not a verify:record pass; the registry approval field stays pending until the gates are verified (standards/release.md)."
+          "description": "Owner decision 2026-11-02T19:06Z (Joshua Small, project thread \"Close portfolio release\"): \"I approve the contact form privacy note and accept the three documented limits: per-instance rate limiting, personal data remaining in git history, and the dev-only minimatch advisory. Record this as my approval in ACCEPTANCE.md section 5.\" Recorded in ACCEPTANCE.md section 5 (merged in PR #30 at 829ffc8). Not a verify:record pass; the registry approval can be set only after every gate is verified.",
+          "recordedBy": "Claude Code"
         },
         {
-          "recordedBy": "Claude Code",
-          "id": "pf-vercel-829ffc8",
-          "type": "deployment",
-          "url": "https://vercel.com/task-forge3/joshsmall-portfolio/397vqtdb2aT9wbdc4rCDTVppai4w",
+          "id": "pf-owner-postdeploy-2026-11-02",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/ACCEPTANCE.md",
           "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
-          "verifiedAt": "2026-11-02T23:00:00Z",
+          "verifiedAt": "2026-11-02T18:59:00Z",
           "result": "informational",
-          "description": "Vercel production deployment dpl_397vqtdb2aT9wbdc4rCDTVppai4w (READY) serves main 829ffc8 (docs-only change since 1435e75). Checked 2026-11-02 through the Vercel API."
+          "description": "Owner-reported 2026-11-02T18:59Z (Joshua Small, project thread): contact email arrives; reduced-motion behavior passes; gradient text passes in light and dark mode; Vercel and Resend on free plans; Vercel deployment-failure and GitHub Actions failure emails enabled. Recorded in ACCEPTANCE.md section 2. Not a verify:record pass.",
+          "recordedBy": "Claude Code"
         },
         {
-          "recordedBy": "Claude Code",
-          "id": "pf-ci-run-829ffc8",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41507393519",
+          "id": "pf-owner-a11y-2026-11-02",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/315bdef8450c561663ddc3bd92c4435b9782b2a8/docs/release/ACCEPTANCE.md",
           "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
-          "verifiedAt": "2026-11-02T23:00:00Z",
+          "verifiedAt": "2026-11-02T22:17:32Z",
+          "result": "informational",
+          "description": "Owner-reported 2026-11-02T22:17Z (Joshua Small, project chat): screen-reader and 200% zoom checks \"are tested and confirmed\". Screen reader, browser and operating system not stated. Recorded in ACCEPTANCE.md section 2 (joshsmall-site PR #31). Not a verify:record pass.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "pf-release-record-829ffc8",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
+          "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+          "verifiedAt": "2026-11-03T03:41:00Z",
           "result": "builder_reported",
-          "description": "CI (push) concluded success on main at 829ffc8. Builder evidence; a verifier re-checks before any gate is verified."
+          "description": "Release record at 829ffc8: scope (section 1), agent-run security, secret, dependency, privacy, axe (0 violations), keyboard (68 focus stops) and 390/1440 px layout checks. Builder evidence; the verifier re-checks.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "sync-personal-portfolio-run-ci-yml-9aab29f-j3ju86w-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41573585912",
+          "commitSha": "9aab29fb774d764d6d2602325c061702c47e06ba",
+          "verifiedAt": "2026-11-03T03:41:50Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 9aab29f (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "personal-portfolio:workflow_run:ci.yml/9aab29f/j3ju86w/1"
         }
       ],
       "releaseGates": [
@@ -1251,18 +1245,16 @@
             "pf-owner-approval-2026-11-02"
           ],
           "verifiedAt": null,
-          "notes": "Scope is section 1 of the release record; the owner approved release 1.0 on 2026-11-02. Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it."
+          "notes": "Scope is section 1 of the release record; Joshua Small approved release 1.0 on 2026-11-02 (owner decision). Verifier records a pass."
         },
         {
           "id": "automated-checks",
           "status": "in_progress",
           "evidenceRefs": [
-            "pf-ci-run-1435e75",
-            "pf-ci-run-829ffc8",
-            "sync-personal-portfolio-run-ci-yml-829ffc8-j2gfhtb-1"
+            "pf-ci-run-1435e75"
           ],
           "verifiedAt": null,
-          "notes": "CI green on main at 1435e75 (code) and 829ffc8 (docs-only). Builder evidence; verifier re-checks at the release commit."
+          "notes": "CI green on main at 1435e75 (builder evidence from sync). Verifier re-checks at the release commit."
         },
         {
           "id": "security-privacy-review",
@@ -1272,73 +1264,76 @@
             "pf-owner-approval-2026-11-02"
           ],
           "verifiedAt": null,
-          "notes": "Builder review in the release record (0 production advisories, history secret scan, live headers, privacy); owner approved the privacy note and accepted the three documented limits. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it."
+          "notes": "Builder review in the release record (headers, contact abuse controls, secret scan of all commits, npm audit, privacy). Owner approved the privacy note and accepted three known limits. Verifier records a pass."
         },
         {
           "id": "wcag-22-aa",
           "status": "in_progress",
           "evidenceRefs": [
             "pf-release-record-829ffc8",
-            "pf-owner-checks-2026-11-02"
+            "pf-owner-postdeploy-2026-11-02"
           ],
           "verifiedAt": null,
-          "notes": "axe WCAG 2.0/2.1/2.2 A/AA: 0 violations at three viewport/theme combinations (builder); gradient contrast and reduced motion owner-reported. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it."
+          "notes": "axe WCAG 2.2 A/AA 0 violations (builder); gradient-text contrast and reduced motion pass (owner-reported). Verifier records a pass."
         },
         {
           "id": "keyboard-screen-reader",
           "status": "in_progress",
           "evidenceRefs": [
-            "pf-release-record-829ffc8"
+            "pf-release-record-829ffc8",
+            "pf-owner-a11y-2026-11-02"
           ],
           "verifiedAt": null,
-          "notes": "Keyboard: 68 tab stops with visible focus (builder). No screen reader pass is recorded anywhere: missing evidence. Human-only gate."
+          "notes": "Keyboard: 68 tab stops with visible focus (builder). Screen reader passes (owner-reported 2026-11-02; screen reader not stated). Verifier records a pass."
         },
         {
           "id": "responsive-layouts",
           "status": "in_progress",
           "evidenceRefs": [
-            "pf-release-record-829ffc8"
+            "pf-release-record-829ffc8",
+            "pf-owner-a11y-2026-11-02"
           ],
           "verifiedAt": null,
-          "notes": "No horizontal scroll at 1440 and 390 px; axe at both widths (builder). Verifier checks on real devices or widths of their choice."
+          "notes": "390x844 and 1440x900 without horizontal scroll (builder). 200% zoom passes (owner-reported 2026-11-02; browser not stated). Verifier records a pass."
         },
         {
           "id": "critical-workflows",
           "status": "in_progress",
           "evidenceRefs": [
             "personal-portfolio-owner-report-2026-11-02",
-            "pf-owner-checks-2026-11-02",
-            "pf-smoke-run-1435e75"
+            "pf-smoke-run-1435e75",
+            "pf-owner-postdeploy-2026-11-02"
           ],
           "verifiedAt": null,
-          "notes": "Contact email arrives after the 1435e75 deploy (owner-reported); production smoke check green at 1435e75 (validation only). not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it."
+          "notes": "Contact form delivery confirmed by the owner; production smoke check green at 1435e75 (validation only, sends nothing); navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only."
         },
         {
           "id": "production-deployment",
           "status": "in_progress",
           "evidenceRefs": [
-            "pf-vercel-829ffc8",
             "personal-portfolio-vercel-1435e75"
           ],
           "verifiedAt": null,
-          "notes": "Vercel serves the main head 829ffc8 (informational). Verifier confirms the release commit in production."
+          "notes": "Vercel serves the main head (informational). Verifier confirms the release commit in production."
         },
         {
           "id": "documentation-accurate",
           "status": "in_progress",
           "evidenceRefs": [
+            "pf-repo-metadata",
             "pf-readme-5f0a849",
+            "pf-release-record-1435e75",
             "pf-release-record-829ffc8"
           ],
           "verifiedAt": null,
-          "notes": "README describes the site; release and acceptance records on main at 829ffc8. Verifier reviews at the release commit."
+          "notes": "README describes the site and the release record is on main. Verifier reviews at the release commit."
         },
         {
           "id": "no-release-blockers",
           "status": "not_verified",
           "evidenceRefs": [],
           "verifiedAt": null,
-          "notes": "No open registry blocker since scope-document-missing was resolved (2026-11-02). Human-only gate: the verifier confirms it."
+          "notes": null
         }
       ],
       "modsPack": {
@@ -1354,17 +1349,15 @@
         ]
       },
       "missingEvidence": [
-        "Screen reader pass (keyboard-screen-reader): none recorded.",
-        "Verifier records (verify:record by Joshua Small) for all ten Showcase gates.",
-        "Registry approval record: the approval was given 2026-11-02 19:06 UTC (pf-owner-approval-2026-11-02) and is recorded once the gates are verified.",
-        "Version tag v1.0.0 (owner)."
+        "Verifier verify:record passes for all ten Showcase gates.",
+        "Registry approval record (owner decision exists: pf-owner-approval-2026-11-02)."
       ],
       "sync": {
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406067959,
-        "lastSyncedAt": "2026-11-02T23:14:30Z",
-        "lastSyncedHead": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+        "lastSyncedAt": "2026-11-03T04:18:33Z",
+        "lastSyncedHead": "9aab29fb774d764d6d2602325c061702c47e06ba",
         "configSource": "defaults"
       }
     },
@@ -1378,9 +1371,9 @@
       "productionUrl": "https://studio.onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "62686353da06fc90974b38fce5547230ce6d5beb",
+        "headSha": "b017cfe9c40e2166799ed59187a12d61f76e1763",
         "archived": false,
-        "observedAt": "2026-11-02T20:15:43Z",
+        "observedAt": "2026-11-03T04:20:01Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1390,15 +1383,7 @@
           "private": true
         }
       },
-      "openPullRequests": [
-        {
-          "number": 21,
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/21",
-          "title": "Record Studio release checks A and B as tested",
-          "headSha": "a833bb8aaa0a2d8afa384f2a565e8a4c99146b1a",
-          "draft": false
-        }
-      ],
+      "openPullRequests": [],
       "release": {
         "currentVersion": null,
         "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder.",
@@ -1474,18 +1459,6 @@
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
         },
         {
-          "id": "sync-one-small-studio-run-ci-yml-6268635-j2cpzvj-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/41501165023",
-          "commitSha": "62686353da06fc90974b38fce5547230ce6d5beb",
-          "verifiedAt": "2026-11-02T18:32:25Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 6268635 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-studio:workflow_run:ci.yml/6268635/j2cpzvj/1"
-        },
-        {
           "id": "one-small-studio-vercel-9310334",
           "type": "deployment",
           "url": "https://vercel.com/task-forge3/one-small-studio/FpfQVJLCJwMwXjxwNgQAa3X3mEMh",
@@ -1544,6 +1517,18 @@
           "result": "informational",
           "description": "Owner-reported 2026-11-02T18:08Z (Joshua Small, project thread \"Close Studio release\"): \"I accept these risks and approve the Studio release.\" Recorded in docs/release/studio-release-acceptance.md. Not a verify:record pass and not a registry approval: no gate is verified yet.",
           "recordedBy": "Claude Code"
+        },
+        {
+          "id": "sync-one-small-studio-run-ci-yml-b017cfe-j3jw103-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/41573669907",
+          "commitSha": "b017cfe9c40e2166799ed59187a12d61f76e1763",
+          "verifiedAt": "2026-11-03T03:42:53Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at b017cfe (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-studio:workflow_run:ci.yml/b017cfe/j3jw103/1"
         },
         {
           "recordedBy": "Claude Code",
@@ -1696,8 +1681,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1410748339,
-        "lastSyncedAt": "2026-11-02T20:15:43Z",
-        "lastSyncedHead": "62686353da06fc90974b38fce5547230ce6d5beb",
+        "lastSyncedAt": "2026-11-03T04:20:01Z",
+        "lastSyncedHead": "b017cfe9c40e2166799ed59187a12d61f76e1763",
         "configSource": "defaults"
       }
     },
@@ -1711,9 +1696,9 @@
       "productionUrl": "https://photo.onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
+        "headSha": "153eee0484003d2150508a858c372cd80960645f",
         "archived": false,
-        "observedAt": "2026-11-02T23:16:40Z",
+        "observedAt": "2026-11-03T04:21:29Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1723,15 +1708,7 @@
           "private": true
         }
       },
-      "openPullRequests": [
-        {
-          "number": 27,
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/27",
-          "title": "Re-record the Engineering Hub checkpoint in the contract v1 shape",
-          "headSha": "06e52b748a7159a24a45de9aae6d879c82b99f6b",
-          "draft": false
-        }
-      ],
+      "openPullRequests": [],
       "release": {
         "currentVersion": null,
         "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder.",
@@ -1854,16 +1831,16 @@
           "recordedBy": "Claude Code"
         },
         {
-          "id": "sync-one-small-photography-run-ci-yml-e3bc6d2-j2xb4o7-1",
+          "id": "sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41535743335",
-          "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
-          "verifiedAt": "2026-11-02T22:17:51Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41573644714",
+          "commitSha": "153eee0484003d2150508a858c372cd80960645f",
+          "verifiedAt": "2026-11-03T03:42:07Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at e3bc6d2 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded failure on main at 153eee0 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:ci.yml/e3bc6d2/j2xb4o7/1"
+          "eventKey": "one-small-photography:workflow_run:ci.yml/153eee0/j3jvhka/1"
         },
         {
           "recordedBy": "Claude Code",
@@ -1912,8 +1889,7 @@
           "evidenceRefs": [
             "photo-ci-main",
             "photo-ci-run-c850853",
-            "photo-ci-run-e3bc6d2",
-            "sync-one-small-photography-run-ci-yml-e3bc6d2-j2xb4o7-1"
+            "photo-ci-run-e3bc6d2"
           ],
           "verifiedAt": null,
           "notes": "CI green on main at c850853 and e3bc6d2 (builder evidence). Verifier re-checks at the release commit."
@@ -2013,8 +1989,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-11-02T23:16:40Z",
-        "lastSyncedHead": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
+        "lastSyncedAt": "2026-11-03T04:21:29Z",
+        "lastSyncedHead": "153eee0484003d2150508a858c372cd80960645f",
         "configSource": "defaults"
       }
     },

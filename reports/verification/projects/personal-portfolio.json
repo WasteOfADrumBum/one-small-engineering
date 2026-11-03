@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-11-02T23:16:40Z",
+  "asOf": "2026-11-03T04:21:29Z",
   "id": "personal-portfolio",
   "name": "Personal Portfolio",
   "tier": "showcase",
@@ -42,7 +42,7 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: Scope is section 1 of the release record; the owner approved release 1.0 on 2026-11-02. Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
+        "registry notes: Scope is section 1 of the release record; Joshua Small approved release 1.0 on 2026-11-02 (owner decision). Verifier records a pass"
       ],
       "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
@@ -103,7 +103,7 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: CI green on main at 1435e75 (code) and 829ffc8 (docs-only). Builder evidence; verifier re-checks at the release commit"
+        "registry notes: CI green on main at 1435e75 (builder evidence from sync). Verifier re-checks at the release commit"
       ],
       "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
@@ -153,7 +153,7 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: Builder review in the release record (0 production advisories, history secret scan, live headers, privacy); owner approved the privacy note and accepted the three documented limits. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
+        "registry notes: Builder review in the release record (headers, contact abuse controls, secret scan of all commits, npm audit, privacy). Owner approved the privacy note and accepted three known limits. Verifier records a pass"
       ],
       "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
@@ -188,7 +188,7 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: axe WCAG 2.0/2.1/2.2 A/AA: 0 violations at three viewport/theme combinations (builder); gradient contrast and reduced motion owner-reported. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
+        "registry notes: axe WCAG 2.2 A/AA 0 violations (builder); gradient-text contrast and reduced motion pass (owner-reported). Verifier records a pass"
       ],
       "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
@@ -206,7 +206,7 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: Keyboard: 68 tab stops with visible focus (builder). No screen reader pass is recorded anywhere: missing evidence. Human-only gate"
+        "registry notes: Keyboard: 68 tab stops with visible focus (builder). Screen reader passes (owner-reported 2026-11-02; screen reader not stated). Verifier records a pass"
       ],
       "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
@@ -224,7 +224,7 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: No horizontal scroll at 1440 and 390 px; axe at both widths (builder). Verifier checks on real devices or widths of their choice"
+        "registry notes: 390x844 and 1440x900 without horizontal scroll (builder). 200% zoom passes (owner-reported 2026-11-02; browser not stated). Verifier records a pass"
       ],
       "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
@@ -263,7 +263,7 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: Contact email arrives after the 1435e75 deploy (owner-reported); production smoke check green at 1435e75 (validation only). not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
+        "registry notes: Contact form delivery confirmed by the owner; production smoke check green at 1435e75 (validation only, sends nothing); navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
       ],
       "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
@@ -288,7 +288,7 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "registry notes: Vercel serves the main head 829ffc8 (informational). Verifier confirms the release commit in production"
+        "registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production"
       ],
       "nextAction": "Finish the work and record evidence, then have the verifier re-check."
     },
@@ -323,7 +323,7 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: README describes the site; release and acceptance records on main at 829ffc8. Verifier reviews at the release commit"
+        "registry notes: README describes the site and the release record is on main. Verifier reviews at the release commit"
       ],
       "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
@@ -340,8 +340,7 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate",
-        "registry notes: No open registry blocker since scope-document-missing was resolved (2026-11-02). Human-only gate: the verifier confirms it"
+        "evidence for this gate"
       ],
       "nextAction": "Produce evidence for this gate."
     }
@@ -414,6 +413,14 @@
   ],
   "blockers": [
     {
+      "id": "owner-approval-awaits-verification",
+      "origin": "registry",
+      "severity": "unclassified",
+      "blocks": "release",
+      "category": "approval",
+      "description": "Joshua Small approved release 1.0 on 2026-11-02 (pf-owner-approval-2026-11-02, ACCEPTANCE.md section 5). The registry records approval only once releaseStatus is verified, which needs his own verify:record pass on every gate. Resolve by recording those passes, then setting approval in a registry PR."
+    },
+    {
       "id": "auto-critical-workflows-unverified",
       "origin": "derived",
       "severity": "unclassified",
@@ -428,14 +435,6 @@
       "blocks": "release",
       "category": "evidence",
       "description": "8 applicable pre-publication gate(s) lack current independent verification."
-    },
-    {
-      "id": "auto-owner-approval",
-      "origin": "derived",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "approval",
-      "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
     }
   ],
   "blockersBySeverity": {
@@ -613,11 +612,6 @@
   ],
   "verifications": [],
   "relatedPullRequests": [
-    {
-      "number": 31,
-      "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/31",
-      "draft": false
-    },
     {
       "number": 32,
       "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/32",

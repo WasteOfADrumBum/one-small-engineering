@@ -39,7 +39,7 @@
     "queue": {
       "automatic": 5,
       "independent-verification": 32,
-      "owner-decision": 78,
+      "owner-decision": 79,
       "blocked-credentials": 8,
       "informational": 5
     }
@@ -421,7 +421,7 @@
         "reasons": [
           "9 of 9 pre-publication gate(s) not independently verified",
           "no release candidate commit recorded",
-          "derived blockers: auto-critical-workflows-unverified, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa"
+          "derived blockers: auto-critical-workflows-unverified, auto-missing-verification, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-keyboard-screen-reader, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa"
         ],
         "candidate": null,
         "approval": {
@@ -450,11 +450,11 @@
           "no-release-blockers"
         ],
         "activeBlockers": [
+          "owner-approval-awaits-verification",
           "auto-critical-workflows-unverified",
-          "auto-owner-approval",
+          "auto-missing-verification",
           "auto-stale-automated-checks",
           "auto-stale-critical-workflows",
-          "auto-stale-documentation-accurate",
           "auto-stale-keyboard-screen-reader",
           "auto-stale-production-deployment",
           "auto-stale-responsive-layouts",
@@ -488,8 +488,14 @@
           "tag: owner only"
         ]
       },
-      "blockers": [],
-      "openPullRequests": 2,
+      "blockers": [
+        {
+          "id": "owner-approval-awaits-verification",
+          "severity": "unclassified",
+          "description": "Joshua Small approved release 1.0 on 2026-11-02 (pf-owner-approval-2026-11-02, ACCEPTANCE.md section 5). The registry records approval only once releaseStatus is verified, which needs his own verify:record pass on every gate. Resolve by recording those passes, then setting approval in a registry PR."
+        }
+      ],
+      "openPullRequests": 1,
       "sync": {
         "changes": [],
         "reason": "token-rejected: GET /repos/WasteOfADrumBum/joshsmall-site: the token was rejected (HTTP 401); it is missing, expired or revoked",
@@ -612,7 +618,7 @@
           "description": "The approved release has no version number. The owner picks it (for example 1.0.0); then targetVersion is set and the release can be tagged."
         }
       ],
-      "openPullRequests": 1,
+      "openPullRequests": 0,
       "sync": {
         "changes": [],
         "reason": "token-rejected: GET /repos/WasteOfADrumBum/one-small-studio: the token was rejected (HTTP 401); it is missing, expired or revoked",
@@ -689,6 +695,7 @@
           "no-release-blockers"
         ],
         "activeBlockers": [
+          "auto-ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1",
           "scope-document-missing",
           "auto-critical-workflows-unverified",
           "auto-missing-verification",
@@ -729,12 +736,17 @@
       },
       "blockers": [
         {
+          "id": "auto-ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1",
+          "severity": "unclassified",
+          "description": "CI did not pass on 153eee0 (failure)."
+        },
+        {
           "id": "scope-document-missing",
           "severity": "unclassified",
           "description": "Scope is recorded on main in docs/RELEASE.md but not approved: section 6 (owner decision) is still blank at e3bc6d2. Resolve when the owner records approval there."
         }
       ],
-      "openPullRequests": 1,
+      "openPullRequests": 0,
       "sync": {
         "changes": [],
         "reason": "token-rejected: GET /repos/WasteOfADrumBum/one-small-photography: the token was rejected (HTTP 401); it is missing, expired or revoked",
@@ -747,8 +759,8 @@
         "medium": 0,
         "low": 0
       },
-      "nextAction": "Resolve scope-document-missing in one-small-photography.",
-      "queueItems": 18
+      "nextAction": "Fix ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1 in one-small-photography.",
+      "queueItems": 19
     },
     {
       "id": "taskforge",
@@ -1182,6 +1194,37 @@
     {
       "rank": 1,
       "projects": [
+        "one-small-photography"
+      ],
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": null,
+      "complexity": "medium",
+      "validation": [
+        "a passing re-run at the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:blocker:auto-ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 2,
+      "severity": "high",
+      "kind": "blocker",
+      "title": "CI did not pass on 153eee0 (failure).",
+      "impact": "Blocks merge.",
+      "proposedCorrection": "Fix the recorded failure; never skip or disable tests.",
+      "actionClass": "owner-decision",
+      "nextAction": "Fix ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1 in one-small-photography.",
+      "priorityText": "Broken build or failing required CI",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 2,
+      "projects": [
         "cortex"
       ],
       "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
@@ -1213,7 +1256,7 @@
       "isNew": false
     },
     {
-      "rank": 2,
+      "rank": 3,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1246,7 +1289,7 @@
       "isNew": false
     },
     {
-      "rank": 3,
+      "rank": 4,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1279,7 +1322,7 @@
       "isNew": false
     },
     {
-      "rank": 4,
+      "rank": 5,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1312,7 +1355,7 @@
       "isNew": false
     },
     {
-      "rank": 5,
+      "rank": 6,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1345,7 +1388,7 @@
       "isNew": false
     },
     {
-      "rank": 6,
+      "rank": 7,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1382,7 +1425,7 @@
       "isNew": false
     },
     {
-      "rank": 7,
+      "rank": 8,
       "projects": [
         "one-small-ui"
       ],
@@ -1419,7 +1462,7 @@
       "isNew": false
     },
     {
-      "rank": 8,
+      "rank": 9,
       "projects": [
         "one-small-photography"
       ],
@@ -1452,7 +1495,7 @@
       "isNew": false
     },
     {
-      "rank": 9,
+      "rank": 10,
       "projects": [
         "taskforge"
       ],
@@ -1485,7 +1528,7 @@
       "isNew": false
     },
     {
-      "rank": 10,
+      "rank": 11,
       "projects": [
         "taskforge"
       ],
@@ -1518,7 +1561,7 @@
       "isNew": false
     },
     {
-      "rank": 11,
+      "rank": 12,
       "projects": [
         "cortex"
       ],
@@ -1551,7 +1594,7 @@
       "isNew": false
     },
     {
-      "rank": 12,
+      "rank": 13,
       "projects": [
         "cortex"
       ],
@@ -1584,7 +1627,7 @@
       "isNew": false
     },
     {
-      "rank": 13,
+      "rank": 14,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -1617,7 +1660,7 @@
       "isNew": false
     },
     {
-      "rank": 14,
+      "rank": 15,
       "projects": [
         "one-small-ui"
       ],
@@ -1656,7 +1699,7 @@
       "isNew": false
     },
     {
-      "rank": 15,
+      "rank": 16,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1689,7 +1732,7 @@
       "isNew": false
     },
     {
-      "rank": 16,
+      "rank": 17,
       "projects": [
         "one-small-ui"
       ],
@@ -1722,7 +1765,7 @@
       "isNew": false
     },
     {
-      "rank": 17,
+      "rank": 18,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1755,7 +1798,7 @@
       "isNew": false
     },
     {
-      "rank": 18,
+      "rank": 19,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1788,7 +1831,7 @@
       "isNew": false
     },
     {
-      "rank": 19,
+      "rank": 20,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1821,7 +1864,7 @@
       "isNew": false
     },
     {
-      "rank": 20,
+      "rank": 21,
       "projects": [
         "one-small-ui"
       ],
@@ -1854,7 +1897,7 @@
       "isNew": false
     },
     {
-      "rank": 21,
+      "rank": 22,
       "projects": [
         "personal-portfolio"
       ],
@@ -1887,7 +1930,7 @@
       "isNew": false
     },
     {
-      "rank": 22,
+      "rank": 23,
       "projects": [
         "one-small-studio"
       ],
@@ -1920,7 +1963,7 @@
       "isNew": false
     },
     {
-      "rank": 23,
+      "rank": 24,
       "projects": [
         "one-small-photography"
       ],
@@ -1953,7 +1996,7 @@
       "isNew": false
     },
     {
-      "rank": 24,
+      "rank": 25,
       "projects": [
         "taskforge"
       ],
@@ -1986,7 +2029,7 @@
       "isNew": false
     },
     {
-      "rank": 25,
+      "rank": 26,
       "projects": [
         "cortex"
       ],
@@ -2019,7 +2062,7 @@
       "isNew": false
     },
     {
-      "rank": 26,
+      "rank": 27,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2050,7 +2093,7 @@
       "isNew": true
     },
     {
-      "rank": 27,
+      "rank": 28,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2081,7 +2124,7 @@
       "isNew": true
     },
     {
-      "rank": 28,
+      "rank": 29,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2112,7 +2155,7 @@
       "isNew": true
     },
     {
-      "rank": 29,
+      "rank": 30,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2143,7 +2186,7 @@
       "isNew": true
     },
     {
-      "rank": 30,
+      "rank": 31,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2174,7 +2217,7 @@
       "isNew": true
     },
     {
-      "rank": 31,
+      "rank": 32,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2205,7 +2248,7 @@
       "isNew": true
     },
     {
-      "rank": 32,
+      "rank": 33,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2236,7 +2279,7 @@
       "isNew": true
     },
     {
-      "rank": 33,
+      "rank": 34,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2267,7 +2310,7 @@
       "isNew": true
     },
     {
-      "rank": 34,
+      "rank": 35,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2298,7 +2341,7 @@
       "isNew": true
     },
     {
-      "rank": 35,
+      "rank": 36,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2329,7 +2372,7 @@
       "isNew": true
     },
     {
-      "rank": 36,
+      "rank": 37,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2360,7 +2403,7 @@
       "isNew": true
     },
     {
-      "rank": 37,
+      "rank": 38,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2391,7 +2434,7 @@
       "isNew": true
     },
     {
-      "rank": 38,
+      "rank": 39,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2422,7 +2465,7 @@
       "isNew": true
     },
     {
-      "rank": 39,
+      "rank": 40,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2455,7 +2498,7 @@
       "isNew": false
     },
     {
-      "rank": 40,
+      "rank": 41,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2509,7 +2552,7 @@
       "isNew": false
     },
     {
-      "rank": 41,
+      "rank": 42,
       "projects": [
         "one-small-ui"
       ],
@@ -2546,7 +2589,7 @@
       "isNew": false
     },
     {
-      "rank": 42,
+      "rank": 43,
       "projects": [
         "one-small-ui"
       ],
@@ -2577,7 +2620,7 @@
       "isNew": true
     },
     {
-      "rank": 43,
+      "rank": 44,
       "projects": [
         "one-small-ui"
       ],
@@ -2608,7 +2651,7 @@
       "isNew": true
     },
     {
-      "rank": 44,
+      "rank": 45,
       "projects": [
         "one-small-ui"
       ],
@@ -2639,7 +2682,7 @@
       "isNew": true
     },
     {
-      "rank": 45,
+      "rank": 46,
       "projects": [
         "one-small-ui"
       ],
@@ -2670,7 +2713,7 @@
       "isNew": true
     },
     {
-      "rank": 46,
+      "rank": 47,
       "projects": [
         "one-small-ui"
       ],
@@ -2701,7 +2744,7 @@
       "isNew": true
     },
     {
-      "rank": 47,
+      "rank": 48,
       "projects": [
         "one-small-ui"
       ],
@@ -2732,7 +2775,7 @@
       "isNew": true
     },
     {
-      "rank": 48,
+      "rank": 49,
       "projects": [
         "one-small-ui"
       ],
@@ -2763,7 +2806,7 @@
       "isNew": true
     },
     {
-      "rank": 49,
+      "rank": 50,
       "projects": [
         "one-small-ui"
       ],
@@ -2794,7 +2837,7 @@
       "isNew": true
     },
     {
-      "rank": 50,
+      "rank": 51,
       "projects": [
         "one-small-ui"
       ],
@@ -2825,7 +2868,7 @@
       "isNew": true
     },
     {
-      "rank": 51,
+      "rank": 52,
       "projects": [
         "one-small-ui"
       ],
@@ -2856,7 +2899,7 @@
       "isNew": true
     },
     {
-      "rank": 52,
+      "rank": 53,
       "projects": [
         "one-small-ui"
       ],
@@ -2887,7 +2930,7 @@
       "isNew": true
     },
     {
-      "rank": 53,
+      "rank": 54,
       "projects": [
         "one-small-ui"
       ],
@@ -2918,7 +2961,7 @@
       "isNew": true
     },
     {
-      "rank": 54,
+      "rank": 55,
       "projects": [
         "one-small-ui"
       ],
@@ -2949,7 +2992,7 @@
       "isNew": true
     },
     {
-      "rank": 55,
+      "rank": 56,
       "projects": [
         "one-small-ui"
       ],
@@ -2980,7 +3023,7 @@
       "isNew": true
     },
     {
-      "rank": 56,
+      "rank": 57,
       "projects": [
         "one-small-ui"
       ],
@@ -3011,7 +3054,7 @@
       "isNew": true
     },
     {
-      "rank": 57,
+      "rank": 58,
       "projects": [
         "one-small-ui"
       ],
@@ -3042,7 +3085,7 @@
       "isNew": true
     },
     {
-      "rank": 58,
+      "rank": 59,
       "projects": [
         "one-small-ui"
       ],
@@ -3073,7 +3116,7 @@
       "isNew": true
     },
     {
-      "rank": 59,
+      "rank": 60,
       "projects": [
         "one-small-ui"
       ],
@@ -3128,7 +3171,7 @@
       "isNew": false
     },
     {
-      "rank": 60,
+      "rank": 61,
       "projects": [
         "personal-portfolio"
       ],
@@ -3165,7 +3208,7 @@
       "isNew": false
     },
     {
-      "rank": 61,
+      "rank": 62,
       "projects": [
         "personal-portfolio"
       ],
@@ -3185,42 +3228,11 @@
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "automated-checks: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-ci-run-1435e75 is dated after the report time; current evidence: pf-ci-run-829ffc8 is dated after the report time; current evidence: sync-personal-portfolio-run-ci-yml-829ffc8-j2gfhtb-1 is dated after the report time; registry notes: CI green on main at 1435e75 (code) and 829ffc8 (docs-only). Builder evidence; verifier re-checks at the release commit.",
+      "title": "automated-checks: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-ci-run-1435e75 is dated after the report time; registry notes: CI green on main at 1435e75 (builder evidence from sync). Verifier re-checks at the release commit.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "automated-checks: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-ci-run-1435e75 is dated after the report time; current evidence: pf-ci-run-829ffc8 is dated after the report time; current evidence: sync-personal-portfolio-run-ci-yml-829ffc8-j2gfhtb-1 is dated after the report time; registry notes: CI green on main at 1435e75 (code) and 829ffc8 (docs-only). Builder evidence; verifier re-checks at the release commit.",
-      "priorityText": "Missing verification or documentation",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-31T01:00:00Z",
-      "isNew": true
-    },
-    {
-      "rank": 62,
-      "projects": [
-        "personal-portfolio"
-      ],
-      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
-      "rootCause": null,
-      "complexity": "small",
-      "validation": [
-        "evidence current for the candidate commit"
-      ],
-      "confidence": "high",
-      "evidence": [],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "personal-portfolio:blocker:auto-stale-critical-workflows",
-      "project": "personal-portfolio",
-      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-      "priority": 7,
-      "severity": "medium",
-      "kind": "stale",
-      "title": "critical-workflows: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: personal-portfolio-owner-report-2026-11-02 is dated after the report time; current evidence: pf-owner-checks-2026-11-02 is dated after the report time; current evidence: pf-smoke-run-1435e75 is dated after the report time; registry notes: Contact email arrives after the 1435e75 deploy (owner-reported); production smoke check green at 1435e75 (validation only). not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
-      "impact": "Evidence no longer matches the candidate.",
-      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
-      "actionClass": "owner-decision",
-      "nextAction": "critical-workflows: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: personal-portfolio-owner-report-2026-11-02 is dated after the report time; current evidence: pf-owner-checks-2026-11-02 is dated after the report time; current evidence: pf-smoke-run-1435e75 is dated after the report time; registry notes: Contact email arrives after the 1435e75 deploy (owner-reported); production smoke check green at 1435e75 (validation only). not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "nextAction": "automated-checks: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-ci-run-1435e75 is dated after the report time; registry notes: CI green on main at 1435e75 (builder evidence from sync). Verifier re-checks at the release commit.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-31T01:00:00Z",
@@ -3241,17 +3253,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "personal-portfolio:blocker:auto-stale-documentation-accurate",
+      "id": "personal-portfolio:blocker:auto-stale-critical-workflows",
       "project": "personal-portfolio",
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "documentation-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-readme-5f0a849 is dated after the report time; current evidence: pf-release-record-829ffc8 is dated after the report time; registry notes: README describes the site; release and acceptance records on main at 829ffc8. Verifier reviews at the release commit.",
+      "title": "critical-workflows: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: personal-portfolio-owner-report-2026-11-02 is dated after the report time; current evidence: pf-smoke-run-1435e75 is dated after the report time; current evidence: pf-owner-postdeploy-2026-11-02 is dated after the report time; registry notes: Contact form delivery confirmed by the owner; production smoke check green at 1435e75 (validation only, sends nothing); navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "documentation-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-readme-5f0a849 is dated after the report time; current evidence: pf-release-record-829ffc8 is dated after the report time; registry notes: README describes the site; release and acceptance records on main at 829ffc8. Verifier reviews at the release commit.",
+      "nextAction": "critical-workflows: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: personal-portfolio-owner-report-2026-11-02 is dated after the report time; current evidence: pf-smoke-run-1435e75 is dated after the report time; current evidence: pf-owner-postdeploy-2026-11-02 is dated after the report time; registry notes: Contact form delivery confirmed by the owner; production smoke check green at 1435e75 (validation only, sends nothing); navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-31T01:00:00Z",
@@ -3278,11 +3290,11 @@
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; registry notes: Keyboard: 68 tab stops with visible focus (builder). No screen reader pass is recorded anywhere: missing evidence. Human-only gate.",
+      "title": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-a11y-2026-11-02 is dated after the report time; registry notes: Keyboard: 68 tab stops with visible focus (builder). Screen reader passes (owner-reported 2026-11-02; screen reader not stated). Verifier records a pass.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; registry notes: Keyboard: 68 tab stops with visible focus (builder). No screen reader pass is recorded anywhere: missing evidence. Human-only gate.",
+      "nextAction": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-a11y-2026-11-02 is dated after the report time; registry notes: Keyboard: 68 tab stops with visible focus (builder). Screen reader passes (owner-reported 2026-11-02; screen reader not stated). Verifier records a pass.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-31T01:00:00Z",
@@ -3309,11 +3321,11 @@
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "production-deployment: current evidence: pf-vercel-829ffc8 is dated after the report time; current evidence: personal-portfolio-vercel-1435e75 is dated after the report time; registry notes: Vercel serves the main head 829ffc8 (informational). Verifier confirms the release commit in production.",
+      "title": "production-deployment: current evidence: personal-portfolio-vercel-1435e75 is dated after the report time; registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "production-deployment: current evidence: pf-vercel-829ffc8 is dated after the report time; current evidence: personal-portfolio-vercel-1435e75 is dated after the report time; registry notes: Vercel serves the main head 829ffc8 (informational). Verifier confirms the release commit in production.",
+      "nextAction": "production-deployment: current evidence: personal-portfolio-vercel-1435e75 is dated after the report time; registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-31T01:00:00Z",
@@ -3340,11 +3352,11 @@
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; registry notes: No horizontal scroll at 1440 and 390 px; axe at both widths (builder). Verifier checks on real devices or widths of their choice.",
+      "title": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-a11y-2026-11-02 is dated after the report time; registry notes: 390x844 and 1440x900 without horizontal scroll (builder). 200% zoom passes (owner-reported 2026-11-02; browser not stated). Verifier records a pass.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; registry notes: No horizontal scroll at 1440 and 390 px; axe at both widths (builder). Verifier checks on real devices or widths of their choice.",
+      "nextAction": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-a11y-2026-11-02 is dated after the report time; registry notes: 390x844 and 1440x900 without horizontal scroll (builder). 200% zoom passes (owner-reported 2026-11-02; browser not stated). Verifier records a pass.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-31T01:00:00Z",
@@ -3371,11 +3383,11 @@
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; registry notes: Scope is section 1 of the release record; the owner approved release 1.0 on 2026-11-02. Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "title": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; registry notes: Scope is section 1 of the release record; Joshua Small approved release 1.0 on 2026-11-02 (owner decision). Verifier records a pass.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; registry notes: Scope is section 1 of the release record; the owner approved release 1.0 on 2026-11-02. Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "nextAction": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; registry notes: Scope is section 1 of the release record; Joshua Small approved release 1.0 on 2026-11-02 (owner decision). Verifier records a pass.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-31T01:00:00Z",
@@ -3402,11 +3414,11 @@
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "security-privacy-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; registry notes: Builder review in the release record (0 production advisories, history secret scan, live headers, privacy); owner approved the privacy note and accepted the three documented limits. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "title": "security-privacy-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; registry notes: Builder review in the release record (headers, contact abuse controls, secret scan of all commits, npm audit, privacy). Owner approved the privacy note and accepted three known limits. Verifier records a pass.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "security-privacy-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; registry notes: Builder review in the release record (0 production advisories, history secret scan, live headers, privacy); owner approved the privacy note and accepted the three documented limits. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "nextAction": "security-privacy-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; registry notes: Builder review in the release record (headers, contact abuse controls, secret scan of all commits, npm audit, privacy). Owner approved the privacy note and accepted three known limits. Verifier records a pass.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-31T01:00:00Z",
@@ -3433,11 +3445,11 @@
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-checks-2026-11-02 is dated after the report time; registry notes: axe WCAG 2.0/2.1/2.2 A/AA: 0 violations at three viewport/theme combinations (builder); gradient contrast and reduced motion owner-reported. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "title": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-postdeploy-2026-11-02 is dated after the report time; registry notes: axe WCAG 2.2 A/AA 0 violations (builder); gradient-text contrast and reduced motion pass (owner-reported). Verifier records a pass.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-checks-2026-11-02 is dated after the report time; registry notes: axe WCAG 2.0/2.1/2.2 A/AA: 0 violations at three viewport/theme combinations (builder); gradient contrast and reduced motion owner-reported. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "nextAction": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-postdeploy-2026-11-02 is dated after the report time; registry notes: axe WCAG 2.2 A/AA 0 violations (builder); gradient-text contrast and reduced motion pass (owner-reported). Verifier records a pass.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-31T01:00:00Z",
@@ -4615,6 +4627,39 @@
         "personal-portfolio"
       ],
       "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "rootCause": "Registry blocker owner-approval-awaits-verification (approval).",
+      "complexity": "trivial",
+      "validation": [
+        "approval recorded in the registry with evidence for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:personal-portfolio:owner-approval-awaits-verification"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:blocker:owner-approval-awaits-verification",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "low",
+      "kind": "approval",
+      "title": "Joshua Small approved release 1.0 on 2026-11-02 (pf-owner-approval-2026-11-02, ACCEPTANCE.md section 5). The registry records approval only once releaseStatus is verified, which needs his own verify:record pass on every gate. Resolve by recording those passes, then setting approval in a registry PR.",
+      "impact": "The release cannot ship without the owner's authorization.",
+      "proposedCorrection": "The owner decides after verification is complete; automation never records approval.",
+      "actionClass": "owner-decision",
+      "nextAction": "Owner: decide on owner-approval-awaits-verification once personal-portfolio is verified.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 103,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
       "rootCause": "execution is disabled for this run (pass --execute in an isolated job to run project commands)",
       "complexity": "small",
       "validation": [
@@ -4644,7 +4689,7 @@
       "isNew": false
     },
     {
-      "rank": 103,
+      "rank": 104,
       "projects": [
         "personal-portfolio"
       ],
@@ -4677,7 +4722,7 @@
       "isNew": false
     },
     {
-      "rank": 104,
+      "rank": 105,
       "projects": [
         "personal-portfolio"
       ],
@@ -4710,7 +4755,7 @@
       "isNew": false
     },
     {
-      "rank": 105,
+      "rank": 106,
       "projects": [
         "personal-portfolio"
       ],
@@ -4755,7 +4800,7 @@
       "isNew": false
     },
     {
-      "rank": 106,
+      "rank": 107,
       "projects": [
         "one-small-studio"
       ],
@@ -4788,7 +4833,7 @@
       "isNew": true
     },
     {
-      "rank": 107,
+      "rank": 108,
       "projects": [
         "one-small-studio"
       ],
@@ -4822,7 +4867,7 @@
       "isNew": false
     },
     {
-      "rank": 108,
+      "rank": 109,
       "projects": [
         "one-small-studio"
       ],
@@ -4855,7 +4900,7 @@
       "isNew": false
     },
     {
-      "rank": 109,
+      "rank": 110,
       "projects": [
         "one-small-studio"
       ],
@@ -4888,7 +4933,7 @@
       "isNew": false
     },
     {
-      "rank": 110,
+      "rank": 111,
       "projects": [
         "one-small-studio"
       ],
@@ -4933,7 +4978,7 @@
       "isNew": false
     },
     {
-      "rank": 111,
+      "rank": 112,
       "projects": [
         "one-small-photography"
       ],
@@ -4967,7 +5012,7 @@
       "isNew": false
     },
     {
-      "rank": 112,
+      "rank": 113,
       "projects": [
         "one-small-photography"
       ],
@@ -5000,7 +5045,7 @@
       "isNew": false
     },
     {
-      "rank": 113,
+      "rank": 114,
       "projects": [
         "one-small-photography"
       ],
@@ -5033,7 +5078,7 @@
       "isNew": false
     },
     {
-      "rank": 114,
+      "rank": 115,
       "projects": [
         "one-small-photography"
       ],
@@ -5066,7 +5111,7 @@
       "isNew": false
     },
     {
-      "rank": 115,
+      "rank": 116,
       "projects": [
         "one-small-photography"
       ],
@@ -5111,7 +5156,7 @@
       "isNew": false
     },
     {
-      "rank": 116,
+      "rank": 117,
       "projects": [
         "taskforge"
       ],
@@ -5146,7 +5191,7 @@
       "isNew": false
     },
     {
-      "rank": 117,
+      "rank": 118,
       "projects": [
         "taskforge"
       ],
@@ -5179,7 +5224,7 @@
       "isNew": false
     },
     {
-      "rank": 118,
+      "rank": 119,
       "projects": [
         "taskforge"
       ],
@@ -5212,7 +5257,7 @@
       "isNew": false
     },
     {
-      "rank": 119,
+      "rank": 120,
       "projects": [
         "taskforge"
       ],
@@ -5246,7 +5291,7 @@
       "isNew": false
     },
     {
-      "rank": 120,
+      "rank": 121,
       "projects": [
         "taskforge"
       ],
@@ -5291,7 +5336,7 @@
       "isNew": false
     },
     {
-      "rank": 121,
+      "rank": 122,
       "projects": [
         "cortex"
       ],
@@ -5324,7 +5369,7 @@
       "isNew": false
     },
     {
-      "rank": 122,
+      "rank": 123,
       "projects": [
         "cortex"
       ],
@@ -5357,7 +5402,7 @@
       "isNew": false
     },
     {
-      "rank": 123,
+      "rank": 124,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -5392,7 +5437,7 @@
       "isNew": false
     },
     {
-      "rank": 124,
+      "rank": 125,
       "projects": [
         "one-small-ui"
       ],
@@ -5428,7 +5473,7 @@
       "isNew": false
     },
     {
-      "rank": 125,
+      "rank": 126,
       "projects": [
         "personal-portfolio"
       ],
@@ -5461,7 +5506,7 @@
       "isNew": false
     },
     {
-      "rank": 126,
+      "rank": 127,
       "projects": [
         "one-small-studio"
       ],
@@ -5494,7 +5539,7 @@
       "isNew": false
     },
     {
-      "rank": 127,
+      "rank": 128,
       "projects": [
         "one-small-photography"
       ],
@@ -5527,7 +5572,7 @@
       "isNew": false
     },
     {
-      "rank": 128,
+      "rank": 129,
       "projects": [
         "cortex"
       ],

@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/dashboard",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T23:16:40Z",
+  "asOf": "2026-11-03T04:21:29Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "900a29f81f220403e7b663757bd1453b10750c9926b5ef08950c7aa649911ab6",
+  "registrySha256": "814a8c47ccc0cda6ea0107fefd1261e99d10e5900784495ddbeb84aa7fbc08f8",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "projects": [
     {
@@ -58,16 +58,16 @@
       "facts": {
         "targetVersion": "1.0.0",
         "currentVersion": null,
-        "releaseStatus": "ready_for_review",
-        "lastEvidenceAt": "2026-11-02T23:00:00Z",
-        "snapshotObservedAt": "2026-11-02T23:14:30Z"
+        "releaseStatus": "in_progress",
+        "lastEvidenceAt": "2026-11-03T03:41:50Z",
+        "snapshotObservedAt": "2026-11-03T04:18:33Z"
       },
       "derived": {
         "percentage": 0,
         "verifiedGates": 0,
         "applicableGates": 10,
         "blockingFindings": 3,
-        "registryBlockers": 0,
+        "registryBlockers": 1,
         "eligibility": "not-eligible",
         "releaseReady": false,
         "nextAction": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
@@ -81,8 +81,8 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-02T23:00:00Z",
-        "snapshotObservedAt": "2026-11-02T20:15:43Z"
+        "lastEvidenceAt": "2026-11-03T03:42:53Z",
+        "snapshotObservedAt": "2026-11-03T04:20:01Z"
       },
       "derived": {
         "percentage": 0,
@@ -103,14 +103,14 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-02T23:00:00Z",
-        "snapshotObservedAt": "2026-11-02T23:16:40Z"
+        "lastEvidenceAt": "2026-11-03T03:42:07Z",
+        "snapshotObservedAt": "2026-11-03T04:21:29Z"
       },
       "derived": {
         "percentage": 0,
         "verifiedGates": 0,
         "applicableGates": 10,
-        "blockingFindings": 4,
+        "blockingFindings": 5,
         "registryBlockers": 1,
         "eligibility": "not-scoped",
         "releaseReady": false,

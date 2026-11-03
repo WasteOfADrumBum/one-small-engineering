@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-11-02T23:16:40Z",
+  "asOf": "2026-11-03T04:21:29Z",
   "id": "one-small-photography",
   "name": "One Small Photography",
   "tier": "showcase",
@@ -414,6 +414,14 @@
   ],
   "blockers": [
     {
+      "id": "auto-ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "merge",
+      "category": "ci",
+      "description": "CI did not pass on 153eee0 (failure)."
+    },
+    {
       "id": "scope-document-missing",
       "origin": "registry",
       "severity": "unclassified",
@@ -451,7 +459,7 @@
     "high": 0,
     "medium": 0,
     "low": 0,
-    "unclassified": 4
+    "unclassified": 5
   },
   "mergeEligible": false,
   "releaseEligible": false,
@@ -643,13 +651,7 @@
     }
   ],
   "verifications": [],
-  "relatedPullRequests": [
-    {
-      "number": 27,
-      "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/27",
-      "draft": false
-    }
-  ],
+  "relatedPullRequests": [],
   "remediation": [],
   "verificationRequests": [
     {

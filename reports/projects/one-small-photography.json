@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T23:16:40Z",
+  "asOf": "2026-11-03T04:21:29Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "900a29f81f220403e7b663757bd1453b10750c9926b5ef08950c7aa649911ab6",
+  "registrySha256": "814a8c47ccc0cda6ea0107fefd1261e99d10e5900784495ddbeb84aa7fbc08f8",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-photography",
@@ -17,18 +17,11 @@
       "releaseStatus": "in_progress",
       "scopeDocument": null,
       "candidate": null,
-      "openPullRequests": [
-        {
-          "number": 27,
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/27",
-          "headSha": "06e52b748a7159a24a45de9aae6d879c82b99f6b",
-          "draft": false
-        }
-      ],
-      "head": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
-      "snapshotObservedAt": "2026-11-02T23:16:40Z",
-      "lastSyncedAt": "2026-11-02T23:16:40Z",
-      "lastEvidenceAt": "2026-11-02T23:00:00Z",
+      "openPullRequests": [],
+      "head": "153eee0484003d2150508a858c372cd80960645f",
+      "snapshotObservedAt": "2026-11-03T04:21:29Z",
+      "lastSyncedAt": "2026-11-03T04:21:29Z",
+      "lastEvidenceAt": "2026-11-03T03:42:07Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -68,7 +61,7 @@
           "applicable": 9,
           "verified": 0
         },
-        "blockingFindings": 4,
+        "blockingFindings": 5,
         "registryBlockers": 1,
         "missingIndependentVerification": [
           "scope-complete",
@@ -162,18 +155,6 @@
               "verifiedAt": "2026-11-02T23:00:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
-              "provenance": "builder-reported",
-              "stale": null
-            },
-            {
-              "id": "sync-one-small-photography-run-ci-yml-e3bc6d2-j2xb4o7-1",
-              "type": "workflow_run",
-              "result": "builder_reported",
-              "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41535743335",
-              "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
-              "verifiedAt": "2026-11-02T22:17:51Z",
-              "recordedBy": "One Small Engineering Sync",
-              "origin": "sync",
               "provenance": "builder-reported",
               "stale": null
             }
@@ -459,7 +440,23 @@
         }
       ],
       "blockers": {
-        "merge": [],
+        "merge": [
+          {
+            "id": "auto-ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1",
+            "origin": "derived",
+            "status": "proposed",
+            "category": "ci",
+            "severity": null,
+            "blocks": "merge",
+            "gates": [],
+            "description": "CI did not pass on 153eee0 (failure).",
+            "evidenceRefs": [
+              "sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1"
+            ],
+            "rule": "a failing workflow run on the head or candidate commit blocks merge",
+            "action": "Fix the failing CI run on 153eee0 and re-run it (never skip or disable tests)."
+          }
+        ],
         "release": [
           {
             "id": "scope-document-missing",
@@ -588,6 +585,17 @@
           ],
           "text": "Independently re-check the builder evidence for automated-checks, security-privacy-review, wcag-22-aa, responsive-layouts, documentation-accurate; produce evidence for keyboard-screen-reader; then verify scope-complete, critical-workflows once their blockers are resolved.",
           "summary": "Independently re-check the builder evidence for automated-checks, security-privacy-review, wcag-22-aa, responsive-layouts..."
+        },
+        {
+          "rank": 4,
+          "priority": 4,
+          "bucket": "Failed or missing CI",
+          "source": "auto-ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1",
+          "origin": "derived",
+          "blocks": "merge",
+          "gates": [],
+          "text": "Fix the failing CI run on 153eee0 and re-run it (never skip or disable tests).",
+          "summary": "Fix the failing CI run on 153eee0 and re-run it (never skip or disable tests)."
         }
       ],
       "dependencies": [],
@@ -616,11 +624,6 @@
       {
         "gate": "automated-checks",
         "evidence": "photo-ci-run-e3bc6d2",
-        "provenance": "builder-reported"
-      },
-      {
-        "gate": "automated-checks",
-        "evidence": "sync-one-small-photography-run-ci-yml-e3bc6d2-j2xb4o7-1",
         "provenance": "builder-reported"
       },
       {

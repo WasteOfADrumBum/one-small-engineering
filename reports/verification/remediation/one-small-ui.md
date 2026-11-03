@@ -1,6 +1,6 @@
 # OneSmallUI: issue reports
 
-As of 2026-11-02T23:16:40Z, commit 94438ee63ed8c72c027be4d58fc0b168236d213d. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
+As of 2026-11-03T04:21:29Z, commit 94438ee63ed8c72c027be4d58fc0b168236d213d. One section per collector result that is not a pass. Automation proposes no code fix unless a defect's fix is unambiguous; a person decides.
 
 ## accessibility: 2 of 3 check(s) passed; 1 not run or inconclusive
 
@@ -105,42 +105,6 @@ The compatibility collector reports pass at the new commit, and the verifier rec
 ### Verification required
 
 - runtime-compatibility: manual review by the verifier
-
-
-## dependency audit: critical 2, high 0, moderate 1, low 0, info 0
-
-- Project: one-small-ui (https://github.com/WasteOfADrumBum/one-small-ui)
-- Commit: 94438ee63ed8c72c027be4d58fc0b168236d213d
-- Gate(s): security-privacy-review, supply-chain-review
-- Severity: high; kind: defect; release impact: blocks verification of security-privacy-review, supply-chain-review
-- Evidence: ev-one-small-ui-dependency-audit-94438ee-c247d2a2
-
-### Reproduction
-
-```text
-npm audit --json --package-lock-only (at 94438ee)
-```
-
-### Root cause
-
-npm audit: critical 2, high 0, moderate 1, low 0, info 0 across 521 packages
-
-### Failure reason
-
-critical or high advisories: tinypool, vitest
-
-### Proposed fix
-
-No fix proposed by automation. A person decides the fix.
-
-### Acceptance criteria
-
-The dependency-audit collector reports pass at the new commit, and the verifier records it for security-privacy-review, supply-chain-review.
-
-### Verification required
-
-- security-privacy-review: manual review by the verifier
-- supply-chain-review: manual review by the verifier
 
 
 ## deployment health: 1 of 2 check(s) passed; 1 not run or inconclusive

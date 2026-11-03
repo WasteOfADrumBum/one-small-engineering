@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T23:16:40Z",
+  "asOf": "2026-11-03T04:21:29Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "900a29f81f220403e7b663757bd1453b10750c9926b5ef08950c7aa649911ab6",
+  "registrySha256": "814a8c47ccc0cda6ea0107fefd1261e99d10e5900784495ddbeb84aa7fbc08f8",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-studio",
@@ -17,18 +17,11 @@
       "releaseStatus": "in_progress",
       "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-studio/blob/4c46d0deacc5651235685e705bca97c9ef45cc14/docs/release/studio-release-evidence.md",
       "candidate": null,
-      "openPullRequests": [
-        {
-          "number": 21,
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/21",
-          "headSha": "a833bb8aaa0a2d8afa384f2a565e8a4c99146b1a",
-          "draft": false
-        }
-      ],
-      "head": "62686353da06fc90974b38fce5547230ce6d5beb",
-      "snapshotObservedAt": "2026-11-02T20:15:43Z",
-      "lastSyncedAt": "2026-11-02T20:15:43Z",
-      "lastEvidenceAt": "2026-11-02T23:00:00Z",
+      "openPullRequests": [],
+      "head": "b017cfe9c40e2166799ed59187a12d61f76e1763",
+      "snapshotObservedAt": "2026-11-03T04:20:01Z",
+      "lastSyncedAt": "2026-11-03T04:20:01Z",
+      "lastEvidenceAt": "2026-11-03T03:42:53Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
