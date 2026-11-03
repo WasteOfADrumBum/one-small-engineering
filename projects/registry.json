@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-02T23:16:40Z",
+  "lastUpdatedAt": "2026-11-03T00:35:43Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1311,9 +1311,9 @@
       "productionUrl": "https://studio.onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "62686353da06fc90974b38fce5547230ce6d5beb",
+        "headSha": "4c46d0deacc5651235685e705bca97c9ef45cc14",
         "archived": false,
-        "observedAt": "2026-11-02T20:15:43Z",
+        "observedAt": "2026-11-03T00:35:43Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1325,10 +1325,10 @@
       },
       "openPullRequests": [
         {
-          "number": 21,
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/21",
-          "title": "Record Studio release checks A and B as tested",
-          "headSha": "a833bb8aaa0a2d8afa384f2a565e8a4c99146b1a",
+          "number": 23,
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/23",
+          "title": "Re-record the Engineering Hub checkpoint in the contract v1 shape",
+          "headSha": "71e5c4bdc5668eabd9a0f01ff6b376a49f2d66d9",
           "draft": false
         }
       ],
@@ -1395,18 +1395,6 @@
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
         },
         {
-          "id": "sync-one-small-studio-run-ci-yml-6268635-j2cpzvj-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/41501165023",
-          "commitSha": "62686353da06fc90974b38fce5547230ce6d5beb",
-          "verifiedAt": "2026-11-02T18:32:25Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 6268635 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-studio:workflow_run:ci.yml/6268635/j2cpzvj/1"
-        },
-        {
           "id": "one-small-studio-vercel-9310334",
           "type": "deployment",
           "url": "https://vercel.com/task-forge3/one-small-studio/FpfQVJLCJwMwXjxwNgQAa3X3mEMh",
@@ -1465,6 +1453,18 @@
           "result": "informational",
           "description": "Owner-reported 2026-11-02T18:08Z (Joshua Small, project thread \"Close Studio release\"): \"I accept these risks and approve the Studio release.\" Recorded in docs/release/studio-release-acceptance.md. Not a verify:record pass and not a registry approval: no gate is verified yet.",
           "recordedBy": "Claude Code"
+        },
+        {
+          "id": "sync-one-small-studio-run-ci-yml-4c46d0d-j30e8ax-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/41540926857",
+          "commitSha": "4c46d0deacc5651235685e705bca97c9ef45cc14",
+          "verifiedAt": "2026-11-02T22:55:03Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 4c46d0d (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-studio:workflow_run:ci.yml/4c46d0d/j30e8ax/1"
         }
       ],
       "releaseGates": [
@@ -1570,8 +1570,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1410748339,
-        "lastSyncedAt": "2026-11-02T20:15:43Z",
-        "lastSyncedHead": "62686353da06fc90974b38fce5547230ce6d5beb",
+        "lastSyncedAt": "2026-11-03T00:35:43Z",
+        "lastSyncedHead": "4c46d0deacc5651235685e705bca97c9ef45cc14",
         "configSource": "defaults"
       }
     },
