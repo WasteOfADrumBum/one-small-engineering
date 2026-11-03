@@ -39,6 +39,7 @@ function world({ next = routine(loadRegistry()), mutate = {} } = {}) {
       if (/\/pulls\?/.test(path)) { const { commits, ...summary } = st.pr; return st.pr.state === 'open' ? [summary] : [] }
       if (/\/files$/.test(path)) return Object.assign([...st.files], st.filesTruncated ? { truncated: true } : {})
       if (/check-runs$/.test(path)) return st.checks
+      if (/\/reviews$/.test(path)) return Object.assign([...st.reviews], st.reviewsTruncated ? { truncated: true } : {})
       throw new Error(`unexpected paginate ${path}`)
     },
     get: async path => client.request('GET', path),
@@ -47,7 +48,6 @@ function world({ next = routine(loadRegistry()), mutate = {} } = {}) {
       if (method === 'GET') {
         if (bare.endsWith('/git/ref/heads/main')) return { object: { sha: st.main } }
         if (/\/pulls\/31$/.test(bare)) return st.pr
-        if (/\/pulls\/31\/reviews$/.test(bare)) return st.reviews
         if (/\/commits\/[0-9a-f]{40}$/.test(bare)) return st.commit
         if (bare.endsWith('/contents/projects/registry.json')) {
           const ref = path.split('ref=')[1]
@@ -63,7 +63,7 @@ function world({ next = routine(loadRegistry()), mutate = {} } = {}) {
         if (body.sha !== st.pr.head.sha) { const { GitHubError } = await import('./github.mjs'); throw new GitHubError('merge', 409, '') }
         st.merged.push(body); st.pr.state = 'closed'; st.main = fakeSha('main-2'); return { sha: st.main }
       }
-      if (/\/comments$/.test(bare)) { st.comments.push(body.body); return {} }
+      if (/\/comments$/.test(bare)) { if (st.commentStatus) { const { GitHubError } = await import('./github.mjs'); throw new GitHubError('comment', st.commentStatus, '') } st.comments.push(body.body); return {} }
       if (/dispatches$/.test(bare)) { st.dispatches.push(body); return null }
       throw new Error(`unexpected ${method} ${path}`)
     }
@@ -214,6 +214,8 @@ test('an API outage on one PR is an error result, not a crash or a merge', async
   const w = world()
   const orig = w.client.request
   w.client.request = async (m, p, o) => { if (/\/reviews/.test(p)) { const { GitHubError } = await import('./github.mjs'); throw new GitHubError('boom', 503, '') } return orig(m, p, o) }
+  const pages = w.client.paginate
+  w.client.paginate = async (p, o) => { if (/\/reviews$/.test(p)) { const { GitHubError } = await import('./github.mjs'); throw new GitHubError('boom', 503, '') } return pages(p, o) }
   const out = await go(w)
   assert.equal(out.results[0].decision, 'error')
   assert.equal(w.st.merged.length, 0)
@@ -256,4 +258,52 @@ test('a scheduled run heals stale PRs even when it merged nothing; a chained run
     await go(w, { healStale })
     assert.equal(w.st.dispatches.length, expected, `healStale=${healStale}`)
   }
+})
+
+// Independent review findings (GitHub Copilot on PR #28, 2026-11-02), fixed in the Phase 6 closeout.
+test('a review list that cannot be read in full waits instead of merging (fail closed)', async () => {
+  const w = world({ mutate: { reviewsTruncated: true } })
+  const out = await go(w)
+  assert.equal(out.merges, 0)
+  assert.equal(out.results[0].decision, 'wait')
+  assert.match(out.results[0].reasons[0], /review list is incomplete/)
+  assert.equal(w.st.merged.length, 0)
+})
+
+test('a requested change on any review page blocks the merge', async () => {
+  const reviews = [...Array.from({ length: 150 }, () => ({ state: 'COMMENTED' })), { state: 'CHANGES_REQUESTED' }]
+  const w = world({ mutate: { reviews } })
+  const out = await go(w)
+  assert.equal(out.results[0].decision, 'skip')
+  assert.equal(w.st.merged.length, 0)
+})
+
+test('a partial PR response before merging fails before any write', async () => {
+  const w = world()
+  const { node_id, ...partial } = w.st.pr
+  let reads = 0
+  const request = w.client.request
+  w.client.request = async (m, path, o) => (m === 'GET' && /\/pulls\/31$/.test(path.split('?')[0]) && ++reads === 2 ? partial : request(m, path, o))
+  const out = await go(w)
+  assert.equal(out.results[0].decision, 'error')
+  assert.match(out.results[0].reasons[0], /missing node_id/)
+  assert.equal(w.st.ready, 0)
+  assert.equal(w.st.merged.length, 0)
+})
+
+test('a merged PR whose audit comment fails is reported as merged with a warning, not an error', async () => {
+  const w = world({ mutate: { commentStatus: 502 } })
+  const out = await go(w)
+  assert.equal(out.merges, 1)
+  assert.equal(out.results[0].decision, 'merged')
+  assert.match(out.results[0].warnings[0], /audit comment could not be posted/)
+})
+
+test('the merge limit holds across retries in one invocation (no budget left: nothing merges)', async () => {
+  const w = world()
+  const out = await go(w, { mergeBudget: 0 })
+  assert.equal(out.merges, 0)
+  assert.equal(out.results[0].decision, 'wait')
+  assert.match(out.results[0].reasons[0], /merge limit/)
+  assert.equal(w.st.merged.length, 0)
 })

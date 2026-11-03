@@ -89,3 +89,11 @@ test('missed event recovery (fixture): the scheduled path reaches the same plann
   assert.doesNotMatch(read('.github/workflows/events.yml'), /registry\.json|sync\/write|run\.mjs/)
   assert.match(read('.github/workflows/registry-sync.yml'), /run\.mjs write --mode auto/)
 })
+
+test('the payload size limit counts UTF-8 bytes, not characters', () => {
+  // 1500 three-byte characters: about 1.5k characters but 4.5k bytes, over the 4096-byte limit.
+  const r = checkEvent(ev({ payload: { extra: '\u20ac'.repeat(1500) } }))
+  assert.equal(r.ok, false)
+  assert.match(r.reason, /too large/)
+  assert.equal(checkEvent(ev({ payload: { extra: 'a'.repeat(1500) } })).ok, true)
+})

@@ -29,7 +29,8 @@ export function checkEvent({ actor, payload, registry, owner = OWNER }) {
   const no = reason => ({ ok: false, reason })
   if (actor !== owner) return no(`sender ${String(actor).slice(0, 40)} is not the repository owner; only the owner's token may dispatch events`)
   if (!payload || typeof payload !== 'object' || Array.isArray(payload)) return no('payload is not an object')
-  if (JSON.stringify(payload).length > MAX_PAYLOAD_BYTES) return no('payload is too large')
+  // Measured in UTF-8 bytes, not characters (GitHub Copilot review of PR #30, 2026-11-02).
+  if (Buffer.byteLength(JSON.stringify(payload), 'utf8') > MAX_PAYLOAD_BYTES) return no('payload is too large')
   const { repository, kind, delivery } = payload
   if (typeof repository !== 'string' || !FULL_NAME.test(repository)) return no('repository is missing or malformed')
   if (!KINDS.includes(kind)) return no(`event kind ${JSON.stringify(String(kind).slice(0, 30))} is not one of ${KINDS.join(', ')}`)

@@ -72,3 +72,10 @@ ModsPack is on hold and gets no roadmap work until the owner lifts the hold.
 - **Scope:** npm trusted publishing from a release workflow with `id-token: write` only in that job.
 - **Acceptance criteria:** `npm view <pkg> --json` shows provenance for the next release; workflow permissions reviewed.
 - **Dependencies:** owner configures trusted publishing on npmjs.com.
+
+### E9. Checkpoint contract check in project CI (P2)
+
+- **Purpose:** catch an invalid `.engineering/state.json` in the project PR that introduces it. On 2026-11-02, three hand-written checkpoints reached `main` and showed as `invalid` in the hub aggregate (closeout finding R18).
+- **Scope:** a small step in each project's CI that runs the hub's `scripts/state/cli.mjs validate` (or a vendored copy of the schema) against `.engineering/state.json`, and fails on an error.
+- **Acceptance criteria:** a PR with an invalid checkpoint fails CI in that project; a valid one passes; no hub credential in project repositories.
+- **Dependencies:** a small PR per project repository; the owner merges.

@@ -33,7 +33,16 @@ export function detectChanges(registry, live) {
   return { changed, unreadable }
 }
 
-async function readLive(registry, { publicClient, privateClient }) {
+// Public repositories are read with the job's GITHUB_TOKEN; the reader secret is used only for
+// private projects (and for public ones only when no job token exists, e.g. a local run).
+// GitHub Copilot review of PR #45, 2026-11-02.
+export function chooseTokens({ token = '', reader = '' } = {}) {
+  return { publicToken: token || reader, privateToken: reader || null }
+}
+
+// A list that could not be read in full is unreadable, never a change: a partial PR list
+// would give a wrong fingerprint (fail closed, like the sync collector).
+export async function readLive(registry, { publicClient, privateClient }) {
   const live = {}
   for (const p of registry.projects) {
     if (!(p.sync && p.sync.enabled)) continue
@@ -44,6 +53,7 @@ async function readLive(registry, { publicClient, privateClient }) {
       const branch = p.repositorySnapshot.defaultBranch
       const head = await client.get(`/repos/${owner}/${name}/branches/${encodeURIComponent(branch)}`)
       const prs = await client.paginate(`/repos/${owner}/${name}/pulls?state=open`)
+      if (prs.truncated) throw new Error('open pull request list is incomplete')
       live[p.id] = { head: head.commit.sha, openPullRequests: prs.map(x => ({ number: x.number, headSha: x.head.sha })) }
     } catch {
       live[p.id] = null
@@ -56,9 +66,10 @@ async function main() {
   const registry = JSON.parse(readFileSync(resolve(ROOT, REGISTRY_PATH), 'utf8'))
   const token = process.env.GITHUB_TOKEN || ''
   const reader = process.env.READER_TOKEN || ''
+  const { publicToken, privateToken } = chooseTokens({ token, reader })
   const live = await readLive(registry, {
-    publicClient: createClient({ token: reader || token }),
-    privateClient: reader ? createClient({ token: reader }) : null
+    publicClient: createClient({ token: publicToken }),
+    privateClient: privateToken ? createClient({ token: privateToken }) : null
   })
   const { changed, unreadable } = detectChanges(registry, live)
   console.log(safeOutput(changed.length ? `changed ${changed.join(', ')}` : 'unchanged'))

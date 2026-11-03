@@ -7,7 +7,7 @@
     "activeProjects": 8,
     "readyForRelease": 0,
     "candidateReady": 0,
-    "blocked": 1,
+    "blocked": 2,
     "failingCi": 0,
     "ciUnknown": 8,
     "security": {
@@ -28,9 +28,9 @@
       "one-small-ai-workforce"
     ],
     "releaseStates": {
-      "not_ready": 7,
-      "blocked": 1,
-      "verification_required": 0,
+      "not_ready": 5,
+      "blocked": 2,
+      "verification_required": 1,
       "candidate_ready": 0,
       "awaiting_approval": 0,
       "approved": 0,
@@ -39,7 +39,7 @@
     "queue": {
       "automatic": 5,
       "independent-verification": 32,
-      "owner-decision": 40,
+      "owner-decision": 79,
       "blocked-credentials": 8,
       "informational": 5
     }
@@ -254,24 +254,28 @@
         "previousPercentage": 0,
         "applicableGates": 22,
         "verifiedGates": 0,
-        "eligibility": "not-scoped",
+        "eligibility": "not-eligible",
         "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
         "passed_by_builder": 2,
         "failed": 11,
-        "inconclusive": 2,
-        "not_tested": 7,
+        "inconclusive": 6,
+        "not_tested": 3,
         "not_applicable": 0
       },
       "release": {
-        "state": "not_ready",
-        "text": "Not Ready",
+        "state": "blocked",
+        "text": "Blocked",
         "reasons": [
-          "no scope document"
+          "1 critical/high defect(s) at 94438ee: dependency-audit"
         ],
-        "candidate": null,
+        "candidate": {
+          "pullRequest": 34,
+          "ref": "main",
+          "sha": "9a13c9e22d094a95364262a1ae89f666febac892"
+        },
         "approval": {
           "valid": false,
           "bound": false,
@@ -279,9 +283,9 @@
         }
       },
       "releasePlan": {
-        "state": "not_ready",
-        "candidateRevision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
-        "candidateSource": "live head of main",
+        "state": "blocked",
+        "candidateRevision": "9a13c9e22d094a95364262a1ae89f666febac892",
+        "candidateSource": "PR #34 (main)",
         "applicableGates": 22,
         "verifiedGates": 0,
         "readinessPercent": 0,
@@ -310,10 +314,26 @@
           "published-artifact-matches"
         ],
         "activeBlockers": [
-          "scope-document-missing",
           "auto-critical-workflows-unverified",
           "auto-missing-verification",
-          "auto-owner-approval"
+          "auto-owner-approval",
+          "auto-stale-automated-checks",
+          "auto-stale-ci-release-pipeline",
+          "auto-stale-clean-consumer-install",
+          "auto-stale-distribution-verified",
+          "auto-stale-documentation-accurate",
+          "auto-stale-keyboard-screen-reader",
+          "auto-stale-package-archive-inspection",
+          "auto-stale-package-metadata-exports",
+          "auto-stale-production-deployment",
+          "auto-stale-public-docs-accurate",
+          "auto-stale-published-artifact-matches",
+          "auto-stale-runtime-compatibility",
+          "auto-stale-scope-complete",
+          "auto-stale-supply-chain-review",
+          "auto-stale-upgrade-rollback-uninstall-docs",
+          "auto-stale-versioning-changelog",
+          "auto-stale-wcag-22-aa"
         ],
         "dependencyReadiness": [],
         "manualTesting": [
@@ -339,10 +359,10 @@
         "approvalsRequired": [
           "Joshua Small (release approval, recorded in the registry with evidence)"
         ],
-        "versionRecommendation": "0.6.0 (registry target; current 0.5.0)",
+        "versionRecommendation": "0.6.0 (registry target; current 0.6.0)",
         "preparation": [],
-        "preparationStatus": "not started: Not Ready",
-        "rollback": "Deprecate the bad version (npm deprecate) and publish a fix; never unpublish. Consumers pin the previous version (0.5.0).",
+        "preparationStatus": "not started: Blocked",
+        "rollback": "Deprecate the bad version (npm deprecate) and publish a fix; never unpublish. Consumers pin the previous version (0.6.0).",
         "ownerActions": [
           "merge: owner only",
           "publish: owner only",
@@ -350,13 +370,7 @@
           "tag: owner only"
         ]
       },
-      "blockers": [
-        {
-          "id": "scope-document-missing",
-          "severity": "unclassified",
-          "description": "No v0.6.0 / Phase 5 page-blocks scope document exists in the repository; scope cannot be frozen."
-        }
-      ],
+      "blockers": [],
       "openPullRequests": 0,
       "sync": {
         "changes": [],
@@ -370,8 +384,8 @@
         "medium": 1,
         "low": 1
       },
-      "nextAction": "Resolve scope-document-missing in one-small-ui.",
-      "queueItems": 10
+      "nextAction": "Fix release-packaging in one-small-ui at 94438ee.",
+      "queueItems": 26
     },
     {
       "id": "personal-portfolio",
@@ -390,22 +404,24 @@
         "previousPercentage": 0,
         "applicableGates": 10,
         "verifiedGates": 0,
-        "eligibility": "not-scoped",
+        "eligibility": "not-eligible",
         "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
         "passed_by_builder": 1,
         "failed": 0,
-        "inconclusive": 5,
-        "not_tested": 4,
+        "inconclusive": 8,
+        "not_tested": 1,
         "not_applicable": 0
       },
       "release": {
-        "state": "not_ready",
-        "text": "Not Ready",
+        "state": "verification_required",
+        "text": "Verification Required",
         "reasons": [
-          "no target version"
+          "9 of 9 pre-publication gate(s) not independently verified",
+          "no release candidate commit recorded",
+          "derived blockers: auto-critical-workflows-unverified, auto-missing-verification, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-keyboard-screen-reader, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa"
         ],
         "candidate": null,
         "approval": {
@@ -415,7 +431,7 @@
         }
       },
       "releasePlan": {
-        "state": "not_ready",
+        "state": "verification_required",
         "candidateRevision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
         "candidateSource": "live head of main",
         "applicableGates": 10,
@@ -434,12 +450,17 @@
           "no-release-blockers"
         ],
         "activeBlockers": [
-          "no-ci-workflow",
-          "readme-boilerplate",
-          "scope-document-missing",
+          "owner-approval-awaits-verification",
           "auto-critical-workflows-unverified",
           "auto-missing-verification",
-          "auto-owner-approval"
+          "auto-stale-automated-checks",
+          "auto-stale-critical-workflows",
+          "auto-stale-keyboard-screen-reader",
+          "auto-stale-production-deployment",
+          "auto-stale-responsive-layouts",
+          "auto-stale-scope-complete",
+          "auto-stale-security-privacy-review",
+          "auto-stale-wcag-22-aa"
         ],
         "dependencyReadiness": [],
         "manualTesting": [
@@ -456,9 +477,9 @@
         "approvalsRequired": [
           "Joshua Small (release approval, recorded in the registry with evidence)"
         ],
-        "versionRecommendation": "none: the owner sets release.targetVersion when a release is scoped",
+        "versionRecommendation": "1.0.0 (registry target)",
         "preparation": [],
-        "preparationStatus": "not started: Not Ready",
+        "preparationStatus": "not started: Verification Required",
         "rollback": "Redeploy the previous production revision from the hosting provider, then revert the release commit on main through a PR.",
         "ownerActions": [
           "merge: owner only",
@@ -469,22 +490,12 @@
       },
       "blockers": [
         {
-          "id": "no-ci-workflow",
+          "id": "owner-approval-awaits-verification",
           "severity": "unclassified",
-          "description": "No GitHub Actions workflow; the only commit check is the Vercel deployment status, so lint, type check and tests are not enforced on PRs."
-        },
-        {
-          "id": "readme-boilerplate",
-          "severity": "unclassified",
-          "description": "README.md is the unmodified create-next-app template and does not describe the site."
-        },
-        {
-          "id": "scope-document-missing",
-          "severity": "unclassified",
-          "description": "No release scope document in the repository (final audit and project showcase updates are owner-reported leads)."
+          "description": "Joshua Small approved release 1.0 on 2026-11-02 (pf-owner-approval-2026-11-02, ACCEPTANCE.md section 5). The registry records approval only once releaseStatus is verified, which needs his own verify:record pass on every gate. Resolve by recording those passes, then setting approval in a registry PR."
         }
       ],
-      "openPullRequests": 0,
+      "openPullRequests": 1,
       "sync": {
         "changes": [],
         "reason": "token-rejected: GET /repos/WasteOfADrumBum/joshsmall-site: the token was rejected (HTTP 401); it is missing, expired or revoked",
@@ -497,8 +508,8 @@
         "medium": 0,
         "low": 0
       },
-      "nextAction": "Resolve no-ci-workflow in personal-portfolio.",
-      "queueItems": 12
+      "nextAction": "Review accessibility for personal-portfolio.",
+      "queueItems": 18
     },
     {
       "id": "one-small-studio",
@@ -524,8 +535,8 @@
         "independently_verified": 0,
         "passed_by_builder": 2,
         "failed": 0,
-        "inconclusive": 4,
-        "not_tested": 4,
+        "inconclusive": 7,
+        "not_tested": 1,
         "not_applicable": 0
       },
       "release": {
@@ -561,10 +572,18 @@
           "no-release-blockers"
         ],
         "activeBlockers": [
-          "scope-document-missing",
+          "target-version-undecided",
           "auto-critical-workflows-unverified",
           "auto-missing-verification",
-          "auto-owner-approval"
+          "auto-scope-missing",
+          "auto-stale-critical-workflows",
+          "auto-stale-documentation-accurate",
+          "auto-stale-keyboard-screen-reader",
+          "auto-stale-production-deployment",
+          "auto-stale-responsive-layouts",
+          "auto-stale-scope-complete",
+          "auto-stale-security-privacy-review",
+          "auto-stale-wcag-22-aa"
         ],
         "dependencyReadiness": [],
         "manualTesting": [
@@ -594,12 +613,12 @@
       },
       "blockers": [
         {
-          "id": "scope-document-missing",
+          "id": "target-version-undecided",
           "severity": "unclassified",
-          "description": "No release scope document in the repository (equipment showcase and final QA are owner-reported leads)."
+          "description": "The approved release has no version number. The owner picks it (for example 1.0.0); then targetVersion is set and the release can be tagged."
         }
       ],
-      "openPullRequests": 1,
+      "openPullRequests": 0,
       "sync": {
         "changes": [],
         "reason": "token-rejected: GET /repos/WasteOfADrumBum/one-small-studio: the token was rejected (HTTP 401); it is missing, expired or revoked",
@@ -612,8 +631,8 @@
         "medium": 0,
         "low": 0
       },
-      "nextAction": "Resolve scope-document-missing in one-small-studio.",
-      "queueItems": 10
+      "nextAction": "Review accessibility for one-small-studio.",
+      "queueItems": 19
     },
     {
       "id": "one-small-photography",
@@ -639,8 +658,8 @@
         "independently_verified": 0,
         "passed_by_builder": 1,
         "failed": 0,
-        "inconclusive": 5,
-        "not_tested": 4,
+        "inconclusive": 7,
+        "not_tested": 2,
         "not_applicable": 0
       },
       "release": {
@@ -676,10 +695,18 @@
           "no-release-blockers"
         ],
         "activeBlockers": [
+          "auto-ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1",
           "scope-document-missing",
           "auto-critical-workflows-unverified",
           "auto-missing-verification",
-          "auto-owner-approval"
+          "auto-owner-approval",
+          "auto-stale-critical-workflows",
+          "auto-stale-documentation-accurate",
+          "auto-stale-production-deployment",
+          "auto-stale-responsive-layouts",
+          "auto-stale-scope-complete",
+          "auto-stale-security-privacy-review",
+          "auto-stale-wcag-22-aa"
         ],
         "dependencyReadiness": [],
         "manualTesting": [
@@ -709,12 +736,17 @@
       },
       "blockers": [
         {
+          "id": "auto-ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1",
+          "severity": "unclassified",
+          "description": "CI did not pass on 153eee0 (failure)."
+        },
+        {
           "id": "scope-document-missing",
           "severity": "unclassified",
-          "description": "No release scope document. README lists Neon Postgres and Backblaze B2 photo storage as \"next phase\"; the owner must decide whether they are in the first release scope."
+          "description": "Scope is recorded on main in docs/RELEASE.md but not approved: section 6 (owner decision) is still blank at e3bc6d2. Resolve when the owner records approval there."
         }
       ],
-      "openPullRequests": 1,
+      "openPullRequests": 0,
       "sync": {
         "changes": [],
         "reason": "token-rejected: GET /repos/WasteOfADrumBum/one-small-photography: the token was rejected (HTTP 401); it is missing, expired or revoked",
@@ -727,8 +759,8 @@
         "medium": 0,
         "low": 0
       },
-      "nextAction": "Resolve scope-document-missing in one-small-photography.",
-      "queueItems": 11
+      "nextAction": "Fix ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1 in one-small-photography.",
+      "queueItems": 19
     },
     {
       "id": "taskforge",
@@ -1162,35 +1194,33 @@
     {
       "rank": 1,
       "projects": [
-        "personal-portfolio"
+        "one-small-photography"
       ],
-      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
-      "rootCause": "Registry blocker no-ci-workflow (ci, blocks release).",
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": null,
       "complexity": "medium",
       "validation": [
-        "the blocker is marked resolved in the registry with resolution evidence"
+        "a passing re-run at the candidate commit"
       ],
       "confidence": "high",
-      "evidence": [
-        "registry:personal-portfolio:no-ci-workflow"
-      ],
+      "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "personal-portfolio:blocker:no-ci-workflow",
-      "project": "personal-portfolio",
-      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "id": "one-small-photography:blocker:auto-ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
       "priority": 2,
-      "severity": "medium",
+      "severity": "high",
       "kind": "blocker",
-      "title": "No GitHub Actions workflow; the only commit check is the Vercel deployment status, so lint, type check and tests are not enforced on PRs.",
-      "impact": "Blocks release.",
-      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "title": "CI did not pass on 153eee0 (failure).",
+      "impact": "Blocks merge.",
+      "proposedCorrection": "Fix the recorded failure; never skip or disable tests.",
       "actionClass": "owner-decision",
-      "nextAction": "Resolve no-ci-workflow in personal-portfolio.",
+      "nextAction": "Fix ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1 in one-small-photography.",
       "priorityText": "Broken build or failing required CI",
       "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
     },
     {
       "rank": 2,
@@ -1400,28 +1430,32 @@
         "one-small-ui"
       ],
       "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
-      "rootCause": "Registry blocker scope-document-missing (scope, blocks release).",
-      "complexity": "large",
+      "rootCause": "version matches the registry target: package 0.5.0, target 0.6.0 | publish workflow: no workflow runs npm publish (1 workflow(s))",
+      "complexity": "medium",
       "validation": [
-        "the blocker is marked resolved in the registry with resolution evidence"
+        "ci-release-pipeline: manual review by the verifier",
+        "clean-consumer-install: manual review by the verifier",
+        "package-archive-inspection: re-executed by the verifier",
+        "package-metadata-exports: re-executed by the verifier",
+        "versioning-changelog: re-executed by the verifier"
       ],
       "confidence": "high",
       "evidence": [
-        "registry:one-small-ui:scope-document-missing"
+        "ev-one-small-ui-release-packaging-94438ee-26f4e088"
       ],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-ui:blocker:scope-document-missing",
+      "id": "one-small-ui:collector:release-packaging",
       "project": "one-small-ui",
       "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
       "priority": 3,
       "severity": "medium",
-      "kind": "blocker",
-      "title": "No v0.6.0 / Phase 5 page-blocks scope document exists in the repository; scope cannot be frozen.",
-      "impact": "Blocks release.",
-      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "kind": "defect",
+      "title": "release packaging: 2 of 10 check(s) failed",
+      "impact": "blocks verification of ci-release-pipeline, clean-consumer-install, package-archive-inspection, package-metadata-exports, versioning-changelog",
+      "proposedCorrection": "A developer fixes the cause at the evaluated commit; automation does not guess code fixes.",
       "actionClass": "owner-decision",
-      "nextAction": "Resolve scope-document-missing in one-small-ui.",
+      "nextAction": "Fix release-packaging in one-small-ui at 94438ee.",
       "priorityText": "Release-blocking defect",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-27T01:55:19Z",
@@ -1429,72 +1463,6 @@
     },
     {
       "rank": 9,
-      "projects": [
-        "personal-portfolio"
-      ],
-      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
-      "rootCause": "Registry blocker scope-document-missing (scope, blocks release).",
-      "complexity": "large",
-      "validation": [
-        "the blocker is marked resolved in the registry with resolution evidence"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "registry:personal-portfolio:scope-document-missing"
-      ],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "personal-portfolio:blocker:scope-document-missing",
-      "project": "personal-portfolio",
-      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-      "priority": 3,
-      "severity": "medium",
-      "kind": "blocker",
-      "title": "No release scope document in the repository (final audit and project showcase updates are owner-reported leads).",
-      "impact": "Blocks release.",
-      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
-      "actionClass": "owner-decision",
-      "nextAction": "Resolve scope-document-missing in personal-portfolio.",
-      "priorityText": "Release-blocking defect",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 10,
-      "projects": [
-        "one-small-studio"
-      ],
-      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
-      "rootCause": "Registry blocker scope-document-missing (scope, blocks release).",
-      "complexity": "large",
-      "validation": [
-        "the blocker is marked resolved in the registry with resolution evidence"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "registry:one-small-studio:scope-document-missing"
-      ],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "one-small-studio:blocker:scope-document-missing",
-      "project": "one-small-studio",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-      "priority": 3,
-      "severity": "medium",
-      "kind": "blocker",
-      "title": "No release scope document in the repository (equipment showcase and final QA are owner-reported leads).",
-      "impact": "Blocks release.",
-      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
-      "actionClass": "owner-decision",
-      "nextAction": "Resolve scope-document-missing in one-small-studio.",
-      "priorityText": "Release-blocking defect",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 11,
       "projects": [
         "one-small-photography"
       ],
@@ -1516,7 +1484,7 @@
       "priority": 3,
       "severity": "medium",
       "kind": "blocker",
-      "title": "No release scope document. README lists Neon Postgres and Backblaze B2 photo storage as \"next phase\"; the owner must decide whether they are in the first release scope.",
+      "title": "Scope is recorded on main in docs/RELEASE.md but not approved: section 6 (owner decision) is still blank at e3bc6d2. Resolve when the owner records approval there.",
       "impact": "Blocks release.",
       "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
       "actionClass": "owner-decision",
@@ -1527,7 +1495,7 @@
       "isNew": false
     },
     {
-      "rank": 12,
+      "rank": 10,
       "projects": [
         "taskforge"
       ],
@@ -1560,7 +1528,7 @@
       "isNew": false
     },
     {
-      "rank": 13,
+      "rank": 11,
       "projects": [
         "taskforge"
       ],
@@ -1593,7 +1561,7 @@
       "isNew": false
     },
     {
-      "rank": 14,
+      "rank": 12,
       "projects": [
         "cortex"
       ],
@@ -1626,7 +1594,7 @@
       "isNew": false
     },
     {
-      "rank": 15,
+      "rank": 13,
       "projects": [
         "cortex"
       ],
@@ -1659,7 +1627,7 @@
       "isNew": false
     },
     {
-      "rank": 16,
+      "rank": 14,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -1692,7 +1660,7 @@
       "isNew": false
     },
     {
-      "rank": 17,
+      "rank": 15,
       "projects": [
         "one-small-ui"
       ],
@@ -1731,7 +1699,7 @@
       "isNew": false
     },
     {
-      "rank": 18,
+      "rank": 16,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1764,7 +1732,7 @@
       "isNew": false
     },
     {
-      "rank": 19,
+      "rank": 17,
       "projects": [
         "one-small-ui"
       ],
@@ -1797,7 +1765,7 @@
       "isNew": false
     },
     {
-      "rank": 20,
+      "rank": 18,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1830,7 +1798,7 @@
       "isNew": false
     },
     {
-      "rank": 21,
+      "rank": 19,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1863,7 +1831,7 @@
       "isNew": false
     },
     {
-      "rank": 22,
+      "rank": 20,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1896,7 +1864,7 @@
       "isNew": false
     },
     {
-      "rank": 23,
+      "rank": 21,
       "projects": [
         "one-small-ui"
       ],
@@ -1929,7 +1897,7 @@
       "isNew": false
     },
     {
-      "rank": 24,
+      "rank": 22,
       "projects": [
         "personal-portfolio"
       ],
@@ -1962,7 +1930,7 @@
       "isNew": false
     },
     {
-      "rank": 25,
+      "rank": 23,
       "projects": [
         "one-small-studio"
       ],
@@ -1995,7 +1963,7 @@
       "isNew": false
     },
     {
-      "rank": 26,
+      "rank": 24,
       "projects": [
         "one-small-photography"
       ],
@@ -2028,7 +1996,7 @@
       "isNew": false
     },
     {
-      "rank": 27,
+      "rank": 25,
       "projects": [
         "taskforge"
       ],
@@ -2061,7 +2029,7 @@
       "isNew": false
     },
     {
-      "rank": 28,
+      "rank": 26,
       "projects": [
         "cortex"
       ],
@@ -2094,7 +2062,7 @@
       "isNew": false
     },
     {
-      "rank": 29,
+      "rank": 27,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2125,7 +2093,7 @@
       "isNew": true
     },
     {
-      "rank": 30,
+      "rank": 28,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2156,7 +2124,7 @@
       "isNew": true
     },
     {
-      "rank": 31,
+      "rank": 29,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2187,7 +2155,7 @@
       "isNew": true
     },
     {
-      "rank": 32,
+      "rank": 30,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2218,7 +2186,7 @@
       "isNew": true
     },
     {
-      "rank": 33,
+      "rank": 31,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2249,7 +2217,7 @@
       "isNew": true
     },
     {
-      "rank": 34,
+      "rank": 32,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2280,7 +2248,7 @@
       "isNew": true
     },
     {
-      "rank": 35,
+      "rank": 33,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2311,7 +2279,7 @@
       "isNew": true
     },
     {
-      "rank": 36,
+      "rank": 34,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2342,7 +2310,7 @@
       "isNew": true
     },
     {
-      "rank": 37,
+      "rank": 35,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2373,7 +2341,7 @@
       "isNew": true
     },
     {
-      "rank": 38,
+      "rank": 36,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2404,7 +2372,7 @@
       "isNew": true
     },
     {
-      "rank": 39,
+      "rank": 37,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2435,7 +2403,7 @@
       "isNew": true
     },
     {
-      "rank": 40,
+      "rank": 38,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2466,7 +2434,7 @@
       "isNew": true
     },
     {
-      "rank": 41,
+      "rank": 39,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2497,7 +2465,7 @@
       "isNew": true
     },
     {
-      "rank": 42,
+      "rank": 40,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2530,7 +2498,7 @@
       "isNew": false
     },
     {
-      "rank": 43,
+      "rank": 41,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2584,7 +2552,7 @@
       "isNew": false
     },
     {
-      "rank": 44,
+      "rank": 42,
       "projects": [
         "one-small-ui"
       ],
@@ -2621,44 +2589,534 @@
       "isNew": false
     },
     {
+      "rank": 43,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:blocker:auto-stale-automated-checks",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "automated-checks: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-ci-main is for 94438ee, not the release candidate 9a13c9e; current evidence: ui-ci-9a13c9e is dated after the report time; registry notes: CI green on candidate 9a13c9e (builder-reported). Verifier re-checks the linked CI run and records.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "automated-checks: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-ci-main is for 94438ee, not the release candidate 9a13c9e; current evidence: ui-ci-9a13c9e is dated after the report time; registry notes: CI green on candidate 9a13c9e (builder-reported). Verifier re-checks the linked CI run and records.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 44,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:blocker:auto-stale-ci-release-pipeline",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "ci-release-pipeline: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "ci-release-pipeline: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
       "rank": 45,
       "projects": [
         "one-small-ui"
       ],
       "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
-      "rootCause": "version matches the registry target: package 0.5.0, target 0.6.0 | publish workflow: no workflow runs npm publish (1 workflow(s))",
-      "complexity": "medium",
+      "rootCause": null,
+      "complexity": "small",
       "validation": [
-        "ci-release-pipeline: manual review by the verifier",
-        "clean-consumer-install: manual review by the verifier",
-        "package-archive-inspection: re-executed by the verifier",
-        "package-metadata-exports: re-executed by the verifier",
-        "versioning-changelog: re-executed by the verifier"
+        "evidence current for the candidate commit"
       ],
       "confidence": "high",
-      "evidence": [
-        "ev-one-small-ui-release-packaging-94438ee-26f4e088"
-      ],
+      "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-ui:collector:release-packaging",
+      "id": "one-small-ui:blocker:auto-stale-clean-consumer-install",
       "project": "one-small-ui",
       "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
       "priority": 7,
       "severity": "medium",
-      "kind": "defect",
-      "title": "release packaging: 2 of 10 check(s) failed",
-      "impact": "blocks verification of ci-release-pipeline, clean-consumer-install, package-archive-inspection, package-metadata-exports, versioning-changelog",
-      "proposedCorrection": "A developer fixes the cause at the evaluated commit; automation does not guess code fixes.",
+      "kind": "stale",
+      "title": "clean-consumer-install: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "Fix release-packaging in one-small-ui at 94438ee.",
+      "nextAction": "clean-consumer-install: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
     },
     {
       "rank": 46,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:blocker:auto-stale-distribution-verified",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "distribution-verified: current evidence: ui-npm-0-6-0 is dated after the report time; current evidence: sync-one-small-ui-release-v0-6-0 is dated after the report time; registry notes: npm latest is 0.6.0 under @onesmall/ui (informational, checked 2026-11-02). Verifier records.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "distribution-verified: current evidence: ui-npm-0-6-0 is dated after the report time; current evidence: sync-one-small-ui-release-v0-6-0 is dated after the report time; registry notes: npm latest is 0.6.0 under @onesmall/ui (informational, checked 2026-11-02). Verifier records.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 47,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:blocker:auto-stale-documentation-accurate",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "documentation-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; current evidence: ui-owner-report-2026-11-02 is dated after the report time; registry notes: Owner accepted the live docs; Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "documentation-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; current evidence: ui-owner-report-2026-11-02 is dated after the report time; registry notes: Owner accepted the live docs; Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 48,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:blocker:auto-stale-keyboard-screen-reader",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "keyboard-screen-reader: current evidence: ui-owner-report-2026-11-02 is dated after the report time; registry notes: Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only. Covers Chrome + Windows Narrator only.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "keyboard-screen-reader: current evidence: ui-owner-report-2026-11-02 is dated after the report time; registry notes: Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only. Covers Chrome + Windows Narrator only.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 49,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:blocker:auto-stale-package-archive-inspection",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "package-archive-inspection: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "package-archive-inspection: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 50,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:blocker:auto-stale-package-metadata-exports",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "package-metadata-exports: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "package-metadata-exports: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 51,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:blocker:auto-stale-production-deployment",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "production-deployment: current evidence: ui-vercel-408b884 is dated after the report time; registry notes: The docs site is the hosted part; Vercel serves 408b884 (docs-only difference from 9a13c9e). Verifier confirms.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "production-deployment: current evidence: ui-vercel-408b884 is dated after the report time; registry notes: The docs site is the hosted part; Vercel serves 408b884 (docs-only difference from 9a13c9e). Verifier confirms.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 52,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:blocker:auto-stale-public-docs-accurate",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "public-docs-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; current evidence: ui-owner-report-2026-11-02 is dated after the report time; registry notes: Owner accepted the live docs; Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "public-docs-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; current evidence: ui-owner-report-2026-11-02 is dated after the report time; registry notes: Owner accepted the live docs; Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 53,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:blocker:auto-stale-published-artifact-matches",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "published-artifact-matches: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-npm-0-6-0 is dated after the report time; current evidence: ui-readiness-0-6-0 is dated after the report time; registry notes: npm dist.integrity equals the candidate tarball sha512 from the readiness report (informational). Verifier records.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "published-artifact-matches: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-npm-0-6-0 is dated after the report time; current evidence: ui-readiness-0-6-0 is dated after the report time; registry notes: npm dist.integrity equals the candidate tarball sha512 from the readiness report (informational). Verifier records.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 54,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:blocker:auto-stale-runtime-compatibility",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "runtime-compatibility: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "runtime-compatibility: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 55,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:blocker:auto-stale-scope-complete",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-scope-0-6-0 is dated after the report time; current evidence: ui-closeout-pr-36 is dated after the report time; registry notes: Scope frozen by the builder; owner published from it. Human-only gate: needs the verifier's own record.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-scope-0-6-0 is dated after the report time; current evidence: ui-closeout-pr-36 is dated after the report time; registry notes: Scope frozen by the builder; owner published from it. Human-only gate: needs the verifier's own record.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 56,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:blocker:auto-stale-supply-chain-review",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "supply-chain-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; current evidence: ui-owner-report-2026-11-02 is dated after the report time; registry notes: Production audit 0; 2 moderate dev-only advisories accepted by the owner (owner-reported). Formal exception recorded in the acceptance record.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "supply-chain-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; current evidence: ui-owner-report-2026-11-02 is dated after the report time; registry notes: Production audit 0; 2 moderate dev-only advisories accepted by the owner (owner-reported). Formal exception recorded in the acceptance record.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 57,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:blocker:auto-stale-upgrade-rollback-uninstall-docs",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "upgrade-rollback-uninstall-docs: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "upgrade-rollback-uninstall-docs: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 58,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:blocker:auto-stale-versioning-changelog",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "versioning-changelog: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "versioning-changelog: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 59,
+      "projects": [
+        "one-small-ui"
+      ],
+      "revision": "94438ee63ed8c72c027be4d58fc0b168236d213d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-ui:blocker:auto-stale-wcag-22-aa",
+      "project": "one-small-ui",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; current evidence: ui-owner-report-2026-11-02 is dated after the report time; registry notes: Automated axe/jest-axe/contrast evidence (builder) plus Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: ui-readiness-0-6-0 is dated after the report time; current evidence: ui-owner-report-2026-11-02 is dated after the report time; registry notes: Automated axe/jest-axe/contrast evidence (builder) plus Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 60,
       "projects": [
         "one-small-ui"
       ],
@@ -2713,7 +3171,7 @@
       "isNew": false
     },
     {
-      "rank": 47,
+      "rank": 61,
       "projects": [
         "personal-portfolio"
       ],
@@ -2750,40 +3208,255 @@
       "isNew": false
     },
     {
-      "rank": 48,
+      "rank": 62,
       "projects": [
         "personal-portfolio"
       ],
       "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
-      "rootCause": "Registry blocker readme-boilerplate (documentation, blocks release).",
-      "complexity": "medium",
+      "rootCause": null,
+      "complexity": "small",
       "validation": [
-        "the blocker is marked resolved in the registry with resolution evidence"
+        "evidence current for the candidate commit"
       ],
       "confidence": "high",
-      "evidence": [
-        "registry:personal-portfolio:readme-boilerplate"
-      ],
+      "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "personal-portfolio:blocker:readme-boilerplate",
+      "id": "personal-portfolio:blocker:auto-stale-automated-checks",
       "project": "personal-portfolio",
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
       "priority": 7,
       "severity": "medium",
-      "kind": "blocker",
-      "title": "README.md is the unmodified create-next-app template and does not describe the site.",
-      "impact": "Blocks release.",
-      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
+      "kind": "stale",
+      "title": "automated-checks: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-ci-run-1435e75 is dated after the report time; registry notes: CI green on main at 1435e75 (builder evidence from sync). Verifier re-checks at the release commit.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "Resolve readme-boilerplate in personal-portfolio.",
+      "nextAction": "automated-checks: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-ci-run-1435e75 is dated after the report time; registry notes: CI green on main at 1435e75 (builder evidence from sync). Verifier re-checks at the release commit.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
     },
     {
-      "rank": 49,
+      "rank": 63,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:blocker:auto-stale-critical-workflows",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "critical-workflows: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: personal-portfolio-owner-report-2026-11-02 is dated after the report time; current evidence: pf-smoke-run-1435e75 is dated after the report time; current evidence: pf-owner-postdeploy-2026-11-02 is dated after the report time; registry notes: Contact form delivery confirmed by the owner; production smoke check green at 1435e75 (validation only, sends nothing); navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "critical-workflows: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: personal-portfolio-owner-report-2026-11-02 is dated after the report time; current evidence: pf-smoke-run-1435e75 is dated after the report time; current evidence: pf-owner-postdeploy-2026-11-02 is dated after the report time; registry notes: Contact form delivery confirmed by the owner; production smoke check green at 1435e75 (validation only, sends nothing); navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 64,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:blocker:auto-stale-keyboard-screen-reader",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-a11y-2026-11-02 is dated after the report time; registry notes: Keyboard: 68 tab stops with visible focus (builder). Screen reader passes (owner-reported 2026-11-02; screen reader not stated). Verifier records a pass.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-a11y-2026-11-02 is dated after the report time; registry notes: Keyboard: 68 tab stops with visible focus (builder). Screen reader passes (owner-reported 2026-11-02; screen reader not stated). Verifier records a pass.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 65,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:blocker:auto-stale-production-deployment",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "production-deployment: current evidence: personal-portfolio-vercel-1435e75 is dated after the report time; registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "production-deployment: current evidence: personal-portfolio-vercel-1435e75 is dated after the report time; registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 66,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:blocker:auto-stale-responsive-layouts",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-a11y-2026-11-02 is dated after the report time; registry notes: 390x844 and 1440x900 without horizontal scroll (builder). 200% zoom passes (owner-reported 2026-11-02; browser not stated). Verifier records a pass.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-a11y-2026-11-02 is dated after the report time; registry notes: 390x844 and 1440x900 without horizontal scroll (builder). 200% zoom passes (owner-reported 2026-11-02; browser not stated). Verifier records a pass.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 67,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:blocker:auto-stale-scope-complete",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; registry notes: Scope is section 1 of the release record; Joshua Small approved release 1.0 on 2026-11-02 (owner decision). Verifier records a pass.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; registry notes: Scope is section 1 of the release record; Joshua Small approved release 1.0 on 2026-11-02 (owner decision). Verifier records a pass.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 68,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:blocker:auto-stale-security-privacy-review",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "security-privacy-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; registry notes: Builder review in the release record (headers, contact abuse controls, secret scan of all commits, npm audit, privacy). Owner approved the privacy note and accepted three known limits. Verifier records a pass.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "security-privacy-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; registry notes: Builder review in the release record (headers, contact abuse controls, secret scan of all commits, npm audit, privacy). Owner approved the privacy note and accepted three known limits. Verifier records a pass.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 69,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:blocker:auto-stale-wcag-22-aa",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-postdeploy-2026-11-02 is dated after the report time; registry notes: axe WCAG 2.2 A/AA 0 violations (builder); gradient-text contrast and reduced motion pass (owner-reported). Verifier records a pass.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-postdeploy-2026-11-02 is dated after the report time; registry notes: axe WCAG 2.2 A/AA 0 violations (builder); gradient-text contrast and reduced motion pass (owner-reported). Verifier records a pass.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 70,
       "projects": [
         "personal-portfolio"
       ],
@@ -2826,7 +3499,7 @@
       "isNew": false
     },
     {
-      "rank": 50,
+      "rank": 71,
       "projects": [
         "one-small-studio"
       ],
@@ -2863,7 +3536,286 @@
       "isNew": false
     },
     {
-      "rank": 51,
+      "rank": 72,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:blocker:auto-stale-critical-workflows",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "critical-workflows: current evidence: one-small-studio-owner-report-2026-11-02 is dated after the report time; registry notes: Contact email arrives and music plays (owner-reported 2026-11-02); player fallback covered by e2e/resilience.spec.ts (builder). not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "critical-workflows: current evidence: one-small-studio-owner-report-2026-11-02 is dated after the report time; registry notes: Contact email arrives and music plays (owner-reported 2026-11-02); player fallback covered by e2e/resilience.spec.ts (builder). not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 73,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:blocker:auto-stale-documentation-accurate",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "documentation-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-owner-docs-2026-10-31 is dated after the report time; current evidence: studio-release-record-9310334 is dated after the report time; registry notes: Owner said the documentation looks good (2026-10-31, README unchanged since d6854de); DEPLOYMENT.md and release records on main. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "documentation-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-owner-docs-2026-10-31 is dated after the report time; current evidence: studio-release-record-9310334 is dated after the report time; registry notes: Owner said the documentation looks good (2026-10-31, README unchanged since d6854de); DEPLOYMENT.md and release records on main. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 74,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:blocker:auto-stale-keyboard-screen-reader",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-checks-ab-2026-11-02 is dated after the report time; registry notes: Keyboard tests for every control (builder); screen reader walk-through owner-reported (check B). Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-checks-ab-2026-11-02 is dated after the report time; registry notes: Keyboard tests for every control (builder); screen reader walk-through owner-reported (check B). Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 75,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:blocker:auto-stale-production-deployment",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "production-deployment: current evidence: studio-vercel-4c46d0d is dated after the report time; current evidence: one-small-studio-vercel-9310334 is dated after the report time; registry notes: Vercel serves the main head 4c46d0d (informational). Verifier confirms the release commit in production.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "production-deployment: current evidence: studio-vercel-4c46d0d is dated after the report time; current evidence: one-small-studio-vercel-9310334 is dated after the report time; registry notes: Vercel serves the main head 4c46d0d (informational). Verifier confirms the release commit in production.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 76,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:blocker:auto-stale-responsive-layouts",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; registry notes: axe and e2e at desktop and phone viewports (builder). Verifier checks layouts.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; registry notes: axe and e2e at desktop and phone viewports (builder). Verifier checks layouts.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 77,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:blocker:auto-stale-scope-complete",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-approval-2026-11-02 is dated after the report time; registry notes: Scope in studio-release-evidence.md, approved by the owner 2026-11-02; version not chosen. Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-approval-2026-11-02 is dated after the report time; registry notes: Scope in studio-release-evidence.md, approved by the owner 2026-11-02; version not chosen. Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 78,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:blocker:auto-stale-security-privacy-review",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "security-privacy-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-checks-ab-2026-11-02 is dated after the report time; current evidence: studio-owner-approval-2026-11-02 is dated after the report time; registry notes: History secret scan, npm audit 0, CSP tests (builder); live headers owner-reported (check A); risks accepted by the owner. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "security-privacy-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-checks-ab-2026-11-02 is dated after the report time; current evidence: studio-owner-approval-2026-11-02 is dated after the report time; registry notes: History secret scan, npm audit 0, CSP tests (builder); live headers owner-reported (check A); risks accepted by the owner. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 79,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:blocker:auto-stale-wcag-22-aa",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; registry notes: axe WCAG 2.2 A/AA: 0 violations on desktop and phone, also with reduced motion and SoundCloud down (builder e2e tests). Verifier re-checks.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; registry notes: axe WCAG 2.2 A/AA: 0 violations on desktop and phone, also with reduced motion and SoundCloud down (builder e2e tests). Verifier re-checks.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 80,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "rootCause": null,
+      "complexity": "medium",
+      "validation": [
+        "registry validator passes with targetVersion and scopeDocument"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:scope",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "scope",
+      "title": "No target version: the release cannot be scoped or verified.",
+      "impact": "No release can be verified until it is scoped.",
+      "proposedCorrection": "Commit a scope document and set release.targetVersion in the registry.",
+      "actionClass": "owner-decision",
+      "nextAction": "Scope the next one-small-studio release.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 81,
       "projects": [
         "one-small-studio"
       ],
@@ -2906,7 +3858,7 @@
       "isNew": false
     },
     {
-      "rank": 52,
+      "rank": 82,
       "projects": [
         "one-small-photography"
       ],
@@ -2943,7 +3895,224 @@
       "isNew": false
     },
     {
-      "rank": 53,
+      "rank": 83,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:blocker:auto-stale-critical-workflows",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "critical-workflows: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: one-small-photography-owner-report-2026-11-02 is dated after the report time; current evidence: photo-smoke-run-c850853 is dated after the report time; registry notes: Contact delivery and live galleries owner-reported 2026-11-02; production smoke 10/10 at c850853. Code for both is unchanged at e3bc6d2. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "critical-workflows: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: one-small-photography-owner-report-2026-11-02 is dated after the report time; current evidence: photo-smoke-run-c850853 is dated after the report time; registry notes: Contact delivery and live galleries owner-reported 2026-11-02; production smoke 10/10 at c850853. Code for both is unchanged at e3bc6d2. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 84,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:blocker:auto-stale-documentation-accurate",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "documentation-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-e3bc6d2 is dated after the report time; registry notes: RELEASE.md, RECOVERY.md and ROADMAP.md on main (builder). Verifier reviews at the release commit.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "documentation-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-e3bc6d2 is dated after the report time; registry notes: RELEASE.md, RECOVERY.md and ROADMAP.md on main (builder). Verifier reviews at the release commit.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 85,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:blocker:auto-stale-production-deployment",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "production-deployment: current evidence: photo-vercel-e3bc6d2 is dated after the report time; current evidence: one-small-photography-vercel-c850853 is dated after the report time; registry notes: Vercel serves the main head e3bc6d2 (informational). Verifier confirms the release commit in production.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "production-deployment: current evidence: photo-vercel-e3bc6d2 is dated after the report time; current evidence: one-small-photography-vercel-c850853 is dated after the report time; registry notes: Vercel serves the main head e3bc6d2 (informational). Verifier confirms the release commit in production.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 86,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:blocker:auto-stale-responsive-layouts",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-e3bc6d2 is dated after the report time; registry notes: Chromium at phone and desktop widths, no horizontal overflow (builder). Real iOS/Android not tested.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-e3bc6d2 is dated after the report time; registry notes: Chromium at phone and desktop widths, no horizontal overflow (builder). Real iOS/Android not tested.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 87,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:blocker:auto-stale-scope-complete",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-e3bc6d2 is dated after the report time; registry notes: Scope recorded in docs/RELEASE.md; not approved (section 6 blank). Human-only gate.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-e3bc6d2 is dated after the report time; registry notes: Scope recorded in docs/RELEASE.md; not approved (section 6 blank). Human-only gate.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 88,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:blocker:auto-stale-security-privacy-review",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "security-privacy-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-e3bc6d2 is dated after the report time; current evidence: photo-closeout-pr-22 is dated after the report time; registry notes: Builder security table (auth, CSRF, sessions, uploads, headers, history scan); 4 moderate build-time advisories await owner disposition. Verifier reviews.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "security-privacy-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-e3bc6d2 is dated after the report time; current evidence: photo-closeout-pr-22 is dated after the report time; registry notes: Builder security table (auth, CSRF, sessions, uploads, headers, history scan); 4 moderate build-time advisories await owner disposition. Verifier reviews.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 89,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:blocker:auto-stale-wcag-22-aa",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-e3bc6d2 is dated after the report time; registry notes: axe ran WCAG 2.0/2.1 A/AA rules only (0 violations); WCAG 2.2-specific criteria have no evidence yet.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-e3bc6d2 is dated after the report time; registry notes: axe ran WCAG 2.0/2.1 A/AA rules only (0 violations); WCAG 2.2-specific criteria have no evidence yet.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 90,
       "projects": [
         "one-small-photography"
       ],
@@ -2986,7 +4155,7 @@
       "isNew": false
     },
     {
-      "rank": 54,
+      "rank": 91,
       "projects": [
         "taskforge"
       ],
@@ -3023,7 +4192,7 @@
       "isNew": false
     },
     {
-      "rank": 55,
+      "rank": 92,
       "projects": [
         "taskforge"
       ],
@@ -3054,7 +4223,7 @@
       "isNew": false
     },
     {
-      "rank": 56,
+      "rank": 93,
       "projects": [
         "taskforge"
       ],
@@ -3107,7 +4276,7 @@
       "isNew": false
     },
     {
-      "rank": 57,
+      "rank": 94,
       "projects": [
         "cortex"
       ],
@@ -3144,7 +4313,7 @@
       "isNew": false
     },
     {
-      "rank": 58,
+      "rank": 95,
       "projects": [
         "cortex"
       ],
@@ -3197,7 +4366,7 @@
       "isNew": false
     },
     {
-      "rank": 59,
+      "rank": 96,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -3246,7 +4415,7 @@
       "isNew": false
     },
     {
-      "rank": 60,
+      "rank": 97,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -3299,7 +4468,7 @@
       "isNew": false
     },
     {
-      "rank": 61,
+      "rank": 98,
       "projects": [
         "one-small-mods-pack",
         "one-small-ui",
@@ -3350,7 +4519,7 @@
       "isNew": false
     },
     {
-      "rank": 62,
+      "rank": 99,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -3383,7 +4552,7 @@
       "isNew": false
     },
     {
-      "rank": 63,
+      "rank": 100,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -3418,7 +4587,7 @@
       "isNew": false
     },
     {
-      "rank": 64,
+      "rank": 101,
       "projects": [
         "one-small-ui"
       ],
@@ -3453,7 +4622,40 @@
       "isNew": false
     },
     {
-      "rank": 65,
+      "rank": 102,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "rootCause": "Registry blocker owner-approval-awaits-verification (approval).",
+      "complexity": "trivial",
+      "validation": [
+        "approval recorded in the registry with evidence for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:personal-portfolio:owner-approval-awaits-verification"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:blocker:owner-approval-awaits-verification",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "low",
+      "kind": "approval",
+      "title": "Joshua Small approved release 1.0 on 2026-11-02 (pf-owner-approval-2026-11-02, ACCEPTANCE.md section 5). The registry records approval only once releaseStatus is verified, which needs his own verify:record pass on every gate. Resolve by recording those passes, then setting approval in a registry PR.",
+      "impact": "The release cannot ship without the owner's authorization.",
+      "proposedCorrection": "The owner decides after verification is complete; automation never records approval.",
+      "actionClass": "owner-decision",
+      "nextAction": "Owner: decide on owner-approval-awaits-verification once personal-portfolio is verified.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 103,
       "projects": [
         "personal-portfolio"
       ],
@@ -3487,7 +4689,7 @@
       "isNew": false
     },
     {
-      "rank": 66,
+      "rank": 104,
       "projects": [
         "personal-portfolio"
       ],
@@ -3520,7 +4722,7 @@
       "isNew": false
     },
     {
-      "rank": 67,
+      "rank": 105,
       "projects": [
         "personal-portfolio"
       ],
@@ -3553,7 +4755,7 @@
       "isNew": false
     },
     {
-      "rank": 68,
+      "rank": 106,
       "projects": [
         "personal-portfolio"
       ],
@@ -3598,7 +4800,40 @@
       "isNew": false
     },
     {
-      "rank": 69,
+      "rank": 107,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "rootCause": "Registry blocker target-version-undecided (approval).",
+      "complexity": "trivial",
+      "validation": [
+        "approval recorded in the registry with evidence for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [
+        "registry:one-small-studio:target-version-undecided"
+      ],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:blocker:target-version-undecided",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "low",
+      "kind": "approval",
+      "title": "The approved release has no version number. The owner picks it (for example 1.0.0); then targetVersion is set and the release can be tagged.",
+      "impact": "The release cannot ship without the owner's authorization.",
+      "proposedCorrection": "The owner decides after verification is complete; automation never records approval.",
+      "actionClass": "owner-decision",
+      "nextAction": "Owner: decide on target-version-undecided once one-small-studio is verified.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-31T01:00:00Z",
+      "isNew": true
+    },
+    {
+      "rank": 108,
       "projects": [
         "one-small-studio"
       ],
@@ -3632,7 +4867,7 @@
       "isNew": false
     },
     {
-      "rank": 70,
+      "rank": 109,
       "projects": [
         "one-small-studio"
       ],
@@ -3665,7 +4900,7 @@
       "isNew": false
     },
     {
-      "rank": 71,
+      "rank": 110,
       "projects": [
         "one-small-studio"
       ],
@@ -3698,7 +4933,7 @@
       "isNew": false
     },
     {
-      "rank": 72,
+      "rank": 111,
       "projects": [
         "one-small-studio"
       ],
@@ -3743,7 +4978,7 @@
       "isNew": false
     },
     {
-      "rank": 73,
+      "rank": 112,
       "projects": [
         "one-small-photography"
       ],
@@ -3777,7 +5012,7 @@
       "isNew": false
     },
     {
-      "rank": 74,
+      "rank": 113,
       "projects": [
         "one-small-photography"
       ],
@@ -3810,7 +5045,7 @@
       "isNew": false
     },
     {
-      "rank": 75,
+      "rank": 114,
       "projects": [
         "one-small-photography"
       ],
@@ -3843,7 +5078,7 @@
       "isNew": false
     },
     {
-      "rank": 76,
+      "rank": 115,
       "projects": [
         "one-small-photography"
       ],
@@ -3876,7 +5111,7 @@
       "isNew": false
     },
     {
-      "rank": 77,
+      "rank": 116,
       "projects": [
         "one-small-photography"
       ],
@@ -3921,7 +5156,7 @@
       "isNew": false
     },
     {
-      "rank": 78,
+      "rank": 117,
       "projects": [
         "taskforge"
       ],
@@ -3956,7 +5191,7 @@
       "isNew": false
     },
     {
-      "rank": 79,
+      "rank": 118,
       "projects": [
         "taskforge"
       ],
@@ -3989,7 +5224,7 @@
       "isNew": false
     },
     {
-      "rank": 80,
+      "rank": 119,
       "projects": [
         "taskforge"
       ],
@@ -4022,7 +5257,7 @@
       "isNew": false
     },
     {
-      "rank": 81,
+      "rank": 120,
       "projects": [
         "taskforge"
       ],
@@ -4056,7 +5291,7 @@
       "isNew": false
     },
     {
-      "rank": 82,
+      "rank": 121,
       "projects": [
         "taskforge"
       ],
@@ -4101,7 +5336,7 @@
       "isNew": false
     },
     {
-      "rank": 83,
+      "rank": 122,
       "projects": [
         "cortex"
       ],
@@ -4134,7 +5369,7 @@
       "isNew": false
     },
     {
-      "rank": 84,
+      "rank": 123,
       "projects": [
         "cortex"
       ],
@@ -4167,7 +5402,7 @@
       "isNew": false
     },
     {
-      "rank": 85,
+      "rank": 124,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -4202,7 +5437,7 @@
       "isNew": false
     },
     {
-      "rank": 86,
+      "rank": 125,
       "projects": [
         "one-small-ui"
       ],
@@ -4238,7 +5473,7 @@
       "isNew": false
     },
     {
-      "rank": 87,
+      "rank": 126,
       "projects": [
         "personal-portfolio"
       ],
@@ -4271,7 +5506,7 @@
       "isNew": false
     },
     {
-      "rank": 88,
+      "rank": 127,
       "projects": [
         "one-small-studio"
       ],
@@ -4304,7 +5539,7 @@
       "isNew": false
     },
     {
-      "rank": 89,
+      "rank": 128,
       "projects": [
         "one-small-photography"
       ],
@@ -4337,7 +5572,7 @@
       "isNew": false
     },
     {
-      "rank": 90,
+      "rank": 129,
       "projects": [
         "cortex"
       ],
@@ -4742,5 +5977,7 @@
     "startedAt": "2026-10-28T21:06:44Z"
   },
   "policyVersion": 1,
-  "overlayErrors": []
+  "overlayErrors": [
+    "$.lastUpdatedAt: is in the future"
+  ]
 }

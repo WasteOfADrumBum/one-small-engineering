@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-03T03:41:18Z",
+  "asOf": "2026-11-03T04:21:29Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "aa6246a0818ca9b97941e6ce5fef6aeac3e3fd6c32515913990fe97353667fea",
+  "registrySha256": "814a8c47ccc0cda6ea0107fefd1261e99d10e5900784495ddbeb84aa7fbc08f8",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "personal-portfolio",
@@ -19,22 +19,16 @@
       "candidate": null,
       "openPullRequests": [
         {
-          "number": 31,
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/31",
-          "headSha": "49652fa4539b7cc3fb7bba815fb42406194258c3",
-          "draft": false
-        },
-        {
           "number": 32,
           "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/32",
           "headSha": "286ff75e35cbda95bc7f51aff03607dd6e65d62e",
           "draft": false
         }
       ],
-      "head": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
-      "snapshotObservedAt": "2026-11-03T00:41:51Z",
-      "lastSyncedAt": "2026-11-03T00:41:51Z",
-      "lastEvidenceAt": "2026-11-03T03:41:00Z",
+      "head": "9aab29fb774d764d6d2602325c061702c47e06ba",
+      "snapshotObservedAt": "2026-11-03T04:18:33Z",
+      "lastSyncedAt": "2026-11-03T04:18:33Z",
+      "lastEvidenceAt": "2026-11-03T03:41:50Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",

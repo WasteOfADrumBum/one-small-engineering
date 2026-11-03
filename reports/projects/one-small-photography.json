@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-03T03:41:18Z",
+  "asOf": "2026-11-03T04:21:29Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "aa6246a0818ca9b97941e6ce5fef6aeac3e3fd6c32515913990fe97353667fea",
+  "registrySha256": "814a8c47ccc0cda6ea0107fefd1261e99d10e5900784495ddbeb84aa7fbc08f8",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-photography",
@@ -17,18 +17,11 @@
       "releaseStatus": "in_progress",
       "scopeDocument": null,
       "candidate": null,
-      "openPullRequests": [
-        {
-          "number": 27,
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/27",
-          "headSha": "06e52b748a7159a24a45de9aae6d879c82b99f6b",
-          "draft": false
-        }
-      ],
-      "head": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
-      "snapshotObservedAt": "2026-11-02T23:16:40Z",
-      "lastSyncedAt": "2026-11-02T23:16:40Z",
-      "lastEvidenceAt": "2026-11-02T22:17:51Z",
+      "openPullRequests": [],
+      "head": "153eee0484003d2150508a858c372cd80960645f",
+      "snapshotObservedAt": "2026-11-03T04:21:29Z",
+      "lastSyncedAt": "2026-11-03T04:21:29Z",
+      "lastEvidenceAt": "2026-11-03T03:42:07Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -40,11 +33,12 @@
         "approvedAt": null,
         "evidenceRefs": []
       },
-      "registryNextAction": "Owner: complete docs/RELEASE.md section 6 in one-small-photography, disposition the 4 moderate build-time advisories, then record gate verifications with verify:record per docs/acceptance/closeout-2026-11-02.md.",
+      "registryNextAction": "Owner: decide the release in docs/RELEASE.md section 6 (scope, first off-site backup, B2 version lifecycle, the 4 moderate build-time advisories). Then the verifier records the ten Showcase gates with verify:record per docs/acceptance/phase-6-closeout-2026-11-02.md.",
       "missingEvidence": [
-        "Owner approval of the recorded scope (docs/RELEASE.md section 6).",
-        "Disposition of 4 moderate production-tree advisories (@astrojs/vercel -> @vercel/nft, build time).",
-        "Verifier records for all ten Showcase gates.",
+        "Owner decision in docs/RELEASE.md section 6 (scope approval, first off-site backup, B2 lifecycle, advisory disposition).",
+        "Keyboard and screen reader pass: none recorded.",
+        "WCAG 2.2-specific criteria: axe covered 2.0/2.1 only.",
+        "Verifier records (verify:record by Joshua Small) for all ten Showcase gates.",
         "Owner approval record."
       ]
     },
@@ -56,8 +50,8 @@
         "remainingGates": 10,
         "byState": {
           "verified": 0,
-          "in_progress": 3,
-          "not_started": 7,
+          "in_progress": 8,
+          "not_started": 2,
           "blocked": 0,
           "not_applicable": 0,
           "unknown_stale": 0
@@ -67,11 +61,16 @@
           "applicable": 9,
           "verified": 0
         },
-        "blockingFindings": 4,
+        "blockingFindings": 5,
         "registryBlockers": 1,
         "missingIndependentVerification": [
+          "scope-complete",
           "automated-checks",
-          "critical-workflows"
+          "security-privacy-review",
+          "wcag-22-aa",
+          "responsive-layouts",
+          "critical-workflows",
+          "documentation-accurate"
         ],
         "candidateMoved": false,
         "ownershipValid": true,
@@ -84,21 +83,35 @@
           "id": "scope-complete",
           "requirement": "The approved release scope document is complete; every in-scope item is done.",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "photo-release-record-e3bc6d2",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed/docs/RELEASE.md",
+              "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
+              "verifiedAt": "2026-11-02T23:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-02T23:00:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Scope recorded in docs/RELEASE.md; not approved (section 6 blank). Human-only gate"
           ],
-          "notes": null,
+          "notes": "Scope recorded in docs/RELEASE.md; not approved (section 6 blank). Human-only gate.",
           "blockers": [
             "scope-document-missing"
           ],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "automated-checks",
@@ -132,15 +145,27 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "photo-ci-run-e3bc6d2",
+              "type": "workflow_run",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41535743335",
+              "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
+              "verifiedAt": "2026-11-02T23:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-02T23:00:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: CI green on main at c850853 (builder evidence from sync). Verifier re-checks at the release commit"
+            "registry notes: CI green on main at c850853 and e3bc6d2 (builder evidence). Verifier re-checks at the release commit"
           ],
-          "notes": "CI green on main at c850853 (builder evidence from sync). Verifier re-checks at the release commit.",
+          "notes": "CI green on main at c850853 and e3bc6d2 (builder evidence). Verifier re-checks at the release commit.",
           "blockers": [],
           "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
@@ -148,37 +173,77 @@
           "id": "security-privacy-review",
           "requirement": "Security and privacy review completed against [security.md](security.md).",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "photo-release-record-e3bc6d2",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed/docs/RELEASE.md",
+              "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
+              "verifiedAt": "2026-11-02T23:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "photo-closeout-pr-22",
+              "type": "pull_request",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/22",
+              "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
+              "verifiedAt": "2026-11-02T21:30:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-02T23:00:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Builder security table (auth, CSRF, sessions, uploads, headers, history scan); 4 moderate build-time advisories await owner disposition. Verifier reviews"
           ],
-          "notes": null,
+          "notes": "Builder security table (auth, CSRF, sessions, uploads, headers, history scan); 4 moderate build-time advisories await owner disposition. Verifier reviews.",
           "blockers": [],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "wcag-22-aa",
           "requirement": "Applicable WCAG 2.2 AA success criteria verified (automated checks plus manual review).",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "photo-release-record-e3bc6d2",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed/docs/RELEASE.md",
+              "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
+              "verifiedAt": "2026-11-02T23:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-02T23:00:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: axe ran WCAG 2.0/2.1 A/AA rules only (0 violations); WCAG 2.2-specific criteria have no evidence yet"
           ],
-          "notes": null,
+          "notes": "axe ran WCAG 2.0/2.1 A/AA rules only (0 violations); WCAG 2.2-specific criteria have no evidence yet.",
           "blockers": [],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "keyboard-screen-reader",
@@ -192,9 +257,10 @@
           "lastObservedAt": null,
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "evidence for this gate",
+            "registry notes: No keyboard or screen reader pass is recorded (RELEASE.md: \"No hands-on screen reader pass (open)\"). Missing evidence, not not-applicable"
           ],
-          "notes": null,
+          "notes": "No keyboard or screen reader pass is recorded (RELEASE.md: \"No hands-on screen reader pass (open)\"). Missing evidence, not not-applicable.",
           "blockers": [],
           "nextAction": "Produce evidence for this gate."
         },
@@ -202,19 +268,33 @@
           "id": "responsive-layouts",
           "requirement": "Layouts tested at phone, tablet and desktop widths and at 200% zoom.",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "photo-release-record-e3bc6d2",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed/docs/RELEASE.md",
+              "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
+              "verifiedAt": "2026-11-02T23:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-02T23:00:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Chromium at phone and desktop widths, no horizontal overflow (builder). Real iOS/Android not tested"
           ],
-          "notes": null,
+          "notes": "Chromium at phone and desktop widths, no horizontal overflow (builder). Real iOS/Android not tested.",
           "blockers": [],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "critical-workflows",
@@ -254,9 +334,9 @@
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Contact delivery and live galleries confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
+            "registry notes: Contact delivery and live galleries owner-reported 2026-11-02; production smoke 10/10 at c850853. Code for both is unchanged at e3bc6d2. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
           ],
-          "notes": "Contact delivery and live galleries confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
+          "notes": "Contact delivery and live galleries owner-reported 2026-11-02; production smoke 10/10 at c850853. Code for both is unchanged at e3bc6d2. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
           "blockers": [
             "auto-critical-workflows-unverified"
           ],
@@ -272,6 +352,18 @@
           "provenance": "observation",
           "evidence": [
             {
+              "id": "photo-vercel-e3bc6d2",
+              "type": "deployment",
+              "result": "informational",
+              "url": "https://vercel.com/task-forge3/one-small-photography/ymnYXibiPq5GH9ERW9uN5SY3ZHg9",
+              "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
+              "verifiedAt": "2026-11-02T23:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
               "id": "one-small-photography-vercel-c850853",
               "type": "deployment",
               "result": "informational",
@@ -284,12 +376,12 @@
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-02T23:00:00Z",
           "failed": false,
           "missing": [
-            "registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production"
+            "registry notes: Vercel serves the main head e3bc6d2 (informational). Verifier confirms the release commit in production"
           ],
-          "notes": "Vercel serves the main head (informational). Verifier confirms the release commit in production.",
+          "notes": "Vercel serves the main head e3bc6d2 (informational). Verifier confirms the release commit in production.",
           "blockers": [],
           "nextAction": "Finish the work and record evidence, then have the verifier re-check."
         },
@@ -297,19 +389,33 @@
           "id": "documentation-accurate",
           "requirement": "README and essential docs describe the actual project, setup and deployment.",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "photo-release-record-e3bc6d2",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed/docs/RELEASE.md",
+              "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
+              "verifiedAt": "2026-11-02T23:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-02T23:00:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: RELEASE.md, RECOVERY.md and ROADMAP.md on main (builder). Verifier reviews at the release commit"
           ],
-          "notes": null,
+          "notes": "RELEASE.md, RECOVERY.md and ROADMAP.md on main (builder). Verifier reviews at the release commit.",
           "blockers": [],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "no-release-blockers",
@@ -323,9 +429,10 @@
           "lastObservedAt": null,
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "evidence for this gate",
+            "registry notes: scope-document-missing is open"
           ],
-          "notes": null,
+          "notes": "scope-document-missing is open.",
           "blockers": [
             "scope-document-missing"
           ],
@@ -333,7 +440,23 @@
         }
       ],
       "blockers": {
-        "merge": [],
+        "merge": [
+          {
+            "id": "auto-ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1",
+            "origin": "derived",
+            "status": "proposed",
+            "category": "ci",
+            "severity": null,
+            "blocks": "merge",
+            "gates": [],
+            "description": "CI did not pass on 153eee0 (failure).",
+            "evidenceRefs": [
+              "sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1"
+            ],
+            "rule": "a failing workflow run on the head or candidate commit blocks merge",
+            "action": "Fix the failing CI run on 153eee0 and re-run it (never skip or disable tests)."
+          }
+        ],
         "release": [
           {
             "id": "scope-document-missing",
@@ -345,10 +468,10 @@
             "gates": [
               "scope-complete"
             ],
-            "description": "Scope is recorded on main in docs/RELEASE.md (Neon Postgres and B2 storage are built and live, not next phase) but not approved. Resolve when the owner records approval in section 6.",
+            "description": "Scope is recorded on main in docs/RELEASE.md but not approved: section 6 (owner decision) is still blank at e3bc6d2. Resolve when the owner records approval there.",
             "evidenceRefs": [
               "photo-repo-metadata",
-              "photo-release-record-c850853"
+              "photo-release-record-e3bc6d2"
             ],
             "rule": null
           },
@@ -427,7 +550,7 @@
           "gates": [
             "scope-complete"
           ],
-          "text": "Resolve blocker scope-document-missing: Scope is recorded on main in docs/RELEASE.md (Neon Postgres and B2 storage are built and live, not next phase) but not approved. Resolve when the owner records approval in section 6.",
+          "text": "Resolve blocker scope-document-missing: Scope is recorded on main in docs/RELEASE.md but not approved: section 6 (owner decision) is still blank at e3bc6d2. Resolve when the owner records approval there.",
           "summary": "Resolve blocker scope-document-missing."
         },
         {
@@ -460,8 +583,19 @@
             "critical-workflows",
             "documentation-accurate"
           ],
-          "text": "Independently re-check the builder evidence for automated-checks; produce evidence for security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate; then verify scope-complete, critical-workflows once their blockers are resolved.",
-          "summary": "Independently re-check the builder evidence for automated-checks."
+          "text": "Independently re-check the builder evidence for automated-checks, security-privacy-review, wcag-22-aa, responsive-layouts, documentation-accurate; produce evidence for keyboard-screen-reader; then verify scope-complete, critical-workflows once their blockers are resolved.",
+          "summary": "Independently re-check the builder evidence for automated-checks, security-privacy-review, wcag-22-aa, responsive-layouts..."
+        },
+        {
+          "rank": 4,
+          "priority": 4,
+          "bucket": "Failed or missing CI",
+          "source": "auto-ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1",
+          "origin": "derived",
+          "blocks": "merge",
+          "gates": [],
+          "text": "Fix the failing CI run on 153eee0 and re-run it (never skip or disable tests).",
+          "summary": "Fix the failing CI run on 153eee0 and re-run it (never skip or disable tests)."
         }
       ],
       "dependencies": [],
@@ -473,6 +607,11 @@
     },
     "unverified": [
       {
+        "gate": "scope-complete",
+        "evidence": "photo-release-record-e3bc6d2",
+        "provenance": "builder-reported"
+      },
+      {
         "gate": "automated-checks",
         "evidence": "photo-ci-main",
         "provenance": "pass-without-independent-verifier"
@@ -483,8 +622,38 @@
         "provenance": "builder-reported"
       },
       {
+        "gate": "automated-checks",
+        "evidence": "photo-ci-run-e3bc6d2",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "security-privacy-review",
+        "evidence": "photo-release-record-e3bc6d2",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "security-privacy-review",
+        "evidence": "photo-closeout-pr-22",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "wcag-22-aa",
+        "evidence": "photo-release-record-e3bc6d2",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "responsive-layouts",
+        "evidence": "photo-release-record-e3bc6d2",
+        "provenance": "builder-reported"
+      },
+      {
         "gate": "critical-workflows",
         "evidence": "photo-smoke-run-c850853",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "documentation-accurate",
+        "evidence": "photo-release-record-e3bc6d2",
         "provenance": "builder-reported"
       }
     ]

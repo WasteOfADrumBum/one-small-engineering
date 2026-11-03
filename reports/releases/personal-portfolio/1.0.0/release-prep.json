@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/release-preparation",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-03T03:41:18Z",
+  "asOf": "2026-11-03T04:21:29Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "aa6246a0818ca9b97941e6ce5fef6aeac3e3fd6c32515913990fe97353667fea",
+  "registrySha256": "814a8c47ccc0cda6ea0107fefd1261e99d10e5900784495ddbeb84aa7fbc08f8",
   "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
   "project": {
     "id": "personal-portfolio",
@@ -18,12 +18,6 @@
     "scopeDocument": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
     "candidate": null,
     "openPullRequests": [
-      {
-        "number": 31,
-        "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/31",
-        "headSha": "49652fa4539b7cc3fb7bba815fb42406194258c3",
-        "draft": false
-      },
       {
         "number": 32,
         "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/32",

@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-11-02T21:30:00Z",
+  "asOf": "2026-11-03T04:21:29Z",
   "id": "one-small-ui",
   "name": "OneSmallUI",
   "tier": "library",
@@ -21,9 +21,9 @@
   },
   "gateStates": {
     "independently_verified": 0,
-    "passed_by_builder": 2,
-    "failed": 11,
-    "inconclusive": 2,
+    "passed_by_builder": 3,
+    "failed": 9,
+    "inconclusive": 3,
     "not_tested": 7,
     "not_applicable": 0
   },
@@ -89,20 +89,13 @@
     },
     {
       "id": "security-privacy-review",
-      "state": "failed",
+      "state": "passed_by_builder",
       "engineState": "not_started",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
       "humanOnly": false,
       "collectorEvidence": [
-        {
-          "id": "ev-one-small-ui-dependency-audit-94438ee-c247d2a2",
-          "collector": "dependency-audit",
-          "result": "fail",
-          "executedAt": "2026-10-27T01:50:13Z",
-          "summary": "dependency audit: critical 2, high 0, moderate 1, low 0, info 0"
-        },
         {
           "id": "ev-one-small-ui-secret-scan-94438ee-0d4de9f6",
           "collector": "secret-scan",
@@ -111,7 +104,16 @@
           "summary": "secret scan: 3 check(s) passed"
         }
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-one-small-ui-dependency-audit-94438ee-c247d2a2",
+          "reason": "expired 2026-11-03"
+        },
+        {
+          "id": "ev-one-small-ui-dependency-audit-94438ee-24e71675",
+          "reason": "expired 2026-11-03"
+        }
+      ],
       "verifications": [],
       "missingVerification": true,
       "missing": [
@@ -379,22 +381,23 @@
     },
     {
       "id": "supply-chain-review",
-      "state": "failed",
+      "state": "inconclusive",
       "engineState": "in_progress",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
       "humanOnly": false,
-      "collectorEvidence": [
+      "collectorEvidence": [],
+      "staleEvidence": [
         {
           "id": "ev-one-small-ui-dependency-audit-94438ee-c247d2a2",
-          "collector": "dependency-audit",
-          "result": "fail",
-          "executedAt": "2026-10-27T01:50:13Z",
-          "summary": "dependency audit: critical 2, high 0, moderate 1, low 0, info 0"
+          "reason": "expired 2026-11-03"
+        },
+        {
+          "id": "ev-one-small-ui-dependency-audit-94438ee-24e71675",
+          "reason": "expired 2026-11-03"
         }
       ],
-      "staleEvidence": [],
       "verifications": [],
       "missingVerification": true,
       "missing": [
@@ -584,7 +587,16 @@
     "public-docs-accurate",
     "published-artifact-matches"
   ],
-  "staleEvidence": [],
+  "staleEvidence": [
+    {
+      "id": "ev-one-small-ui-dependency-audit-94438ee-c247d2a2",
+      "reason": "expired 2026-11-03"
+    },
+    {
+      "id": "ev-one-small-ui-dependency-audit-94438ee-24e71675",
+      "reason": "expired 2026-11-03"
+    }
+  ],
   "blockers": [
     {
       "id": "auto-critical-workflows-unverified",
@@ -621,16 +633,16 @@
   ],
   "blockersBySeverity": {
     "critical": 0,
-    "high": 1,
+    "high": 0,
     "medium": 2,
     "low": 1,
     "unclassified": 4
   },
-  "mergeEligible": false,
+  "mergeEligible": true,
   "releaseEligible": false,
   "lastVerification": null,
   "lastCollection": "2026-10-28T21:06:50Z",
-  "nextAction": "Fix dependency-audit at 94438ee: dependency audit: critical 2, high 0, moderate 1, low 0, info 0.",
+  "nextAction": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.",
   "findings": [
     {
       "id": "one-small-ui:accessibility:94438ee",
@@ -699,31 +711,6 @@
       "acceptance": "The compatibility collector reports pass at the new commit, and the verifier records it for runtime-compatibility.",
       "verification": [
         "runtime-compatibility: manual review by the verifier"
-      ]
-    },
-    {
-      "id": "one-small-ui:dependency-audit:94438ee",
-      "project": "one-small-ui",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
-      "commitSha": "94438ee63ed8c72c027be4d58fc0b168236d213d",
-      "collector": "dependency-audit",
-      "evidenceId": "ev-one-small-ui-dependency-audit-94438ee-c247d2a2",
-      "kind": "defect",
-      "severity": "high",
-      "gates": [
-        "security-privacy-review",
-        "supply-chain-review"
-      ],
-      "releaseImpact": "blocks verification of security-privacy-review, supply-chain-review",
-      "title": "dependency audit: critical 2, high 0, moderate 1, low 0, info 0",
-      "reproduction": "npm audit --json --package-lock-only (at 94438ee)",
-      "rootCause": "npm audit: critical 2, high 0, moderate 1, low 0, info 0 across 521 packages",
-      "failureReason": "critical or high advisories: tinypool, vitest",
-      "proposedFix": null,
-      "acceptance": "The dependency-audit collector reports pass at the new commit, and the verifier records it for security-privacy-review, supply-chain-review.",
-      "verification": [
-        "security-privacy-review: manual review by the verifier",
-        "supply-chain-review: manual review by the verifier"
       ]
     },
     {
@@ -809,13 +796,7 @@
     }
   ],
   "verifications": [],
-  "relatedPullRequests": [
-    {
-      "number": 36,
-      "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/36",
-      "draft": false
-    }
-  ],
+  "relatedPullRequests": [],
   "remediation": [],
   "verificationRequests": [
     {
@@ -910,18 +891,6 @@
       "automation": "partial",
       "humanOnly": false,
       "evidence": [
-        {
-          "id": "ev-one-small-ui-dependency-audit-94438ee-24e71675",
-          "digest": "ce9c686193ae46c3585bf5d298977456105b137da76ae82af1987ce2e8d25834",
-          "collector": "dependency-audit",
-          "result": "fail"
-        },
-        {
-          "id": "ev-one-small-ui-dependency-audit-94438ee-c247d2a2",
-          "digest": "5c326b5df118a9afa54e3190b4290b239ffd83faac4becb887357ee8a77e7a5e",
-          "collector": "dependency-audit",
-          "result": "fail"
-        },
         {
           "id": "ev-one-small-ui-secret-scan-94438ee-0d4de9f6",
           "digest": "d77c215ff1b80580ee9d0f3014ba18affb4243c697d90e77537f055a2d62a70f",
@@ -1188,24 +1157,13 @@
       "gate": "supply-chain-review",
       "automation": "partial",
       "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-one-small-ui-dependency-audit-94438ee-24e71675",
-          "digest": "ce9c686193ae46c3585bf5d298977456105b137da76ae82af1987ce2e8d25834",
-          "collector": "dependency-audit",
-          "result": "fail"
-        },
-        {
-          "id": "ev-one-small-ui-dependency-audit-94438ee-c247d2a2",
-          "digest": "5c326b5df118a9afa54e3190b4290b239ffd83faac4becb887357ee8a77e7a5e",
-          "collector": "dependency-audit",
-          "result": "fail"
-        }
+      "evidence": [],
+      "missingCollectors": [
+        "dependency-audit"
       ],
-      "missingCollectors": [],
       "method": "manual-test",
       "routedTo": "Joshua Small",
-      "status": "ready for verifier"
+      "status": "waiting for evidence"
     },
     {
       "gate": "ci-release-pipeline",

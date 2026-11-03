@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-11-02T21:30:00Z",
+  "asOf": "2026-11-03T04:21:29Z",
   "id": "cortex",
   "name": "Cortex",
   "tier": "application",
@@ -94,13 +94,6 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-cortex-dependency-audit-ec49fd7-7cd263c6",
-          "collector": "dependency-audit",
-          "result": "pass",
-          "executedAt": "2026-10-27T01:54:43Z",
-          "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0"
-        },
-        {
           "id": "ev-cortex-secret-scan-ec49fd7-b392d9b7",
           "collector": "secret-scan",
           "result": "pass",
@@ -108,7 +101,16 @@
           "summary": "secret scan: 3 check(s) passed"
         }
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-cortex-dependency-audit-ec49fd7-7cd263c6",
+          "reason": "expired 2026-11-03"
+        },
+        {
+          "id": "ev-cortex-dependency-audit-ec49fd7-7e30241d",
+          "reason": "expired 2026-11-03"
+        }
+      ],
       "verifications": [],
       "missingVerification": true,
       "missing": [
@@ -485,7 +487,16 @@
     "e2e-critical-workflows",
     "user-data-isolation"
   ],
-  "staleEvidence": [],
+  "staleEvidence": [
+    {
+      "id": "ev-cortex-dependency-audit-ec49fd7-7cd263c6",
+      "reason": "expired 2026-11-03"
+    },
+    {
+      "id": "ev-cortex-dependency-audit-ec49fd7-7e30241d",
+      "reason": "expired 2026-11-03"
+    }
+  ],
   "blockers": [
     {
       "id": "no-ci-workflow",
@@ -776,18 +787,6 @@
       "automation": "partial",
       "humanOnly": false,
       "evidence": [
-        {
-          "id": "ev-cortex-dependency-audit-ec49fd7-7cd263c6",
-          "digest": "fbe999ef2cda2aab6478bd33a5fab1e1a7977a26a9613fe7420c87b08fbd5d6a",
-          "collector": "dependency-audit",
-          "result": "pass"
-        },
-        {
-          "id": "ev-cortex-dependency-audit-ec49fd7-7e30241d",
-          "digest": "e987ca34b5f984d1c4696513a01c809408d2f5419c877058635dfb73da8a9cf6",
-          "collector": "dependency-audit",
-          "result": "pass"
-        },
         {
           "id": "ev-cortex-secret-scan-ec49fd7-59e05abc",
           "digest": "f9c68fc0188d682d5ba5e637ac199bce55d51be3f3580d9d8062ea0fdcc80732",

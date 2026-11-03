@@ -9,8 +9,8 @@ States: Not Ready -> Blocked -> Verification Required -> Candidate Ready -> Awai
 | Project | State | Candidate | Verified gates | Why |
 | --- | --- | --- | --- | --- |
 | One Small ModsPack | Blocked | PR #3 at c747cbd | 0/21 | 7 open registry blocker(s): pr-description-stale, codex-interactive-trust, copilot-gemini-runtime-untested, manual-screen-reader-review, manual-zoom-forced-colors-review, npm-ownership-access, publish-pipeline-missing |
-| OneSmallUI | Not Ready | none | 0/22 | no scope document |
-| Personal Portfolio | Not Ready | none | 0/10 | no target version |
+| OneSmallUI | Blocked | PR #34 at 9a13c9e | 0/22 | 1 critical/high defect(s) at 94438ee: dependency-audit |
+| Personal Portfolio | Verification Required | none | 0/10 | 9 of 9 pre-publication gate(s) not independently verified; no release candidate commit recorded; derived blockers: auto-critical-workflows-unverified, auto-missing-verification, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-keyboard-screen-reader, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa |
 | One Small Studio | Not Ready | none | 0/10 | no target version |
 | One Small Photography | Not Ready | none | 0/10 | no target version |
 | TaskForge | Not Ready | none | 0/20 | no target version |
@@ -31,26 +31,26 @@ States: Not Ready -> Blocked -> Verification Required -> Candidate Ready -> Awai
 
 ## OneSmallUI
 
-- State: Not Ready; candidate revision 94438ee63ed8c72c027be4d58fc0b168236d213d (live head of main)
-- Version: 0.6.0 (registry target; current 0.5.0)
+- State: Blocked; candidate revision 9a13c9e22d094a95364262a1ae89f666febac892 (PR #34 (main))
+- Version: 0.6.0 (registry target; current 0.6.0)
 - Missing independent verification: scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers, package-metadata-exports, clean-consumer-install, runtime-compatibility, package-archive-inspection, supply-chain-review, ci-release-pipeline, versioning-changelog, distribution-verified, release-provenance, upgrade-rollback-uninstall-docs, public-docs-accurate, published-artifact-matches
-- Active blockers: scope-document-missing, auto-critical-workflows-unverified, auto-missing-verification, auto-owner-approval
+- Active blockers: auto-critical-workflows-unverified, auto-missing-verification, auto-owner-approval, auto-stale-automated-checks, auto-stale-ci-release-pipeline, auto-stale-clean-consumer-install, auto-stale-distribution-verified, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-package-archive-inspection, auto-stale-package-metadata-exports, auto-stale-production-deployment, auto-stale-public-docs-accurate, auto-stale-published-artifact-matches, auto-stale-runtime-compatibility, auto-stale-scope-complete, auto-stale-supply-chain-review, auto-stale-upgrade-rollback-uninstall-docs, auto-stale-versioning-changelog, auto-stale-wcag-22-aa
 - Dependency readiness: no declared or detected dependencies
 - Manual testing required: scope-complete (human only), security-privacy-review, wcag-22-aa, keyboard-screen-reader (human only), responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers (human only), clean-consumer-install, runtime-compatibility, supply-chain-review, ci-release-pipeline, distribution-verified, release-provenance, upgrade-rollback-uninstall-docs, public-docs-accurate, published-artifact-matches
 - Approvals required: Joshua Small (release approval, recorded in the registry with evidence)
-- Preparation: not started: Not Ready
-- Rollback: Deprecate the bad version (npm deprecate) and publish a fix; never unpublish. Consumers pin the previous version (0.5.0).
+- Preparation: not started: Blocked
+- Rollback: Deprecate the bad version (npm deprecate) and publish a fix; never unpublish. Consumers pin the previous version (0.6.0).
 
 ## Personal Portfolio
 
-- State: Not Ready; candidate revision 56ea76e631008695d6b8c4cd6ee8fecd2ae5e302 (live head of main)
-- Version: none: the owner sets release.targetVersion when a release is scoped
+- State: Verification Required; candidate revision 56ea76e631008695d6b8c4cd6ee8fecd2ae5e302 (live head of main)
+- Version: 1.0.0 (registry target)
 - Missing independent verification: scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers
-- Active blockers: no-ci-workflow, readme-boilerplate, scope-document-missing, auto-critical-workflows-unverified, auto-missing-verification, auto-owner-approval
+- Active blockers: owner-approval-awaits-verification, auto-critical-workflows-unverified, auto-missing-verification, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-keyboard-screen-reader, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa
 - Dependency readiness: no declared or detected dependencies
 - Manual testing required: scope-complete (human only), security-privacy-review, wcag-22-aa, keyboard-screen-reader (human only), responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers (human only)
 - Approvals required: Joshua Small (release approval, recorded in the registry with evidence)
-- Preparation: not started: Not Ready
+- Preparation: not started: Verification Required
 - Rollback: Redeploy the previous production revision from the hosting provider, then revert the release commit on main through a PR.
 
 ## One Small Studio
@@ -58,7 +58,7 @@ States: Not Ready -> Blocked -> Verification Required -> Candidate Ready -> Awai
 - State: Not Ready; candidate revision d6854deb5cb40e248a7b464f7995b08ce93aaf5e (live head of main)
 - Version: none: the owner sets release.targetVersion when a release is scoped
 - Missing independent verification: scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers
-- Active blockers: scope-document-missing, auto-critical-workflows-unverified, auto-missing-verification, auto-owner-approval
+- Active blockers: target-version-undecided, auto-critical-workflows-unverified, auto-missing-verification, auto-scope-missing, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa
 - Dependency readiness: no declared or detected dependencies
 - Manual testing required: scope-complete (human only), security-privacy-review, wcag-22-aa, keyboard-screen-reader (human only), responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers (human only)
 - Approvals required: Joshua Small (release approval, recorded in the registry with evidence)
@@ -70,7 +70,7 @@ States: Not Ready -> Blocked -> Verification Required -> Candidate Ready -> Awai
 - State: Not Ready; candidate revision fa2d17fd66ee9bb3d92473dc68a6818ea284711b (live head of main)
 - Version: none: the owner sets release.targetVersion when a release is scoped
 - Missing independent verification: scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers
-- Active blockers: scope-document-missing, auto-critical-workflows-unverified, auto-missing-verification, auto-owner-approval
+- Active blockers: auto-ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1, scope-document-missing, auto-critical-workflows-unverified, auto-missing-verification, auto-owner-approval, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa
 - Dependency readiness: no declared or detected dependencies
 - Manual testing required: scope-complete (human only), security-privacy-review, wcag-22-aa, keyboard-screen-reader (human only), responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers (human only)
 - Approvals required: Joshua Small (release approval, recorded in the registry with evidence)

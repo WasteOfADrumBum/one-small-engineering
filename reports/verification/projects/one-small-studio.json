@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-11-02T21:30:00Z",
+  "asOf": "2026-11-03T04:21:29Z",
   "id": "one-small-studio",
   "name": "One Small Studio",
   "tier": "showcase",
@@ -31,7 +31,7 @@
     {
       "id": "scope-complete",
       "state": "not_tested",
-      "engineState": "not_started",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -41,9 +41,10 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: Scope in studio-release-evidence.md, approved by the owner 2026-11-02; version not chosen. Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
       ],
-      "nextAction": "Produce evidence for this gate."
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
     {
       "id": "automated-checks",
@@ -102,14 +103,14 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: CI green on main at 9310334 (builder evidence from sync). Verifier re-checks at the release commit"
+        "registry notes: CI green on main at 9310334 and 4c46d0d (builder evidence). Verifier re-checks at the release commit"
       ],
       "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
     {
       "id": "security-privacy-review",
       "state": "passed_by_builder",
-      "engineState": "not_started",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -151,14 +152,15 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: History secret scan, npm audit 0, CSP tests (builder); live headers owner-reported (check A); risks accepted by the owner. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
       ],
-      "nextAction": "Produce evidence for this gate."
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
     {
       "id": "wcag-22-aa",
       "state": "inconclusive",
-      "engineState": "not_started",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -185,14 +187,15 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: axe WCAG 2.2 A/AA: 0 violations on desktop and phone, also with reduced motion and SoundCloud down (builder e2e tests). Verifier re-checks"
       ],
-      "nextAction": "Produce evidence for this gate."
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
     {
       "id": "keyboard-screen-reader",
       "state": "not_tested",
-      "engineState": "not_started",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -202,14 +205,15 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: Keyboard tests for every control (builder); screen reader walk-through owner-reported (check B). Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
       ],
-      "nextAction": "Produce evidence for this gate."
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
     {
       "id": "responsive-layouts",
       "state": "not_tested",
-      "engineState": "not_started",
+      "engineState": "in_progress",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -219,9 +223,10 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+        "registry notes: axe and e2e at desktop and phone viewports (builder). Verifier checks layouts"
       ],
-      "nextAction": "Produce evidence for this gate."
+      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
     {
       "id": "critical-workflows",
@@ -257,7 +262,7 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "registry notes: Contact form delivery and music playback confirmed by the owner; navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
+        "registry notes: Contact email arrives and music plays (owner-reported 2026-11-02); player fallback covered by e2e/resilience.spec.ts (builder). not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
       ],
       "nextAction": "Finish the work and record evidence, then have the verifier re-check."
     },
@@ -282,7 +287,7 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production"
+        "registry notes: Vercel serves the main head 4c46d0d (informational). Verifier confirms the release commit in production"
       ],
       "nextAction": "Finish the work and record evidence, then have the verifier re-check."
     },
@@ -317,7 +322,7 @@
       "missingVerification": true,
       "missing": [
         "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: Owner said the documentation looks good (2026-10-31, at d6854de); README and DEPLOYMENT.md now on main at 9310334. Needs the owner's verify:record"
+        "registry notes: Owner said the documentation looks good (2026-10-31, README unchanged since d6854de); DEPLOYMENT.md and release records on main. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
       ],
       "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
     },
@@ -334,7 +339,8 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "evidence for this gate",
+        "registry notes: target-version-undecided is open"
       ],
       "nextAction": "Produce evidence for this gate."
     }
@@ -407,12 +413,12 @@
   ],
   "blockers": [
     {
-      "id": "scope-document-missing",
+      "id": "target-version-undecided",
       "origin": "registry",
       "severity": "unclassified",
       "blocks": "release",
-      "category": "scope",
-      "description": "Scope is recorded on main (docs/release/studio-release-evidence.md) and Joshua Small approved the release in the project thread on 2026-11-02 (owner-reported). The registry still needs a target version and scope document link; the release has no version or tag yet."
+      "category": "approval",
+      "description": "The approved release has no version number. The owner picks it (for example 1.0.0); then targetVersion is set and the release can be tagged."
     },
     {
       "id": "auto-critical-workflows-unverified",
@@ -431,12 +437,12 @@
       "description": "8 applicable pre-publication gate(s) lack current independent verification."
     },
     {
-      "id": "auto-owner-approval",
+      "id": "auto-scope-missing",
       "origin": "derived",
       "severity": "unclassified",
       "blocks": "release",
-      "category": "approval",
-      "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
+      "category": "scope",
+      "description": "No target version: the release cannot be scoped or verified."
     }
   ],
   "blockersBySeverity": {
@@ -450,7 +456,7 @@
   "releaseEligible": false,
   "lastVerification": null,
   "lastCollection": "2026-10-28T21:06:55Z",
-  "nextAction": "Resolve blocker scope-document-missing.",
+  "nextAction": "Choose the target version for the scoped release and record it as release.targetVersion in the registry.",
   "findings": [
     {
       "id": "one-small-studio:accessibility:d6854de",
@@ -613,13 +619,7 @@
     }
   ],
   "verifications": [],
-  "relatedPullRequests": [
-    {
-      "number": 21,
-      "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/21",
-      "draft": false
-    }
-  ],
+  "relatedPullRequests": [],
   "remediation": [
     {
       "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/16",

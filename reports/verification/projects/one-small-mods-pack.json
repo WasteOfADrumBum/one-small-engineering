@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-11-02T21:30:00Z",
+  "asOf": "2026-11-03T04:21:29Z",
   "id": "one-small-mods-pack",
   "name": "One Small ModsPack",
   "tier": "library",
@@ -21,9 +21,9 @@
   },
   "gateStates": {
     "independently_verified": 0,
-    "passed_by_builder": 4,
+    "passed_by_builder": 3,
     "failed": 6,
-    "inconclusive": 7,
+    "inconclusive": 8,
     "not_tested": 4,
     "not_applicable": 1
   },
@@ -97,13 +97,6 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-573eddb2",
-          "collector": "dependency-audit",
-          "result": "pass",
-          "executedAt": "2026-10-27T01:48:54Z",
-          "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0"
-        },
-        {
           "id": "ev-one-small-mods-pack-secret-scan-80cc269-a0ebfced",
           "collector": "secret-scan",
           "result": "pass",
@@ -111,7 +104,16 @@
           "summary": "secret scan: 3 check(s) passed"
         }
       ],
-      "staleEvidence": [],
+      "staleEvidence": [
+        {
+          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-573eddb2",
+          "reason": "expired 2026-11-03"
+        },
+        {
+          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
+          "reason": "expired 2026-11-03"
+        }
+      ],
       "verifications": [],
       "missingVerification": true,
       "missing": [
@@ -378,22 +380,23 @@
     },
     {
       "id": "supply-chain-review",
-      "state": "passed_by_builder",
+      "state": "inconclusive",
       "engineState": "unknown_stale",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
       "humanOnly": false,
-      "collectorEvidence": [
+      "collectorEvidence": [],
+      "staleEvidence": [
         {
           "id": "ev-one-small-mods-pack-dependency-audit-80cc269-573eddb2",
-          "collector": "dependency-audit",
-          "result": "pass",
-          "executedAt": "2026-10-27T01:48:54Z",
-          "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0"
+          "reason": "expired 2026-11-03"
+        },
+        {
+          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
+          "reason": "expired 2026-11-03"
         }
       ],
-      "staleEvidence": [],
       "verifications": [],
       "missingVerification": true,
       "missing": [
@@ -590,7 +593,16 @@
     "public-docs-accurate",
     "published-artifact-matches"
   ],
-  "staleEvidence": [],
+  "staleEvidence": [
+    {
+      "id": "ev-one-small-mods-pack-dependency-audit-80cc269-573eddb2",
+      "reason": "expired 2026-11-03"
+    },
+    {
+      "id": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
+      "reason": "expired 2026-11-03"
+    }
+  ],
   "blockers": [
     {
       "id": "pr-description-stale",
@@ -1015,18 +1027,6 @@
       "humanOnly": false,
       "evidence": [
         {
-          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-573eddb2",
-          "digest": "0e6e0bc0626e9ae92e2f308074bc85aa5195779e703305f1895f2f1187eeaf2b",
-          "collector": "dependency-audit",
-          "result": "pass"
-        },
-        {
-          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
-          "digest": "79affce323bfb613661cf723297330f6baf2568596b4edf6aa3349c1f78cc70b",
-          "collector": "dependency-audit",
-          "result": "pass"
-        },
-        {
           "id": "ev-one-small-mods-pack-secret-scan-80cc269-a0ebfced",
           "digest": "93f444d30115bd889b9a4e2be8195a25648395603aa87e6e5ae48ad6c4924be6",
           "collector": "secret-scan",
@@ -1245,24 +1245,13 @@
       "gate": "supply-chain-review",
       "automation": "partial",
       "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-573eddb2",
-          "digest": "0e6e0bc0626e9ae92e2f308074bc85aa5195779e703305f1895f2f1187eeaf2b",
-          "collector": "dependency-audit",
-          "result": "pass"
-        },
-        {
-          "id": "ev-one-small-mods-pack-dependency-audit-80cc269-5aaa9dbf",
-          "digest": "79affce323bfb613661cf723297330f6baf2568596b4edf6aa3349c1f78cc70b",
-          "collector": "dependency-audit",
-          "result": "pass"
-        }
+      "evidence": [],
+      "missingCollectors": [
+        "dependency-audit"
       ],
-      "missingCollectors": [],
       "method": "manual-test",
       "routedTo": "Joshua Small",
-      "status": "ready for verifier"
+      "status": "waiting for evidence"
     },
     {
       "gate": "ci-release-pipeline",

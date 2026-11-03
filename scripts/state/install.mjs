@@ -47,8 +47,20 @@ export function installPlan({ project, defaultBranch, existing }) {
   } else {
     unchanged.push(STATE_PATHS.state)
     // The views are generated from the state; refresh them if they drifted, never the state.
-    const state = JSON.parse(existing[STATE_PATHS.state])
-    for (const [path, render] of [[STATE_PATHS.status, renderStatus], [STATE_PATHS.handoff, renderHandoff]]) if (existing[path] !== render(state)) files[path] = render(state)
+    // A malformed or unsupported state file is reported with its path, never rendered
+    // (GitHub Copilot review of PR #31, 2026-11-02). The installer never rewrites it.
+    let state
+    try {
+      state = JSON.parse(existing[STATE_PATHS.state])
+    } catch (e) {
+      throw new Error(`${STATE_PATHS.state} is not valid JSON (${e.message}); fix it with a checkpoint before installing`)
+    }
+    const problems = validateState(state, { projectId: project.id })
+    if (problems.length) throw new Error(`${STATE_PATHS.state} is invalid: ${problems.slice(0, 5).join('; ')}`)
+    for (const [path, render] of [[STATE_PATHS.status, renderStatus], [STATE_PATHS.handoff, renderHandoff]]) {
+      const view = render(state)
+      if (existing[path] !== view) files[path] = view
+    }
   }
   return { files, unchanged }
 }

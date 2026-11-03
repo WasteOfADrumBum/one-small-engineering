@@ -50,7 +50,10 @@ export function validateState(state, { projectId } = {}) {
     if (d.decidedBy === 'agent' && d.humanRef) errors.push(`$.decisions.made[${i}]: an agent decision cannot carry a humanRef`)
   })
   const text = JSON.stringify(state)
-  const secrets = findSensitive(text.replace(/https:\/\/[^"\s]+/g, ''))
+  // Only long digit runs in the path of a github.com URL (workflow run and job IDs) are
+  // neutralised. Everything else, including credentials in a URL and numbers or tokens in any
+  // query string or fragment, is still scanned (GitHub Copilot reviews of PRs #29 and #73, 2026-11-02).
+  const secrets = findSensitive(text.replace(/https:\/\/github\.com\/[^"\s?#]+/g, path => path.replace(/\d{8,}/g, '0')))
   if (secrets.length) errors.push(`state contains sensitive-looking content (${secrets.join(', ')}); remove it before sharing`)
   if (/\b(independently verified|verified by (joshua|the owner|a human))\b/i.test(text)) errors.push('state may not claim independent verification; that is recorded only in the hub registry')
   return errors
