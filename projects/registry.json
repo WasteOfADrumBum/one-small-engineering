@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-03T18:48:55Z",
+  "lastUpdatedAt": "2026-11-03T22:13:48Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -557,7 +557,7 @@
         "defaultBranch": "main",
         "headSha": "408474cded69acbfe4fbf1d903c5d38144ece5ba",
         "archived": false,
-        "observedAt": "2026-11-02T22:15:50Z",
+        "observedAt": "2026-11-03T22:13:48Z",
         "visibility": "public",
         "latestTag": {
           "name": "v0.6.0",
@@ -571,7 +571,15 @@
           "private": true
         }
       },
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 37,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/37",
+          "title": "Prepare 0.6.1 with npm provenance",
+          "headSha": "ccfb86421db3522bfff0095cad096939c9ac5e68",
+          "draft": false
+        }
+      ],
       "release": {
         "currentVersion": "0.6.0",
         "currentVersionSource": "GitHub release v0.6.0, recorded by One Small Engineering Sync (evidence sync-one-small-ui-release-v0-6-0)",
@@ -978,7 +986,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1411378047,
-        "lastSyncedAt": "2026-11-02T22:15:50Z",
+        "lastSyncedAt": "2026-11-03T22:13:48Z",
         "lastSyncedHead": "408474cded69acbfe4fbf1d903c5d38144ece5ba",
         "configSource": "defaults"
       }
