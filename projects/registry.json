@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-03T18:26:22Z",
+  "lastUpdatedAt": "2026-11-03T18:28:29Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1702,7 +1702,7 @@
         "defaultBranch": "main",
         "headSha": "d70f75f04942f8026871c701a4b69460d088ae34",
         "archived": false,
-        "observedAt": "2026-11-03T17:00:00Z",
+        "observedAt": "2026-11-03T18:28:29Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1866,30 +1866,6 @@
           "description": "CI (push) concluded success on main at e3bc6d2 with the read-only token from PR #22. Builder evidence."
         },
         {
-          "id": "sync-one-small-photography-run-ci-yml-a1227ca-j4vunmt-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41654227493",
-          "commitSha": "a1227cad9e707abad47692cafdc2b43d4a4f9635",
-          "verifiedAt": "2026-11-03T14:31:18Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at a1227ca (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:ci.yml/a1227ca/j4vunmt/1"
-        },
-        {
-          "id": "sync-one-small-photography-run-production-smoke-yml-a1227ca-j51rscy-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41664171346",
-          "commitSha": "a1227cad9e707abad47692cafdc2b43d4a4f9635",
-          "verifiedAt": "2026-11-03T15:28:15Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke\") concluded success on main at a1227ca (workflow_dispatch event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:production-smoke.yml/a1227ca/j51rscy/1"
-        },
-        {
           "id": "photo-closeout-pr-28",
           "type": "pull_request",
           "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/28",
@@ -1938,6 +1914,18 @@
           "result": "informational",
           "description": "Owner-reported 2026-11-03 (Joshua Small, project chat), recorded in RELEASE.md section 2: keyboard, Narrator and phone checks passed; first-backup.ps1 ran under PowerShell 7.6.9 and its backup passed verification with the K:\\ copy matching its SHA-256; B2 bucket private with Keep all versions, and a retained original of a deleted disposable photo was retrieved and opened (file recovery only, not database-record restoration); K:\\ encryption unconfirmed. Explicit risk acceptance 16:10 UTC: unencrypted backup on private K:\\, including exposure of contact data and the admin password hash. Owner-reported, not a verify:record pass and not release approval.",
           "recordedBy": "Claude Code"
+        },
+        {
+          "id": "sync-one-small-photography-run-ci-yml-d70f75f-j58trwr-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41676021387",
+          "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+          "verifiedAt": "2026-11-03T16:38:17Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at d70f75f (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-photography:workflow_run:ci.yml/d70f75f/j58trwr/1"
         }
       ],
       "releaseGates": [
@@ -2065,8 +2053,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-11-03T16:17:43Z",
-        "lastSyncedHead": "a1227cad9e707abad47692cafdc2b43d4a4f9635",
+        "lastSyncedAt": "2026-11-03T18:28:29Z",
+        "lastSyncedHead": "d70f75f04942f8026871c701a4b69460d088ae34",
         "configSource": "defaults"
       }
     },
