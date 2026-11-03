@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-03T03:41:00Z",
+  "lastUpdatedAt": "2026-11-03T04:18:33Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -993,9 +993,9 @@
       "productionUrl": "https://onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+        "headSha": "9aab29fb774d764d6d2602325c061702c47e06ba",
         "archived": false,
-        "observedAt": "2026-11-03T00:41:51Z",
+        "observedAt": "2026-11-03T04:18:33Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1006,13 +1006,6 @@
         }
       },
       "openPullRequests": [
-        {
-          "number": 31,
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/31",
-          "title": "Record screen-reader and 200% zoom results; map release evidence to hub gates",
-          "headSha": "49652fa4539b7cc3fb7bba815fb42406194258c3",
-          "draft": false
-        },
         {
           "number": 32,
           "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/32",
@@ -1121,18 +1114,6 @@
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
         },
         {
-          "id": "sync-personal-portfolio-run-ci-yml-829ffc8-j2gfhtb-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41507393519",
-          "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
-          "verifiedAt": "2026-11-02T19:11:50Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 829ffc8 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "personal-portfolio:workflow_run:ci.yml/829ffc8/j2gfhtb/1"
-        },
-        {
           "id": "personal-portfolio-vercel-1435e75",
           "type": "deployment",
           "url": "https://vercel.com/task-forge3/joshsmall-portfolio/H2W4sexCyyGjyUhDuEdMHW1hYjee",
@@ -1203,18 +1184,6 @@
           "recordedBy": "Claude Code"
         },
         {
-          "id": "sync-personal-portfolio-run-production-smoke-yml-829ffc8-j38enl2-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41554383590",
-          "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
-          "verifiedAt": "2026-11-03T00:39:23Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke check\") concluded success on main at 829ffc8 (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "personal-portfolio:workflow_run:production-smoke.yml/829ffc8/j38enl2/1"
-        },
-        {
           "id": "pf-owner-approval-2026-11-02",
           "type": "document",
           "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/ACCEPTANCE.md",
@@ -1253,6 +1222,18 @@
           "result": "builder_reported",
           "description": "Release record at 829ffc8: scope (section 1), agent-run security, secret, dependency, privacy, axe (0 violations), keyboard (68 focus stops) and 390/1440 px layout checks. Builder evidence; the verifier re-checks.",
           "recordedBy": "Claude Code"
+        },
+        {
+          "id": "sync-personal-portfolio-run-ci-yml-9aab29f-j3ju86w-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41573585912",
+          "commitSha": "9aab29fb774d764d6d2602325c061702c47e06ba",
+          "verifiedAt": "2026-11-03T03:41:50Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 9aab29f (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "personal-portfolio:workflow_run:ci.yml/9aab29f/j3ju86w/1"
         }
       ],
       "releaseGates": [
@@ -1375,8 +1356,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406067959,
-        "lastSyncedAt": "2026-11-03T00:41:51Z",
-        "lastSyncedHead": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+        "lastSyncedAt": "2026-11-03T04:18:33Z",
+        "lastSyncedHead": "9aab29fb774d764d6d2602325c061702c47e06ba",
         "configSource": "defaults"
       }
     },
