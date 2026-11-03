@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T22:57:15Z",
+  "asOf": "2026-11-03T03:41:18Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "3d9c92075d5ba5598acd94e37e0b82e1d24cafb6bad7773c4d9b00d5a4fd9c79",
+  "registrySha256": "aa6246a0818ca9b97941e6ce5fef6aeac3e3fd6c32515913990fe97353667fea",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-ai-workforce",

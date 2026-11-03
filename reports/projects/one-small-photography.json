@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T22:57:15Z",
+  "asOf": "2026-11-03T03:41:18Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "3d9c92075d5ba5598acd94e37e0b82e1d24cafb6bad7773c4d9b00d5a4fd9c79",
+  "registrySha256": "aa6246a0818ca9b97941e6ce5fef6aeac3e3fd6c32515913990fe97353667fea",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-photography",
@@ -17,11 +17,18 @@
       "releaseStatus": "in_progress",
       "scopeDocument": null,
       "candidate": null,
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 27,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/27",
+          "headSha": "06e52b748a7159a24a45de9aae6d879c82b99f6b",
+          "draft": false
+        }
+      ],
       "head": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
-      "snapshotObservedAt": "2026-11-02T22:17:37Z",
-      "lastSyncedAt": "2026-11-02T22:17:37Z",
-      "lastEvidenceAt": "2026-11-02T21:30:00Z",
+      "snapshotObservedAt": "2026-11-02T23:16:40Z",
+      "lastSyncedAt": "2026-11-02T23:16:40Z",
+      "lastEvidenceAt": "2026-11-02T22:17:51Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",

@@ -1,6 +1,6 @@
 # Changelog draft for OneSmallUI 0.6.0
 
-> Draft generated 2026-11-02T22:57:15Z. Review it against verified evidence before copying it into the project repository. Status: Not eligible for release. 0 of 22 applicable gates independently verified (0%); 4 open blocker(s).
+> Draft generated 2026-11-03T03:41:18Z. Review it against verified evidence before copying it into the project repository. Status: Not eligible for release. 0 of 22 applicable gates independently verified (0%); 4 open blocker(s).
 
 ## 0.6.0 (unreleased)
 

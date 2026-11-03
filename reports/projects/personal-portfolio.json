@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T22:57:15Z",
+  "asOf": "2026-11-03T03:41:18Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "3d9c92075d5ba5598acd94e37e0b82e1d24cafb6bad7773c4d9b00d5a4fd9c79",
+  "registrySha256": "aa6246a0818ca9b97941e6ce5fef6aeac3e3fd6c32515913990fe97353667fea",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "personal-portfolio",
@@ -17,11 +17,24 @@
       "releaseStatus": "in_progress",
       "scopeDocument": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
       "candidate": null,
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 31,
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/31",
+          "headSha": "49652fa4539b7cc3fb7bba815fb42406194258c3",
+          "draft": false
+        },
+        {
+          "number": 32,
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/32",
+          "headSha": "286ff75e35cbda95bc7f51aff03607dd6e65d62e",
+          "draft": false
+        }
+      ],
       "head": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
-      "snapshotObservedAt": "2026-11-02T19:13:17Z",
-      "lastSyncedAt": "2026-11-02T19:13:17Z",
-      "lastEvidenceAt": "2026-11-02T22:55:00Z",
+      "snapshotObservedAt": "2026-11-03T00:41:51Z",
+      "lastSyncedAt": "2026-11-03T00:41:51Z",
+      "lastEvidenceAt": "2026-11-03T03:41:00Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -92,7 +105,7 @@
               "result": "builder_reported",
               "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
               "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
-              "verifiedAt": "2026-11-02T22:55:00Z",
+              "verifiedAt": "2026-11-03T03:41:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "builder-reported",
@@ -111,7 +124,7 @@
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T22:55:00Z",
+          "lastObservedAt": "2026-11-03T03:41:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -168,7 +181,7 @@
               "result": "builder_reported",
               "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
               "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
-              "verifiedAt": "2026-11-02T22:55:00Z",
+              "verifiedAt": "2026-11-03T03:41:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "builder-reported",
@@ -187,7 +200,7 @@
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T22:55:00Z",
+          "lastObservedAt": "2026-11-03T03:41:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -212,7 +225,7 @@
               "result": "builder_reported",
               "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
               "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
-              "verifiedAt": "2026-11-02T22:55:00Z",
+              "verifiedAt": "2026-11-03T03:41:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "builder-reported",
@@ -231,7 +244,7 @@
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T22:55:00Z",
+          "lastObservedAt": "2026-11-03T03:41:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -256,7 +269,7 @@
               "result": "builder_reported",
               "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
               "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
-              "verifiedAt": "2026-11-02T22:55:00Z",
+              "verifiedAt": "2026-11-03T03:41:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "builder-reported",
@@ -275,7 +288,7 @@
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T22:55:00Z",
+          "lastObservedAt": "2026-11-03T03:41:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -300,7 +313,7 @@
               "result": "builder_reported",
               "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
               "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
-              "verifiedAt": "2026-11-02T22:55:00Z",
+              "verifiedAt": "2026-11-03T03:41:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "builder-reported",
@@ -319,7 +332,7 @@
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T22:55:00Z",
+          "lastObservedAt": "2026-11-03T03:41:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -469,14 +482,14 @@
               "result": "builder_reported",
               "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
               "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
-              "verifiedAt": "2026-11-02T22:55:00Z",
+              "verifiedAt": "2026-11-03T03:41:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T22:55:00Z",
+          "lastObservedAt": "2026-11-03T03:41:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
