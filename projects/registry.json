@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-03T05:17:02Z",
+  "lastUpdatedAt": "2026-11-03T06:32:26Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -995,7 +995,7 @@
         "defaultBranch": "main",
         "headSha": "773fca08a2e33b213e51577315381f08ff601208",
         "archived": false,
-        "observedAt": "2026-11-03T05:17:02Z",
+        "observedAt": "2026-11-03T06:32:26Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1226,6 +1226,18 @@
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
           "eventKey": "personal-portfolio:workflow_run:ci.yml/773fca0/j3or7uu/1"
+        },
+        {
+          "id": "sync-personal-portfolio-run-production-smoke-yml-773fca0-j3tomm9-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41590120833",
+          "commitSha": "773fca08a2e33b213e51577315381f08ff601208",
+          "verifiedAt": "2026-11-03T06:28:52Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke check\") concluded success on main at 773fca0 (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "personal-portfolio:workflow_run:production-smoke.yml/773fca0/j3tomm9/1"
         }
       ],
       "releaseGates": [
@@ -1348,7 +1360,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406067959,
-        "lastSyncedAt": "2026-11-03T05:17:02Z",
+        "lastSyncedAt": "2026-11-03T06:32:26Z",
         "lastSyncedHead": "773fca08a2e33b213e51577315381f08ff601208",
         "configSource": "defaults"
       }
