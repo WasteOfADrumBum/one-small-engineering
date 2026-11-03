@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-03T16:17:43Z",
+  "lastUpdatedAt": "2026-11-03T17:00:00Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1700,9 +1700,9 @@
       "productionUrl": "https://photo.onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "a1227cad9e707abad47692cafdc2b43d4a4f9635",
+        "headSha": "d70f75f04942f8026871c701a4b69460d088ae34",
         "archived": false,
-        "observedAt": "2026-11-03T16:17:43Z",
+        "observedAt": "2026-11-03T17:00:00Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1712,15 +1712,7 @@
           "private": true
         }
       },
-      "openPullRequests": [
-        {
-          "number": 29,
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/29",
-          "title": "Record owner-reported 2026-11-03 results and post-merge CI and smoke",
-          "headSha": "412a515350669afbcde9577809534c7e42f3e4cd",
-          "draft": false
-        }
-      ],
+      "openPullRequests": [],
       "release": {
         "currentVersion": null,
         "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder.",
@@ -1730,11 +1722,12 @@
         "blockers": [
           {
             "id": "scope-document-missing",
-            "description": "Scope is recorded on main in docs/RELEASE.md but not approved: section 6 (owner decision) is still blank at e3bc6d2. Resolve when the owner records approval there.",
+            "description": "Scope is recorded on main in docs/RELEASE.md (d70f75f) but approval is not: section 6 is still blank, PR #29 merged without a review and states no approval is recorded, and no other linked approval exists on GitHub. The owner reported approving the release in chat on 2026-11-03; a chat message is owner-reported evidence, not a linked approval. Resolve when Joshua Small records the decision in docs/RELEASE.md section 6 or an approving review or comment is linked.",
             "status": "open",
             "evidenceRefs": [
               "photo-repo-metadata",
-              "photo-release-record-e3bc6d2"
+              "photo-release-record-d70f75f",
+              "photo-closeout-pr-29"
             ],
             "category": "scope",
             "blocks": "release",
@@ -1743,7 +1736,7 @@
             ]
           }
         ],
-        "nextAction": "Owner: decide the release in docs/RELEASE.md section 6 (scope, first off-site backup, B2 version lifecycle, the 4 moderate build-time advisories). Then the verifier records the ten Showcase gates with verify:record per docs/acceptance/phase-6-closeout-2026-11-02.md.",
+        "nextAction": "Joshua Small: record the decision in docs/RELEASE.md section 6 (deployment id, smoke link, backup date and place, decision and date) or link an approving comment, then record the ten Showcase gates as verifier with verify:record (human-only: scope-complete, keyboard-screen-reader, no-release-blockers). Only after that can releaseStatus move to verified, released and lifecycle to maintenance.",
         "enhancements": [
           "Additional photos and albums (not a code-release blocker).",
           "Build-time advisory upgrade, CI accessibility check, contact note retention: https://github.com/WasteOfADrumBum/one-small-photography/blob/main/ROADMAP.md (never reopen the release)."
@@ -1760,7 +1753,7 @@
         "approvedAt": null,
         "evidenceRefs": []
       },
-      "lastVerifiedAt": "2026-10-22T16:33:00Z",
+      "lastVerifiedAt": "2026-11-03T17:00:00Z",
       "evidence": [
         {
           "id": "photo-repo-metadata",
@@ -1895,6 +1888,56 @@
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
           "eventKey": "one-small-photography:workflow_run:production-smoke.yml/a1227ca/j51rscy/1"
+        },
+        {
+          "id": "photo-closeout-pr-28",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/28",
+          "commitSha": "a1227cad9e707abad47692cafdc2b43d4a4f9635",
+          "verifiedAt": "2026-11-03T17:00:00Z",
+          "result": "builder_reported",
+          "description": "PR #28 (CI 57P01 cleanup fix, WCAG 2.2 fixes, first-backup procedure, reconciled release record) merged to main as a1227ca on 2026-11-03T14:29:41Z. Builder evidence.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "photo-closeout-pr-29",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/29",
+          "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+          "verifiedAt": "2026-11-03T17:00:00Z",
+          "result": "builder_reported",
+          "description": "PR #29 (owner-reported 2026-11-03 results, backup-risk acceptance, post-merge CI and smoke, checkpoint revision 9) merged by Joshua Small on 2026-11-03T16:36:56Z as d70f75f. It had no review, and its description states that no approval is recorded. Builder evidence.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "photo-ci-run-d70f75f",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41676021387",
+          "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+          "verifiedAt": "2026-11-03T17:00:00Z",
+          "result": "builder_reported",
+          "description": "CI (push) concluded success on main at d70f75f (run 81, documentation-only change over a1227ca). Builder evidence; a verifier re-checks.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "photo-release-record-d70f75f",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+          "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+          "verifiedAt": "2026-11-03T17:00:00Z",
+          "result": "builder_reported",
+          "description": "docs/RELEASE.md on main at d70f75f: scope, owner-reported results, risk acceptance, CI and smoke (production smoke 10/10 at a1227ca), WCAG 2.2 results, advisory and recovery review. Section 6 (Approval) is still blank on main: no production deployment id, smoke link, backup date or decision is recorded there.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "photo-owner-report-2026-11-03",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+          "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+          "verifiedAt": "2026-11-03T17:00:00Z",
+          "result": "informational",
+          "description": "Owner-reported 2026-11-03 (Joshua Small, project chat), recorded in RELEASE.md section 2: keyboard, Narrator and phone checks passed; first-backup.ps1 ran under PowerShell 7.6.9 and its backup passed verification with the K:\\ copy matching its SHA-256; B2 bucket private with Keep all versions, and a retained original of a deleted disposable photo was retrieved and opened (file recovery only, not database-record restoration); K:\\ encryption unconfirmed. Explicit risk acceptance 16:10 UTC: unencrypted backup on private K:\\, including exposure of contact data and the admin password hash. Owner-reported, not a verify:record pass and not release approval.",
+          "recordedBy": "Claude Code"
         }
       ],
       "releaseGates": [
@@ -1902,10 +1945,11 @@
           "id": "scope-complete",
           "status": "in_progress",
           "evidenceRefs": [
-            "photo-release-record-e3bc6d2"
+            "photo-release-record-d70f75f",
+            "photo-closeout-pr-29"
           ],
           "verifiedAt": null,
-          "notes": "Scope recorded in docs/RELEASE.md; not approved (section 6 blank). Human-only gate."
+          "notes": "Scope recorded in docs/RELEASE.md at d70f75f; section 6 still blank on main (no approval linked). Human-only gate."
         },
         {
           "id": "automated-checks",
@@ -1913,71 +1957,80 @@
           "evidenceRefs": [
             "photo-ci-main",
             "photo-ci-run-c850853",
-            "photo-ci-run-e3bc6d2"
+            "photo-ci-run-e3bc6d2",
+            "photo-ci-run-d70f75f"
           ],
           "verifiedAt": null,
-          "notes": "CI green on main at c850853 and e3bc6d2 (builder evidence). Verifier re-checks at the release commit."
+          "notes": "CI green on main at c850853, e3bc6d2, a1227ca and d70f75f (builder evidence); the 57P01 cleanup error is fixed in PR #28. Verifier re-checks at the release commit."
         },
         {
           "id": "security-privacy-review",
           "status": "in_progress",
           "evidenceRefs": [
-            "photo-release-record-e3bc6d2",
-            "photo-closeout-pr-22"
+            "photo-release-record-d70f75f",
+            "photo-closeout-pr-22",
+            "photo-owner-report-2026-11-03"
           ],
           "verifiedAt": null,
-          "notes": "Builder security table (auth, CSRF, sessions, uploads, headers, history scan); 4 moderate build-time advisories await owner disposition. Verifier reviews."
+          "notes": "Builder security table and advisory review (20 moderate, 0 high, none in the deployed function bundle). Owner accepted the unencrypted K:\\ backup risk in writing on 2026-11-03 (owner-reported, recorded in RELEASE.md). Open items stay as documented there. Verifier reviews."
         },
         {
           "id": "wcag-22-aa",
           "status": "in_progress",
           "evidenceRefs": [
-            "photo-release-record-e3bc6d2"
+            "photo-release-record-d70f75f",
+            "photo-closeout-pr-28"
           ],
           "verifiedAt": null,
-          "notes": "axe ran WCAG 2.0/2.1 A/AA rules only (0 violations); WCAG 2.2-specific criteria have no evidence yet."
+          "notes": "Builder ran axe-core 4.10 with WCAG 2.2 AA rules on 10 pages at phone, tablet, desktop, 200% zoom and 320 px reflow, plus a Tab walk and text-spacing checks; defects fixed in PR #28 (2.5.7 move buttons, 2.5.8 target sizes, phone clipping). Chromium only. Builder evidence, not verified."
         },
         {
           "id": "keyboard-screen-reader",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "photo-owner-report-2026-11-03"
+          ],
           "verifiedAt": null,
-          "notes": "No keyboard or screen reader pass is recorded (RELEASE.md: \"No hands-on screen reader pass (open)\"). Missing evidence, not not-applicable."
+          "notes": "Owner-reported 2026-11-03: keyboard, Narrator and phone checks passed. Owner-reported evidence only; no verify:record exists. Human-only gate for the verifier."
         },
         {
           "id": "responsive-layouts",
           "status": "in_progress",
           "evidenceRefs": [
-            "photo-release-record-e3bc6d2"
+            "photo-release-record-d70f75f",
+            "photo-owner-report-2026-11-03"
           ],
           "verifiedAt": null,
-          "notes": "Chromium at phone and desktop widths, no horizontal overflow (builder). Real iOS/Android not tested."
+          "notes": "Builder checks at phone, tablet, desktop, 200% zoom and 320 px (PR #28 fixed admin clipping on phones); owner reports a phone check passed. Not verified."
         },
         {
           "id": "critical-workflows",
           "status": "in_progress",
           "evidenceRefs": [
             "one-small-photography-owner-report-2026-11-02",
-            "photo-smoke-run-c850853"
+            "photo-smoke-run-c850853",
+            "photo-release-record-d70f75f",
+            "photo-owner-report-2026-11-03"
           ],
           "verifiedAt": null,
-          "notes": "Contact delivery and live galleries owner-reported 2026-11-02; production smoke 10/10 at c850853. Code for both is unchanged at e3bc6d2. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it."
+          "notes": "Production smoke 10/10 at c850853 and again at a1227ca; owner reports contact emails and galleries work (2026-11-02) and a deleted photo's original was retrievable from B2 (2026-11-03; file recovery only). Not verified."
         },
         {
           "id": "production-deployment",
           "status": "in_progress",
           "evidenceRefs": [
             "photo-vercel-e3bc6d2",
-            "one-small-photography-vercel-c850853"
+            "one-small-photography-vercel-c850853",
+            "photo-release-record-d70f75f"
           ],
           "verifiedAt": null,
-          "notes": "Vercel serves the main head e3bc6d2 (informational). Verifier confirms the release commit in production."
+          "notes": "Production deployment dpl_7xGuAn2vCBEnj1ag4ET6J3J4LSXU READY at a1227ca (Vercel API, 2026-11-03, builder); main moved to d70f75f by documentation only. Verifier confirms production matches the verified commit."
         },
         {
           "id": "documentation-accurate",
           "status": "in_progress",
           "evidenceRefs": [
-            "photo-release-record-e3bc6d2"
+            "photo-release-record-d70f75f"
           ],
           "verifiedAt": null,
           "notes": "RELEASE.md, RECOVERY.md and ROADMAP.md on main (builder). Verifier reviews at the release commit."
@@ -2003,11 +2056,10 @@
         ]
       },
       "missingEvidence": [
-        "Owner decision in docs/RELEASE.md section 6 (scope approval, first off-site backup, B2 lifecycle, advisory disposition).",
-        "Keyboard and screen reader pass: none recorded.",
-        "WCAG 2.2-specific criteria: axe covered 2.0/2.1 only.",
-        "Verifier records (verify:record by Joshua Small) for all ten Showcase gates.",
-        "Owner approval record."
+        "Approval record: docs/RELEASE.md section 6 is blank on main and no approving review or comment is linked.",
+        "Verifier records (verify:record by Joshua Small) for all ten Showcase gates; none exist.",
+        "Verifier-confirmed keyboard/screen-reader pass (owner reported keyboard and Narrator passed; no verify:record).",
+        "Encryption of the K:\\ backup copy remains unconfirmed (risk accepted by the owner, not mitigated)."
       ],
       "sync": {
         "enabled": true,
