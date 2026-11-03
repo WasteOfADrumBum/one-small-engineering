@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T21:30:00Z",
+  "asOf": "2026-11-03T03:41:18Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "178d6f7855f61feaa2d83a90b8e072d5558699ce4accbaca984880d49c2715d1",
+  "registrySha256": "aa6246a0818ca9b97941e6ce5fef6aeac3e3fd6c32515913990fe97353667fea",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-ui",
@@ -22,18 +22,11 @@
         "headSha": "9a13c9e22d094a95364262a1ae89f666febac892",
         "observedAt": "2026-11-02T21:30:00Z"
       },
-      "openPullRequests": [
-        {
-          "number": 36,
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/36",
-          "headSha": "4058dcb8c8225216a342d55687a0009a2146f570",
-          "draft": false
-        }
-      ],
-      "head": "408b8844db13037a22c718b790f0d769a910803a",
-      "snapshotObservedAt": "2026-11-02T17:16:07Z",
-      "lastSyncedAt": "2026-11-02T17:16:07Z",
-      "lastEvidenceAt": "2026-11-02T21:30:00Z",
+      "openPullRequests": [],
+      "head": "408474cded69acbfe4fbf1d903c5d38144ece5ba",
+      "snapshotObservedAt": "2026-11-02T22:15:50Z",
+      "lastSyncedAt": "2026-11-02T22:15:50Z",
+      "lastEvidenceAt": "2026-11-02T21:30:21Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",

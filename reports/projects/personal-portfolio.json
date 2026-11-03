@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-02T21:30:00Z",
+  "asOf": "2026-11-03T03:41:18Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "178d6f7855f61feaa2d83a90b8e072d5558699ce4accbaca984880d49c2715d1",
+  "registrySha256": "aa6246a0818ca9b97941e6ce5fef6aeac3e3fd6c32515913990fe97353667fea",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "personal-portfolio",
@@ -13,15 +13,28 @@
     "facts": {
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
       "currentVersion": null,
-      "targetVersion": null,
+      "targetVersion": "1.0.0",
       "releaseStatus": "in_progress",
-      "scopeDocument": null,
+      "scopeDocument": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
       "candidate": null,
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 31,
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/31",
+          "headSha": "49652fa4539b7cc3fb7bba815fb42406194258c3",
+          "draft": false
+        },
+        {
+          "number": 32,
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/32",
+          "headSha": "286ff75e35cbda95bc7f51aff03607dd6e65d62e",
+          "draft": false
+        }
+      ],
       "head": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
-      "snapshotObservedAt": "2026-11-02T19:13:17Z",
-      "lastSyncedAt": "2026-11-02T19:13:17Z",
-      "lastEvidenceAt": "2026-11-02T21:30:00Z",
+      "snapshotObservedAt": "2026-11-03T00:41:51Z",
+      "lastSyncedAt": "2026-11-03T00:41:51Z",
+      "lastEvidenceAt": "2026-11-03T03:41:00Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -33,11 +46,10 @@
         "approvedAt": null,
         "evidenceRefs": []
       },
-      "registryNextAction": "Owner: approve the scope and work through docs/release/ACCEPTANCE.md in joshsmall-site, then record gate verifications with verify:record per docs/acceptance/closeout-2026-11-02.md.",
+      "registryNextAction": "Joshua Small (verifier): record verify:record passes for the ten gates (commands in docs/acceptance/closeout-2026-11-02.md), then set approval to approved with pf-owner-approval-2026-11-02 in a registry PR.",
       "missingEvidence": [
-        "Owner approval of the recorded scope.",
-        "Verifier records for all ten Showcase gates.",
-        "Owner approval record."
+        "Verifier verify:record passes for all ten Showcase gates.",
+        "Registry approval record (owner decision exists: pf-owner-approval-2026-11-02)."
       ]
     },
     "derived": {
@@ -48,8 +60,8 @@
         "remainingGates": 10,
         "byState": {
           "verified": 0,
-          "in_progress": 4,
-          "not_started": 6,
+          "in_progress": 9,
+          "not_started": 1,
           "blocked": 0,
           "not_applicable": 0,
           "unknown_stale": 0
@@ -59,17 +71,22 @@
           "applicable": 9,
           "verified": 0
         },
-        "blockingFindings": 4,
+        "blockingFindings": 3,
         "registryBlockers": 1,
         "missingIndependentVerification": [
+          "scope-complete",
           "automated-checks",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader",
+          "responsive-layouts",
           "critical-workflows",
           "documentation-accurate"
         ],
         "candidateMoved": false,
         "ownershipValid": true,
         "approvalRecorded": false,
-        "eligibility": "not-scoped",
+        "eligibility": "not-eligible",
         "releaseReady": false
       },
       "gates": [
@@ -77,21 +94,45 @@
           "id": "scope-complete",
           "requirement": "The approved release scope document is complete; every in-scope item is done.",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "pf-release-record-829ffc8",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
+              "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+              "verifiedAt": "2026-11-03T03:41:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "pf-owner-approval-2026-11-02",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/ACCEPTANCE.md",
+              "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+              "verifiedAt": "2026-11-02T19:06:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-03T03:41:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Scope is section 1 of the release record; Joshua Small approved release 1.0 on 2026-11-02 (owner decision). Verifier records a pass"
           ],
-          "notes": null,
-          "blockers": [
-            "scope-document-missing"
-          ],
-          "nextAction": "Produce evidence for this gate."
+          "notes": "Scope is section 1 of the release record; Joshua Small approved release 1.0 on 2026-11-02 (owner decision). Verifier records a pass.",
+          "blockers": [],
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "automated-checks",
@@ -129,73 +170,177 @@
           "id": "security-privacy-review",
           "requirement": "Security and privacy review completed against [security.md](security.md).",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "pf-release-record-829ffc8",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
+              "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+              "verifiedAt": "2026-11-03T03:41:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "pf-owner-approval-2026-11-02",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/ACCEPTANCE.md",
+              "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+              "verifiedAt": "2026-11-02T19:06:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-03T03:41:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Builder review in the release record (headers, contact abuse controls, secret scan of all commits, npm audit, privacy). Owner approved the privacy note and accepted three known limits. Verifier records a pass"
           ],
-          "notes": null,
+          "notes": "Builder review in the release record (headers, contact abuse controls, secret scan of all commits, npm audit, privacy). Owner approved the privacy note and accepted three known limits. Verifier records a pass.",
           "blockers": [],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "wcag-22-aa",
           "requirement": "Applicable WCAG 2.2 AA success criteria verified (automated checks plus manual review).",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "pf-release-record-829ffc8",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
+              "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+              "verifiedAt": "2026-11-03T03:41:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "pf-owner-postdeploy-2026-11-02",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/ACCEPTANCE.md",
+              "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+              "verifiedAt": "2026-11-02T18:59:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-03T03:41:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: axe WCAG 2.2 A/AA 0 violations (builder); gradient-text contrast and reduced motion pass (owner-reported). Verifier records a pass"
           ],
-          "notes": null,
+          "notes": "axe WCAG 2.2 A/AA 0 violations (builder); gradient-text contrast and reduced motion pass (owner-reported). Verifier records a pass.",
           "blockers": [],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "keyboard-screen-reader",
           "requirement": "Keyboard-only and screen-reader testing completed on the critical pages.",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "pf-release-record-829ffc8",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
+              "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+              "verifiedAt": "2026-11-03T03:41:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "pf-owner-a11y-2026-11-02",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/315bdef8450c561663ddc3bd92c4435b9782b2a8/docs/release/ACCEPTANCE.md",
+              "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+              "verifiedAt": "2026-11-02T22:17:32Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-03T03:41:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: Keyboard: 68 tab stops with visible focus (builder). Screen reader passes (owner-reported 2026-11-02; screen reader not stated). Verifier records a pass"
           ],
-          "notes": null,
+          "notes": "Keyboard: 68 tab stops with visible focus (builder). Screen reader passes (owner-reported 2026-11-02; screen reader not stated). Verifier records a pass.",
           "blockers": [],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "responsive-layouts",
           "requirement": "Layouts tested at phone, tablet and desktop widths and at 200% zoom.",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "pf-release-record-829ffc8",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
+              "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+              "verifiedAt": "2026-11-03T03:41:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "pf-owner-a11y-2026-11-02",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/315bdef8450c561663ddc3bd92c4435b9782b2a8/docs/release/ACCEPTANCE.md",
+              "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+              "verifiedAt": "2026-11-02T22:17:32Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-03T03:41:00Z",
           "failed": false,
           "missing": [
-            "evidence for this gate"
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "registry notes: 390x844 and 1440x900 without horizontal scroll (builder). 200% zoom passes (owner-reported 2026-11-02; browser not stated). Verifier records a pass"
           ],
-          "notes": null,
+          "notes": "390x844 and 1440x900 without horizontal scroll (builder). 200% zoom passes (owner-reported 2026-11-02; browser not stated). Verifier records a pass.",
           "blockers": [],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "critical-workflows",
@@ -228,6 +373,18 @@
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "pf-owner-postdeploy-2026-11-02",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/ACCEPTANCE.md",
+              "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+              "verifiedAt": "2026-11-02T18:59:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
               "stale": null
             }
           ],
@@ -318,9 +475,21 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "pf-release-record-829ffc8",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
+              "commitSha": "829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762",
+              "verifiedAt": "2026-11-03T03:41:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-03T03:41:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -346,7 +515,7 @@
           ],
           "notes": null,
           "blockers": [
-            "scope-document-missing"
+            "owner-approval-awaits-verification"
           ],
           "nextAction": "Produce evidence for this gate."
         }
@@ -355,19 +524,16 @@
         "merge": [],
         "release": [
           {
-            "id": "scope-document-missing",
+            "id": "owner-approval-awaits-verification",
             "origin": "registry",
             "status": "open",
-            "category": "scope",
+            "category": "approval",
             "severity": null,
             "blocks": "release",
-            "gates": [
-              "scope-complete"
-            ],
-            "description": "Scope is recorded on main in docs/release/2026-11-portfolio-release.md (section 1) but not approved. Resolve when the owner approves it in docs/release/ACCEPTANCE.md.",
+            "gates": [],
+            "description": "Joshua Small approved release 1.0 on 2026-11-02 (pf-owner-approval-2026-11-02, ACCEPTANCE.md section 5). The registry records approval only once releaseStatus is verified, which needs his own verify:record pass on every gate. Resolve by recording those passes, then setting approval in a registry PR.",
             "evidenceRefs": [
-              "pf-repo-metadata",
-              "pf-release-record-1435e75"
+              "pf-owner-approval-2026-11-02"
             ],
             "rule": null
           },
@@ -407,19 +573,6 @@
             "evidenceRefs": [],
             "rule": "every applicable gate needs independent pass evidence",
             "action": null
-          },
-          {
-            "id": "auto-owner-approval",
-            "origin": "derived",
-            "status": "proposed",
-            "category": "approval",
-            "severity": null,
-            "blocks": "release",
-            "gates": [],
-            "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release.",
-            "evidenceRefs": [],
-            "rule": "approval.status approved with evidence, by the approval owner",
-            "action": "Ask Joshua Small to review the evidence and approve or decline the release."
           }
         ],
         "postRelease": [
@@ -435,19 +588,6 @@
           "rank": 1,
           "priority": 3,
           "bucket": "Missing required verification",
-          "source": "scope-document-missing",
-          "origin": "registry",
-          "blocks": "release",
-          "gates": [
-            "scope-complete"
-          ],
-          "text": "Resolve blocker scope-document-missing: Scope is recorded on main in docs/release/2026-11-portfolio-release.md (section 1) but not approved. Resolve when the owner approves it in docs/release/ACCEPTANCE.md.",
-          "summary": "Resolve blocker scope-document-missing."
-        },
-        {
-          "rank": 2,
-          "priority": 3,
-          "bucket": "Missing required verification",
           "source": "auto-critical-workflows-unverified",
           "origin": "derived",
           "blocks": "release",
@@ -458,7 +598,7 @@
           "summary": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
         },
         {
-          "rank": 3,
+          "rank": 2,
           "priority": 3,
           "bucket": "Missing required verification",
           "source": "auto-missing-verification",
@@ -474,8 +614,8 @@
             "critical-workflows",
             "documentation-accurate"
           ],
-          "text": "Independently re-check the builder evidence for automated-checks, documentation-accurate; produce evidence for security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts; then verify scope-complete, critical-workflows once their blockers are resolved.",
-          "summary": "Independently re-check the builder evidence for automated-checks, documentation-accurate."
+          "text": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate; then verify critical-workflows once their blockers are resolved.",
+          "summary": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa..."
         }
       ],
       "dependencies": [],
@@ -487,8 +627,33 @@
     },
     "unverified": [
       {
+        "gate": "scope-complete",
+        "evidence": "pf-release-record-829ffc8",
+        "provenance": "builder-reported"
+      },
+      {
         "gate": "automated-checks",
         "evidence": "pf-ci-run-1435e75",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "security-privacy-review",
+        "evidence": "pf-release-record-829ffc8",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "wcag-22-aa",
+        "evidence": "pf-release-record-829ffc8",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "keyboard-screen-reader",
+        "evidence": "pf-release-record-829ffc8",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "responsive-layouts",
+        "evidence": "pf-release-record-829ffc8",
         "provenance": "builder-reported"
       },
       {
@@ -499,6 +664,11 @@
       {
         "gate": "documentation-accurate",
         "evidence": "pf-release-record-1435e75",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "documentation-accurate",
+        "evidence": "pf-release-record-829ffc8",
         "provenance": "builder-reported"
       }
     ]

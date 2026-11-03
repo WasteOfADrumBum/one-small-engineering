@@ -42,7 +42,7 @@ test('full pipeline: readiness reports for all eight projects, a dashboard row e
   }
   assert.equal(JSON.parse(files['dashboard.json']).projects.length, 8)
   const scoped = assessment.projects.filter(p => p.facts.targetVersion).map(p => p.id).sort()
-  assert.deepEqual(scoped, ['one-small-mods-pack', 'one-small-ui'])
+  assert.deepEqual(scoped, ['one-small-mods-pack', 'one-small-ui', 'personal-portfolio'])
   for (const id of scoped) for (const name of ['release-prep.md', 'release-prep.json', 'checklist.md', 'release-notes.draft.md', 'CHANGELOG.draft.md']) {
     assert.ok(Object.keys(files).some(k => k.startsWith(`releases/${id}/`) && k.endsWith(name)), `${id} ${name}`)
   }
