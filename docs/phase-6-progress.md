@@ -1,5 +1,7 @@
 # Phase 6 progress: autonomous coordination and cross-agent continuity
 
+> Final status: Phase 6 accepted by Joshua Small on 2026-11-03, including the documented qualifications. See [final closeout](acceptance/final-closeout-2026-11-03.md) and [owner attestation](https://github.com/WasteOfADrumBum/one-small-engineering/pull/88#issuecomment-6612638149). Earlier progress and pending items below are historical.
+
 Durable execution record; full write-up in [phase-6-final-report.md](phase-6-final-report.md). No credentials or transcripts belong here.
 
 ## Status (2026-10-31 ~04:10Z, hub main 2da10c3)

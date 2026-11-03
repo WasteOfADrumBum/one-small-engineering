@@ -1,0 +1,288 @@
+{
+  "kind": "one-small-engineering/release-preparation",
+  "generatedBy": "npm run release:reports",
+  "asOf": "2026-11-03T18:54:21Z",
+  "staleDays": 30,
+  "engineVersion": 1,
+  "registrySha256": "18c4104a0fd25d1e02b26d577024627ee9730d4f1f98eaf3a49025ac636d8a94",
+  "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
+  "project": {
+    "id": "one-small-studio",
+    "name": "One Small Studio",
+    "tier": "showcase"
+  },
+  "facts": {
+    "currentVersion": "1.0.0",
+    "targetVersion": "1.0.0",
+    "releaseStatus": "released",
+    "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-studio/blob/b017cfe9c40e2166799ed59187a12d61f76e1763/docs/release/studio-release-evidence.md",
+    "candidate": null,
+    "openPullRequests": [],
+    "evidenceCommits": [
+      {
+        "commitSha": "4c46d0deacc5651235685e705bca97c9ef45cc14",
+        "evidence": [
+          "studio-ci-run-4c46d0d",
+          "studio-owner-checks-ab-2026-11-02",
+          "studio-vercel-4c46d0d"
+        ]
+      },
+      {
+        "commitSha": "923fb113dce0cd10b1bb12a7f53f64b774756869",
+        "evidence": [
+          "studio-ci-main"
+        ]
+      },
+      {
+        "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
+        "evidence": [
+          "one-small-studio-owner-report-2026-11-02",
+          "one-small-studio-vercel-9310334",
+          "studio-ci-run-9310334",
+          "studio-owner-approval-2026-11-02",
+          "studio-release-record-9310334"
+        ]
+      },
+      {
+        "commitSha": "b017cfe9c40e2166799ed59187a12d61f76e1763",
+        "evidence": [
+          "one-small-studio-owner-final-verification-2026-11-03"
+        ]
+      }
+    ],
+    "ownership": {
+      "builder": "Claude Code",
+      "verifier": "Joshua Small",
+      "approvalOwner": "Joshua Small"
+    },
+    "approval": {
+      "status": "approved",
+      "approvedBy": "Joshua Small",
+      "approvedAt": "2026-11-03T18:48:55Z",
+      "evidenceRefs": [
+        "studio-owner-approval-2026-11-02",
+        "one-small-studio-owner-final-verification-2026-11-03"
+      ]
+    }
+  },
+  "derived": {
+    "readiness": {
+      "totalGates": 10,
+      "applicableGates": 10,
+      "verifiedGates": 10,
+      "remainingGates": 0,
+      "byState": {
+        "verified": 10,
+        "in_progress": 0,
+        "not_started": 0,
+        "blocked": 0,
+        "not_applicable": 0,
+        "unknown_stale": 0
+      },
+      "percentage": 100,
+      "prePublication": {
+        "applicable": 9,
+        "verified": 9
+      },
+      "blockingFindings": 0,
+      "registryBlockers": 0,
+      "missingIndependentVerification": [],
+      "candidateMoved": false,
+      "ownershipValid": true,
+      "approvalRecorded": true,
+      "eligibility": "released",
+      "releaseReady": true
+    },
+    "eligibility": "released",
+    "security": [
+      {
+        "id": "security-privacy-review",
+        "state": "verified",
+        "provenance": "independent",
+        "missing": []
+      }
+    ],
+    "accessibility": [
+      {
+        "id": "wcag-22-aa",
+        "state": "verified",
+        "provenance": "independent",
+        "missing": []
+      },
+      {
+        "id": "keyboard-screen-reader",
+        "state": "verified",
+        "provenance": "independent",
+        "missing": []
+      },
+      {
+        "id": "responsive-layouts",
+        "state": "verified",
+        "provenance": "independent",
+        "missing": []
+      }
+    ],
+    "testAndCiEvidence": [
+      {
+        "id": "one-small-studio-owner-final-verification-2026-11-03",
+        "type": "manual_test",
+        "result": "pass",
+        "provenance": "independent",
+        "commitSha": "b017cfe9c40e2166799ed59187a12d61f76e1763",
+        "verifiedAt": "2026-11-03T18:48:55Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/88#issuecomment-6612638149",
+        "stale": null
+      },
+      {
+        "id": "studio-ci-main",
+        "type": "workflow_run",
+        "result": "pass",
+        "provenance": "pass-without-independent-verifier",
+        "commitSha": "923fb113dce0cd10b1bb12a7f53f64b774756869",
+        "verifiedAt": "2026-10-22T16:33:00Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/38742684085",
+        "stale": null
+      },
+      {
+        "id": "studio-ci-run-4c46d0d",
+        "type": "workflow_run",
+        "result": "builder_reported",
+        "provenance": "builder-reported",
+        "commitSha": "4c46d0deacc5651235685e705bca97c9ef45cc14",
+        "verifiedAt": "2026-11-02T23:00:00Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/41540926857",
+        "stale": null
+      },
+      {
+        "id": "studio-ci-run-9310334",
+        "type": "workflow_run",
+        "result": "builder_reported",
+        "provenance": "builder-reported",
+        "commitSha": "931033490b5206a7c0bfb4ade75de30c667416ca",
+        "verifiedAt": "2026-11-02T21:30:00Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/41498693645",
+        "stale": null
+      }
+    ],
+    "blockers": {
+      "merge": [],
+      "release": [],
+      "postRelease": [
+        {
+          "id": "enhancement-1",
+          "origin": "registry",
+          "text": "Additional music and catalog content (not a code-release blocker)."
+        },
+        {
+          "id": "enhancement-2",
+          "origin": "registry",
+          "text": "Optional items in ROADMAP.md (never reopen the release)."
+        }
+      ]
+    },
+    "nextActions": [],
+    "rollback": {
+      "guidance": "Promote the previous production deployment in the hosting provider (for Vercel, the previous deployment), then revert the merge on main. See standards/release.md#rollback-and-recovery.",
+      "gates": []
+    },
+    "ownerChecklist": [
+      {
+        "item": "Release scope frozen: targetVersion and scopeDocument recorded",
+        "done": true
+      },
+      {
+        "item": "Release candidate commit recorded and unchanged",
+        "done": false
+      },
+      {
+        "item": "Builder and a different, independent verifier assigned",
+        "done": true
+      },
+      {
+        "item": "Every applicable pre-publication gate independently verified on current evidence (9/9)",
+        "done": true
+      },
+      {
+        "item": "No open merge blockers",
+        "done": true
+      },
+      {
+        "item": "No open release blockers other than the approval itself",
+        "done": true
+      },
+      {
+        "item": "Changelog and release notes reviewed against verified evidence (drafts below are unverified)",
+        "done": false,
+        "manual": true
+      },
+      {
+        "item": "Joshua Small approves the release, linked as evidence in a registry PR",
+        "done": true,
+        "manual": true
+      },
+      {
+        "item": "After the authorized publication or deployment: post-publication gates verified (production-deployment)",
+        "done": true
+      },
+      {
+        "item": "Registry updated by PR: currentVersion, releaseStatus released, lifecycle maintenance",
+        "done": true
+      }
+    ]
+  },
+  "unverified": {
+    "evidence": [
+      {
+        "gate": "scope-complete",
+        "evidence": "studio-release-record-9310334",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "studio-ci-main",
+        "provenance": "pass-without-independent-verifier"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "studio-ci-run-9310334",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "studio-ci-run-4c46d0d",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "security-privacy-review",
+        "evidence": "studio-release-record-9310334",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "wcag-22-aa",
+        "evidence": "studio-release-record-9310334",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "keyboard-screen-reader",
+        "evidence": "studio-release-record-9310334",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "responsive-layouts",
+        "evidence": "studio-release-record-9310334",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "documentation-accurate",
+        "evidence": "studio-release-record-9310334",
+        "provenance": "builder-reported"
+      }
+    ],
+    "changelog": null,
+    "limitations": {
+      "registryMissingEvidence": [],
+      "unverifiedGateNotes": [],
+      "changelogKnownLimitations": null
+    }
+  }
+}

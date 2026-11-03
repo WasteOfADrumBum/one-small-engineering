@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-11-03T04:21:29Z",
+  "asOf": "2026-11-03T18:54:22Z",
   "id": "one-small-photography",
   "name": "One Small Photography",
   "tier": "showcase",
@@ -12,26 +12,26 @@
     "drift": "registry snapshot is 2471b18; live head is fa2d17f (registry sync refreshes it)"
   },
   "readiness": {
-    "percentage": 0,
-    "previousPercentage": 0,
+    "percentage": 100,
+    "previousPercentage": 100,
     "applicableGates": 10,
-    "verifiedGates": 0,
-    "eligibility": "not-scoped",
+    "verifiedGates": 10,
+    "eligibility": "released",
     "ownershipValid": true
   },
   "gateStates": {
-    "independently_verified": 0,
-    "passed_by_builder": 1,
+    "independently_verified": 10,
+    "passed_by_builder": 0,
     "failed": 0,
-    "inconclusive": 5,
-    "not_tested": 4,
+    "inconclusive": 0,
+    "not_tested": 0,
     "not_applicable": 0
   },
   "gates": [
     {
       "id": "scope-complete",
-      "state": "not_tested",
-      "engineState": "in_progress",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -39,17 +39,14 @@
       "collectorEvidence": [],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: Scope recorded in docs/RELEASE.md; not approved (section 6 blank). Human-only gate"
-      ],
-      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "automated-checks",
-      "state": "passed_by_builder",
-      "engineState": "in_progress",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "full",
       "manualReviewRequired": false,
@@ -100,17 +97,14 @@
         }
       ],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: CI green on main at c850853 and e3bc6d2 (builder evidence). Verifier re-checks at the release commit"
-      ],
-      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "security-privacy-review",
-      "state": "inconclusive",
-      "engineState": "in_progress",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -150,17 +144,14 @@
         }
       ],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: Builder security table (auth, CSRF, sessions, uploads, headers, history scan); 4 moderate build-time advisories await owner disposition. Verifier reviews"
-      ],
-      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "wcag-22-aa",
-      "state": "inconclusive",
-      "engineState": "in_progress",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -185,17 +176,14 @@
         }
       ],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: axe ran WCAG 2.0/2.1 A/AA rules only (0 violations); WCAG 2.2-specific criteria have no evidence yet"
-      ],
-      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "keyboard-screen-reader",
-      "state": "not_tested",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -203,17 +191,14 @@
       "collectorEvidence": [],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate",
-        "registry notes: No keyboard or screen reader pass is recorded (RELEASE.md: \"No hands-on screen reader pass (open)\"). Missing evidence, not not-applicable"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "responsive-layouts",
-      "state": "not_tested",
-      "engineState": "in_progress",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -221,17 +206,14 @@
       "collectorEvidence": [],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: Chromium at phone and desktop widths, no horizontal overflow (builder). Real iOS/Android not tested"
-      ],
-      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "critical-workflows",
-      "state": "inconclusive",
-      "engineState": "in_progress",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -260,17 +242,14 @@
         }
       ],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: Contact delivery and live galleries owner-reported 2026-11-02; production smoke 10/10 at c850853. Code for both is unchanged at e3bc6d2. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
-      ],
-      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "production-deployment",
-      "state": "inconclusive",
-      "engineState": "in_progress",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -286,16 +265,14 @@
       ],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "registry notes: Vercel serves the main head e3bc6d2 (informational). Verifier confirms the release commit in production"
-      ],
-      "nextAction": "Finish the work and record evidence, then have the verifier re-check."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "documentation-accurate",
-      "state": "inconclusive",
-      "engineState": "in_progress",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -320,17 +297,14 @@
         }
       ],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-        "registry notes: RELEASE.md, RECOVERY.md and ROADMAP.md on main (builder). Verifier reviews at the release commit"
-      ],
-      "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "no-release-blockers",
-      "state": "not_tested",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -338,26 +312,12 @@
       "collectorEvidence": [],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate",
-        "registry notes: scope-document-missing is open"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     }
   ],
-  "missingVerification": [
-    "scope-complete",
-    "automated-checks",
-    "security-privacy-review",
-    "wcag-22-aa",
-    "keyboard-screen-reader",
-    "responsive-layouts",
-    "critical-workflows",
-    "production-deployment",
-    "documentation-accurate",
-    "no-release-blockers"
-  ],
+  "missingVerification": [],
   "staleEvidence": [
     {
       "id": "ev-one-small-photography-lint-format-types-45a74ba-040ed0be",
@@ -412,60 +372,19 @@
       "reason": "collected for 45a74ba, not the evaluated commit fa2d17f"
     }
   ],
-  "blockers": [
-    {
-      "id": "auto-ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1",
-      "origin": "derived",
-      "severity": "unclassified",
-      "blocks": "merge",
-      "category": "ci",
-      "description": "CI did not pass on 153eee0 (failure)."
-    },
-    {
-      "id": "scope-document-missing",
-      "origin": "registry",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "scope",
-      "description": "Scope is recorded on main in docs/RELEASE.md but not approved: section 6 (owner decision) is still blank at e3bc6d2. Resolve when the owner records approval there."
-    },
-    {
-      "id": "auto-critical-workflows-unverified",
-      "origin": "derived",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "workflow",
-      "description": "Critical workflows are not independently verified (critical-workflows)."
-    },
-    {
-      "id": "auto-missing-verification",
-      "origin": "derived",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "evidence",
-      "description": "8 applicable pre-publication gate(s) lack current independent verification."
-    },
-    {
-      "id": "auto-owner-approval",
-      "origin": "derived",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "approval",
-      "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
-    }
-  ],
+  "blockers": [],
   "blockersBySeverity": {
     "critical": 0,
     "high": 0,
     "medium": 0,
     "low": 0,
-    "unclassified": 5
+    "unclassified": 0
   },
   "mergeEligible": false,
-  "releaseEligible": false,
+  "releaseEligible": true,
   "lastVerification": null,
   "lastCollection": "2026-10-28T21:06:58Z",
-  "nextAction": "Resolve blocker scope-document-missing.",
+  "nextAction": "None",
   "findings": [
     {
       "id": "one-small-photography:accessibility:fa2d17f",
@@ -653,178 +572,5 @@
   "verifications": [],
   "relatedPullRequests": [],
   "remediation": [],
-  "verificationRequests": [
-    {
-      "gate": "scope-complete",
-      "automation": "none",
-      "humanOnly": true,
-      "evidence": [],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "manual verification only"
-    },
-    {
-      "gate": "automated-checks",
-      "automation": "full",
-      "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-one-small-photography-build-test-fa2d17f-6207ff46",
-          "digest": "129536f8936876c788ea2ae0320f8bb0323c25fa4445fa4ae0a4ac5f6cf85f0f",
-          "collector": "build-test",
-          "result": "inconclusive"
-        },
-        {
-          "id": "ev-one-small-photography-ci-results-fa2d17f-05128f81",
-          "digest": "a748e38b1e834f6e0f52ed0915cf925b43c4bba6bbeb16fb479716b4dbc7eb61",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-one-small-photography-ci-results-fa2d17f-23a42739",
-          "digest": "c0fe36c45791a2ddde6b981813fbed3e7908a3c65da606a2c1c657b2be351205",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-one-small-photography-lint-format-types-fa2d17f-5a25ef9a",
-          "digest": "bd5fc347aedffa6e793e4ef7d1a25b719479215c1f13c7603cf4724579801608",
-          "collector": "lint-format-types",
-          "result": "inconclusive"
-        }
-      ],
-      "missingCollectors": [],
-      "method": "re-executed",
-      "routedTo": "Joshua Small",
-      "status": "ready for verifier"
-    },
-    {
-      "gate": "security-privacy-review",
-      "automation": "partial",
-      "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-one-small-photography-dependency-audit-fa2d17f-7b1ff911",
-          "digest": "cc21e232bb92278d047fc08967529ce6826e2b4a5223fe4077705551e448c56d",
-          "collector": "dependency-audit",
-          "result": "pass"
-        },
-        {
-          "id": "ev-one-small-photography-secret-scan-fa2d17f-ea7ed43e",
-          "digest": "f566b93db81518d641b0d3911b46c36d517a01cdc4fb5d73471e9d77dd0cc934",
-          "collector": "secret-scan",
-          "result": "inconclusive"
-        }
-      ],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "ready for verifier"
-    },
-    {
-      "gate": "wcag-22-aa",
-      "automation": "partial",
-      "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-one-small-photography-accessibility-fa2d17f-1abce92c",
-          "digest": "5a7ca44242ec44fe3e6d5a8a9931f2e10033da7ae7b18ee3307caceffdcbb1e5",
-          "collector": "accessibility",
-          "result": "inconclusive"
-        }
-      ],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "ready for verifier"
-    },
-    {
-      "gate": "keyboard-screen-reader",
-      "automation": "none",
-      "humanOnly": true,
-      "evidence": [],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "manual verification only"
-    },
-    {
-      "gate": "responsive-layouts",
-      "automation": "none",
-      "humanOnly": false,
-      "evidence": [],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "manual verification only"
-    },
-    {
-      "gate": "critical-workflows",
-      "automation": "partial",
-      "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-one-small-photography-build-test-fa2d17f-6207ff46",
-          "digest": "129536f8936876c788ea2ae0320f8bb0323c25fa4445fa4ae0a4ac5f6cf85f0f",
-          "collector": "build-test",
-          "result": "inconclusive"
-        }
-      ],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "ready for verifier"
-    },
-    {
-      "gate": "production-deployment",
-      "automation": "partial",
-      "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-one-small-photography-deployment-health-fa2d17f-ac05308c",
-          "digest": "3f2ab09fbd645667b0c16cefdaade244caf07a4741427ae853ad6d45fac2953f",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-one-small-photography-deployment-health-fa2d17f-f67b9da9",
-          "digest": "ffb5f0484341cc675b8380861f04440c9c774427b681e186f979cba923e13712",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        }
-      ],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "ready for verifier"
-    },
-    {
-      "gate": "documentation-accurate",
-      "automation": "partial",
-      "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-one-small-photography-documentation-fa2d17f-25b82d41",
-          "digest": "c4831048ddcb22e5e4120c509df900c080cd9ac4f0e38c9eaa9864dfb40d21bc",
-          "collector": "documentation",
-          "result": "inconclusive"
-        }
-      ],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "ready for verifier"
-    },
-    {
-      "gate": "no-release-blockers",
-      "automation": "none",
-      "humanOnly": true,
-      "evidence": [],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "manual verification only"
-    }
-  ]
+  "verificationRequests": []
 }

@@ -9,7 +9,7 @@ The single source of truth for the status, release readiness and quality evidenc
 - **Audit records** ([`audits/`](audits/)) that registry entries cite as evidence.
 - A dependency-free **validator** and CI check that keep the registry honest.
 - **Registry sync** ([docs/sync.md](docs/sync.md)): a scheduled, deterministic job that reads each project's GitHub state and proposes registry updates as one PR per project. Routine, automation-owned changes are merged by the [Auto-merge](docs/automerge.md) workflow after every safety check passes; anything touching gates, blockers, ownership, scope or approval waits for Joshua Small. Sync never verifies a gate or approves a release.
-- A **roadmap** ([ROADMAP.md](ROADMAP.md)) for optional hub enhancements; completed releases move to maintenance and roadmap items never reopen them. The latest owner acceptance record is [docs/acceptance/closeout-2026-11-02.md](docs/acceptance/closeout-2026-11-02.md).
+- A **roadmap** ([ROADMAP.md](ROADMAP.md)) for optional hub enhancements; completed releases move to maintenance and roadmap items never reopen them. The latest owner acceptance record is [docs/acceptance/final-closeout-2026-11-03.md](docs/acceptance/final-closeout-2026-11-03.md).
 
 ## What it is not
 

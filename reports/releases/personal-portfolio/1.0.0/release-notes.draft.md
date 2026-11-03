@@ -1,6 +1,6 @@
 # Personal Portfolio 1.0.0 release notes (draft)
 
-> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 10 applicable gates independently verified (0%); 3 open blocker(s). Generated 2026-11-03T04:21:29Z.
+> **Draft, not approved, not published.** Status: Released and approved. 10 of 10 applicable gates independently verified (100%); 0 open blocker(s). Generated 2026-11-03T18:54:21Z.
 
 ## Highlights
 
@@ -8,13 +8,10 @@ _Fill in from the approved scope document._
 
 ## Verification status
 
-- 0 of 10 applicable release gates independently verified.
-- Builder-reported, awaiting independent verification: scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, critical-workflows, documentation-accurate.
+- 10 of 10 applicable release gates independently verified.
 
 ## Known limitations
 
-- Not yet verified: Verifier verify:record passes for all ten Showcase gates.
-- Not yet verified: Registry approval record (owner decision exists: pf-owner-approval-2026-11-02).
 
 ## Upgrade, rollback and uninstall
 

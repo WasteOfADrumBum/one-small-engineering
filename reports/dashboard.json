@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/dashboard",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-03T04:21:29Z",
+  "asOf": "2026-11-03T18:54:21Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "814a8c47ccc0cda6ea0107fefd1261e99d10e5900784495ddbeb84aa7fbc08f8",
+  "registrySha256": "18c4104a0fd25d1e02b26d577024627ee9730d4f1f98eaf3a49025ac636d8a94",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "projects": [
     {
@@ -57,20 +57,20 @@
       "tier": "showcase",
       "facts": {
         "targetVersion": "1.0.0",
-        "currentVersion": null,
-        "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-03T03:41:50Z",
-        "snapshotObservedAt": "2026-11-03T04:18:33Z"
+        "currentVersion": "1.0.0",
+        "releaseStatus": "released",
+        "lastEvidenceAt": "2026-11-03T18:48:55Z",
+        "snapshotObservedAt": "2026-11-03T18:26:22Z"
       },
       "derived": {
-        "percentage": 0,
-        "verifiedGates": 0,
+        "percentage": 100,
+        "verifiedGates": 10,
         "applicableGates": 10,
-        "blockingFindings": 3,
-        "registryBlockers": 1,
-        "eligibility": "not-eligible",
-        "releaseReady": false,
-        "nextAction": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
+        "blockingFindings": 0,
+        "registryBlockers": 0,
+        "eligibility": "released",
+        "releaseReady": true,
+        "nextAction": null
       }
     },
     {
@@ -78,21 +78,21 @@
       "name": "One Small Studio",
       "tier": "showcase",
       "facts": {
-        "targetVersion": null,
-        "currentVersion": null,
-        "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-03T03:42:53Z",
+        "targetVersion": "1.0.0",
+        "currentVersion": "1.0.0",
+        "releaseStatus": "released",
+        "lastEvidenceAt": "2026-11-03T18:48:55Z",
         "snapshotObservedAt": "2026-11-03T04:20:01Z"
       },
       "derived": {
-        "percentage": 0,
-        "verifiedGates": 0,
+        "percentage": 100,
+        "verifiedGates": 10,
         "applicableGates": 10,
-        "blockingFindings": 4,
-        "registryBlockers": 1,
-        "eligibility": "not-scoped",
-        "releaseReady": false,
-        "nextAction": "Choose the target version for the scoped release and record it as release.targetVersion in the registry."
+        "blockingFindings": 0,
+        "registryBlockers": 0,
+        "eligibility": "released",
+        "releaseReady": true,
+        "nextAction": null
       }
     },
     {
@@ -100,21 +100,21 @@
       "name": "One Small Photography",
       "tier": "showcase",
       "facts": {
-        "targetVersion": null,
-        "currentVersion": null,
-        "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-03T03:42:07Z",
-        "snapshotObservedAt": "2026-11-03T04:21:29Z"
+        "targetVersion": "1.0.0",
+        "currentVersion": "1.0.0",
+        "releaseStatus": "released",
+        "lastEvidenceAt": "2026-11-03T18:48:55Z",
+        "snapshotObservedAt": "2026-11-03T18:28:29Z"
       },
       "derived": {
-        "percentage": 0,
-        "verifiedGates": 0,
+        "percentage": 100,
+        "verifiedGates": 10,
         "applicableGates": 10,
-        "blockingFindings": 5,
-        "registryBlockers": 1,
-        "eligibility": "not-scoped",
-        "releaseReady": false,
-        "nextAction": "Resolve blocker scope-document-missing: Scope is recorded on main in docs/RELEASE.md but not approved: section 6 (owner decision) is still blank at e3bc6d2. Resolve when the owner records approval there."
+        "blockingFindings": 0,
+        "registryBlockers": 0,
+        "eligibility": "released",
+        "releaseReady": true,
+        "nextAction": null
       }
     },
     {
