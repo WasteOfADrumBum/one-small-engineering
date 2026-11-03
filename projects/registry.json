@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-03T14:17:29Z",
+  "lastUpdatedAt": "2026-11-03T15:15:34Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1700,9 +1700,9 @@
       "productionUrl": "https://photo.onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "153eee0484003d2150508a858c372cd80960645f",
+        "headSha": "a1227cad9e707abad47692cafdc2b43d4a4f9635",
         "archived": false,
-        "observedAt": "2026-11-03T14:17:29Z",
+        "observedAt": "2026-11-03T15:15:34Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1712,15 +1712,7 @@
           "private": true
         }
       },
-      "openPullRequests": [
-        {
-          "number": 28,
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/28",
-          "title": "Finish release requirements: CI fix, WCAG 2.2 fixes, backup procedure, reconciled record",
-          "headSha": "89cf053a56bfa9766b4b792517735e59edecf07c",
-          "draft": false
-        }
-      ],
+      "openPullRequests": [],
       "release": {
         "currentVersion": null,
         "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder.",
@@ -1843,18 +1835,6 @@
           "recordedBy": "Claude Code"
         },
         {
-          "id": "sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41573644714",
-          "commitSha": "153eee0484003d2150508a858c372cd80960645f",
-          "verifiedAt": "2026-11-03T03:42:07Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded failure on main at 153eee0 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:ci.yml/153eee0/j3jvhka/1"
-        },
-        {
           "recordedBy": "Claude Code",
           "id": "photo-release-record-e3bc6d2",
           "type": "document",
@@ -1885,16 +1865,16 @@
           "description": "CI (push) concluded success on main at e3bc6d2 with the read-only token from PR #22. Builder evidence."
         },
         {
-          "id": "sync-one-small-photography-run-production-smoke-yml-153eee0-j4pc8f3-1",
+          "id": "sync-one-small-photography-run-ci-yml-a1227ca-j4vunmt-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41643290271",
-          "commitSha": "153eee0484003d2150508a858c372cd80960645f",
-          "verifiedAt": "2026-11-03T13:19:30Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41654227493",
+          "commitSha": "a1227cad9e707abad47692cafdc2b43d4a4f9635",
+          "verifiedAt": "2026-11-03T14:31:18Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke\") concluded success on main at 153eee0 (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at a1227ca (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:production-smoke.yml/153eee0/j4pc8f3/1"
+          "eventKey": "one-small-photography:workflow_run:ci.yml/a1227ca/j4vunmt/1"
         }
       ],
       "releaseGates": [
@@ -2013,8 +1993,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-11-03T14:17:29Z",
-        "lastSyncedHead": "153eee0484003d2150508a858c372cd80960645f",
+        "lastSyncedAt": "2026-11-03T15:15:34Z",
+        "lastSyncedHead": "a1227cad9e707abad47692cafdc2b43d4a4f9635",
         "configSource": "defaults"
       }
     },
