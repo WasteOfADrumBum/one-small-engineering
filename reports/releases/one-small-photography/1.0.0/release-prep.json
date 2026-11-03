@@ -1,0 +1,542 @@
+{
+  "kind": "one-small-engineering/release-preparation",
+  "generatedBy": "npm run release:reports",
+  "asOf": "2026-11-03T16:54:03Z",
+  "staleDays": 30,
+  "engineVersion": 1,
+  "registrySha256": "ad1b163c1988a858cb98cc324c886c80b6d8f9fb9cb0f7e73e5c8f443d730ddd",
+  "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
+  "project": {
+    "id": "one-small-photography",
+    "name": "One Small Photography",
+    "tier": "showcase"
+  },
+  "facts": {
+    "currentVersion": null,
+    "targetVersion": "1.0.0",
+    "releaseStatus": "ready_for_review",
+    "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+    "candidate": null,
+    "openPullRequests": [],
+    "evidenceCommits": [
+      {
+        "commitSha": "2471b183c9886f3a1a6d148588e99fba21ceabb1",
+        "evidence": [
+          "photo-ci-main"
+        ]
+      },
+      {
+        "commitSha": "a1227cad9e707abad47692cafdc2b43d4a4f9635",
+        "evidence": [
+          "photo-closeout-pr-28"
+        ]
+      },
+      {
+        "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
+        "evidence": [
+          "one-small-photography-owner-report-2026-11-02",
+          "one-small-photography-vercel-c850853",
+          "photo-ci-run-c850853",
+          "photo-smoke-run-c850853"
+        ]
+      },
+      {
+        "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+        "evidence": [
+          "one-small-photography-acceptance-current-2026-11-03",
+          "one-small-photography-ci-current-2026-11-03",
+          "photo-ci-run-d70f75f",
+          "photo-closeout-pr-29",
+          "photo-owner-report-2026-11-03",
+          "photo-release-record-d70f75f"
+        ]
+      },
+      {
+        "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
+        "evidence": [
+          "photo-ci-run-e3bc6d2",
+          "photo-closeout-pr-22",
+          "photo-release-record-e3bc6d2",
+          "photo-vercel-e3bc6d2"
+        ]
+      }
+    ],
+    "ownership": {
+      "builder": "Claude Code",
+      "verifier": "Joshua Small",
+      "approvalOwner": "Joshua Small"
+    },
+    "approval": {
+      "status": "pending",
+      "approvedBy": null,
+      "approvedAt": null,
+      "evidenceRefs": []
+    }
+  },
+  "derived": {
+    "readiness": {
+      "totalGates": 10,
+      "applicableGates": 10,
+      "verifiedGates": 0,
+      "remainingGates": 10,
+      "byState": {
+        "verified": 0,
+        "in_progress": 9,
+        "not_started": 1,
+        "blocked": 0,
+        "not_applicable": 0,
+        "unknown_stale": 0
+      },
+      "percentage": 0,
+      "prePublication": {
+        "applicable": 9,
+        "verified": 0
+      },
+      "blockingFindings": 3,
+      "registryBlockers": 1,
+      "missingIndependentVerification": [
+        "scope-complete",
+        "automated-checks",
+        "security-privacy-review",
+        "wcag-22-aa",
+        "responsive-layouts",
+        "critical-workflows",
+        "production-deployment",
+        "documentation-accurate"
+      ],
+      "candidateMoved": false,
+      "ownershipValid": true,
+      "approvalRecorded": false,
+      "eligibility": "not-eligible",
+      "releaseReady": false
+    },
+    "eligibility": "not-eligible",
+    "security": [
+      {
+        "id": "security-privacy-review",
+        "state": "in_progress",
+        "provenance": "builder-reported",
+        "missing": [
+          "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+          "current evidence: photo-release-record-d70f75f is dated after the report time",
+          "current evidence: photo-owner-report-2026-11-03 is dated after the report time",
+          "registry notes: Builder security table (auth, CSRF, sessions, uploads, headers, history scan); 4 moderate build-time advisories await owner disposition. Verifier reviews"
+        ]
+      }
+    ],
+    "accessibility": [
+      {
+        "id": "wcag-22-aa",
+        "state": "in_progress",
+        "provenance": "builder-reported",
+        "missing": [
+          "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+          "current evidence: photo-release-record-d70f75f is dated after the report time",
+          "current evidence: photo-closeout-pr-28 is dated after the report time",
+          "registry notes: Photography PR #28 recorded WCAG 2.2 automated/manual-inspection fixes and coverage; owner accessibility checks subsequently passed. Final verifier attestation pending"
+        ]
+      },
+      {
+        "id": "keyboard-screen-reader",
+        "state": "in_progress",
+        "provenance": "observation",
+        "missing": [
+          "current evidence: photo-owner-report-2026-11-03 is dated after the report time",
+          "registry notes: Keyboard, Narrator and phone checks passed by owner report, recorded in merged photography PR #29. Final verifier attestation pending; do not repeat tests"
+        ]
+      },
+      {
+        "id": "responsive-layouts",
+        "state": "in_progress",
+        "provenance": "builder-reported",
+        "missing": [
+          "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+          "current evidence: photo-release-record-d70f75f is dated after the report time",
+          "current evidence: photo-owner-report-2026-11-03 is dated after the report time",
+          "registry notes: Chromium at phone and desktop widths, no horizontal overflow (builder). Real iOS/Android not tested"
+        ]
+      }
+    ],
+    "testAndCiEvidence": [
+      {
+        "id": "one-small-photography-ci-current-2026-11-03",
+        "type": "workflow_run",
+        "result": "builder_reported",
+        "provenance": "builder-reported",
+        "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+        "verifiedAt": "2026-11-03T16:48:16Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41676021387",
+        "stale": null
+      },
+      {
+        "id": "one-small-photography-closeout-review-2026-11-03",
+        "type": "audit",
+        "result": "informational",
+        "provenance": "observation",
+        "commitSha": null,
+        "verifiedAt": "2026-11-03T16:48:16Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+        "stale": null
+      },
+      {
+        "id": "photo-ci-main",
+        "type": "workflow_run",
+        "result": "pass",
+        "provenance": "pass-without-independent-verifier",
+        "commitSha": "2471b183c9886f3a1a6d148588e99fba21ceabb1",
+        "verifiedAt": "2026-10-22T16:33:00Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/39043021690",
+        "stale": null
+      },
+      {
+        "id": "photo-ci-run-c850853",
+        "type": "workflow_run",
+        "result": "builder_reported",
+        "provenance": "builder-reported",
+        "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
+        "verifiedAt": "2026-11-02T21:30:00Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41497803452",
+        "stale": null
+      },
+      {
+        "id": "photo-ci-run-d70f75f",
+        "type": "workflow_run",
+        "result": "builder_reported",
+        "provenance": "builder-reported",
+        "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+        "verifiedAt": "2026-11-03T17:00:00Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41676021387",
+        "stale": "photo-ci-run-d70f75f is dated after the report time"
+      },
+      {
+        "id": "photo-ci-run-e3bc6d2",
+        "type": "workflow_run",
+        "result": "builder_reported",
+        "provenance": "builder-reported",
+        "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
+        "verifiedAt": "2026-11-02T23:00:00Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41535743335",
+        "stale": null
+      },
+      {
+        "id": "photo-smoke-run-c850853",
+        "type": "workflow_run",
+        "result": "builder_reported",
+        "provenance": "builder-reported",
+        "commitSha": "c850853c0ffd16042941c5030e273b47f17a0cdf",
+        "verifiedAt": "2026-11-02T21:30:00Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41498801968",
+        "stale": null
+      }
+    ],
+    "blockers": {
+      "merge": [],
+      "release": [
+        {
+          "id": "final-verifier-attestation",
+          "origin": "registry",
+          "status": "open",
+          "category": "approval",
+          "severity": null,
+          "blocks": "release",
+          "gates": [],
+          "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested.",
+          "evidenceRefs": [
+            "one-small-photography-closeout-review-2026-11-03"
+          ],
+          "rule": null
+        },
+        {
+          "id": "auto-critical-workflows-unverified",
+          "origin": "derived",
+          "status": "proposed",
+          "category": "workflow",
+          "severity": null,
+          "blocks": "release",
+          "gates": [
+            "critical-workflows"
+          ],
+          "description": "Critical workflows are not independently verified (critical-workflows).",
+          "evidenceRefs": [],
+          "rule": "critical workflow gates must be verified before release",
+          "action": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
+        },
+        {
+          "id": "auto-missing-verification",
+          "origin": "derived",
+          "status": "proposed",
+          "category": "evidence",
+          "severity": null,
+          "blocks": "release",
+          "gates": [
+            "scope-complete",
+            "automated-checks",
+            "security-privacy-review",
+            "wcag-22-aa",
+            "keyboard-screen-reader",
+            "responsive-layouts",
+            "critical-workflows",
+            "documentation-accurate"
+          ],
+          "description": "8 applicable pre-publication gate(s) lack current independent verification.",
+          "evidenceRefs": [],
+          "rule": "every applicable gate needs independent pass evidence",
+          "action": null
+        }
+      ],
+      "postRelease": [
+        {
+          "id": "enhancement-1",
+          "origin": "registry",
+          "text": "Additional photos and albums (not a code-release blocker)."
+        },
+        {
+          "id": "enhancement-2",
+          "origin": "registry",
+          "text": "Build-time advisory upgrade, CI accessibility check, contact note retention: https://github.com/WasteOfADrumBum/one-small-photography/blob/main/ROADMAP.md (never reopen the release)."
+        }
+      ]
+    },
+    "nextActions": [
+      {
+        "rank": 1,
+        "priority": 3,
+        "bucket": "Missing required verification",
+        "source": "auto-critical-workflows-unverified",
+        "origin": "derived",
+        "blocks": "release",
+        "gates": [
+          "critical-workflows"
+        ],
+        "text": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.",
+        "summary": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
+      },
+      {
+        "rank": 2,
+        "priority": 3,
+        "bucket": "Missing required verification",
+        "source": "auto-missing-verification",
+        "origin": "derived",
+        "blocks": "release",
+        "gates": [
+          "scope-complete",
+          "automated-checks",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader",
+          "responsive-layouts",
+          "critical-workflows",
+          "documentation-accurate"
+        ],
+        "text": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa, responsive-layouts, documentation-accurate; produce evidence for keyboard-screen-reader; then verify critical-workflows once their blockers are resolved.",
+        "summary": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa, responsive-layouts..."
+      }
+    ],
+    "rollback": {
+      "guidance": "Promote the previous production deployment in the hosting provider (for Vercel, the previous deployment), then revert the merge on main. See standards/release.md#rollback-and-recovery.",
+      "gates": []
+    },
+    "ownerChecklist": [
+      {
+        "item": "Release scope frozen: targetVersion and scopeDocument recorded",
+        "done": true
+      },
+      {
+        "item": "Release candidate commit recorded and unchanged",
+        "done": false
+      },
+      {
+        "item": "Builder and a different, independent verifier assigned",
+        "done": true
+      },
+      {
+        "item": "Every applicable pre-publication gate independently verified on current evidence (0/9)",
+        "done": false
+      },
+      {
+        "item": "No open merge blockers",
+        "done": true
+      },
+      {
+        "item": "No open release blockers other than the approval itself",
+        "done": false
+      },
+      {
+        "item": "Changelog and release notes reviewed against verified evidence (drafts below are unverified)",
+        "done": false,
+        "manual": true
+      },
+      {
+        "item": "Joshua Small approves the release, linked as evidence in a registry PR",
+        "done": false,
+        "manual": true
+      },
+      {
+        "item": "After the authorized publication or deployment: post-publication gates verified (production-deployment)",
+        "done": false
+      },
+      {
+        "item": "Registry updated by PR: currentVersion, releaseStatus released, lifecycle maintenance",
+        "done": false
+      }
+    ]
+  },
+  "unverified": {
+    "evidence": [
+      {
+        "gate": "scope-complete",
+        "evidence": "photo-release-record-d70f75f",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "scope-complete",
+        "evidence": "photo-closeout-pr-29",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "scope-complete",
+        "evidence": "photo-release-record-e3bc6d2",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "photo-ci-main",
+        "provenance": "pass-without-independent-verifier"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "photo-ci-run-c850853",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "photo-ci-run-e3bc6d2",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "photo-ci-run-d70f75f",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "one-small-photography-ci-current-2026-11-03",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "security-privacy-review",
+        "evidence": "photo-release-record-d70f75f",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "security-privacy-review",
+        "evidence": "photo-closeout-pr-22",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "security-privacy-review",
+        "evidence": "photo-release-record-e3bc6d2",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "wcag-22-aa",
+        "evidence": "photo-release-record-d70f75f",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "wcag-22-aa",
+        "evidence": "photo-closeout-pr-28",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "wcag-22-aa",
+        "evidence": "photo-release-record-e3bc6d2",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "responsive-layouts",
+        "evidence": "photo-release-record-d70f75f",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "responsive-layouts",
+        "evidence": "photo-release-record-e3bc6d2",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "critical-workflows",
+        "evidence": "photo-smoke-run-c850853",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "critical-workflows",
+        "evidence": "photo-release-record-d70f75f",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "production-deployment",
+        "evidence": "photo-release-record-d70f75f",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "documentation-accurate",
+        "evidence": "photo-release-record-d70f75f",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "documentation-accurate",
+        "evidence": "photo-release-record-e3bc6d2",
+        "provenance": "builder-reported"
+      }
+    ],
+    "changelog": null,
+    "limitations": {
+      "registryMissingEvidence": [
+        "Final consolidated verifier attestation and resulting gate/approval records; see docs/acceptance/final-closeout-2026-11-03.md."
+      ],
+      "unverifiedGateNotes": [
+        {
+          "gate": "scope-complete",
+          "notes": "Scope recorded in docs/RELEASE.md; not approved (section 6 blank). Human-only gate."
+        },
+        {
+          "gate": "automated-checks",
+          "notes": "CI green on main at c850853 and e3bc6d2 (builder evidence). Verifier re-checks at the release commit."
+        },
+        {
+          "gate": "security-privacy-review",
+          "notes": "Builder security table (auth, CSRF, sessions, uploads, headers, history scan); 4 moderate build-time advisories await owner disposition. Verifier reviews."
+        },
+        {
+          "gate": "wcag-22-aa",
+          "notes": "Photography PR #28 recorded WCAG 2.2 automated/manual-inspection fixes and coverage; owner accessibility checks subsequently passed. Final verifier attestation pending."
+        },
+        {
+          "gate": "keyboard-screen-reader",
+          "notes": "Keyboard, Narrator and phone checks passed by owner report, recorded in merged photography PR #29. Final verifier attestation pending; do not repeat tests."
+        },
+        {
+          "gate": "responsive-layouts",
+          "notes": "Chromium at phone and desktop widths, no horizontal overflow (builder). Real iOS/Android not tested."
+        },
+        {
+          "gate": "critical-workflows",
+          "notes": "Contact and galleries owner-reported; backup script verified and copied; retained B2 image retrieved after site deletion; unencrypted-copy risk expressly accepted. File recovery only, not reconstruction of the deleted database row."
+        },
+        {
+          "gate": "production-deployment",
+          "notes": "Vercel serves the main head e3bc6d2 (informational). Verifier confirms the release commit in production."
+        },
+        {
+          "gate": "documentation-accurate",
+          "notes": "RELEASE.md, RECOVERY.md and ROADMAP.md on main (builder). Verifier reviews at the release commit."
+        },
+        {
+          "gate": "no-release-blockers",
+          "notes": "Final consolidated human verifier attestation pending; completed code and owner checks must not be repeated."
+        }
+      ],
+      "changelogKnownLimitations": null
+    }
+  }
+}

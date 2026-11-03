@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-11-03T04:21:29Z",
+  "asOf": "2026-11-03T16:54:04Z",
   "id": "personal-portfolio",
   "name": "Personal Portfolio",
   "tier": "showcase",
@@ -340,7 +340,7 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate"
+        "registry notes: Final consolidated human verifier attestation pending; completed code and owner checks must not be repeated"
       ],
       "nextAction": "Produce evidence for this gate."
     }
@@ -413,12 +413,12 @@
   ],
   "blockers": [
     {
-      "id": "owner-approval-awaits-verification",
+      "id": "final-verifier-attestation",
       "origin": "registry",
       "severity": "unclassified",
       "blocks": "release",
       "category": "approval",
-      "description": "Joshua Small approved release 1.0 on 2026-11-02 (pf-owner-approval-2026-11-02, ACCEPTANCE.md section 5). The registry records approval only once releaseStatus is verified, which needs his own verify:record pass on every gate. Resolve by recording those passes, then setting approval in a registry PR."
+      "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested."
     },
     {
       "id": "auto-critical-workflows-unverified",
@@ -611,13 +611,7 @@
     }
   ],
   "verifications": [],
-  "relatedPullRequests": [
-    {
-      "number": 32,
-      "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/32",
-      "draft": false
-    }
-  ],
+  "relatedPullRequests": [],
   "remediation": [
     {
       "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/17",

@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-11-03T04:21:29Z",
+  "asOf": "2026-11-03T16:54:04Z",
   "id": "one-small-studio",
   "name": "One Small Studio",
   "tier": "showcase",
@@ -16,7 +16,7 @@
     "previousPercentage": 0,
     "applicableGates": 10,
     "verifiedGates": 0,
-    "eligibility": "not-scoped",
+    "eligibility": "not-eligible",
     "ownershipValid": true
   },
   "gateStates": {
@@ -339,8 +339,7 @@
       "verifications": [],
       "missingVerification": true,
       "missing": [
-        "evidence for this gate",
-        "registry notes: target-version-undecided is open"
+        "registry notes: Final consolidated human verifier attestation pending; completed code and owner checks must not be repeated"
       ],
       "nextAction": "Produce evidence for this gate."
     }
@@ -413,12 +412,12 @@
   ],
   "blockers": [
     {
-      "id": "target-version-undecided",
+      "id": "final-verifier-attestation",
       "origin": "registry",
       "severity": "unclassified",
       "blocks": "release",
       "category": "approval",
-      "description": "The approved release has no version number. The owner picks it (for example 1.0.0); then targetVersion is set and the release can be tagged."
+      "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested."
     },
     {
       "id": "auto-critical-workflows-unverified",
@@ -435,14 +434,6 @@
       "blocks": "release",
       "category": "evidence",
       "description": "8 applicable pre-publication gate(s) lack current independent verification."
-    },
-    {
-      "id": "auto-scope-missing",
-      "origin": "derived",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "scope",
-      "description": "No target version: the release cannot be scoped or verified."
     }
   ],
   "blockersBySeverity": {
@@ -450,13 +441,13 @@
     "high": 0,
     "medium": 0,
     "low": 0,
-    "unclassified": 4
+    "unclassified": 3
   },
   "mergeEligible": false,
   "releaseEligible": false,
   "lastVerification": null,
   "lastCollection": "2026-10-28T21:06:55Z",
-  "nextAction": "Choose the target version for the scoped release and record it as release.targetVersion in the registry.",
+  "nextAction": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.",
   "findings": [
     {
       "id": "one-small-studio:accessibility:d6854de",

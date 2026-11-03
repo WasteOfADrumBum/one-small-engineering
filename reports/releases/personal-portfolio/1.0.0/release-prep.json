@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/release-preparation",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-03T04:21:29Z",
+  "asOf": "2026-11-03T16:54:03Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "814a8c47ccc0cda6ea0107fefd1261e99d10e5900784495ddbeb84aa7fbc08f8",
+  "registrySha256": "ad1b163c1988a858cb98cc324c886c80b6d8f9fb9cb0f7e73e5c8f443d730ddd",
   "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
   "project": {
     "id": "personal-portfolio",
@@ -14,17 +14,10 @@
   "facts": {
     "currentVersion": null,
     "targetVersion": "1.0.0",
-    "releaseStatus": "in_progress",
-    "scopeDocument": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/829ffc8f2370d3e84cdd2e6f01d04dbf3a4db762/docs/release/2026-11-portfolio-release.md",
+    "releaseStatus": "ready_for_review",
+    "scopeDocument": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/773fca08a2e33b213e51577315381f08ff601208/docs/release/2026-11-portfolio-release.md",
     "candidate": null,
-    "openPullRequests": [
-      {
-        "number": 32,
-        "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/32",
-        "headSha": "286ff75e35cbda95bc7f51aff03607dd6e65d62e",
-        "draft": false
-      }
-    ],
+    "openPullRequests": [],
     "evidenceCommits": [
       {
         "commitSha": "1435e75e68df31edd52abb168d7b082844ba3e04",
@@ -46,6 +39,13 @@
         "commitSha": "684ef3ce76d62919045cea65259e8bf52f1c6174",
         "evidence": [
           "pf-repo-metadata"
+        ]
+      },
+      {
+        "commitSha": "773fca08a2e33b213e51577315381f08ff601208",
+        "evidence": [
+          "personal-portfolio-acceptance-current-2026-11-03",
+          "personal-portfolio-ci-current-2026-11-03"
         ]
       },
       {
@@ -150,6 +150,26 @@
     ],
     "testAndCiEvidence": [
       {
+        "id": "personal-portfolio-ci-current-2026-11-03",
+        "type": "workflow_run",
+        "result": "builder_reported",
+        "provenance": "builder-reported",
+        "commitSha": "773fca08a2e33b213e51577315381f08ff601208",
+        "verifiedAt": "2026-11-03T16:48:16Z",
+        "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41581843590",
+        "stale": null
+      },
+      {
+        "id": "personal-portfolio-closeout-review-2026-11-03",
+        "type": "audit",
+        "result": "informational",
+        "provenance": "observation",
+        "commitSha": null,
+        "verifiedAt": "2026-11-03T16:48:16Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+        "stale": null
+      },
+      {
         "id": "pf-ci-run-1435e75",
         "type": "workflow_run",
         "result": "builder_reported",
@@ -174,16 +194,16 @@
       "merge": [],
       "release": [
         {
-          "id": "owner-approval-awaits-verification",
+          "id": "final-verifier-attestation",
           "origin": "registry",
           "status": "open",
           "category": "approval",
           "severity": null,
           "blocks": "release",
           "gates": [],
-          "description": "Joshua Small approved release 1.0 on 2026-11-02 (pf-owner-approval-2026-11-02, ACCEPTANCE.md section 5). The registry records approval only once releaseStatus is verified, which needs his own verify:record pass on every gate. Resolve by recording those passes, then setting approval in a registry PR.",
+          "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested.",
           "evidenceRefs": [
-            "pf-owner-approval-2026-11-02"
+            "personal-portfolio-closeout-review-2026-11-03"
           ],
           "rule": null
         },
@@ -330,6 +350,11 @@
         "provenance": "builder-reported"
       },
       {
+        "gate": "automated-checks",
+        "evidence": "personal-portfolio-ci-current-2026-11-03",
+        "provenance": "builder-reported"
+      },
+      {
         "gate": "security-privacy-review",
         "evidence": "pf-release-record-829ffc8",
         "provenance": "builder-reported"
@@ -368,8 +393,7 @@
     "changelog": null,
     "limitations": {
       "registryMissingEvidence": [
-        "Verifier verify:record passes for all ten Showcase gates.",
-        "Registry approval record (owner decision exists: pf-owner-approval-2026-11-02)."
+        "Final consolidated verifier attestation and resulting gate/approval records; see docs/acceptance/final-closeout-2026-11-03.md."
       ],
       "unverifiedGateNotes": [
         {
@@ -407,6 +431,10 @@
         {
           "gate": "documentation-accurate",
           "notes": "README describes the site and the release record is on main. Verifier reviews at the release commit."
+        },
+        {
+          "gate": "no-release-blockers",
+          "notes": "Final consolidated human verifier attestation pending; completed code and owner checks must not be repeated."
         }
       ],
       "changelogKnownLimitations": null

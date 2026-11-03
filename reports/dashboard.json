@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/dashboard",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-03T04:21:29Z",
+  "asOf": "2026-11-03T16:54:03Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "814a8c47ccc0cda6ea0107fefd1261e99d10e5900784495ddbeb84aa7fbc08f8",
+  "registrySha256": "ad1b163c1988a858cb98cc324c886c80b6d8f9fb9cb0f7e73e5c8f443d730ddd",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "projects": [
     {
@@ -58,9 +58,9 @@
       "facts": {
         "targetVersion": "1.0.0",
         "currentVersion": null,
-        "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-03T03:41:50Z",
-        "snapshotObservedAt": "2026-11-03T04:18:33Z"
+        "releaseStatus": "ready_for_review",
+        "lastEvidenceAt": "2026-11-03T16:48:16Z",
+        "snapshotObservedAt": "2026-11-03T12:29:15Z"
       },
       "derived": {
         "percentage": 0,
@@ -78,21 +78,21 @@
       "name": "One Small Studio",
       "tier": "showcase",
       "facts": {
-        "targetVersion": null,
+        "targetVersion": "1.0.0",
         "currentVersion": null,
-        "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-03T03:42:53Z",
+        "releaseStatus": "ready_for_review",
+        "lastEvidenceAt": "2026-11-03T16:48:16Z",
         "snapshotObservedAt": "2026-11-03T04:20:01Z"
       },
       "derived": {
         "percentage": 0,
         "verifiedGates": 0,
         "applicableGates": 10,
-        "blockingFindings": 4,
+        "blockingFindings": 3,
         "registryBlockers": 1,
-        "eligibility": "not-scoped",
+        "eligibility": "not-eligible",
         "releaseReady": false,
-        "nextAction": "Choose the target version for the scoped release and record it as release.targetVersion in the registry."
+        "nextAction": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
       }
     },
     {
@@ -100,21 +100,21 @@
       "name": "One Small Photography",
       "tier": "showcase",
       "facts": {
-        "targetVersion": null,
+        "targetVersion": "1.0.0",
         "currentVersion": null,
-        "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-03T03:42:07Z",
-        "snapshotObservedAt": "2026-11-03T04:21:29Z"
+        "releaseStatus": "ready_for_review",
+        "lastEvidenceAt": "2026-11-03T17:00:00Z",
+        "snapshotObservedAt": "2026-11-03T17:00:00Z"
       },
       "derived": {
         "percentage": 0,
         "verifiedGates": 0,
         "applicableGates": 10,
-        "blockingFindings": 5,
+        "blockingFindings": 3,
         "registryBlockers": 1,
-        "eligibility": "not-scoped",
+        "eligibility": "not-eligible",
         "releaseReady": false,
-        "nextAction": "Resolve blocker scope-document-missing: Scope is recorded on main in docs/RELEASE.md but not approved: section 6 (owner decision) is still blank at e3bc6d2. Resolve when the owner records approval there."
+        "nextAction": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
       }
     },
     {

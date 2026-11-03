@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-03T04:21:29Z",
+  "asOf": "2026-11-03T16:54:03Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "814a8c47ccc0cda6ea0107fefd1261e99d10e5900784495ddbeb84aa7fbc08f8",
+  "registrySha256": "ad1b163c1988a858cb98cc324c886c80b6d8f9fb9cb0f7e73e5c8f443d730ddd",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-studio",
@@ -13,15 +13,15 @@
     "facts": {
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
       "currentVersion": null,
-      "targetVersion": null,
-      "releaseStatus": "in_progress",
-      "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-studio/blob/4c46d0deacc5651235685e705bca97c9ef45cc14/docs/release/studio-release-evidence.md",
+      "targetVersion": "1.0.0",
+      "releaseStatus": "ready_for_review",
+      "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-studio/blob/b017cfe9c40e2166799ed59187a12d61f76e1763/docs/release/studio-release-evidence.md",
       "candidate": null,
       "openPullRequests": [],
       "head": "b017cfe9c40e2166799ed59187a12d61f76e1763",
       "snapshotObservedAt": "2026-11-03T04:20:01Z",
       "lastSyncedAt": "2026-11-03T04:20:01Z",
-      "lastEvidenceAt": "2026-11-03T03:42:53Z",
+      "lastEvidenceAt": "2026-11-03T16:48:16Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -33,12 +33,9 @@
         "approvedAt": null,
         "evidenceRefs": []
       },
-      "registryNextAction": "Owner approved the release (2026-11-02 18:08 UTC) and reported checks A and B (18:15 UTC). Owner: choose the version number. Verifier (Joshua Small): record the ten Showcase gates with verify:record per docs/acceptance/phase-6-closeout-2026-11-02.md; then the registry approval can cite studio-owner-approval-2026-11-02.",
+      "registryNextAction": "Review the single consolidated closeout package; give a durable final verifier attestation and approve proposed 1.0.0 scope/version. Agent then transcribes actual evidence and completes released/maintenance records without duplicate manual checks.",
       "missingEvidence": [
-        "Owner choice of the version number (target-version-undecided).",
-        "Verifier records (verify:record by Joshua Small) for all ten Showcase gates.",
-        "Registry approval record: the approval was given 2026-11-02 18:08 UTC (studio-owner-approval-2026-11-02) and is recorded once the gates are verified.",
-        "Version tag (owner)."
+        "Final consolidated verifier attestation and resulting gate/approval records; see docs/acceptance/final-closeout-2026-11-03.md."
       ]
     },
     "derived": {
@@ -60,7 +57,7 @@
           "applicable": 9,
           "verified": 0
         },
-        "blockingFindings": 4,
+        "blockingFindings": 3,
         "registryBlockers": 1,
         "missingIndependentVerification": [
           "scope-complete",
@@ -74,7 +71,7 @@
         "candidateMoved": false,
         "ownershipValid": true,
         "approvalRecorded": false,
-        "eligibility": "not-scoped",
+        "eligibility": "not-eligible",
         "releaseReady": false
       },
       "gates": [
@@ -110,19 +107,40 @@
               "origin": "manual",
               "provenance": "observation",
               "stale": null
+            },
+            {
+              "id": "one-small-studio-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-studio-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/b017cfe9c40e2166799ed59187a12d61f76e1763/docs/release/studio-release-acceptance.md",
+              "commitSha": "b017cfe9c40e2166799ed59187a12d61f76e1763",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-03T16:48:16Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
             "registry notes: Scope in studio-release-evidence.md, approved by the owner 2026-11-02; version not chosen. Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
           ],
           "notes": "Scope in studio-release-evidence.md, approved by the owner 2026-11-02; version not chosen. Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
-          "blockers": [
-            "target-version-undecided",
-            "auto-scope-missing"
-          ],
+          "blockers": [],
           "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
@@ -169,9 +187,45 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "one-small-studio-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-studio-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/b017cfe9c40e2166799ed59187a12d61f76e1763/docs/release/studio-release-acceptance.md",
+              "commitSha": "b017cfe9c40e2166799ed59187a12d61f76e1763",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-studio-ci-current-2026-11-03",
+              "type": "workflow_run",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/41573669907",
+              "commitSha": "b017cfe9c40e2166799ed59187a12d61f76e1763",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "builder-report",
+              "provenance": "builder-reported",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T23:00:00Z",
+          "lastObservedAt": "2026-11-03T16:48:16Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -225,9 +279,33 @@
               "origin": "manual",
               "provenance": "observation",
               "stale": null
+            },
+            {
+              "id": "one-small-studio-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-studio-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/b017cfe9c40e2166799ed59187a12d61f76e1763/docs/release/studio-release-acceptance.md",
+              "commitSha": "b017cfe9c40e2166799ed59187a12d61f76e1763",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-03T16:48:16Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -257,9 +335,33 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "one-small-studio-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-studio-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/b017cfe9c40e2166799ed59187a12d61f76e1763/docs/release/studio-release-acceptance.md",
+              "commitSha": "b017cfe9c40e2166799ed59187a12d61f76e1763",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-03T16:48:16Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -301,9 +403,33 @@
               "origin": "manual",
               "provenance": "observation",
               "stale": null
+            },
+            {
+              "id": "one-small-studio-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-studio-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/b017cfe9c40e2166799ed59187a12d61f76e1763/docs/release/studio-release-acceptance.md",
+              "commitSha": "b017cfe9c40e2166799ed59187a12d61f76e1763",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-03T16:48:16Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -333,9 +459,33 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "one-small-studio-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-studio-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/b017cfe9c40e2166799ed59187a12d61f76e1763/docs/release/studio-release-acceptance.md",
+              "commitSha": "b017cfe9c40e2166799ed59187a12d61f76e1763",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-03T16:48:16Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -365,9 +515,33 @@
               "origin": "manual",
               "provenance": "observation",
               "stale": null
+            },
+            {
+              "id": "one-small-studio-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-studio-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/b017cfe9c40e2166799ed59187a12d61f76e1763/docs/release/studio-release-acceptance.md",
+              "commitSha": "b017cfe9c40e2166799ed59187a12d61f76e1763",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-03T16:48:16Z",
           "failed": false,
           "missing": [
             "registry notes: Contact email arrives and music plays (owner-reported 2026-11-02); player fallback covered by e2e/resilience.spec.ts (builder). not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
@@ -410,9 +584,33 @@
               "origin": "manual",
               "provenance": "observation",
               "stale": null
+            },
+            {
+              "id": "one-small-studio-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-studio-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/b017cfe9c40e2166799ed59187a12d61f76e1763/docs/release/studio-release-acceptance.md",
+              "commitSha": "b017cfe9c40e2166799ed59187a12d61f76e1763",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T23:00:00Z",
+          "lastObservedAt": "2026-11-03T16:48:16Z",
           "failed": false,
           "missing": [
             "registry notes: Vercel serves the main head 4c46d0d (informational). Verifier confirms the release commit in production"
@@ -453,9 +651,33 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "one-small-studio-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-studio-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/b017cfe9c40e2166799ed59187a12d61f76e1763/docs/release/studio-release-acceptance.md",
+              "commitSha": "b017cfe9c40e2166799ed59187a12d61f76e1763",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-03T16:48:16Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
@@ -472,17 +694,41 @@
           "registryStatus": "not_verified",
           "state": "not_started",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "observation",
+          "evidence": [
+            {
+              "id": "one-small-studio-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-studio-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/b017cfe9c40e2166799ed59187a12d61f76e1763/docs/release/studio-release-acceptance.md",
+              "commitSha": "b017cfe9c40e2166799ed59187a12d61f76e1763",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-03T16:48:16Z",
           "failed": false,
           "missing": [
-            "evidence for this gate",
-            "registry notes: target-version-undecided is open"
+            "registry notes: Final consolidated human verifier attestation pending; completed code and owner checks must not be repeated"
           ],
-          "notes": "target-version-undecided is open.",
+          "notes": "Final consolidated human verifier attestation pending; completed code and owner checks must not be repeated.",
           "blockers": [
-            "target-version-undecided"
+            "final-verifier-attestation"
           ],
           "nextAction": "Produce evidence for this gate."
         }
@@ -491,18 +737,16 @@
         "merge": [],
         "release": [
           {
-            "id": "target-version-undecided",
+            "id": "final-verifier-attestation",
             "origin": "registry",
             "status": "open",
             "category": "approval",
             "severity": null,
             "blocks": "release",
-            "gates": [
-              "scope-complete"
-            ],
-            "description": "The approved release has no version number. The owner picks it (for example 1.0.0); then targetVersion is set and the release can be tagged.",
+            "gates": [],
+            "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested.",
             "evidenceRefs": [
-              "studio-owner-approval-2026-11-02"
+              "one-small-studio-closeout-review-2026-11-03"
             ],
             "rule": null
           },
@@ -542,21 +786,6 @@
             "evidenceRefs": [],
             "rule": "every applicable gate needs independent pass evidence",
             "action": null
-          },
-          {
-            "id": "auto-scope-missing",
-            "origin": "derived",
-            "status": "proposed",
-            "category": "scope",
-            "severity": null,
-            "blocks": "release",
-            "gates": [
-              "scope-complete"
-            ],
-            "description": "No target version: the release cannot be scoped or verified.",
-            "evidenceRefs": [],
-            "rule": "release.targetVersion and release.scopeDocument are required before verification",
-            "action": "Choose the target version for the scoped release and record it as release.targetVersion in the registry."
           }
         ],
         "postRelease": [
@@ -577,19 +806,6 @@
           "rank": 1,
           "priority": 3,
           "bucket": "Missing required verification",
-          "source": "auto-scope-missing",
-          "origin": "derived",
-          "blocks": "release",
-          "gates": [
-            "scope-complete"
-          ],
-          "text": "Choose the target version for the scoped release and record it as release.targetVersion in the registry.",
-          "summary": "Choose the target version for the scoped release and record it as release.targetVersion in the registry."
-        },
-        {
-          "rank": 2,
-          "priority": 3,
-          "bucket": "Missing required verification",
           "source": "auto-critical-workflows-unverified",
           "origin": "derived",
           "blocks": "release",
@@ -600,7 +816,7 @@
           "summary": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
         },
         {
-          "rank": 3,
+          "rank": 2,
           "priority": 3,
           "bucket": "Missing required verification",
           "source": "auto-missing-verification",
@@ -616,8 +832,8 @@
             "critical-workflows",
             "documentation-accurate"
           ],
-          "text": "Independently re-check the builder evidence for automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate; then verify scope-complete, critical-workflows once their blockers are resolved.",
-          "summary": "Independently re-check the builder evidence for automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader..."
+          "text": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate; then verify critical-workflows once their blockers are resolved.",
+          "summary": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa..."
         }
       ],
       "dependencies": [],
@@ -646,6 +862,11 @@
       {
         "gate": "automated-checks",
         "evidence": "studio-ci-run-4c46d0d",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "one-small-studio-ci-current-2026-11-03",
         "provenance": "builder-reported"
       },
       {

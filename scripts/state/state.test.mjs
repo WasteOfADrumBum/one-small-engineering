@@ -3,6 +3,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { createHash } from 'node:crypto'
+import { fileURLToPath } from 'node:url'
 import { GitHubError } from '../sync/github.mjs'
 import { initialState, validateState, applyCheckpoint, renderStatus, renderHandoff, serializeState, assess, ConflictError, StateError, UnsupportedVersion, STATE_PATHS } from './lib.mjs'
 import { pushCheckpoint } from './push.mjs'
@@ -156,7 +157,7 @@ test('credentials inside a URL are caught; workflow run URLs with long ids are n
 
 test('the state CLI answers a missing target or flag with usage (exit 2), not a crash', async () => {
   const { spawnSync } = await import('node:child_process')
-  const cli = new URL('./cli.mjs', import.meta.url).pathname
+  const cli = fileURLToPath(new URL('./cli.mjs', import.meta.url))
   for (const args of [['show'], ['checkpoint'], ['checkpoint', 'WasteOfADrumBum/TaskForge'], ['validate']]) {
     const r = spawnSync(process.execPath, [cli, ...args], { encoding: 'utf8', env: { PATH: process.env.PATH } })
     assert.equal(r.status, 2, args.join(' '))

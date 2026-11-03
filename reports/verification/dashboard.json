@@ -1,8 +1,8 @@
 {
   "kind": "one-small-engineering/verification-dashboard",
   "command": "npm run verify:report",
-  "asOf": "2026-11-03T04:21:29Z",
-  "registryHash": "814a8c47ccc0cda6ea0107fefd1261e99d10e5900784495ddbeb84aa7fbc08f8",
+  "asOf": "2026-11-03T16:54:04Z",
+  "registryHash": "ad1b163c1988a858cb98cc324c886c80b6d8f9fb9cb0f7e73e5c8f443d730ddd",
   "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
   "policyVersion": 1,
   "runs": [
@@ -2528,12 +2528,12 @@
       },
       "blockers": [
         {
-          "id": "owner-approval-awaits-verification",
+          "id": "final-verifier-attestation",
           "origin": "registry",
           "severity": "unclassified",
           "blocks": "release",
           "category": "approval",
-          "description": "Joshua Small approved release 1.0 on 2026-11-02 (pf-owner-approval-2026-11-02, ACCEPTANCE.md section 5). The registry records approval only once releaseStatus is verified, which needs his own verify:record pass on every gate. Resolve by recording those passes, then setting approval in a registry PR."
+          "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested."
         },
         {
           "id": "auto-critical-workflows-unverified",
@@ -2711,13 +2711,7 @@
           "verification": []
         }
       ],
-      "relatedPullRequests": [
-        {
-          "number": 32,
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/32",
-          "draft": false
-        }
-      ],
+      "relatedPullRequests": [],
       "remediation": [
         {
           "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/17",
@@ -2915,7 +2909,7 @@
         "previousPercentage": 0,
         "applicableGates": 10,
         "verifiedGates": 0,
-        "eligibility": "not-scoped",
+        "eligibility": "not-eligible",
         "ownershipValid": true
       },
       "gateStates": {
@@ -3150,16 +3144,16 @@
         "high": 0,
         "medium": 0,
         "low": 0,
-        "unclassified": 4
+        "unclassified": 3
       },
       "blockers": [
         {
-          "id": "target-version-undecided",
+          "id": "final-verifier-attestation",
           "origin": "registry",
           "severity": "unclassified",
           "blocks": "release",
           "category": "approval",
-          "description": "The approved release has no version number. The owner picks it (for example 1.0.0); then targetVersion is set and the release can be tagged."
+          "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested."
         },
         {
           "id": "auto-critical-workflows-unverified",
@@ -3176,21 +3170,13 @@
           "blocks": "release",
           "category": "evidence",
           "description": "8 applicable pre-publication gate(s) lack current independent verification."
-        },
-        {
-          "id": "auto-scope-missing",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "scope",
-          "description": "No target version: the release cannot be scoped or verified."
         }
       ],
       "mergeEligible": false,
       "releaseEligible": false,
       "lastCollection": "2026-10-28T21:06:55Z",
       "lastVerification": null,
-      "nextAction": "Choose the target version for the scoped release and record it as release.targetVersion in the registry.",
+      "nextAction": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.",
       "findings": [
         {
           "id": "one-small-studio:accessibility:d6854de",
@@ -3543,7 +3529,7 @@
         "previousPercentage": 0,
         "applicableGates": 10,
         "verifiedGates": 0,
-        "eligibility": "not-scoped",
+        "eligibility": "not-eligible",
         "ownershipValid": true
       },
       "gateStates": {
@@ -3778,24 +3764,16 @@
         "high": 0,
         "medium": 0,
         "low": 0,
-        "unclassified": 5
+        "unclassified": 3
       },
       "blockers": [
         {
-          "id": "auto-ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "merge",
-          "category": "ci",
-          "description": "CI did not pass on 153eee0 (failure)."
-        },
-        {
-          "id": "scope-document-missing",
+          "id": "final-verifier-attestation",
           "origin": "registry",
           "severity": "unclassified",
           "blocks": "release",
-          "category": "scope",
-          "description": "Scope is recorded on main in docs/RELEASE.md but not approved: section 6 (owner decision) is still blank at e3bc6d2. Resolve when the owner records approval there."
+          "category": "approval",
+          "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested."
         },
         {
           "id": "auto-critical-workflows-unverified",
@@ -3812,21 +3790,13 @@
           "blocks": "release",
           "category": "evidence",
           "description": "8 applicable pre-publication gate(s) lack current independent verification."
-        },
-        {
-          "id": "auto-owner-approval",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "approval",
-          "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
         }
       ],
       "mergeEligible": false,
       "releaseEligible": false,
       "lastCollection": "2026-10-28T21:06:58Z",
       "lastVerification": null,
-      "nextAction": "Resolve blocker scope-document-missing.",
+      "nextAction": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.",
       "findings": [
         {
           "id": "one-small-photography:accessibility:fa2d17f",

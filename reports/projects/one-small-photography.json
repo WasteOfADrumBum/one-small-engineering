@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-03T04:21:29Z",
+  "asOf": "2026-11-03T16:54:03Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "814a8c47ccc0cda6ea0107fefd1261e99d10e5900784495ddbeb84aa7fbc08f8",
+  "registrySha256": "ad1b163c1988a858cb98cc324c886c80b6d8f9fb9cb0f7e73e5c8f443d730ddd",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-photography",
@@ -13,15 +13,15 @@
     "facts": {
       "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
       "currentVersion": null,
-      "targetVersion": null,
-      "releaseStatus": "in_progress",
-      "scopeDocument": null,
+      "targetVersion": "1.0.0",
+      "releaseStatus": "ready_for_review",
+      "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
       "candidate": null,
       "openPullRequests": [],
-      "head": "153eee0484003d2150508a858c372cd80960645f",
-      "snapshotObservedAt": "2026-11-03T04:21:29Z",
-      "lastSyncedAt": "2026-11-03T04:21:29Z",
-      "lastEvidenceAt": "2026-11-03T03:42:07Z",
+      "head": "d70f75f04942f8026871c701a4b69460d088ae34",
+      "snapshotObservedAt": "2026-11-03T17:00:00Z",
+      "lastSyncedAt": "2026-11-03T16:17:43Z",
+      "lastEvidenceAt": "2026-11-03T17:00:00Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -33,13 +33,9 @@
         "approvedAt": null,
         "evidenceRefs": []
       },
-      "registryNextAction": "Owner: decide the release in docs/RELEASE.md section 6 (scope, first off-site backup, B2 version lifecycle, the 4 moderate build-time advisories). Then the verifier records the ten Showcase gates with verify:record per docs/acceptance/phase-6-closeout-2026-11-02.md.",
+      "registryNextAction": "Review the single consolidated closeout package; give a durable final verifier attestation and approve proposed 1.0.0 scope/version. Agent then transcribes actual evidence and completes released/maintenance records without duplicate manual checks.",
       "missingEvidence": [
-        "Owner decision in docs/RELEASE.md section 6 (scope approval, first off-site backup, B2 lifecycle, advisory disposition).",
-        "Keyboard and screen reader pass: none recorded.",
-        "WCAG 2.2-specific criteria: axe covered 2.0/2.1 only.",
-        "Verifier records (verify:record by Joshua Small) for all ten Showcase gates.",
-        "Owner approval record."
+        "Final consolidated verifier attestation and resulting gate/approval records; see docs/acceptance/final-closeout-2026-11-03.md."
       ]
     },
     "derived": {
@@ -50,8 +46,8 @@
         "remainingGates": 10,
         "byState": {
           "verified": 0,
-          "in_progress": 8,
-          "not_started": 2,
+          "in_progress": 9,
+          "not_started": 1,
           "blocked": 0,
           "not_applicable": 0,
           "unknown_stale": 0
@@ -61,7 +57,7 @@
           "applicable": 9,
           "verified": 0
         },
-        "blockingFindings": 5,
+        "blockingFindings": 3,
         "registryBlockers": 1,
         "missingIndependentVerification": [
           "scope-complete",
@@ -70,12 +66,13 @@
           "wcag-22-aa",
           "responsive-layouts",
           "critical-workflows",
+          "production-deployment",
           "documentation-accurate"
         ],
         "candidateMoved": false,
         "ownershipValid": true,
         "approvalRecorded": false,
-        "eligibility": "not-scoped",
+        "eligibility": "not-eligible",
         "releaseReady": false
       },
       "gates": [
@@ -89,6 +86,30 @@
           "provenance": "builder-reported",
           "evidence": [
             {
+              "id": "photo-release-record-d70f75f",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T17:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": "photo-release-record-d70f75f is dated after the report time"
+            },
+            {
+              "id": "photo-closeout-pr-29",
+              "type": "pull_request",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/29",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T17:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": "photo-closeout-pr-29 is dated after the report time"
+            },
+            {
               "id": "photo-release-record-e3bc6d2",
               "type": "document",
               "result": "builder_reported",
@@ -99,18 +120,42 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "one-small-photography-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-photography-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T23:00:00Z",
+          "lastObservedAt": "2026-11-03T17:00:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "current evidence: photo-release-record-d70f75f is dated after the report time",
+            "current evidence: photo-closeout-pr-29 is dated after the report time",
             "registry notes: Scope recorded in docs/RELEASE.md; not approved (section 6 blank). Human-only gate"
           ],
           "notes": "Scope recorded in docs/RELEASE.md; not approved (section 6 blank). Human-only gate.",
-          "blockers": [
-            "scope-document-missing"
-          ],
+          "blockers": [],
           "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
@@ -157,12 +202,61 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "photo-ci-run-d70f75f",
+              "type": "workflow_run",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41676021387",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T17:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": "photo-ci-run-d70f75f is dated after the report time"
+            },
+            {
+              "id": "one-small-photography-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-photography-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-photography-ci-current-2026-11-03",
+              "type": "workflow_run",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41676021387",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "builder-report",
+              "provenance": "builder-reported",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T23:00:00Z",
+          "lastObservedAt": "2026-11-03T17:00:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "current evidence: photo-ci-run-d70f75f is dated after the report time",
             "registry notes: CI green on main at c850853 and e3bc6d2 (builder evidence). Verifier re-checks at the release commit"
           ],
           "notes": "CI green on main at c850853 and e3bc6d2 (builder evidence). Verifier re-checks at the release commit.",
@@ -179,16 +273,16 @@
           "provenance": "builder-reported",
           "evidence": [
             {
-              "id": "photo-release-record-e3bc6d2",
+              "id": "photo-release-record-d70f75f",
               "type": "document",
               "result": "builder_reported",
-              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed/docs/RELEASE.md",
-              "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
-              "verifiedAt": "2026-11-02T23:00:00Z",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T17:00:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "builder-reported",
-              "stale": null
+              "stale": "photo-release-record-d70f75f is dated after the report time"
             },
             {
               "id": "photo-closeout-pr-22",
@@ -201,12 +295,62 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "photo-owner-report-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T17:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": "photo-owner-report-2026-11-03 is dated after the report time"
+            },
+            {
+              "id": "photo-release-record-e3bc6d2",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed/docs/RELEASE.md",
+              "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
+              "verifiedAt": "2026-11-02T23:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "one-small-photography-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-photography-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T23:00:00Z",
+          "lastObservedAt": "2026-11-03T17:00:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "current evidence: photo-release-record-d70f75f is dated after the report time",
+            "current evidence: photo-owner-report-2026-11-03 is dated after the report time",
             "registry notes: Builder security table (auth, CSRF, sessions, uploads, headers, history scan); 4 moderate build-time advisories await owner disposition. Verifier reviews"
           ],
           "notes": "Builder security table (auth, CSRF, sessions, uploads, headers, history scan); 4 moderate build-time advisories await owner disposition. Verifier reviews.",
@@ -223,56 +367,29 @@
           "provenance": "builder-reported",
           "evidence": [
             {
-              "id": "photo-release-record-e3bc6d2",
+              "id": "photo-release-record-d70f75f",
               "type": "document",
               "result": "builder_reported",
-              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed/docs/RELEASE.md",
-              "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
-              "verifiedAt": "2026-11-02T23:00:00Z",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T17:00:00Z",
               "recordedBy": "Claude Code",
               "origin": "manual",
               "provenance": "builder-reported",
-              "stale": null
-            }
-          ],
-          "lastObservedAt": "2026-11-02T23:00:00Z",
-          "failed": false,
-          "missing": [
-            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: axe ran WCAG 2.0/2.1 A/AA rules only (0 violations); WCAG 2.2-specific criteria have no evidence yet"
-          ],
-          "notes": "axe ran WCAG 2.0/2.1 A/AA rules only (0 violations); WCAG 2.2-specific criteria have no evidence yet.",
-          "blockers": [],
-          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
-        },
-        {
-          "id": "keyboard-screen-reader",
-          "requirement": "Keyboard-only and screen-reader testing completed on the critical pages.",
-          "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
-          "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
-          "failed": false,
-          "missing": [
-            "evidence for this gate",
-            "registry notes: No keyboard or screen reader pass is recorded (RELEASE.md: \"No hands-on screen reader pass (open)\"). Missing evidence, not not-applicable"
-          ],
-          "notes": "No keyboard or screen reader pass is recorded (RELEASE.md: \"No hands-on screen reader pass (open)\"). Missing evidence, not not-applicable.",
-          "blockers": [],
-          "nextAction": "Produce evidence for this gate."
-        },
-        {
-          "id": "responsive-layouts",
-          "requirement": "Layouts tested at phone, tablet and desktop widths and at 200% zoom.",
-          "phase": "pre-publication",
-          "registryStatus": "in_progress",
-          "state": "in_progress",
-          "applicable": true,
-          "provenance": "builder-reported",
-          "evidence": [
+              "stale": "photo-release-record-d70f75f is dated after the report time"
+            },
+            {
+              "id": "photo-closeout-pr-28",
+              "type": "pull_request",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/28",
+              "commitSha": "a1227cad9e707abad47692cafdc2b43d4a4f9635",
+              "verifiedAt": "2026-11-03T17:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": "photo-closeout-pr-28 is dated after the report time"
+            },
             {
               "id": "photo-release-record-e3bc6d2",
               "type": "document",
@@ -284,12 +401,176 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "one-small-photography-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-photography-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T23:00:00Z",
+          "lastObservedAt": "2026-11-03T17:00:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "current evidence: photo-release-record-d70f75f is dated after the report time",
+            "current evidence: photo-closeout-pr-28 is dated after the report time",
+            "registry notes: Photography PR #28 recorded WCAG 2.2 automated/manual-inspection fixes and coverage; owner accessibility checks subsequently passed. Final verifier attestation pending"
+          ],
+          "notes": "Photography PR #28 recorded WCAG 2.2 automated/manual-inspection fixes and coverage; owner accessibility checks subsequently passed. Final verifier attestation pending.",
+          "blockers": [],
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+        },
+        {
+          "id": "keyboard-screen-reader",
+          "requirement": "Keyboard-only and screen-reader testing completed on the critical pages.",
+          "phase": "pre-publication",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
+          "applicable": true,
+          "provenance": "observation",
+          "evidence": [
+            {
+              "id": "photo-owner-report-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T17:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": "photo-owner-report-2026-11-03 is dated after the report time"
+            },
+            {
+              "id": "one-small-photography-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-photography-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-03T17:00:00Z",
+          "failed": false,
+          "missing": [
+            "current evidence: photo-owner-report-2026-11-03 is dated after the report time",
+            "registry notes: Keyboard, Narrator and phone checks passed by owner report, recorded in merged photography PR #29. Final verifier attestation pending; do not repeat tests"
+          ],
+          "notes": "Keyboard, Narrator and phone checks passed by owner report, recorded in merged photography PR #29. Final verifier attestation pending; do not repeat tests.",
+          "blockers": [],
+          "nextAction": "Finish the work and record evidence, then have the verifier re-check."
+        },
+        {
+          "id": "responsive-layouts",
+          "requirement": "Layouts tested at phone, tablet and desktop widths and at 200% zoom.",
+          "phase": "pre-publication",
+          "registryStatus": "in_progress",
+          "state": "in_progress",
+          "applicable": true,
+          "provenance": "builder-reported",
+          "evidence": [
+            {
+              "id": "photo-release-record-d70f75f",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T17:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": "photo-release-record-d70f75f is dated after the report time"
+            },
+            {
+              "id": "photo-owner-report-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T17:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": "photo-owner-report-2026-11-03 is dated after the report time"
+            },
+            {
+              "id": "photo-release-record-e3bc6d2",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed/docs/RELEASE.md",
+              "commitSha": "e3bc6d20844f460eeb0ec6159e8946cda7bcd2ed",
+              "verifiedAt": "2026-11-02T23:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "one-small-photography-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-photography-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-03T17:00:00Z",
+          "failed": false,
+          "missing": [
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "current evidence: photo-release-record-d70f75f is dated after the report time",
+            "current evidence: photo-owner-report-2026-11-03 is dated after the report time",
             "registry notes: Chromium at phone and desktop widths, no horizontal overflow (builder). Real iOS/Android not tested"
           ],
           "notes": "Chromium at phone and desktop widths, no horizontal overflow (builder). Real iOS/Android not tested.",
@@ -328,15 +609,65 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "photo-release-record-d70f75f",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T17:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": "photo-release-record-d70f75f is dated after the report time"
+            },
+            {
+              "id": "photo-owner-report-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T17:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": "photo-owner-report-2026-11-03 is dated after the report time"
+            },
+            {
+              "id": "one-small-photography-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-photography-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-03T17:00:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Contact delivery and live galleries owner-reported 2026-11-02; production smoke 10/10 at c850853. Code for both is unchanged at e3bc6d2. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it"
+            "current evidence: photo-release-record-d70f75f is dated after the report time",
+            "current evidence: photo-owner-report-2026-11-03 is dated after the report time",
+            "registry notes: Contact and galleries owner-reported; backup script verified and copied; retained B2 image retrieved after site deletion; unencrypted-copy risk expressly accepted. File recovery only, not reconstruction of the deleted database row"
           ],
-          "notes": "Contact delivery and live galleries owner-reported 2026-11-02; production smoke 10/10 at c850853. Code for both is unchanged at e3bc6d2. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+          "notes": "Contact and galleries owner-reported; backup script verified and copied; retained B2 image retrieved after site deletion; unencrypted-copy risk expressly accepted. File recovery only, not reconstruction of the deleted database row.",
           "blockers": [
             "auto-critical-workflows-unverified"
           ],
@@ -349,7 +680,7 @@
           "registryStatus": "in_progress",
           "state": "in_progress",
           "applicable": true,
-          "provenance": "observation",
+          "provenance": "builder-reported",
           "evidence": [
             {
               "id": "photo-vercel-e3bc6d2",
@@ -374,16 +705,54 @@
               "origin": "manual",
               "provenance": "observation",
               "stale": null
+            },
+            {
+              "id": "photo-release-record-d70f75f",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T17:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": "photo-release-record-d70f75f is dated after the report time"
+            },
+            {
+              "id": "one-small-photography-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-photography-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T23:00:00Z",
+          "lastObservedAt": "2026-11-03T17:00:00Z",
           "failed": false,
           "missing": [
+            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "current evidence: photo-release-record-d70f75f is dated after the report time",
             "registry notes: Vercel serves the main head e3bc6d2 (informational). Verifier confirms the release commit in production"
           ],
           "notes": "Vercel serves the main head e3bc6d2 (informational). Verifier confirms the release commit in production.",
           "blockers": [],
-          "nextAction": "Finish the work and record evidence, then have the verifier re-check."
+          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
         },
         {
           "id": "documentation-accurate",
@@ -395,6 +764,18 @@
           "provenance": "builder-reported",
           "evidence": [
             {
+              "id": "photo-release-record-d70f75f",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T17:00:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": "photo-release-record-d70f75f is dated after the report time"
+            },
+            {
               "id": "photo-release-record-e3bc6d2",
               "type": "document",
               "result": "builder_reported",
@@ -405,12 +786,37 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "one-small-photography-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-photography-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T23:00:00Z",
+          "lastObservedAt": "2026-11-03T17:00:00Z",
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "current evidence: photo-release-record-d70f75f is dated after the report time",
             "registry notes: RELEASE.md, RECOVERY.md and ROADMAP.md on main (builder). Verifier reviews at the release commit"
           ],
           "notes": "RELEASE.md, RECOVERY.md and ROADMAP.md on main (builder). Verifier reviews at the release commit.",
@@ -424,54 +830,59 @@
           "registryStatus": "not_verified",
           "state": "not_started",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "observation",
+          "evidence": [
+            {
+              "id": "one-small-photography-closeout-review-2026-11-03",
+              "type": "audit",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
+              "commitSha": null,
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "ai-assessment",
+              "provenance": "observation",
+              "stale": null
+            },
+            {
+              "id": "one-small-photography-acceptance-current-2026-11-03",
+              "type": "document",
+              "result": "informational",
+              "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
+              "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+              "verifiedAt": "2026-11-03T16:48:16Z",
+              "recordedBy": "Codex",
+              "origin": "manual",
+              "provenance": "observation",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-03T16:48:16Z",
           "failed": false,
           "missing": [
-            "evidence for this gate",
-            "registry notes: scope-document-missing is open"
+            "registry notes: Final consolidated human verifier attestation pending; completed code and owner checks must not be repeated"
           ],
-          "notes": "scope-document-missing is open.",
+          "notes": "Final consolidated human verifier attestation pending; completed code and owner checks must not be repeated.",
           "blockers": [
-            "scope-document-missing"
+            "final-verifier-attestation"
           ],
           "nextAction": "Produce evidence for this gate."
         }
       ],
       "blockers": {
-        "merge": [
-          {
-            "id": "auto-ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1",
-            "origin": "derived",
-            "status": "proposed",
-            "category": "ci",
-            "severity": null,
-            "blocks": "merge",
-            "gates": [],
-            "description": "CI did not pass on 153eee0 (failure).",
-            "evidenceRefs": [
-              "sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1"
-            ],
-            "rule": "a failing workflow run on the head or candidate commit blocks merge",
-            "action": "Fix the failing CI run on 153eee0 and re-run it (never skip or disable tests)."
-          }
-        ],
+        "merge": [],
         "release": [
           {
-            "id": "scope-document-missing",
+            "id": "final-verifier-attestation",
             "origin": "registry",
             "status": "open",
-            "category": "scope",
+            "category": "approval",
             "severity": null,
             "blocks": "release",
-            "gates": [
-              "scope-complete"
-            ],
-            "description": "Scope is recorded on main in docs/RELEASE.md but not approved: section 6 (owner decision) is still blank at e3bc6d2. Resolve when the owner records approval there.",
+            "gates": [],
+            "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested.",
             "evidenceRefs": [
-              "photo-repo-metadata",
-              "photo-release-record-e3bc6d2"
+              "one-small-photography-closeout-review-2026-11-03"
             ],
             "rule": null
           },
@@ -511,19 +922,6 @@
             "evidenceRefs": [],
             "rule": "every applicable gate needs independent pass evidence",
             "action": null
-          },
-          {
-            "id": "auto-owner-approval",
-            "origin": "derived",
-            "status": "proposed",
-            "category": "approval",
-            "severity": null,
-            "blocks": "release",
-            "gates": [],
-            "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release.",
-            "evidenceRefs": [],
-            "rule": "approval.status approved with evidence, by the approval owner",
-            "action": "Ask Joshua Small to review the evidence and approve or decline the release."
           }
         ],
         "postRelease": [
@@ -544,19 +942,6 @@
           "rank": 1,
           "priority": 3,
           "bucket": "Missing required verification",
-          "source": "scope-document-missing",
-          "origin": "registry",
-          "blocks": "release",
-          "gates": [
-            "scope-complete"
-          ],
-          "text": "Resolve blocker scope-document-missing: Scope is recorded on main in docs/RELEASE.md but not approved: section 6 (owner decision) is still blank at e3bc6d2. Resolve when the owner records approval there.",
-          "summary": "Resolve blocker scope-document-missing."
-        },
-        {
-          "rank": 2,
-          "priority": 3,
-          "bucket": "Missing required verification",
           "source": "auto-critical-workflows-unverified",
           "origin": "derived",
           "blocks": "release",
@@ -567,7 +952,7 @@
           "summary": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
         },
         {
-          "rank": 3,
+          "rank": 2,
           "priority": 3,
           "bucket": "Missing required verification",
           "source": "auto-missing-verification",
@@ -583,19 +968,8 @@
             "critical-workflows",
             "documentation-accurate"
           ],
-          "text": "Independently re-check the builder evidence for automated-checks, security-privacy-review, wcag-22-aa, responsive-layouts, documentation-accurate; produce evidence for keyboard-screen-reader; then verify scope-complete, critical-workflows once their blockers are resolved.",
-          "summary": "Independently re-check the builder evidence for automated-checks, security-privacy-review, wcag-22-aa, responsive-layouts..."
-        },
-        {
-          "rank": 4,
-          "priority": 4,
-          "bucket": "Failed or missing CI",
-          "source": "auto-ci-failed-sync-one-small-photography-run-ci-yml-153eee0-j3jvhka-1",
-          "origin": "derived",
-          "blocks": "merge",
-          "gates": [],
-          "text": "Fix the failing CI run on 153eee0 and re-run it (never skip or disable tests).",
-          "summary": "Fix the failing CI run on 153eee0 and re-run it (never skip or disable tests)."
+          "text": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa, responsive-layouts, documentation-accurate; produce evidence for keyboard-screen-reader; then verify critical-workflows once their blockers are resolved.",
+          "summary": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa, responsive-layouts..."
         }
       ],
       "dependencies": [],
@@ -606,6 +980,16 @@
       }
     },
     "unverified": [
+      {
+        "gate": "scope-complete",
+        "evidence": "photo-release-record-d70f75f",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "scope-complete",
+        "evidence": "photo-closeout-pr-29",
+        "provenance": "builder-reported"
+      },
       {
         "gate": "scope-complete",
         "evidence": "photo-release-record-e3bc6d2",
@@ -627,8 +1011,18 @@
         "provenance": "builder-reported"
       },
       {
+        "gate": "automated-checks",
+        "evidence": "photo-ci-run-d70f75f",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "one-small-photography-ci-current-2026-11-03",
+        "provenance": "builder-reported"
+      },
+      {
         "gate": "security-privacy-review",
-        "evidence": "photo-release-record-e3bc6d2",
+        "evidence": "photo-release-record-d70f75f",
         "provenance": "builder-reported"
       },
       {
@@ -637,8 +1031,28 @@
         "provenance": "builder-reported"
       },
       {
+        "gate": "security-privacy-review",
+        "evidence": "photo-release-record-e3bc6d2",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "wcag-22-aa",
+        "evidence": "photo-release-record-d70f75f",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "wcag-22-aa",
+        "evidence": "photo-closeout-pr-28",
+        "provenance": "builder-reported"
+      },
+      {
         "gate": "wcag-22-aa",
         "evidence": "photo-release-record-e3bc6d2",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "responsive-layouts",
+        "evidence": "photo-release-record-d70f75f",
         "provenance": "builder-reported"
       },
       {
@@ -649,6 +1063,21 @@
       {
         "gate": "critical-workflows",
         "evidence": "photo-smoke-run-c850853",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "critical-workflows",
+        "evidence": "photo-release-record-d70f75f",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "production-deployment",
+        "evidence": "photo-release-record-d70f75f",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "documentation-accurate",
+        "evidence": "photo-release-record-d70f75f",
         "provenance": "builder-reported"
       },
       {
