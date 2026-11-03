@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-03T15:15:34Z",
+  "lastUpdatedAt": "2026-11-03T16:17:43Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1702,7 +1702,7 @@
         "defaultBranch": "main",
         "headSha": "a1227cad9e707abad47692cafdc2b43d4a4f9635",
         "archived": false,
-        "observedAt": "2026-11-03T15:15:34Z",
+        "observedAt": "2026-11-03T16:17:43Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1712,7 +1712,15 @@
           "private": true
         }
       },
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 29,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/29",
+          "title": "Record owner-reported 2026-11-03 results and post-merge CI and smoke",
+          "headSha": "412a515350669afbcde9577809534c7e42f3e4cd",
+          "draft": false
+        }
+      ],
       "release": {
         "currentVersion": null,
         "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder.",
@@ -1875,6 +1883,18 @@
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
           "eventKey": "one-small-photography:workflow_run:ci.yml/a1227ca/j4vunmt/1"
+        },
+        {
+          "id": "sync-one-small-photography-run-production-smoke-yml-a1227ca-j51rscy-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41664171346",
+          "commitSha": "a1227cad9e707abad47692cafdc2b43d4a4f9635",
+          "verifiedAt": "2026-11-03T15:28:15Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke\") concluded success on main at a1227ca (workflow_dispatch event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-photography:workflow_run:production-smoke.yml/a1227ca/j51rscy/1"
         }
       ],
       "releaseGates": [
@@ -1993,7 +2013,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-11-03T15:15:34Z",
+        "lastSyncedAt": "2026-11-03T16:17:43Z",
         "lastSyncedHead": "a1227cad9e707abad47692cafdc2b43d4a4f9635",
         "configSource": "defaults"
       }
