@@ -1,5 +1,7 @@
 # Phase 6 closeout and Definition of Done reconciliation, 2026-11-02
 
+> Historical record. Superseded by [final closeout and owner sign-off](final-closeout-2026-11-03.md). Joshua Small verified and approved the three showcase releases and accepted Engineering Phase 6 on 2026-11-03. Earlier pending items below are retained as history.
+
 Prepared by Claude Code (the Phase 6 builder) for **Joshua Small's final review**. Nothing here is a verification, an approval or a Phase 6 sign-off. Gate status lives only in [projects/registry.json](../../projects/registry.json). This record supersedes the open items in [closeout-2026-11-02.md](closeout-2026-11-02.md), which stays as the earlier record. It was checked against live GitHub and Vercel at about 23:00 UTC on 2026-11-02. ModsPack is on hold and UI is handled in another thread, so both are out of scope.
 
 ## 1. Independent review of the Phase 6 code

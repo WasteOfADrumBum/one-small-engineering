@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-03T17:00:00Z",
+  "lastUpdatedAt": "2026-11-03T18:48:55Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -989,13 +989,13 @@
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
       "tier": "showcase",
       "visibility": "public",
-      "lifecycle": "active",
+      "lifecycle": "maintenance",
       "productionUrl": "https://onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
         "headSha": "773fca08a2e33b213e51577315381f08ff601208",
         "archived": false,
-        "observedAt": "2026-11-03T12:29:15Z",
+        "observedAt": "2026-11-03T18:26:22Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1007,10 +1007,10 @@
       },
       "openPullRequests": [],
       "release": {
-        "currentVersion": null,
-        "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder, not a release.",
+        "currentVersion": "1.0.0",
+        "currentVersionSource": "Production showcase release 1.0.0 approved by Joshua Small (evidence personal-portfolio-owner-final-verification-2026-11-03). Website release; no npm publication or GitHub tag is claimed.",
         "targetVersion": "1.0.0",
-        "releaseStatus": "ready_for_review",
+        "releaseStatus": "released",
         "scopeDocument": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/773fca08a2e33b213e51577315381f08ff601208/docs/release/2026-11-portfolio-release.md",
         "blockers": [
           {
@@ -1057,29 +1057,18 @@
           },
           {
             "id": "owner-approval-awaits-verification",
-            "description": "Superseded by current scope and acceptance evidence and the single consolidated final owner attestation task. No implementation pass or new owner approval is inferred.",
+            "description": "Resolved by Joshua Small final verification and release approval on 2026-11-03; scope/version, existing manual checks and linked evidence are accepted in the consolidated attestation.",
             "status": "resolved",
             "evidenceRefs": [
               "pf-owner-approval-2026-11-02",
-              "personal-portfolio-closeout-review-2026-11-03"
-            ],
-            "category": "approval",
-            "blocks": "release",
-            "gates": []
-          },
-          {
-            "id": "final-verifier-attestation",
-            "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested.",
-            "status": "open",
-            "evidenceRefs": [
-              "personal-portfolio-closeout-review-2026-11-03"
+              "personal-portfolio-owner-final-verification-2026-11-03"
             ],
             "category": "approval",
             "blocks": "release",
             "gates": []
           }
         ],
-        "nextAction": "Review the single consolidated closeout package; give a durable final verifier attestation and approve proposed 1.0.0 scope/version. Agent then transcribes actual evidence and completes released/maintenance records without duplicate manual checks.",
+        "nextAction": "Maintenance only: address regressions and security issues as they arise; optional enhancements remain on the project roadmap. Do not reopen this accepted release for missing transcription of already completed checks.",
         "enhancements": [
           "Optional items in ROADMAP.md (never reopen the release)."
         ]
@@ -1090,12 +1079,15 @@
         "approvalOwner": "Joshua Small"
       },
       "approval": {
-        "status": "pending",
-        "approvedBy": null,
-        "approvedAt": null,
-        "evidenceRefs": []
+        "status": "approved",
+        "approvedBy": "Joshua Small",
+        "approvedAt": "2026-11-03T18:48:55Z",
+        "evidenceRefs": [
+          "pf-owner-approval-2026-11-02",
+          "personal-portfolio-owner-final-verification-2026-11-03"
+        ]
       },
-      "lastVerifiedAt": "2026-10-22T16:33:00Z",
+      "lastVerifiedAt": "2026-11-03T18:48:55Z",
       "evidence": [
         {
           "id": "pf-repo-metadata",
@@ -1240,171 +1232,137 @@
           "eventKey": "personal-portfolio:workflow_run:ci.yml/773fca0/j3or7uu/1"
         },
         {
-          "id": "sync-personal-portfolio-run-production-smoke-yml-773fca0-j4krveb-1",
+          "id": "sync-personal-portfolio-run-production-smoke-yml-773fca0-j5j1w6h-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41635621811",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41693196329",
           "commitSha": "773fca08a2e33b213e51577315381f08ff601208",
-          "verifiedAt": "2026-11-03T12:25:57Z",
+          "verifiedAt": "2026-11-03T18:22:41Z",
           "result": "builder_reported",
           "description": "Automated observation: workflow production-smoke.yml (\"Production smoke check\") concluded success on main at 773fca0 (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "personal-portfolio:workflow_run:production-smoke.yml/773fca0/j4krveb/1"
+          "eventKey": "personal-portfolio:workflow_run:production-smoke.yml/773fca0/j5j1w6h/1"
         },
         {
-          "id": "personal-portfolio-closeout-review-2026-11-03",
-          "type": "audit",
-          "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
-          "commitSha": null,
-          "verifiedAt": "2026-11-03T16:48:16Z",
-          "result": "informational",
-          "description": "Codex reviewed current CI and committed acceptance records. Consolidated final owner attestation remains pending; no gate is verified and no approval is granted by this report.",
-          "recordedBy": "Codex",
-          "origin": "ai-assessment"
-        },
-        {
-          "id": "personal-portfolio-acceptance-current-2026-11-03",
-          "type": "document",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/blob/773fca08a2e33b213e51577315381f08ff601208/docs/release/ACCEPTANCE.md",
+          "id": "personal-portfolio-owner-final-verification-2026-11-03",
+          "type": "manual_test",
+          "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/88#issuecomment-6612638149",
           "commitSha": "773fca08a2e33b213e51577315381f08ff601208",
-          "verifiedAt": "2026-11-03T16:48:16Z",
-          "result": "informational",
-          "description": "Current committed release and owner-results record, read by Codex. Preserve its owner-reported provenance; final consolidated verifier attestation remains pending.",
-          "recordedBy": "Codex"
-        },
-        {
-          "id": "personal-portfolio-ci-current-2026-11-03",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41581843590",
-          "commitSha": "773fca08a2e33b213e51577315381f08ff601208",
-          "verifiedAt": "2026-11-03T16:48:16Z",
-          "result": "builder_reported",
-          "description": "Codex checked GitHub: CI completed successfully on the reviewed default-branch head. This records project CI evidence and does not impersonate the assigned human verifier.",
-          "recordedBy": "Codex",
-          "origin": "builder-report",
-          "eventKey": "personal-portfolio:closeout_ci:2026-11-03"
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "result": "pass",
+          "description": "Joshua Small explicitly reviewed and accepted the closeout package, confirmed his recorded manual checks, accepted the linked evidence for all ten Showcase gates and approved release 1.0.0. Transcribed by Codex at his direction; this is his verifier attestation, not new AI verification or a claim of repeated tests.",
+          "recordedBy": "Joshua Small"
         }
       ],
       "releaseGates": [
         {
           "id": "scope-complete",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "pf-release-record-829ffc8",
             "pf-owner-approval-2026-11-02",
-            "personal-portfolio-closeout-review-2026-11-03",
-            "personal-portfolio-acceptance-current-2026-11-03"
+            "personal-portfolio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Scope is section 1 of the release record; Joshua Small approved release 1.0 on 2026-11-02 (owner decision). Verifier records a pass."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "automated-checks",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "pf-ci-run-1435e75",
-            "personal-portfolio-closeout-review-2026-11-03",
-            "personal-portfolio-acceptance-current-2026-11-03",
-            "personal-portfolio-ci-current-2026-11-03"
+            "personal-portfolio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "CI green on main at 1435e75 (builder evidence from sync). Verifier re-checks at the release commit."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "security-privacy-review",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "pf-release-record-829ffc8",
             "pf-owner-approval-2026-11-02",
-            "personal-portfolio-closeout-review-2026-11-03",
-            "personal-portfolio-acceptance-current-2026-11-03"
+            "personal-portfolio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Builder review in the release record (headers, contact abuse controls, secret scan of all commits, npm audit, privacy). Owner approved the privacy note and accepted three known limits. Verifier records a pass."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "wcag-22-aa",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "pf-release-record-829ffc8",
             "pf-owner-postdeploy-2026-11-02",
-            "personal-portfolio-closeout-review-2026-11-03",
-            "personal-portfolio-acceptance-current-2026-11-03"
+            "personal-portfolio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "axe WCAG 2.2 A/AA 0 violations (builder); gradient-text contrast and reduced motion pass (owner-reported). Verifier records a pass."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "keyboard-screen-reader",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "pf-release-record-829ffc8",
             "pf-owner-a11y-2026-11-02",
-            "personal-portfolio-closeout-review-2026-11-03",
-            "personal-portfolio-acceptance-current-2026-11-03"
+            "personal-portfolio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Keyboard: 68 tab stops with visible focus (builder). Screen reader passes (owner-reported 2026-11-02; screen reader not stated). Verifier records a pass."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "responsive-layouts",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "pf-release-record-829ffc8",
             "pf-owner-a11y-2026-11-02",
-            "personal-portfolio-closeout-review-2026-11-03",
-            "personal-portfolio-acceptance-current-2026-11-03"
+            "personal-portfolio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "390x844 and 1440x900 without horizontal scroll (builder). 200% zoom passes (owner-reported 2026-11-02; browser not stated). Verifier records a pass."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "critical-workflows",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "personal-portfolio-owner-report-2026-11-02",
             "pf-smoke-run-1435e75",
             "pf-owner-postdeploy-2026-11-02",
-            "personal-portfolio-closeout-review-2026-11-03",
-            "personal-portfolio-acceptance-current-2026-11-03"
+            "personal-portfolio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Contact form delivery confirmed by the owner; production smoke check green at 1435e75 (validation only, sends nothing); navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "production-deployment",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "personal-portfolio-vercel-1435e75",
-            "personal-portfolio-closeout-review-2026-11-03",
-            "personal-portfolio-acceptance-current-2026-11-03"
+            "personal-portfolio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Vercel serves the main head (informational). Verifier confirms the release commit in production."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "documentation-accurate",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "pf-repo-metadata",
             "pf-readme-5f0a849",
             "pf-release-record-1435e75",
             "pf-release-record-829ffc8",
-            "personal-portfolio-closeout-review-2026-11-03",
-            "personal-portfolio-acceptance-current-2026-11-03"
+            "personal-portfolio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "README describes the site and the release record is on main. Verifier reviews at the release commit."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "no-release-blockers",
-          "status": "not_verified",
+          "status": "verified",
           "evidenceRefs": [
-            "personal-portfolio-closeout-review-2026-11-03",
-            "personal-portfolio-acceptance-current-2026-11-03"
+            "personal-portfolio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Final consolidated human verifier attestation pending; completed code and owner checks must not be repeated."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         }
       ],
       "modsPack": {
@@ -1419,14 +1377,12 @@
           "No modspack.config.json, .claude/guardrail-mods/ config or ModsPack instruction block found on the default branch at 684ef3c. ModsPack 2.0 is unreleased (PR #3 draft)."
         ]
       },
-      "missingEvidence": [
-        "Final consolidated verifier attestation and resulting gate/approval records; see docs/acceptance/final-closeout-2026-11-03.md."
-      ],
+      "missingEvidence": [],
       "sync": {
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406067959,
-        "lastSyncedAt": "2026-11-03T12:29:15Z",
+        "lastSyncedAt": "2026-11-03T18:26:22Z",
         "lastSyncedHead": "773fca08a2e33b213e51577315381f08ff601208",
         "configSource": "defaults"
       }
@@ -1437,7 +1393,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
       "tier": "showcase",
       "visibility": "public",
-      "lifecycle": "active",
+      "lifecycle": "maintenance",
       "productionUrl": "https://studio.onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
@@ -1455,10 +1411,10 @@
       },
       "openPullRequests": [],
       "release": {
-        "currentVersion": null,
-        "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder.",
+        "currentVersion": "1.0.0",
+        "currentVersionSource": "Production showcase release 1.0.0 approved by Joshua Small (evidence one-small-studio-owner-final-verification-2026-11-03). Website release; no npm publication or GitHub tag is claimed.",
         "targetVersion": "1.0.0",
-        "releaseStatus": "ready_for_review",
+        "releaseStatus": "released",
         "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-studio/blob/b017cfe9c40e2166799ed59187a12d61f76e1763/docs/release/studio-release-evidence.md",
         "blockers": [
           {
@@ -1477,31 +1433,20 @@
           },
           {
             "id": "target-version-undecided",
-            "description": "Superseded by current scope and acceptance evidence and the single consolidated final owner attestation task. No implementation pass or new owner approval is inferred.",
+            "description": "Resolved by Joshua Small final verification and release approval on 2026-11-03; scope/version, existing manual checks and linked evidence are accepted in the consolidated attestation.",
             "status": "resolved",
             "evidenceRefs": [
               "studio-owner-approval-2026-11-02",
-              "one-small-studio-closeout-review-2026-11-03"
+              "one-small-studio-owner-final-verification-2026-11-03"
             ],
             "category": "approval",
             "blocks": "release",
             "gates": [
               "scope-complete"
             ]
-          },
-          {
-            "id": "final-verifier-attestation",
-            "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested.",
-            "status": "open",
-            "evidenceRefs": [
-              "one-small-studio-closeout-review-2026-11-03"
-            ],
-            "category": "approval",
-            "blocks": "release",
-            "gates": []
           }
         ],
-        "nextAction": "Review the single consolidated closeout package; give a durable final verifier attestation and approve proposed 1.0.0 scope/version. Agent then transcribes actual evidence and completes released/maintenance records without duplicate manual checks.",
+        "nextAction": "Maintenance only: address regressions and security issues as they arise; optional enhancements remain on the project roadmap. Do not reopen this accepted release for missing transcription of already completed checks.",
         "enhancements": [
           "Additional music and catalog content (not a code-release blocker).",
           "Optional items in ROADMAP.md (never reopen the release)."
@@ -1513,12 +1458,15 @@
         "approvalOwner": "Joshua Small"
       },
       "approval": {
-        "status": "pending",
-        "approvedBy": null,
-        "approvedAt": null,
-        "evidenceRefs": []
+        "status": "approved",
+        "approvedBy": "Joshua Small",
+        "approvedAt": "2026-11-03T18:48:55Z",
+        "evidenceRefs": [
+          "studio-owner-approval-2026-11-02",
+          "one-small-studio-owner-final-verification-2026-11-03"
+        ]
       },
-      "lastVerifiedAt": "2026-10-22T16:33:00Z",
+      "lastVerifiedAt": "2026-11-03T18:48:55Z",
       "evidence": [
         {
           "id": "studio-repo-metadata",
@@ -1643,157 +1591,123 @@
           "description": "CI (push) concluded success on main at 4c46d0d. Builder evidence."
         },
         {
-          "id": "one-small-studio-closeout-review-2026-11-03",
-          "type": "audit",
-          "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
-          "commitSha": null,
-          "verifiedAt": "2026-11-03T16:48:16Z",
-          "result": "informational",
-          "description": "Codex reviewed current CI and committed acceptance records. Consolidated final owner attestation remains pending; no gate is verified and no approval is granted by this report.",
-          "recordedBy": "Codex",
-          "origin": "ai-assessment"
-        },
-        {
-          "id": "one-small-studio-acceptance-current-2026-11-03",
-          "type": "document",
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/blob/b017cfe9c40e2166799ed59187a12d61f76e1763/docs/release/studio-release-acceptance.md",
+          "id": "one-small-studio-owner-final-verification-2026-11-03",
+          "type": "manual_test",
+          "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/88#issuecomment-6612638149",
           "commitSha": "b017cfe9c40e2166799ed59187a12d61f76e1763",
-          "verifiedAt": "2026-11-03T16:48:16Z",
-          "result": "informational",
-          "description": "Current committed release and owner-results record, read by Codex. Preserve its owner-reported provenance; final consolidated verifier attestation remains pending.",
-          "recordedBy": "Codex"
-        },
-        {
-          "id": "one-small-studio-ci-current-2026-11-03",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/41573669907",
-          "commitSha": "b017cfe9c40e2166799ed59187a12d61f76e1763",
-          "verifiedAt": "2026-11-03T16:48:16Z",
-          "result": "builder_reported",
-          "description": "Codex checked GitHub: CI completed successfully on the reviewed default-branch head. This records project CI evidence and does not impersonate the assigned human verifier.",
-          "recordedBy": "Codex",
-          "origin": "builder-report",
-          "eventKey": "one-small-studio:closeout_ci:2026-11-03"
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "result": "pass",
+          "description": "Joshua Small explicitly reviewed and accepted the closeout package, confirmed his recorded manual checks, accepted the linked evidence for all ten Showcase gates and approved release 1.0.0. Transcribed by Codex at his direction; this is his verifier attestation, not new AI verification or a claim of repeated tests.",
+          "recordedBy": "Joshua Small"
         }
       ],
       "releaseGates": [
         {
           "id": "scope-complete",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "studio-release-record-9310334",
             "studio-owner-approval-2026-11-02",
-            "one-small-studio-closeout-review-2026-11-03",
-            "one-small-studio-acceptance-current-2026-11-03"
+            "one-small-studio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Scope in studio-release-evidence.md, approved by the owner 2026-11-02; version not chosen. Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "automated-checks",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "studio-ci-main",
             "studio-ci-run-9310334",
             "studio-ci-run-4c46d0d",
-            "one-small-studio-closeout-review-2026-11-03",
-            "one-small-studio-acceptance-current-2026-11-03",
-            "one-small-studio-ci-current-2026-11-03"
+            "one-small-studio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "CI green on main at 9310334 and 4c46d0d (builder evidence). Verifier re-checks at the release commit."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "security-privacy-review",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "studio-release-record-9310334",
             "studio-owner-checks-ab-2026-11-02",
             "studio-owner-approval-2026-11-02",
-            "one-small-studio-closeout-review-2026-11-03",
-            "one-small-studio-acceptance-current-2026-11-03"
+            "one-small-studio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "History secret scan, npm audit 0, CSP tests (builder); live headers owner-reported (check A); risks accepted by the owner. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "wcag-22-aa",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "studio-release-record-9310334",
-            "one-small-studio-closeout-review-2026-11-03",
-            "one-small-studio-acceptance-current-2026-11-03"
+            "one-small-studio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "axe WCAG 2.2 A/AA: 0 violations on desktop and phone, also with reduced motion and SoundCloud down (builder e2e tests). Verifier re-checks."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "keyboard-screen-reader",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "studio-release-record-9310334",
             "studio-owner-checks-ab-2026-11-02",
-            "one-small-studio-closeout-review-2026-11-03",
-            "one-small-studio-acceptance-current-2026-11-03"
+            "one-small-studio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Keyboard tests for every control (builder); screen reader walk-through owner-reported (check B). Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "responsive-layouts",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "studio-release-record-9310334",
-            "one-small-studio-closeout-review-2026-11-03",
-            "one-small-studio-acceptance-current-2026-11-03"
+            "one-small-studio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "axe and e2e at desktop and phone viewports (builder). Verifier checks layouts."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "critical-workflows",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "one-small-studio-owner-report-2026-11-02",
-            "one-small-studio-closeout-review-2026-11-03",
-            "one-small-studio-acceptance-current-2026-11-03"
+            "one-small-studio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Contact email arrives and music plays (owner-reported 2026-11-02); player fallback covered by e2e/resilience.spec.ts (builder). not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "production-deployment",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "studio-vercel-4c46d0d",
             "one-small-studio-vercel-9310334",
-            "one-small-studio-closeout-review-2026-11-03",
-            "one-small-studio-acceptance-current-2026-11-03"
+            "one-small-studio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Vercel serves the main head 4c46d0d (informational). Verifier confirms the release commit in production."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "documentation-accurate",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "studio-owner-docs-2026-10-31",
             "studio-release-record-9310334",
-            "one-small-studio-closeout-review-2026-11-03",
-            "one-small-studio-acceptance-current-2026-11-03"
+            "one-small-studio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Owner said the documentation looks good (2026-10-31, README unchanged since d6854de); DEPLOYMENT.md and release records on main. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "no-release-blockers",
-          "status": "not_verified",
+          "status": "verified",
           "evidenceRefs": [
-            "one-small-studio-closeout-review-2026-11-03",
-            "one-small-studio-acceptance-current-2026-11-03"
+            "one-small-studio-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Final consolidated human verifier attestation pending; completed code and owner checks must not be repeated."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         }
       ],
       "modsPack": {
@@ -1808,9 +1722,7 @@
           "No modspack.config.json, .claude/guardrail-mods/ config or ModsPack instruction block found on the default branch at 923fb11. ModsPack 2.0 is unreleased (PR #3 draft)."
         ]
       },
-      "missingEvidence": [
-        "Final consolidated verifier attestation and resulting gate/approval records; see docs/acceptance/final-closeout-2026-11-03.md."
-      ],
+      "missingEvidence": [],
       "sync": {
         "enabled": true,
         "mode": "observe",
@@ -1826,13 +1738,13 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
       "tier": "showcase",
       "visibility": "public",
-      "lifecycle": "active",
+      "lifecycle": "maintenance",
       "productionUrl": "https://photo.onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
         "headSha": "d70f75f04942f8026871c701a4b69460d088ae34",
         "archived": false,
-        "observedAt": "2026-11-03T17:00:00Z",
+        "observedAt": "2026-11-03T18:28:29Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1844,40 +1756,30 @@
       },
       "openPullRequests": [],
       "release": {
-        "currentVersion": null,
-        "currentVersionSource": "No tags or releases. package.json 0.1.0 is a private placeholder.",
+        "currentVersion": "1.0.0",
+        "currentVersionSource": "Production showcase release 1.0.0 approved by Joshua Small (evidence one-small-photography-owner-final-verification-2026-11-03). Website release; no npm publication or GitHub tag is claimed.",
         "targetVersion": "1.0.0",
-        "releaseStatus": "ready_for_review",
+        "releaseStatus": "released",
         "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
         "blockers": [
           {
             "id": "scope-document-missing",
-            "description": "Superseded by current scope and acceptance evidence and the single consolidated final owner attestation task. No implementation pass or new owner approval is inferred.",
+            "description": "Resolved by Joshua Small final verification and release approval on 2026-11-03; scope/version, existing manual checks and linked evidence are accepted in the consolidated attestation.",
             "status": "resolved",
             "evidenceRefs": [
               "photo-repo-metadata",
-              "photo-release-record-e3bc6d2",
-              "one-small-photography-closeout-review-2026-11-03"
+              "photo-release-record-d70f75f",
+              "photo-closeout-pr-29",
+              "one-small-photography-owner-final-verification-2026-11-03"
             ],
             "category": "scope",
             "blocks": "release",
             "gates": [
               "scope-complete"
             ]
-          },
-          {
-            "id": "final-verifier-attestation",
-            "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested.",
-            "status": "open",
-            "evidenceRefs": [
-              "one-small-photography-closeout-review-2026-11-03"
-            ],
-            "category": "approval",
-            "blocks": "release",
-            "gates": []
           }
         ],
-        "nextAction": "Review the single consolidated closeout package; give a durable final verifier attestation and approve proposed 1.0.0 scope/version. Agent then transcribes actual evidence and completes released/maintenance records without duplicate manual checks.",
+        "nextAction": "Maintenance only: address regressions and security issues as they arise; optional enhancements remain on the project roadmap. Do not reopen this accepted release for missing transcription of already completed checks.",
         "enhancements": [
           "Additional photos and albums (not a code-release blocker).",
           "Build-time advisory upgrade, CI accessibility check, contact note retention: https://github.com/WasteOfADrumBum/one-small-photography/blob/main/ROADMAP.md (never reopen the release)."
@@ -1889,12 +1791,14 @@
         "approvalOwner": "Joshua Small"
       },
       "approval": {
-        "status": "pending",
-        "approvedBy": null,
-        "approvedAt": null,
-        "evidenceRefs": []
+        "status": "approved",
+        "approvedBy": "Joshua Small",
+        "approvedAt": "2026-11-03T18:48:55Z",
+        "evidenceRefs": [
+          "one-small-photography-owner-final-verification-2026-11-03"
+        ]
       },
-      "lastVerifiedAt": "2026-11-03T17:00:00Z",
+      "lastVerifiedAt": "2026-11-03T18:48:55Z",
       "evidence": [
         {
           "id": "photo-repo-metadata",
@@ -2007,30 +1911,6 @@
           "description": "CI (push) concluded success on main at e3bc6d2 with the read-only token from PR #22. Builder evidence."
         },
         {
-          "id": "sync-one-small-photography-run-ci-yml-a1227ca-j4vunmt-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41654227493",
-          "commitSha": "a1227cad9e707abad47692cafdc2b43d4a4f9635",
-          "verifiedAt": "2026-11-03T14:31:18Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at a1227ca (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:ci.yml/a1227ca/j4vunmt/1"
-        },
-        {
-          "id": "sync-one-small-photography-run-production-smoke-yml-a1227ca-j51rscy-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41664171346",
-          "commitSha": "a1227cad9e707abad47692cafdc2b43d4a4f9635",
-          "verifiedAt": "2026-11-03T15:28:15Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke\") concluded success on main at a1227ca (workflow_dispatch event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:production-smoke.yml/a1227ca/j51rscy/1"
-        },
-        {
           "id": "photo-closeout-pr-28",
           "type": "pull_request",
           "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/28",
@@ -2081,167 +1961,140 @@
           "recordedBy": "Claude Code"
         },
         {
-          "id": "one-small-photography-closeout-review-2026-11-03",
-          "type": "audit",
-          "url": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/codex/final-closeout-2026-11-03/docs/acceptance/final-closeout-2026-11-03.md",
-          "commitSha": null,
-          "verifiedAt": "2026-11-03T16:48:16Z",
-          "result": "informational",
-          "description": "Codex reviewed current CI and committed acceptance records. Consolidated final owner attestation remains pending; no gate is verified and no approval is granted by this report.",
-          "recordedBy": "Codex",
-          "origin": "ai-assessment"
-        },
-        {
-          "id": "one-small-photography-acceptance-current-2026-11-03",
-          "type": "document",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
-          "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
-          "verifiedAt": "2026-11-03T16:48:16Z",
-          "result": "informational",
-          "description": "Current committed release and owner-results record, read by Codex. Preserve its owner-reported provenance; final consolidated verifier attestation remains pending.",
-          "recordedBy": "Codex"
-        },
-        {
-          "id": "one-small-photography-ci-current-2026-11-03",
+          "id": "sync-one-small-photography-run-ci-yml-d70f75f-j58trwr-1",
           "type": "workflow_run",
           "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41676021387",
           "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
-          "verifiedAt": "2026-11-03T16:48:16Z",
+          "verifiedAt": "2026-11-03T16:38:17Z",
           "result": "builder_reported",
-          "description": "Codex checked GitHub: CI completed successfully on the reviewed default-branch head. This records project CI evidence and does not impersonate the assigned human verifier.",
-          "recordedBy": "Codex",
-          "origin": "builder-report",
-          "eventKey": "one-small-photography:closeout_ci:2026-11-03"
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at d70f75f (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-photography:workflow_run:ci.yml/d70f75f/j58trwr/1"
+        },
+        {
+          "id": "one-small-photography-owner-final-verification-2026-11-03",
+          "type": "manual_test",
+          "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/88#issuecomment-6612638149",
+          "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "result": "pass",
+          "description": "Joshua Small explicitly reviewed and accepted the closeout package, confirmed his recorded manual checks, accepted the linked evidence for all ten Showcase gates and approved release 1.0.0. Transcribed by Codex at his direction; this is his verifier attestation, not new AI verification or a claim of repeated tests.",
+          "recordedBy": "Joshua Small"
         }
       ],
       "releaseGates": [
         {
           "id": "scope-complete",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "photo-release-record-d70f75f",
             "photo-closeout-pr-29",
-            "photo-release-record-e3bc6d2",
-            "one-small-photography-closeout-review-2026-11-03",
-            "one-small-photography-acceptance-current-2026-11-03"
+            "one-small-photography-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Scope recorded in docs/RELEASE.md; not approved (section 6 blank). Human-only gate."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "automated-checks",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "photo-ci-main",
             "photo-ci-run-c850853",
             "photo-ci-run-e3bc6d2",
             "photo-ci-run-d70f75f",
-            "one-small-photography-closeout-review-2026-11-03",
-            "one-small-photography-acceptance-current-2026-11-03",
-            "one-small-photography-ci-current-2026-11-03"
+            "one-small-photography-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "CI green on main at c850853 and e3bc6d2 (builder evidence). Verifier re-checks at the release commit."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "security-privacy-review",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "photo-release-record-d70f75f",
             "photo-closeout-pr-22",
             "photo-owner-report-2026-11-03",
-            "photo-release-record-e3bc6d2",
-            "one-small-photography-closeout-review-2026-11-03",
-            "one-small-photography-acceptance-current-2026-11-03"
+            "one-small-photography-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Builder security table (auth, CSRF, sessions, uploads, headers, history scan); 4 moderate build-time advisories await owner disposition. Verifier reviews."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "wcag-22-aa",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "photo-release-record-d70f75f",
             "photo-closeout-pr-28",
-            "photo-release-record-e3bc6d2",
-            "one-small-photography-closeout-review-2026-11-03",
-            "one-small-photography-acceptance-current-2026-11-03"
+            "one-small-photography-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Photography PR #28 recorded WCAG 2.2 automated/manual-inspection fixes and coverage; owner accessibility checks subsequently passed. Final verifier attestation pending."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "keyboard-screen-reader",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "photo-owner-report-2026-11-03",
-            "one-small-photography-closeout-review-2026-11-03",
-            "one-small-photography-acceptance-current-2026-11-03"
+            "one-small-photography-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Keyboard, Narrator and phone checks passed by owner report, recorded in merged photography PR #29. Final verifier attestation pending; do not repeat tests."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "responsive-layouts",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "photo-release-record-d70f75f",
             "photo-owner-report-2026-11-03",
-            "photo-release-record-e3bc6d2",
-            "one-small-photography-closeout-review-2026-11-03",
-            "one-small-photography-acceptance-current-2026-11-03"
+            "one-small-photography-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Chromium at phone and desktop widths, no horizontal overflow (builder). Real iOS/Android not tested."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "critical-workflows",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "one-small-photography-owner-report-2026-11-02",
             "photo-smoke-run-c850853",
             "photo-release-record-d70f75f",
             "photo-owner-report-2026-11-03",
-            "one-small-photography-closeout-review-2026-11-03",
-            "one-small-photography-acceptance-current-2026-11-03"
+            "one-small-photography-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Contact and galleries owner-reported; backup script verified and copied; retained B2 image retrieved after site deletion; unencrypted-copy risk expressly accepted. File recovery only, not reconstruction of the deleted database row."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "production-deployment",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "photo-vercel-e3bc6d2",
             "one-small-photography-vercel-c850853",
             "photo-release-record-d70f75f",
-            "one-small-photography-closeout-review-2026-11-03",
-            "one-small-photography-acceptance-current-2026-11-03"
+            "one-small-photography-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Vercel serves the main head e3bc6d2 (informational). Verifier confirms the release commit in production."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "documentation-accurate",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "photo-release-record-d70f75f",
-            "photo-release-record-e3bc6d2",
-            "one-small-photography-closeout-review-2026-11-03",
-            "one-small-photography-acceptance-current-2026-11-03"
+            "one-small-photography-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "RELEASE.md, RECOVERY.md and ROADMAP.md on main (builder). Verifier reviews at the release commit."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         },
         {
           "id": "no-release-blockers",
-          "status": "not_verified",
+          "status": "verified",
           "evidenceRefs": [
-            "one-small-photography-closeout-review-2026-11-03",
-            "one-small-photography-acceptance-current-2026-11-03"
+            "one-small-photography-owner-final-verification-2026-11-03"
           ],
-          "verifiedAt": null,
-          "notes": "Final consolidated human verifier attestation pending; completed code and owner checks must not be repeated."
+          "verifiedAt": "2026-11-03T18:48:55Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex."
         }
       ],
       "modsPack": {
@@ -2256,15 +2109,13 @@
           "No modspack.config.json, .claude/guardrail-mods/ config or ModsPack instruction block found on the default branch at 2471b18. ModsPack 2.0 is unreleased (PR #3 draft)."
         ]
       },
-      "missingEvidence": [
-        "Final consolidated verifier attestation and resulting gate/approval records; see docs/acceptance/final-closeout-2026-11-03.md."
-      ],
+      "missingEvidence": [],
       "sync": {
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-11-03T16:17:43Z",
-        "lastSyncedHead": "a1227cad9e707abad47692cafdc2b43d4a4f9635",
+        "lastSyncedAt": "2026-11-03T18:28:29Z",
+        "lastSyncedHead": "d70f75f04942f8026871c701a4b69460d088ae34",
         "configSource": "defaults"
       }
     },

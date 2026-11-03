@@ -10,9 +10,9 @@ States: Not Ready -> Blocked -> Verification Required -> Candidate Ready -> Awai
 | --- | --- | --- | --- | --- |
 | One Small ModsPack | Blocked | PR #3 at c747cbd | 0/21 | 7 open registry blocker(s): pr-description-stale, codex-interactive-trust, copilot-gemini-runtime-untested, manual-screen-reader-review, manual-zoom-forced-colors-review, npm-ownership-access, publish-pipeline-missing |
 | OneSmallUI | Blocked | PR #34 at 9a13c9e | 0/22 | 1 critical/high defect(s) at 94438ee: dependency-audit |
-| Personal Portfolio | Verification Required | none | 0/10 | 9 of 9 pre-publication gate(s) not independently verified; no release candidate commit recorded; derived blockers: auto-critical-workflows-unverified, auto-missing-verification, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-keyboard-screen-reader, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa |
-| One Small Studio | Verification Required | none | 0/10 | 9 of 9 pre-publication gate(s) not independently verified; no release candidate commit recorded; derived blockers: auto-critical-workflows-unverified, auto-missing-verification, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa |
-| One Small Photography | Verification Required | none | 0/10 | 9 of 9 pre-publication gate(s) not independently verified; no release candidate commit recorded; derived blockers: auto-critical-workflows-unverified, auto-missing-verification, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa |
+| Personal Portfolio | Verification Required | none | 0/10 | 9 of 9 pre-publication gate(s) not independently verified; no release candidate commit recorded; derived blockers: auto-critical-workflows-unverified, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa; recorded approval is not bound to the candidate: no release candidate commit is recorded |
+| One Small Studio | Verification Required | none | 0/10 | 9 of 9 pre-publication gate(s) not independently verified; no release candidate commit recorded; derived blockers: auto-critical-workflows-unverified, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa; recorded approval is not bound to the candidate: no release candidate commit is recorded |
+| One Small Photography | Verification Required | none | 0/10 | 9 of 9 pre-publication gate(s) not independently verified; no release candidate commit recorded; derived blockers: auto-critical-workflows-unverified, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa; recorded approval is not bound to the candidate: no release candidate commit is recorded |
 | TaskForge | Not Ready | none | 0/20 | no target version |
 | Cortex | Not Ready | none | 0/20 | no target version |
 | One Small AI Workforce | Not Ready | none | 0/20 | no target version |
@@ -44,9 +44,9 @@ States: Not Ready -> Blocked -> Verification Required -> Candidate Ready -> Awai
 ## Personal Portfolio
 
 - State: Verification Required; candidate revision 56ea76e631008695d6b8c4cd6ee8fecd2ae5e302 (live head of main)
-- Version: 1.0.0 (registry target)
+- Version: 1.0.0 (registry target; current 1.0.0)
 - Missing independent verification: scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers
-- Active blockers: final-verifier-attestation, auto-critical-workflows-unverified, auto-missing-verification, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-keyboard-screen-reader, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa
+- Active blockers: auto-critical-workflows-unverified, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa
 - Dependency readiness: no declared or detected dependencies
 - Manual testing required: scope-complete (human only), security-privacy-review, wcag-22-aa, keyboard-screen-reader (human only), responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers (human only)
 - Approvals required: Joshua Small (release approval, recorded in the registry with evidence)
@@ -56,9 +56,9 @@ States: Not Ready -> Blocked -> Verification Required -> Candidate Ready -> Awai
 ## One Small Studio
 
 - State: Verification Required; candidate revision d6854deb5cb40e248a7b464f7995b08ce93aaf5e (live head of main)
-- Version: 1.0.0 (registry target)
+- Version: 1.0.0 (registry target; current 1.0.0)
 - Missing independent verification: scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers
-- Active blockers: final-verifier-attestation, auto-critical-workflows-unverified, auto-missing-verification, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa
+- Active blockers: auto-critical-workflows-unverified, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa
 - Dependency readiness: no declared or detected dependencies
 - Manual testing required: scope-complete (human only), security-privacy-review, wcag-22-aa, keyboard-screen-reader (human only), responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers (human only)
 - Approvals required: Joshua Small (release approval, recorded in the registry with evidence)
@@ -68,9 +68,9 @@ States: Not Ready -> Blocked -> Verification Required -> Candidate Ready -> Awai
 ## One Small Photography
 
 - State: Verification Required; candidate revision fa2d17fd66ee9bb3d92473dc68a6818ea284711b (live head of main)
-- Version: 1.0.0 (registry target)
+- Version: 1.0.0 (registry target; current 1.0.0)
 - Missing independent verification: scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers
-- Active blockers: final-verifier-attestation, auto-critical-workflows-unverified, auto-missing-verification, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa
+- Active blockers: auto-critical-workflows-unverified, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa
 - Dependency readiness: no declared or detected dependencies
 - Manual testing required: scope-complete (human only), security-privacy-review, wcag-22-aa, keyboard-screen-reader (human only), responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers (human only)
 - Approvals required: Joshua Small (release approval, recorded in the registry with evidence)

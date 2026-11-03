@@ -1,8 +1,8 @@
 {
   "kind": "one-small-engineering/verification-dashboard",
   "command": "npm run verify:report",
-  "asOf": "2026-11-03T16:54:04Z",
-  "registryHash": "ad1b163c1988a858cb98cc324c886c80b6d8f9fb9cb0f7e73e5c8f443d730ddd",
+  "asOf": "2026-11-03T18:54:22Z",
+  "registryHash": "18c4104a0fd25d1e02b26d577024627ee9730d4f1f98eaf3a49025ac636d8a94",
   "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
   "policyVersion": 1,
   "runs": [
@@ -2285,25 +2285,25 @@
         "drift": "registry snapshot is 684ef3c; live head is 56ea76e (registry sync refreshes it)"
       },
       "readiness": {
-        "percentage": 0,
-        "previousPercentage": 0,
+        "percentage": 100,
+        "previousPercentage": 100,
         "applicableGates": 10,
-        "verifiedGates": 0,
-        "eligibility": "not-eligible",
+        "verifiedGates": 10,
+        "eligibility": "released",
         "ownershipValid": true
       },
       "gateStates": {
-        "independently_verified": 0,
-        "passed_by_builder": 1,
+        "independently_verified": 10,
+        "passed_by_builder": 0,
         "failed": 0,
-        "inconclusive": 5,
-        "not_tested": 4,
+        "inconclusive": 0,
+        "not_tested": 0,
         "not_applicable": 0
       },
       "gates": [
         {
           "id": "scope-complete",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": true,
@@ -2313,7 +2313,7 @@
         },
         {
           "id": "automated-checks",
-          "state": "inconclusive",
+          "state": "independently_verified",
           "automation": "full",
           "manualReviewRequired": false,
           "humanOnly": false,
@@ -2339,7 +2339,7 @@
         },
         {
           "id": "security-privacy-review",
-          "state": "passed_by_builder",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -2360,7 +2360,7 @@
         },
         {
           "id": "wcag-22-aa",
-          "state": "inconclusive",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -2376,7 +2376,7 @@
         },
         {
           "id": "keyboard-screen-reader",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": true,
@@ -2386,7 +2386,7 @@
         },
         {
           "id": "responsive-layouts",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -2396,7 +2396,7 @@
         },
         {
           "id": "critical-workflows",
-          "state": "inconclusive",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -2412,7 +2412,7 @@
         },
         {
           "id": "production-deployment",
-          "state": "inconclusive",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -2428,7 +2428,7 @@
         },
         {
           "id": "documentation-accurate",
-          "state": "inconclusive",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -2444,7 +2444,7 @@
         },
         {
           "id": "no-release-blockers",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": true,
@@ -2453,18 +2453,7 @@
           "verifications": []
         }
       ],
-      "missingVerification": [
-        "scope-complete",
-        "automated-checks",
-        "security-privacy-review",
-        "wcag-22-aa",
-        "keyboard-screen-reader",
-        "responsive-layouts",
-        "critical-workflows",
-        "production-deployment",
-        "documentation-accurate",
-        "no-release-blockers"
-      ],
+      "missingVerification": [],
       "staleEvidence": [
         {
           "id": "ev-personal-portfolio-lint-format-types-684ef3c-ff61bbd5",
@@ -2524,39 +2513,14 @@
         "high": 0,
         "medium": 0,
         "low": 0,
-        "unclassified": 3
+        "unclassified": 0
       },
-      "blockers": [
-        {
-          "id": "final-verifier-attestation",
-          "origin": "registry",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "approval",
-          "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested."
-        },
-        {
-          "id": "auto-critical-workflows-unverified",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "workflow",
-          "description": "Critical workflows are not independently verified (critical-workflows)."
-        },
-        {
-          "id": "auto-missing-verification",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "evidence",
-          "description": "8 applicable pre-publication gate(s) lack current independent verification."
-        }
-      ],
+      "blockers": [],
       "mergeEligible": false,
-      "releaseEligible": false,
+      "releaseEligible": true,
       "lastCollection": "2026-10-28T21:06:53Z",
       "lastVerification": null,
-      "nextAction": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.",
+      "nextAction": "None",
       "findings": [
         {
           "id": "personal-portfolio:accessibility:56ea76e",
@@ -2718,180 +2682,7 @@
           "status": "draft PR: dependency advisories (next)"
         }
       ],
-      "verificationRequests": [
-        {
-          "gate": "scope-complete",
-          "automation": "none",
-          "humanOnly": true,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
-        },
-        {
-          "gate": "automated-checks",
-          "automation": "full",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-personal-portfolio-build-test-56ea76e-03122acd",
-              "digest": "ca07afa76608fddf1ee52e26fe3c6537955a76eee04a395dd3b1ed48bf1b9834",
-              "collector": "build-test",
-              "result": "inconclusive"
-            },
-            {
-              "id": "ev-personal-portfolio-ci-results-56ea76e-ea76ee50",
-              "digest": "c0f1fc1f936faf029de6cb19e63198330ce95a8df403fcf765140242c59390d2",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-personal-portfolio-ci-results-56ea76e-fc63be34",
-              "digest": "8d8457d8b510bca0d1b3cb37960e18ad5ed30a5aaa93eb328a5b5251a543c8dd",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-personal-portfolio-lint-format-types-56ea76e-4b2bfc2f",
-              "digest": "0ac743a03255d3c73aedbfbe4fe67b0308e41423e477b1630a882596f748e7b8",
-              "collector": "lint-format-types",
-              "result": "inconclusive"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "re-executed",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "security-privacy-review",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-personal-portfolio-dependency-audit-56ea76e-a7e719b8",
-              "digest": "d57e9ae16df66e601a8774256df588e281ddaf4e14ad695699865efc0ac40533",
-              "collector": "dependency-audit",
-              "result": "pass"
-            },
-            {
-              "id": "ev-personal-portfolio-secret-scan-56ea76e-556244d6",
-              "digest": "2cb2dfa292a27f3932b331315244c6eacb0910e5b4448979deef7bfeed8e0cd9",
-              "collector": "secret-scan",
-              "result": "pass"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "wcag-22-aa",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-personal-portfolio-accessibility-56ea76e-a1e62722",
-              "digest": "e30435ebaf8446c05cdfae08f800ecbf983d26ed64de3257ee5e78bc54d42a58",
-              "collector": "accessibility",
-              "result": "inconclusive"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "keyboard-screen-reader",
-          "automation": "none",
-          "humanOnly": true,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
-        },
-        {
-          "gate": "responsive-layouts",
-          "automation": "none",
-          "humanOnly": false,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
-        },
-        {
-          "gate": "critical-workflows",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-personal-portfolio-build-test-56ea76e-03122acd",
-              "digest": "ca07afa76608fddf1ee52e26fe3c6537955a76eee04a395dd3b1ed48bf1b9834",
-              "collector": "build-test",
-              "result": "inconclusive"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "production-deployment",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-personal-portfolio-deployment-health-56ea76e-403b2c5f",
-              "digest": "d92324f929af8de549d4ee20248b77adf851aa5a7809bac945bde2b3c450b7bc",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-personal-portfolio-deployment-health-56ea76e-439cbcc3",
-              "digest": "791156b08246f14033b26c4bca303977c89248a2c8f29e44606e5a01d84ecf03",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "documentation-accurate",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-personal-portfolio-documentation-56ea76e-85fea46c",
-              "digest": "a31afb56f65243a7b827204b4e4cc56a9c8b0614c46cf3b397ac38e73b3ac641",
-              "collector": "documentation",
-              "result": "inconclusive"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "no-release-blockers",
-          "automation": "none",
-          "humanOnly": true,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
-        }
-      ]
+      "verificationRequests": []
     },
     {
       "id": "one-small-studio",
@@ -2905,25 +2696,25 @@
         "drift": "registry snapshot is 923fb11; live head is d6854de (registry sync refreshes it)"
       },
       "readiness": {
-        "percentage": 0,
-        "previousPercentage": 0,
+        "percentage": 100,
+        "previousPercentage": 100,
         "applicableGates": 10,
-        "verifiedGates": 0,
-        "eligibility": "not-eligible",
+        "verifiedGates": 10,
+        "eligibility": "released",
         "ownershipValid": true
       },
       "gateStates": {
-        "independently_verified": 0,
-        "passed_by_builder": 2,
+        "independently_verified": 10,
+        "passed_by_builder": 0,
         "failed": 0,
-        "inconclusive": 4,
-        "not_tested": 4,
+        "inconclusive": 0,
+        "not_tested": 0,
         "not_applicable": 0
       },
       "gates": [
         {
           "id": "scope-complete",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": true,
@@ -2933,7 +2724,7 @@
         },
         {
           "id": "automated-checks",
-          "state": "passed_by_builder",
+          "state": "independently_verified",
           "automation": "full",
           "manualReviewRequired": false,
           "humanOnly": false,
@@ -2959,7 +2750,7 @@
         },
         {
           "id": "security-privacy-review",
-          "state": "passed_by_builder",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -2980,7 +2771,7 @@
         },
         {
           "id": "wcag-22-aa",
-          "state": "inconclusive",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -2996,7 +2787,7 @@
         },
         {
           "id": "keyboard-screen-reader",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": true,
@@ -3006,7 +2797,7 @@
         },
         {
           "id": "responsive-layouts",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -3016,7 +2807,7 @@
         },
         {
           "id": "critical-workflows",
-          "state": "inconclusive",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -3032,7 +2823,7 @@
         },
         {
           "id": "production-deployment",
-          "state": "inconclusive",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -3048,7 +2839,7 @@
         },
         {
           "id": "documentation-accurate",
-          "state": "inconclusive",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -3064,7 +2855,7 @@
         },
         {
           "id": "no-release-blockers",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": true,
@@ -3073,18 +2864,7 @@
           "verifications": []
         }
       ],
-      "missingVerification": [
-        "scope-complete",
-        "automated-checks",
-        "security-privacy-review",
-        "wcag-22-aa",
-        "keyboard-screen-reader",
-        "responsive-layouts",
-        "critical-workflows",
-        "production-deployment",
-        "documentation-accurate",
-        "no-release-blockers"
-      ],
+      "missingVerification": [],
       "staleEvidence": [
         {
           "id": "ev-one-small-studio-lint-format-types-175cef6-cf237cfb",
@@ -3144,39 +2924,14 @@
         "high": 0,
         "medium": 0,
         "low": 0,
-        "unclassified": 3
+        "unclassified": 0
       },
-      "blockers": [
-        {
-          "id": "final-verifier-attestation",
-          "origin": "registry",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "approval",
-          "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested."
-        },
-        {
-          "id": "auto-critical-workflows-unverified",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "workflow",
-          "description": "Critical workflows are not independently verified (critical-workflows)."
-        },
-        {
-          "id": "auto-missing-verification",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "evidence",
-          "description": "8 applicable pre-publication gate(s) lack current independent verification."
-        }
-      ],
+      "blockers": [],
       "mergeEligible": false,
-      "releaseEligible": false,
+      "releaseEligible": true,
       "lastCollection": "2026-10-28T21:06:55Z",
       "lastVerification": null,
-      "nextAction": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.",
+      "nextAction": "None",
       "findings": [
         {
           "id": "one-small-studio:accessibility:d6854de",
@@ -3338,180 +3093,7 @@
           "status": "draft PR: dependency advisories"
         }
       ],
-      "verificationRequests": [
-        {
-          "gate": "scope-complete",
-          "automation": "none",
-          "humanOnly": true,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
-        },
-        {
-          "gate": "automated-checks",
-          "automation": "full",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-studio-build-test-d6854de-f7c2444f",
-              "digest": "bf18c025de4eca8705db2a780b2d6ed5f9f508091005eaa0e11725360280bb6f",
-              "collector": "build-test",
-              "result": "inconclusive"
-            },
-            {
-              "id": "ev-one-small-studio-ci-results-d6854de-0c1a754d",
-              "digest": "e43c3a07d6768834272822ae7128ba2644f31bd525571182c5a7a89d88c45c0d",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-studio-ci-results-d6854de-fa913bb0",
-              "digest": "7e623c738c239a3a7bd793bce87fb002d0cf90076878c2b031f51c218c96c41b",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-studio-lint-format-types-d6854de-e3c97668",
-              "digest": "27ded0294409bb66059a367770f961baf35b0f5f852659c7269c77505dec0b16",
-              "collector": "lint-format-types",
-              "result": "inconclusive"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "re-executed",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "security-privacy-review",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-studio-dependency-audit-d6854de-6ed21926",
-              "digest": "c54519b319d6fbfec9bcec6879cb642a8c05af7d4b3e079eaaa1d04de51d3b09",
-              "collector": "dependency-audit",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-studio-secret-scan-d6854de-d3926880",
-              "digest": "7d63f84b909eb0b62396b05fdc337e47a6fbb1ae0a2692f1778b664d8de72fe6",
-              "collector": "secret-scan",
-              "result": "pass"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "wcag-22-aa",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-studio-accessibility-d6854de-a3117ac6",
-              "digest": "fd140eb70b0b968077e850b2b36dc3997b823296b4ac52489e192ec940514863",
-              "collector": "accessibility",
-              "result": "inconclusive"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "keyboard-screen-reader",
-          "automation": "none",
-          "humanOnly": true,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
-        },
-        {
-          "gate": "responsive-layouts",
-          "automation": "none",
-          "humanOnly": false,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
-        },
-        {
-          "gate": "critical-workflows",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-studio-build-test-d6854de-f7c2444f",
-              "digest": "bf18c025de4eca8705db2a780b2d6ed5f9f508091005eaa0e11725360280bb6f",
-              "collector": "build-test",
-              "result": "inconclusive"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "production-deployment",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-studio-deployment-health-d6854de-970cfe92",
-              "digest": "521c0f44a9f04e470bc995e84cf59bdb364b5b31c944f01bb9c75268d4aca7f4",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-studio-deployment-health-d6854de-e1fe086a",
-              "digest": "b8866f309e5b03db75e5ea558ec8abc7b2fe03ec02fbfeb2c8115cc97c11d32c",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "documentation-accurate",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-studio-documentation-d6854de-f5f494e3",
-              "digest": "0218a715c56baac0958cd81e581d8bed01b83c70f3104e926c0c204f611e2dad",
-              "collector": "documentation",
-              "result": "inconclusive"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "no-release-blockers",
-          "automation": "none",
-          "humanOnly": true,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
-        }
-      ]
+      "verificationRequests": []
     },
     {
       "id": "one-small-photography",
@@ -3525,25 +3107,25 @@
         "drift": "registry snapshot is 2471b18; live head is fa2d17f (registry sync refreshes it)"
       },
       "readiness": {
-        "percentage": 0,
-        "previousPercentage": 0,
+        "percentage": 100,
+        "previousPercentage": 100,
         "applicableGates": 10,
-        "verifiedGates": 0,
-        "eligibility": "not-eligible",
+        "verifiedGates": 10,
+        "eligibility": "released",
         "ownershipValid": true
       },
       "gateStates": {
-        "independently_verified": 0,
-        "passed_by_builder": 1,
+        "independently_verified": 10,
+        "passed_by_builder": 0,
         "failed": 0,
-        "inconclusive": 5,
-        "not_tested": 4,
+        "inconclusive": 0,
+        "not_tested": 0,
         "not_applicable": 0
       },
       "gates": [
         {
           "id": "scope-complete",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": true,
@@ -3553,7 +3135,7 @@
         },
         {
           "id": "automated-checks",
-          "state": "passed_by_builder",
+          "state": "independently_verified",
           "automation": "full",
           "manualReviewRequired": false,
           "humanOnly": false,
@@ -3579,7 +3161,7 @@
         },
         {
           "id": "security-privacy-review",
-          "state": "inconclusive",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -3600,7 +3182,7 @@
         },
         {
           "id": "wcag-22-aa",
-          "state": "inconclusive",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -3616,7 +3198,7 @@
         },
         {
           "id": "keyboard-screen-reader",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": true,
@@ -3626,7 +3208,7 @@
         },
         {
           "id": "responsive-layouts",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -3636,7 +3218,7 @@
         },
         {
           "id": "critical-workflows",
-          "state": "inconclusive",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -3652,7 +3234,7 @@
         },
         {
           "id": "production-deployment",
-          "state": "inconclusive",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -3668,7 +3250,7 @@
         },
         {
           "id": "documentation-accurate",
-          "state": "inconclusive",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -3684,7 +3266,7 @@
         },
         {
           "id": "no-release-blockers",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": true,
@@ -3693,18 +3275,7 @@
           "verifications": []
         }
       ],
-      "missingVerification": [
-        "scope-complete",
-        "automated-checks",
-        "security-privacy-review",
-        "wcag-22-aa",
-        "keyboard-screen-reader",
-        "responsive-layouts",
-        "critical-workflows",
-        "production-deployment",
-        "documentation-accurate",
-        "no-release-blockers"
-      ],
+      "missingVerification": [],
       "staleEvidence": [
         {
           "id": "ev-one-small-photography-lint-format-types-45a74ba-040ed0be",
@@ -3764,39 +3335,14 @@
         "high": 0,
         "medium": 0,
         "low": 0,
-        "unclassified": 3
+        "unclassified": 0
       },
-      "blockers": [
-        {
-          "id": "final-verifier-attestation",
-          "origin": "registry",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "approval",
-          "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested."
-        },
-        {
-          "id": "auto-critical-workflows-unverified",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "workflow",
-          "description": "Critical workflows are not independently verified (critical-workflows)."
-        },
-        {
-          "id": "auto-missing-verification",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "evidence",
-          "description": "8 applicable pre-publication gate(s) lack current independent verification."
-        }
-      ],
+      "blockers": [],
       "mergeEligible": false,
-      "releaseEligible": false,
+      "releaseEligible": true,
       "lastCollection": "2026-10-28T21:06:58Z",
       "lastVerification": null,
-      "nextAction": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.",
+      "nextAction": "None",
       "findings": [
         {
           "id": "one-small-photography:accessibility:fa2d17f",
@@ -3975,180 +3521,7 @@
       ],
       "relatedPullRequests": [],
       "remediation": [],
-      "verificationRequests": [
-        {
-          "gate": "scope-complete",
-          "automation": "none",
-          "humanOnly": true,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
-        },
-        {
-          "gate": "automated-checks",
-          "automation": "full",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-photography-build-test-fa2d17f-6207ff46",
-              "digest": "129536f8936876c788ea2ae0320f8bb0323c25fa4445fa4ae0a4ac5f6cf85f0f",
-              "collector": "build-test",
-              "result": "inconclusive"
-            },
-            {
-              "id": "ev-one-small-photography-ci-results-fa2d17f-05128f81",
-              "digest": "a748e38b1e834f6e0f52ed0915cf925b43c4bba6bbeb16fb479716b4dbc7eb61",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-photography-ci-results-fa2d17f-23a42739",
-              "digest": "c0fe36c45791a2ddde6b981813fbed3e7908a3c65da606a2c1c657b2be351205",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-photography-lint-format-types-fa2d17f-5a25ef9a",
-              "digest": "bd5fc347aedffa6e793e4ef7d1a25b719479215c1f13c7603cf4724579801608",
-              "collector": "lint-format-types",
-              "result": "inconclusive"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "re-executed",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "security-privacy-review",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-photography-dependency-audit-fa2d17f-7b1ff911",
-              "digest": "cc21e232bb92278d047fc08967529ce6826e2b4a5223fe4077705551e448c56d",
-              "collector": "dependency-audit",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-photography-secret-scan-fa2d17f-ea7ed43e",
-              "digest": "f566b93db81518d641b0d3911b46c36d517a01cdc4fb5d73471e9d77dd0cc934",
-              "collector": "secret-scan",
-              "result": "inconclusive"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "wcag-22-aa",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-photography-accessibility-fa2d17f-1abce92c",
-              "digest": "5a7ca44242ec44fe3e6d5a8a9931f2e10033da7ae7b18ee3307caceffdcbb1e5",
-              "collector": "accessibility",
-              "result": "inconclusive"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "keyboard-screen-reader",
-          "automation": "none",
-          "humanOnly": true,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
-        },
-        {
-          "gate": "responsive-layouts",
-          "automation": "none",
-          "humanOnly": false,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
-        },
-        {
-          "gate": "critical-workflows",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-photography-build-test-fa2d17f-6207ff46",
-              "digest": "129536f8936876c788ea2ae0320f8bb0323c25fa4445fa4ae0a4ac5f6cf85f0f",
-              "collector": "build-test",
-              "result": "inconclusive"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "production-deployment",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-photography-deployment-health-fa2d17f-ac05308c",
-              "digest": "3f2ab09fbd645667b0c16cefdaade244caf07a4741427ae853ad6d45fac2953f",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-photography-deployment-health-fa2d17f-f67b9da9",
-              "digest": "ffb5f0484341cc675b8380861f04440c9c774427b681e186f979cba923e13712",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "documentation-accurate",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-photography-documentation-fa2d17f-25b82d41",
-              "digest": "c4831048ddcb22e5e4120c509df900c080cd9ac4f0e38c9eaa9864dfb40d21bc",
-              "collector": "documentation",
-              "result": "inconclusive"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "no-release-blockers",
-          "automation": "none",
-          "humanOnly": true,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
-        }
-      ]
+      "verificationRequests": []
     },
     {
       "id": "taskforge",

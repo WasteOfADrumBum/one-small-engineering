@@ -112,15 +112,17 @@ test('the real registry is never modified, and nothing is applied if the derived
   assert.match(bad.judged[0].reasons[0], /fails validation/)
 })
 
-test('real registry today: every project is 0% and nothing is independently verified', () => {
+test('empty ledgers preserve recorded registry verification without inventing additional passes', () => {
   const r = realRegistry()
   const ids = r.projects.filter(p => p.tier !== 'legacy').map(p => p.id)
   const a = verificationAssessment({ registry: r, schema: sch, dodText: dod, asOf: AS_OF, policy: pol, ledgers: new Map(ids.map(i => [i, []])), verifications: new Map(ids.map(i => [i, []])), targets: new Map() })
   assert.equal(a.projects.length, 8)
   for (const p of a.projects) {
-    assert.equal(p.readiness.verifiedGates, 0, p.id)
-    assert.equal(p.gateStates.independently_verified, 0, p.id)
-    assert.equal(p.releaseEligible, false, p.id)
+    const source = r.projects.find(x => x.id === p.id)
+    const verified = source.releaseGates.filter(g => g.status === 'verified').length
+    assert.equal(p.readiness.verifiedGates, verified, p.id)
+    assert.equal(p.gateStates.independently_verified, verified, p.id)
+    if (verified === 0) assert.equal(p.releaseEligible, false, p.id)
   }
 })
 

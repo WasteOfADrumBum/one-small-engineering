@@ -48,7 +48,9 @@ test('observe run without network is idempotent: same inputs, same state and rep
   assert.equal(await main(['report', '--check'], { ...c, root: dir, env: LOCAL, now: NOW }), 0, 'an observe run is reproducible offline from what it saved')
   const d = JSON.parse(first[0][1])
   assert.equal(d.overview.activeProjects, 8)
-  assert.equal(d.overview.verificationCoverage.verified, 0, 'no verifier is assigned, so nothing is verified')
+  const verified = realRegistry().projects.filter(p => p.tier !== 'legacy')
+    .flatMap(p => p.releaseGates).filter(g => g.status === 'verified').length
+  assert.equal(d.overview.verificationCoverage.verified, verified, 'offline observation preserves recorded owner verification without inventing new passes')
   assert.equal(d.projects.length, 8)
   assert.ok(d.queue.every((i, n) => i.rank === n + 1))
   assert.equal(new Set(d.queue.map(i => i.id)).size, d.queue.length, 'the queue has no duplicate issues')

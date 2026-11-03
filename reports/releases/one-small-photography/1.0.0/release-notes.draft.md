@@ -1,6 +1,6 @@
 # One Small Photography 1.0.0 release notes (draft)
 
-> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 10 applicable gates independently verified (0%); 3 open blocker(s). Generated 2026-11-03T16:54:03Z.
+> **Draft, not approved, not published.** Status: Released and approved. 10 of 10 applicable gates independently verified (100%); 0 open blocker(s). Generated 2026-11-03T18:54:21Z.
 
 ## Highlights
 
@@ -8,12 +8,10 @@ _Fill in from the approved scope document._
 
 ## Verification status
 
-- 0 of 10 applicable release gates independently verified.
-- Builder-reported, awaiting independent verification: scope-complete, automated-checks, security-privacy-review, wcag-22-aa, responsive-layouts, critical-workflows, production-deployment, documentation-accurate.
+- 10 of 10 applicable release gates independently verified.
 
 ## Known limitations
 
-- Not yet verified: Final consolidated verifier attestation and resulting gate/approval records; see docs/acceptance/final-closeout-2026-11-03.md.
 
 ## Upgrade, rollback and uninstall
 

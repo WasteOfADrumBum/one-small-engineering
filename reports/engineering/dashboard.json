@@ -39,7 +39,7 @@
     "queue": {
       "automatic": 5,
       "independent-verification": 33,
-      "owner-decision": 78,
+      "owner-decision": 81,
       "blocked-credentials": 8,
       "informational": 5
     }
@@ -411,8 +411,8 @@
         "independently_verified": 0,
         "passed_by_builder": 1,
         "failed": 0,
-        "inconclusive": 8,
-        "not_tested": 1,
+        "inconclusive": 9,
+        "not_tested": 0,
         "not_applicable": 0
       },
       "release": {
@@ -421,13 +421,14 @@
         "reasons": [
           "9 of 9 pre-publication gate(s) not independently verified",
           "no release candidate commit recorded",
-          "derived blockers: auto-critical-workflows-unverified, auto-missing-verification, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-keyboard-screen-reader, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa"
+          "derived blockers: auto-critical-workflows-unverified, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa",
+          "recorded approval is not bound to the candidate: no release candidate commit is recorded"
         ],
         "candidate": null,
         "approval": {
-          "valid": false,
+          "valid": true,
           "bound": false,
-          "reason": "approval is pending"
+          "reason": "no release candidate commit is recorded"
         }
       },
       "releasePlan": {
@@ -450,12 +451,12 @@
           "no-release-blockers"
         ],
         "activeBlockers": [
-          "final-verifier-attestation",
           "auto-critical-workflows-unverified",
-          "auto-missing-verification",
           "auto-stale-automated-checks",
           "auto-stale-critical-workflows",
+          "auto-stale-documentation-accurate",
           "auto-stale-keyboard-screen-reader",
+          "auto-stale-no-release-blockers",
           "auto-stale-production-deployment",
           "auto-stale-responsive-layouts",
           "auto-stale-scope-complete",
@@ -477,7 +478,7 @@
         "approvalsRequired": [
           "Joshua Small (release approval, recorded in the registry with evidence)"
         ],
-        "versionRecommendation": "1.0.0 (registry target)",
+        "versionRecommendation": "1.0.0 (registry target; current 1.0.0)",
         "preparation": [],
         "preparationStatus": "not started: Verification Required",
         "rollback": "Redeploy the previous production revision from the hosting provider, then revert the release commit on main through a PR.",
@@ -488,13 +489,7 @@
           "tag: owner only"
         ]
       },
-      "blockers": [
-        {
-          "id": "final-verifier-attestation",
-          "severity": "unclassified",
-          "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested."
-        }
-      ],
+      "blockers": [],
       "openPullRequests": 0,
       "sync": {
         "changes": [],
@@ -509,7 +504,7 @@
         "low": 0
       },
       "nextAction": "Review accessibility for personal-portfolio.",
-      "queueItems": 18
+      "queueItems": 19
     },
     {
       "id": "one-small-studio",
@@ -533,10 +528,10 @@
       },
       "gateStates": {
         "independently_verified": 0,
-        "passed_by_builder": 2,
+        "passed_by_builder": 1,
         "failed": 0,
-        "inconclusive": 7,
-        "not_tested": 1,
+        "inconclusive": 9,
+        "not_tested": 0,
         "not_applicable": 0
       },
       "release": {
@@ -545,13 +540,14 @@
         "reasons": [
           "9 of 9 pre-publication gate(s) not independently verified",
           "no release candidate commit recorded",
-          "derived blockers: auto-critical-workflows-unverified, auto-missing-verification, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa"
+          "derived blockers: auto-critical-workflows-unverified, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa",
+          "recorded approval is not bound to the candidate: no release candidate commit is recorded"
         ],
         "candidate": null,
         "approval": {
-          "valid": false,
+          "valid": true,
           "bound": false,
-          "reason": "approval is pending"
+          "reason": "no release candidate commit is recorded"
         }
       },
       "releasePlan": {
@@ -574,12 +570,12 @@
           "no-release-blockers"
         ],
         "activeBlockers": [
-          "final-verifier-attestation",
           "auto-critical-workflows-unverified",
-          "auto-missing-verification",
+          "auto-stale-automated-checks",
           "auto-stale-critical-workflows",
           "auto-stale-documentation-accurate",
           "auto-stale-keyboard-screen-reader",
+          "auto-stale-no-release-blockers",
           "auto-stale-production-deployment",
           "auto-stale-responsive-layouts",
           "auto-stale-scope-complete",
@@ -601,7 +597,7 @@
         "approvalsRequired": [
           "Joshua Small (release approval, recorded in the registry with evidence)"
         ],
-        "versionRecommendation": "1.0.0 (registry target)",
+        "versionRecommendation": "1.0.0 (registry target; current 1.0.0)",
         "preparation": [],
         "preparationStatus": "not started: Verification Required",
         "rollback": "Redeploy the previous production revision from the hosting provider, then revert the release commit on main through a PR.",
@@ -612,13 +608,7 @@
           "tag: owner only"
         ]
       },
-      "blockers": [
-        {
-          "id": "final-verifier-attestation",
-          "severity": "unclassified",
-          "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested."
-        }
-      ],
+      "blockers": [],
       "openPullRequests": 0,
       "sync": {
         "changes": [],
@@ -633,7 +623,7 @@
         "low": 0
       },
       "nextAction": "Review accessibility for one-small-studio.",
-      "queueItems": 18
+      "queueItems": 19
     },
     {
       "id": "one-small-photography",
@@ -657,10 +647,10 @@
       },
       "gateStates": {
         "independently_verified": 0,
-        "passed_by_builder": 1,
+        "passed_by_builder": 0,
         "failed": 0,
-        "inconclusive": 8,
-        "not_tested": 1,
+        "inconclusive": 10,
+        "not_tested": 0,
         "not_applicable": 0
       },
       "release": {
@@ -669,13 +659,14 @@
         "reasons": [
           "9 of 9 pre-publication gate(s) not independently verified",
           "no release candidate commit recorded",
-          "derived blockers: auto-critical-workflows-unverified, auto-missing-verification, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa"
+          "derived blockers: auto-critical-workflows-unverified, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa",
+          "recorded approval is not bound to the candidate: no release candidate commit is recorded"
         ],
         "candidate": null,
         "approval": {
-          "valid": false,
+          "valid": true,
           "bound": false,
-          "reason": "approval is pending"
+          "reason": "no release candidate commit is recorded"
         }
       },
       "releasePlan": {
@@ -698,12 +689,12 @@
           "no-release-blockers"
         ],
         "activeBlockers": [
-          "final-verifier-attestation",
           "auto-critical-workflows-unverified",
-          "auto-missing-verification",
+          "auto-stale-automated-checks",
           "auto-stale-critical-workflows",
           "auto-stale-documentation-accurate",
           "auto-stale-keyboard-screen-reader",
+          "auto-stale-no-release-blockers",
           "auto-stale-production-deployment",
           "auto-stale-responsive-layouts",
           "auto-stale-scope-complete",
@@ -725,7 +716,7 @@
         "approvalsRequired": [
           "Joshua Small (release approval, recorded in the registry with evidence)"
         ],
-        "versionRecommendation": "1.0.0 (registry target)",
+        "versionRecommendation": "1.0.0 (registry target; current 1.0.0)",
         "preparation": [],
         "preparationStatus": "not started: Verification Required",
         "rollback": "Redeploy the previous production revision from the hosting provider, then revert the release commit on main through a PR.",
@@ -736,13 +727,7 @@
           "tag: owner only"
         ]
       },
-      "blockers": [
-        {
-          "id": "final-verifier-attestation",
-          "severity": "unclassified",
-          "description": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested."
-        }
-      ],
+      "blockers": [],
       "openPullRequests": 0,
       "sync": {
         "changes": [],
@@ -757,7 +742,7 @@
         "low": 0
       },
       "nextAction": "Review accessibility for one-small-photography.",
-      "queueItems": 19
+      "queueItems": 20
     },
     {
       "id": "taskforge",
@@ -3161,11 +3146,11 @@
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "automated-checks: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-ci-run-1435e75 is dated after the report time; current evidence: personal-portfolio-closeout-review-2026-11-03 is dated after the report time; current evidence: personal-portfolio-acceptance-current-2026-11-03 is dated after the report time; current evidence: personal-portfolio-ci-current-2026-11-03 is dated after the report time; registry notes: CI green on main at 1435e75 (builder evidence from sync). Verifier re-checks at the release commit.",
+      "title": "automated-checks: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-ci-run-1435e75 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "automated-checks: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-ci-run-1435e75 is dated after the report time; current evidence: personal-portfolio-closeout-review-2026-11-03 is dated after the report time; current evidence: personal-portfolio-acceptance-current-2026-11-03 is dated after the report time; current evidence: personal-portfolio-ci-current-2026-11-03 is dated after the report time; registry notes: CI green on main at 1435e75 (builder evidence from sync). Verifier re-checks at the release commit.",
+      "nextAction": "automated-checks: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-ci-run-1435e75 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -3192,11 +3177,11 @@
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "critical-workflows: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: personal-portfolio-owner-report-2026-11-02 is dated after the report time; current evidence: pf-smoke-run-1435e75 is dated after the report time; current evidence: pf-owner-postdeploy-2026-11-02 is dated after the report time; current evidence: personal-portfolio-closeout-review-2026-11-03 is dated after the report time; current evidence: personal-portfolio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Contact form delivery confirmed by the owner; production smoke check green at 1435e75 (validation only, sends nothing); navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
+      "title": "critical-workflows: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: personal-portfolio-owner-report-2026-11-02 is dated after the report time; current evidence: pf-smoke-run-1435e75 is dated after the report time; current evidence: pf-owner-postdeploy-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "critical-workflows: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: personal-portfolio-owner-report-2026-11-02 is dated after the report time; current evidence: pf-smoke-run-1435e75 is dated after the report time; current evidence: pf-owner-postdeploy-2026-11-02 is dated after the report time; current evidence: personal-portfolio-closeout-review-2026-11-03 is dated after the report time; current evidence: personal-portfolio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Contact form delivery confirmed by the owner; production smoke check green at 1435e75 (validation only, sends nothing); navigation not separately reported. Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
+      "nextAction": "critical-workflows: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: personal-portfolio-owner-report-2026-11-02 is dated after the report time; current evidence: pf-smoke-run-1435e75 is dated after the report time; current evidence: pf-owner-postdeploy-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -3217,17 +3202,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "personal-portfolio:blocker:auto-stale-keyboard-screen-reader",
+      "id": "personal-portfolio:blocker:auto-stale-documentation-accurate",
       "project": "personal-portfolio",
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-a11y-2026-11-02 is dated after the report time; current evidence: personal-portfolio-closeout-review-2026-11-03 is dated after the report time; current evidence: personal-portfolio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Keyboard: 68 tab stops with visible focus (builder). Screen reader passes (owner-reported 2026-11-02; screen reader not stated). Verifier records a pass.",
+      "title": "documentation-accurate: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-readme-5f0a849 is dated after the report time; current evidence: pf-release-record-1435e75 is dated after the report time; current evidence: pf-release-record-829ffc8 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-a11y-2026-11-02 is dated after the report time; current evidence: personal-portfolio-closeout-review-2026-11-03 is dated after the report time; current evidence: personal-portfolio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Keyboard: 68 tab stops with visible focus (builder). Screen reader passes (owner-reported 2026-11-02; screen reader not stated). Verifier records a pass.",
+      "nextAction": "documentation-accurate: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-readme-5f0a849 is dated after the report time; current evidence: pf-release-record-1435e75 is dated after the report time; current evidence: pf-release-record-829ffc8 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -3248,17 +3233,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "personal-portfolio:blocker:auto-stale-production-deployment",
+      "id": "personal-portfolio:blocker:auto-stale-keyboard-screen-reader",
       "project": "personal-portfolio",
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "production-deployment: current evidence: personal-portfolio-vercel-1435e75 is dated after the report time; current evidence: personal-portfolio-closeout-review-2026-11-03 is dated after the report time; current evidence: personal-portfolio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production.",
+      "title": "keyboard-screen-reader: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-a11y-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "production-deployment: current evidence: personal-portfolio-vercel-1435e75 is dated after the report time; current evidence: personal-portfolio-closeout-review-2026-11-03 is dated after the report time; current evidence: personal-portfolio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Vercel serves the main head (informational). Verifier confirms the release commit in production.",
+      "nextAction": "keyboard-screen-reader: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-a11y-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -3279,17 +3264,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "personal-portfolio:blocker:auto-stale-responsive-layouts",
+      "id": "personal-portfolio:blocker:auto-stale-no-release-blockers",
       "project": "personal-portfolio",
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-a11y-2026-11-02 is dated after the report time; current evidence: personal-portfolio-closeout-review-2026-11-03 is dated after the report time; current evidence: personal-portfolio-acceptance-current-2026-11-03 is dated after the report time; registry notes: 390x844 and 1440x900 without horizontal scroll (builder). 200% zoom passes (owner-reported 2026-11-02; browser not stated). Verifier records a pass.",
+      "title": "no-release-blockers: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-a11y-2026-11-02 is dated after the report time; current evidence: personal-portfolio-closeout-review-2026-11-03 is dated after the report time; current evidence: personal-portfolio-acceptance-current-2026-11-03 is dated after the report time; registry notes: 390x844 and 1440x900 without horizontal scroll (builder). 200% zoom passes (owner-reported 2026-11-02; browser not stated). Verifier records a pass.",
+      "nextAction": "no-release-blockers: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -3310,17 +3295,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "personal-portfolio:blocker:auto-stale-scope-complete",
+      "id": "personal-portfolio:blocker:auto-stale-production-deployment",
       "project": "personal-portfolio",
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; current evidence: personal-portfolio-closeout-review-2026-11-03 is dated after the report time; current evidence: personal-portfolio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Scope is section 1 of the release record; Joshua Small approved release 1.0 on 2026-11-02 (owner decision). Verifier records a pass.",
+      "title": "production-deployment: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; current evidence: personal-portfolio-vercel-1435e75 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; current evidence: personal-portfolio-closeout-review-2026-11-03 is dated after the report time; current evidence: personal-portfolio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Scope is section 1 of the release record; Joshua Small approved release 1.0 on 2026-11-02 (owner decision). Verifier records a pass.",
+      "nextAction": "production-deployment: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; current evidence: personal-portfolio-vercel-1435e75 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -3341,17 +3326,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "personal-portfolio:blocker:auto-stale-security-privacy-review",
+      "id": "personal-portfolio:blocker:auto-stale-responsive-layouts",
       "project": "personal-portfolio",
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "security-privacy-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; current evidence: personal-portfolio-closeout-review-2026-11-03 is dated after the report time; current evidence: personal-portfolio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Builder review in the release record (headers, contact abuse controls, secret scan of all commits, npm audit, privacy). Owner approved the privacy note and accepted three known limits. Verifier records a pass.",
+      "title": "responsive-layouts: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-a11y-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "security-privacy-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; current evidence: personal-portfolio-closeout-review-2026-11-03 is dated after the report time; current evidence: personal-portfolio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Builder review in the release record (headers, contact abuse controls, secret scan of all commits, npm audit, privacy). Owner approved the privacy note and accepted three known limits. Verifier records a pass.",
+      "nextAction": "responsive-layouts: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-a11y-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -3372,17 +3357,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "personal-portfolio:blocker:auto-stale-wcag-22-aa",
+      "id": "personal-portfolio:blocker:auto-stale-scope-complete",
       "project": "personal-portfolio",
       "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-postdeploy-2026-11-02 is dated after the report time; current evidence: personal-portfolio-closeout-review-2026-11-03 is dated after the report time; current evidence: personal-portfolio-acceptance-current-2026-11-03 is dated after the report time; registry notes: axe WCAG 2.2 A/AA 0 violations (builder); gradient-text contrast and reduced motion pass (owner-reported). Verifier records a pass.",
+      "title": "scope-complete: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-postdeploy-2026-11-02 is dated after the report time; current evidence: personal-portfolio-closeout-review-2026-11-03 is dated after the report time; current evidence: personal-portfolio-acceptance-current-2026-11-03 is dated after the report time; registry notes: axe WCAG 2.2 A/AA 0 violations (builder); gradient-text contrast and reduced motion pass (owner-reported). Verifier records a pass.",
+      "nextAction": "scope-complete: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -3390,6 +3375,68 @@
     },
     {
       "rank": 68,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:blocker:auto-stale-security-privacy-review",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "security-privacy-review: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "security-privacy-review: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-approval-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 69,
+      "projects": [
+        "personal-portfolio"
+      ],
+      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "personal-portfolio:blocker:auto-stale-wcag-22-aa",
+      "project": "personal-portfolio",
+      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "wcag-22-aa: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-postdeploy-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "wcag-22-aa: current evidence: personal-portfolio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: pf-release-record-829ffc8 is dated after the report time; current evidence: pf-owner-postdeploy-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 70,
       "projects": [
         "personal-portfolio"
       ],
@@ -3432,7 +3479,7 @@
       "isNew": false
     },
     {
-      "rank": 69,
+      "rank": 71,
       "projects": [
         "one-small-studio"
       ],
@@ -3469,68 +3516,6 @@
       "isNew": false
     },
     {
-      "rank": 70,
-      "projects": [
-        "one-small-studio"
-      ],
-      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
-      "rootCause": null,
-      "complexity": "small",
-      "validation": [
-        "evidence current for the candidate commit"
-      ],
-      "confidence": "high",
-      "evidence": [],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "one-small-studio:blocker:auto-stale-critical-workflows",
-      "project": "one-small-studio",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-      "priority": 7,
-      "severity": "medium",
-      "kind": "stale",
-      "title": "critical-workflows: current evidence: one-small-studio-owner-report-2026-11-02 is dated after the report time; current evidence: one-small-studio-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-studio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Contact email arrives and music plays (owner-reported 2026-11-02); player fallback covered by e2e/resilience.spec.ts (builder). not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
-      "impact": "Evidence no longer matches the candidate.",
-      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
-      "actionClass": "owner-decision",
-      "nextAction": "critical-workflows: current evidence: one-small-studio-owner-report-2026-11-02 is dated after the report time; current evidence: one-small-studio-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-studio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Contact email arrives and music plays (owner-reported 2026-11-02); player fallback covered by e2e/resilience.spec.ts (builder). not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
-      "priorityText": "Missing verification or documentation",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-28T21:07:08Z",
-      "isNew": true
-    },
-    {
-      "rank": 71,
-      "projects": [
-        "one-small-studio"
-      ],
-      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
-      "rootCause": null,
-      "complexity": "small",
-      "validation": [
-        "evidence current for the candidate commit"
-      ],
-      "confidence": "high",
-      "evidence": [],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "one-small-studio:blocker:auto-stale-documentation-accurate",
-      "project": "one-small-studio",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-      "priority": 7,
-      "severity": "medium",
-      "kind": "stale",
-      "title": "documentation-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-owner-docs-2026-10-31 is dated after the report time; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: one-small-studio-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-studio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Owner said the documentation looks good (2026-10-31, README unchanged since d6854de); DEPLOYMENT.md and release records on main. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
-      "impact": "Evidence no longer matches the candidate.",
-      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
-      "actionClass": "owner-decision",
-      "nextAction": "documentation-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-owner-docs-2026-10-31 is dated after the report time; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: one-small-studio-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-studio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Owner said the documentation looks good (2026-10-31, README unchanged since d6854de); DEPLOYMENT.md and release records on main. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
-      "priorityText": "Missing verification or documentation",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-28T21:07:08Z",
-      "isNew": true
-    },
-    {
       "rank": 72,
       "projects": [
         "one-small-studio"
@@ -3545,17 +3530,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-studio:blocker:auto-stale-keyboard-screen-reader",
+      "id": "one-small-studio:blocker:auto-stale-automated-checks",
       "project": "one-small-studio",
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-checks-ab-2026-11-02 is dated after the report time; current evidence: one-small-studio-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-studio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Keyboard tests for every control (builder); screen reader walk-through owner-reported (check B). Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "title": "automated-checks: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-ci-run-9310334 is dated after the report time; current evidence: studio-ci-run-4c46d0d is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-checks-ab-2026-11-02 is dated after the report time; current evidence: one-small-studio-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-studio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Keyboard tests for every control (builder); screen reader walk-through owner-reported (check B). Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "nextAction": "automated-checks: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-ci-run-9310334 is dated after the report time; current evidence: studio-ci-run-4c46d0d is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -3576,17 +3561,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-studio:blocker:auto-stale-production-deployment",
+      "id": "one-small-studio:blocker:auto-stale-critical-workflows",
       "project": "one-small-studio",
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "production-deployment: current evidence: studio-vercel-4c46d0d is dated after the report time; current evidence: one-small-studio-vercel-9310334 is dated after the report time; current evidence: one-small-studio-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-studio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Vercel serves the main head 4c46d0d (informational). Verifier confirms the release commit in production.",
+      "title": "critical-workflows: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; current evidence: one-small-studio-owner-report-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "production-deployment: current evidence: studio-vercel-4c46d0d is dated after the report time; current evidence: one-small-studio-vercel-9310334 is dated after the report time; current evidence: one-small-studio-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-studio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Vercel serves the main head 4c46d0d (informational). Verifier confirms the release commit in production.",
+      "nextAction": "critical-workflows: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; current evidence: one-small-studio-owner-report-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -3607,17 +3592,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-studio:blocker:auto-stale-responsive-layouts",
+      "id": "one-small-studio:blocker:auto-stale-documentation-accurate",
       "project": "one-small-studio",
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: one-small-studio-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-studio-acceptance-current-2026-11-03 is dated after the report time; registry notes: axe and e2e at desktop and phone viewports (builder). Verifier checks layouts.",
+      "title": "documentation-accurate: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-owner-docs-2026-10-31 is dated after the report time; current evidence: studio-release-record-9310334 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: one-small-studio-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-studio-acceptance-current-2026-11-03 is dated after the report time; registry notes: axe and e2e at desktop and phone viewports (builder). Verifier checks layouts.",
+      "nextAction": "documentation-accurate: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-owner-docs-2026-10-31 is dated after the report time; current evidence: studio-release-record-9310334 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -3638,17 +3623,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-studio:blocker:auto-stale-scope-complete",
+      "id": "one-small-studio:blocker:auto-stale-keyboard-screen-reader",
       "project": "one-small-studio",
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-approval-2026-11-02 is dated after the report time; current evidence: one-small-studio-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-studio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Scope in studio-release-evidence.md, approved by the owner 2026-11-02; version not chosen. Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "title": "keyboard-screen-reader: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-checks-ab-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-approval-2026-11-02 is dated after the report time; current evidence: one-small-studio-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-studio-acceptance-current-2026-11-03 is dated after the report time; registry notes: Scope in studio-release-evidence.md, approved by the owner 2026-11-02; version not chosen. Human-only gate: not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "nextAction": "keyboard-screen-reader: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-checks-ab-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -3669,17 +3654,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-studio:blocker:auto-stale-security-privacy-review",
+      "id": "one-small-studio:blocker:auto-stale-no-release-blockers",
       "project": "one-small-studio",
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "security-privacy-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-checks-ab-2026-11-02 is dated after the report time; current evidence: studio-owner-approval-2026-11-02 is dated after the report time; current evidence: one-small-studio-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-studio-acceptance-current-2026-11-03 is dated after the report time; registry notes: History secret scan, npm audit 0, CSP tests (builder); live headers owner-reported (check A); risks accepted by the owner. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "title": "no-release-blockers: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "security-privacy-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-checks-ab-2026-11-02 is dated after the report time; current evidence: studio-owner-approval-2026-11-02 is dated after the report time; current evidence: one-small-studio-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-studio-acceptance-current-2026-11-03 is dated after the report time; registry notes: History secret scan, npm audit 0, CSP tests (builder); live headers owner-reported (check A); risks accepted by the owner. not a verify:record pass, so the gate stays in_progress until the assigned verifier (Joshua Small) records it.",
+      "nextAction": "no-release-blockers: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -3700,17 +3685,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-studio:blocker:auto-stale-wcag-22-aa",
+      "id": "one-small-studio:blocker:auto-stale-production-deployment",
       "project": "one-small-studio",
       "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: one-small-studio-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-studio-acceptance-current-2026-11-03 is dated after the report time; registry notes: axe WCAG 2.2 A/AA: 0 violations on desktop and phone, also with reduced motion and SoundCloud down (builder e2e tests). Verifier re-checks.",
+      "title": "production-deployment: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; current evidence: studio-vercel-4c46d0d is dated after the report time; current evidence: one-small-studio-vercel-9310334 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: one-small-studio-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-studio-acceptance-current-2026-11-03 is dated after the report time; registry notes: axe WCAG 2.2 A/AA: 0 violations on desktop and phone, also with reduced motion and SoundCloud down (builder e2e tests). Verifier re-checks.",
+      "nextAction": "production-deployment: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; current evidence: studio-vercel-4c46d0d is dated after the report time; current evidence: one-small-studio-vercel-9310334 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -3718,6 +3703,130 @@
     },
     {
       "rank": 78,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:blocker:auto-stale-responsive-layouts",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "responsive-layouts: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "responsive-layouts: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 79,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:blocker:auto-stale-scope-complete",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "scope-complete: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-approval-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "scope-complete: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-approval-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 80,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:blocker:auto-stale-security-privacy-review",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "security-privacy-review: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-checks-ab-2026-11-02 is dated after the report time; current evidence: studio-owner-approval-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "security-privacy-review: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; current evidence: studio-owner-checks-ab-2026-11-02 is dated after the report time; current evidence: studio-owner-approval-2026-11-02 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 81,
+      "projects": [
+        "one-small-studio"
+      ],
+      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-studio:blocker:auto-stale-wcag-22-aa",
+      "project": "one-small-studio",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "wcag-22-aa: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "wcag-22-aa: current evidence: one-small-studio-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: studio-release-record-9310334 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 82,
       "projects": [
         "one-small-studio"
       ],
@@ -3760,7 +3869,7 @@
       "isNew": false
     },
     {
-      "rank": 79,
+      "rank": 83,
       "projects": [
         "one-small-photography"
       ],
@@ -3797,130 +3906,6 @@
       "isNew": false
     },
     {
-      "rank": 80,
-      "projects": [
-        "one-small-photography"
-      ],
-      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
-      "rootCause": null,
-      "complexity": "small",
-      "validation": [
-        "evidence current for the candidate commit"
-      ],
-      "confidence": "high",
-      "evidence": [],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "one-small-photography:blocker:auto-stale-critical-workflows",
-      "project": "one-small-photography",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
-      "priority": 7,
-      "severity": "medium",
-      "kind": "stale",
-      "title": "critical-workflows: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: one-small-photography-owner-report-2026-11-02 is dated after the report time; current evidence: photo-smoke-run-c850853 is dated after the report time; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-owner-report-2026-11-03 is dated after the report time; current evidence: one-small-photography-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-photography-acceptance-current-2026-11-03 is dated after the report time; registry notes: Contact and galleries owner-reported; backup script verified and copied; retained B2 image retrieved after site deletion; unencrypted-copy risk expressly accepted. File recovery only, not reconstruction of the deleted database row.",
-      "impact": "Evidence no longer matches the candidate.",
-      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
-      "actionClass": "owner-decision",
-      "nextAction": "critical-workflows: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: one-small-photography-owner-report-2026-11-02 is dated after the report time; current evidence: photo-smoke-run-c850853 is dated after the report time; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-owner-report-2026-11-03 is dated after the report time; current evidence: one-small-photography-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-photography-acceptance-current-2026-11-03 is dated after the report time; registry notes: Contact and galleries owner-reported; backup script verified and copied; retained B2 image retrieved after site deletion; unencrypted-copy risk expressly accepted. File recovery only, not reconstruction of the deleted database row.",
-      "priorityText": "Missing verification or documentation",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-28T21:07:08Z",
-      "isNew": true
-    },
-    {
-      "rank": 81,
-      "projects": [
-        "one-small-photography"
-      ],
-      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
-      "rootCause": null,
-      "complexity": "small",
-      "validation": [
-        "evidence current for the candidate commit"
-      ],
-      "confidence": "high",
-      "evidence": [],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "one-small-photography:blocker:auto-stale-documentation-accurate",
-      "project": "one-small-photography",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
-      "priority": 7,
-      "severity": "medium",
-      "kind": "stale",
-      "title": "documentation-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-release-record-e3bc6d2 is dated after the report time; current evidence: one-small-photography-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-photography-acceptance-current-2026-11-03 is dated after the report time; registry notes: RELEASE.md, RECOVERY.md and ROADMAP.md on main (builder). Verifier reviews at the release commit.",
-      "impact": "Evidence no longer matches the candidate.",
-      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
-      "actionClass": "owner-decision",
-      "nextAction": "documentation-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-release-record-e3bc6d2 is dated after the report time; current evidence: one-small-photography-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-photography-acceptance-current-2026-11-03 is dated after the report time; registry notes: RELEASE.md, RECOVERY.md and ROADMAP.md on main (builder). Verifier reviews at the release commit.",
-      "priorityText": "Missing verification or documentation",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-28T21:07:08Z",
-      "isNew": true
-    },
-    {
-      "rank": 82,
-      "projects": [
-        "one-small-photography"
-      ],
-      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
-      "rootCause": null,
-      "complexity": "small",
-      "validation": [
-        "evidence current for the candidate commit"
-      ],
-      "confidence": "high",
-      "evidence": [],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "one-small-photography:blocker:auto-stale-keyboard-screen-reader",
-      "project": "one-small-photography",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
-      "priority": 7,
-      "severity": "medium",
-      "kind": "stale",
-      "title": "keyboard-screen-reader: current evidence: photo-owner-report-2026-11-03 is dated after the report time; current evidence: one-small-photography-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-photography-acceptance-current-2026-11-03 is dated after the report time; registry notes: Keyboard, Narrator and phone checks passed by owner report, recorded in merged photography PR #29. Final verifier attestation pending; do not repeat tests.",
-      "impact": "Evidence no longer matches the candidate.",
-      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
-      "actionClass": "owner-decision",
-      "nextAction": "keyboard-screen-reader: current evidence: photo-owner-report-2026-11-03 is dated after the report time; current evidence: one-small-photography-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-photography-acceptance-current-2026-11-03 is dated after the report time; registry notes: Keyboard, Narrator and phone checks passed by owner report, recorded in merged photography PR #29. Final verifier attestation pending; do not repeat tests.",
-      "priorityText": "Missing verification or documentation",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-28T21:07:08Z",
-      "isNew": true
-    },
-    {
-      "rank": 83,
-      "projects": [
-        "one-small-photography"
-      ],
-      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
-      "rootCause": null,
-      "complexity": "small",
-      "validation": [
-        "evidence current for the candidate commit"
-      ],
-      "confidence": "high",
-      "evidence": [],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "one-small-photography:blocker:auto-stale-production-deployment",
-      "project": "one-small-photography",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
-      "priority": 7,
-      "severity": "medium",
-      "kind": "stale",
-      "title": "production-deployment: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-vercel-e3bc6d2 is dated after the report time; current evidence: one-small-photography-vercel-c850853 is dated after the report time; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: one-small-photography-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-photography-acceptance-current-2026-11-03 is dated after the report time; registry notes: Vercel serves the main head e3bc6d2 (informational). Verifier confirms the release commit in production.",
-      "impact": "Evidence no longer matches the candidate.",
-      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
-      "actionClass": "owner-decision",
-      "nextAction": "production-deployment: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-vercel-e3bc6d2 is dated after the report time; current evidence: one-small-photography-vercel-c850853 is dated after the report time; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: one-small-photography-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-photography-acceptance-current-2026-11-03 is dated after the report time; registry notes: Vercel serves the main head e3bc6d2 (informational). Verifier confirms the release commit in production.",
-      "priorityText": "Missing verification or documentation",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-28T21:07:08Z",
-      "isNew": true
-    },
-    {
       "rank": 84,
       "projects": [
         "one-small-photography"
@@ -3935,17 +3920,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-photography:blocker:auto-stale-responsive-layouts",
+      "id": "one-small-photography:blocker:auto-stale-automated-checks",
       "project": "one-small-photography",
       "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-owner-report-2026-11-03 is dated after the report time; current evidence: photo-release-record-e3bc6d2 is dated after the report time; current evidence: one-small-photography-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-photography-acceptance-current-2026-11-03 is dated after the report time; registry notes: Chromium at phone and desktop widths, no horizontal overflow (builder). Real iOS/Android not tested.",
+      "title": "automated-checks: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-ci-run-c850853 is dated after the report time; current evidence: photo-ci-run-e3bc6d2 is dated after the report time; current evidence: photo-ci-run-d70f75f is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-owner-report-2026-11-03 is dated after the report time; current evidence: photo-release-record-e3bc6d2 is dated after the report time; current evidence: one-small-photography-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-photography-acceptance-current-2026-11-03 is dated after the report time; registry notes: Chromium at phone and desktop widths, no horizontal overflow (builder). Real iOS/Android not tested.",
+      "nextAction": "automated-checks: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-ci-run-c850853 is dated after the report time; current evidence: photo-ci-run-e3bc6d2 is dated after the report time; current evidence: photo-ci-run-d70f75f is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -3966,17 +3951,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-photography:blocker:auto-stale-scope-complete",
+      "id": "one-small-photography:blocker:auto-stale-critical-workflows",
       "project": "one-small-photography",
       "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-closeout-pr-29 is dated after the report time; current evidence: photo-release-record-e3bc6d2 is dated after the report time; current evidence: one-small-photography-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-photography-acceptance-current-2026-11-03 is dated after the report time; registry notes: Scope recorded in docs/RELEASE.md; not approved (section 6 blank). Human-only gate.",
+      "title": "critical-workflows: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: one-small-photography-owner-report-2026-11-02 is dated after the report time; current evidence: photo-smoke-run-c850853 is dated after the report time; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-owner-report-2026-11-03 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-closeout-pr-29 is dated after the report time; current evidence: photo-release-record-e3bc6d2 is dated after the report time; current evidence: one-small-photography-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-photography-acceptance-current-2026-11-03 is dated after the report time; registry notes: Scope recorded in docs/RELEASE.md; not approved (section 6 blank). Human-only gate.",
+      "nextAction": "critical-workflows: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: one-small-photography-owner-report-2026-11-02 is dated after the report time; current evidence: photo-smoke-run-c850853 is dated after the report time; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-owner-report-2026-11-03 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -3997,17 +3982,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-photography:blocker:auto-stale-security-privacy-review",
+      "id": "one-small-photography:blocker:auto-stale-documentation-accurate",
       "project": "one-small-photography",
       "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "security-privacy-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-closeout-pr-22 is dated after the report time; current evidence: photo-owner-report-2026-11-03 is dated after the report time; current evidence: photo-release-record-e3bc6d2 is dated after the report time; current evidence: one-small-photography-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-photography-acceptance-current-2026-11-03 is dated after the report time; registry notes: Builder security table (auth, CSRF, sessions, uploads, headers, history scan); 4 moderate build-time advisories await owner disposition. Verifier reviews.",
+      "title": "documentation-accurate: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "security-privacy-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-closeout-pr-22 is dated after the report time; current evidence: photo-owner-report-2026-11-03 is dated after the report time; current evidence: photo-release-record-e3bc6d2 is dated after the report time; current evidence: one-small-photography-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-photography-acceptance-current-2026-11-03 is dated after the report time; registry notes: Builder security table (auth, CSRF, sessions, uploads, headers, history scan); 4 moderate build-time advisories await owner disposition. Verifier reviews.",
+      "nextAction": "documentation-accurate: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -4028,17 +4013,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-photography:blocker:auto-stale-wcag-22-aa",
+      "id": "one-small-photography:blocker:auto-stale-keyboard-screen-reader",
       "project": "one-small-photography",
       "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-closeout-pr-28 is dated after the report time; current evidence: photo-release-record-e3bc6d2 is dated after the report time; current evidence: one-small-photography-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-photography-acceptance-current-2026-11-03 is dated after the report time; registry notes: Photography PR #28 recorded WCAG 2.2 automated/manual-inspection fixes and coverage; owner accessibility checks subsequently passed. Final verifier attestation pending.",
+      "title": "keyboard-screen-reader: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; current evidence: photo-owner-report-2026-11-03 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-closeout-pr-28 is dated after the report time; current evidence: photo-release-record-e3bc6d2 is dated after the report time; current evidence: one-small-photography-closeout-review-2026-11-03 is dated after the report time; current evidence: one-small-photography-acceptance-current-2026-11-03 is dated after the report time; registry notes: Photography PR #28 recorded WCAG 2.2 automated/manual-inspection fixes and coverage; owner accessibility checks subsequently passed. Final verifier attestation pending.",
+      "nextAction": "keyboard-screen-reader: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; current evidence: photo-owner-report-2026-11-03 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -4046,6 +4031,192 @@
     },
     {
       "rank": 88,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:blocker:auto-stale-no-release-blockers",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "no-release-blockers: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "no-release-blockers: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 89,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:blocker:auto-stale-production-deployment",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "production-deployment: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-vercel-e3bc6d2 is dated after the report time; current evidence: one-small-photography-vercel-c850853 is dated after the report time; current evidence: photo-release-record-d70f75f is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "production-deployment: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-vercel-e3bc6d2 is dated after the report time; current evidence: one-small-photography-vercel-c850853 is dated after the report time; current evidence: photo-release-record-d70f75f is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 90,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:blocker:auto-stale-responsive-layouts",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "responsive-layouts: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-owner-report-2026-11-03 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "responsive-layouts: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-owner-report-2026-11-03 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 91,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:blocker:auto-stale-scope-complete",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "scope-complete: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-closeout-pr-29 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "scope-complete: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-closeout-pr-29 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 92,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:blocker:auto-stale-security-privacy-review",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "security-privacy-review: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-closeout-pr-22 is dated after the report time; current evidence: photo-owner-report-2026-11-03 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "security-privacy-review: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-closeout-pr-22 is dated after the report time; current evidence: photo-owner-report-2026-11-03 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 93,
+      "projects": [
+        "one-small-photography"
+      ],
+      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-photography:blocker:auto-stale-wcag-22-aa",
+      "project": "one-small-photography",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "wcag-22-aa: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-closeout-pr-28 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "wcag-22-aa: current evidence: one-small-photography-owner-final-verification-2026-11-03 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: photo-release-record-d70f75f is dated after the report time; current evidence: photo-closeout-pr-28 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation. The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Codex.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 94,
       "projects": [
         "one-small-photography"
       ],
@@ -4088,7 +4259,7 @@
       "isNew": false
     },
     {
-      "rank": 89,
+      "rank": 95,
       "projects": [
         "taskforge"
       ],
@@ -4125,7 +4296,7 @@
       "isNew": false
     },
     {
-      "rank": 90,
+      "rank": 96,
       "projects": [
         "taskforge"
       ],
@@ -4156,7 +4327,7 @@
       "isNew": false
     },
     {
-      "rank": 91,
+      "rank": 97,
       "projects": [
         "taskforge"
       ],
@@ -4209,7 +4380,7 @@
       "isNew": false
     },
     {
-      "rank": 92,
+      "rank": 98,
       "projects": [
         "cortex"
       ],
@@ -4246,7 +4417,7 @@
       "isNew": false
     },
     {
-      "rank": 93,
+      "rank": 99,
       "projects": [
         "cortex"
       ],
@@ -4299,7 +4470,7 @@
       "isNew": false
     },
     {
-      "rank": 94,
+      "rank": 100,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -4348,7 +4519,7 @@
       "isNew": false
     },
     {
-      "rank": 95,
+      "rank": 101,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -4401,7 +4572,7 @@
       "isNew": false
     },
     {
-      "rank": 96,
+      "rank": 102,
       "projects": [
         "one-small-mods-pack",
         "one-small-ui",
@@ -4452,7 +4623,7 @@
       "isNew": false
     },
     {
-      "rank": 97,
+      "rank": 103,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -4485,7 +4656,7 @@
       "isNew": false
     },
     {
-      "rank": 98,
+      "rank": 104,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -4520,7 +4691,7 @@
       "isNew": false
     },
     {
-      "rank": 99,
+      "rank": 105,
       "projects": [
         "one-small-ui"
       ],
@@ -4555,40 +4726,7 @@
       "isNew": false
     },
     {
-      "rank": 100,
-      "projects": [
-        "personal-portfolio"
-      ],
-      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
-      "rootCause": "Registry blocker final-verifier-attestation (approval).",
-      "complexity": "trivial",
-      "validation": [
-        "approval recorded in the registry with evidence for the candidate commit"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "registry:personal-portfolio:final-verifier-attestation"
-      ],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "personal-portfolio:blocker:final-verifier-attestation",
-      "project": "personal-portfolio",
-      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-      "priority": 7,
-      "severity": "low",
-      "kind": "approval",
-      "title": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested.",
-      "impact": "The release cannot ship without the owner's authorization.",
-      "proposedCorrection": "The owner decides after verification is complete; automation never records approval.",
-      "actionClass": "owner-decision",
-      "nextAction": "Owner: decide on final-verifier-attestation once personal-portfolio is verified.",
-      "priorityText": "Missing verification or documentation",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-28T21:07:08Z",
-      "isNew": true
-    },
-    {
-      "rank": 101,
+      "rank": 106,
       "projects": [
         "personal-portfolio"
       ],
@@ -4622,7 +4760,7 @@
       "isNew": false
     },
     {
-      "rank": 102,
+      "rank": 107,
       "projects": [
         "personal-portfolio"
       ],
@@ -4655,7 +4793,7 @@
       "isNew": false
     },
     {
-      "rank": 103,
+      "rank": 108,
       "projects": [
         "personal-portfolio"
       ],
@@ -4688,7 +4826,7 @@
       "isNew": false
     },
     {
-      "rank": 104,
+      "rank": 109,
       "projects": [
         "personal-portfolio"
       ],
@@ -4733,40 +4871,7 @@
       "isNew": false
     },
     {
-      "rank": 105,
-      "projects": [
-        "one-small-studio"
-      ],
-      "revision": "d6854deb5cb40e248a7b464f7995b08ce93aaf5e",
-      "rootCause": "Registry blocker final-verifier-attestation (approval).",
-      "complexity": "trivial",
-      "validation": [
-        "approval recorded in the registry with evidence for the candidate commit"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "registry:one-small-studio:final-verifier-attestation"
-      ],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "one-small-studio:blocker:final-verifier-attestation",
-      "project": "one-small-studio",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-studio",
-      "priority": 7,
-      "severity": "low",
-      "kind": "approval",
-      "title": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested.",
-      "impact": "The release cannot ship without the owner's authorization.",
-      "proposedCorrection": "The owner decides after verification is complete; automation never records approval.",
-      "actionClass": "owner-decision",
-      "nextAction": "Owner: decide on final-verifier-attestation once one-small-studio is verified.",
-      "priorityText": "Missing verification or documentation",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-28T21:07:08Z",
-      "isNew": true
-    },
-    {
-      "rank": 106,
+      "rank": 110,
       "projects": [
         "one-small-studio"
       ],
@@ -4800,7 +4905,7 @@
       "isNew": false
     },
     {
-      "rank": 107,
+      "rank": 111,
       "projects": [
         "one-small-studio"
       ],
@@ -4833,7 +4938,7 @@
       "isNew": false
     },
     {
-      "rank": 108,
+      "rank": 112,
       "projects": [
         "one-small-studio"
       ],
@@ -4866,7 +4971,7 @@
       "isNew": false
     },
     {
-      "rank": 109,
+      "rank": 113,
       "projects": [
         "one-small-studio"
       ],
@@ -4911,40 +5016,7 @@
       "isNew": false
     },
     {
-      "rank": 110,
-      "projects": [
-        "one-small-photography"
-      ],
-      "revision": "fa2d17fd66ee9bb3d92473dc68a6818ea284711b",
-      "rootCause": "Registry blocker final-verifier-attestation (approval).",
-      "complexity": "trivial",
-      "validation": [
-        "approval recorded in the registry with evidence for the candidate commit"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "registry:one-small-photography:final-verifier-attestation"
-      ],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "one-small-photography:blocker:final-verifier-attestation",
-      "project": "one-small-photography",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-photography",
-      "priority": 7,
-      "severity": "low",
-      "kind": "approval",
-      "title": "One consolidated owner review of docs/acceptance/final-closeout-2026-11-03.md remains. Joshua Small confirms the gate evidence and existing manual checks; then actual verifier passes and approval can be transcribed. No repeat owner tests are requested.",
-      "impact": "The release cannot ship without the owner's authorization.",
-      "proposedCorrection": "The owner decides after verification is complete; automation never records approval.",
-      "actionClass": "owner-decision",
-      "nextAction": "Owner: decide on final-verifier-attestation once one-small-photography is verified.",
-      "priorityText": "Missing verification or documentation",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-28T21:07:08Z",
-      "isNew": true
-    },
-    {
-      "rank": 111,
+      "rank": 114,
       "projects": [
         "one-small-photography"
       ],
@@ -4978,7 +5050,7 @@
       "isNew": false
     },
     {
-      "rank": 112,
+      "rank": 115,
       "projects": [
         "one-small-photography"
       ],
@@ -5011,7 +5083,7 @@
       "isNew": false
     },
     {
-      "rank": 113,
+      "rank": 116,
       "projects": [
         "one-small-photography"
       ],
@@ -5044,7 +5116,7 @@
       "isNew": false
     },
     {
-      "rank": 114,
+      "rank": 117,
       "projects": [
         "one-small-photography"
       ],
@@ -5077,7 +5149,7 @@
       "isNew": false
     },
     {
-      "rank": 115,
+      "rank": 118,
       "projects": [
         "one-small-photography"
       ],
@@ -5122,7 +5194,7 @@
       "isNew": false
     },
     {
-      "rank": 116,
+      "rank": 119,
       "projects": [
         "taskforge"
       ],
@@ -5157,7 +5229,7 @@
       "isNew": false
     },
     {
-      "rank": 117,
+      "rank": 120,
       "projects": [
         "taskforge"
       ],
@@ -5190,7 +5262,7 @@
       "isNew": false
     },
     {
-      "rank": 118,
+      "rank": 121,
       "projects": [
         "taskforge"
       ],
@@ -5223,7 +5295,7 @@
       "isNew": false
     },
     {
-      "rank": 119,
+      "rank": 122,
       "projects": [
         "taskforge"
       ],
@@ -5257,7 +5329,7 @@
       "isNew": false
     },
     {
-      "rank": 120,
+      "rank": 123,
       "projects": [
         "taskforge"
       ],
@@ -5302,7 +5374,7 @@
       "isNew": false
     },
     {
-      "rank": 121,
+      "rank": 124,
       "projects": [
         "cortex"
       ],
@@ -5335,7 +5407,7 @@
       "isNew": false
     },
     {
-      "rank": 122,
+      "rank": 125,
       "projects": [
         "cortex"
       ],
@@ -5368,7 +5440,7 @@
       "isNew": false
     },
     {
-      "rank": 123,
+      "rank": 126,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -5402,7 +5474,7 @@
       "isNew": false
     },
     {
-      "rank": 124,
+      "rank": 127,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -5436,7 +5508,7 @@
       "isNew": false
     },
     {
-      "rank": 125,
+      "rank": 128,
       "projects": [
         "one-small-ui"
       ],
@@ -5472,7 +5544,7 @@
       "isNew": false
     },
     {
-      "rank": 126,
+      "rank": 129,
       "projects": [
         "personal-portfolio"
       ],
@@ -5505,7 +5577,7 @@
       "isNew": false
     },
     {
-      "rank": 127,
+      "rank": 130,
       "projects": [
         "one-small-studio"
       ],
@@ -5538,7 +5610,7 @@
       "isNew": false
     },
     {
-      "rank": 128,
+      "rank": 131,
       "projects": [
         "one-small-photography"
       ],
@@ -5571,7 +5643,7 @@
       "isNew": false
     },
     {
-      "rank": 129,
+      "rank": 132,
       "projects": [
         "cortex"
       ],
