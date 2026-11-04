@@ -1,6 +1,6 @@
 # OneSmallUI 0.6.0 release notes (draft)
 
-> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 22 applicable gates independently verified (0%); 4 open blocker(s). Generated 2026-11-04T16:26:15Z.
+> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 22 applicable gates independently verified (0%); 4 open blocker(s). Generated 2026-11-04T17:26:09Z.
 
 ## Highlights
 

@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-04T16:26:15Z",
+  "asOf": "2026-11-04T17:26:09Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "b3f81d3b46f54accc6fd380bf329b85205c4cef0e0d983cf59a08acd6ea25b5c",
+  "registrySha256": "6ff89c6e4dff80fefb881b84b67a15eda8492c5c558111035eabcc13b03b0725",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-mods-pack",
@@ -26,7 +26,7 @@
       "head": "26b5ccdef6602a11b0970cee66b2b865c9f59b17",
       "snapshotObservedAt": "2026-10-31T20:14:34Z",
       "lastSyncedAt": "2026-10-31T20:14:34Z",
-      "lastEvidenceAt": "2026-11-04T16:25:23Z",
+      "lastEvidenceAt": "2026-11-04T17:25:29Z",
       "ownership": {
         "builder": "ChatGPT",
         "verifier": "Joshua Small",
@@ -38,7 +38,7 @@
         "approvedAt": null,
         "evidenceRefs": []
       },
-      "registryNextAction": "Owner: complete release/2.0.0/manual-acceptance.md (12 website rows; P1-P3 tested or DEFERRED-BY-OWNER) using release/2.0.0/manual-a11y-quickstart.md and sign off; confirm npm access and do the one-time setup in release/README.md; then dry run, tag, publish with provenance, GitHub release and Pages deploy from the sign-off commit. Agent work is complete pending PR #8.",
+      "registryNextAction": "Owner: complete release/2.0.0/manual-acceptance.md (12 website rows; P1-P3 tested or DEFERRED-BY-OWNER) using release/2.0.0/manual-a11y-quickstart.md and sign off; confirm npm access and do the one-time setup in release/README.md; then dry run, tag, publish with provenance, GitHub release and Pages deploy from the sign-off commit. Agent work is complete (PR #8 merged).",
       "missingEvidence": [
         "Independent (non-builder) verification of the automated results on b0ff54a / the sign-off commit.",
         "Manual screen reader, browser zoom, text spacing, Windows contrast theme and keyboard results (release/2.0.0/manual-acceptance.md).",
