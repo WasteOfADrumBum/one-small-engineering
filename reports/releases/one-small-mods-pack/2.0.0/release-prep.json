@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/release-preparation",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-03T18:54:21Z",
+  "asOf": "2026-11-04T16:26:15Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "18c4104a0fd25d1e02b26d577024627ee9730d4f1f98eaf3a49025ac636d8a94",
+  "registrySha256": "b3f81d3b46f54accc6fd380bf329b85205c4cef0e0d983cf59a08acd6ea25b5c",
   "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
   "project": {
     "id": "one-small-mods-pack",
@@ -15,22 +15,41 @@
     "currentVersion": "0.1.0",
     "targetVersion": "2.0.0",
     "releaseStatus": "in_progress",
-    "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/c747cbd6a9c3baddf2adca42798cd05f9511cef1/docs/release-verification.md",
+    "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/26b5ccdef6602a11b0970cee66b2b865c9f59b17/release/2.0.0/tracker.md",
     "candidate": {
-      "pullRequest": 3,
+      "pullRequest": 5,
       "ref": "main",
-      "headSha": "c747cbd6a9c3baddf2adca42798cd05f9511cef1",
-      "observedAt": "2026-10-30T12:03:32Z"
+      "headSha": "b0ff54a436c90dc02b59cde3a1fca5e94334bc4f",
+      "observedAt": "2026-11-04T16:25:23Z"
     },
     "openPullRequests": [],
     "evidenceCommits": [
+      {
+        "commitSha": "26b5ccdef6602a11b0970cee66b2b865c9f59b17",
+        "evidence": [
+          "msp-ci-main-26b5ccd"
+        ]
+      },
       {
         "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
         "evidence": [
           "msp-ci-pr3-head",
           "msp-compatibility-catalog",
-          "msp-pr-3",
           "msp-release-verification"
+        ]
+      },
+      {
+        "commitSha": "b0ff54a436c90dc02b59cde3a1fca5e94334bc4f",
+        "evidence": [
+          "msp-ci-b0ff54a",
+          "msp-pr-5-merged",
+          "msp-release-dry-run"
+        ]
+      },
+      {
+        "commitSha": "c747cbd6a9c3baddf2adca42798cd05f9511cef1",
+        "evidence": [
+          "msp-pr-3-merged"
         ]
       }
     ],
@@ -54,19 +73,19 @@
       "remainingGates": 21,
       "byState": {
         "verified": 0,
-        "in_progress": 0,
+        "in_progress": 2,
         "not_started": 7,
         "blocked": 1,
         "not_applicable": 1,
-        "unknown_stale": 13
+        "unknown_stale": 11
       },
       "percentage": 0,
       "prePublication": {
         "applicable": 18,
         "verified": 0
       },
-      "blockingFindings": 23,
-      "registryBlockers": 8,
+      "blockingFindings": 19,
+      "registryBlockers": 6,
       "missingIndependentVerification": [
         "automated-checks",
         "wcag-22-aa",
@@ -105,7 +124,7 @@
         "provenance": "builder-reported",
         "missing": [
           "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-          "current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd",
+          "current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a",
           "registry notes: Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE"
         ]
       }
@@ -117,7 +136,7 @@
         "provenance": "builder-reported",
         "missing": [
           "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-          "current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd",
+          "current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a",
           "registry notes: Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding"
         ]
       },
@@ -127,7 +146,7 @@
         "provenance": "builder-reported",
         "missing": [
           "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-          "current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd",
+          "current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a",
           "registry notes: Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED"
         ]
       },
@@ -137,12 +156,32 @@
         "provenance": "builder-reported",
         "missing": [
           "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-          "current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd",
+          "current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a",
           "registry notes: Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED"
         ]
       }
     ],
     "testAndCiEvidence": [
+      {
+        "id": "msp-ci-b0ff54a",
+        "type": "workflow_run",
+        "result": "pass",
+        "provenance": "pass-without-independent-verifier",
+        "commitSha": "b0ff54a436c90dc02b59cde3a1fca5e94334bc4f",
+        "verifiedAt": "2026-10-31T19:41:23Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/41235320197",
+        "stale": null
+      },
+      {
+        "id": "msp-ci-main-26b5ccd",
+        "type": "workflow_run",
+        "result": "pass",
+        "provenance": "pass-without-independent-verifier",
+        "commitSha": "26b5ccdef6602a11b0970cee66b2b865c9f59b17",
+        "verifiedAt": "2026-10-31T19:50:20Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/41235986293",
+        "stale": "msp-ci-main-26b5ccd is for 26b5ccd, not the release candidate b0ff54a"
+      },
       {
         "id": "msp-ci-pr3-head",
         "type": "workflow_run",
@@ -151,7 +190,17 @@
         "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
         "verifiedAt": "2026-10-22T16:33:00Z",
         "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/39813140190",
-        "stale": "msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd"
+        "stale": "msp-ci-pr3-head is for 80cc269, not the release candidate b0ff54a"
+      },
+      {
+        "id": "msp-release-dry-run",
+        "type": "workflow_run",
+        "result": "pass",
+        "provenance": "pass-without-independent-verifier",
+        "commitSha": "b0ff54a436c90dc02b59cde3a1fca5e94334bc4f",
+        "verifiedAt": "2026-10-31T19:46:35Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/41235745436",
+        "stale": null
       },
       {
         "id": "msp-release-verification",
@@ -161,29 +210,11 @@
         "commitSha": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
         "verifiedAt": "2026-10-22T16:33:00Z",
         "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/80cc269ebb7c20aca5f6ca03214954726fb494f7/docs/release-verification.md",
-        "stale": "msp-release-verification is for 80cc269, not the release candidate c747cbd"
+        "stale": "msp-release-verification is for 80cc269, not the release candidate b0ff54a"
       }
     ],
     "blockers": {
-      "merge": [
-        {
-          "id": "pr-description-stale",
-          "origin": "registry",
-          "status": "open",
-          "category": "documentation",
-          "severity": null,
-          "blocks": "merge",
-          "gates": [
-            "documentation-accurate"
-          ],
-          "description": "PR #3 description disagrees with docs/release-verification.md at the same head (dependency audit INCONCLUSIVE vs PASS; 55 vs 82 packed files; 85 vs 89 CLI tests). Reconcile before review.",
-          "evidenceRefs": [
-            "msp-pr-3",
-            "msp-release-verification"
-          ],
-          "rule": null
-        }
-      ],
+      "merge": [],
       "release": [
         {
           "id": "codex-interactive-trust",
@@ -195,7 +226,7 @@
           "gates": [
             "runtime-compatibility"
           ],
-          "description": "Codex hook enforcement verified only with trust bypassed; interactive /hooks trust not confirmed.",
+          "description": "Codex hook enforcement verified only with trust bypassed (0.159.3); interactive /hooks trust not confirmed (manual-acceptance row P1). No OpenAI credentials in the agent container on 2026-11-04.",
           "evidenceRefs": [
             "msp-release-verification"
           ],
@@ -212,7 +243,7 @@
             "runtime-compatibility",
             "public-docs-accurate"
           ],
-          "description": "Copilot and Gemini CLI hook enforcement and custom agents are NOT TESTED; either test in authenticated runtimes or record an owner decision to ship them as experimental.",
+          "description": "Copilot and Gemini CLI hook enforcement, custom agents and model use are NOT TESTED (discovery verified 2026-10-31 in Copilot CLI 1.0.105 and Gemini CLI 0.66.0; no credentials in the agent container on 2026-11-04). Owner decision: test (manual-acceptance rows P2, P3) or mark DEFERRED-BY-OWNER and ship as unverified.",
           "evidenceRefs": [
             "msp-release-verification",
             "msp-compatibility-catalog"
@@ -264,26 +295,9 @@
             "distribution-verified",
             "ci-release-pipeline"
           ],
-          "description": "npm ownership of one-small-modspack and publish access not confirmed; the name is currently unpublished.",
+          "description": "npm account access for publishing one-small-modspack not confirmed by the owner; the name is still unpublished (npm view E404 on 2026-11-04, which is not a reservation). The npm-publish environment and a first-publication token are owner setup steps (release/README.md).",
           "evidenceRefs": [
             "msp-npm-name-check"
-          ],
-          "rule": null
-        },
-        {
-          "id": "publish-pipeline-missing",
-          "origin": "registry",
-          "status": "open",
-          "category": "distribution",
-          "severity": null,
-          "blocks": "release",
-          "gates": [
-            "ci-release-pipeline",
-            "release-provenance"
-          ],
-          "description": "No release or publish workflow exists at the candidate commit (only ci.yml), so the package cannot be published from CI with npm provenance. Add a least-privilege publish workflow (manual trigger, npm --provenance) or record an owner decision on how 2.0.0 is published. Proposed by Claude Code in the Phase 3 PR for owner review.",
-          "evidenceRefs": [
-            "msp-workflows-80cc269"
           ],
           "rule": null
         },
@@ -295,7 +309,7 @@
           "severity": null,
           "blocks": "release",
           "gates": [],
-          "description": "No owner authorization yet for merge, tag, npm publish or deployment.",
+          "description": "No owner authorization yet for tag, npm publish, GitHub release or website deployment, and no owner sign-off in release/2.0.0/manual-acceptance.md (all 15 rows PENDING).",
           "evidenceRefs": [
             "msp-pr-3"
           ],
@@ -324,32 +338,17 @@
           "severity": null,
           "blocks": "release",
           "gates": [
+            "scope-complete",
+            "automated-checks",
             "security-privacy-review",
             "critical-workflows",
             "documentation-accurate",
             "package-metadata-exports"
           ],
-          "description": "4 applicable pre-publication gate(s) lack current independent verification.",
+          "description": "6 applicable pre-publication gate(s) lack current independent verification.",
           "evidenceRefs": [],
           "rule": "every applicable gate needs independent pass evidence",
           "action": null
-        },
-        {
-          "id": "auto-stale-automated-checks",
-          "origin": "derived",
-          "status": "proposed",
-          "category": "stale-evidence",
-          "severity": null,
-          "blocks": "release",
-          "gates": [
-            "automated-checks"
-          ],
-          "description": "automated-checks: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd; registry notes: CI green on PR #3 head 80cc269. The PR is under active testing; re-check on the final head.",
-          "evidenceRefs": [
-            "msp-ci-pr3-head"
-          ],
-          "rule": "verified or in-progress gates need current evidence for the candidate",
-          "action": "Re-collect current evidence for automated-checks on the release candidate and have the verifier re-check it."
         },
         {
           "id": "auto-stale-ci-release-pipeline",
@@ -361,7 +360,7 @@
           "gates": [
             "ci-release-pipeline"
           ],
-          "description": "ci-release-pipeline: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd; registry notes: CI exists for checks (contents: read). There is no release or publish pipeline yet.",
+          "description": "ci-release-pipeline: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate b0ff54a; registry notes: CI exists for checks (contents: read). There is no release or publish pipeline yet.",
           "evidenceRefs": [
             "msp-ci-pr3-head"
           ],
@@ -378,7 +377,7 @@
           "gates": [
             "clean-consumer-install"
           ],
-          "description": "clean-consumer-install: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports an artifact test that packs, installs, validates and initializes every platform.",
+          "description": "clean-consumer-install: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Builder reports an artifact test that packs, installs, validates and initializes every platform.",
           "evidenceRefs": [
             "msp-release-verification"
           ],
@@ -395,7 +394,7 @@
           "gates": [
             "keyboard-screen-reader"
           ],
-          "description": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED.",
+          "description": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED.",
           "evidenceRefs": [
             "msp-release-verification"
           ],
@@ -412,7 +411,7 @@
           "gates": [
             "package-archive-inspection"
           ],
-          "description": "package-archive-inspection: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports an 82-file tarball reviewed with an artifact regression test; not independently re-inspected.",
+          "description": "package-archive-inspection: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Builder reports an 82-file tarball reviewed with an artifact regression test; not independently re-inspected.",
           "evidenceRefs": [
             "msp-release-verification"
           ],
@@ -429,7 +428,7 @@
           "gates": [
             "public-docs-accurate"
           ],
-          "description": "public-docs-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate c747cbd; registry notes: README, CHANGELOG and limitations reviewed by the builder; compatibility claims come from the catalog.",
+          "description": "public-docs-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate b0ff54a; registry notes: README, CHANGELOG and limitations reviewed by the builder; compatibility claims come from the catalog.",
           "evidenceRefs": [
             "msp-release-verification",
             "msp-compatibility-catalog"
@@ -447,7 +446,7 @@
           "gates": [
             "responsive-layouts"
           ],
-          "description": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED.",
+          "description": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED.",
           "evidenceRefs": [
             "msp-release-verification"
           ],
@@ -464,30 +463,13 @@
           "gates": [
             "runtime-compatibility"
           ],
-          "description": "runtime-compatibility: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate c747cbd; registry notes: Claude Code harness PASS; Codex discovery and trust-bypassed hook enforcement live; Copilot/Gemini runtime NOT TESTED; Node 20 partial, CI runs Node 22 only.",
+          "description": "runtime-compatibility: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate b0ff54a; registry notes: Claude Code harness PASS; Codex discovery and trust-bypassed hook enforcement live; Copilot/Gemini runtime NOT TESTED; Node 20 partial, CI runs Node 22 only.",
           "evidenceRefs": [
             "msp-release-verification",
             "msp-compatibility-catalog"
           ],
           "rule": "verified or in-progress gates need current evidence for the candidate",
           "action": "Re-collect current evidence for runtime-compatibility on the release candidate and have the verifier re-check it."
-        },
-        {
-          "id": "auto-stale-scope-complete",
-          "origin": "derived",
-          "status": "proposed",
-          "category": "stale-evidence",
-          "severity": null,
-          "blocks": "release",
-          "gates": [
-            "scope-complete"
-          ],
-          "description": "scope-complete: current evidence: msp-pr-3 is for 80cc269, not the release candidate c747cbd; registry notes: Scope is PR #3 plus the go/no-go checklist in release-verification.md; open checklist items remain.",
-          "evidenceRefs": [
-            "msp-pr-3"
-          ],
-          "rule": "verified or in-progress gates need current evidence for the candidate",
-          "action": "Re-collect current evidence for scope-complete on the release candidate and have the verifier re-check it."
         },
         {
           "id": "auto-stale-supply-chain-review",
@@ -499,7 +481,7 @@
           "gates": [
             "supply-chain-review"
           ],
-          "description": "supply-chain-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE.",
+          "description": "supply-chain-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE.",
           "evidenceRefs": [
             "msp-release-verification"
           ],
@@ -516,7 +498,7 @@
           "gates": [
             "upgrade-rollback-uninstall-docs"
           ],
-          "description": "upgrade-rollback-uninstall-docs: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Install, update and modspack uninstall --yes documented in docs/getting-started.md (builder-reported).",
+          "description": "upgrade-rollback-uninstall-docs: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Install, update and modspack uninstall --yes documented in docs/getting-started.md (builder-reported).",
           "evidenceRefs": [
             "msp-release-verification"
           ],
@@ -533,7 +515,7 @@
           "gates": [
             "versioning-changelog"
           ],
-          "description": "versioning-changelog: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: CHANGELOG 2.0.0 (unreleased) with mod version list and a consistency test (builder-reported).",
+          "description": "versioning-changelog: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: CHANGELOG 2.0.0 (unreleased) with mod version list and a consistency test (builder-reported).",
           "evidenceRefs": [
             "msp-release-verification"
           ],
@@ -550,7 +532,7 @@
           "gates": [
             "wcag-22-aa"
           ],
-          "description": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding.",
+          "description": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding.",
           "evidenceRefs": [
             "msp-release-verification"
           ],
@@ -562,17 +544,17 @@
         {
           "id": "enhancement-1",
           "origin": "registry",
-          "text": "Plugin icon artwork and plugin-directory submission (not needed for npm or local use)."
+          "text": "Plugin icon artwork and plugin-directory submission (not needed for npm or local use); ModsPack ROADMAP.md R1."
         },
         {
           "id": "enhancement-2",
           "origin": "registry",
-          "text": "Add Node 20 to the CI matrix to back the engines claim."
+          "text": "Live Codex, Copilot and Gemini CLI enforcement evidence; ModsPack ROADMAP.md R2."
         },
         {
           "id": "enhancement-3",
           "origin": "registry",
-          "text": "Optional hosting of the generated documentation site."
+          "text": "Optional hosting of the generated documentation site; ModsPack ROADMAP.md R5."
         }
       ]
     },
@@ -587,7 +569,7 @@
         "gates": [
           "runtime-compatibility"
         ],
-        "text": "Resolve blocker codex-interactive-trust: Codex hook enforcement verified only with trust bypassed; interactive /hooks trust not confirmed.",
+        "text": "Resolve blocker codex-interactive-trust: Codex hook enforcement verified only with trust bypassed (0.159.3); interactive /hooks trust not confirmed (manual-acceptance row P1). No OpenAI credentials in the agent container on 2026-11-04.",
         "summary": "Resolve blocker codex-interactive-trust."
       },
       {
@@ -601,7 +583,7 @@
           "runtime-compatibility",
           "public-docs-accurate"
         ],
-        "text": "Resolve blocker copilot-gemini-runtime-untested: Copilot and Gemini CLI hook enforcement and custom agents are NOT TESTED; either test in authenticated runtimes or record an owner decision to ship them as experimental.",
+        "text": "Resolve blocker copilot-gemini-runtime-untested: Copilot and Gemini CLI hook enforcement, custom agents and model use are NOT TESTED (discovery verified 2026-10-31 in Copilot CLI 1.0.105 and Gemini CLI 0.66.0; no credentials in the agent container on 2026-11-04). Owner decision: test (manual-acceptance rows P2, P3) or mark DEFERRED-BY-OWNER and ship as unverified.",
         "summary": "Resolve blocker copilot-gemini-runtime-untested."
       },
       {
@@ -625,29 +607,18 @@
         "origin": "derived",
         "blocks": "release",
         "gates": [
+          "scope-complete",
+          "automated-checks",
           "security-privacy-review",
           "critical-workflows",
           "documentation-accurate",
           "package-metadata-exports"
         ],
-        "text": "Produce evidence for security-privacy-review, package-metadata-exports; then verify critical-workflows, documentation-accurate once their blockers are resolved.",
-        "summary": "Produce evidence for security-privacy-review, package-metadata-exports."
+        "text": "Independently re-check the builder evidence for automated-checks; produce evidence for scope-complete, security-privacy-review, documentation-accurate, package-metadata-exports; then verify critical-workflows once their blockers are resolved.",
+        "summary": "Independently re-check the builder evidence for automated-checks."
       },
       {
         "rank": 5,
-        "priority": 3,
-        "bucket": "Missing required verification",
-        "source": "auto-stale-automated-checks",
-        "origin": "derived",
-        "blocks": "release",
-        "gates": [
-          "automated-checks"
-        ],
-        "text": "Re-collect current evidence for automated-checks on the release candidate and have the verifier re-check it.",
-        "summary": "Re-collect current evidence for automated-checks on the release candidate and have the verifier re-check it."
-      },
-      {
-        "rank": 6,
         "priority": 3,
         "bucket": "Missing required verification",
         "source": "auto-stale-ci-release-pipeline",
@@ -660,7 +631,7 @@
         "summary": "Re-collect current evidence for ci-release-pipeline on the release candidate and have the verifier re-check it."
       },
       {
-        "rank": 7,
+        "rank": 6,
         "priority": 3,
         "bucket": "Missing required verification",
         "source": "auto-stale-clean-consumer-install",
@@ -673,7 +644,7 @@
         "summary": "Re-collect current evidence for clean-consumer-install on the release candidate and have the verifier re-check it."
       },
       {
-        "rank": 8,
+        "rank": 7,
         "priority": 3,
         "bucket": "Missing required verification",
         "source": "auto-stale-keyboard-screen-reader",
@@ -686,7 +657,7 @@
         "summary": "Re-collect current evidence for keyboard-screen-reader on the release candidate and have the verifier re-check it."
       },
       {
-        "rank": 9,
+        "rank": 8,
         "priority": 3,
         "bucket": "Missing required verification",
         "source": "auto-stale-package-archive-inspection",
@@ -699,7 +670,7 @@
         "summary": "Re-collect current evidence for package-archive-inspection on the release candidate and have the verifier re-check it."
       },
       {
-        "rank": 10,
+        "rank": 9,
         "priority": 3,
         "bucket": "Missing required verification",
         "source": "auto-stale-public-docs-accurate",
@@ -712,7 +683,7 @@
         "summary": "Re-collect current evidence for public-docs-accurate on the release candidate and have the verifier re-check it."
       },
       {
-        "rank": 11,
+        "rank": 10,
         "priority": 3,
         "bucket": "Missing required verification",
         "source": "auto-stale-responsive-layouts",
@@ -725,7 +696,7 @@
         "summary": "Re-collect current evidence for responsive-layouts on the release candidate and have the verifier re-check it."
       },
       {
-        "rank": 12,
+        "rank": 11,
         "priority": 3,
         "bucket": "Missing required verification",
         "source": "auto-stale-runtime-compatibility",
@@ -738,20 +709,7 @@
         "summary": "Re-collect current evidence for runtime-compatibility on the release candidate and have the verifier re-check it."
       },
       {
-        "rank": 13,
-        "priority": 3,
-        "bucket": "Missing required verification",
-        "source": "auto-stale-scope-complete",
-        "origin": "derived",
-        "blocks": "release",
-        "gates": [
-          "scope-complete"
-        ],
-        "text": "Re-collect current evidence for scope-complete on the release candidate and have the verifier re-check it.",
-        "summary": "Re-collect current evidence for scope-complete on the release candidate and have the verifier re-check it."
-      },
-      {
-        "rank": 14,
+        "rank": 12,
         "priority": 3,
         "bucket": "Missing required verification",
         "source": "auto-stale-supply-chain-review",
@@ -764,7 +722,7 @@
         "summary": "Re-collect current evidence for supply-chain-review on the release candidate and have the verifier re-check it."
       },
       {
-        "rank": 15,
+        "rank": 13,
         "priority": 3,
         "bucket": "Missing required verification",
         "source": "auto-stale-upgrade-rollback-uninstall-docs",
@@ -777,7 +735,7 @@
         "summary": "Re-collect current evidence for upgrade-rollback-uninstall-docs on the release candidate and have the verifier re-check it."
       },
       {
-        "rank": 16,
+        "rank": 14,
         "priority": 3,
         "bucket": "Missing required verification",
         "source": "auto-stale-versioning-changelog",
@@ -790,7 +748,7 @@
         "summary": "Re-collect current evidence for versioning-changelog on the release candidate and have the verifier re-check it."
       },
       {
-        "rank": 17,
+        "rank": 15,
         "priority": 3,
         "bucket": "Missing required verification",
         "source": "auto-stale-wcag-22-aa",
@@ -803,7 +761,7 @@
         "summary": "Re-collect current evidence for wcag-22-aa on the release candidate and have the verifier re-check it."
       },
       {
-        "rank": 18,
+        "rank": 16,
         "priority": 5,
         "bucket": "Accessibility release blockers",
         "source": "manual-screen-reader-review",
@@ -817,7 +775,7 @@
         "summary": "Resolve blocker manual-screen-reader-review."
       },
       {
-        "rank": 19,
+        "rank": 17,
         "priority": 5,
         "bucket": "Accessibility release blockers",
         "source": "manual-zoom-forced-colors-review",
@@ -831,7 +789,7 @@
         "summary": "Resolve blocker manual-zoom-forced-colors-review."
       },
       {
-        "rank": 20,
+        "rank": 18,
         "priority": 6,
         "bucket": "Missing release artifacts",
         "source": "npm-ownership-access",
@@ -841,35 +799,8 @@
           "distribution-verified",
           "ci-release-pipeline"
         ],
-        "text": "Resolve blocker npm-ownership-access: npm ownership of one-small-modspack and publish access not confirmed; the name is currently unpublished.",
+        "text": "Resolve blocker npm-ownership-access: npm account access for publishing one-small-modspack not confirmed by the owner; the name is still unpublished (npm view E404 on 2026-11-04, which is not a reservation). The npm-publish environment and a first-publication token are owner setup steps (release/README.md).",
         "summary": "Resolve blocker npm-ownership-access."
-      },
-      {
-        "rank": 21,
-        "priority": 6,
-        "bucket": "Missing release artifacts",
-        "source": "publish-pipeline-missing",
-        "origin": "registry",
-        "blocks": "release",
-        "gates": [
-          "ci-release-pipeline",
-          "release-provenance"
-        ],
-        "text": "Resolve blocker publish-pipeline-missing: No release or publish workflow exists at the candidate commit (only ci.yml), so the package cannot be published from CI with npm provenance. Add a least-privilege publish workflow (manual trigger, npm --provenance) or record an owner decision on how 2.0.0 is published. Proposed by Claude Code in the Phase 3 PR for owner review.",
-        "summary": "Resolve blocker publish-pipeline-missing."
-      },
-      {
-        "rank": 22,
-        "priority": 7,
-        "bucket": "Documentation and lower priority",
-        "source": "pr-description-stale",
-        "origin": "registry",
-        "blocks": "merge",
-        "gates": [
-          "documentation-accurate"
-        ],
-        "text": "Resolve blocker pr-description-stale: PR #3 description disagrees with docs/release-verification.md at the same head (dependency audit INCONCLUSIVE vs PASS; 55 vs 82 packed files; 85 vs 89 CLI tests). Reconcile before review.",
-        "summary": "Resolve blocker pr-description-stale."
       }
     ],
     "rollback": {
@@ -904,7 +835,7 @@
       },
       {
         "item": "No open merge blockers",
-        "done": false
+        "done": true
       },
       {
         "item": "No open release blockers other than the approval itself",
@@ -934,7 +865,17 @@
     "evidence": [
       {
         "gate": "automated-checks",
-        "evidence": "msp-ci-pr3-head",
+        "evidence": "msp-ci-b0ff54a",
+        "provenance": "pass-without-independent-verifier"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "msp-release-dry-run",
+        "provenance": "pass-without-independent-verifier"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "msp-ci-main-26b5ccd",
         "provenance": "pass-without-independent-verifier"
       },
       {
@@ -1010,29 +951,29 @@
     ],
     "changelog": {
       "source": {
-        "path": "release/snapshots/one-small-mods-pack-c747cbd-CHANGELOG.md",
-        "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/c747cbd6a9c3baddf2adca42798cd05f9511cef1/CHANGELOG.md",
-        "commitSha": "c747cbd6a9c3baddf2adca42798cd05f9511cef1"
+        "path": "release/snapshots/one-small-mods-pack-b0ff54a-CHANGELOG.md",
+        "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/b0ff54a436c90dc02b59cde3a1fca5e94334bc4f/CHANGELOG.md",
+        "commitSha": "b0ff54a436c90dc02b59cde3a1fca5e94334bc4f"
       },
       "stale": false,
       "heading": "## 2.0.0 (unreleased)"
     },
     "limitations": {
       "registryMissingEvidence": [
-        "Independent (non-builder) verification of any PR #3 test result.",
-        "Manual screen reader, browser zoom and forced-colors results.",
-        "Copilot and Gemini CLI runtime evidence or a recorded owner decision to ship them as experimental.",
-        "npm ownership/access confirmation.",
-        "Builder and independent verifier not assigned in the registry."
+        "Independent (non-builder) verification of the automated results on b0ff54a / the sign-off commit.",
+        "Manual screen reader, browser zoom, text spacing, Windows contrast theme and keyboard results (release/2.0.0/manual-acceptance.md).",
+        "Copilot and Gemini CLI runtime evidence and Codex interactive trust, or a recorded owner decision to ship them unverified (DEFERRED-BY-OWNER).",
+        "npm account access confirmation by the owner.",
+        "npm provenance exists only after publication; none yet."
       ],
       "unverifiedGateNotes": [
         {
           "gate": "scope-complete",
-          "notes": "Scope is PR #3 plus the go/no-go checklist in release-verification.md; open checklist items remain."
+          "notes": "Scope is the 2.0.0 package at b0ff54a (PR #3 functionality plus PR #5 release tooling) and release/2.0.0/manual-acceptance.md; manual rows remain PENDING."
         },
         {
           "gate": "automated-checks",
-          "notes": "CI green on PR #3 head 80cc269. The PR is under active testing; re-check on the final head."
+          "notes": "CI green on candidate b0ff54a (all seven jobs) and on main 26b5ccd; release dry run passed on b0ff54a. Awaiting the verifier."
         },
         {
           "gate": "security-privacy-review",
@@ -1099,7 +1040,7 @@
           "notes": "Nothing published yet."
         }
       ],
-      "changelogKnownLimitations": "See the Known limitations page. Codex has live evidence for instruction and skill discovery only; hook enforcement on Codex and all Copilot and Gemini CLI runtime are NOT TESTED."
+      "changelogKnownLimitations": "See the Known limitations page. The five guards enforced in a live Claude Code 2.1.316 run. Codex, Copilot and Gemini CLI have live instruction and skill discovery evidence; a Codex hook denied a secret live only with trust bypassed, and hooks, custom agents and model use on Copilot and Gemini CLI are NOT TESTED. Manual accessibility testing of the website (screen readers, real zoom, Windows High Contrast) is NOT TESTED."
     }
   }
 }
