@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-04T14:18:15Z",
+  "lastUpdatedAt": "2026-11-04T14:19:50Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1744,7 +1744,7 @@
         "defaultBranch": "main",
         "headSha": "d70f75f04942f8026871c701a4b69460d088ae34",
         "archived": false,
-        "observedAt": "2026-11-03T18:28:29Z",
+        "observedAt": "2026-11-04T14:19:50Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1981,6 +1981,18 @@
           "result": "pass",
           "description": "Joshua Small explicitly reviewed and accepted the closeout package, confirmed his recorded manual checks, accepted the linked evidence for all ten Showcase gates and approved release 1.0.0. Transcribed by Codex at his direction; this is his verifier attestation, not new AI verification or a claim of repeated tests.",
           "recordedBy": "Joshua Small"
+        },
+        {
+          "id": "sync-one-small-photography-run-production-smoke-yml-d70f75f-j7wog3j-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/41837015935",
+          "commitSha": "d70f75f04942f8026871c701a4b69460d088ae34",
+          "verifiedAt": "2026-11-04T13:19:29Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke\") concluded success on main at d70f75f (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-photography:workflow_run:production-smoke.yml/d70f75f/j7wog3j/1"
         }
       ],
       "releaseGates": [
@@ -2114,7 +2126,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-11-03T18:28:29Z",
+        "lastSyncedAt": "2026-11-04T14:19:50Z",
         "lastSyncedHead": "d70f75f04942f8026871c701a4b69460d088ae34",
         "configSource": "defaults"
       }
