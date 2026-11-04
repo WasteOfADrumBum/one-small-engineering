@@ -6,8 +6,9 @@ Each project keeps its own `ROADMAP.md` in its repository, linked from its READM
 [joshsmall-site](https://github.com/WasteOfADrumBum/joshsmall-site/blob/main/ROADMAP.md),
 [one-small-photography](https://github.com/WasteOfADrumBum/one-small-photography/blob/main/ROADMAP.md),
 [one-small-studio](https://github.com/WasteOfADrumBum/one-small-studio/blob/main/ROADMAP.md),
-[one-small-ui](https://github.com/WasteOfADrumBum/one-small-ui/blob/main/ROADMAP.md).
-ModsPack is on hold and gets no roadmap work until the owner lifts the hold.
+[one-small-ui](https://github.com/WasteOfADrumBum/one-small-ui/blob/main/ROADMAP.md),
+[one-small-mods-pack](https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/main/ROADMAP.md) (added by its PR #8).
+The owner resumed ModsPack 2.0.0 release closure on 2026-11-04; hub roadmap items for ModsPack stay on hold until the owner lifts that hold.
 
 ## How to use this file
 

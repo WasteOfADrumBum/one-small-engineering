@@ -9,9 +9,12 @@
 - Adapters for Claude Code, OpenAI Codex, GitHub Copilot and Gemini CLI with a reversible installer.
 - Friendly agent names (Atlas, Sentinel, Scout, Echo, Aegis, Forge) as metadata, customisable with `agentNames`; technical IDs and native agent files unchanged.
 - Public documentation website generated from the definitions and catalogs.
-- CI workflow for this repository.
+- CI workflow for this repository, with Node 20 and 24 jobs and a macOS job that run the packed-artifact smoke test.
+- `scripts/consumer-smoke.mjs` (`npm run smoke`): packs the package, installs the tarball in a throwaway git project and drives every command through the installed bin, checking exit codes, preview safety, idempotent install, hook denials, a byte-identical uninstall and that deterministic commands open no network connection.
+- `.github/workflows/release.yml`: a manually started, fail-closed npm publish workflow (dry run by default) with provenance. See `release/README.md`.
 
 ### Fixed
+- `scripts/run-mods.mjs` (behind `npm run validate` and `npm test`) did nothing and exited 0 when the repository was reached through a symlink, such as macOS `/var` → `/private/var` or a symlinked checkout: Node resolves the main module's real path, so the entrypoint check never matched. It now compares real paths, with a regression test. Found by the new macOS CI job.
 - npm artifact: `package.json` `files` listed `mods/*/hooks`, `mods/*/scripts`, `agents`, `skills`, `catalog`, `schema` and `docs` as bare directories, which npm does not expand through the `*` pattern; the tarball shipped no guard hook modules or helper scripts (55 files). They are now `/**` patterns (82 files), and the artifact test compares every file under each mod's `hooks` and `scripts` with the tarball listing.
 - Website: in Windows high contrast (forced colors) the home page button lost its only boundary; it now keeps a 2px `ButtonText` border. `scripts/site-browser-check.mjs` also checks forced colors and text spacing, and no longer crashes its own server on a missing file.
 - npm artifact: include `.claude-plugin/marketplace.json`, which `modspack validate` reads. The source checkout validated successfully but the installed tarball crashed with ENOENT. A regression test now packs, installs, validates and initializes every platform from the artifact.
@@ -35,7 +38,7 @@ Claude Code updates an installed plugin only when its version changes, so the mo
 - `modspack-agents` 2.0.0
 
 ### Known limitations
-See the Known limitations page. Codex has live evidence for instruction and skill discovery only; hook enforcement on Codex and all Copilot and Gemini CLI runtime are NOT TESTED.
+See the Known limitations page. The five guards enforced in a live Claude Code 2.1.316 run. Codex, Copilot and Gemini CLI have live instruction and skill discovery evidence; a Codex hook denied a secret live only with trust bypassed, and hooks, custom agents and model use on Copilot and Gemini CLI are NOT TESTED. Manual accessibility testing of the website (screen readers, real zoom, Windows High Contrast) is NOT TESTED.
 
 ## 0.1.0
 The four Claude Code mods (each 0.1.0) and the `guardrail-mods` marketplace.

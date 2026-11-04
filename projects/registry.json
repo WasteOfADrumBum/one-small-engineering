@@ -92,12 +92,12 @@
         "currentVersionSource": "Not an npm or tagged release. main holds package.json guardrail-mods 0.1.0 (private) and four 0.1.0 Claude Code mods installable from the repository as a plugin marketplace. No git tags or GitHub releases exist.",
         "targetVersion": "2.0.0",
         "releaseStatus": "in_progress",
-        "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/c747cbd6a9c3baddf2adca42798cd05f9511cef1/docs/release-verification.md",
+        "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/26b5ccdef6602a11b0970cee66b2b865c9f59b17/release/2.0.0/tracker.md",
         "candidate": {
-          "pullRequest": 3,
+          "pullRequest": 5,
           "ref": "main",
-          "headSha": "c747cbd6a9c3baddf2adca42798cd05f9511cef1",
-          "observedAt": "2026-10-30T12:03:32Z"
+          "headSha": "b0ff54a436c90dc02b59cde3a1fca5e94334bc4f",
+          "observedAt": "2026-11-04T16:25:23Z"
         },
         "blockers": [
           {
@@ -130,7 +130,7 @@
           },
           {
             "id": "copilot-gemini-runtime-untested",
-            "description": "Copilot and Gemini CLI hook enforcement and custom agents are NOT TESTED; either test in authenticated runtimes or record an owner decision to ship them as experimental.",
+            "description": "Copilot and Gemini CLI hook enforcement, custom agents and model use are NOT TESTED (discovery verified 2026-10-31 in Copilot CLI 1.0.105 and Gemini CLI 0.66.0; no credentials in the agent container on 2026-11-04). Owner decision: test (manual-acceptance rows P2, P3) or mark DEFERRED-BY-OWNER and ship as unverified.",
             "status": "open",
             "evidenceRefs": [
               "msp-release-verification",
@@ -145,7 +145,7 @@
           },
           {
             "id": "codex-interactive-trust",
-            "description": "Codex hook enforcement verified only with trust bypassed; interactive /hooks trust not confirmed.",
+            "description": "Codex hook enforcement verified only with trust bypassed (0.159.3); interactive /hooks trust not confirmed (manual-acceptance row P1). No OpenAI credentials in the agent container on 2026-11-04.",
             "status": "open",
             "evidenceRefs": [
               "msp-release-verification"
@@ -158,7 +158,7 @@
           },
           {
             "id": "npm-ownership-access",
-            "description": "npm ownership of one-small-modspack and publish access not confirmed; the name is currently unpublished.",
+            "description": "npm account access for publishing one-small-modspack not confirmed by the owner; the name is still unpublished (npm view E404 on 2026-11-04, which is not a reservation). The npm-publish environment and a first-publication token are owner setup steps (release/README.md).",
             "status": "open",
             "evidenceRefs": [
               "msp-npm-name-check"
@@ -172,11 +172,10 @@
           },
           {
             "id": "pr-description-stale",
-            "description": "PR #3 description disagrees with docs/release-verification.md at the same head (dependency audit INCONCLUSIVE vs PASS; 55 vs 82 packed files; 85 vs 89 CLI tests). Reconcile before review.",
-            "status": "open",
+            "description": "Resolved 2026-11-04: PR #3 was merged on 2026-10-29 (c747cbd) and is no longer the candidate; its description no longer governs. Originally: PR #3 description disagreed with docs/release-verification.md at the same head.",
+            "status": "resolved",
             "evidenceRefs": [
-              "msp-pr-3",
-              "msp-release-verification"
+              "msp-pr-3-merged"
             ],
             "category": "documentation",
             "blocks": "merge",
@@ -186,10 +185,11 @@
           },
           {
             "id": "publish-pipeline-missing",
-            "description": "No release or publish workflow exists at the candidate commit (only ci.yml), so the package cannot be published from CI with npm provenance. Add a least-privilege publish workflow (manual trigger, npm --provenance) or record an owner decision on how 2.0.0 is published. Proposed by Claude Code in the Phase 3 PR for owner review.",
-            "status": "open",
+            "description": "Resolved 2026-11-04: .github/workflows/release.yml exists on main since PR #5 (b0ff54a) and its dry run passed every gate on b0ff54a (evidence msp-release-dry-run). Originally: no release or publish workflow existed at the candidate commit.",
+            "status": "resolved",
             "evidenceRefs": [
-              "msp-workflows-80cc269"
+              "msp-release-dry-run",
+              "msp-pr-5-merged"
             ],
             "category": "distribution",
             "blocks": "release",
@@ -200,7 +200,7 @@
           },
           {
             "id": "release-authorization",
-            "description": "No owner authorization yet for merge, tag, npm publish or deployment.",
+            "description": "No owner authorization yet for tag, npm publish, GitHub release or website deployment, and no owner sign-off in release/2.0.0/manual-acceptance.md (all 15 rows PENDING).",
             "status": "open",
             "evidenceRefs": [
               "msp-pr-3"
@@ -210,11 +210,11 @@
             "gates": []
           }
         ],
-        "nextAction": "Finish the manual accessibility checks and the Copilot/Gemini decision in the active PR #3 testing session, reconcile the PR description with release-verification.md, then request independent verification of the final head.",
+        "nextAction": "Owner: complete release/2.0.0/manual-acceptance.md (12 website rows; P1-P3 tested or DEFERRED-BY-OWNER) using release/2.0.0/manual-a11y-quickstart.md and sign off; confirm npm access and do the one-time setup in release/README.md; then dry run, tag, publish with provenance, GitHub release and Pages deploy from the sign-off commit. Agent work is complete (PR #8 merged).",
         "enhancements": [
-          "Plugin icon artwork and plugin-directory submission (not needed for npm or local use).",
-          "Add Node 20 to the CI matrix to back the engines claim.",
-          "Optional hosting of the generated documentation site."
+          "Plugin icon artwork and plugin-directory submission (not needed for npm or local use); ModsPack ROADMAP.md R1.",
+          "Live Codex, Copilot and Gemini CLI enforcement evidence; ModsPack ROADMAP.md R2.",
+          "Optional hosting of the generated documentation site; ModsPack ROADMAP.md R5."
         ]
       },
       "ownership": {
@@ -228,7 +228,7 @@
         "approvedAt": null,
         "evidenceRefs": []
       },
-      "lastVerifiedAt": "2026-10-22T16:33:00Z",
+      "lastVerifiedAt": "2026-11-04T17:26:09Z",
       "evidence": [
         {
           "id": "msp-repo-metadata",
@@ -331,6 +331,66 @@
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
           "eventKey": "one-small-mods-pack:workflow_run:ci.yml/ed15709/j8kqrkn/1"
+        },
+        {
+          "id": "msp-pr-5-merged",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/pull/5",
+          "commitSha": "b0ff54a436c90dc02b59cde3a1fca5e94334bc4f",
+          "verifiedAt": "2026-10-31T19:40:24Z",
+          "result": "informational",
+          "description": "PR #5 (release preparation: packed-artifact smoke test, Node 20/24/macOS CI, fail-closed release.yml and pages.yml, release/ runbook and manual acceptance record) merged into main as b0ff54a, the proposed 2.0.0 package candidate.",
+          "recordedBy": "Claude Code (2.0.0 release closure 2026-11-04, read-only GitHub inspection and local reruns)"
+        },
+        {
+          "id": "msp-ci-b0ff54a",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/41235320197",
+          "commitSha": "b0ff54a436c90dc02b59cde3a1fca5e94334bc4f",
+          "verifiedAt": "2026-10-31T19:41:23Z",
+          "result": "pass",
+          "description": "Push CI on b0ff54a: cli, mods, windows, site and node-compat (Node 20, Node 24, macOS) all succeeded.",
+          "recordedBy": "Claude Code (2.0.0 release closure 2026-11-04, read-only GitHub inspection and local reruns)"
+        },
+        {
+          "id": "msp-release-dry-run",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/41235745436",
+          "commitSha": "b0ff54a436c90dc02b59cde3a1fca5e94334bc4f",
+          "verifiedAt": "2026-10-31T19:46:35Z",
+          "result": "pass",
+          "description": "Release (npm) workflow, mode dry-run, candidate_sha b0ff54a, workflow file from 2681b06 (PR #6): every gate passed, exact tarball packed (82 files matching release/package-files.txt), smoke test and npm publish --dry-run passed. Nothing uploaded. Proves the publish pipeline exists and runs; not a publication and not provenance.",
+          "recordedBy": "Claude Code (2.0.0 release closure 2026-11-04, read-only GitHub inspection and local reruns)"
+        },
+        {
+          "id": "msp-ci-main-26b5ccd",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/41235986293",
+          "commitSha": "26b5ccdef6602a11b0970cee66b2b865c9f59b17",
+          "verifiedAt": "2026-10-31T19:50:20Z",
+          "result": "pass",
+          "description": "Push CI on main 26b5ccd (PRs #6 and #7 on top of b0ff54a; neither changes a shipped file): all jobs succeeded.",
+          "recordedBy": "Claude Code (2.0.0 release closure 2026-11-04, read-only GitHub inspection and local reruns)"
+        },
+        {
+          "id": "msp-verification-2026-11-04",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/ed15709f6ab32ed617b8b0bfd3136ac7b4d6ccd8/release/2.0.0/verification-2026-11-04.md",
+          "commitSha": "26b5ccdef6602a11b0970cee66b2b865c9f59b17",
+          "verifiedAt": "2026-11-04T16:25:23Z",
+          "result": "builder_reported",
+          "description": "Builder rerun on 26b5ccd: tarball byte-identical to b0ff54a (sha256 8fb17e48...a8fab7); npm run check 91 CLI + 133 mod tests; mod typecheck 0 errors against Claude Code 2.1.318 declarations for all five guard mods; modspack-agents loaded live (6 agents, 12 skills) and delegated to; site:check 18 pages; audits 0; smoke 40/40; npm name E404. Codex, Copilot and Gemini enforcement not testable (no credentials). Merged to main in PR #8.",
+          "recordedBy": "Claude Code (2.0.0 release closure 2026-11-04, read-only GitHub inspection and local reruns)"
+        },
+        {
+          "id": "msp-pr-8",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/pull/8",
+          "commitSha": "ed15709f6ab32ed617b8b0bfd3136ac7b4d6ccd8",
+          "verifiedAt": "2026-11-04T17:25:29Z",
+          "result": "informational",
+          "description": "Release-closure PR #8 merged into main by Joshua Small on 2026-11-04 (merge ed15709): release records, manual accessibility quick start, npm first-publication runbook fixes, ROADMAP.md and checkpoint revision 2. No shipped file changes, so the tarball still equals b0ff54a.",
+          "recordedBy": "Claude Code (2.0.0 release closure 2026-11-04, read-only GitHub inspection and local reruns)"
         }
       ],
       "releaseGates": [
@@ -338,19 +398,22 @@
           "id": "scope-complete",
           "status": "in_progress",
           "evidenceRefs": [
-            "msp-pr-3"
+            "msp-pr-5-merged",
+            "msp-pr-3-merged"
           ],
           "verifiedAt": null,
-          "notes": "Scope is PR #3 plus the go/no-go checklist in release-verification.md; open checklist items remain."
+          "notes": "Scope is the 2.0.0 package at b0ff54a (PR #3 functionality plus PR #5 release tooling) and release/2.0.0/manual-acceptance.md; manual rows remain PENDING."
         },
         {
           "id": "automated-checks",
           "status": "in_progress",
           "evidenceRefs": [
-            "msp-ci-pr3-head"
+            "msp-ci-b0ff54a",
+            "msp-release-dry-run",
+            "msp-ci-main-26b5ccd"
           ],
           "verifiedAt": null,
-          "notes": "CI green on PR #3 head 80cc269. The PR is under active testing; re-check on the final head."
+          "notes": "CI green on candidate b0ff54a (all seven jobs) and on main 26b5ccd; release dry run passed on b0ff54a. Awaiting the verifier."
         },
         {
           "id": "security-privacy-review",
@@ -530,11 +593,11 @@
         ]
       },
       "missingEvidence": [
-        "Independent (non-builder) verification of any PR #3 test result.",
-        "Manual screen reader, browser zoom and forced-colors results.",
-        "Copilot and Gemini CLI runtime evidence or a recorded owner decision to ship them as experimental.",
-        "npm ownership/access confirmation.",
-        "Builder and independent verifier not assigned in the registry."
+        "Independent (non-builder) verification of the automated results on b0ff54a / the sign-off commit.",
+        "Manual screen reader, browser zoom, text spacing, Windows contrast theme and keyboard results (release/2.0.0/manual-acceptance.md).",
+        "Copilot and Gemini CLI runtime evidence and Codex interactive trust, or a recorded owner decision to ship them unverified (DEFERRED-BY-OWNER).",
+        "npm account access confirmation by the owner.",
+        "npm provenance exists only after publication; none yet."
       ],
       "sync": {
         "enabled": true,

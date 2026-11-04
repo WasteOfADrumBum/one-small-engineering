@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/dashboard",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-03T18:54:21Z",
+  "asOf": "2026-11-04T19:45:40Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "18c4104a0fd25d1e02b26d577024627ee9730d4f1f98eaf3a49025ac636d8a94",
+  "registrySha256": "293daeab70d9a8a332f23596c6fe3f25575886cc789879fe7e3a39ac8dadca62",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "projects": [
     {
@@ -15,18 +15,18 @@
         "targetVersion": "2.0.0",
         "currentVersion": "0.1.0",
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-10-31T19:50:20Z",
-        "snapshotObservedAt": "2026-10-31T20:14:34Z"
+        "lastEvidenceAt": "2026-11-04T17:42:55Z",
+        "snapshotObservedAt": "2026-11-04T18:18:56Z"
       },
       "derived": {
         "percentage": 0,
         "verifiedGates": 0,
         "applicableGates": 21,
-        "blockingFindings": 23,
-        "registryBlockers": 8,
+        "blockingFindings": 19,
+        "registryBlockers": 6,
         "eligibility": "not-eligible",
         "releaseReady": false,
-        "nextAction": "Resolve blocker codex-interactive-trust: Codex hook enforcement verified only with trust bypassed; interactive /hooks trust not confirmed."
+        "nextAction": "Resolve blocker codex-interactive-trust: Codex hook enforcement verified only with trust bypassed (0.159.3); interactive /hooks trust not confirmed (manual-acceptance row P1). No OpenAI credentials in the agent container on 2026-11-04."
       }
     },
     {
@@ -37,8 +37,8 @@
         "targetVersion": "0.6.0",
         "currentVersion": "0.6.0",
         "releaseStatus": "ready_for_review",
-        "lastEvidenceAt": "2026-11-02T21:30:21Z",
-        "snapshotObservedAt": "2026-11-02T22:15:50Z"
+        "lastEvidenceAt": "2026-11-04T13:44:21Z",
+        "snapshotObservedAt": "2026-11-04T14:18:15Z"
       },
       "derived": {
         "percentage": 0,
@@ -59,8 +59,8 @@
         "targetVersion": "1.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-03T18:48:55Z",
-        "snapshotObservedAt": "2026-11-03T18:26:22Z"
+        "lastEvidenceAt": "2026-11-04T18:22:35Z",
+        "snapshotObservedAt": "2026-11-04T18:26:28Z"
       },
       "derived": {
         "percentage": 100,
@@ -103,8 +103,8 @@
         "targetVersion": "1.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-03T18:48:55Z",
-        "snapshotObservedAt": "2026-11-03T18:28:29Z"
+        "lastEvidenceAt": "2026-11-04T13:19:29Z",
+        "snapshotObservedAt": "2026-11-04T14:19:50Z"
       },
       "derived": {
         "percentage": 100,
