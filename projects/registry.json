@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-04T12:29:03Z",
+  "lastUpdatedAt": "2026-11-04T14:18:15Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -555,9 +555,9 @@
       "productionUrl": "https://one-small-ui.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "408474cded69acbfe4fbf1d903c5d38144ece5ba",
+        "headSha": "ee62089ac616c2b3fd1fbbe6c7a24e9d067cc773",
         "archived": false,
-        "observedAt": "2026-11-03T22:13:48Z",
+        "observedAt": "2026-11-04T14:18:15Z",
         "visibility": "public",
         "latestTag": {
           "name": "v0.6.0",
@@ -567,19 +567,11 @@
         "package": {
           "status": "observed",
           "name": "onesmallui-monorepo",
-          "version": "0.6.0",
+          "version": "0.6.1",
           "private": true
         }
       },
-      "openPullRequests": [
-        {
-          "number": 37,
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/37",
-          "title": "Prepare 0.6.1 with npm provenance",
-          "headSha": "ccfb86421db3522bfff0095cad096939c9ac5e68",
-          "draft": false
-        }
-      ],
+      "openPullRequests": [],
       "release": {
         "currentVersion": "0.6.0",
         "currentVersionSource": "GitHub release v0.6.0, recorded by One Small Engineering Sync (evidence sync-one-small-ui-release-v0-6-0)",
@@ -753,16 +745,16 @@
           "recordedBy": "Claude Code"
         },
         {
-          "id": "sync-one-small-ui-run-ci-yml-408474c-j2so57q-1",
+          "id": "sync-one-small-ui-run-ci-yml-ee62089-j7yjtgc-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/41527952486",
-          "commitSha": "408474cded69acbfe4fbf1d903c5d38144ece5ba",
-          "verifiedAt": "2026-11-02T21:30:21Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/41840159196",
+          "commitSha": "ee62089ac616c2b3fd1fbbe6c7a24e9d067cc773",
+          "verifiedAt": "2026-11-04T13:44:21Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 408474c (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at ee62089 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-ui:workflow_run:ci.yml/408474c/j2so57q/1"
+          "eventKey": "one-small-ui:workflow_run:ci.yml/ee62089/j7yjtgc/1"
         }
       ],
       "releaseGates": [
@@ -986,8 +978,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1411378047,
-        "lastSyncedAt": "2026-11-03T22:13:48Z",
-        "lastSyncedHead": "408474cded69acbfe4fbf1d903c5d38144ece5ba",
+        "lastSyncedAt": "2026-11-04T14:18:15Z",
+        "lastSyncedHead": "ee62089ac616c2b3fd1fbbe6c7a24e9d067cc773",
         "configSource": "defaults"
       }
     },
