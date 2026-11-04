@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-04T17:26:09Z",
+  "lastUpdatedAt": "2026-11-04T18:26:28Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -74,9 +74,9 @@
       "productionUrl": null,
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "26b5ccdef6602a11b0970cee66b2b865c9f59b17",
+        "headSha": "ed15709f6ab32ed617b8b0bfd3136ac7b4d6ccd8",
         "archived": false,
-        "observedAt": "2026-11-04T17:14:38Z",
+        "observedAt": "2026-11-04T18:18:56Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -86,15 +86,7 @@
           "private": false
         }
       },
-      "openPullRequests": [
-        {
-          "number": 8,
-          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/pull/8",
-          "title": "Close out the 2.0.0 release records (no package change)",
-          "headSha": "b5050390ff83bd997c38875086dfee6a84dabfbb",
-          "draft": false
-        }
-      ],
+      "openPullRequests": [],
       "release": {
         "currentVersion": "0.1.0",
         "currentVersionSource": "Not an npm or tagged release. main holds package.json guardrail-mods 0.1.0 (private) and four 0.1.0 Claude Code mods installable from the repository as a plugin marketplace. No git tags or GitHub releases exist.",
@@ -329,16 +321,16 @@
           "recordedBy": "Claude Code (Phase 3 baseline, read-only GitHub inspection)"
         },
         {
-          "id": "sync-one-small-mods-pack-run-ci-yml-26b5ccd-ixyuanp-1",
+          "id": "sync-one-small-mods-pack-run-ci-yml-ed15709-j8kqrkn-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/41235986293",
-          "commitSha": "26b5ccdef6602a11b0970cee66b2b865c9f59b17",
-          "verifiedAt": "2026-10-31T19:50:20Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/41877434903",
+          "commitSha": "ed15709f6ab32ed617b8b0bfd3136ac7b4d6ccd8",
+          "verifiedAt": "2026-11-04T17:42:55Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 26b5ccd (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at ed15709 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-mods-pack:workflow_run:ci.yml/26b5ccd/ixyuanp/1"
+          "eventKey": "one-small-mods-pack:workflow_run:ci.yml/ed15709/j8kqrkn/1"
         },
         {
           "id": "msp-pr-5-merged",
@@ -611,8 +603,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1413933787,
-        "lastSyncedAt": "2026-11-04T17:14:38Z",
-        "lastSyncedHead": "26b5ccdef6602a11b0970cee66b2b865c9f59b17",
+        "lastSyncedAt": "2026-11-04T18:18:56Z",
+        "lastSyncedHead": "ed15709f6ab32ed617b8b0bfd3136ac7b4d6ccd8",
         "configSource": "defaults"
       }
     },
@@ -1066,7 +1058,7 @@
         "defaultBranch": "main",
         "headSha": "1eb9c1beafbf33fd819f4cd45c5d5468f66df5b8",
         "archived": false,
-        "observedAt": "2026-11-04T12:29:03Z",
+        "observedAt": "2026-11-04T18:26:28Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1313,16 +1305,16 @@
           "eventKey": "personal-portfolio:workflow_run:ci.yml/1eb9c1b/j67qx2k/1"
         },
         {
-          "id": "sync-personal-portfolio-run-production-smoke-yml-1eb9c1b-j7s0mof-1",
+          "id": "sync-personal-portfolio-run-production-smoke-yml-1eb9c1b-j8q561e-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41829186255",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/41886504914",
           "commitSha": "1eb9c1beafbf33fd819f4cd45c5d5468f66df5b8",
-          "verifiedAt": "2026-11-04T12:25:55Z",
+          "verifiedAt": "2026-11-04T18:22:35Z",
           "result": "builder_reported",
           "description": "Automated observation: workflow production-smoke.yml (\"Production smoke check\") concluded success on main at 1eb9c1b (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "personal-portfolio:workflow_run:production-smoke.yml/1eb9c1b/j7s0mof/1"
+          "eventKey": "personal-portfolio:workflow_run:production-smoke.yml/1eb9c1b/j8q561e/1"
         }
       ],
       "releaseGates": [
@@ -1453,7 +1445,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406067959,
-        "lastSyncedAt": "2026-11-04T12:29:03Z",
+        "lastSyncedAt": "2026-11-04T18:26:28Z",
         "lastSyncedHead": "1eb9c1beafbf33fd819f4cd45c5d5468f66df5b8",
         "configSource": "defaults"
       }

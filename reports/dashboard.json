@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/dashboard",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-04T17:31:25Z",
+  "asOf": "2026-11-04T19:45:40Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "ddd98f4397e53726d8cd7315f0b8484a7c017f46f81359b952af28e23a4c5d0c",
+  "registrySha256": "293daeab70d9a8a332f23596c6fe3f25575886cc789879fe7e3a39ac8dadca62",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "projects": [
     {
@@ -15,8 +15,8 @@
         "targetVersion": "2.0.0",
         "currentVersion": "0.1.0",
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-04T17:25:29Z",
-        "snapshotObservedAt": "2026-11-04T17:14:38Z"
+        "lastEvidenceAt": "2026-11-04T17:42:55Z",
+        "snapshotObservedAt": "2026-11-04T18:18:56Z"
       },
       "derived": {
         "percentage": 0,
@@ -59,8 +59,8 @@
         "targetVersion": "1.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-04T12:25:55Z",
-        "snapshotObservedAt": "2026-11-04T12:29:03Z"
+        "lastEvidenceAt": "2026-11-04T18:22:35Z",
+        "snapshotObservedAt": "2026-11-04T18:26:28Z"
       },
       "derived": {
         "percentage": 100,
