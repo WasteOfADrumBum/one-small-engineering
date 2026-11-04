@@ -210,7 +210,7 @@
             "gates": []
           }
         ],
-        "nextAction": "Owner: complete release/2.0.0/manual-acceptance.md (12 website rows; P1-P3 tested or DEFERRED-BY-OWNER) using release/2.0.0/manual-a11y-quickstart.md and sign off; confirm npm access and do the one-time setup in release/README.md; then dry run, tag, publish with provenance, GitHub release and Pages deploy from the sign-off commit. Agent work is complete pending PR #8.",
+        "nextAction": "Owner: complete release/2.0.0/manual-acceptance.md (12 website rows; P1-P3 tested or DEFERRED-BY-OWNER) using release/2.0.0/manual-a11y-quickstart.md and sign off; confirm npm access and do the one-time setup in release/README.md; then dry run, tag, publish with provenance, GitHub release and Pages deploy from the sign-off commit. Agent work is complete (PR #8 merged).",
         "enhancements": [
           "Plugin icon artwork and plugin-directory submission (not needed for npm or local use); ModsPack ROADMAP.md R1.",
           "Live Codex, Copilot and Gemini CLI enforcement evidence; ModsPack ROADMAP.md R2.",
@@ -375,21 +375,21 @@
         {
           "id": "msp-verification-2026-11-04",
           "type": "document",
-          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/release/2.0.0-closeout/release/2.0.0/verification-2026-11-04.md",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/ed15709f6ab32ed617b8b0bfd3136ac7b4d6ccd8/release/2.0.0/verification-2026-11-04.md",
           "commitSha": "26b5ccdef6602a11b0970cee66b2b865c9f59b17",
           "verifiedAt": "2026-11-04T16:25:23Z",
           "result": "builder_reported",
-          "description": "Builder rerun on 26b5ccd: tarball byte-identical to b0ff54a (sha256 8fb17e48...a8fab7); npm run check 91 CLI + 133 mod tests; mod typecheck 0 errors against Claude Code 2.1.318 declarations for all five guard mods; modspack-agents loaded live (6 agents, 12 skills) and delegated to; site:check 18 pages; audits 0; smoke 40/40; npm name E404. Codex, Copilot and Gemini enforcement not testable (no credentials). Proposed in PR #8.",
+          "description": "Builder rerun on 26b5ccd: tarball byte-identical to b0ff54a (sha256 8fb17e48...a8fab7); npm run check 91 CLI + 133 mod tests; mod typecheck 0 errors against Claude Code 2.1.318 declarations for all five guard mods; modspack-agents loaded live (6 agents, 12 skills) and delegated to; site:check 18 pages; audits 0; smoke 40/40; npm name E404. Codex, Copilot and Gemini enforcement not testable (no credentials). Merged to main in PR #8.",
           "recordedBy": "Claude Code (2.0.0 release closure 2026-11-04, read-only GitHub inspection and local reruns)"
         },
         {
           "id": "msp-pr-8",
           "type": "pull_request",
           "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/pull/8",
-          "commitSha": "26b5ccdef6602a11b0970cee66b2b865c9f59b17",
-          "verifiedAt": "2026-11-04T16:25:23Z",
+          "commitSha": "ed15709f6ab32ed617b8b0bfd3136ac7b4d6ccd8",
+          "verifiedAt": "2026-11-04T17:25:29Z",
           "result": "informational",
-          "description": "Open release-closure PR #8 on base 26b5ccd: release records, manual accessibility quick start, npm first-publication runbook fixes, ROADMAP.md and checkpoint revision 2. No shipped file changes.",
+          "description": "Release-closure PR #8 merged into main by Joshua Small on 2026-11-04 (merge ed15709): release records, manual accessibility quick start, npm first-publication runbook fixes, ROADMAP.md and checkpoint revision 2. No shipped file changes, so the tarball still equals b0ff54a.",
           "recordedBy": "Claude Code (2.0.0 release closure 2026-11-04, read-only GitHub inspection and local reruns)"
         }
       ],
