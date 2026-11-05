@@ -45,6 +45,10 @@ const bad = {
   'workflow_run': [good.replace('  workflow_dispatch:\n', '  workflow_run:\n    workflows: [x]\n'), /workflow_run is not allowed/],
   'write in PR workflow': [good.replace('    permissions:\n      contents: read\n    steps:', '    permissions:\n      contents: write\n    steps:'), /holds a write permission/],
   'secret in PR workflow': [good.replace('REF: ${{ github.head_ref }}', 'REF: ${{ secrets.X }}'), /must not reference secrets/],
+  'job write-all': [good.replace('    permissions:\n      contents: read\n    steps:', '    permissions: write-all\n    steps:'), /write-all/],
+  'workflow write-all': [good.replace('permissions:\n  contents: read\njobs:', 'permissions: write-all\njobs:'), /write-all/],
+  'bracket secret in PR workflow': [good.replace('REF: ${{ github.head_ref }}', "REF: ${{ secrets['X'] }}"), /must not reference secrets/],
+  'sandbox set up after project code': [good.replace('run: echo "$REF"', 'run: node cli.mjs check --execute\n      - run: bash scripts/ci/sandbox-setup.sh'), /without the sandbox user/],
   'project code without sandbox': [good.replace('run: echo "$REF"', 'run: node scripts/engineering/cli.mjs check --execute'), /without the sandbox user/]
 }
 for (const [name, [wf, re]] of Object.entries(bad)) {

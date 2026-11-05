@@ -93,7 +93,7 @@ export function render({ decision, ctx }) {
     `| Base | \`${short(ctx.baseSha)}\` |`,
     `| Run / attempt | ${ctx.runId} / ${ctx.runAttempt} |`,
     `| Gate policy | ci/gate-policy.json v${ctx.policyVersion}, gate v${GATE_VERSION} |`,
-    `| Project code executed | no (the hub validates its own code; project code runs only in the isolation self-test's hostile fixture) |`,
+    `| Third-party project code executed | no (the hub validates its own code; the isolation job runs only the hub's own hostile fixture) |`,
     `| Merge protection | not enforced by GitHub (private repository on GitHub Free: branch protection and rulesets return HTTP 403); main is monitored after the fact by Main integrity |`,
     '',
     '| Job | Result | Verdict | Detail |',

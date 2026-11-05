@@ -90,12 +90,15 @@ export function checkWorkflow(name, text) {
     if (!/^[\w.-]+\/[\w./-]+@[0-9a-f]{40}$/.test(ref)) p.push(`${name}: ${ref} is not pinned to a full commit SHA`)
   }
   const prTriggered = on.some(t => PR_TRIGGERS.includes(t))
-  if (prTriggered && /\bsecrets\./.test(text)) p.push(`${name}: a workflow that pull requests can trigger must not reference secrets`)
+  if (/^permissions:\s*write-all/m.test(text)) p.push(`${name}: permissions: write-all`)
+  if (prTriggered && /\bsecrets\s*[.[]/.test(text)) p.push(`${name}: a workflow that pull requests can trigger must not reference secrets`)
   for (const j of jobs(text)) {
     if (!/^ {4}permissions:/m.test(j.text)) p.push(`${name}: job ${j.id} has no job-level permissions`)
     if (!/^ {4}timeout-minutes:\s*\d+/m.test(j.text)) p.push(`${name}: job ${j.id} has no timeout-minutes`)
-    if (/^ {6}[a-z-]+:\s*write\b/m.test(j.text) && prTriggered) p.push(`${name}: job ${j.id} holds a write permission in a workflow that pull requests can trigger`)
-    if (/(--execute|VERIFY_EXECUTE|ENGINEERING_EXECUTE)/.test(j.text) && !/sandbox-setup\.sh/.test(j.text)) p.push(`${name}: job ${j.id} runs project code without the sandbox user (scripts/ci/sandbox-setup.sh)`)
+    if (/^ {4}permissions:\s*write-all/m.test(j.text)) p.push(`${name}: job ${j.id} has permissions: write-all`)
+    if ((/^ {6}[a-z-]+:\s*write\b/m.test(j.text) || /^ {4}permissions:\s*write-all/m.test(j.text)) && prTriggered) p.push(`${name}: job ${j.id} holds a write permission in a workflow that pull requests can trigger`)
+    const exec = j.text.search(/(--execute|VERIFY_EXECUTE|ENGINEERING_EXECUTE)/)
+    if (exec !== -1 && !(j.text.indexOf('sandbox-setup.sh') !== -1 && j.text.indexOf('sandbox-setup.sh') < exec)) p.push(`${name}: job ${j.id} runs project code without the sandbox user (scripts/ci/sandbox-setup.sh)`)
     const steps = j.text.split(/\n(?= {6}- )/)
     for (const s of steps) if (/uses:\s*actions\/checkout@/.test(s) && !/persist-credentials:\s*false/.test(s)) p.push(`${name}: job ${j.id} checks out with persisted credentials (set persist-credentials: false)`)
   }
@@ -121,7 +124,8 @@ const WRITE_CALL = /\.request\(\s*['"](?:POST|PUT|PATCH|DELETE)['"]/
 
 export function checkScript(rel, src) {
   const p = []
-  // Comments may name the patterns they forbid; only code counts.
+  // Comments may name the patterns they forbid: block comments and full-line // comments are ignored
+  // (a trailing // comment on a code line is still scanned, which can only add a false positive).
   const code = src.replace(/\/\*[\s\S]*?\*\//g, '').split(/\r?\n/).map(l => l.replace(/^\s*\/\/.*$/, '')).join('\n')
   for (const [re, what] of DANGEROUS) if (re.test(code)) p.push(`${rel}: uses ${what}`)
   if (WRITE_CALL.test(code) && !WRITE_MODULES[rel]) p.push(`${rel}: sends a GitHub write request but is not a reviewed write module (scripts/ci/workflow-policy.mjs WRITE_MODULES)`)

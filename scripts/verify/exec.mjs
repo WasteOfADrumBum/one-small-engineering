@@ -14,6 +14,8 @@
 // into the sandbox. scripts/ci/sandbox-selftest.mjs proves this on a real runner.
 
 import { spawnSync } from 'node:child_process'
+import { chmodSync, statSync } from 'node:fs'
+import { resolve, sep } from 'node:path'
 import { redactSensitive } from '../validate-registry.mjs'
 
 const SAFE_ENV = ['PATH', 'HOME', 'LANG', 'LC_ALL', 'TMPDIR', 'TEMP', 'TMP', 'SYSTEMROOT', 'COMSPEC', 'PATHEXT', 'APPDATA', 'LOCALAPPDATA', 'USERPROFILE', 'NODE_EXTRA_CA_CERTS', 'HTTPS_PROXY', 'HTTP_PROXY', 'NO_PROXY', 'https_proxy', 'http_proxy', 'no_proxy', 'SSL_CERT_FILE']
@@ -45,12 +47,28 @@ export function sandboxInvocation(user, cmd, args, env) {
   const leaked = Object.keys(env).filter(k => CREDENTIAL_ENV.test(k))
   if (leaked.length) throw new SandboxError(`refused to pass ${leaked.join(', ')} into the sandbox`)
   const vars = Object.entries({ ...env, HOME: `/home/${user}`, TMPDIR: '/tmp', USER: user, LOGNAME: user }).map(([k, v]) => `${k}=${v}`)
+  // git refuses a work tree its user does not own ("dubious ownership"); checkout folders are
+  // created by the hub, so git inside the sandbox trusts them explicitly. The setting is an
+  // argument, never GIT_CONFIG_* (refused above), and git never runs outside the sandbox on a tree
+  // project code touched.
+  const argv = cmd === 'git' ? ['-c', 'safe.directory=*', ...args] : args
   // umask 000: the hub (outside the sandbox) can still read and remove what project code writes.
-  return { cmd: 'sudo', args: ['-n', '-u', user, '--', '/usr/bin/env', '-i', ...vars, '/bin/sh', '-c', 'umask 000 && exec "$@"', 'sandboxed', cmd, ...args] }
+  return { cmd: 'sudo', args: ['-n', '-u', user, '--', '/usr/bin/env', '-i', ...vars, '/bin/sh', '-c', 'umask 000 && exec "$@"', 'sandboxed', cmd, ...argv] }
 }
 
 // { status, stdout, stderr, timedOut, error } — never throws for a failing command.
-export function createRunner({ spawn = spawnSync, parentEnv = process.env } = {}) {
+// In the sandbox a command runs only inside the work root: a missing cwd becomes the work root
+// (never the hub checkout it would otherwise inherit), and a cwd outside it is refused. The cwd
+// itself is opened to the sandbox user; nothing else the hub writes is.
+export function sandboxCwd(cwd, workRoot) {
+  if (!workRoot) throw new SandboxError('ONE_SMALL_WORK must be set with ONE_SMALL_SANDBOX_USER')
+  const root = resolve(workRoot)
+  const dir = resolve(cwd || root)
+  if (dir !== root && !dir.startsWith(root + sep)) throw new SandboxError(`refused to run outside the sandbox work root: ${dir}`)
+  return dir
+}
+
+export function createRunner({ spawn = spawnSync, parentEnv = process.env, openDir = dir => { try { if (statSync(dir).uid === process.getuid()) chmodSync(dir, 0o777) } catch {} } } = {}) {
   const sandbox = parentEnv.ONE_SMALL_SANDBOX_USER || ''
   if (sandbox && !SANDBOX_USER.test(sandbox)) throw new SandboxError(`invalid ONE_SMALL_SANDBOX_USER ${JSON.stringify(sandbox)}`)
   // Kills every process the sandbox user still has; returns true when none is left.
@@ -69,7 +87,11 @@ export function createRunner({ spawn = spawnSync, parentEnv = process.env } = {}
     const childEnv = scrubbedEnv(parentEnv, env)
     let call = { cmd, args }
     if (sandbox) {
-      try { call = sandboxInvocation(sandbox, cmd, args, childEnv) } catch (e) { return { status: null, stdout: '', stderr: tail(e.message), timedOut: false, error: 'sandbox-refused' } }
+      try {
+        call = sandboxInvocation(sandbox, cmd, args, childEnv)
+        cwd = sandboxCwd(cwd, parentEnv.ONE_SMALL_WORK)
+        openDir(cwd)
+      } catch (e) { return { status: null, stdout: '', stderr: tail(e.message), timedOut: false, error: 'sandbox-refused' } }
     }
     const res = spawn(call.cmd, call.args, { cwd, env: sandbox ? { PATH: childEnv.PATH || '/usr/bin:/bin' } : childEnv, encoding: 'utf8', timeout: timeoutMs, maxBuffer: 64 * 1024 * 1024, shell: false, windowsHide: true })
     const timedOut = Boolean(res.error && res.error.code === 'ETIMEDOUT') || res.signal === 'SIGTERM'

@@ -1,7 +1,7 @@
 # Pinned security scanners for .github/workflows/validate.yml (scripts/ci/install-tools.sh).
 # Every artifact is verified against the SHA-256 below before it runs. To update: bump the
 # version, take the checksum from the release's published checksums file (or PyPI), run
-# `bash scripts/ci/install-tools.sh <dir>` and `npm run security` locally, and open a PR.
+# `bash scripts/ci/install-tools.sh <dir>` and `TOOLS=<dir> bash scripts/ci/security-scan.sh` locally, and open a PR.
 # Reviewed 2026-11-05.
 # name     version  sha256                                                            url
 actionlint 1.7.7    023070a287cd8cccd71515fedc843f1985bf96c436b7effaecce67290e7e0757  https://github.com/rhysd/actionlint/releases/download/v1.7.7/actionlint_1.7.7_linux_amd64.tar.gz

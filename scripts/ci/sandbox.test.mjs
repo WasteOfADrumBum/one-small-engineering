@@ -3,9 +3,10 @@
 // command it runs, that no credential crosses into it, and that a survivor fails the command.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { createRunner, sandboxInvocation, SandboxError, scrubbedEnv } from '../verify/exec.mjs'
+import { createRunner, sandboxInvocation, sandboxCwd, SandboxError, scrubbedEnv } from '../verify/exec.mjs'
 
-const parentEnv = { PATH: '/usr/bin:/bin', HOME: '/home/runner', GITHUB_TOKEN: 'ghs_secret', ACTIONS_RUNTIME_TOKEN: 'rt', ONE_SMALL_SANDBOX_USER: 'osrun' }
+const parentEnv = { PATH: '/usr/bin:/bin', HOME: '/home/runner', GITHUB_TOKEN: 'ghs_secret', ACTIONS_RUNTIME_TOKEN: 'rt', ONE_SMALL_SANDBOX_USER: 'osrun', ONE_SMALL_WORK: '/tmp/one-small-work' }
+const openDir = () => {}
 
 function fakeSpawn({ survivors = 0 } = {}) {
   const calls = []
@@ -21,7 +22,7 @@ function fakeSpawn({ survivors = 0 } = {}) {
 
 test('sandboxed commands run as the sandbox user through sudo with env -i and no inherited credential', () => {
   const { spawn, calls } = fakeSpawn()
-  const res = createRunner({ spawn, parentEnv })('npm', ['ci', '--ignore-scripts'], { cwd: '/tmp/one-small-work/p' })
+  const res = createRunner({ spawn, parentEnv, openDir })('npm', ['ci', '--ignore-scripts'], { cwd: '/tmp/one-small-work/p' })
   assert.equal(res.status, 0)
   const c = calls[0]
   assert.equal(c.cmd, 'sudo')
@@ -36,14 +37,14 @@ test('sandboxed commands run as the sandbox user through sudo with env -i and no
 
 test('every process the sandbox user left behind is killed after each command', () => {
   const { spawn, calls } = fakeSpawn({ survivors: 2 })
-  const res = createRunner({ spawn, parentEnv })('node', ['x.js'])
+  const res = createRunner({ spawn, parentEnv, openDir })('node', ['x.js'])
   assert.equal(res.status, 0)
   assert.equal(calls.filter(c => c.cmd === 'sudo' && c.args[1] === 'pkill').length, 3)
 })
 
 test('a process that cannot be killed fails the command instead of passing', () => {
   const { spawn } = fakeSpawn({ survivors: 99 })
-  const res = createRunner({ spawn, parentEnv })('node', ['x.js'])
+  const res = createRunner({ spawn, parentEnv, openDir })('node', ['x.js'])
   assert.equal(res.status, null)
   assert.equal(res.error, 'sandbox-survivors')
 })
@@ -52,7 +53,7 @@ test('a credential is never passed into the sandbox, even when a caller asks', (
   assert.throws(() => sandboxInvocation('osrun', 'git', ['fetch'], { GIT_CONFIG_VALUE_0: 'AUTHORIZATION: basic x' }), SandboxError)
   assert.throws(() => sandboxInvocation('osrun', 'x', [], { NPM_TOKEN: 'x' }), SandboxError)
   const { spawn, calls } = fakeSpawn()
-  const res = createRunner({ spawn, parentEnv })('git', ['fetch'], { env: { GIT_CONFIG_COUNT: '1', GIT_CONFIG_KEY_0: 'http.extraheader', GIT_CONFIG_VALUE_0: 'AUTHORIZATION: basic x' } })
+  const res = createRunner({ spawn, parentEnv, openDir })('git', ['fetch'], { env: { GIT_CONFIG_COUNT: '1', GIT_CONFIG_KEY_0: 'http.extraheader', GIT_CONFIG_VALUE_0: 'AUTHORIZATION: basic x' } })
   assert.equal(res.error, 'sandbox-refused')
   assert.equal(calls.length, 0, 'nothing was run')
 })
@@ -67,4 +68,25 @@ test('without a sandbox user the runner keeps the scrubbed environment and runs 
   assert.equal(calls[0].cmd, 'npm')
   assert.equal(calls[0].opts.env.GITHUB_TOKEN, undefined)
   assert.deepEqual(Object.keys(scrubbedEnv(parentEnv)).sort(), ['CI', 'GIT_TERMINAL_PROMPT', 'HOME', 'PATH', 'npm_config_audit', 'npm_config_fund', 'npm_config_update_notifier'])
+})
+
+test('sandboxed commands run only inside the work root: no cwd means the work root, outside is refused', () => {
+  const { spawn, calls } = fakeSpawn()
+  const opened = []
+  const run = createRunner({ spawn, parentEnv, openDir: d => opened.push(d) })
+  run('npm', ['--version'])
+  assert.equal(calls[0].opts.cwd, '/tmp/one-small-work', 'never the hub checkout it would inherit')
+  assert.deepEqual(opened, ['/tmp/one-small-work'])
+  const res = run('npm', ['test'], { cwd: '/home/runner/work/hub/hub' })
+  assert.equal(res.error, 'sandbox-refused')
+  assert.equal(run('npm', ['test'], { cwd: '/tmp/one-small-work/../etc' }).error, 'sandbox-refused')
+  assert.equal(run('npm', ['test'], { cwd: '/tmp/one-small-work-evil' }).error, 'sandbox-refused')
+  assert.throws(() => sandboxCwd('/tmp/x', ''), SandboxError)
+})
+
+test('git inside the sandbox trusts the hub-created checkout folder by argument, not by environment', () => {
+  const inv = sandboxInvocation('osrun', 'git', ['fetch', 'origin'], { PATH: '/usr/bin' })
+  assert.deepEqual(inv.args.slice(-5), ['git', '-c', 'safe.directory=*', 'fetch', 'origin'])
+  assert.ok(!inv.args.some(a => /^GIT_CONFIG_/.test(a)))
+  assert.deepEqual(sandboxInvocation('osrun', 'npm', ['ci'], {}).args.slice(-3), ['sandboxed', 'npm', 'ci'])
 })

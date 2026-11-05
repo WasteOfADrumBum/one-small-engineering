@@ -131,6 +131,9 @@ export async function evaluate({ client, pr: listed, mainSha, policy, validate }
     const r = latestTrusted.get(name)
     if (!r) return no('wait', latest.has(name) ? `required check "${name}" has not reported from the trusted workflow for ${head.slice(0, 7)} (a same-named check from another source is ignored)` : `required check "${name}" has not reported for ${head.slice(0, 7)}`)
     if (r.status !== 'completed') return no('wait', `required check "${name}" is ${r.status}`)
+    // A cancelled newest attempt (superseded by a newer dispatch, or stopped) is not a verdict:
+    // wait for the next attempt or sync rebuild rather than rejecting.
+    if (r.conclusion === 'cancelled') return no('wait', `required check "${name}" was cancelled; waiting for a new attempt`)
     if (r.conclusion !== 'success') return no('reject', `required check "${name}" concluded ${r.conclusion}`)
   }
   for (const r of latest.values()) {
@@ -264,9 +267,10 @@ async function main(argv) {
   const validate = validator()
   const go = merged => run({ client, policy, validate, dryRun, only, paused: process.env.AUTOMERGE_PAUSED === 'true', healStale: process.env.AUTOMERGE_HEAL === 'true', mergeBudget: policy.maxMergesPerRun - merged, log: t => console.log(safeOutput(t)) })
   // A sync PR's validation may still be running when this is dispatched; wait for it (bounded).
-  const waitingOnChecks = o => o.results.some(r => r.decision === 'wait' && /has not reported|is (queued|in_progress)/.test(r.reasons[0] || ''))
+  const waitingOnChecks = o => o.results.some(r => r.decision === 'wait' && /has not reported|is (queued|in_progress|waiting|pending|requested)|was cancelled/.test(r.reasons[0] || ''))
   let out = await go(0)
-  for (let i = 0; i < 12 && !dryRun && waitingOnChecks(out) && out.merges < policy.maxMergesPerRun; i++) {
+  // Up to 10 minutes: the gate's slowest job (security) takes about a minute and a half.
+  for (let i = 0; i < 20 && !dryRun && waitingOnChecks(out) && out.merges < policy.maxMergesPerRun; i++) {
     await new Promise(r => setTimeout(r, 30_000))
     const next = await go(out.merges)
     next.merges += out.merges

@@ -34,6 +34,10 @@ The job summary records the event, evaluated revision (`github.sha`, which is th
 
 Rename a job or the file only together with these consumers and their tests.
 
+### What the gate can and cannot decide
+
+A PR runs its own version of `validate.yml`, `gate.mjs` and `ci/gate-policy.json`, so a PR that edits them controls its own gate. For sync PRs that cannot happen: auto-merge accepts only a single-file `projects/registry.json` change. For every other PR the gate is information for the person merging, who must read workflow, gate and policy changes in the diff; without branch protection nothing stops a merge with a red or pending gate ([below](#merge-protection-status)).
+
 ### Auto-merge binds results to source, commit and attempt
 
 For a sync PR, [`automerge.mjs`](../scripts/sync/automerge.mjs) accepts a required check only if it was created by GitHub Actions (app id 15368), for the exact PR head, inside a check suite that belongs to a run of `.github/workflows/validate.yml` for that head. It reads every attempt (`filter=all`) and takes the newest check run per name, so an old success cannot mask a newer pending or failed attempt. A same-named check from another app or workflow cannot satisfy a requirement; if it fails or is pending it still blocks. Incomplete pages wait instead of merging. Everything else it already did is unchanged: registry-only scope, field-ownership guard, trusted author, hold label and pause controls, exact-head merge.
@@ -57,7 +61,7 @@ Every registry sync cycle shows two failed runs on the sync PR head: "Validate r
 Conclusion: GitHub records a `pull_request` run for a PR opened with `GITHUB_TOKEN` but never starts it (the platform's rule that `GITHUB_TOKEN` events do not trigger workflows), and closes it as failed when the PR closes. It is platform behaviour, not a repository defect, and there is no log to recover. What the repository does about it:
 
 - Sync validation comes from the dispatched run, which auto-merge reads by exact head and workflow file.
-- Auto-merge waits on **check runs**, never on pending workflow runs, so these never-started runs cannot deadlock it, and they have no check runs, so they cannot satisfy it either (test `zero-job pull_request runs ... neither block nor satisfy the merge`).
+- Auto-merge waits (up to 10 minutes per invocation, then the 3-hour schedule) on **check runs**, never on pending workflow runs, so these never-started runs cannot deadlock it, and they have no check runs, so they cannot satisfy it either (test `zero-job pull_request runs ... neither block nor satisfy the merge`).
 - The noise is cosmetic: a red cross on an already-merged sync commit. It would disappear only if sync PRs were opened by a GitHub App or another identity, which needs a new credential; not adopted.
 
 ## Security validation
@@ -99,14 +103,14 @@ Collectors run third-party project code (`npm ci`, builds, tests) when asked to 
 
 So project code now runs as a separate unprivileged user:
 
-1. [`sandbox-setup.sh`](../scripts/ci/sandbox-setup.sh) creates user `osrun` (no sudo, not in the docker group, own home), closes the runner user's home (workspace, temp files, runner configuration) with `chmod 700`, and makes `/tmp/one-small-work` for checkouts.
-2. [`exec.mjs`](../scripts/verify/exec.mjs) runs every command as `sudo -n -u osrun -- /usr/bin/env -i <allowlisted vars> ...`; no variable that looks like a credential may cross (the call is refused instead), and git reader credentials are never used in execute mode.
+1. [`sandbox-setup.sh`](../scripts/ci/sandbox-setup.sh) creates user `osrun` (no sudo, not in the docker group, denied cron and at, own home), closes the runner user's home (workspace, temp files, runner configuration) with `chmod 700`, and makes `/tmp/one-small-work` for checkouts and collector tools.
+2. [`exec.mjs`](../scripts/verify/exec.mjs) runs every command as `sudo -n -u osrun -- /usr/bin/env -i <allowlisted vars> ...`; no variable that looks like a credential may cross (the call is refused instead), and git reader credentials are never used in execute mode. A command runs only inside the work root: without a `cwd` it runs in the work root (never in the hub checkout it would otherwise inherit), and a `cwd` outside it is refused. Only that folder is opened to the sandbox user; the hub keeps its normal umask for everything else it writes. Git in the sandbox gets `-c safe.directory=*` as an argument, because checkout folders are created by the hub and git otherwise refuses them as "dubious ownership".
 3. After every command it kills every process `osrun` still has and fails the command if one survives.
-4. The `isolation` job runs a hostile probe through the same runner and requires that it finds nothing, and runs the same probe **without** the sandbox as a control that must find the canary. The control proves the probe can see a leak, so a pass is not a no-op.
+4. The `isolation` job runs a hostile probe through the same runner and requires that it finds nothing, that it ran in and could write its own work folder, and that nothing survives it; it makes a git checkout the way the collectors do, and checks that a command without a `cwd` runs in the work root. It also runs the same probe **without** the sandbox as a control that must find the canary. The control proves the probe can see a leak, so a pass is not a no-op.
 
 Used by: `engineering.yml` jobs `execute` and `prepare`, and `verify.yml` job `collect`. The policy refuses any job that runs `--execute` without the sandbox setup.
 
-Residual limits: project code still has network access (it needs the registry to install), and it shares the runner's kernel. A job that handles a write token never runs project code: `remediation.yml` re-prepares proposals without executing, and the observe job only reads artifacts.
+Residual limits: project code still has network access (it needs the registry to install), shares the runner's kernel, and can alter other files in the work root (other projects' checkouts in the same run). Evidence is computed by the hub from those files, so execution results are as trustworthy as the project's own code, which is why they are recorded as automated evidence, never as verification. A job that handles a write token never runs project code: `remediation.yml` re-prepares proposals without executing, and the observe job only reads artifacts.
 
 ## Workflows
 

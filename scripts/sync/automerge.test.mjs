@@ -343,7 +343,7 @@ test('a validate.yml run recorded for a different head never makes its checks tr
 })
 
 test('an old successful attempt cannot mask a newer pending or failed attempt', async () => {
-  for (const [newer, decision] of [[chk(10, 'ci-gate', 'in_progress', null), 'wait'], [chk(10, 'ci-gate', 'completed', 'failure'), 'reject'], [chk(10, 'ci-gate', 'completed', 'cancelled'), 'reject']]) {
+  for (const [newer, decision] of [[chk(10, 'ci-gate', 'in_progress', null), 'wait'], [chk(10, 'ci-gate', 'completed', 'failure'), 'reject'], [chk(10, 'ci-gate', 'completed', 'cancelled'), 'wait']]) {
     const w = world({ mutate: { checks: [...greenChecks(), newer] } })
     const out = await go(w)
     assert.equal(out.merges, 0)

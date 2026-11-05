@@ -15,16 +15,17 @@ import { spawnSync } from 'node:child_process'
 import { createRunner } from '../verify/exec.mjs'
 
 const HOSTILE = `
-import { readdirSync, readFileSync, existsSync } from 'node:fs'
+import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { spawn, spawnSync } from 'node:child_process'
 import { connect } from 'node:net'
 const [canary, workspace, home] = process.argv.slice(2)
-const r = { envLeak: false, procLeak: false, procReadable: 0, workspaceReadable: false, homeReadable: false, sudo: false, docker: false }
+const r = { cwd: process.cwd(), wroteCwd: false, envLeak: false, procLeak: false, procReadable: 0, workspaceReadable: false, homeReadable: false, sudo: false, docker: false }
 r.envLeak = Object.entries(process.env).some(([k, v]) => /TOKEN|SECRET/i.test(k) || String(v).includes(canary))
 for (const pid of readdirSync('/proc').filter(d => /^\\d+$/.test(d))) {
   try { const e = readFileSync('/proc/' + pid + '/environ', 'latin1'); r.procReadable++; if (e.includes(canary) || /(^|\\0)(GITHUB_TOKEN|ACTIONS_RUNTIME_TOKEN|ACTIONS_ID_TOKEN_REQUEST_TOKEN)=/.test(e)) r.procLeak = true } catch {}
 }
 try { readFileSync(workspace + '/package.json'); r.workspaceReadable = true } catch {}
+try { writeFileSync('written-by-project.txt', 'x'); r.wroteCwd = true } catch {}
 try { readdirSync(home); r.homeReadable = true } catch {}
 r.sudo = spawnSync('sudo', ['-n', 'true'], { stdio: 'ignore' }).status === 0
 await new Promise(res => { const s = connect('/var/run/docker.sock'); s.on('connect', () => { r.docker = true; s.destroy(); res() }); s.on('error', () => res()) })
@@ -40,7 +41,6 @@ const canary = env.ISOLATION_CANARY
 if (!user || !work || !canary) { console.error('sandbox-selftest: needs ONE_SMALL_SANDBOX_USER, ONE_SMALL_WORK and ISOLATION_CANARY (run scripts/ci/sandbox-setup.sh first)'); process.exit(2) }
 if (!env.GITHUB_TOKEN) { console.error('sandbox-selftest: the job token must be in this process for the test to mean anything'); process.exit(2) }
 
-process.umask(0)
 const dir = join(work, 'selftest')
 mkdirSync(dir, { recursive: true })
 writeFileSync(join(dir, 'hostile.mjs'), HOSTILE)
@@ -55,11 +55,26 @@ if (!s) problems.push(`the hostile script produced no report (status ${sandboxed
 else {
   for (const k of ['envLeak', 'procLeak', 'workspaceReadable', 'homeReadable', 'sudo', 'docker']) if (s[k]) problems.push(`sandboxed project code could ${k}`)
 }
+if (s && !(s.cwd === dir || s.cwd.startsWith(dir + '/'))) problems.push(`sandboxed code ran in ${s.cwd}, not in its work folder`)
+if (s && !s.wroteCwd) problems.push('sandboxed code could not write its own work folder (project builds would fail)')
 if (sandboxed.error === 'sandbox-survivors') problems.push('a sandbox process survived the command')
 const left = spawnSync('ps', ['-o', 'pid=,stat=', '-u', user], { encoding: 'utf8' })
 const alive = String(left.stdout).split('\n').filter(l => l.trim() && !/\sZ/.test(l))
 if (alive.length) problems.push(`processes of ${user} are still running after the command: ${alive.join(', ')}`)
 if (String(sandboxed.stdout).includes(canary) || String(sandboxed.stderr).includes(canary)) problems.push('the canary appeared in sandbox output')
+
+// 1b. A git checkout as the collectors make one: the folder is created by the hub, git runs in the sandbox.
+const repo = join(work, 'selftest-git')
+mkdirSync(repo, { recursive: true })
+const run = createRunner()
+const gitSteps = [['init', '-q'], ['-c', 'user.email=ci@invalid', '-c', 'user.name=ci', 'commit', '-q', '--allow-empty', '-m', 'probe'], ['rev-parse', 'HEAD']]
+for (const g of gitSteps) {
+  const r = run('git', g, { cwd: repo, timeoutMs: 60_000 })
+  if (r.status !== 0) { problems.push(`git ${g.filter(a => !a.includes('=')).join(' ')} failed in the sandbox: ${r.stderr.slice(-200)}`); break }
+}
+// A missing cwd runs in the work root, never in the hub checkout.
+const pwd = run('pwd', [])
+if (pwd.stdout.trim() !== work) problems.push(`a command without a cwd ran in ${pwd.stdout.trim()}, not ${work}`)
 
 // 2. Control: the same probe as the runner user without the sandbox must see the leak.
 const control = createRunner({ parentEnv: { ...env, ONE_SMALL_SANDBOX_USER: '' } })(process.execPath, args, { cwd: dir, timeoutMs: 60_000 })

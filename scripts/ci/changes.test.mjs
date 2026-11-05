@@ -11,7 +11,7 @@ test('only a pull request with a computed, non-empty diff may narrow the work', 
 })
 
 test('changes to execution, CI scripts, workflows, the gate policy or the manifest run the isolation test', () => {
-  for (const f of ['scripts/verify/exec.mjs', 'scripts/engineering/cli.mjs', 'scripts/ci/gate.mjs', 'ci/gate-policy.json', '.github/workflows/validate.yml', '.github/dependabot.yml', 'package.json', 'package-lock.json']) {
+  for (const f of ['scripts/verify/exec.mjs', 'scripts/engineering/cli.mjs', 'scripts/ci/gate.mjs', 'scripts/validate-registry.mjs', 'ci/gate-policy.json', '.github/workflows/validate.yml', '.github/dependabot.yml', 'package.json', 'package-lock.json']) {
     assert.equal(classify({ event: 'pull_request', files: ['docs/a.md', f] }).isolation, true, f)
   }
 })

@@ -93,7 +93,6 @@ jobs:
           ENGINEERING_PROJECT: ${{ inputs.project }}
         run: |
           set -euo pipefail
-          umask 0000
           args=(check --execute --no-api --work "$ONE_SMALL_WORK")
           if [ -n "${ENGINEERING_PROJECT:-}" ]; then args+=(--project "$ENGINEERING_PROJECT"); fi
           node scripts/engineering/cli.mjs "${args[@]}"
@@ -210,7 +209,6 @@ jobs:
           ENGINEERING_EXECUTE: ${{ inputs.execute }}
         run: |
           set -euo pipefail
-          umask 0000
           args=(prepare --out "$RUNNER_TEMP/proposals" --work "$ONE_SMALL_WORK")
           if [ -n "${ENGINEERING_PROJECT:-}" ]; then args+=(--project "$ENGINEERING_PROJECT"); fi
           if [ "${ENGINEERING_EXECUTE}" = "true" ]; then args+=(--execute); fi

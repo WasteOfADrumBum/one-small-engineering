@@ -75,7 +75,6 @@ jobs:
           VERIFY_EXECUTE: ${{ inputs.execute }}
         run: |
           set -euo pipefail
-          umask 0000
           args=(run --work "$ONE_SMALL_WORK")
           if [ -n "${VERIFY_PROJECT:-}" ]; then args+=(--project "$VERIFY_PROJECT"); fi
           if [ "$VERIFY_EXECUTE" = "true" ]; then args+=(--execute); fi

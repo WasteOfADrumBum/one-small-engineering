@@ -12,7 +12,7 @@ import { pathToFileURL } from 'node:url'
 const SHA = /^[0-9a-f]{40}$/
 
 // Paths whose change can affect how project code is executed or isolated, or how CI itself runs.
-export const ISOLATION_PATHS = [/^scripts\/verify\//, /^scripts\/engineering\//, /^scripts\/ci\//, /^ci\//, /^\.github\//, /^package(-lock)?\.json$/]
+export const ISOLATION_PATHS = [/^scripts\/verify\//, /^scripts\/engineering\//, /^scripts\/ci\//, /^scripts\/validate-registry\.mjs$/, /^ci\//, /^\.github\//, /^package(-lock)?\.json$/]
 
 export function classify({ event, files }) {
   if (event !== 'pull_request') return { isolation: true, reason: `${event} always runs every job` }

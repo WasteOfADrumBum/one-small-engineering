@@ -12,8 +12,11 @@ fi
 # Nothing grants the sandbox user sudo or the docker socket.
 if sudo -l -U "$user" 2>/dev/null | grep -q 'may run'; then echo "::error::$user can use sudo"; exit 1; fi
 if id -nG "$user" | tr ' ' '\n' | grep -qx docker; then echo "::error::$user is in the docker group"; exit 1; fi
+# A process killed after each command could otherwise come back through cron or at.
+for f in /etc/cron.deny /etc/at.deny; do echo "$user" | sudo tee -a "$f" >/dev/null; done
 sudo chmod 700 "$HOME"
-sudo install -d -m 1777 "$work"
+# Owned by the runner user, so the hub can remove what the sandbox user leaves there despite the sticky bit.
+sudo install -d -m 1777 -o "$(id -u)" -g "$(id -g)" "$work"
 if [ -n "${GITHUB_ENV:-}" ]; then
   { echo "ONE_SMALL_SANDBOX_USER=$user"; echo "ONE_SMALL_WORK=$work"; } >> "$GITHUB_ENV"
 fi
