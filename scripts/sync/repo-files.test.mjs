@@ -137,3 +137,10 @@ test('change watch: hourly, read-only detection, dispatches only the existing sy
     assert.match(t, /registry-sync\.yml\/dispatches/, eol)
   }
 })
+
+test('validate: only pull_request runs share a cancellable concurrency group', () => {
+  // A dispatch on main cancelled the push run of the same merged commit (229954a, 2026-11-05).
+  for (const [eol, t] of both(read('.github/workflows/validate.yml'))) {
+    assert.match(t, /^ {2}group: validate-\$\{\{ github\.event_name == 'pull_request' && github\.ref \|\| github\.run_id \}\}\r?$/m, eol)
+  }
+})
