@@ -180,3 +180,4 @@ A merge made by auto-merge (`GITHUB_TOKEN`) does not trigger push workflows. To 
 ### Revert this standard
 
 Revert the merge commit of the PR that introduced it (`git revert -m 1 <merge>` or GitHub's Revert button). That restores the previous `validate.yml`, re-adds the PR triggers of `verify.yml` and `engineering.yml` and the `workflow_run` trigger, and returns `sync/automerge.json` to `requiredChecks: ["validate"]` with no source binding. The policy and `automerge.mjs` are compatible in either order: the old code ignores `requiredCheckSource`, and the new code with the old policy requires only `validate` from any source (the earlier behaviour).
+
