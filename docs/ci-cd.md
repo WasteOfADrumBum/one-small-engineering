@@ -70,7 +70,7 @@ Conclusion: GitHub records a `pull_request` run for a PR opened with `GITHUB_TOK
 | --- | --- | --- |
 | [actionlint](https://github.com/rhysd/actionlint) 1.7.7 | Workflow syntax, expressions, types, and shellcheck on `run:` scripts (shellcheck is preinstalled on GitHub's Ubuntu runners) | SHA-256 in [`ci/tools.lock`](../ci/tools.lock) |
 | [zizmor](https://github.com/zizmorcore/zizmor) 1.31.1, `--offline` | Dangerous triggers, template injection, excessive permissions, credential persistence, unpinned actions | SHA-256 of the wheel |
-| [gitleaks](https://github.com/gitleaks/gitleaks) 8.28.0 | Secrets in every commit of every ref, values redacted in the log | SHA-256; config [`.gitleaks.toml`](../.gitleaks.toml) |
+| [gitleaks](https://github.com/gitleaks/gitleaks) 8.28.0 | Secrets in every commit of every ref, values redacted in the log; a self-check first proves the allowlist still reports a real-looking token in an evidence file | SHA-256; config [`.gitleaks.toml`](../.gitleaks.toml), reviewed fingerprints [`.gitleaksignore`](../.gitleaksignore) |
 | Repository policy ([`workflow-policy.mjs`](../scripts/ci/workflow-policy.mjs)) | Full-SHA pins; workflow- and job-level permissions; a timeout on every job; `persist-credentials: false`; no `${{ }}` inside `run:`; no `pull_request_target` or `workflow_run`; no write permission or secret in a workflow a PR can trigger; project code only after the sandbox setup; no dependencies or install scripts in `package.json`; no `eval`, `new Function`, shell strings or `node:vm` in `scripts/`; GitHub writes only from the four reviewed modules, each behind its own endpoint allowlist | In the repository |
 
 Run them locally: `bash scripts/ci/install-tools.sh /tmp/tools && TOOLS=/tmp/tools bash scripts/ci/security-scan.sh`. `npm run security:policy` runs the repository policy alone.
@@ -86,6 +86,7 @@ Run them locally: `bash scripts/ci/install-tools.sh /tmp/tools && TOOLS=/tmp/too
 | Exception | Scope | Reason | Owner | Review by |
 | --- | --- | --- | --- | --- |
 | gitleaks allowlist for `"cacheKey": "<16 hex>"` lines | `verification/evidence/*.json` | The value is the first 16 hex characters of a SHA-256 over collector inputs ([`evidence.mjs`](../scripts/verify/evidence.mjs)), not a credential; seven false positives on 2026-11-05 | Joshua Small | 2027-05-05 |
+| gitleaks fingerprint in `.gitleaksignore` | One finding in commit `7e0d10b`, `scripts/ci/security-scan.sh` line 25 | A test literal shaped like a cacheKey in the allowlist self-check; the next commit builds it at run time. The commit remains in PR #106's history | Joshua Small | 2027-05-05 |
 
 There are no zizmor or actionlint suppressions.
 
