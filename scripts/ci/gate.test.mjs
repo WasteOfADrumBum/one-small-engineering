@@ -7,7 +7,7 @@ import { decide, loadGatePolicy, render } from './gate.mjs'
 const policy = loadGatePolicy()
 const ok = () => ({
   changes: { result: 'success', outputs: { isolation: 'true', files: '3' } },
-  validate: { result: 'success', outputs: { 'tests-passed': '472', 'tests-failed': '0' } },
+  validate: { result: 'success', outputs: { 'tests-passed': '519', 'tests-failed': '0' } },
   security: { result: 'success', outputs: { scanners: 'actionlint,zizmor,gitleaks,policy' } },
   isolation: { result: 'success', outputs: {} }
 })
