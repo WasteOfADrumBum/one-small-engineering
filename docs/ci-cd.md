@@ -117,7 +117,7 @@ Residual limits: project code still has network access (it needs the registry to
 
 | Workflow | Triggers | Writes | Notes |
 | --- | --- | --- | --- |
-| validate.yml | PR, push main, merge_group, dispatch | none | The merge gate. Cancels obsolete runs on the same ref |
+| validate.yml | PR, push main, merge_group, dispatch | none | The merge gate. A newer commit cancels an obsolete pull request run; push, dispatch and merge-group runs never cancel each other |
 | automerge.yml | dispatch (from sync), schedule 3h | merge sync PRs | Runs main's code; never checks out PR code. Serialized, never cancelled |
 | registry-sync.yml | schedule 6h (stage C), dispatch | `sync/*` branches, draft PRs, status issue | Write job only on main. Serialized |
 | main-integrity.yml | push main, schedule 6h, dispatch | none | Detection, not prevention |

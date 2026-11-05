@@ -27,9 +27,11 @@ on:
 permissions:
   contents: read
 
-# Read-only runs, so a newer commit on the same ref cancels the obsolete run.
+# Read-only runs. On a pull request a newer commit cancels the obsolete run. Every other run
+# (push to main, dispatch, merge group) gets its own group, so a dispatch never cancels the push
+# run of the same commit and every commit on main keeps its own result (seen live on 229954a).
 concurrency:
-  group: validate-${{ github.ref }}
+  group: validate-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
   cancel-in-progress: true
 
 jobs:
