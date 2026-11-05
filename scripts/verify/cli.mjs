@@ -170,11 +170,12 @@ function provenance(o, env) {
 
 function toolInstaller(run, root) {
   return tools => {
-    const dir = join(root, '.tools')
+    // In the sandbox the tools live in the work root, which project commands may write to.
+    const dir = join(process.env.ONE_SMALL_SANDBOX_USER && process.env.ONE_SMALL_WORK ? process.env.ONE_SMALL_WORK : root, '.tools')
     mkdirSync(dir, { recursive: true })
     const available = {}
     for (const t of tools) {
-      const res = run('npm', ['install', '--prefix', dir, '--no-audit', '--no-fund', `${t.package}@${t.version}`], { timeoutMs: 600_000 })
+      const res = run('npm', ['install', '--prefix', dir, '--no-audit', '--no-fund', `${t.package}@${t.version}`], { cwd: dir, timeoutMs: 600_000 })
       if (res.status === 0 && existsSync(join(dir, 'node_modules', '.bin', t.bin))) available[t.bin] = `${t.package}@${t.version}`
     }
     const sepChar = platform() === 'win32' ? ';' : ':'

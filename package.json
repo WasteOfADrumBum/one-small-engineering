@@ -10,8 +10,9 @@
   },
   "scripts": {
     "validate": "node scripts/validate-registry.mjs",
-    "test": "node --test scripts/*.test.mjs scripts/sync/*.test.mjs scripts/release/*.test.mjs scripts/verify/*.test.mjs scripts/engineering/*.test.mjs scripts/state/*.test.mjs",
+    "test": "node --test scripts/*.test.mjs scripts/ci/*.test.mjs scripts/sync/*.test.mjs scripts/release/*.test.mjs scripts/verify/*.test.mjs scripts/engineering/*.test.mjs scripts/state/*.test.mjs",
     "check": "npm run validate && npm test",
+    "security:policy": "node scripts/ci/workflow-policy.mjs",
     "onboard": "node scripts/sync/onboard.mjs",
     "sync:preview": "node scripts/sync/run.mjs preview",
     "sync:pilot": "node scripts/sync/pilot.mjs",

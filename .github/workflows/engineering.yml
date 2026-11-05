@@ -7,8 +7,10 @@ name: Engineering orchestrator
 #                      any repository, and no job here has a write permission.
 #   workflow_dispatch  manual: observe (optionally running project builds and tests in a separate
 #                      job that holds no secret), or prepare (candidate fixes as artifacts only).
-#   pull_request       when orchestrator code changes: tests plus an observe run. The PR's code
-#                      runs with a read-only token and without the reader secret.
+#
+# Pull requests no longer trigger this workflow (2026-11-05, docs/ci-cd.md): the orchestrator's
+# tests, including a local-server integration suite, run in the merge gate (validate.yml), and a
+# live observe run after merge is a manual dispatch from main.
 #
 # Opening a remediation PR is a different workflow (remediation.yml) with its own token, run by a
 # person from main. State between scheduled runs is kept in the Actions cache (main only); every
@@ -31,11 +33,6 @@ on:
         description: 'Run project build and test commands first (isolated job, no secrets)'
         type: boolean
         default: false
-  pull_request:
-    paths:
-      - 'scripts/engineering/**'
-      - 'engineering/**'
-      - '.github/workflows/engineering.yml'
 
 # Nothing unless a job asks for it.
 permissions: {}
@@ -63,8 +60,10 @@ jobs:
 
   execute:
     # Manual only. Untrusted project code (npm ci, build, test) runs here, in a job with no secret,
-    # no API token in its environment and read-only contents permission. Its evidence is handed to
-    # the observe job as an artifact.
+    # no API token in its environment and read-only contents permission, as a separate sandbox user
+    # whose leftover processes are killed after every command (scripts/ci/sandbox-setup.sh), so it
+    # cannot reach the later artifact and cache steps' runtime token. Its evidence is handed to the
+    # observe job as an artifact.
     needs: tests
     if: github.event_name == 'workflow_dispatch' && inputs.execute
     runs-on: ubuntu-latest
@@ -87,12 +86,14 @@ jobs:
             verification/runs/
           key: engineering-state-${{ github.run_id }}
           restore-keys: engineering-state-
-      - name: Build and test projects (no API, no secrets)
+      - name: Create the project-code sandbox user
+        run: bash scripts/ci/sandbox-setup.sh
+      - name: Build and test projects (no API, no secrets, sandbox user)
         env:
           ENGINEERING_PROJECT: ${{ inputs.project }}
         run: |
           set -euo pipefail
-          args=(check --execute --no-api --work "$RUNNER_TEMP/work")
+          args=(check --execute --no-api --work "$ONE_SMALL_WORK")
           if [ -n "${ENGINEERING_PROJECT:-}" ]; then args+=(--project "$ENGINEERING_PROJECT"); fi
           node scripts/engineering/cli.mjs "${args[@]}"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -139,8 +140,8 @@ jobs:
       - name: Observe all projects (read-only)
         env:
           GITHUB_TOKEN: ${{ github.token }}
-          # The private-repository reader is never given to pull request runs.
-          SYNC_READER_TOKEN: ${{ github.event_name != 'pull_request' && secrets.SYNC_READER_TOKEN || '' }}
+          # Schedule and manual dispatch only (no pull_request trigger), so the reader is never given to PR code.
+          SYNC_READER_TOKEN: ${{ secrets.SYNC_READER_TOKEN }}
           ENGINEERING_PROJECT: ${{ inputs.project }}
         run: |
           set -euo pipefail
@@ -200,13 +201,15 @@ jobs:
             verification/runs/
           key: engineering-state-${{ github.run_id }}
           restore-keys: engineering-state-
+      - name: Create the project-code sandbox user
+        run: bash scripts/ci/sandbox-setup.sh
       - name: Prepare candidate fixes (nothing is written to GitHub)
         env:
           ENGINEERING_PROJECT: ${{ inputs.project }}
           ENGINEERING_EXECUTE: ${{ inputs.execute }}
         run: |
           set -euo pipefail
-          args=(prepare --out "$RUNNER_TEMP/proposals" --work "$RUNNER_TEMP/work")
+          args=(prepare --out "$RUNNER_TEMP/proposals" --work "$ONE_SMALL_WORK")
           if [ -n "${ENGINEERING_PROJECT:-}" ]; then args+=(--project "$ENGINEERING_PROJECT"); fi
           if [ "${ENGINEERING_EXECUTE}" = "true" ]; then args+=(--execute); fi
           node scripts/engineering/cli.mjs "${args[@]}"

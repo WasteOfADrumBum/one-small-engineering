@@ -10,6 +10,12 @@ const policy = { ...loadPolicy(), reconcileAfterMerge: true }
 const MAIN = fakeSha('main-1')
 const tf = r => r.projects.find(p => p.id === 'taskforge')
 const b64 = obj => Buffer.from(JSON.stringify(obj)).toString('base64')
+const HEAD = fakeSha('pr-head')
+const SUITE = 900
+// A check run as GitHub Actions reports it for the dispatched Validate registry run on the PR head.
+const chk = (id, name, status = 'completed', conclusion = 'success', extra = {}) => ({ id, name, status, conclusion, head_sha: HEAD, app: { id: 15368, slug: 'github-actions' }, check_suite: { id: SUITE }, ...extra })
+const greenChecks = () => [chk(1, 'validate'), chk(2, 'ci-gate')]
+const validateRun = (extra = {}) => ({ id: 7001, path: '.github/workflows/validate.yml', head_sha: HEAD, check_suite_id: SUITE, run_attempt: 1, event: 'workflow_dispatch', ...extra })
 
 function routine(reg) {
   const next = structuredClone(reg)
@@ -23,14 +29,15 @@ function routine(reg) {
 // One open sync PR (number 31) plus everything the evaluator reads.
 function world({ next = routine(loadRegistry()), mutate = {} } = {}) {
   const base = loadRegistry()
-  const head = fakeSha('pr-head')
+  const head = HEAD
   const st = {
     main: MAIN, writes: [], merged: [], comments: [], dispatches: [], ready: 0,
     pr: { number: 31, state: 'open', draft: true, title: 'sync(taskforge): registry update', node_id: 'PR_x', commits: 1, labels: [], base: { ref: 'main' }, user: { login: 'github-actions[bot]', type: 'Bot' }, head: { ref: 'sync/taskforge', sha: head, repo: { full_name: 'WasteOfADrumBum/one-small-engineering' } } },
     commit: { parents: [{ sha: MAIN }], commit: { author: { name: 'One Small Engineering Sync' } } },
     files: [{ filename: 'projects/registry.json', status: 'modified' }],
     reviews: [], base, next,
-    checks: [{ id: 1, name: 'validate', status: 'completed', conclusion: 'success' }],
+    checks: greenChecks(),
+    workflowRuns: [validateRun()],
     mergeStatus: null
   }
   Object.assign(st, mutate)
@@ -38,7 +45,8 @@ function world({ next = routine(loadRegistry()), mutate = {} } = {}) {
     paginate: async path => {
       if (/\/pulls\?/.test(path)) { const { commits, ...summary } = st.pr; return st.pr.state === 'open' ? [summary] : [] }
       if (/\/files$/.test(path)) return Object.assign([...st.files], st.filesTruncated ? { truncated: true } : {})
-      if (/check-runs$/.test(path)) return st.checks
+      if (/check-runs\?filter=all$/.test(path)) return Object.assign([...st.checks], st.checksTruncated ? { truncated: true } : {})
+      if (/\/actions\/runs\?head_sha=/.test(path)) return Object.assign([...st.workflowRuns], st.runsTruncated ? { truncated: true } : {})
       if (/\/reviews$/.test(path)) return Object.assign([...st.reviews], st.reviewsTruncated ? { truncated: true } : {})
       throw new Error(`unexpected paginate ${path}`)
     },
@@ -142,8 +150,11 @@ const unsafe = {
   'workflow file only': { files: [{ filename: '.github/workflows/validate.yml', status: 'modified' }] },
   'truncated file list': { filesTruncated: true },
   'non-sync commit author': { commit: { parents: [{ sha: MAIN }], commit: { author: { name: 'Mallory' } } } },
-  'failed CI': { checks: [{ id: 1, name: 'validate', status: 'completed', conclusion: 'failure' }] },
-  'extra failing check': { checks: [{ id: 1, name: 'validate', status: 'completed', conclusion: 'success' }, { id: 2, name: 'other', status: 'completed', conclusion: 'cancelled' }] }
+  'failed CI': { checks: [chk(1, 'validate', 'completed', 'failure'), chk(2, 'ci-gate')] },
+  'failed final gate': { checks: [chk(1, 'validate'), chk(2, 'ci-gate', 'completed', 'failure')] },
+  'skipped final gate': { checks: [chk(1, 'validate'), chk(2, 'ci-gate', 'completed', 'skipped')] },
+  'extra failing check': { checks: [...greenChecks(), chk(3, 'other', 'completed', 'cancelled')] },
+  'failing same-named check from another app': { checks: [...greenChecks(), chk(9, 'validate', 'completed', 'failure', { app: { id: 999, slug: 'impostor' }, check_suite: { id: 1 } })] }
 }
 for (const [name, m] of Object.entries(unsafe)) {
   test(`unsafe PR is not merged: ${name}`, async () => {
@@ -158,7 +169,7 @@ for (const [name, m] of Object.entries(unsafe)) {
 }
 
 test('missing or pending required check waits instead of merging', async () => {
-  for (const checks of [[], [{ id: 1, name: 'validate', status: 'in_progress', conclusion: null }]]) {
+  for (const checks of [[], [chk(1, 'validate', 'in_progress', null), chk(2, 'ci-gate', 'queued', null)], [chk(1, 'validate')]]) {
     const w = world({ mutate: { checks } })
     const out = await go(w)
     assert.equal(out.results[0].decision, 'wait')
@@ -167,7 +178,7 @@ test('missing or pending required check waits instead of merging', async () => {
 })
 
 test('a rerun that succeeds supersedes an earlier failed run of the same check', async () => {
-  const w = world({ mutate: { checks: [{ id: 1, name: 'validate', status: 'completed', conclusion: 'failure' }, { id: 5, name: 'validate', status: 'completed', conclusion: 'success' }] } })
+  const w = world({ mutate: { checks: [chk(1, 'validate', 'completed', 'failure'), chk(5, 'validate'), chk(6, 'ci-gate')] } })
   assert.equal((await go(w)).merges, 1)
 })
 
@@ -306,4 +317,71 @@ test('the merge limit holds across retries in one invocation (no budget left: no
   assert.equal(out.results[0].decision, 'wait')
   assert.match(out.results[0].reasons[0], /merge limit/)
   assert.equal(w.st.merged.length, 0)
+})
+
+// CI/CD standard (2026-11-05): required checks are bound to a trusted source, the exact head and
+// the newest attempt, and the base is re-read before the merge call.
+test('a same-named success from another app or workflow cannot satisfy a required check', async () => {
+  for (const [name, impostor] of [
+    ['another app', { app: { id: 999, slug: 'impostor' } }],
+    ['another workflow', { check_suite: { id: 4242 } }],
+    ['another commit', { head_sha: fakeSha('elsewhere') }]
+  ]) {
+    const w = world({ mutate: { checks: [chk(1, 'validate'), chk(2, 'ci-gate', 'completed', 'success', impostor)], workflowRuns: [validateRun(), { ...validateRun({ id: 7002, path: '.github/workflows/other.yml', check_suite_id: 4242 }) }] } })
+    const out = await go(w)
+    assert.equal(out.merges, 0, name)
+    assert.equal(out.results[0].decision, 'wait', name)
+    assert.match(out.results[0].reasons[0], /has not reported from the trusted workflow/, name)
+  }
+})
+
+test('a validate.yml run recorded for a different head never makes its checks trusted', async () => {
+  const w = world({ mutate: { workflowRuns: [validateRun({ head_sha: fakeSha('elsewhere') })] } })
+  const out = await go(w)
+  assert.equal(out.merges, 0)
+  assert.equal(out.results[0].decision, 'wait')
+})
+
+test('an old successful attempt cannot mask a newer pending or failed attempt', async () => {
+  for (const [newer, decision] of [[chk(10, 'ci-gate', 'in_progress', null), 'wait'], [chk(10, 'ci-gate', 'completed', 'failure'), 'reject'], [chk(10, 'ci-gate', 'completed', 'cancelled'), 'wait']]) {
+    const w = world({ mutate: { checks: [...greenChecks(), newer] } })
+    const out = await go(w)
+    assert.equal(out.merges, 0)
+    assert.equal(out.results[0].decision, decision, newer.status + '/' + newer.conclusion)
+  }
+})
+
+test('incomplete check-run or workflow-run pages wait instead of merging', async () => {
+  for (const m of [{ checksTruncated: true }, { runsTruncated: true }]) {
+    const w = world({ mutate: m })
+    const out = await go(w)
+    assert.equal(out.results[0].decision, 'wait', JSON.stringify(m))
+    assert.equal(w.st.merged.length, 0)
+  }
+})
+
+test('zero-job pull_request runs of validate.yml (bot-opened PR) neither block nor satisfy the merge', async () => {
+  const zeroJob = validateRun({ id: 7003, event: 'pull_request', check_suite_id: 901, status: 'queued', conclusion: null })
+  const w = world({ mutate: { workflowRuns: [validateRun(), zeroJob] } })
+  assert.equal((await go(w)).merges, 1)
+})
+
+test('main moving between evaluation and the merge call stops the merge', async () => {
+  const w = world()
+  let mainReads = 0
+  const orig = w.client.request
+  w.client.request = async (m, p, o) => { if (m === 'GET' && p.endsWith('/git/ref/heads/main') && ++mainReads === 2) return { object: { sha: fakeSha('main-moved') } }; return orig(m, p, o) }
+  const out = await go(w)
+  assert.equal(out.merges, 0)
+  assert.equal(out.results[0].decision, 'wait')
+  assert.match(out.results[0].reasons[0], /main moved after evaluation/)
+  assert.equal(w.st.merged.length, 0)
+})
+
+test('the committed policy binds required checks to GitHub Actions and validate.yml', () => {
+  const p = loadPolicy()
+  assert.deepEqual(p.requiredChecks, ['validate', 'ci-gate'])
+  assert.equal(p.requiredCheckSource.appId, 15368)
+  assert.equal(p.requiredCheckSource.workflowPath, '.github/workflows/validate.yml')
+  assert.deepEqual(p.trustedAuthors, ['github-actions[bot]'])
 })

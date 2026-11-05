@@ -1,0 +1,7 @@
+# Reviewed gitleaks findings, by fingerprint (commit:file:rule:line). Each entry names one exact
+# finding in one commit and can never cover a new one. See docs/ci-cd.md#exceptions.
+#
+# The allowlist self-check in commit 7e0d10b wrote a cacheKey-shaped literal (a content hash, not a
+# credential) into scripts/ci/security-scan.sh; the next commit assembles it at run time instead.
+# The commit stays reachable from PR #106's history. Reviewed 2026-11-05, owner Joshua Small.
+7e0d10b433164ab9b1210850ecdc89f97fec9906:scripts/ci/security-scan.sh:generic-api-key:25

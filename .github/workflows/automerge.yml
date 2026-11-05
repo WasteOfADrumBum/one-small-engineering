@@ -6,12 +6,13 @@ name: Auto-merge registry sync
 #
 # Pause: set repository variable AUTOMERGE_PAUSED=true, label a PR 'hold', set
 # "enabled": false in sync/automerge.json, or disable this workflow.
+#
+# Triggers: Registry sync dispatches this right after it opens or updates sync PRs; the schedule is
+# the fallback. (A workflow_run trigger on Validate registry was removed on 2026-11-05: GitHub never
+# fired it for the GITHUB_TOKEN-dispatched validation runs it was meant for, and zizmor flags it as
+# a dangerous trigger.)
 on:
-  # A sync PR's validation finished (sync dispatches Validate registry on each sync branch).
-  workflow_run:
-    workflows: ['Validate registry']
-    types: [completed]
-  # Fallback if an event is missed.
+  # Fallback if a dispatch is missed.
   schedule:
     - cron: '41 */3 * * *'
   workflow_dispatch:
@@ -29,14 +30,12 @@ concurrency:
 
 jobs:
   automerge:
-    # workflow_run fires for every Validate registry run; only sync branches matter.
-    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && startsWith(github.event.workflow_run.head_branch, 'sync/'))
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
       contents: write        # merge a PR into main
       pull-requests: write   # mark ready for review, comment
-      actions: write         # dispatch Registry sync to rebuild stale sync PRs
+      actions: write         # dispatch Registry sync to rebuild stale sync PRs; read the validate.yml runs that own required checks
       checks: read           # read every check run on a sync PR head (required and others)
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5

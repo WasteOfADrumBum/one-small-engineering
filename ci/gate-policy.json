@@ -1,0 +1,24 @@
+{
+  "$comment": "Policy for scripts/ci/gate.mjs, the final ci-gate job of .github/workflows/validate.yml (docs/ci-cd.md). Every job listed in required must appear in ci-gate's needs and succeed. A job may be skipped only where allowedSkips names it, for the listed events, and only when the named output of another job says so. evidence refuses a green run that validated nothing. Weakening this file weakens the merge gate: change it only in a reviewed PR.",
+  "version": 1,
+  "required": ["changes", "validate", "security", "isolation"],
+  "allowedSkips": {
+    "isolation": {
+      "events": ["pull_request"],
+      "when": { "job": "changes", "output": "isolation", "equals": "false" },
+      "reason": "the pull request does not touch project execution, CI scripts, workflows or the package manifest"
+    }
+  },
+  "evidence": {
+    "validate": [
+      { "output": "tests-passed", "atLeast": 500, "reason": "the full suite ran (519 tests on 2026-11-05; lower this only in a reviewed PR that removes tests)" },
+      { "output": "tests-failed", "equals": "0", "reason": "no test failed" }
+    ],
+    "security": [
+      { "output": "scanners", "includesAll": ["actionlint", "zizmor", "gitleaks", "policy"], "reason": "every scanner ran" }
+    ],
+    "changes": [
+      { "output": "isolation", "oneOf": ["true", "false"], "reason": "the change was classified" }
+    ]
+  }
+}

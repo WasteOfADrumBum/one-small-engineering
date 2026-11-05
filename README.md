@@ -125,7 +125,7 @@ npm run engineering:report -- --check   # are the committed engineering reports 
 npm run engineering:prepare  # candidate fixes as local proposal files; writes nothing to GitHub
 ```
 
-CI ([`.github/workflows/validate.yml`](.github/workflows/validate.yml)) runs `npm run check` on every pull request and on pushes to `main`, with read-only permissions, plus the field-ownership guard on `sync/*` branches. [Main integrity](.github/workflows/main-integrity.yml) runs on push and every six hours and flags any change to `main` that did not come from a merged PR. These are detection and code-level controls, not branch protection, which GitHub Free does not enforce on this private repository.
+CI ([`.github/workflows/validate.yml`](.github/workflows/validate.yml)) runs on every pull request, push to `main`, merge-queue group and sync branch, with read-only permissions: `npm run check`, the field-ownership guard on `sync/*` branches, security scans, a project-code isolation test, and a final `ci-gate` job that is the one result a merge depends on ([docs/ci-cd.md](docs/ci-cd.md)). [Main integrity](.github/workflows/main-integrity.yml) runs on push and every six hours and flags any change to `main` that did not come from a merged PR. These are detection and code-level controls, not branch protection, which GitHub Free does not enforce on this private repository.
 
 ## Proposing changes
 

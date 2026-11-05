@@ -112,21 +112,51 @@ export async function evaluate({ client, pr: listed, mainSha, policy, validate }
   const problems = [...guardRegistryChange(base, next, projectId), ...validate(next)]
   if (problems.length) return no('reject', ...problems.slice(0, 5).map(p => cleanText(p, 200)))
 
-  const runs = await client.paginate(`${HUB}/commits/${head}/check-runs`, { max: 100, key: 'check_runs' })
+  // Every attempt of every check on this exact head (filter=all), newest by id per name. A rerun
+  // gets a new, larger id, so an old success can never mask a newer pending or failed attempt.
+  const runs = await client.paginate(`${HUB}/commits/${head}/check-runs?filter=all`, { max: 300, key: 'check_runs' })
   if (runs.truncated) return no('wait', 'check run list is incomplete')
+  const sourceOk = await trustedSource({ client, head, source: policy.requiredCheckSource })
+  if (sourceOk.wait) return no('wait', sourceOk.wait)
   const latest = new Map()
-  for (const r of runs) if (!latest.has(r.name) || latest.get(r.name).id < r.id) latest.set(r.name, r)
+  const latestTrusted = new Map()
+  for (const r of runs) {
+    if (!latest.has(r.name) || latest.get(r.name).id < r.id) latest.set(r.name, r)
+    if (sourceOk.trusted(r) && (!latestTrusted.has(r.name) || latestTrusted.get(r.name).id < r.id)) latestTrusted.set(r.name, r)
+  }
   for (const name of policy.requiredChecks) {
-    const r = latest.get(name)
-    if (!r) return no('wait', `required check "${name}" has not reported for ${head.slice(0, 7)}`)
+    // A required result counts only from the trusted workflow, for this head. A same-named check
+    // from another app or workflow is ignored here (it cannot satisfy the requirement) and is still
+    // held to the "nothing failed or pending" rule below (so it can only block, never admit).
+    const r = latestTrusted.get(name)
+    if (!r) return no('wait', latest.has(name) ? `required check "${name}" has not reported from the trusted workflow for ${head.slice(0, 7)} (a same-named check from another source is ignored)` : `required check "${name}" has not reported for ${head.slice(0, 7)}`)
     if (r.status !== 'completed') return no('wait', `required check "${name}" is ${r.status}`)
+    // A cancelled newest attempt (superseded by a newer dispatch, or stopped) is not a verdict:
+    // wait for the next attempt or sync rebuild rather than rejecting.
+    if (r.conclusion === 'cancelled') return no('wait', `required check "${name}" was cancelled; waiting for a new attempt`)
     if (r.conclusion !== 'success') return no('reject', `required check "${name}" concluded ${r.conclusion}`)
   }
   for (const r of latest.values()) {
     if (r.status !== 'completed') return no('wait', `check "${cleanText(r.name, 60)}" is ${r.status}`)
     if (!OK_CONCLUSIONS.has(r.conclusion)) return no('reject', `check "${cleanText(r.name, 60)}" concluded ${r.conclusion}`)
   }
-  return { decision: 'merge', reasons: ['all safety checks passed'], projectId, head: pr.head }
+  return { decision: 'merge', reasons: ['all safety checks passed'], projectId, head: pr.head, mainSha }
+}
+
+// Which check runs may satisfy a required check: those created by the trusted app (GitHub Actions)
+// for this exact head, inside a check suite that belongs to a run of the trusted workflow file.
+// Pending workflow runs without check runs are not waited on: GitHub creates zero-job
+// pull_request runs for PRs opened with GITHUB_TOKEN that never start and only conclude when
+// the PR closes (docs/ci-cd.md#zero-job-runs), so waiting on them would deadlock.
+export async function trustedSource({ client, head, source }) {
+  if (!source) return { trusted: () => true }
+  if (!Number.isInteger(source.appId) || typeof source.workflowPath !== 'string') throw new Error('sync/automerge.json requiredCheckSource needs appId and workflowPath')
+  const list = await client.paginate(`${HUB}/actions/runs?head_sha=${head}`, { max: 200, key: 'workflow_runs' })
+  if (list.truncated) return { wait: 'workflow run list is incomplete' }
+  const suites = new Set(list.filter(w => w && w.path === source.workflowPath && w.head_sha === head && Number.isInteger(w.check_suite_id)).map(w => w.check_suite_id))
+  return {
+    trusted: r => Boolean(r && r.app && r.app.id === source.appId && r.head_sha === head && r.check_suite && suites.has(r.check_suite.id))
+  }
 }
 
 async function currentMain(client) {
@@ -134,11 +164,15 @@ async function currentMain(client) {
   return ref.object.sha
 }
 
-async function merge({ client, pr, policy }) {
+async function merge({ client, pr, policy, mainSha }) {
   // Re-read the PR immediately before acting: head, state and draft status may have moved.
   // Every field used below must be present, so a partial response fails here, before any write.
   const fresh = expectObject(await client.get(`${HUB}/pulls/${pr.number}`), 'pull request', ['head', 'state', 'draft', 'node_id', 'title'])
   if (fresh.state !== 'open' || fresh.head.sha !== pr.head.sha) return { merged: false, why: 'head changed or PR closed after evaluation; will be re-evaluated' }
+  // Main must still be the commit the head was validated on top of, so the squash result equals
+  // the validated tree. A move between this read and the merge call is the residual race that only
+  // platform branch protection could close (unavailable on this plan; docs/ci-cd.md#merge-race).
+  if (mainSha && (await currentMain(client)) !== mainSha) return { merged: false, why: 'main moved after evaluation; will be re-evaluated' }
   if (fresh.draft) {
     await client.request('POST', '/graphql', { body: { query: 'mutation($id: ID!) { markPullRequestReadyForReview(input: {pullRequestId: $id}) { pullRequest { number } } }', variables: { id: fresh.node_id } } })
   }
@@ -177,7 +211,7 @@ export async function run({ client: raw, policy, validate, dryRun = false, only 
       if (ev.decision !== 'merge') continue
       if (dryRun) { entry.decision = 'would-merge'; continue }
       if (merges >= Math.min(mergeBudget, policy.maxMergesPerRun)) { entry.decision = 'wait'; entry.reasons = ['per-run merge limit reached']; continue }
-      const m = await merge({ client, pr, policy })
+      const m = await merge({ client, pr, policy, mainSha: ev.mainSha })
       if (!m.merged) { entry.decision = 'wait'; entry.reasons = [m.why]; continue }
       merges++
       entry.decision = 'merged'
@@ -233,9 +267,10 @@ async function main(argv) {
   const validate = validator()
   const go = merged => run({ client, policy, validate, dryRun, only, paused: process.env.AUTOMERGE_PAUSED === 'true', healStale: process.env.AUTOMERGE_HEAL === 'true', mergeBudget: policy.maxMergesPerRun - merged, log: t => console.log(safeOutput(t)) })
   // A sync PR's validation may still be running when this is dispatched; wait for it (bounded).
-  const waitingOnChecks = o => o.results.some(r => r.decision === 'wait' && /has not reported|is (queued|in_progress)/.test(r.reasons[0] || ''))
+  const waitingOnChecks = o => o.results.some(r => r.decision === 'wait' && /has not reported|is (queued|in_progress|waiting|pending|requested)|was cancelled/.test(r.reasons[0] || ''))
   let out = await go(0)
-  for (let i = 0; i < 12 && !dryRun && waitingOnChecks(out) && out.merges < policy.maxMergesPerRun; i++) {
+  // Up to 10 minutes: the gate's slowest job (security) takes about a minute and a half.
+  for (let i = 0; i < 20 && !dryRun && waitingOnChecks(out) && out.merges < policy.maxMergesPerRun; i++) {
     await new Promise(r => setTimeout(r, 30_000))
     const next = await go(out.merges)
     next.merges += out.merges

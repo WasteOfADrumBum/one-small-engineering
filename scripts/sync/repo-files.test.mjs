@@ -118,7 +118,9 @@ test('auto-merge workflow never checks out PR code and holds only the permission
   assert.ok(perms, 'auto-merge job has its own permissions block')
   const granted = Object.fromEntries([...perms[1].matchAll(/^ {6}([a-z-]+): (read|write)/gm)].map(m => [m[1], m[2]]))
   assert.deepEqual(granted, { contents: 'write', 'pull-requests': 'write', actions: 'write', checks: 'read' }, 'exactly the scopes auto-merge needs; checks: read was found by the first live run')
-  assert.match(t, /startsWith\(github\.event\.workflow_run\.head_branch, 'sync\/'\)/)
+  // workflow_run (a dangerous trigger, zizmor) was removed on 2026-11-05: GitHub never fired it for
+  // the GITHUB_TOKEN-dispatched validation runs, so sync's explicit dispatch and the schedule drive it.
+  assert.doesNotMatch(t, /^\s*workflow_run:/m)
   assert.doesNotMatch(t, /pull-requests: write[\s\S]*(issues|packages|deployments|id-token): write/)
 })
 

@@ -1,0 +1,9 @@
+# Pinned security scanners for .github/workflows/validate.yml (scripts/ci/install-tools.sh).
+# Every artifact is verified against the SHA-256 below before it runs. To update: bump the
+# version, take the checksum from the release's published checksums file (or PyPI), run
+# `bash scripts/ci/install-tools.sh <dir>` and `TOOLS=<dir> bash scripts/ci/security-scan.sh` locally, and open a PR.
+# Reviewed 2026-11-05.
+# name     version  sha256                                                            url
+actionlint 1.7.7    023070a287cd8cccd71515fedc843f1985bf96c436b7effaecce67290e7e0757  https://github.com/rhysd/actionlint/releases/download/v1.7.7/actionlint_1.7.7_linux_amd64.tar.gz
+gitleaks   8.28.0   a65b5253807a68ac0cafa4414031fd740aeb55f54fb7e55f386acb52e6a840eb  https://github.com/gitleaks/gitleaks/releases/download/v8.28.0/gitleaks_8.28.0_linux_x64.tar.gz
+zizmor     1.31.1   58e878eb2dbd2c6183c105e1ac28c14f7dd1eca44a783f1fe2a69647d012c410  https://files.pythonhosted.org/packages/py3/z/zizmor/zizmor-1.31.1-py3-none-manylinux_2_28_x86_64.whl

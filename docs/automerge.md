@@ -6,7 +6,7 @@ Routine registry sync PRs merge without the owner. Everything else still needs a
 
 ## What triggers it
 
-- The sync write job dispatches it right after opening or updating PRs; it then waits (up to six minutes) for each PR's validation. (`workflow_run` on `Validate registry` is also configured, but live testing showed GitHub does not fire it for runs that a `GITHUB_TOKEN` dispatch started, so it is not relied on.)
+- The sync write job dispatches it right after opening or updating PRs; it then waits (up to six minutes) for each PR's validation. (A `workflow_run` trigger on `Validate registry` was removed on 2026-11-05: GitHub never fired it for runs that a `GITHUB_TOKEN` dispatch started, and zizmor flags it as a dangerous trigger.)
 - A fallback schedule every three hours (`41 */3 * * *`), so a missed event is picked up.
 - Manual run (dry run by default).
 
@@ -18,8 +18,9 @@ A PR merges only if all of these hold, judged from API data (no PR code is check
 2. Exactly one commit, authored by `One Small Engineering Sync`, whose parent is the **current** main.
 3. Exactly one changed file, `projects/registry.json`.
 4. `guardRegistryChange` (the field-ownership guard, same code the writer used) passes against main, and the full schema/rule validator passes on the new registry.
-5. The `validate` check completed successfully for that exact head and no other check failed or is pending.
-6. The PR head is re-read just before merging, and the merge call carries the head SHA, so a push in between fails the merge instead of merging new content.
+5. The `validate` and `ci-gate` checks completed successfully for that exact head, created by GitHub Actions (app 15368) inside a check suite of a `.github/workflows/validate.yml` run for that head, newest attempt by check-run id; a same-named check from any other app or workflow cannot satisfy them (`requiredCheckSource` in the policy). No other check on the head failed or is pending.
+6. Main is re-read just before the merge call and must still be the commit the head was built on, so the squash result is the validated tree ([ci-cd.md](ci-cd.md#merge-race) for the residual race).
+7. The PR head is re-read just before merging, and the merge call carries the head SHA, so a push in between fails the merge instead of merging new content.
 
 Merge method is squash. The result and merge commit are recorded as a PR comment and in the job summary.
 
