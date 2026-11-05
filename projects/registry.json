@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-05T20:15:23Z",
+  "lastUpdatedAt": "2026-11-05T20:17:53Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1815,7 +1815,7 @@
         "defaultBranch": "main",
         "headSha": "d70f75f04942f8026871c701a4b69460d088ae34",
         "archived": false,
-        "observedAt": "2026-11-05T18:30:30Z",
+        "observedAt": "2026-11-05T20:17:53Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1825,7 +1825,15 @@
           "private": true
         }
       },
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 30,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/30",
+          "title": "CI/CD: browser suite, deployment-path validation, security checks and one merge gate",
+          "headSha": "495e6527a482d248b44b9caf837970e82619d3dc",
+          "draft": false
+        }
+      ],
       "release": {
         "currentVersion": "1.0.0",
         "currentVersionSource": "Production showcase release 1.0.0 approved by Joshua Small (evidence one-small-photography-owner-final-verification-2026-11-03). Website release; no npm publication or GitHub tag is claimed.",
@@ -2197,7 +2205,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-11-05T18:30:30Z",
+        "lastSyncedAt": "2026-11-05T20:17:53Z",
         "lastSyncedHead": "d70f75f04942f8026871c701a4b69460d088ae34",
         "configSource": "defaults"
       }
