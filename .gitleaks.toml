@@ -1,0 +1,15 @@
+# gitleaks configuration (scripts/ci/security-scan.sh). The default rules apply; the allowlist
+# below covers one reviewed false positive and nothing else.
+title = "one-small-engineering"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+# Collected evidence records a cacheKey: the first 16 hex characters of a SHA-256 over the
+# collector inputs (scripts/verify/evidence.mjs), not a credential. Reviewed 2026-11-05 by the
+# CI/CD hardening task; owner Joshua Small; review again 2027-05-05.
+description = "verification evidence cache keys (content hashes)"
+paths = ['''^verification/evidence/[a-z0-9-]+\.json$''']
+regexTarget = "line"
+regexes = ['''^\s*"cacheKey": "[0-9a-f]{16}",?$''']

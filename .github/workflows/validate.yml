@@ -1,27 +1,72 @@
 name: Validate registry
 
+# The hub's merge gate (docs/ci-cd.md). Every pull request, every push to main, every merge-queue
+# group and every sync branch (dispatched by Registry sync) runs the same jobs, and the final job
+# `ci-gate` is the single result a merge depends on. No path filters at the trigger: a
+# documentation-only change runs the gate too, so no required check is ever left pending.
+#
+#   changes    lists the changed files and decides which conditional jobs a pull request needs
+#   validate   registry validation, the full test suite (unit + local-server integration) and,
+#              on sync/* branches, the field-ownership guard
+#   security   workflow syntax/expressions (actionlint), dangerous workflow patterns (zizmor),
+#              secrets in full history (gitleaks) and the repository's own policy checks
+#   isolation  proves on a real runner that project code run by the collectors cannot read a
+#              token from its parent, survive its step, or reach the runner's files
+#   ci-gate    fails unless every job above succeeded, or was skipped where the gate policy
+#              (ci/gate-policy.json) allows it; it also refuses a run that validated nothing
 on:
   pull_request:
   push:
     branches: [main]
+  merge_group:
   # Registry sync dispatches this on its sync/* branches, because PRs opened with
-  # GITHUB_TOKEN do not trigger pull_request workflows.
+  # GITHUB_TOKEN do not trigger pull_request workflows (docs/ci-cd.md#zero-job-runs).
   workflow_dispatch:
 
-# Read-only: the job checks files and never writes to the repository.
+# Read-only: no job here writes to the repository or to GitHub.
 permissions:
   contents: read
 
+# Read-only runs, so a newer commit on the same ref cancels the obsolete run.
 concurrency:
   group: validate-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: read
+    outputs:
+      isolation: ${{ steps.classify.outputs.isolation }}
+      files: ${{ steps.classify.outputs.files }}
+    steps:
+      # Actions pinned to reviewed commit SHAs (v4.3.1 and v4.4.0); Dependabot proposes updates.
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - id: classify
+        name: Classify the change (broad fallback on anything uncertain)
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/ci/changes.mjs
+
   validate:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    permissions:
+      contents: read
+    outputs:
+      tests-passed: ${{ steps.check.outputs.tests-passed }}
+      tests-failed: ${{ steps.check.outputs.tests-failed }}
     steps:
-      # Actions pinned to commit SHAs (v4.3.1 and v4.4.0).
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
         with:
           persist-credentials: false
@@ -30,9 +75,10 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: 22
-      # No dependencies to install: the validator uses only Node built-ins.
-      - name: Validate registry and run validator tests
-        run: npm run check
+      # No dependencies to install: the hub uses only Node built-ins.
+      - id: check
+        name: Validate registry and run the test suite
+        run: node scripts/ci/run-check.mjs
       # On sync/* branches: only automation-owned fields of that branch's project may change.
       - name: Sync branch guard
         if: startsWith(github.head_ref || github.ref_name, 'sync/')
@@ -47,3 +93,84 @@ jobs:
           node scripts/release/cli.mjs dashboard --out "$RUNNER_TEMP/release"
           cat "$RUNNER_TEMP/release/dashboard.md" >> "$GITHUB_STEP_SUMMARY"
           node scripts/release/cli.mjs check || echo "::warning::reports/ is out of date for this registry; run npm run release:reports"
+
+  security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: read
+    outputs:
+      scanners: ${{ steps.scan.outputs.scanners }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+          # Full history: secrets are looked for in every commit, not only the tip.
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Install pinned scanners (checksums verified)
+        run: bash scripts/ci/install-tools.sh "$RUNNER_TEMP/tools"
+      - id: scan
+        name: Workflow, secret and repository policy scans
+        env:
+          TOOLS: ${{ runner.temp }}/tools
+        run: bash scripts/ci/security-scan.sh
+
+  isolation:
+    needs: changes
+    if: needs.changes.outputs.isolation == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Create the project-code sandbox user
+        run: bash scripts/ci/sandbox-setup.sh
+      - name: Hostile project code cannot reach the job's credentials
+        env:
+          # A canary standing in for a token: the hostile script must never see it.
+          ISOLATION_CANARY: ${{ github.run_id }}-${{ github.run_attempt }}-canary
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/ci/sandbox-selftest.mjs
+
+  ci-gate:
+    needs: [changes, validate, security, isolation]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Every required job succeeded or was skipped as the policy allows
+        env:
+          NEEDS_JSON: ${{ toJSON(needs) }}
+          EVENT_NAME: ${{ github.event_name }}
+          EVALUATED_SHA: ${{ github.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.event.merge_group.head_sha || github.sha }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.merge_group.base_sha || '' }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          REF_NAME: ${{ github.head_ref || github.ref_name }}
+        run: node scripts/ci/gate.mjs --out "$RUNNER_TEMP/gate"
+      - name: Keep the gate decision for diagnosis
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ci-gate-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/gate/
+          retention-days: 7
+          if-no-files-found: ignore

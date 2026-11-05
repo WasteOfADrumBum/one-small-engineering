@@ -4,7 +4,12 @@
   "enabled": true,
   "mergeMethod": "squash",
   "trustedAuthors": ["github-actions[bot]"],
-  "requiredChecks": ["validate"],
+  "requiredChecks": ["validate", "ci-gate"],
+  "requiredCheckSource": {
+    "$comment": "Required checks count only when created by this GitHub App (15368 = GitHub Actions) for the exact head, in a check suite of a run of this workflow file. A same-named check from any other app or workflow cannot satisfy them.",
+    "appId": 15368,
+    "workflowPath": ".github/workflows/validate.yml"
+  },
   "holdLabel": "hold",
   "maxMergesPerRun": 8,
   "reconcileAfterMerge": true

@@ -129,7 +129,10 @@ test('workflows: verification is read-only, scheduled runs never execute or writ
   assert.ok(!/secrets\./.test(verify), 'verify.yml uses no secrets')
   assert.ok(!/pull_request_target/.test(verify + remediation))
   assert.match(verify, /persist-credentials: false/)
-  assert.match(verify, /github\.event_name == 'schedule' && 'false'/)
+  // Manual only (2026-11-05): no schedule and no pull request trigger; project code runs as the sandbox user.
+  assert.match(verify, /^on:\n  workflow_dispatch:/m)
+  assert.ok(!/^ {2}(schedule|pull_request|push):/m.test(verify))
+  assert.match(verify, /sandbox-setup\.sh/)
   assert.match(verify, /retention-days: 30/)
   assert.ok(!/remediate/.test(verify), 'verify.yml never opens remediation PRs')
   assert.match(remediation, /^on:\n  workflow_dispatch:/m)

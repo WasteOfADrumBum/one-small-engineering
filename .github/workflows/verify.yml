@@ -7,8 +7,10 @@ name: Verify projects
 #   workflow_dispatch  manual run: pick a project (or all) and whether to execute project code
 #   (no schedule)      scheduled monitoring moved to engineering.yml (every six hours, incremental),
 #                      so evidence is not collected twice
-#   pull_request       when verification code, policy or the registry changes: unit tests plus a
-#                      collection run (the hub PR's code runs with a read-only token and no secrets)
+#
+# Pull requests no longer trigger this workflow (2026-11-05, docs/ci-cd.md). It ran every project's
+# build and tests (6 to 18 minutes) on every registry change, in a job whose parent process held the
+# job token; the verification tests run in the merge gate (validate.yml) instead.
 on:
   workflow_dispatch:
     inputs:
@@ -20,12 +22,6 @@ on:
         description: 'Run project build and test commands (isolated job, no credentials)'
         type: boolean
         default: true
-  pull_request:
-    paths:
-      - 'scripts/verify/**'
-      - 'verification/**'
-      - 'projects/registry.json'
-      - '.github/workflows/verify.yml'
 
 # Nothing unless a job asks for it.
 permissions: {}
@@ -52,8 +48,9 @@ jobs:
 
   collect:
     # Untrusted project code (npm ci, build, test) runs here. The job token can only read this
-    # repository, it is not persisted to disk, and scripts/verify/exec.mjs passes project
-    # commands an allowlisted environment without GITHUB_TOKEN or any Actions runtime token.
+    # repository and is not persisted to disk. scripts/verify/exec.mjs runs project commands as a
+    # separate sandbox user with an allowlisted environment and kills whatever they leave behind,
+    # so they cannot read the token from this process or a later step (scripts/ci/sandbox-setup.sh).
     # The CI-results collector uses the token for read-only API calls only.
     needs: tests
     runs-on: ubuntu-latest
@@ -69,15 +66,17 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: 22
+      - name: Create the project-code sandbox user
+        run: bash scripts/ci/sandbox-setup.sh
       - name: Collect evidence
         env:
           GITHUB_TOKEN: ${{ github.token }}
           VERIFY_PROJECT: ${{ inputs.project }}
-          # Scheduled runs are read-only refreshes and do not execute project code.
-          VERIFY_EXECUTE: ${{ github.event_name == 'schedule' && 'false' || (github.event_name == 'pull_request' && 'true' || inputs.execute) }}
+          VERIFY_EXECUTE: ${{ inputs.execute }}
         run: |
           set -euo pipefail
-          args=(run --work "$RUNNER_TEMP/verify-work")
+          umask 0000
+          args=(run --work "$ONE_SMALL_WORK")
           if [ -n "${VERIFY_PROJECT:-}" ]; then args+=(--project "$VERIFY_PROJECT"); fi
           if [ "$VERIFY_EXECUTE" = "true" ]; then args+=(--execute); fi
           node scripts/verify/cli.mjs "${args[@]}" | tee "$RUNNER_TEMP/collect.log"

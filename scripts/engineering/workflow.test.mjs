@@ -31,7 +31,11 @@ test('engineering.yml: project code runs only in a manual job with no secret and
   assert.doesNotMatch(j.execute, /secrets\.|GITHUB_TOKEN/)
   assert.match(j.execute, /--no-api/)
   assert.doesNotMatch(j.observe, /--execute/)
-  assert.match(j.observe, /SYNC_READER_TOKEN: \$\{\{ github\.event_name != 'pull_request' && secrets\.SYNC_READER_TOKEN \|\| '' \}\}/, 'pull request runs never get the reader secret')
+  // Pull requests cannot trigger this workflow at all (2026-11-05), so the reader secret never reaches PR code.
+  assert.doesNotMatch(wf('engineering.yml'), /^ {2}pull_request(_target)?:/m, 'no pull request trigger')
+  for (const [name, job] of Object.entries(j)) if (name !== 'observe') assert.doesNotMatch(job, /secrets\./, `${name} holds no secret`)
+  // Project code runs as the sandbox user (scripts/ci/sandbox-setup.sh), never as the runner user.
+  assert.match(j.execute, /sandbox-setup\.sh[\s\S]*--execute/)
   assert.match(j.observe, /cache\/save@[0-9a-f]{40}\n {8}if: github\.ref == 'refs\/heads\/main' && github\.event_name != 'pull_request'/, 'only main writes the shared state cache')
   assert.match(j.observe, /retention-days: 30/)
   assert.match(j.prepare, /if: github\.event_name == 'workflow_dispatch' && inputs\.mode == 'prepare'/)

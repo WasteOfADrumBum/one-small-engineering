@@ -54,7 +54,7 @@ Project repositories need nothing. No credential is ever passed to project code:
 
 | Mode | Command | Writes | Where it runs |
 | --- | --- | --- | --- |
-| Observe | `npm run engineering:check` (add `--execute` to run project builds and tests) | Local files only: evidence ledgers, `engineering/state.json`, reports. Nothing on GitHub | Schedule (always observe, never executes project code), manual, pull requests |
+| Observe | `npm run engineering:check` (add `--execute` to run project builds and tests) | Local files only: evidence ledgers, `engineering/state.json`, reports. Nothing on GitHub | Schedule (always observe, never executes project code), manual. Pull requests run the orchestrator's tests in the merge gate instead ([ci-cd.md](ci-cd.md)) |
 | Observe (offline) | `npm run engineering:report -- --as-of <UTC>`; `-- --check` verifies the committed reports | Reports only | Anywhere; no network |
 | Prepare | `npm run engineering:prepare [-- --project <id>] [--execute]` | Proposal files in `out/engineering/proposals/` (not committed); nothing on GitHub | Manual only; refused on schedules |
 | Execute | `npm run engineering:execute -- --proposal <file> --digest <sha256> --confirm` | One draft PR in one project repository | Only through `remediation.yml`, from `main`, by hand |

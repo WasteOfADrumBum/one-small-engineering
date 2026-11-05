@@ -1,0 +1,17 @@
+# Keeps the SHA-pinned GitHub Actions current (docs/ci-cd.md#pin-updates). Dependabot opens a PR
+# with the new full commit SHA and version comment; the merge gate (ci-gate) validates it like any
+# other change, and a person reviews and merges it. The scanners in ci/tools.lock are updated by
+# hand on the same review cadence.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      actions:
+        patterns: ['*']
+    commit-message:
+      prefix: ci
