@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-06T00:41:16Z",
+  "lastUpdatedAt": "2026-11-06T00:44:25Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -620,7 +620,7 @@
         "defaultBranch": "main",
         "headSha": "ee62089ac616c2b3fd1fbbe6c7a24e9d067cc773",
         "archived": false,
-        "observedAt": "2026-11-06T00:36:10Z",
+        "observedAt": "2026-11-06T00:44:25Z",
         "visibility": "public",
         "latestTag": {
           "name": "v0.6.0",
@@ -639,7 +639,7 @@
           "number": 38,
           "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/38",
           "title": "ci: evidence-backed CI/CD (exact-candidate release gating, artifact integrity, supply-chain checks)",
-          "headSha": "8ca2e081ee5ac1bd92d615505d2506945696511d",
+          "headSha": "dfeb1e43aba03f6e5a4ec30fbfea3a6961ee2f8a",
           "draft": false
         }
       ],
@@ -1049,7 +1049,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1411378047,
-        "lastSyncedAt": "2026-11-06T00:36:10Z",
+        "lastSyncedAt": "2026-11-06T00:44:25Z",
         "lastSyncedHead": "ee62089ac616c2b3fd1fbbe6c7a24e9d067cc773",
         "configSource": "defaults"
       }
