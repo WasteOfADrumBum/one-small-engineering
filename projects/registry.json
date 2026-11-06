@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-06T19:13:46Z",
+  "lastUpdatedAt": "2026-11-06T19:16:26Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1961,9 +1961,9 @@
       "productionUrl": "https://photo.onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "97eaeb6ee17ff1ae2a59a8ea10efd0d47479d67a",
+        "headSha": "be4fa5b7b82b41b63e29085f3a7aa5747dc7f4e8",
         "archived": false,
-        "observedAt": "2026-11-06T18:31:57Z",
+        "observedAt": "2026-11-06T19:16:26Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -2014,13 +2014,6 @@
           "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/37",
           "title": "Bump typescript from 6.0.3 to 7.0.2",
           "headSha": "fe92e7e52d397ecf124399208e55e19acc6b7e0f",
-          "draft": false
-        },
-        {
-          "number": 38,
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/38",
-          "title": "CI/CD follow-up: fixes from the first production smoke and Firefox/WebKit run, evidence record",
-          "headSha": "8ae863129bfde1f51b6db181f9ee6c9dad2d322c",
           "draft": false
         }
       ],
@@ -2240,40 +2233,28 @@
           "recordedBy": "Joshua Small"
         },
         {
-          "id": "sync-one-small-photography-run-browsers-yml-97eaeb6-jeye5hv-1",
+          "id": "sync-one-small-photography-run-ci-yml-be4fa5b-jf496dv-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/42263158099",
-          "commitSha": "97eaeb6ee17ff1ae2a59a8ea10efd0d47479d67a",
-          "verifiedAt": "2026-11-06T17:38:44Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/42273003667",
+          "commitSha": "be4fa5b7b82b41b63e29085f3a7aa5747dc7f4e8",
+          "verifiedAt": "2026-11-06T18:43:13Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow browsers.yml (\"Browser tests (Firefox, WebKit)\") concluded failure on main at 97eaeb6 (workflow_dispatch event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at be4fa5b (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:browsers.yml/97eaeb6/jeye5hv/1"
+          "eventKey": "one-small-photography:workflow_run:ci.yml/be4fa5b/jf496dv/1"
         },
         {
-          "id": "sync-one-small-photography-run-ci-yml-97eaeb6-jey9lef-1",
+          "id": "sync-one-small-photography-run-production-smoke-yml-be4fa5b-jf4am95-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/42262945431",
-          "commitSha": "97eaeb6ee17ff1ae2a59a8ea10efd0d47479d67a",
-          "verifiedAt": "2026-11-06T17:38:27Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/42273070889",
+          "commitSha": "be4fa5b7b82b41b63e29085f3a7aa5747dc7f4e8",
+          "verifiedAt": "2026-11-06T18:43:00Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 97eaeb6 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke\") concluded failure on main at be4fa5b (deployment_status event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:ci.yml/97eaeb6/jey9lef/1"
-        },
-        {
-          "id": "sync-one-small-photography-run-production-smoke-yml-97eaeb6-jeyby7h-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/42263055341",
-          "commitSha": "97eaeb6ee17ff1ae2a59a8ea10efd0d47479d67a",
-          "verifiedAt": "2026-11-06T17:36:45Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke\") concluded failure on main at 97eaeb6 (deployment_status event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:production-smoke.yml/97eaeb6/jeyby7h/1"
+          "eventKey": "one-small-photography:workflow_run:production-smoke.yml/be4fa5b/jf4am95/1"
         }
       ],
       "releaseGates": [
@@ -2407,8 +2388,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-11-06T18:31:57Z",
-        "lastSyncedHead": "97eaeb6ee17ff1ae2a59a8ea10efd0d47479d67a",
+        "lastSyncedAt": "2026-11-06T19:16:26Z",
+        "lastSyncedHead": "be4fa5b7b82b41b63e29085f3a7aa5747dc7f4e8",
         "configSource": "defaults"
       }
     },
