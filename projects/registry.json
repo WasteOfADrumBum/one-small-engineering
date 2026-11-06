@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-06T00:47:58Z",
+  "lastUpdatedAt": "2026-11-06T01:17:33Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -618,9 +618,9 @@
       "productionUrl": "https://one-small-ui.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "ee62089ac616c2b3fd1fbbe6c7a24e9d067cc773",
+        "headSha": "acc4dbcbc5ca386a7cb0ed4fffc9127cb19ed37c",
         "archived": false,
-        "observedAt": "2026-11-06T00:47:58Z",
+        "observedAt": "2026-11-06T01:17:33Z",
         "visibility": "public",
         "latestTag": {
           "name": "v0.6.0",
@@ -636,10 +636,45 @@
       },
       "openPullRequests": [
         {
-          "number": 38,
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/38",
-          "title": "ci: evidence-backed CI/CD (exact-candidate release gating, artifact integrity, supply-chain checks)",
-          "headSha": "2446d478acd353bc4a00e56e62a5837a2644fd58",
+          "number": 39,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/39",
+          "title": "ci: Bump the actions group with 2 updates",
+          "headSha": "8ca4f835dc2fc99f47d023aa63dd0ed4876c9ce3",
+          "draft": false
+        },
+        {
+          "number": 40,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/40",
+          "title": "deps: Bump playwright from 1.56.0 to 1.64.1 in the dev-tooling group",
+          "headSha": "974de559853084f8432f0af2820bfc3e87e5eba2",
+          "draft": false
+        },
+        {
+          "number": 41,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/41",
+          "title": "deps: Bump @testing-library/jest-dom from 6.9.1 to 7.0.1",
+          "headSha": "c44d063551b678e18e4577a8459d9524ff9f9fdc",
+          "draft": false
+        },
+        {
+          "number": 42,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/42",
+          "title": "deps: Bump jsdom from 26.1.0 to 30.1.2",
+          "headSha": "18ddcb76f645a7ed4b5a938662ace019457edbd8",
+          "draft": false
+        },
+        {
+          "number": 43,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/43",
+          "title": "deps: Bump typescript from 5.9.3 to 7.0.2",
+          "headSha": "4ce04549aab6dcbdbd232dfb7eb8f1c8b8cfc29e",
+          "draft": false
+        },
+        {
+          "number": 44,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/44",
+          "title": "deps: Bump @types/node from 22.20.5 to 26.6.4",
+          "headSha": "9b7a18afda01e99e0ca1df08e824820372205c9d",
           "draft": false
         }
       ],
@@ -826,6 +861,30 @@
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
           "eventKey": "one-small-ui:workflow_run:ci.yml/ee62089/j7yjtgc/1"
+        },
+        {
+          "id": "sync-one-small-ui-run-codeql-yml-acc4dbc-jcxexgx-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/42140582385",
+          "commitSha": "acc4dbcbc5ca386a7cb0ed4fffc9127cb19ed37c",
+          "verifiedAt": "2026-11-06T00:59:32Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow codeql.yml (\"CodeQL\") concluded success on main at acc4dbc (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-ui:workflow_run:codeql.yml/acc4dbc/jcxexgx/1"
+        },
+        {
+          "id": "sync-one-small-ui-run-docs-smoke-yml-acc4dbc-jcxgumz-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/42140672027",
+          "commitSha": "acc4dbcbc5ca386a7cb0ed4fffc9127cb19ed37c",
+          "verifiedAt": "2026-11-06T00:59:35Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow docs-smoke.yml (\"Docs smoke\") concluded success on main at acc4dbc (deployment_status event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-ui:workflow_run:docs-smoke.yml/acc4dbc/jcxgumz/1"
         }
       ],
       "releaseGates": [
@@ -1049,8 +1108,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1411378047,
-        "lastSyncedAt": "2026-11-06T00:47:58Z",
-        "lastSyncedHead": "ee62089ac616c2b3fd1fbbe6c7a24e9d067cc773",
+        "lastSyncedAt": "2026-11-06T01:17:33Z",
+        "lastSyncedHead": "acc4dbcbc5ca386a7cb0ed4fffc9127cb19ed37c",
         "configSource": "defaults"
       }
     },
