@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-06T01:19:58Z",
+  "lastUpdatedAt": "2026-11-06T01:22:37Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -620,7 +620,7 @@
         "defaultBranch": "main",
         "headSha": "acc4dbcbc5ca386a7cb0ed4fffc9127cb19ed37c",
         "archived": false,
-        "observedAt": "2026-11-06T01:17:33Z",
+        "observedAt": "2026-11-06T01:22:37Z",
         "visibility": "public",
         "latestTag": {
           "name": "v0.6.0",
@@ -851,18 +851,6 @@
           "recordedBy": "Claude Code"
         },
         {
-          "id": "sync-one-small-ui-run-ci-yml-ee62089-j7yjtgc-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/41840159196",
-          "commitSha": "ee62089ac616c2b3fd1fbbe6c7a24e9d067cc773",
-          "verifiedAt": "2026-11-04T13:44:21Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at ee62089 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-ui:workflow_run:ci.yml/ee62089/j7yjtgc/1"
-        },
-        {
           "id": "sync-one-small-ui-run-codeql-yml-acc4dbc-jcxexgx-1",
           "type": "workflow_run",
           "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/42140582385",
@@ -885,6 +873,18 @@
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
           "eventKey": "one-small-ui:workflow_run:docs-smoke.yml/acc4dbc/jcxgumz/1"
+        },
+        {
+          "id": "sync-one-small-ui-run-ci-yml-acc4dbc-jcxexi5-2",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/42140582429",
+          "commitSha": "acc4dbcbc5ca386a7cb0ed4fffc9127cb19ed37c",
+          "verifiedAt": "2026-11-06T01:19:46Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at acc4dbc (push event, attempt 2). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-ui:workflow_run:ci.yml/acc4dbc/jcxexi5/2"
         }
       ],
       "releaseGates": [
@@ -1108,7 +1108,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1411378047,
-        "lastSyncedAt": "2026-11-06T01:17:33Z",
+        "lastSyncedAt": "2026-11-06T01:22:37Z",
         "lastSyncedHead": "acc4dbcbc5ca386a7cb0ed4fffc9127cb19ed37c",
         "configSource": "defaults"
       }
