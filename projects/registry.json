@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-06T06:28:06Z",
+  "lastUpdatedAt": "2026-11-06T06:33:09Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1142,9 +1142,9 @@
       "productionUrl": "https://onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "31724b15b9c6bbe62bb1f159829823d18983dd8d",
+        "headSha": "da1d23d517188c3e19ee851978bc150ef70d9f55",
         "archived": false,
-        "observedAt": "2026-11-06T06:28:06Z",
+        "observedAt": "2026-11-06T06:33:09Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1188,13 +1188,6 @@
           "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/39",
           "title": "Bump @types/node from 20.19.43 to 26.6.6",
           "headSha": "18cf1b37a37bc93d59a9438f14d03c72f98f4df9",
-          "draft": false
-        },
-        {
-          "number": 40,
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/40",
-          "title": "Fix CI apt stalls, a scroll-reveal flicker and test races found after #34; record post-merge evidence",
-          "headSha": "4df5c03f73adc6dc222d9a8a46112ffcd936ba63",
           "draft": false
         }
       ],
@@ -1598,8 +1591,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406067959,
-        "lastSyncedAt": "2026-11-06T06:28:06Z",
-        "lastSyncedHead": "31724b15b9c6bbe62bb1f159829823d18983dd8d",
+        "lastSyncedAt": "2026-11-06T06:33:09Z",
+        "lastSyncedHead": "da1d23d517188c3e19ee851978bc150ef70d9f55",
         "configSource": "defaults"
       }
     },
