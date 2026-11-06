@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-06T18:22:13Z",
+  "lastUpdatedAt": "2026-11-06T18:24:43Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1132,7 +1132,7 @@
         "defaultBranch": "main",
         "headSha": "da1d23d517188c3e19ee851978bc150ef70d9f55",
         "archived": false,
-        "observedAt": "2026-11-06T12:29:40Z",
+        "observedAt": "2026-11-06T18:24:43Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1427,16 +1427,16 @@
           "eventKey": "personal-portfolio:workflow_run:codeql.yml/da1d23d/jdhyo3a/1"
         },
         {
-          "id": "sync-personal-portfolio-run-production-yml-da1d23d-je76a1z-1",
+          "id": "sync-personal-portfolio-run-production-yml-da1d23d-jf2ifrd-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/42217441127",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/42270076489",
           "commitSha": "da1d23d517188c3e19ee851978bc150ef70d9f55",
-          "verifiedAt": "2026-11-06T12:25:28Z",
+          "verifiedAt": "2026-11-06T18:22:53Z",
           "result": "builder_reported",
           "description": "Automated observation: workflow production.yml (\"Production verification\") concluded success on main at da1d23d (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "personal-portfolio:workflow_run:production.yml/da1d23d/je76a1z/1"
+          "eventKey": "personal-portfolio:workflow_run:production.yml/da1d23d/jf2ifrd/1"
         }
       ],
       "releaseGates": [
@@ -1567,7 +1567,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406067959,
-        "lastSyncedAt": "2026-11-06T12:29:40Z",
+        "lastSyncedAt": "2026-11-06T18:24:43Z",
         "lastSyncedHead": "da1d23d517188c3e19ee851978bc150ef70d9f55",
         "configSource": "defaults"
       }
