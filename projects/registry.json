@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-06T00:36:10Z",
+  "lastUpdatedAt": "2026-11-06T00:38:51Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1066,7 +1066,7 @@
         "defaultBranch": "main",
         "headSha": "1eb9c1beafbf33fd819f4cd45c5d5468f66df5b8",
         "archived": false,
-        "observedAt": "2026-11-05T18:27:52Z",
+        "observedAt": "2026-11-06T00:38:51Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1076,7 +1076,15 @@
           "private": true
         }
       },
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 34,
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/34",
+          "title": "Raise CI/CD to an evidence-backed standard: browser tests, one CI gate, security scans, production verification",
+          "headSha": "2178df4dcb5bd282df30917fcaab6df8c67a01c1",
+          "draft": false
+        }
+      ],
       "release": {
         "currentVersion": "1.0.0",
         "currentVersionSource": "Production showcase release 1.0.0 approved by Joshua Small (evidence personal-portfolio-owner-final-verification-2026-11-03). Website release; no npm publication or GitHub tag is claimed.",
@@ -1453,7 +1461,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406067959,
-        "lastSyncedAt": "2026-11-05T18:27:52Z",
+        "lastSyncedAt": "2026-11-06T00:38:51Z",
         "lastSyncedHead": "1eb9c1beafbf33fd819f4cd45c5d5468f66df5b8",
         "configSource": "defaults"
       }
