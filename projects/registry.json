@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-07T16:20:21Z",
+  "lastUpdatedAt": "2026-11-07T16:22:22Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1985,7 +1985,7 @@
         "defaultBranch": "main",
         "headSha": "77d144bd5338148ddc1d8064b9b6175b9bc28cee",
         "archived": false,
-        "observedAt": "2026-11-07T00:37:21Z",
+        "observedAt": "2026-11-07T16:22:22Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -2036,6 +2036,13 @@
           "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/37",
           "title": "Bump typescript from 6.0.3 to 7.0.2",
           "headSha": "fe92e7e52d397ecf124399208e55e19acc6b7e0f",
+          "draft": false
+        },
+        {
+          "number": 42,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/42",
+          "title": "ci: pin runners to ubuntu-24.04",
+          "headSha": "05ed1707277781142d3b93a93256e60ae92be7d1",
           "draft": false
         }
       ],
@@ -2267,16 +2274,16 @@
           "eventKey": "one-small-photography:workflow_run:ci.yml/77d144b/jfqhmj1/1"
         },
         {
-          "id": "sync-one-small-photography-run-production-smoke-yml-77d144b-jfqioia-1",
+          "id": "sync-one-small-photography-run-production-smoke-yml-77d144b-jgtstc1-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/42310398610",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/42376376449",
           "commitSha": "77d144bd5338148ddc1d8064b9b6175b9bc28cee",
-          "verifiedAt": "2026-11-06T23:14:21Z",
+          "verifiedAt": "2026-11-07T13:19:45Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke\") concluded failure on main at 77d144b (deployment_status event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke\") concluded failure on main at 77d144b (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:production-smoke.yml/77d144b/jfqioia/1"
+          "eventKey": "one-small-photography:workflow_run:production-smoke.yml/77d144b/jgtstc1/1"
         }
       ],
       "releaseGates": [
@@ -2410,7 +2417,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-11-07T00:37:21Z",
+        "lastSyncedAt": "2026-11-07T16:22:22Z",
         "lastSyncedHead": "77d144bd5338148ddc1d8064b9b6175b9bc28cee",
         "configSource": "defaults"
       }
