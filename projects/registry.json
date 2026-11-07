@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-07T12:28:59Z",
+  "lastUpdatedAt": "2026-11-07T16:15:40Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -76,7 +76,7 @@
         "defaultBranch": "main",
         "headSha": "ed15709f6ab32ed617b8b0bfd3136ac7b4d6ccd8",
         "archived": false,
-        "observedAt": "2026-11-04T18:18:56Z",
+        "observedAt": "2026-11-07T16:15:40Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -86,7 +86,15 @@
           "private": false
         }
       },
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 9,
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/pull/9",
+          "title": "ci: pin runners to ubuntu-24.04 and SHA-pin actions",
+          "headSha": "44cdbc30a7f75088fd263b6ea7be88559f2f93f5",
+          "draft": false
+        }
+      ],
       "release": {
         "currentVersion": "0.1.0",
         "currentVersionSource": "Not an npm or tagged release. main holds package.json guardrail-mods 0.1.0 (private) and four 0.1.0 Claude Code mods installable from the repository as a plugin marketplace. No git tags or GitHub releases exist.",
@@ -603,7 +611,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1413933787,
-        "lastSyncedAt": "2026-11-04T18:18:56Z",
+        "lastSyncedAt": "2026-11-07T16:15:40Z",
         "lastSyncedHead": "ed15709f6ab32ed617b8b0bfd3136ac7b4d6ccd8",
         "configSource": "defaults"
       }
