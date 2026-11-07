@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-07T16:22:22Z",
+  "lastUpdatedAt": "2026-11-07T16:24:17Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -2434,7 +2434,7 @@
         "defaultBranch": "main",
         "headSha": "d1cc560f6f647e8b55701a78dcc6703edeed646b",
         "archived": false,
-        "observedAt": "2026-10-31T13:26:38Z",
+        "observedAt": "2026-11-07T16:24:17Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -2444,7 +2444,15 @@
           "private": true
         }
       },
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 47,
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/47",
+          "title": "ci: add explicit least-privilege workflow permissions",
+          "headSha": "c703b1529b89748c2f9b44a284ec36ea7a4f4eb0",
+          "draft": false
+        }
+      ],
       "release": {
         "currentVersion": null,
         "currentVersionSource": "No tags, releases or package version. Delivery is tracked by phase and KAN ticket in docs/roadmap.md and CHANGELOG.md (Unreleased).",
@@ -2709,7 +2717,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 962181990,
-        "lastSyncedAt": "2026-10-31T13:26:38Z",
+        "lastSyncedAt": "2026-11-07T16:24:17Z",
         "lastSyncedHead": "d1cc560f6f647e8b55701a78dcc6703edeed646b",
         "configSource": "defaults"
       }
