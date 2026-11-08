@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-08T12:26:47Z",
+  "lastUpdatedAt": "2026-11-08T12:29:13Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1584,7 +1584,7 @@
         "defaultBranch": "main",
         "headSha": "04f1eeb95e59ec3bb1aa2ca45cad81aa088f492d",
         "archived": false,
-        "observedAt": "2026-11-08T06:30:38Z",
+        "observedAt": "2026-11-08T12:29:13Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1801,16 +1801,16 @@
           "eventKey": "one-small-studio:workflow_run:ci.yml/04f1eeb/jhlwm4b/1"
         },
         {
-          "id": "sync-one-small-studio-run-smoke-yml-04f1eeb-ji4hi2s-1",
+          "id": "sync-one-small-studio-run-smoke-yml-04f1eeb-jijiphm-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/42454790596",
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/42480041098",
           "commitSha": "04f1eeb95e59ec3bb1aa2ca45cad81aa088f492d",
-          "verifiedAt": "2026-11-08T06:28:13Z",
+          "verifiedAt": "2026-11-08T12:24:51Z",
           "result": "builder_reported",
           "description": "Automated observation: workflow smoke.yml (\"Production smoke\") concluded success on main at 04f1eeb (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-studio:workflow_run:smoke.yml/04f1eeb/ji4hi2s/1"
+          "eventKey": "one-small-studio:workflow_run:smoke.yml/04f1eeb/jijiphm/1"
         }
       ],
       "releaseGates": [
@@ -1939,7 +1939,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1410748339,
-        "lastSyncedAt": "2026-11-08T06:30:38Z",
+        "lastSyncedAt": "2026-11-08T12:29:13Z",
         "lastSyncedHead": "04f1eeb95e59ec3bb1aa2ca45cad81aa088f492d",
         "configSource": "defaults"
       }
