@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-09T04:19:44Z",
+  "lastUpdatedAt": "2026-11-09T06:42:01Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1125,7 +1125,7 @@
         "defaultBranch": "main",
         "headSha": "18e7da757f355f90168383d89e52756ae70f6dfb",
         "archived": false,
-        "observedAt": "2026-11-09T04:19:44Z",
+        "observedAt": "2026-11-09T06:42:01Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1413,16 +1413,16 @@
           "eventKey": "personal-portfolio:workflow_run:codeql.yml/18e7da7/jjsz1lm/1"
         },
         {
-          "id": "sync-personal-portfolio-run-production-yml-18e7da7-jjszjfs-1",
+          "id": "sync-personal-portfolio-run-production-yml-18e7da7-jk3gquw-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/42556409128",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/42574008056",
           "commitSha": "18e7da757f355f90168383d89e52756ae70f6dfb",
-          "verifiedAt": "2026-11-09T03:27:28Z",
+          "verifiedAt": "2026-11-09T06:36:26Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow production.yml (\"Production verification\") concluded success on main at 18e7da7 (deployment_status event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow production.yml (\"Production verification\") concluded success on main at 18e7da7 (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "personal-portfolio:workflow_run:production.yml/18e7da7/jjszjfs/1"
+          "eventKey": "personal-portfolio:workflow_run:production.yml/18e7da7/jk3gquw/1"
         }
       ],
       "releaseGates": [
@@ -1553,7 +1553,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406067959,
-        "lastSyncedAt": "2026-11-09T04:19:44Z",
+        "lastSyncedAt": "2026-11-09T06:42:01Z",
         "lastSyncedHead": "18e7da757f355f90168383d89e52756ae70f6dfb",
         "configSource": "defaults"
       }
