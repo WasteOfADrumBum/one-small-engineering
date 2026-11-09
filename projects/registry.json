@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-09T06:42:01Z",
+  "lastUpdatedAt": "2026-11-09T06:43:59Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -620,7 +620,7 @@
         "defaultBranch": "main",
         "headSha": "28e811f0aa7c2c2ff66b0ecca78b0f0c3556ac33",
         "archived": false,
-        "observedAt": "2026-11-07T23:16:19Z",
+        "observedAt": "2026-11-09T06:43:59Z",
         "visibility": "public",
         "latestTag": {
           "name": "v0.6.0",
@@ -863,18 +863,6 @@
           "eventKey": "one-small-ui:workflow_run:ci.yml/28e811f/jhly7gl/1"
         },
         {
-          "id": "sync-one-small-ui-run-codeql-yml-28e811f-jhly7f7-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/42423657235",
-          "commitSha": "28e811f0aa7c2c2ff66b0ecca78b0f0c3556ac33",
-          "verifiedAt": "2026-11-07T23:07:39Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow codeql.yml (\"CodeQL\") concluded success on main at 28e811f (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-ui:workflow_run:codeql.yml/28e811f/jhly7f7/1"
-        },
-        {
           "id": "sync-one-small-ui-run-docs-smoke-yml-28e811f-jhlzbsa-1",
           "type": "workflow_run",
           "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/42423709546",
@@ -885,6 +873,18 @@
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
           "eventKey": "one-small-ui:workflow_run:docs-smoke.yml/28e811f/jhlzbsa/1"
+        },
+        {
+          "id": "sync-one-small-ui-run-codeql-yml-28e811f-jjzgxxl-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/42567298761",
+          "commitSha": "28e811f0aa7c2c2ff66b0ecca78b0f0c3556ac33",
+          "verifiedAt": "2026-11-09T05:27:28Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow codeql.yml (\"CodeQL\") concluded success on main at 28e811f (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-ui:workflow_run:codeql.yml/28e811f/jjzgxxl/1"
         }
       ],
       "releaseGates": [
@@ -1108,7 +1108,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1411378047,
-        "lastSyncedAt": "2026-11-07T23:16:19Z",
+        "lastSyncedAt": "2026-11-09T06:43:59Z",
         "lastSyncedHead": "28e811f0aa7c2c2ff66b0ecca78b0f0c3556ac33",
         "configSource": "defaults"
       }
