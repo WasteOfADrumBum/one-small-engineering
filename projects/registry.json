@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-09T06:46:22Z",
+  "lastUpdatedAt": "2026-11-09T07:18:50Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1942,7 +1942,7 @@
         "defaultBranch": "main",
         "headSha": "d64ecfeaa4de6f6835d796801116ada7dd0fd1fc",
         "archived": false,
-        "observedAt": "2026-11-08T18:29:00Z",
+        "observedAt": "2026-11-09T07:18:50Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1956,15 +1956,8 @@
         {
           "number": 31,
           "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/31",
-          "title": "Bump the actions group with 2 updates",
-          "headSha": "c2e97c203b0a2deddef9ef7f01ba5bc28510e410",
-          "draft": false
-        },
-        {
-          "number": 33,
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/33",
-          "title": "Bump the minor-and-patch group with 21 updates",
-          "headSha": "d05ac57c4807214c9136353a338b29a918c0dba1",
+          "title": "Bump the actions group across 1 directory with 2 updates",
+          "headSha": "bcdcf3507eb9ab1b07bef34b168d721aee359383",
           "draft": false
         },
         {
@@ -1993,6 +1986,13 @@
           "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/37",
           "title": "Bump typescript from 6.0.3 to 7.0.2",
           "headSha": "fe92e7e52d397ecf124399208e55e19acc6b7e0f",
+          "draft": false
+        },
+        {
+          "number": 43,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/43",
+          "title": "Bump the minor-and-patch group across 1 directory with 23 updates",
+          "headSha": "e2dc2d8755bd98702d4f9c962e0934f41a5aa766",
           "draft": false
         }
       ],
@@ -2367,7 +2367,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-11-08T18:29:00Z",
+        "lastSyncedAt": "2026-11-09T07:18:50Z",
         "lastSyncedHead": "d64ecfeaa4de6f6835d796801116ada7dd0fd1fc",
         "configSource": "defaults"
       }
