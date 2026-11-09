@@ -49,10 +49,10 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
           node-version: 24
       - name: Registry, orchestrator and regression tests
@@ -71,13 +71,13 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
           node-version: 24
-      - uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+      - uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
         if: github.ref == 'refs/heads/main'
         with:
           path: |
@@ -96,7 +96,7 @@ jobs:
           args=(check --execute --no-api --work "$ONE_SMALL_WORK")
           if [ -n "${ENGINEERING_PROJECT:-}" ]; then args+=(--project "$ENGINEERING_PROJECT"); fi
           node scripts/engineering/cli.mjs "${args[@]}"
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: engineering-execute-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
@@ -117,13 +117,13 @@ jobs:
       checks: read
       pull-requests: read
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
           node-version: 24
-      - uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+      - uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
         if: github.ref == 'refs/heads/main'
         with:
           path: |
@@ -132,7 +132,7 @@ jobs:
             verification/runs/
           key: engineering-state-${{ github.run_id }}
           restore-keys: engineering-state-
-      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
         if: needs.execute.result == 'success'
         with:
           name: engineering-execute-${{ github.run_id }}-${{ github.run_attempt }}
@@ -155,7 +155,7 @@ jobs:
         run: |
           grep '^engineering:' "$RUNNER_TEMP/observe.log" || true
           if [ -f reports/engineering/dashboard.md ]; then cat reports/engineering/dashboard.md; fi
-      - uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830
+      - uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         with:
           path: |
@@ -163,7 +163,7 @@ jobs:
             verification/evidence/
             verification/runs/
           key: engineering-state-${{ github.run_id }}
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()
         with:
           name: engineering-${{ github.run_id }}-${{ github.run_attempt }}
@@ -186,13 +186,13 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
           node-version: 24
-      - uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+      - uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
         if: github.ref == 'refs/heads/main'
         with:
           path: |
@@ -213,7 +213,7 @@ jobs:
           if [ -n "${ENGINEERING_PROJECT:-}" ]; then args+=(--project "$ENGINEERING_PROJECT"); fi
           if [ "${ENGINEERING_EXECUTE}" = "true" ]; then args+=(--execute); fi
           node scripts/engineering/cli.mjs "${args[@]}"
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()
         with:
           name: engineering-proposals-${{ github.run_id }}-${{ github.run_attempt }}

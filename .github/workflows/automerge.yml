@@ -38,11 +38,11 @@ jobs:
       actions: write         # dispatch Registry sync to rebuild stale sync PRs; read the validate.yml runs that own required checks
       checks: read           # read every check run on a sync PR head (required and others)
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           ref: ${{ github.event.repository.default_branch }}
           persist-credentials: false
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
           node-version: 22
       - name: Evaluate and merge sync PRs
