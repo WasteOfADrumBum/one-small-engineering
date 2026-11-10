@@ -95,7 +95,7 @@ export async function commitsInPush({ client, before, after, forced }) {
 // A scan that cannot see everything is itself a problem: a green run must mean "checked", not
 // "could not look". Those problems have no commit, and are reported as an incomplete check.
 export const MAX_WINDOW_COMMITS = 1000
-const ACTIVITY_PAGE = 100
+export const MAX_ACTIVITY = 1000
 export async function windowScan({ client, now = new Date(), days = WINDOW_DAYS, acknowledgedActivity = new Set() }) {
   const since = new Date(now.getTime() - days * 86400_000).toISOString().replace(/\.\d{3}Z$/, 'Z')
   const commits = await client.paginate(`${REPO}/commits?sha=${HUB_DEFAULT_BRANCH}&since=${since}`, { max: MAX_WINDOW_COMMITS })
@@ -104,13 +104,14 @@ export async function windowScan({ client, now = new Date(), days = WINDOW_DAYS,
   if (commits.length >= MAX_WINDOW_COMMITS) problems.push({ sha: null, incomplete: true, reason: `main has at least ${MAX_WINDOW_COMMITS} commits since ${since}; only the newest ${MAX_WINDOW_COMMITS} were checked` })
   let activity = null
   try {
-    // One page: this endpoint pages by cursor, and a week of main updates is far below 100.
-    activity = expectArray(await client.get(`${REPO}/activity?ref=refs/heads/${HUB_DEFAULT_BRANCH}&time_period=week&per_page=${ACTIVITY_PAGE}`), 'repository activity log')
+    // The activity log pages by cursor (Link: rel="next"). Registry sync and auto-merge can
+    // update main more than 100 times a week, so every page is read, up to MAX_ACTIVITY.
+    activity = await client.paginateCursor(`${REPO}/activity?ref=refs/heads/${HUB_DEFAULT_BRANCH}&time_period=week`, { max: MAX_ACTIVITY, what: 'repository activity log' })
   } catch (e) {
     // Without the log a force push that removed commits, or a push since rewritten away, is invisible.
     problems.push({ sha: null, incomplete: true, reason: `the repository activity log could not be read (${e.message}); force pushes and GITHUB_TOKEN pushes cannot be ruled out` })
   }
-  if (activity && activity.length >= ACTIVITY_PAGE) problems.push({ sha: null, incomplete: true, reason: `the activity log returned a full page of ${ACTIVITY_PAGE} updates to ${HUB_DEFAULT_BRANCH} this week; older entries were not checked` })
+  if (activity && activity.truncated) problems.push({ sha: null, incomplete: true, reason: `the activity log has more than ${MAX_ACTIVITY} updates to ${HUB_DEFAULT_BRANCH} this week; older entries were not checked` })
   for (const a of activity || []) {
     // Excused by its own id only: an acknowledged commit SHA never excuses a ref update.
     if (MERGE_ACTIVITIES.has(a.activity_type) || acknowledgedActivity.has(String(a.id))) continue

@@ -2,6 +2,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { createClient, GitHubError } from './github.mjs'
+import { FakeGitHub } from '../../fixtures/sync/fake-github.mjs'
 
 function scripted(responses) {
   const calls = []
@@ -79,4 +80,14 @@ test('a POST is not retried after a 5xx or network error (it may have been appli
   assert.equal(c.calls.length, 2)
   const d = scripted([{ status: 502, body: {} }, { status: 200, body: { ok: 1 } }])
   assert.deepEqual(await d.client.request('PATCH', '/repos/o/r/issues/1', { body: { body: 'x' } }), { ok: 1 })
+})
+
+test('paginateCursor stops at its page cap when a server keeps linking to empty pages', async () => {
+  const gh = new FakeGitHub()
+  gh.on('GET', /\/repos\/o\/r\/activity$/, ({ q }) => new Response('[]', { status: 200, headers: { 'content-type': 'application/json', link: `<https://api.github.com/repos/o/r/activity?after=${+(q.get('after') || 0) + 1}>; rel="next"` } }))
+  const client = createClient({ token: 't', fetchImpl: gh.fetch, sleep: async () => {} })
+  const out = await client.paginateCursor('/repos/o/r/activity', { max: 200 })
+  assert.equal(out.length, 0)
+  assert.equal(out.truncated, true)
+  assert.equal(gh.calls.length, 3)
 })

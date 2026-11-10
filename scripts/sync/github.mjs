@@ -75,7 +75,7 @@ export function createClient({
     return null
   }
 
-  async function request(method, path, { body, allow404 = false } = {}) {
+  async function request(method, path, { body, allow404 = false, withLink = false } = {}) {
     if (!path.startsWith('/')) throw new Error(`path must start with /: ${path}`)
     const headers = {
       accept: 'application/vnd.github+json',
@@ -108,9 +108,10 @@ export function createClient({
         const accepted = res.headers.get('x-accepted-github-permissions')
         throw new GitHubError(`${method} ${path}: HTTP ${res.status}`, res.status, text.slice(0, 300), { acceptedPermissions: accepted && PERMISSIONS.test(accepted) ? accepted : null })
       }
-      if (!text) return null
+      if (!text) return withLink ? { data: null, link: res.headers.get('link') } : null
       try {
-        return JSON.parse(text)
+        const data = JSON.parse(text)
+        return withLink ? { data, link: res.headers.get('link') } : data
       } catch {
         // The parser's message quotes the body; the diagnostic must not.
         throw new MalformedResponse(`${method} ${path}: malformed response (body is not JSON)`, res.status, '')
@@ -143,9 +144,49 @@ export function createClient({
     return result
   }
 
+  // Cursor pagination for endpoints that page with before/after cursors in the Link header
+  // (for example the repository activity log). Follows rel="next" only while it points at the
+  // same API origin and the same endpoint path; any other link is refused, never fetched.
+  // Stops at `max` items; when more exist the result carries truncated: true.
+  async function paginateCursor(path, { max = 1000, what = `GET ${path}` } = {}) {
+    const sep = path.includes('?') ? '&' : '?'
+    const base = new URL(baseUrl)
+    const prefix = base.pathname.replace(/\/$/, '')
+    const endpoint = new URL(baseUrl + path).pathname
+    const out = []
+    let next = `${path}${sep}per_page=100`
+    let truncated = false
+    // Page cap as well as item cap, so a server that keeps sending empty pages cannot loop us.
+    const maxPages = Math.ceil(max / 100) + 1
+    for (let pages = 1; next; pages++) {
+      const { data, link } = await request('GET', next, { withLink: true })
+      out.push(...expectArray(data, what))
+      next = nextLink(link, base, endpoint, prefix)
+      if (next && (out.length >= max || pages >= maxPages)) { truncated = true; break }
+    }
+    const result = out.slice(0, max)
+    if (truncated || out.length > max) Object.defineProperty(result, 'truncated', { value: true })
+    return result
+  }
+
+  function nextLink(link, base, endpoint, prefix) {
+    if (!link) return null
+    const m = /<([^>]+)>\s*;\s*rel="next"/.exec(link)
+    if (!m) return null
+    let url
+    try {
+      url = new URL(m[1])
+    } catch {
+      throw new MalformedResponse(`GET ${endpoint}: malformed pagination link`, 200, '')
+    }
+    if (url.origin !== base.origin || url.pathname !== endpoint) throw new MalformedResponse(`GET ${endpoint}: pagination link points outside the endpoint`, 200, '')
+    return url.pathname.slice(prefix.length) + url.search
+  }
+
   return {
     request,
     paginate,
+    paginateCursor,
     get: (path, options) => request('GET', path, options)
   }
 }
