@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-11T13:19:55Z",
+  "lastUpdatedAt": "2026-11-11T13:22:16Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -697,9 +697,9 @@
       "productionUrl": "https://one-small-ui.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "28e811f0aa7c2c2ff66b0ecca78b0f0c3556ac33",
+        "headSha": "256887bcd63e1beda74303eacd9e2694441782f4",
         "archived": false,
-        "observedAt": "2026-11-11T01:16:08Z",
+        "observedAt": "2026-11-11T13:22:16Z",
         "visibility": "public",
         "latestTag": {
           "name": "v0.6.0",
@@ -715,45 +715,17 @@
       },
       "openPullRequests": [
         {
-          "number": 39,
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/39",
-          "title": "ci: Bump the actions group across 1 directory with 2 updates",
-          "headSha": "8577a27571390c353e74c18b962b5901141d85e9",
-          "draft": false
-        },
-        {
-          "number": 41,
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/41",
-          "title": "deps: Bump @testing-library/jest-dom from 6.9.1 to 7.0.1",
-          "headSha": "c44d063551b678e18e4577a8459d9524ff9f9fdc",
-          "draft": false
-        },
-        {
           "number": 42,
           "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/42",
           "title": "deps: Bump jsdom from 26.1.0 to 30.1.2",
-          "headSha": "18ddcb76f645a7ed4b5a938662ace019457edbd8",
+          "headSha": "5253e8aa01d325f1e4614e162900d99c819f4767",
           "draft": false
         },
         {
           "number": 43,
           "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/43",
           "title": "deps: Bump typescript from 5.9.3 to 7.0.2",
-          "headSha": "4ce04549aab6dcbdbd232dfb7eb8f1c8b8cfc29e",
-          "draft": false
-        },
-        {
-          "number": 44,
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/44",
-          "title": "deps: Bump @types/node from 22.20.5 to 26.6.4",
-          "headSha": "9b7a18afda01e99e0ca1df08e824820372205c9d",
-          "draft": false
-        },
-        {
-          "number": 47,
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/47",
-          "title": "deps: Bump the dev-tooling group across 1 directory with 4 updates",
-          "headSha": "765e6bcaafa27ba39dfef9387a1cfd4ddab57f17",
+          "headSha": "db9fc02341dbf9d7b21b3f91c08921d7aacb2ad6",
           "draft": false
         }
       ],
@@ -946,42 +918,6 @@
           "recordedBy": "Claude Code"
         },
         {
-          "id": "sync-one-small-ui-run-ci-yml-28e811f-jhly7gl-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/42423657285",
-          "commitSha": "28e811f0aa7c2c2ff66b0ecca78b0f0c3556ac33",
-          "verifiedAt": "2026-11-07T23:10:15Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 28e811f (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-ui:workflow_run:ci.yml/28e811f/jhly7gl/1"
-        },
-        {
-          "id": "sync-one-small-ui-run-docs-smoke-yml-28e811f-jhlzbsa-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/42423709546",
-          "commitSha": "28e811f0aa7c2c2ff66b0ecca78b0f0c3556ac33",
-          "verifiedAt": "2026-11-07T23:07:14Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow docs-smoke.yml (\"Docs smoke\") concluded success on main at 28e811f (deployment_status event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-ui:workflow_run:docs-smoke.yml/28e811f/jhlzbsa/1"
-        },
-        {
-          "id": "sync-one-small-ui-run-codeql-yml-28e811f-jjzgxxl-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/42567298761",
-          "commitSha": "28e811f0aa7c2c2ff66b0ecca78b0f0c3556ac33",
-          "verifiedAt": "2026-11-09T05:27:28Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow codeql.yml (\"CodeQL\") concluded success on main at 28e811f (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-ui:workflow_run:codeql.yml/28e811f/jjzgxxl/1"
-        },
-        {
           "id": "ui-owner-final-verification-2026-11-11",
           "type": "manual_test",
           "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
@@ -990,6 +926,42 @@
           "result": "pass",
           "description": "Joshua Small commented \"Signed\" on hub PR #181, which presents the One Small UI 0.6.0 closeout package (docs/acceptance/ui-0.6.0-final-closeout.md) and its proposed attestation, and which invites his own wording. That comment is his verifier attestation and release approval: he accepts the linked evidence for the 22 applicable gates, confirms his recorded manual checks, accepts the provenance exception and approves 0.6.0. Transcribed by Claude Code at his direction; no test is represented as newly run.",
           "recordedBy": "Joshua Small"
+        },
+        {
+          "id": "sync-one-small-ui-run-ci-yml-256887b-jrkjcws-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/43025946652",
+          "commitSha": "256887bcd63e1beda74303eacd9e2694441782f4",
+          "verifiedAt": "2026-11-11T13:15:12Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 256887b (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-ui:workflow_run:ci.yml/256887b/jrkjcws/1"
+        },
+        {
+          "id": "sync-one-small-ui-run-codeql-yml-256887b-jrkjcxh-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/43025946677",
+          "commitSha": "256887bcd63e1beda74303eacd9e2694441782f4",
+          "verifiedAt": "2026-11-11T13:07:51Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow codeql.yml (\"CodeQL\") concluded success on main at 256887b (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-ui:workflow_run:codeql.yml/256887b/jrkjcxh/1"
+        },
+        {
+          "id": "sync-one-small-ui-run-docs-smoke-yml-256887b-jrkohsy-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/43026186274",
+          "commitSha": "256887bcd63e1beda74303eacd9e2694441782f4",
+          "verifiedAt": "2026-11-11T13:07:41Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow docs-smoke.yml (\"Docs smoke\") concluded success on main at 256887b (deployment_status event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-ui:workflow_run:docs-smoke.yml/256887b/jrkohsy/1"
         }
       ],
       "releaseGates": [
@@ -1241,8 +1213,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1411378047,
-        "lastSyncedAt": "2026-11-11T01:16:08Z",
-        "lastSyncedHead": "28e811f0aa7c2c2ff66b0ecca78b0f0c3556ac33",
+        "lastSyncedAt": "2026-11-11T13:22:16Z",
+        "lastSyncedHead": "256887bcd63e1beda74303eacd9e2694441782f4",
         "configSource": "defaults"
       }
     },
