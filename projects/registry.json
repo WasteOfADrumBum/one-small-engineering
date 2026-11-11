@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-11T02:23:27Z",
+  "lastUpdatedAt": "2026-11-11T03:33:45Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -614,7 +614,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
       "tier": "library",
       "visibility": "public",
-      "lifecycle": "active",
+      "lifecycle": "maintenance",
       "productionUrl": "https://one-small-ui.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
@@ -680,9 +680,9 @@
       ],
       "release": {
         "currentVersion": "0.6.0",
-        "currentVersionSource": "GitHub release v0.6.0, recorded by One Small Engineering Sync (evidence sync-one-small-ui-release-v0-6-0)",
+        "currentVersionSource": "npm @onesmall/ui 0.6.0 and GitHub release v0.6.0 (evidence sync-one-small-ui-release-v0-6-0), approved by Joshua Small on 2026-11-11 (evidence ui-owner-final-verification-2026-11-11).",
         "targetVersion": "0.6.0",
-        "releaseStatus": "ready_for_review",
+        "releaseStatus": "released",
         "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-ui/blob/9a13c9e22d094a95364262a1ae89f666febac892/docs/releases/0.6.0-scope.md",
         "blockers": [
           {
@@ -698,9 +698,23 @@
             "gates": [
               "scope-complete"
             ]
+          },
+          {
+            "id": "release-provenance-unmet",
+            "description": "Resolved by owner exception: 0.6.0 has no npm provenance and an unsigned tag. Joshua Small accepted this for 0.6.0 in his closeout attestation on hub PR #181; trusted publishing with provenance is required for the next release (ROADMAP E5).",
+            "status": "resolved",
+            "evidenceRefs": [
+              "ui-npm-0-6-0",
+              "ui-owner-final-verification-2026-11-11"
+            ],
+            "category": "approval",
+            "blocks": "release",
+            "gates": [
+              "release-provenance"
+            ]
           }
         ],
-        "nextAction": "0.6.0 is published (npm latest, tag v0.6.0 at 9a13c9e). Owner: review and merge one-small-ui PR #36 (acceptance record), record verifications at 9a13c9e with verify:record (docs/acceptance/closeout-2026-11-02.md), decide release-provenance (unmet: no npm attestation) and approve; then set lifecycle maintenance.",
+        "nextAction": "Maintenance only: address regressions and security issues as they arise. The next release must publish with npm provenance (ROADMAP E5). Do not reopen the accepted 0.6.0 release.",
         "enhancements": [
           "Page blocks (needs an owner spec): one-small-ui ROADMAP.md E1.",
           "Short-viewport tests in Firefox and WebKit: ROADMAP.md E2.",
@@ -721,12 +735,14 @@
         "approvalOwner": "Joshua Small"
       },
       "approval": {
-        "status": "pending",
-        "approvedBy": null,
-        "approvedAt": null,
-        "evidenceRefs": []
+        "status": "approved",
+        "approvedBy": "Joshua Small",
+        "approvedAt": "2026-11-11T01:30:08Z",
+        "evidenceRefs": [
+          "ui-owner-final-verification-2026-11-11"
+        ]
       },
-      "lastVerifiedAt": "2026-10-22T16:33:00Z",
+      "lastVerifiedAt": "2026-11-11T01:30:08Z",
       "evidence": [
         {
           "id": "ui-repo-metadata",
@@ -885,206 +901,246 @@
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
           "eventKey": "one-small-ui:workflow_run:codeql.yml/28e811f/jjzgxxl/1"
+        },
+        {
+          "id": "ui-owner-final-verification-2026-11-11",
+          "type": "manual_test",
+          "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+          "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "result": "pass",
+          "description": "Joshua Small commented \"Signed\" on hub PR #181, which presents the One Small UI 0.6.0 closeout package (docs/acceptance/ui-0.6.0-final-closeout.md) and its proposed attestation, and which invites his own wording. That comment is his verifier attestation and release approval: he accepts the linked evidence for the 22 applicable gates, confirms his recorded manual checks, accepts the provenance exception and approves 0.6.0. Transcribed by Claude Code at his direction; no test is represented as newly run.",
+          "recordedBy": "Joshua Small"
         }
       ],
       "releaseGates": [
         {
           "id": "scope-complete",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "ui-scope-0-6-0",
-            "ui-closeout-pr-36"
+            "ui-closeout-pr-36",
+            "ui-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Scope frozen by the builder; owner published from it. Human-only gate: needs the verifier's own record."
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "automated-checks",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "ui-ci-main",
-            "ui-ci-9a13c9e"
+            "ui-ci-9a13c9e",
+            "ui-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "CI green on candidate 9a13c9e (builder-reported). Verifier re-checks the linked CI run and records."
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "security-privacy-review",
-          "status": "not_verified",
-          "evidenceRefs": [],
-          "verifiedAt": null,
-          "notes": null
+          "status": "verified",
+          "evidenceRefs": [
+            "ui-readiness-0-6-0",
+            "ui-owner-final-verification-2026-11-11"
+          ],
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "wcag-22-aa",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "ui-readiness-0-6-0",
-            "ui-owner-report-2026-11-02"
+            "ui-owner-report-2026-11-02",
+            "ui-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Automated axe/jest-axe/contrast evidence (builder) plus Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only."
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "keyboard-screen-reader",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
-            "ui-owner-report-2026-11-02"
+            "ui-owner-report-2026-11-02",
+            "ui-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only. Covers Chrome + Windows Narrator only."
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "responsive-layouts",
-          "status": "not_verified",
-          "evidenceRefs": [],
-          "verifiedAt": null,
-          "notes": null
+          "status": "verified",
+          "evidenceRefs": [
+            "ui-readiness-0-6-0",
+            "ui-owner-final-verification-2026-11-11"
+          ],
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "critical-workflows",
-          "status": "not_verified",
-          "evidenceRefs": [],
-          "verifiedAt": null,
-          "notes": null
+          "status": "verified",
+          "evidenceRefs": [
+            "ui-readiness-0-6-0",
+            "ui-owner-final-verification-2026-11-11"
+          ],
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "production-deployment",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
-            "ui-vercel-408b884"
+            "ui-vercel-408b884",
+            "ui-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "The docs site is the hosted part; Vercel serves 408b884 (docs-only difference from 9a13c9e). Verifier confirms."
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "documentation-accurate",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "ui-readiness-0-6-0",
-            "ui-owner-report-2026-11-02"
+            "ui-owner-report-2026-11-02",
+            "ui-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Owner accepted the live docs; Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only."
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "no-release-blockers",
-          "status": "not_verified",
-          "evidenceRefs": [],
-          "verifiedAt": null,
-          "notes": null
+          "status": "verified",
+          "evidenceRefs": [
+            "ui-readiness-0-6-0",
+            "ui-owner-final-verification-2026-11-11"
+          ],
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "package-metadata-exports",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
-            "ui-readiness-0-6-0"
+            "ui-readiness-0-6-0",
+            "ui-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "clean-consumer-install",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
-            "ui-readiness-0-6-0"
+            "ui-readiness-0-6-0",
+            "ui-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "runtime-compatibility",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
-            "ui-readiness-0-6-0"
+            "ui-readiness-0-6-0",
+            "ui-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "package-archive-inspection",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
-            "ui-readiness-0-6-0"
+            "ui-readiness-0-6-0",
+            "ui-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "supply-chain-review",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "ui-readiness-0-6-0",
-            "ui-owner-report-2026-11-02"
+            "ui-owner-report-2026-11-02",
+            "ui-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Production audit 0; 2 moderate dev-only advisories accepted by the owner (owner-reported). Formal exception recorded in the acceptance record."
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "ci-release-pipeline",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
-            "ui-readiness-0-6-0"
+            "ui-readiness-0-6-0",
+            "ui-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "versioning-changelog",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
-            "ui-readiness-0-6-0"
+            "ui-readiness-0-6-0",
+            "ui-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "distribution-verified",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "ui-npm-0-6-0",
-            "sync-one-small-ui-release-v0-6-0"
+            "sync-one-small-ui-release-v0-6-0",
+            "ui-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "npm latest is 0.6.0 under @onesmall/ui (informational, checked 2026-11-02). Verifier records."
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "release-provenance",
-          "status": "not_verified",
+          "status": "not_applicable",
           "evidenceRefs": [
-            "ui-npm-0-6-0"
+            "ui-npm-0-6-0",
+            "ui-owner-final-verification-2026-11-11"
           ],
           "verifiedAt": null,
-          "notes": "0.6.0 was published without an npm provenance attestation. Owner decides: accept as unmet for 0.6.0 (blocks DoD) or record not_applicable with a rationale; trusted publishing is ROADMAP E5."
+          "notes": "Owner-accepted exception for 0.6.0 only, recorded in hub PR #181: the requirement was NOT met. 0.6.0 was published without an npm provenance attestation and with an unsigned tag, and cannot be attested retroactively; it relies on npm dist.integrity matching the reproduced candidate tarball. Provenance via trusted publishing is required for the next release (one-small-ui ROADMAP E5)."
         },
         {
           "id": "upgrade-rollback-uninstall-docs",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
-            "ui-readiness-0-6-0"
+            "ui-readiness-0-6-0",
+            "ui-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "public-docs-accurate",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "ui-readiness-0-6-0",
-            "ui-owner-report-2026-11-02"
+            "ui-owner-report-2026-11-02",
+            "ui-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Owner accepted the live docs; Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only."
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "published-artifact-matches",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "ui-npm-0-6-0",
-            "ui-readiness-0-6-0"
+            "ui-readiness-0-6-0",
+            "ui-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "npm dist.integrity equals the candidate tarball sha512 from the readiness report (informational). Verifier records."
+          "verifiedAt": "2026-11-11T01:30:08Z",
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code."
         }
       ],
       "modsPack": {
@@ -1100,9 +1156,7 @@
         ]
       },
       "missingEvidence": [
-        "Verifier verify:record entries for every 0.6.0 gate at 9a13c9e (none recorded).",
-        "npm provenance for 0.6.0 (none; owner decides whether release-provenance is unmet or not applicable).",
-        "Owner approval record for 0.6.0."
+        "npm provenance for 0.6.0 (none; accepted as an exception by the owner, required for the next release)."
       ],
       "sync": {
         "enabled": true,

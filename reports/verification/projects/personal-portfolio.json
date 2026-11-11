@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-11-03T18:54:22Z",
+  "asOf": "2026-11-11T03:33:46Z",
   "id": "personal-portfolio",
   "name": "Personal Portfolio",
   "tier": "showcase",
@@ -16,7 +16,7 @@
     "previousPercentage": 100,
     "applicableGates": 10,
     "verifiedGates": 10,
-    "eligibility": "released",
+    "eligibility": "not-eligible",
     "ownershipValid": true
   },
   "gateStates": {
@@ -111,13 +111,6 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-personal-portfolio-dependency-audit-56ea76e-a7e719b8",
-          "collector": "dependency-audit",
-          "result": "pass",
-          "executedAt": "2026-10-28T21:04:17Z",
-          "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0"
-        },
-        {
           "id": "ev-personal-portfolio-secret-scan-56ea76e-556244d6",
           "collector": "secret-scan",
           "result": "pass",
@@ -126,6 +119,10 @@
         }
       ],
       "staleEvidence": [
+        {
+          "id": "ev-personal-portfolio-dependency-audit-56ea76e-a7e719b8",
+          "reason": "expired 2026-11-04"
+        },
         {
           "id": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
           "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
@@ -340,6 +337,10 @@
       "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
     },
     {
+      "id": "ev-personal-portfolio-dependency-audit-56ea76e-a7e719b8",
+      "reason": "expired 2026-11-04"
+    },
+    {
       "id": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
       "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
     },
@@ -372,19 +373,28 @@
       "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
     }
   ],
-  "blockers": [],
+  "blockers": [
+    {
+      "id": "auto-ci-failed-sync-personal-portfolio-run-ci-yml-16c165d-jq4q8vj-1",
+      "origin": "derived",
+      "severity": "unclassified",
+      "blocks": "merge",
+      "category": "ci",
+      "description": "CI did not pass on 16c165d (failure)."
+    }
+  ],
   "blockersBySeverity": {
     "critical": 0,
     "high": 0,
     "medium": 0,
     "low": 0,
-    "unclassified": 0
+    "unclassified": 1
   },
   "mergeEligible": false,
-  "releaseEligible": true,
+  "releaseEligible": false,
   "lastVerification": null,
   "lastCollection": "2026-10-28T21:06:53Z",
-  "nextAction": "None",
+  "nextAction": "Fix the failing CI run on 16c165d and re-run it (never skip or disable tests).",
   "findings": [
     {
       "id": "personal-portfolio:accessibility:56ea76e",
@@ -547,7 +557,28 @@
     }
   ],
   "verifications": [],
-  "relatedPullRequests": [],
+  "relatedPullRequests": [
+    {
+      "number": 35,
+      "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/35",
+      "draft": false
+    },
+    {
+      "number": 38,
+      "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/38",
+      "draft": false
+    },
+    {
+      "number": 39,
+      "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/39",
+      "draft": false
+    },
+    {
+      "number": 42,
+      "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/42",
+      "draft": false
+    }
+  ],
   "remediation": [
     {
       "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/17",

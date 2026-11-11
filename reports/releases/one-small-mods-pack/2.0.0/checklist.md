@@ -1,6 +1,6 @@
 # One Small ModsPack 2.0.0: completion checklist
 
-Derived as of 2026-11-04T19:45:40Z. Status: Not eligible for release. 0 of 21 applicable gates independently verified (0%); 19 open blocker(s).
+Derived as of 2026-11-11T03:33:46Z. Status: Not eligible for release. 0 of 21 applicable gates independently verified (0%); 19 open blocker(s).
 
 1. [ ] Resolve blocker codex-interactive-trust: Codex hook enforcement verified only with trust bypassed (0.159.3); interactive /hooks trust not confirmed (manual-acceptance row P1). No OpenAI credentials in the agent container on 2026-11-04.
 2. [ ] Resolve blocker copilot-gemini-runtime-untested: Copilot and Gemini CLI hook enforcement, custom agents and model use are NOT TESTED (discovery verified 2026-10-31 in Copilot CLI 1.0.105 and Gemini CLI 0.66.0; no credentials in the agent container on 2026-11-04). Owner decision: test (manual-acceptance rows P2, P3) or mark DEFERRED-BY-OWNER and ship as unverified.

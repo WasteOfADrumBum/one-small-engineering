@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/release-preparation",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-04T19:45:40Z",
+  "asOf": "2026-11-11T03:33:46Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "293daeab70d9a8a332f23596c6fe3f25575886cc789879fe7e3a39ac8dadca62",
+  "registrySha256": "c4bda52ccea6531d725e45deee7a3a5690477945f08030dc4a06c37fdd50e85c",
   "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
   "project": {
     "id": "one-small-ui",
@@ -14,7 +14,7 @@
   "facts": {
     "currentVersion": "0.6.0",
     "targetVersion": "0.6.0",
-    "releaseStatus": "ready_for_review",
+    "releaseStatus": "released",
     "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-ui/blob/9a13c9e22d094a95364262a1ae89f666febac892/docs/releases/0.6.0-scope.md",
     "candidate": {
       "pullRequest": 34,
@@ -22,7 +22,44 @@
       "headSha": "9a13c9e22d094a95364262a1ae89f666febac892",
       "observedAt": "2026-11-02T21:30:00Z"
     },
-    "openPullRequests": [],
+    "openPullRequests": [
+      {
+        "number": 39,
+        "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/39",
+        "headSha": "8577a27571390c353e74c18b962b5901141d85e9",
+        "draft": false
+      },
+      {
+        "number": 41,
+        "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/41",
+        "headSha": "c44d063551b678e18e4577a8459d9524ff9f9fdc",
+        "draft": false
+      },
+      {
+        "number": 42,
+        "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/42",
+        "headSha": "18ddcb76f645a7ed4b5a938662ace019457edbd8",
+        "draft": false
+      },
+      {
+        "number": 43,
+        "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/43",
+        "headSha": "4ce04549aab6dcbdbd232dfb7eb8f1c8b8cfc29e",
+        "draft": false
+      },
+      {
+        "number": 44,
+        "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/44",
+        "headSha": "9b7a18afda01e99e0ca1df08e824820372205c9d",
+        "draft": false
+      },
+      {
+        "number": 47,
+        "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/47",
+        "headSha": "765e6bcaafa27ba39dfef9387a1cfd4ddab57f17",
+        "draft": false
+      }
+    ],
     "evidenceCommits": [
       {
         "commitSha": "408b8844db13037a22c718b790f0d769a910803a",
@@ -42,6 +79,7 @@
           "sync-one-small-ui-release-v0-6-0",
           "ui-ci-9a13c9e",
           "ui-npm-0-6-0",
+          "ui-owner-final-verification-2026-11-11",
           "ui-owner-report-2026-11-02",
           "ui-readiness-0-6-0",
           "ui-scope-0-6-0"
@@ -54,100 +92,75 @@
       "approvalOwner": "Joshua Small"
     },
     "approval": {
-      "status": "pending",
-      "approvedBy": null,
-      "approvedAt": null,
-      "evidenceRefs": []
+      "status": "approved",
+      "approvedBy": "Joshua Small",
+      "approvedAt": "2026-11-11T01:30:08Z",
+      "evidenceRefs": [
+        "ui-owner-final-verification-2026-11-11"
+      ]
     }
   },
   "derived": {
     "readiness": {
       "totalGates": 22,
-      "applicableGates": 22,
-      "verifiedGates": 0,
-      "remainingGates": 22,
+      "applicableGates": 21,
+      "verifiedGates": 21,
+      "remainingGates": 0,
       "byState": {
-        "verified": 0,
-        "in_progress": 16,
-        "not_started": 5,
+        "verified": 21,
+        "in_progress": 0,
+        "not_started": 0,
         "blocked": 0,
-        "not_applicable": 0,
-        "unknown_stale": 1
+        "not_applicable": 1,
+        "unknown_stale": 0
       },
-      "percentage": 0,
+      "percentage": 100,
       "prePublication": {
         "applicable": 18,
-        "verified": 0
+        "verified": 18
       },
-      "blockingFindings": 4,
+      "blockingFindings": 0,
       "registryBlockers": 0,
-      "missingIndependentVerification": [
-        "scope-complete",
-        "automated-checks",
-        "wcag-22-aa",
-        "documentation-accurate",
-        "package-metadata-exports",
-        "clean-consumer-install",
-        "runtime-compatibility",
-        "package-archive-inspection",
-        "supply-chain-review",
-        "ci-release-pipeline",
-        "versioning-changelog",
-        "upgrade-rollback-uninstall-docs",
-        "public-docs-accurate",
-        "published-artifact-matches"
-      ],
+      "missingIndependentVerification": [],
       "candidateMoved": false,
       "ownershipValid": true,
-      "approvalRecorded": false,
-      "eligibility": "not-eligible",
-      "releaseReady": false
+      "approvalRecorded": true,
+      "eligibility": "released",
+      "releaseReady": true
     },
-    "eligibility": "not-eligible",
+    "eligibility": "released",
     "security": [
       {
         "id": "security-privacy-review",
-        "state": "not_started",
-        "provenance": "none",
-        "missing": [
-          "evidence for this gate"
-        ]
+        "state": "verified",
+        "provenance": "independent",
+        "missing": []
       },
       {
         "id": "supply-chain-review",
-        "state": "in_progress",
-        "provenance": "builder-reported",
-        "missing": [
-          "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-          "registry notes: Production audit 0; 2 moderate dev-only advisories accepted by the owner (owner-reported). Formal exception recorded in the acceptance record"
-        ]
+        "state": "verified",
+        "provenance": "independent",
+        "missing": []
       }
     ],
     "accessibility": [
       {
         "id": "wcag-22-aa",
-        "state": "in_progress",
-        "provenance": "builder-reported",
-        "missing": [
-          "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-          "registry notes: Automated axe/jest-axe/contrast evidence (builder) plus Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
-        ]
+        "state": "verified",
+        "provenance": "independent",
+        "missing": []
       },
       {
         "id": "keyboard-screen-reader",
-        "state": "in_progress",
-        "provenance": "observation",
-        "missing": [
-          "registry notes: Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only. Covers Chrome + Windows Narrator only"
-        ]
+        "state": "verified",
+        "provenance": "independent",
+        "missing": []
       },
       {
         "id": "responsive-layouts",
-        "state": "not_started",
-        "provenance": "none",
-        "missing": [
-          "evidence for this gate"
-        ]
+        "state": "verified",
+        "provenance": "independent",
+        "missing": []
       }
     ],
     "testAndCiEvidence": [
@@ -170,88 +183,21 @@
         "verifiedAt": "2026-10-22T16:33:00Z",
         "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/38903087292",
         "stale": "ui-ci-main is for 94438ee, not the release candidate 9a13c9e"
+      },
+      {
+        "id": "ui-owner-final-verification-2026-11-11",
+        "type": "manual_test",
+        "result": "pass",
+        "provenance": "independent",
+        "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+        "verifiedAt": "2026-11-11T01:30:08Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+        "stale": null
       }
     ],
     "blockers": {
       "merge": [],
-      "release": [
-        {
-          "id": "auto-critical-workflows-unverified",
-          "origin": "derived",
-          "status": "proposed",
-          "category": "workflow",
-          "severity": null,
-          "blocks": "release",
-          "gates": [
-            "critical-workflows"
-          ],
-          "description": "Critical workflows are not independently verified (critical-workflows).",
-          "evidenceRefs": [],
-          "rule": "critical workflow gates must be verified before release",
-          "action": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
-        },
-        {
-          "id": "auto-missing-verification",
-          "origin": "derived",
-          "status": "proposed",
-          "category": "evidence",
-          "severity": null,
-          "blocks": "release",
-          "gates": [
-            "scope-complete",
-            "automated-checks",
-            "security-privacy-review",
-            "wcag-22-aa",
-            "keyboard-screen-reader",
-            "responsive-layouts",
-            "critical-workflows",
-            "documentation-accurate",
-            "package-metadata-exports",
-            "clean-consumer-install",
-            "runtime-compatibility",
-            "package-archive-inspection",
-            "supply-chain-review",
-            "ci-release-pipeline",
-            "versioning-changelog",
-            "upgrade-rollback-uninstall-docs",
-            "public-docs-accurate"
-          ],
-          "description": "17 applicable pre-publication gate(s) lack current independent verification.",
-          "evidenceRefs": [],
-          "rule": "every applicable gate needs independent pass evidence",
-          "action": null
-        },
-        {
-          "id": "auto-owner-approval",
-          "origin": "derived",
-          "status": "proposed",
-          "category": "approval",
-          "severity": null,
-          "blocks": "release",
-          "gates": [],
-          "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release.",
-          "evidenceRefs": [],
-          "rule": "approval.status approved with evidence, by the approval owner",
-          "action": "Ask Joshua Small to review the evidence and approve or decline the release."
-        },
-        {
-          "id": "auto-stale-production-deployment",
-          "origin": "derived",
-          "status": "proposed",
-          "category": "stale-evidence",
-          "severity": null,
-          "blocks": "release",
-          "gates": [
-            "production-deployment"
-          ],
-          "description": "production-deployment: current evidence: ui-vercel-408b884 is for 408b884, not the release candidate 9a13c9e; registry notes: The docs site is the hosted part; Vercel serves 408b884 (docs-only difference from 9a13c9e). Verifier confirms.",
-          "evidenceRefs": [
-            "ui-vercel-408b884"
-          ],
-          "rule": "verified or in-progress gates need current evidence for the candidate",
-          "action": "Re-collect current evidence for production-deployment on the release candidate and have the verifier re-check it."
-        }
-      ],
+      "release": [],
       "postRelease": [
         {
           "id": "enhancement-1",
@@ -280,72 +226,17 @@
         }
       ]
     },
-    "nextActions": [
-      {
-        "rank": 1,
-        "priority": 3,
-        "bucket": "Missing required verification",
-        "source": "auto-critical-workflows-unverified",
-        "origin": "derived",
-        "blocks": "release",
-        "gates": [
-          "critical-workflows"
-        ],
-        "text": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.",
-        "summary": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
-      },
-      {
-        "rank": 2,
-        "priority": 3,
-        "bucket": "Missing required verification",
-        "source": "auto-missing-verification",
-        "origin": "derived",
-        "blocks": "release",
-        "gates": [
-          "scope-complete",
-          "automated-checks",
-          "security-privacy-review",
-          "wcag-22-aa",
-          "keyboard-screen-reader",
-          "responsive-layouts",
-          "critical-workflows",
-          "documentation-accurate",
-          "package-metadata-exports",
-          "clean-consumer-install",
-          "runtime-compatibility",
-          "package-archive-inspection",
-          "supply-chain-review",
-          "ci-release-pipeline",
-          "versioning-changelog",
-          "upgrade-rollback-uninstall-docs",
-          "public-docs-accurate"
-        ],
-        "text": "Independently re-check the builder evidence for scope-complete, automated-checks, wcag-22-aa, documentation-accurate, package-metadata-exports, clean-consumer-install, runtime-compatibility, package-archive-inspection, supply-chain-review, ci-release-pipeline, versioning-changelog, upgrade-rollback-uninstall-docs, public-docs-accurate; produce evidence for security-privacy-review, keyboard-screen-reader, responsive-layouts; then verify critical-workflows once their blockers are resolved.",
-        "summary": "Independently re-check the builder evidence for scope-complete, automated-checks, wcag-22-aa, documentation-accurate..."
-      },
-      {
-        "rank": 3,
-        "priority": 3,
-        "bucket": "Missing required verification",
-        "source": "auto-stale-production-deployment",
-        "origin": "derived",
-        "blocks": "release",
-        "gates": [
-          "production-deployment"
-        ],
-        "text": "Re-collect current evidence for production-deployment on the release candidate and have the verifier re-check it.",
-        "summary": "Re-collect current evidence for production-deployment on the release candidate and have the verifier re-check it."
-      }
-    ],
+    "nextActions": [],
     "rollback": {
       "guidance": "npm versions cannot be reused: roll back with `npm deprecate <name>@<bad version>` plus a patch release, and point users to the previous version. A git revert of the merge restores the source. See standards/release.md#rollback-and-recovery.",
       "gates": [
         {
           "id": "upgrade-rollback-uninstall-docs",
-          "state": "in_progress",
-          "provenance": "builder-reported",
+          "state": "verified",
+          "provenance": "independent",
           "evidence": [
-            "https://github.com/WasteOfADrumBum/one-small-ui/blob/408b8844db13037a22c718b790f0d769a910803a/docs/releases/0.6.0-readiness.md"
+            "https://github.com/WasteOfADrumBum/one-small-ui/blob/408b8844db13037a22c718b790f0d769a910803a/docs/releases/0.6.0-readiness.md",
+            "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549"
           ]
         }
       ]
@@ -364,8 +255,8 @@
         "done": true
       },
       {
-        "item": "Every applicable pre-publication gate independently verified on current evidence (0/18)",
-        "done": false
+        "item": "Every applicable pre-publication gate independently verified on current evidence (18/18)",
+        "done": true
       },
       {
         "item": "No open merge blockers",
@@ -373,7 +264,7 @@
       },
       {
         "item": "No open release blockers other than the approval itself",
-        "done": false
+        "done": true
       },
       {
         "item": "Changelog and release notes reviewed against verified evidence (drafts below are unverified)",
@@ -382,16 +273,16 @@
       },
       {
         "item": "Joshua Small approves the release, linked as evidence in a registry PR",
-        "done": false,
+        "done": true,
         "manual": true
       },
       {
-        "item": "After the authorized publication or deployment: post-publication gates verified (production-deployment, distribution-verified, release-provenance, published-artifact-matches)",
-        "done": false
+        "item": "After the authorized publication or deployment: post-publication gates verified (production-deployment, distribution-verified, published-artifact-matches)",
+        "done": true
       },
       {
         "item": "Registry updated by PR: currentVersion, releaseStatus released, lifecycle maintenance",
-        "done": false
+        "done": true
       }
     ]
   },
@@ -413,12 +304,32 @@
         "provenance": "builder-reported"
       },
       {
+        "gate": "security-privacy-review",
+        "evidence": "ui-readiness-0-6-0",
+        "provenance": "builder-reported"
+      },
+      {
         "gate": "wcag-22-aa",
         "evidence": "ui-readiness-0-6-0",
         "provenance": "builder-reported"
       },
       {
+        "gate": "responsive-layouts",
+        "evidence": "ui-readiness-0-6-0",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "critical-workflows",
+        "evidence": "ui-readiness-0-6-0",
+        "provenance": "builder-reported"
+      },
+      {
         "gate": "documentation-accurate",
+        "evidence": "ui-readiness-0-6-0",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "no-release-blockers",
         "evidence": "ui-readiness-0-6-0",
         "provenance": "builder-reported"
       },
@@ -476,84 +387,9 @@
     "changelog": null,
     "limitations": {
       "registryMissingEvidence": [
-        "Verifier verify:record entries for every 0.6.0 gate at 9a13c9e (none recorded).",
-        "npm provenance for 0.6.0 (none; owner decides whether release-provenance is unmet or not applicable).",
-        "Owner approval record for 0.6.0."
+        "npm provenance for 0.6.0 (none; accepted as an exception by the owner, required for the next release)."
       ],
-      "unverifiedGateNotes": [
-        {
-          "gate": "scope-complete",
-          "notes": "Scope frozen by the builder; owner published from it. Human-only gate: needs the verifier's own record."
-        },
-        {
-          "gate": "automated-checks",
-          "notes": "CI green on candidate 9a13c9e (builder-reported). Verifier re-checks the linked CI run and records."
-        },
-        {
-          "gate": "wcag-22-aa",
-          "notes": "Automated axe/jest-axe/contrast evidence (builder) plus Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only."
-        },
-        {
-          "gate": "keyboard-screen-reader",
-          "notes": "Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only. Covers Chrome + Windows Narrator only."
-        },
-        {
-          "gate": "production-deployment",
-          "notes": "The docs site is the hosted part; Vercel serves 408b884 (docs-only difference from 9a13c9e). Verifier confirms."
-        },
-        {
-          "gate": "documentation-accurate",
-          "notes": "Owner accepted the live docs; Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only."
-        },
-        {
-          "gate": "package-metadata-exports",
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
-        },
-        {
-          "gate": "clean-consumer-install",
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
-        },
-        {
-          "gate": "runtime-compatibility",
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
-        },
-        {
-          "gate": "package-archive-inspection",
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
-        },
-        {
-          "gate": "supply-chain-review",
-          "notes": "Production audit 0; 2 moderate dev-only advisories accepted by the owner (owner-reported). Formal exception recorded in the acceptance record."
-        },
-        {
-          "gate": "ci-release-pipeline",
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
-        },
-        {
-          "gate": "versioning-changelog",
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
-        },
-        {
-          "gate": "distribution-verified",
-          "notes": "npm latest is 0.6.0 under @onesmall/ui (informational, checked 2026-11-02). Verifier records."
-        },
-        {
-          "gate": "release-provenance",
-          "notes": "0.6.0 was published without an npm provenance attestation. Owner decides: accept as unmet for 0.6.0 (blocks DoD) or record not_applicable with a rationale; trusted publishing is ROADMAP E5."
-        },
-        {
-          "gate": "upgrade-rollback-uninstall-docs",
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e."
-        },
-        {
-          "gate": "public-docs-accurate",
-          "notes": "Owner accepted the live docs; Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only."
-        },
-        {
-          "gate": "published-artifact-matches",
-          "notes": "npm dist.integrity equals the candidate tarball sha512 from the readiness report (informational). Verifier records."
-        }
-      ],
+      "unverifiedGateNotes": [],
       "changelogKnownLimitations": null
     }
   }

@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-04T19:45:40Z",
+  "asOf": "2026-11-11T03:33:46Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "293daeab70d9a8a332f23596c6fe3f25575886cc789879fe7e3a39ac8dadca62",
+  "registrySha256": "c4bda52ccea6531d725e45deee7a3a5690477945f08030dc4a06c37fdd50e85c",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-ui",
@@ -14,7 +14,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-ui",
       "currentVersion": "0.6.0",
       "targetVersion": "0.6.0",
-      "releaseStatus": "ready_for_review",
+      "releaseStatus": "released",
       "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-ui/blob/9a13c9e22d094a95364262a1ae89f666febac892/docs/releases/0.6.0-scope.md",
       "candidate": {
         "pullRequest": 34,
@@ -22,81 +22,103 @@
         "headSha": "9a13c9e22d094a95364262a1ae89f666febac892",
         "observedAt": "2026-11-02T21:30:00Z"
       },
-      "openPullRequests": [],
-      "head": "ee62089ac616c2b3fd1fbbe6c7a24e9d067cc773",
-      "snapshotObservedAt": "2026-11-04T14:18:15Z",
-      "lastSyncedAt": "2026-11-04T14:18:15Z",
-      "lastEvidenceAt": "2026-11-04T13:44:21Z",
+      "openPullRequests": [
+        {
+          "number": 39,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/39",
+          "headSha": "8577a27571390c353e74c18b962b5901141d85e9",
+          "draft": false
+        },
+        {
+          "number": 41,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/41",
+          "headSha": "c44d063551b678e18e4577a8459d9524ff9f9fdc",
+          "draft": false
+        },
+        {
+          "number": 42,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/42",
+          "headSha": "18ddcb76f645a7ed4b5a938662ace019457edbd8",
+          "draft": false
+        },
+        {
+          "number": 43,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/43",
+          "headSha": "4ce04549aab6dcbdbd232dfb7eb8f1c8b8cfc29e",
+          "draft": false
+        },
+        {
+          "number": 44,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/44",
+          "headSha": "9b7a18afda01e99e0ca1df08e824820372205c9d",
+          "draft": false
+        },
+        {
+          "number": 47,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/47",
+          "headSha": "765e6bcaafa27ba39dfef9387a1cfd4ddab57f17",
+          "draft": false
+        }
+      ],
+      "head": "28e811f0aa7c2c2ff66b0ecca78b0f0c3556ac33",
+      "snapshotObservedAt": "2026-11-11T01:16:08Z",
+      "lastSyncedAt": "2026-11-11T01:16:08Z",
+      "lastEvidenceAt": "2026-11-11T01:30:08Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
         "approvalOwner": "Joshua Small"
       },
       "approval": {
-        "status": "pending",
-        "approvedBy": null,
-        "approvedAt": null,
-        "evidenceRefs": []
+        "status": "approved",
+        "approvedBy": "Joshua Small",
+        "approvedAt": "2026-11-11T01:30:08Z",
+        "evidenceRefs": [
+          "ui-owner-final-verification-2026-11-11"
+        ]
       },
-      "registryNextAction": "0.6.0 is published (npm latest, tag v0.6.0 at 9a13c9e). Owner: review and merge one-small-ui PR #36 (acceptance record), record verifications at 9a13c9e with verify:record (docs/acceptance/closeout-2026-11-02.md), decide release-provenance (unmet: no npm attestation) and approve; then set lifecycle maintenance.",
+      "registryNextAction": "Maintenance only: address regressions and security issues as they arise. The next release must publish with npm provenance (ROADMAP E5). Do not reopen the accepted 0.6.0 release.",
       "missingEvidence": [
-        "Verifier verify:record entries for every 0.6.0 gate at 9a13c9e (none recorded).",
-        "npm provenance for 0.6.0 (none; owner decides whether release-provenance is unmet or not applicable).",
-        "Owner approval record for 0.6.0."
+        "npm provenance for 0.6.0 (none; accepted as an exception by the owner, required for the next release)."
       ]
     },
     "derived": {
       "readiness": {
         "totalGates": 22,
-        "applicableGates": 22,
-        "verifiedGates": 0,
-        "remainingGates": 22,
+        "applicableGates": 21,
+        "verifiedGates": 21,
+        "remainingGates": 0,
         "byState": {
-          "verified": 0,
-          "in_progress": 16,
-          "not_started": 5,
+          "verified": 21,
+          "in_progress": 0,
+          "not_started": 0,
           "blocked": 0,
-          "not_applicable": 0,
-          "unknown_stale": 1
+          "not_applicable": 1,
+          "unknown_stale": 0
         },
-        "percentage": 0,
+        "percentage": 100,
         "prePublication": {
           "applicable": 18,
-          "verified": 0
+          "verified": 18
         },
-        "blockingFindings": 4,
+        "blockingFindings": 0,
         "registryBlockers": 0,
-        "missingIndependentVerification": [
-          "scope-complete",
-          "automated-checks",
-          "wcag-22-aa",
-          "documentation-accurate",
-          "package-metadata-exports",
-          "clean-consumer-install",
-          "runtime-compatibility",
-          "package-archive-inspection",
-          "supply-chain-review",
-          "ci-release-pipeline",
-          "versioning-changelog",
-          "upgrade-rollback-uninstall-docs",
-          "public-docs-accurate",
-          "published-artifact-matches"
-        ],
+        "missingIndependentVerification": [],
         "candidateMoved": false,
         "ownershipValid": true,
-        "approvalRecorded": false,
-        "eligibility": "not-eligible",
-        "releaseReady": false
+        "approvalRecorded": true,
+        "eligibility": "released",
+        "releaseReady": true
       },
       "gates": [
         {
           "id": "scope-complete",
           "requirement": "The approved release scope document is complete; every in-scope item is done.",
           "phase": "pre-publication",
-          "registryStatus": "in_progress",
-          "state": "in_progress",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "builder-reported",
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-scope-0-6-0",
@@ -121,26 +143,35 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Scope frozen by the builder; owner published from it. Human-only gate: needs the verifier's own record"
-          ],
-          "notes": "Scope frozen by the builder; owner published from it. Human-only gate: needs the verifier's own record.",
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+          "nextAction": null
         },
         {
           "id": "automated-checks",
           "requirement": "Applicable build, lint, type check and automated tests pass in CI on the release commit.",
           "phase": "pre-publication",
-          "registryStatus": "in_progress",
-          "state": "in_progress",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "pass-without-independent-verifier",
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-ci-main",
@@ -165,45 +196,76 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-01T03:37:34Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "current evidence: ui-ci-main is for 94438ee, not the release candidate 9a13c9e",
-            "registry notes: CI green on candidate 9a13c9e (builder-reported). Verifier re-checks the linked CI run and records"
-          ],
-          "notes": "CI green on candidate 9a13c9e (builder-reported). Verifier re-checks the linked CI run and records.",
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+          "nextAction": null
         },
         {
           "id": "security-privacy-review",
           "requirement": "Security and privacy review completed against [security.md](security.md).",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
-          "failed": false,
-          "missing": [
-            "evidence for this gate"
+          "provenance": "independent",
+          "evidence": [
+            {
+              "id": "ui-readiness-0-6-0",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-ui/blob/408b8844db13037a22c718b790f0d769a910803a/docs/releases/0.6.0-readiness.md",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-01T03:45:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
+            }
           ],
-          "notes": null,
+          "lastObservedAt": "2026-11-11T01:30:08Z",
+          "failed": false,
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": null
         },
         {
           "id": "wcag-22-aa",
           "requirement": "Applicable WCAG 2.2 AA success criteria verified (automated checks plus manual review).",
           "phase": "pre-publication",
-          "registryStatus": "in_progress",
-          "state": "in_progress",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "builder-reported",
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-readiness-0-6-0",
@@ -228,26 +290,35 @@
               "origin": "manual",
               "provenance": "observation",
               "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Automated axe/jest-axe/contrast evidence (builder) plus Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
-          ],
-          "notes": "Automated axe/jest-axe/contrast evidence (builder) plus Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+          "nextAction": null
         },
         {
           "id": "keyboard-screen-reader",
           "requirement": "Keyboard-only and screen-reader testing completed on the critical pages.",
           "phase": "pre-publication",
-          "registryStatus": "in_progress",
-          "state": "in_progress",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "observation",
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-owner-report-2026-11-02",
@@ -260,63 +331,117 @@
               "origin": "manual",
               "provenance": "observation",
               "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "registry notes: Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only. Covers Chrome + Windows Narrator only"
-          ],
-          "notes": "Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only. Covers Chrome + Windows Narrator only.",
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Finish the work and record evidence, then have the verifier re-check."
+          "nextAction": null
         },
         {
           "id": "responsive-layouts",
           "requirement": "Layouts tested at phone, tablet and desktop widths and at 200% zoom.",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
-          "failed": false,
-          "missing": [
-            "evidence for this gate"
+          "provenance": "independent",
+          "evidence": [
+            {
+              "id": "ui-readiness-0-6-0",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-ui/blob/408b8844db13037a22c718b790f0d769a910803a/docs/releases/0.6.0-readiness.md",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-01T03:45:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
+            }
           ],
-          "notes": null,
+          "lastObservedAt": "2026-11-11T01:30:08Z",
+          "failed": false,
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": null
         },
         {
           "id": "critical-workflows",
           "requirement": "Critical user workflows (navigation, contact form, media playback, galleries) tested.",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
+          "provenance": "independent",
+          "evidence": [
+            {
+              "id": "ui-readiness-0-6-0",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-ui/blob/408b8844db13037a22c718b790f0d769a910803a/docs/releases/0.6.0-readiness.md",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-01T03:45:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
+            }
+          ],
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "evidence for this gate"
-          ],
-          "notes": null,
-          "blockers": [
-            "auto-critical-workflows-unverified"
-          ],
-          "nextAction": "Produce evidence for this gate."
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
+          "blockers": [],
+          "nextAction": null
         },
         {
           "id": "production-deployment",
           "requirement": "The production deployment serves the release commit and behaves as tested.",
           "phase": "post-publication",
-          "registryStatus": "in_progress",
-          "state": "unknown_stale",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "observation",
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-vercel-408b884",
@@ -329,28 +454,35 @@
               "origin": "manual",
               "provenance": "observation",
               "stale": "ui-vercel-408b884 is for 408b884, not the release candidate 9a13c9e"
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "current evidence: ui-vercel-408b884 is for 408b884, not the release candidate 9a13c9e",
-            "registry notes: The docs site is the hosted part; Vercel serves 408b884 (docs-only difference from 9a13c9e). Verifier confirms"
-          ],
-          "notes": "The docs site is the hosted part; Vercel serves 408b884 (docs-only difference from 9a13c9e). Verifier confirms.",
-          "blockers": [
-            "auto-stale-production-deployment"
-          ],
-          "nextAction": "Re-collect evidence for the current release candidate and have the verifier re-check it."
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
+          "blockers": [],
+          "nextAction": null
         },
         {
           "id": "documentation-accurate",
           "requirement": "README and essential docs describe the actual project, setup and deployment.",
           "phase": "pre-publication",
-          "registryStatus": "in_progress",
-          "state": "in_progress",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "builder-reported",
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-readiness-0-6-0",
@@ -375,44 +507,76 @@
               "origin": "manual",
               "provenance": "observation",
               "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Owner accepted the live docs; Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
-          ],
-          "notes": "Owner accepted the live docs; Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+          "nextAction": null
         },
         {
           "id": "no-release-blockers",
           "requirement": "No unresolved release-blocking findings.",
           "phase": "pre-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "none",
-          "evidence": [],
-          "lastObservedAt": null,
-          "failed": false,
-          "missing": [
-            "evidence for this gate"
+          "provenance": "independent",
+          "evidence": [
+            {
+              "id": "ui-readiness-0-6-0",
+              "type": "document",
+              "result": "builder_reported",
+              "url": "https://github.com/WasteOfADrumBum/one-small-ui/blob/408b8844db13037a22c718b790f0d769a910803a/docs/releases/0.6.0-readiness.md",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-01T03:45:00Z",
+              "recordedBy": "Claude Code",
+              "origin": "manual",
+              "provenance": "builder-reported",
+              "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
+            }
           ],
-          "notes": null,
+          "lastObservedAt": "2026-11-11T01:30:08Z",
+          "failed": false,
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Produce evidence for this gate."
+          "nextAction": null
         },
         {
           "id": "package-metadata-exports",
           "requirement": "Package name, version, `exports`/`bin`, `files`, `engines`, license and repository metadata verified.",
           "phase": "pre-publication",
-          "registryStatus": "in_progress",
-          "state": "in_progress",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "builder-reported",
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-readiness-0-6-0",
@@ -425,26 +589,35 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-01T03:45:00Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e"
-          ],
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+          "nextAction": null
         },
         {
           "id": "clean-consumer-install",
           "requirement": "The packed artifact installs and works in a clean consumer project.",
           "phase": "pre-publication",
-          "registryStatus": "in_progress",
-          "state": "in_progress",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "builder-reported",
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-readiness-0-6-0",
@@ -457,26 +630,35 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-01T03:45:00Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e"
-          ],
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+          "nextAction": null
         },
         {
           "id": "runtime-compatibility",
           "requirement": "Supported runtimes and platforms (Node versions, OS, host tools) tested as claimed.",
           "phase": "pre-publication",
-          "registryStatus": "in_progress",
-          "state": "in_progress",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "builder-reported",
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-readiness-0-6-0",
@@ -489,26 +671,35 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-01T03:45:00Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e"
-          ],
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+          "nextAction": null
         },
         {
           "id": "package-archive-inspection",
           "requirement": "`npm pack` (or equivalent) contents inspected: required files present, no tests, secrets, `.env`, or build junk.",
           "phase": "pre-publication",
-          "registryStatus": "in_progress",
-          "state": "in_progress",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "builder-reported",
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-readiness-0-6-0",
@@ -521,26 +712,35 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-01T03:45:00Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e"
-          ],
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+          "nextAction": null
         },
         {
           "id": "supply-chain-review",
           "requirement": "Dependency audit and supply-chain review completed (see [security.md](security.md#package-supply-chain)).",
           "phase": "pre-publication",
-          "registryStatus": "in_progress",
-          "state": "in_progress",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "builder-reported",
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-readiness-0-6-0",
@@ -565,26 +765,35 @@
               "origin": "manual",
               "provenance": "observation",
               "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Production audit 0; 2 moderate dev-only advisories accepted by the owner (owner-reported). Formal exception recorded in the acceptance record"
-          ],
-          "notes": "Production audit 0; 2 moderate dev-only advisories accepted by the owner (owner-reported). Formal exception recorded in the acceptance record.",
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+          "nextAction": null
         },
         {
           "id": "ci-release-pipeline",
           "requirement": "CI and the release/publish pipeline verified, with least-privilege permissions.",
           "phase": "pre-publication",
-          "registryStatus": "in_progress",
-          "state": "in_progress",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "builder-reported",
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-readiness-0-6-0",
@@ -597,26 +806,35 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-01T03:45:00Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e"
-          ],
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+          "nextAction": null
         },
         {
           "id": "versioning-changelog",
           "requirement": "Semantic version chosen and CHANGELOG updated for this release.",
           "phase": "pre-publication",
-          "registryStatus": "in_progress",
-          "state": "in_progress",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "builder-reported",
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-readiness-0-6-0",
@@ -629,26 +847,35 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-01T03:45:00Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e"
-          ],
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+          "nextAction": null
         },
         {
           "id": "distribution-verified",
           "requirement": "The package is available from npm (or the stated channel) under the expected name and version.",
           "phase": "post-publication",
-          "registryStatus": "in_progress",
-          "state": "in_progress",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "observation",
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-npm-0-6-0",
@@ -673,25 +900,35 @@
               "origin": "sync",
               "provenance": "observation",
               "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "registry notes: npm latest is 0.6.0 under @onesmall/ui (informational, checked 2026-11-02). Verifier records"
-          ],
-          "notes": "npm latest is 0.6.0 under @onesmall/ui (informational, checked 2026-11-02). Verifier records.",
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Finish the work and record evidence, then have the verifier re-check."
+          "nextAction": null
         },
         {
           "id": "release-provenance",
           "requirement": "Release provenance (npm `--provenance` or signed tags) where the channel supports it.",
           "phase": "post-publication",
-          "registryStatus": "not_verified",
-          "state": "not_started",
-          "applicable": true,
-          "provenance": "observation",
+          "registryStatus": "not_applicable",
+          "state": "not_applicable",
+          "applicable": false,
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-npm-0-6-0",
@@ -704,25 +941,35 @@
               "origin": "manual",
               "provenance": "observation",
               "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "registry notes: 0.6.0 was published without an npm provenance attestation. Owner decides: accept as unmet for 0.6.0 (blocks DoD) or record not_applicable with a rationale; trusted publishing is ROADMAP E5"
-          ],
-          "notes": "0.6.0 was published without an npm provenance attestation. Owner decides: accept as unmet for 0.6.0 (blocks DoD) or record not_applicable with a rationale; trusted publishing is ROADMAP E5.",
+          "missing": [],
+          "notes": "Owner-accepted exception for 0.6.0 only, recorded in hub PR #181: the requirement was NOT met. 0.6.0 was published without an npm provenance attestation and with an unsigned tag, and cannot be attested retroactively; it relies on npm dist.integrity matching the reproduced candidate tarball. Provenance via trusted publishing is required for the next release (one-small-ui ROADMAP E5).",
           "blockers": [],
-          "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+          "nextAction": null
         },
         {
           "id": "upgrade-rollback-uninstall-docs",
           "requirement": "Upgrade, rollback and uninstall behavior documented.",
           "phase": "pre-publication",
-          "registryStatus": "in_progress",
-          "state": "in_progress",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "builder-reported",
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-readiness-0-6-0",
@@ -735,26 +982,35 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-01T03:45:00Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e"
-          ],
-          "notes": "Builder evidence in the 0.6.0 readiness report; needs the verifier's own record at 9a13c9e.",
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+          "nextAction": null
         },
         {
           "id": "public-docs-accurate",
           "requirement": "Public documentation reflects actual, verified capabilities and states limits plainly.",
           "phase": "pre-publication",
-          "registryStatus": "in_progress",
-          "state": "in_progress",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "builder-reported",
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-readiness-0-6-0",
@@ -779,26 +1035,35 @@
               "origin": "manual",
               "provenance": "observation",
               "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Owner accepted the live docs; Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only"
-          ],
-          "notes": "Owner accepted the live docs; Owner-reported by Joshua Small in the project chat on 2026-11-02 and copied into the hub acceptance record; not a verify:record pass, so it moves the gate to in_progress only.",
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+          "nextAction": null
         },
         {
           "id": "published-artifact-matches",
           "requirement": "The published artifact matches the verified release commit and inspected archive.",
           "phase": "post-publication",
-          "registryStatus": "in_progress",
-          "state": "in_progress",
+          "registryStatus": "verified",
+          "state": "verified",
           "applicable": true,
-          "provenance": "builder-reported",
+          "provenance": "independent",
           "evidence": [
             {
               "id": "ui-npm-0-6-0",
@@ -823,99 +1088,31 @@
               "origin": "manual",
               "provenance": "builder-reported",
               "stale": null
+            },
+            {
+              "id": "ui-owner-final-verification-2026-11-11",
+              "type": "manual_test",
+              "result": "pass",
+              "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549",
+              "commitSha": "9a13c9e22d094a95364262a1ae89f666febac892",
+              "verifiedAt": "2026-11-11T01:30:08Z",
+              "recordedBy": "Joshua Small",
+              "origin": "manual",
+              "provenance": "independent",
+              "stale": null
             }
           ],
-          "lastObservedAt": "2026-11-02T21:30:00Z",
+          "lastObservedAt": "2026-11-11T01:30:08Z",
           "failed": false,
-          "missing": [
-            "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: npm dist.integrity equals the candidate tarball sha512 from the readiness report (informational). Verifier records"
-          ],
-          "notes": "npm dist.integrity equals the candidate tarball sha512 from the readiness report (informational). Verifier records.",
+          "missing": [],
+          "notes": "Joshua Small, assigned independent human verifier, confirmed his recorded manual checks and accepted the linked evidence for this gate in the final closeout attestation (hub PR #181). The prior source evidence keeps its builder/owner-reported provenance; no tests are represented as newly run by Claude Code.",
           "blockers": [],
-          "nextAction": "Verifier re-checks the builder evidence on the candidate commit and records a pass."
+          "nextAction": null
         }
       ],
       "blockers": {
         "merge": [],
-        "release": [
-          {
-            "id": "auto-critical-workflows-unverified",
-            "origin": "derived",
-            "status": "proposed",
-            "category": "workflow",
-            "severity": null,
-            "blocks": "release",
-            "gates": [
-              "critical-workflows"
-            ],
-            "description": "Critical workflows are not independently verified (critical-workflows).",
-            "evidenceRefs": [],
-            "rule": "critical workflow gates must be verified before release",
-            "action": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
-          },
-          {
-            "id": "auto-missing-verification",
-            "origin": "derived",
-            "status": "proposed",
-            "category": "evidence",
-            "severity": null,
-            "blocks": "release",
-            "gates": [
-              "scope-complete",
-              "automated-checks",
-              "security-privacy-review",
-              "wcag-22-aa",
-              "keyboard-screen-reader",
-              "responsive-layouts",
-              "critical-workflows",
-              "documentation-accurate",
-              "package-metadata-exports",
-              "clean-consumer-install",
-              "runtime-compatibility",
-              "package-archive-inspection",
-              "supply-chain-review",
-              "ci-release-pipeline",
-              "versioning-changelog",
-              "upgrade-rollback-uninstall-docs",
-              "public-docs-accurate"
-            ],
-            "description": "17 applicable pre-publication gate(s) lack current independent verification.",
-            "evidenceRefs": [],
-            "rule": "every applicable gate needs independent pass evidence",
-            "action": null
-          },
-          {
-            "id": "auto-owner-approval",
-            "origin": "derived",
-            "status": "proposed",
-            "category": "approval",
-            "severity": null,
-            "blocks": "release",
-            "gates": [],
-            "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release.",
-            "evidenceRefs": [],
-            "rule": "approval.status approved with evidence, by the approval owner",
-            "action": "Ask Joshua Small to review the evidence and approve or decline the release."
-          },
-          {
-            "id": "auto-stale-production-deployment",
-            "origin": "derived",
-            "status": "proposed",
-            "category": "stale-evidence",
-            "severity": null,
-            "blocks": "release",
-            "gates": [
-              "production-deployment"
-            ],
-            "description": "production-deployment: current evidence: ui-vercel-408b884 is for 408b884, not the release candidate 9a13c9e; registry notes: The docs site is the hosted part; Vercel serves 408b884 (docs-only difference from 9a13c9e). Verifier confirms.",
-            "evidenceRefs": [
-              "ui-vercel-408b884"
-            ],
-            "rule": "verified or in-progress gates need current evidence for the candidate",
-            "action": "Re-collect current evidence for production-deployment on the release candidate and have the verifier re-check it."
-          }
-        ],
+        "release": [],
         "postRelease": [
           {
             "id": "enhancement-1",
@@ -944,68 +1141,12 @@
           }
         ]
       },
-      "nextActions": [
-        {
-          "rank": 1,
-          "priority": 3,
-          "bucket": "Missing required verification",
-          "source": "auto-critical-workflows-unverified",
-          "origin": "derived",
-          "blocks": "release",
-          "gates": [
-            "critical-workflows"
-          ],
-          "text": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.",
-          "summary": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
-        },
-        {
-          "rank": 2,
-          "priority": 3,
-          "bucket": "Missing required verification",
-          "source": "auto-missing-verification",
-          "origin": "derived",
-          "blocks": "release",
-          "gates": [
-            "scope-complete",
-            "automated-checks",
-            "security-privacy-review",
-            "wcag-22-aa",
-            "keyboard-screen-reader",
-            "responsive-layouts",
-            "critical-workflows",
-            "documentation-accurate",
-            "package-metadata-exports",
-            "clean-consumer-install",
-            "runtime-compatibility",
-            "package-archive-inspection",
-            "supply-chain-review",
-            "ci-release-pipeline",
-            "versioning-changelog",
-            "upgrade-rollback-uninstall-docs",
-            "public-docs-accurate"
-          ],
-          "text": "Independently re-check the builder evidence for scope-complete, automated-checks, wcag-22-aa, documentation-accurate, package-metadata-exports, clean-consumer-install, runtime-compatibility, package-archive-inspection, supply-chain-review, ci-release-pipeline, versioning-changelog, upgrade-rollback-uninstall-docs, public-docs-accurate; produce evidence for security-privacy-review, keyboard-screen-reader, responsive-layouts; then verify critical-workflows once their blockers are resolved.",
-          "summary": "Independently re-check the builder evidence for scope-complete, automated-checks, wcag-22-aa, documentation-accurate..."
-        },
-        {
-          "rank": 3,
-          "priority": 3,
-          "bucket": "Missing required verification",
-          "source": "auto-stale-production-deployment",
-          "origin": "derived",
-          "blocks": "release",
-          "gates": [
-            "production-deployment"
-          ],
-          "text": "Re-collect current evidence for production-deployment on the release candidate and have the verifier re-check it.",
-          "summary": "Re-collect current evidence for production-deployment on the release candidate and have the verifier re-check it."
-        }
-      ],
+      "nextActions": [],
       "dependencies": [],
       "findings": [],
       "approval": {
-        "valid": false,
-        "reason": "approval is pending"
+        "valid": true,
+        "reason": null
       }
     },
     "unverified": [
@@ -1025,12 +1166,32 @@
         "provenance": "builder-reported"
       },
       {
+        "gate": "security-privacy-review",
+        "evidence": "ui-readiness-0-6-0",
+        "provenance": "builder-reported"
+      },
+      {
         "gate": "wcag-22-aa",
         "evidence": "ui-readiness-0-6-0",
         "provenance": "builder-reported"
       },
       {
+        "gate": "responsive-layouts",
+        "evidence": "ui-readiness-0-6-0",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "critical-workflows",
+        "evidence": "ui-readiness-0-6-0",
+        "provenance": "builder-reported"
+      },
+      {
         "gate": "documentation-accurate",
+        "evidence": "ui-readiness-0-6-0",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "no-release-blockers",
         "evidence": "ui-readiness-0-6-0",
         "provenance": "builder-reported"
       },

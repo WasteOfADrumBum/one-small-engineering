@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-04T19:45:40Z",
+  "asOf": "2026-11-11T03:33:46Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "293daeab70d9a8a332f23596c6fe3f25575886cc789879fe7e3a39ac8dadca62",
+  "registrySha256": "c4bda52ccea6531d725e45deee7a3a5690477945f08030dc4a06c37fdd50e85c",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-photography",
@@ -17,11 +17,48 @@
       "releaseStatus": "released",
       "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
       "candidate": null,
-      "openPullRequests": [],
-      "head": "d70f75f04942f8026871c701a4b69460d088ae34",
-      "snapshotObservedAt": "2026-11-04T14:19:50Z",
-      "lastSyncedAt": "2026-11-04T14:19:50Z",
-      "lastEvidenceAt": "2026-11-04T13:19:29Z",
+      "openPullRequests": [
+        {
+          "number": 31,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/31",
+          "headSha": "bcdcf3507eb9ab1b07bef34b168d721aee359383",
+          "draft": false
+        },
+        {
+          "number": 34,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/34",
+          "headSha": "124ec15c75b39aa94396ae6db25cf52393dcb889",
+          "draft": false
+        },
+        {
+          "number": 35,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/35",
+          "headSha": "fa54d18bc4c806cdeb47e5c9ec31f83468633188",
+          "draft": false
+        },
+        {
+          "number": 36,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/36",
+          "headSha": "ec775cb90e4437dd9eefc24920471b2eb61fb15b",
+          "draft": false
+        },
+        {
+          "number": 37,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/37",
+          "headSha": "fe92e7e52d397ecf124399208e55e19acc6b7e0f",
+          "draft": false
+        },
+        {
+          "number": 43,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/43",
+          "headSha": "e2dc2d8755bd98702d4f9c962e0934f41a5aa766",
+          "draft": false
+        }
+      ],
+      "head": "f314ffe54e79e17ed0647c7e21fd4d8da24f8f1d",
+      "snapshotObservedAt": "2026-11-11T01:20:50Z",
+      "lastSyncedAt": "2026-11-11T01:20:50Z",
+      "lastEvidenceAt": "2026-11-11T01:17:07Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",

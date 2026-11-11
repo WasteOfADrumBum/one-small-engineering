@@ -1,8 +1,8 @@
 {
   "kind": "one-small-engineering/verification-dashboard",
   "command": "npm run verify:report",
-  "asOf": "2026-11-03T18:54:22Z",
-  "registryHash": "18c4104a0fd25d1e02b26d577024627ee9730d4f1f98eaf3a49025ac636d8a94",
+  "asOf": "2026-11-11T03:33:46Z",
+  "registryHash": "c4bda52ccea6531d725e45deee7a3a5690477945f08030dc4a06c37fdd50e85c",
   "policyHash": "823b0544f445e395fce69af92db9032599ded2db7474cc36d338d33947143e54",
   "policyVersion": 1,
   "runs": [
@@ -96,14 +96,14 @@
         "independently_verified": 0,
         "passed_by_builder": 3,
         "failed": 6,
-        "inconclusive": 8,
-        "not_tested": 4,
+        "inconclusive": 7,
+        "not_tested": 5,
         "not_applicable": 1
       },
       "gates": [
         {
           "id": "scope-complete",
-          "state": "inconclusive",
+          "state": "not_tested",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": true,
@@ -448,24 +448,16 @@
         "high": 0,
         "medium": 2,
         "low": 0,
-        "unclassified": 23
+        "unclassified": 19
       },
       "blockers": [
-        {
-          "id": "pr-description-stale",
-          "origin": "registry",
-          "severity": "unclassified",
-          "blocks": "merge",
-          "category": "documentation",
-          "description": "PR #3 description disagrees with docs/release-verification.md at the same head (dependency audit INCONCLUSIVE vs PASS; 55 vs 82 packed files; 85 vs 89 CLI tests). Reconcile before review."
-        },
         {
           "id": "codex-interactive-trust",
           "origin": "registry",
           "severity": "unclassified",
           "blocks": "release",
           "category": "workflow",
-          "description": "Codex hook enforcement verified only with trust bypassed; interactive /hooks trust not confirmed."
+          "description": "Codex hook enforcement verified only with trust bypassed (0.159.3); interactive /hooks trust not confirmed (manual-acceptance row P1). No OpenAI credentials in the agent container on 2026-11-04."
         },
         {
           "id": "copilot-gemini-runtime-untested",
@@ -473,7 +465,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "workflow",
-          "description": "Copilot and Gemini CLI hook enforcement and custom agents are NOT TESTED; either test in authenticated runtimes or record an owner decision to ship them as experimental."
+          "description": "Copilot and Gemini CLI hook enforcement, custom agents and model use are NOT TESTED (discovery verified 2026-10-31 in Copilot CLI 1.0.105 and Gemini CLI 0.66.0; no credentials in the agent container on 2026-11-04). Owner decision: test (manual-acceptance rows P2, P3) or mark DEFERRED-BY-OWNER and ship as unverified."
         },
         {
           "id": "manual-screen-reader-review",
@@ -497,15 +489,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "distribution",
-          "description": "npm ownership of one-small-modspack and publish access not confirmed; the name is currently unpublished."
-        },
-        {
-          "id": "publish-pipeline-missing",
-          "origin": "registry",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "distribution",
-          "description": "No release or publish workflow exists at the candidate commit (only ci.yml), so the package cannot be published from CI with npm provenance. Add a least-privilege publish workflow (manual trigger, npm --provenance) or record an owner decision on how 2.0.0 is published. Proposed by Claude Code in the Phase 3 PR for owner review."
+          "description": "npm account access for publishing one-small-modspack not confirmed by the owner; the name is still unpublished (npm view E404 on 2026-11-04, which is not a reservation). The npm-publish environment and a first-publication token are owner setup steps (release/README.md)."
         },
         {
           "id": "release-authorization",
@@ -513,7 +497,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "approval",
-          "description": "No owner authorization yet for merge, tag, npm publish or deployment."
+          "description": "No owner authorization yet for tag, npm publish, GitHub release or website deployment, and no owner sign-off in release/2.0.0/manual-acceptance.md (all 15 rows PENDING)."
         },
         {
           "id": "auto-critical-workflows-unverified",
@@ -529,15 +513,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "evidence",
-          "description": "4 applicable pre-publication gate(s) lack current independent verification."
-        },
-        {
-          "id": "auto-stale-automated-checks",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "stale-evidence",
-          "description": "automated-checks: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd; registry notes: CI green on PR #3 head 80cc269. The PR is under active testing; re-check on the final head."
+          "description": "6 applicable pre-publication gate(s) lack current independent verification."
         },
         {
           "id": "auto-stale-ci-release-pipeline",
@@ -545,7 +521,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "stale-evidence",
-          "description": "ci-release-pipeline: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate c747cbd; registry notes: CI exists for checks (contents: read). There is no release or publish pipeline yet."
+          "description": "ci-release-pipeline: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate b0ff54a; registry notes: CI exists for checks (contents: read). There is no release or publish pipeline yet."
         },
         {
           "id": "auto-stale-clean-consumer-install",
@@ -553,7 +529,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "stale-evidence",
-          "description": "clean-consumer-install: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports an artifact test that packs, installs, validates and initializes every platform."
+          "description": "clean-consumer-install: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Builder reports an artifact test that packs, installs, validates and initializes every platform."
         },
         {
           "id": "auto-stale-keyboard-screen-reader",
@@ -561,7 +537,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "stale-evidence",
-          "description": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED."
+          "description": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED."
         },
         {
           "id": "auto-stale-package-archive-inspection",
@@ -569,7 +545,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "stale-evidence",
-          "description": "package-archive-inspection: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports an 82-file tarball reviewed with an artifact regression test; not independently re-inspected."
+          "description": "package-archive-inspection: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Builder reports an 82-file tarball reviewed with an artifact regression test; not independently re-inspected."
         },
         {
           "id": "auto-stale-public-docs-accurate",
@@ -577,7 +553,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "stale-evidence",
-          "description": "public-docs-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate c747cbd; registry notes: README, CHANGELOG and limitations reviewed by the builder; compatibility claims come from the catalog."
+          "description": "public-docs-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate b0ff54a; registry notes: README, CHANGELOG and limitations reviewed by the builder; compatibility claims come from the catalog."
         },
         {
           "id": "auto-stale-responsive-layouts",
@@ -585,7 +561,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "stale-evidence",
-          "description": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED."
+          "description": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED."
         },
         {
           "id": "auto-stale-runtime-compatibility",
@@ -593,15 +569,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "stale-evidence",
-          "description": "runtime-compatibility: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate c747cbd; registry notes: Claude Code harness PASS; Codex discovery and trust-bypassed hook enforcement live; Copilot/Gemini runtime NOT TESTED; Node 20 partial, CI runs Node 22 only."
-        },
-        {
-          "id": "auto-stale-scope-complete",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "stale-evidence",
-          "description": "scope-complete: current evidence: msp-pr-3 is for 80cc269, not the release candidate c747cbd; registry notes: Scope is PR #3 plus the go/no-go checklist in release-verification.md; open checklist items remain."
+          "description": "runtime-compatibility: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate b0ff54a; registry notes: Claude Code harness PASS; Codex discovery and trust-bypassed hook enforcement live; Copilot/Gemini runtime NOT TESTED; Node 20 partial, CI runs Node 22 only."
         },
         {
           "id": "auto-stale-supply-chain-review",
@@ -609,7 +577,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "stale-evidence",
-          "description": "supply-chain-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE."
+          "description": "supply-chain-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE."
         },
         {
           "id": "auto-stale-upgrade-rollback-uninstall-docs",
@@ -617,7 +585,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "stale-evidence",
-          "description": "upgrade-rollback-uninstall-docs: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Install, update and modspack uninstall --yes documented in docs/getting-started.md (builder-reported)."
+          "description": "upgrade-rollback-uninstall-docs: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Install, update and modspack uninstall --yes documented in docs/getting-started.md (builder-reported)."
         },
         {
           "id": "auto-stale-versioning-changelog",
@@ -625,7 +593,7 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "stale-evidence",
-          "description": "versioning-changelog: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: CHANGELOG 2.0.0 (unreleased) with mod version list and a consistency test (builder-reported)."
+          "description": "versioning-changelog: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: CHANGELOG 2.0.0 (unreleased) with mod version list and a consistency test (builder-reported)."
         },
         {
           "id": "auto-stale-wcag-22-aa",
@@ -633,10 +601,10 @@
           "severity": "unclassified",
           "blocks": "release",
           "category": "stale-evidence",
-          "description": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate c747cbd; registry notes: Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding."
+          "description": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding."
         }
       ],
-      "mergeEligible": false,
+      "mergeEligible": true,
       "releaseEligible": false,
       "lastCollection": "2026-10-28T21:06:49Z",
       "lastVerification": null,
@@ -1223,25 +1191,25 @@
         "drift": null
       },
       "readiness": {
-        "percentage": 0,
-        "previousPercentage": 0,
-        "applicableGates": 22,
-        "verifiedGates": 0,
-        "eligibility": "not-eligible",
+        "percentage": 100,
+        "previousPercentage": 100,
+        "applicableGates": 21,
+        "verifiedGates": 21,
+        "eligibility": "released",
         "ownershipValid": true
       },
       "gateStates": {
-        "independently_verified": 0,
-        "passed_by_builder": 3,
-        "failed": 9,
-        "inconclusive": 3,
-        "not_tested": 7,
-        "not_applicable": 0
+        "independently_verified": 21,
+        "passed_by_builder": 0,
+        "failed": 0,
+        "inconclusive": 0,
+        "not_tested": 0,
+        "not_applicable": 1
       },
       "gates": [
         {
           "id": "scope-complete",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": true,
@@ -1251,7 +1219,7 @@
         },
         {
           "id": "automated-checks",
-          "state": "passed_by_builder",
+          "state": "independently_verified",
           "automation": "full",
           "manualReviewRequired": false,
           "humanOnly": false,
@@ -1277,7 +1245,7 @@
         },
         {
           "id": "security-privacy-review",
-          "state": "passed_by_builder",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -1293,7 +1261,7 @@
         },
         {
           "id": "wcag-22-aa",
-          "state": "inconclusive",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -1309,7 +1277,7 @@
         },
         {
           "id": "keyboard-screen-reader",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": true,
@@ -1319,7 +1287,7 @@
         },
         {
           "id": "responsive-layouts",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -1329,7 +1297,7 @@
         },
         {
           "id": "critical-workflows",
-          "state": "passed_by_builder",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -1345,7 +1313,7 @@
         },
         {
           "id": "production-deployment",
-          "state": "inconclusive",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -1361,7 +1329,7 @@
         },
         {
           "id": "documentation-accurate",
-          "state": "failed",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -1377,7 +1345,7 @@
         },
         {
           "id": "no-release-blockers",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": true,
@@ -1387,7 +1355,7 @@
         },
         {
           "id": "package-metadata-exports",
-          "state": "failed",
+          "state": "independently_verified",
           "automation": "full",
           "manualReviewRequired": false,
           "humanOnly": false,
@@ -1403,7 +1371,7 @@
         },
         {
           "id": "clean-consumer-install",
-          "state": "failed",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -1419,7 +1387,7 @@
         },
         {
           "id": "runtime-compatibility",
-          "state": "failed",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -1435,7 +1403,7 @@
         },
         {
           "id": "package-archive-inspection",
-          "state": "failed",
+          "state": "independently_verified",
           "automation": "full",
           "manualReviewRequired": false,
           "humanOnly": false,
@@ -1451,7 +1419,7 @@
         },
         {
           "id": "supply-chain-review",
-          "state": "inconclusive",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -1461,7 +1429,7 @@
         },
         {
           "id": "ci-release-pipeline",
-          "state": "failed",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -1477,7 +1445,7 @@
         },
         {
           "id": "versioning-changelog",
-          "state": "failed",
+          "state": "independently_verified",
           "automation": "full",
           "manualReviewRequired": false,
           "humanOnly": false,
@@ -1493,7 +1461,7 @@
         },
         {
           "id": "distribution-verified",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -1503,7 +1471,7 @@
         },
         {
           "id": "release-provenance",
-          "state": "not_tested",
+          "state": "not_applicable",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -1513,7 +1481,7 @@
         },
         {
           "id": "upgrade-rollback-uninstall-docs",
-          "state": "failed",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -1529,7 +1497,7 @@
         },
         {
           "id": "public-docs-accurate",
-          "state": "failed",
+          "state": "independently_verified",
           "automation": "partial",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -1545,7 +1513,7 @@
         },
         {
           "id": "published-artifact-matches",
-          "state": "not_tested",
+          "state": "independently_verified",
           "automation": "none",
           "manualReviewRequired": true,
           "humanOnly": false,
@@ -1554,30 +1522,7 @@
           "verifications": []
         }
       ],
-      "missingVerification": [
-        "scope-complete",
-        "automated-checks",
-        "security-privacy-review",
-        "wcag-22-aa",
-        "keyboard-screen-reader",
-        "responsive-layouts",
-        "critical-workflows",
-        "production-deployment",
-        "documentation-accurate",
-        "no-release-blockers",
-        "package-metadata-exports",
-        "clean-consumer-install",
-        "runtime-compatibility",
-        "package-archive-inspection",
-        "supply-chain-review",
-        "ci-release-pipeline",
-        "versioning-changelog",
-        "distribution-verified",
-        "release-provenance",
-        "upgrade-rollback-uninstall-docs",
-        "public-docs-accurate",
-        "published-artifact-matches"
-      ],
+      "missingVerification": [],
       "staleEvidence": [
         {
           "id": "ev-one-small-ui-dependency-audit-94438ee-c247d2a2",
@@ -1593,47 +1538,14 @@
         "high": 0,
         "medium": 2,
         "low": 1,
-        "unclassified": 4
+        "unclassified": 0
       },
-      "blockers": [
-        {
-          "id": "auto-critical-workflows-unverified",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "workflow",
-          "description": "Critical workflows are not independently verified (critical-workflows)."
-        },
-        {
-          "id": "auto-missing-verification",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "evidence",
-          "description": "17 applicable pre-publication gate(s) lack current independent verification."
-        },
-        {
-          "id": "auto-owner-approval",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "approval",
-          "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
-        },
-        {
-          "id": "auto-stale-production-deployment",
-          "origin": "derived",
-          "severity": "unclassified",
-          "blocks": "release",
-          "category": "stale-evidence",
-          "description": "production-deployment: current evidence: ui-vercel-408b884 is for 408b884, not the release candidate 9a13c9e; registry notes: The docs site is the hosted part; Vercel serves 408b884 (docs-only difference from 9a13c9e). Verifier confirms."
-        }
-      ],
+      "blockers": [],
       "mergeEligible": true,
-      "releaseEligible": false,
+      "releaseEligible": true,
       "lastCollection": "2026-10-28T21:06:50Z",
       "lastVerification": null,
-      "nextAction": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result.",
+      "nextAction": "None",
       "findings": [
         {
           "id": "one-small-ui:accessibility:94438ee",
@@ -1780,498 +1692,40 @@
           ]
         }
       ],
-      "relatedPullRequests": [],
-      "remediation": [],
-      "verificationRequests": [
+      "relatedPullRequests": [
         {
-          "gate": "scope-complete",
-          "automation": "none",
-          "humanOnly": true,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
+          "number": 39,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/39",
+          "draft": false
         },
         {
-          "gate": "automated-checks",
-          "automation": "full",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-ui-build-test-94438ee-46e60bd8",
-              "digest": "06caf9238b0ab2e0d2904d17787e393492fb94a9a3479a8fea6cf1ac40940363",
-              "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-ui-build-test-94438ee-7aa0df0c",
-              "digest": "5f726a51988be0a81e5cd8e67d08884fc83671ff3b3e11ed2ce4868b80602780",
-              "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-ui-build-test-94438ee-bd83ad58",
-              "digest": "d9e93ef7bc9b782a48c99687c4d859dbfe0d83457f5fd5ecb1cb991e2aa9f062",
-              "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-ui-ci-results-94438ee-0475c8d2",
-              "digest": "8eda4ce5ba353b8f8bd7fa8f3ba9905fe3cb85bf47bfac2d5762308436cd5832",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-ui-ci-results-94438ee-090f762b",
-              "digest": "d44acecad3ff6e16928a4861dbd5d8f9b8c523dcc7a91fe34feb70d4386b865d",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-ui-ci-results-94438ee-5abe3f1f",
-              "digest": "aaf3faa47f8282ba006da4e904e1aa104d501ee4d618cef4af912a82b1255f10",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-ui-ci-results-94438ee-5c0ef90e",
-              "digest": "fbdb423acdd534cfee48f7a5a93fb3c16363dc675d081946f20fac19f3eada6d",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-ui-ci-results-94438ee-722a0f4b",
-              "digest": "9f150a77bae1bb381aceb8fdf461bf20673feb918d3528ed9566b0da6de0e4a0",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-ui-ci-results-94438ee-b0dee17e",
-              "digest": "035788385eb9b04a32a45a45ccdda87886b906f72f653620e5db0f9f07f244f8",
-              "collector": "ci-results",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-ui-lint-format-types-94438ee-b048c952",
-              "digest": "42bffa06f1f649886d5a232bfd3b4ce78d89a7aa885a02b74c3055376c58ecc3",
-              "collector": "lint-format-types",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-ui-lint-format-types-94438ee-c4a80561",
-              "digest": "093e166c08db9ebacefca72c62f7f690d3fbc018d7f63f3dbcb0c3adf17978a0",
-              "collector": "lint-format-types",
-              "result": "pass"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "re-executed",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
+          "number": 41,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/41",
+          "draft": false
         },
         {
-          "gate": "security-privacy-review",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-ui-secret-scan-94438ee-0d4de9f6",
-              "digest": "d77c215ff1b80580ee9d0f3014ba18affb4243c697d90e77537f055a2d62a70f",
-              "collector": "secret-scan",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-ui-secret-scan-94438ee-64a0d2ba",
-              "digest": "e57d9c50189ef800a428bb8295f3cede6f4ea456427bc0482f003907f8bd218a",
-              "collector": "secret-scan",
-              "result": "pass"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
+          "number": 42,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/42",
+          "draft": false
         },
         {
-          "gate": "wcag-22-aa",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-ui-accessibility-94438ee-c38c97f7",
-              "digest": "dcc3e029404cdcfe7704d716f5bd04fd93c6fc83ecdceeac6f4cd28ff5ba26dd",
-              "collector": "accessibility",
-              "result": "inconclusive"
-            },
-            {
-              "id": "ev-one-small-ui-accessibility-94438ee-ca6c9e73",
-              "digest": "caddd7f7ccdcf78c72babdc2c6b7b7a78cbea309df36f3732fd4fcbdc54d1d6c",
-              "collector": "accessibility",
-              "result": "inconclusive"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
+          "number": 43,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/43",
+          "draft": false
         },
         {
-          "gate": "keyboard-screen-reader",
-          "automation": "none",
-          "humanOnly": true,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
+          "number": 44,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/44",
+          "draft": false
         },
         {
-          "gate": "responsive-layouts",
-          "automation": "none",
-          "humanOnly": false,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
-        },
-        {
-          "gate": "critical-workflows",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-ui-build-test-94438ee-46e60bd8",
-              "digest": "06caf9238b0ab2e0d2904d17787e393492fb94a9a3479a8fea6cf1ac40940363",
-              "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-ui-build-test-94438ee-7aa0df0c",
-              "digest": "5f726a51988be0a81e5cd8e67d08884fc83671ff3b3e11ed2ce4868b80602780",
-              "collector": "build-test",
-              "result": "pass"
-            },
-            {
-              "id": "ev-one-small-ui-build-test-94438ee-bd83ad58",
-              "digest": "d9e93ef7bc9b782a48c99687c4d859dbfe0d83457f5fd5ecb1cb991e2aa9f062",
-              "collector": "build-test",
-              "result": "pass"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "production-deployment",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-ui-deployment-health-94438ee-4b57ce2e",
-              "digest": "03d427aa4757d5744833f4305b723de280875a39d07a93836facaf94710e84a5",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-ui-deployment-health-94438ee-5e002677",
-              "digest": "9bfa38e9bb609c560954739f92359103b9e37308dc7763081c2c82210cc59c04",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-ui-deployment-health-94438ee-7d0def0d",
-              "digest": "22feb25293cbf34795f072fc4553160d2660f3179a9bd4e3d169a718ab1c87f3",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-ui-deployment-health-94438ee-995bed74",
-              "digest": "57a323b41b84b93d34942ac297dab8d4f9be75918325446513497c8f958c3e0b",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-ui-deployment-health-94438ee-9d247db9",
-              "digest": "2f29ddd50173d3b86998b56d8b96e628ec37aef4cfa8d3c97eef46cab98a3d05",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            },
-            {
-              "id": "ev-one-small-ui-deployment-health-94438ee-ae0893ff",
-              "digest": "4dd75ffbcdda07f3cfd54c56274a345d499a2f890088c17244ba2df5e278ce00",
-              "collector": "deployment-health",
-              "result": "unavailable"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "documentation-accurate",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-ui-documentation-94438ee-009b26ac",
-              "digest": "bdaeae76629c4d3144ee17a840724953bff4a17f9b6fa5998527c3d20c3c84c9",
-              "collector": "documentation",
-              "result": "fail"
-            },
-            {
-              "id": "ev-one-small-ui-documentation-94438ee-46de4908",
-              "digest": "6342dad511048d564398feb8919919e42f68358bcb53d9c099278910a9852c31",
-              "collector": "documentation",
-              "result": "fail"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "no-release-blockers",
-          "automation": "none",
-          "humanOnly": true,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
-        },
-        {
-          "gate": "package-metadata-exports",
-          "automation": "full",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-ui-release-packaging-94438ee-26f4e088",
-              "digest": "39a6b721923738ab1eece1b654d5902a24b90c252058e306b0c6c1752bfc13b3",
-              "collector": "release-packaging",
-              "result": "fail"
-            },
-            {
-              "id": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
-              "digest": "8cfd748fbdb90344d50eb170aca10963b6c2915d8994bbf403ffeae5c665c29a",
-              "collector": "release-packaging",
-              "result": "fail"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "re-executed",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "clean-consumer-install",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-ui-release-packaging-94438ee-26f4e088",
-              "digest": "39a6b721923738ab1eece1b654d5902a24b90c252058e306b0c6c1752bfc13b3",
-              "collector": "release-packaging",
-              "result": "fail"
-            },
-            {
-              "id": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
-              "digest": "8cfd748fbdb90344d50eb170aca10963b6c2915d8994bbf403ffeae5c665c29a",
-              "collector": "release-packaging",
-              "result": "fail"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "runtime-compatibility",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-ui-compatibility-94438ee-1fbb33cf",
-              "digest": "5ef0f06640e9ad4253e5e0a5831ca116d7c269c9b7b7adc812520957290e6ffa",
-              "collector": "compatibility",
-              "result": "fail"
-            },
-            {
-              "id": "ev-one-small-ui-compatibility-94438ee-4922bd39",
-              "digest": "b68086883aa1761523656843fd44a783425fdde8a31104e94fbe114bd2482010",
-              "collector": "compatibility",
-              "result": "fail"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "package-archive-inspection",
-          "automation": "full",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-ui-release-packaging-94438ee-26f4e088",
-              "digest": "39a6b721923738ab1eece1b654d5902a24b90c252058e306b0c6c1752bfc13b3",
-              "collector": "release-packaging",
-              "result": "fail"
-            },
-            {
-              "id": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
-              "digest": "8cfd748fbdb90344d50eb170aca10963b6c2915d8994bbf403ffeae5c665c29a",
-              "collector": "release-packaging",
-              "result": "fail"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "re-executed",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "supply-chain-review",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [],
-          "missingCollectors": [
-            "dependency-audit"
-          ],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "waiting for evidence"
-        },
-        {
-          "gate": "ci-release-pipeline",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-ui-release-packaging-94438ee-26f4e088",
-              "digest": "39a6b721923738ab1eece1b654d5902a24b90c252058e306b0c6c1752bfc13b3",
-              "collector": "release-packaging",
-              "result": "fail"
-            },
-            {
-              "id": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
-              "digest": "8cfd748fbdb90344d50eb170aca10963b6c2915d8994bbf403ffeae5c665c29a",
-              "collector": "release-packaging",
-              "result": "fail"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "versioning-changelog",
-          "automation": "full",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-ui-release-packaging-94438ee-26f4e088",
-              "digest": "39a6b721923738ab1eece1b654d5902a24b90c252058e306b0c6c1752bfc13b3",
-              "collector": "release-packaging",
-              "result": "fail"
-            },
-            {
-              "id": "ev-one-small-ui-release-packaging-94438ee-b4d7867f",
-              "digest": "8cfd748fbdb90344d50eb170aca10963b6c2915d8994bbf403ffeae5c665c29a",
-              "collector": "release-packaging",
-              "result": "fail"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "re-executed",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "distribution-verified",
-          "automation": "none",
-          "humanOnly": false,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
-        },
-        {
-          "gate": "release-provenance",
-          "automation": "none",
-          "humanOnly": false,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
-        },
-        {
-          "gate": "upgrade-rollback-uninstall-docs",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-ui-documentation-94438ee-009b26ac",
-              "digest": "bdaeae76629c4d3144ee17a840724953bff4a17f9b6fa5998527c3d20c3c84c9",
-              "collector": "documentation",
-              "result": "fail"
-            },
-            {
-              "id": "ev-one-small-ui-documentation-94438ee-46de4908",
-              "digest": "6342dad511048d564398feb8919919e42f68358bcb53d9c099278910a9852c31",
-              "collector": "documentation",
-              "result": "fail"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "public-docs-accurate",
-          "automation": "partial",
-          "humanOnly": false,
-          "evidence": [
-            {
-              "id": "ev-one-small-ui-documentation-94438ee-009b26ac",
-              "digest": "bdaeae76629c4d3144ee17a840724953bff4a17f9b6fa5998527c3d20c3c84c9",
-              "collector": "documentation",
-              "result": "fail"
-            },
-            {
-              "id": "ev-one-small-ui-documentation-94438ee-46de4908",
-              "digest": "6342dad511048d564398feb8919919e42f68358bcb53d9c099278910a9852c31",
-              "collector": "documentation",
-              "result": "fail"
-            }
-          ],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "ready for verifier"
-        },
-        {
-          "gate": "published-artifact-matches",
-          "automation": "none",
-          "humanOnly": false,
-          "evidence": [],
-          "missingCollectors": [],
-          "method": "manual-test",
-          "routedTo": "Joshua Small",
-          "status": "manual verification only"
+          "number": 47,
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/47",
+          "draft": false
         }
-      ]
+      ],
+      "remediation": [],
+      "verificationRequests": []
     },
     {
       "id": "personal-portfolio",
@@ -2289,7 +1743,7 @@
         "previousPercentage": 100,
         "applicableGates": 10,
         "verifiedGates": 10,
-        "eligibility": "released",
+        "eligibility": "not-eligible",
         "ownershipValid": true
       },
       "gateStates": {
@@ -2345,17 +1799,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-personal-portfolio-dependency-audit-56ea76e-a7e719b8",
-              "collector": "dependency-audit",
-              "result": "pass"
-            },
-            {
               "id": "ev-personal-portfolio-secret-scan-56ea76e-556244d6",
               "collector": "secret-scan",
               "result": "pass"
             }
           ],
-          "staleEvidence": 4,
+          "staleEvidence": 5,
           "verifications": []
         },
         {
@@ -2476,6 +1925,10 @@
           "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
         },
         {
+          "id": "ev-personal-portfolio-dependency-audit-56ea76e-a7e719b8",
+          "reason": "expired 2026-11-04"
+        },
+        {
           "id": "ev-personal-portfolio-dependency-audit-684ef3c-448e5446",
           "reason": "collected for 684ef3c, not the evaluated commit 56ea76e"
         },
@@ -2513,14 +1966,23 @@
         "high": 0,
         "medium": 0,
         "low": 0,
-        "unclassified": 0
+        "unclassified": 1
       },
-      "blockers": [],
+      "blockers": [
+        {
+          "id": "auto-ci-failed-sync-personal-portfolio-run-ci-yml-16c165d-jq4q8vj-1",
+          "origin": "derived",
+          "severity": "unclassified",
+          "blocks": "merge",
+          "category": "ci",
+          "description": "CI did not pass on 16c165d (failure)."
+        }
+      ],
       "mergeEligible": false,
-      "releaseEligible": true,
+      "releaseEligible": false,
       "lastCollection": "2026-10-28T21:06:53Z",
       "lastVerification": null,
-      "nextAction": "None",
+      "nextAction": "Fix the failing CI run on 16c165d and re-run it (never skip or disable tests).",
       "findings": [
         {
           "id": "personal-portfolio:accessibility:56ea76e",
@@ -2675,7 +2137,28 @@
           "verification": []
         }
       ],
-      "relatedPullRequests": [],
+      "relatedPullRequests": [
+        {
+          "number": 35,
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/35",
+          "draft": false
+        },
+        {
+          "number": 38,
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/38",
+          "draft": false
+        },
+        {
+          "number": 39,
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/39",
+          "draft": false
+        },
+        {
+          "number": 42,
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/42",
+          "draft": false
+        }
+      ],
       "remediation": [
         {
           "url": "https://github.com/WasteOfADrumBum/joshsmall-site/pull/17",
@@ -2756,17 +2239,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-studio-dependency-audit-d6854de-6ed21926",
-              "collector": "dependency-audit",
-              "result": "pass"
-            },
-            {
               "id": "ev-one-small-studio-secret-scan-d6854de-d3926880",
               "collector": "secret-scan",
               "result": "pass"
             }
           ],
-          "staleEvidence": 4,
+          "staleEvidence": 5,
           "verifications": []
         },
         {
@@ -2885,6 +2363,10 @@
         {
           "id": "ev-one-small-studio-build-test-175cef6-b269e3ac",
           "reason": "collected for 175cef6, not the evaluated commit d6854de"
+        },
+        {
+          "id": "ev-one-small-studio-dependency-audit-d6854de-6ed21926",
+          "reason": "expired 2026-11-04"
         },
         {
           "id": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
@@ -3086,7 +2568,18 @@
           "verification": []
         }
       ],
-      "relatedPullRequests": [],
+      "relatedPullRequests": [
+        {
+          "number": 27,
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/27",
+          "draft": false
+        },
+        {
+          "number": 32,
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/32",
+          "draft": false
+        }
+      ],
       "remediation": [
         {
           "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/16",
@@ -3167,17 +2660,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-one-small-photography-dependency-audit-fa2d17f-7b1ff911",
-              "collector": "dependency-audit",
-              "result": "pass"
-            },
-            {
               "id": "ev-one-small-photography-secret-scan-fa2d17f-ea7ed43e",
               "collector": "secret-scan",
               "result": "inconclusive"
             }
           ],
-          "staleEvidence": 4,
+          "staleEvidence": 5,
           "verifications": []
         },
         {
@@ -3296,6 +2784,10 @@
         {
           "id": "ev-one-small-photography-build-test-45a74ba-469ea48f",
           "reason": "collected for 45a74ba, not the evaluated commit fa2d17f"
+        },
+        {
+          "id": "ev-one-small-photography-dependency-audit-fa2d17f-7b1ff911",
+          "reason": "expired 2026-11-04"
         },
         {
           "id": "ev-one-small-photography-dependency-audit-45a74ba-e4c11401",
@@ -3519,7 +3011,38 @@
           ]
         }
       ],
-      "relatedPullRequests": [],
+      "relatedPullRequests": [
+        {
+          "number": 31,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/31",
+          "draft": false
+        },
+        {
+          "number": 34,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/34",
+          "draft": false
+        },
+        {
+          "number": 35,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/35",
+          "draft": false
+        },
+        {
+          "number": 36,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/36",
+          "draft": false
+        },
+        {
+          "number": 37,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/37",
+          "draft": false
+        },
+        {
+          "number": 43,
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/43",
+          "draft": false
+        }
+      ],
       "remediation": [],
       "verificationRequests": []
     },
@@ -3595,17 +3118,12 @@
           "humanOnly": false,
           "collectorEvidence": [
             {
-              "id": "ev-taskforge-dependency-audit-f9f14be-a2610ff3",
-              "collector": "dependency-audit",
-              "result": "pass"
-            },
-            {
               "id": "ev-taskforge-secret-scan-f9f14be-22746d50",
               "collector": "secret-scan",
               "result": "inconclusive"
             }
           ],
-          "staleEvidence": 4,
+          "staleEvidence": 5,
           "verifications": []
         },
         {
@@ -3863,6 +3381,10 @@
         {
           "id": "ev-taskforge-build-test-11975d0-e8803dfb",
           "reason": "collected for 11975d0, not the evaluated commit f9f14be"
+        },
+        {
+          "id": "ev-taskforge-dependency-audit-f9f14be-a2610ff3",
+          "reason": "expired 2026-11-04"
         },
         {
           "id": "ev-taskforge-dependency-audit-11975d0-b1e62bb2",
@@ -4181,12 +3703,6 @@
           "automation": "partial",
           "humanOnly": false,
           "evidence": [
-            {
-              "id": "ev-taskforge-dependency-audit-f9f14be-a2610ff3",
-              "digest": "39494e11800109dd47c207dd1805420d279dbb6fb79ca7f238612656aee62649",
-              "collector": "dependency-audit",
-              "result": "pass"
-            },
             {
               "id": "ev-taskforge-secret-scan-f9f14be-22746d50",
               "digest": "b094cac87aee7a7fa0f72ad764d99829e444d70a25b367ea9b4f4f23a5f787af",

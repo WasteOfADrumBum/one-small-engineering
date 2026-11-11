@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-11-03T18:54:22Z",
+  "asOf": "2026-11-11T03:33:46Z",
   "id": "one-small-studio",
   "name": "One Small Studio",
   "tier": "showcase",
@@ -111,13 +111,6 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-studio-dependency-audit-d6854de-6ed21926",
-          "collector": "dependency-audit",
-          "result": "pass",
-          "executedAt": "2026-10-28T21:04:19Z",
-          "summary": "dependency audit: critical 0, high 0, moderate 0, low 0, info 0"
-        },
-        {
           "id": "ev-one-small-studio-secret-scan-d6854de-d3926880",
           "collector": "secret-scan",
           "result": "pass",
@@ -126,6 +119,10 @@
         }
       ],
       "staleEvidence": [
+        {
+          "id": "ev-one-small-studio-dependency-audit-d6854de-6ed21926",
+          "reason": "expired 2026-11-04"
+        },
         {
           "id": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
           "reason": "collected for 175cef6, not the evaluated commit d6854de"
@@ -340,6 +337,10 @@
       "reason": "collected for 175cef6, not the evaluated commit d6854de"
     },
     {
+      "id": "ev-one-small-studio-dependency-audit-d6854de-6ed21926",
+      "reason": "expired 2026-11-04"
+    },
+    {
       "id": "ev-one-small-studio-dependency-audit-175cef6-0f866491",
       "reason": "collected for 175cef6, not the evaluated commit d6854de"
     },
@@ -547,7 +548,18 @@
     }
   ],
   "verifications": [],
-  "relatedPullRequests": [],
+  "relatedPullRequests": [
+    {
+      "number": 27,
+      "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/27",
+      "draft": false
+    },
+    {
+      "number": 32,
+      "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/32",
+      "draft": false
+    }
+  ],
   "remediation": [
     {
       "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/16",

@@ -1,6 +1,6 @@
 # One Small UI 0.6.0: final closeout package
 
-Prepared 2026-11-11 by Claude Code for Joshua Small's review. Status: **owner attestation pending**. Nothing here records approval or a verification pass until Joshua Small posts his own attestation on the pull request that adds this file.
+Prepared 2026-11-11 by Claude Code for Joshua Small's review. Status: **attested and approved**. Joshua Small signed the package on [PR #181](https://github.com/WasteOfADrumBum/one-small-engineering/pull/181#issuecomment-6784298549) on 2026-11-11; the registry records it as evidence `ui-owner-final-verification-2026-11-11`.
 
 This follows the same pattern as [the showcase closeout](final-closeout-2026-11-03.md): Joshua Small, the assigned human verifier, reviews the linked evidence and records one attestation. Earlier builder-reported results keep their provenance; no test is represented as newly run.
 
