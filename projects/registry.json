@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-11T13:22:16Z",
+  "lastUpdatedAt": "2026-11-11T13:24:36Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1664,9 +1664,9 @@
       "productionUrl": "https://studio.onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "04f1eeb95e59ec3bb1aa2ca45cad81aa088f492d",
+        "headSha": "3dee76f30766f40703b369db74c21b3b308b1861",
         "archived": false,
-        "observedAt": "2026-11-11T12:29:46Z",
+        "observedAt": "2026-11-11T13:24:36Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1676,22 +1676,7 @@
           "private": true
         }
       },
-      "openPullRequests": [
-        {
-          "number": 27,
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/27",
-          "title": "deps: bump @types/node from 22.20.5 to 26.6.6",
-          "headSha": "53896a7a7f611c51b0a2d0456df727aa70f53a60",
-          "draft": false
-        },
-        {
-          "number": 32,
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/pull/32",
-          "title": "deps: Bump the minor-and-patch group across 1 directory with 16 updates",
-          "headSha": "71495d4270b4367c6182b2091112180610ba537c",
-          "draft": false
-        }
-      ],
+      "openPullRequests": [],
       "release": {
         "currentVersion": "1.0.0",
         "currentVersionSource": "Production showcase release 1.0.0 approved by Joshua Small (evidence one-small-studio-owner-final-verification-2026-11-03). Website release; no npm publication or GitHub tag is claimed.",
@@ -1871,28 +1856,28 @@
           "recordedBy": "Joshua Small"
         },
         {
-          "id": "sync-one-small-studio-run-ci-yml-04f1eeb-jhlwm4b-1",
+          "id": "sync-one-small-studio-run-ci-yml-3dee76f-jrkia50-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/42423582971",
-          "commitSha": "04f1eeb95e59ec3bb1aa2ca45cad81aa088f492d",
-          "verifiedAt": "2026-11-07T23:08:07Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/43025896404",
+          "commitSha": "3dee76f30766f40703b369db74c21b3b308b1861",
+          "verifiedAt": "2026-11-11T13:08:01Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 04f1eeb (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 3dee76f (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-studio:workflow_run:ci.yml/04f1eeb/jhlwm4b/1"
+          "eventKey": "one-small-studio:workflow_run:ci.yml/3dee76f/jrkia50/1"
         },
         {
-          "id": "sync-one-small-studio-run-smoke-yml-04f1eeb-jrh6hqy-1",
+          "id": "sync-one-small-studio-run-smoke-yml-3dee76f-jrkk0hw-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/43020307546",
-          "commitSha": "04f1eeb95e59ec3bb1aa2ca45cad81aa088f492d",
-          "verifiedAt": "2026-11-11T12:27:19Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/43025977220",
+          "commitSha": "3dee76f30766f40703b369db74c21b3b308b1861",
+          "verifiedAt": "2026-11-11T13:07:20Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow smoke.yml (\"Production smoke\") concluded success on main at 04f1eeb (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow smoke.yml (\"Production smoke\") concluded success on main at 3dee76f (deployment_status event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-studio:workflow_run:smoke.yml/04f1eeb/jrh6hqy/1"
+          "eventKey": "one-small-studio:workflow_run:smoke.yml/3dee76f/jrkk0hw/1"
         }
       ],
       "releaseGates": [
@@ -2021,8 +2006,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1410748339,
-        "lastSyncedAt": "2026-11-11T12:29:46Z",
-        "lastSyncedHead": "04f1eeb95e59ec3bb1aa2ca45cad81aa088f492d",
+        "lastSyncedAt": "2026-11-11T13:24:36Z",
+        "lastSyncedHead": "3dee76f30766f40703b369db74c21b3b308b1861",
         "configSource": "defaults"
       }
     },
