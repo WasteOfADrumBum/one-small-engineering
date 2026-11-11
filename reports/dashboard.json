@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/dashboard",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-04T19:45:40Z",
+  "asOf": "2026-11-11T03:33:46Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "293daeab70d9a8a332f23596c6fe3f25575886cc789879fe7e3a39ac8dadca62",
+  "registrySha256": "c4bda52ccea6531d725e45deee7a3a5690477945f08030dc4a06c37fdd50e85c",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "projects": [
     {
@@ -15,8 +15,8 @@
         "targetVersion": "2.0.0",
         "currentVersion": "0.1.0",
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-04T17:42:55Z",
-        "snapshotObservedAt": "2026-11-04T18:18:56Z"
+        "lastEvidenceAt": "2026-11-07T23:05:38Z",
+        "snapshotObservedAt": "2026-11-07T23:13:48Z"
       },
       "derived": {
         "percentage": 0,
@@ -36,19 +36,19 @@
       "facts": {
         "targetVersion": "0.6.0",
         "currentVersion": "0.6.0",
-        "releaseStatus": "ready_for_review",
-        "lastEvidenceAt": "2026-11-04T13:44:21Z",
-        "snapshotObservedAt": "2026-11-04T14:18:15Z"
+        "releaseStatus": "released",
+        "lastEvidenceAt": "2026-11-11T01:30:08Z",
+        "snapshotObservedAt": "2026-11-11T01:16:08Z"
       },
       "derived": {
-        "percentage": 0,
-        "verifiedGates": 0,
-        "applicableGates": 22,
-        "blockingFindings": 4,
+        "percentage": 100,
+        "verifiedGates": 21,
+        "applicableGates": 21,
+        "blockingFindings": 0,
         "registryBlockers": 0,
-        "eligibility": "not-eligible",
-        "releaseReady": false,
-        "nextAction": "Test the critical workflows on the candidate commit (critical-workflows) and have the verifier record the result."
+        "eligibility": "released",
+        "releaseReady": true,
+        "nextAction": null
       }
     },
     {
@@ -59,18 +59,18 @@
         "targetVersion": "1.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-04T18:22:35Z",
-        "snapshotObservedAt": "2026-11-04T18:26:28Z"
+        "lastEvidenceAt": "2026-11-11T01:29:40Z",
+        "snapshotObservedAt": "2026-11-11T02:23:27Z"
       },
       "derived": {
         "percentage": 100,
         "verifiedGates": 10,
         "applicableGates": 10,
-        "blockingFindings": 0,
+        "blockingFindings": 1,
         "registryBlockers": 0,
-        "eligibility": "released",
-        "releaseReady": true,
-        "nextAction": null
+        "eligibility": "not-eligible",
+        "releaseReady": false,
+        "nextAction": "Fix the failing CI run on 16c165d and re-run it (never skip or disable tests)."
       }
     },
     {
@@ -81,8 +81,8 @@
         "targetVersion": "1.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-03T18:48:55Z",
-        "snapshotObservedAt": "2026-11-03T04:20:01Z"
+        "lastEvidenceAt": "2026-11-11T00:40:35Z",
+        "snapshotObservedAt": "2026-11-11T02:21:04Z"
       },
       "derived": {
         "percentage": 100,
@@ -103,8 +103,8 @@
         "targetVersion": "1.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-04T13:19:29Z",
-        "snapshotObservedAt": "2026-11-04T14:19:50Z"
+        "lastEvidenceAt": "2026-11-11T01:17:07Z",
+        "snapshotObservedAt": "2026-11-11T01:20:50Z"
       },
       "derived": {
         "percentage": 100,
@@ -125,8 +125,8 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-10-31T13:13:57Z",
-        "snapshotObservedAt": "2026-10-31T13:26:38Z"
+        "lastEvidenceAt": "2026-11-07T23:10:03Z",
+        "snapshotObservedAt": "2026-11-08T00:39:33Z"
       },
       "derived": {
         "percentage": 0,
@@ -169,8 +169,8 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "not_started",
-        "lastEvidenceAt": "2026-10-31T03:01:33Z",
-        "snapshotObservedAt": "2026-10-31T03:36:06Z"
+        "lastEvidenceAt": "2026-11-07T23:06:51Z",
+        "snapshotObservedAt": "2026-11-11T02:19:00Z"
       },
       "derived": {
         "percentage": 0,

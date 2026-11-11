@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-11-03T18:54:22Z",
+  "asOf": "2026-11-11T03:33:46Z",
   "id": "one-small-photography",
   "name": "One Small Photography",
   "tier": "showcase",
@@ -111,13 +111,6 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-one-small-photography-dependency-audit-fa2d17f-7b1ff911",
-          "collector": "dependency-audit",
-          "result": "pass",
-          "executedAt": "2026-10-28T21:04:22Z",
-          "summary": "dependency audit: critical 0, high 0, moderate 4, low 0, info 0"
-        },
-        {
           "id": "ev-one-small-photography-secret-scan-fa2d17f-ea7ed43e",
           "collector": "secret-scan",
           "result": "inconclusive",
@@ -126,6 +119,10 @@
         }
       ],
       "staleEvidence": [
+        {
+          "id": "ev-one-small-photography-dependency-audit-fa2d17f-7b1ff911",
+          "reason": "expired 2026-11-04"
+        },
         {
           "id": "ev-one-small-photography-dependency-audit-45a74ba-e4c11401",
           "reason": "collected for 45a74ba, not the evaluated commit fa2d17f"
@@ -338,6 +335,10 @@
     {
       "id": "ev-one-small-photography-build-test-45a74ba-469ea48f",
       "reason": "collected for 45a74ba, not the evaluated commit fa2d17f"
+    },
+    {
+      "id": "ev-one-small-photography-dependency-audit-fa2d17f-7b1ff911",
+      "reason": "expired 2026-11-04"
     },
     {
       "id": "ev-one-small-photography-dependency-audit-45a74ba-e4c11401",
@@ -570,7 +571,38 @@
     }
   ],
   "verifications": [],
-  "relatedPullRequests": [],
+  "relatedPullRequests": [
+    {
+      "number": 31,
+      "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/31",
+      "draft": false
+    },
+    {
+      "number": 34,
+      "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/34",
+      "draft": false
+    },
+    {
+      "number": 35,
+      "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/35",
+      "draft": false
+    },
+    {
+      "number": 36,
+      "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/36",
+      "draft": false
+    },
+    {
+      "number": 37,
+      "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/37",
+      "draft": false
+    },
+    {
+      "number": 43,
+      "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/43",
+      "draft": false
+    }
+  ],
   "remediation": [],
   "verificationRequests": []
 }

@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-11-03T18:54:22Z",
+  "asOf": "2026-11-11T03:33:46Z",
   "id": "taskforge",
   "name": "TaskForge",
   "tier": "application",
@@ -116,13 +116,6 @@
       "humanOnly": false,
       "collectorEvidence": [
         {
-          "id": "ev-taskforge-dependency-audit-f9f14be-a2610ff3",
-          "collector": "dependency-audit",
-          "result": "pass",
-          "executedAt": "2026-10-28T21:04:26Z",
-          "summary": "dependency audit: critical 0, high 0, moderate 0, low 6, info 0"
-        },
-        {
           "id": "ev-taskforge-secret-scan-f9f14be-22746d50",
           "collector": "secret-scan",
           "result": "inconclusive",
@@ -131,6 +124,10 @@
         }
       ],
       "staleEvidence": [
+        {
+          "id": "ev-taskforge-dependency-audit-f9f14be-a2610ff3",
+          "reason": "expired 2026-11-04"
+        },
         {
           "id": "ev-taskforge-dependency-audit-11975d0-b1e62bb2",
           "reason": "collected for 11975d0, not the evaluated commit f9f14be"
@@ -599,6 +596,10 @@
       "reason": "collected for 11975d0, not the evaluated commit f9f14be"
     },
     {
+      "id": "ev-taskforge-dependency-audit-f9f14be-a2610ff3",
+      "reason": "expired 2026-11-04"
+    },
+    {
       "id": "ev-taskforge-dependency-audit-11975d0-b1e62bb2",
       "reason": "collected for 11975d0, not the evaluated commit f9f14be"
     },
@@ -923,12 +924,6 @@
       "automation": "partial",
       "humanOnly": false,
       "evidence": [
-        {
-          "id": "ev-taskforge-dependency-audit-f9f14be-a2610ff3",
-          "digest": "39494e11800109dd47c207dd1805420d279dbb6fb79ca7f238612656aee62649",
-          "collector": "dependency-audit",
-          "result": "pass"
-        },
         {
           "id": "ev-taskforge-secret-scan-f9f14be-22746d50",
           "digest": "b094cac87aee7a7fa0f72ad764d99829e444d70a25b367ea9b4f4f23a5f787af",
