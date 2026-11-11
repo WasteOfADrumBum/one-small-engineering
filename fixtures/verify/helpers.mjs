@@ -11,7 +11,16 @@ export const read = p => readFileSync(join(ROOT, p), 'utf8')
 export const policy = () => JSON.parse(read('verification/policy.json'))
 export const schema = () => JSON.parse(read('projects/registry.schema.json'))
 export const dodText = () => read('standards/definition-of-done.md')
-export const realRegistry = () => JSON.parse(read('projects/registry.json'))
+// The real registry, except that ModsPack is frozen as it stood before its 2.0.0 closeout
+// (fixtures/verify/modspack-prerelease-2026-11-11.json): these tests need an unreleased library
+// with unverified gates, and every real project is now released.
+export const modsPackPreRelease = () => JSON.parse(read('fixtures/verify/modspack-prerelease-2026-11-11.json'))
+export function withModsPackPreRelease(r) {
+  const i = r.projects.findIndex(x => x.id === 'one-small-mods-pack')
+  r.projects[i] = modsPackPreRelease()
+  return r
+}
+export const realRegistry = () => withModsPackPreRelease(JSON.parse(read('projects/registry.json')))
 
 export const SHA = 'a'.repeat(40)
 export const SHA2 = 'b'.repeat(40)

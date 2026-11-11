@@ -1,10 +1,10 @@
 # One Small ModsPack 2.0.0 release notes (draft)
 
-> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 21 applicable gates independently verified (0%); 19 open blocker(s). Generated 2026-11-11T05:47:35Z.
+> **Draft, not approved, not published.** Status: Released and approved. 17 of 17 applicable gates independently verified (100%); 0 open blocker(s). Generated 2026-11-11T12:51:53Z.
 
 ## Highlights
 
-_From CHANGELOG.md at b0ff54a; builder-authored, not independently verified._
+_From CHANGELOG.md at b0ff54a (older than the release candidate: re-read it); builder-authored, not independently verified._
 
 - `modspack` command line tool: inspect, init, doctor, uninstall, check, security, privacy, accessibility, release-check, agents, skills, validate, hook.
 - Six agent roles and twelve shared Agent Skills.
@@ -18,7 +18,7 @@ _From CHANGELOG.md at b0ff54a; builder-authored, not independently verified._
 
 ## Fixes
 
-_From CHANGELOG.md at b0ff54a; builder-authored._
+_From CHANGELOG.md at b0ff54a (older than the release candidate: re-read it); builder-authored._
 
 - `scripts/run-mods.mjs` (behind `npm run validate` and `npm test`) did nothing and exited 0 when the repository was reached through a symlink, such as macOS `/var` → `/private/var` or a symlinked checkout: Node resolves the main module's real path, so the entrypoint check never matched. It now compares real paths, with a regression test. Found by the new macOS CI job.
 - npm artifact: `package.json` `files` listed `mods/*/hooks`, `mods/*/scripts`, `agents`, `skills`, `catalog`, `schema` and `docs` as bare directories, which npm does not expand through the `*` pattern; the tarball shipped no guard hook modules or helper scripts (55 files). They are now `/**` patterns (82 files), and the artifact test compares every file under each mod's `hooks` and `scripts` with the tarball listing.
@@ -36,18 +36,14 @@ _From CHANGELOG.md at b0ff54a; builder-authored._
 
 ## Verification status
 
-- 0 of 21 applicable release gates independently verified.
-- Builder-reported, awaiting independent verification: automated-checks, wcag-22-aa, keyboard-screen-reader, responsive-layouts, no-release-blockers, clean-consumer-install, runtime-compatibility, package-archive-inspection, supply-chain-review, ci-release-pipeline, versioning-changelog, upgrade-rollback-uninstall-docs, public-docs-accurate.
+- 17 of 17 applicable release gates independently verified.
 
 ## Known limitations
 
 See the Known limitations page. The five guards enforced in a live Claude Code 2.1.316 run. Codex, Copilot and Gemini CLI have live instruction and skill discovery evidence; a Codex hook denied a secret live only with trust bypassed, and hooks, custom agents and model use on Copilot and Gemini CLI are NOT TESTED. Manual accessibility testing of the website (screen readers, real zoom, Windows High Contrast) is NOT TESTED.
 
-- Not yet verified: Independent (non-builder) verification of the automated results on b0ff54a / the sign-off commit.
-- Not yet verified: Manual screen reader, browser zoom, text spacing, Windows contrast theme and keyboard results (release/2.0.0/manual-acceptance.md).
-- Not yet verified: Copilot and Gemini CLI runtime evidence and Codex interactive trust, or a recorded owner decision to ship them unverified (DEFERRED-BY-OWNER).
-- Not yet verified: npm account access confirmation by the owner.
-- Not yet verified: npm provenance exists only after publication; none yet.
+- Not yet verified: Manual screen reader, browser zoom, text spacing, Windows contrast theme and keyboard results (release/2.0.0/manual-acceptance.md rows deferred by owner on 2026-11-11).
+- Not yet verified: Codex interactive trust and Copilot and Gemini CLI runtime evidence (rows P1-P3, deferred by owner on 2026-11-11).
 
 ## Upgrade, rollback and uninstall
 

@@ -1,6 +1,6 @@
 # ModsPack 2.0.0: closeout package
 
-Prepared 2026-11-11 by Claude Code for Joshua Small's review. Status: **waiting for Joshua Small's attestation**.
+Prepared 2026-11-11 by Claude Code for Joshua Small's review. Status: **attested and approved**. Joshua Small signed the package on [PR #196](https://github.com/WasteOfADrumBum/one-small-engineering/pull/196#issuecomment-6796287364) on 2026-11-11; the registry records it as evidence `msp-owner-final-verification-2026-11-11`.
 
 `one-small-modspack@2.0.0` is published on npm. This page follows [the UI 0.6.0 closeout](ui-0.6.0-final-closeout.md) and [the Cortex 1.0 closeout](cortex-1.0-closeout.md): Joshua Small, the assigned human verifier, reviews the linked evidence and records one attestation. Builder evidence keeps its provenance; no test is represented as newly run.
 

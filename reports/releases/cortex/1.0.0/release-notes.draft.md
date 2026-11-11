@@ -1,6 +1,6 @@
 # Cortex 1.0.0 release notes (draft)
 
-> **Draft, not approved, not published.** Status: Released and approved. 17 of 17 applicable gates independently verified (100%); 0 open blocker(s). Generated 2026-11-11T05:47:35Z.
+> **Draft, not approved, not published.** Status: Released and approved. 17 of 17 applicable gates independently verified (100%); 0 open blocker(s). Generated 2026-11-11T12:51:53Z.
 
 ## Highlights
 

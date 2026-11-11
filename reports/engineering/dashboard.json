@@ -7,7 +7,7 @@
     "activeProjects": 8,
     "readyForRelease": 0,
     "candidateReady": 0,
-    "blocked": 2,
+    "blocked": 1,
     "failingCi": 0,
     "ciUnknown": 8,
     "security": {
@@ -18,7 +18,7 @@
     },
     "verificationCoverage": {
       "verified": 0,
-      "applicable": 129
+      "applicable": 125
     },
     "openRemediationPRs": 3,
     "unreviewedRemediationPRs": 0,
@@ -29,8 +29,8 @@
     ],
     "releaseStates": {
       "not_ready": 2,
-      "blocked": 2,
-      "verification_required": 4,
+      "blocked": 1,
+      "verification_required": 5,
       "candidate_ready": 0,
       "awaiting_approval": 0,
       "approved": 0,
@@ -39,7 +39,7 @@
     "queue": {
       "automatic": 5,
       "independent-verification": 33,
-      "owner-decision": 97,
+      "owner-decision": 95,
       "blocked-credentials": 8,
       "informational": 5
     }
@@ -60,56 +60,53 @@
       "readiness": {
         "percentage": 0,
         "previousPercentage": 0,
-        "applicableGates": 21,
+        "applicableGates": 17,
         "verifiedGates": 0,
         "eligibility": "not-eligible",
         "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
-        "passed_by_builder": 4,
-        "failed": 6,
-        "inconclusive": 7,
-        "not_tested": 4,
-        "not_applicable": 1
+        "passed_by_builder": 3,
+        "failed": 5,
+        "inconclusive": 9,
+        "not_tested": 0,
+        "not_applicable": 5
       },
       "release": {
-        "state": "blocked",
-        "text": "Blocked",
+        "state": "verification_required",
+        "text": "Verification Required",
         "reasons": [
-          "5 open registry blocker(s): codex-interactive-trust, copilot-gemini-runtime-untested, manual-screen-reader-review, manual-zoom-forced-colors-review, npm-ownership-access"
+          "14 of 14 pre-publication gate(s) not independently verified",
+          "derived blockers: auto-critical-workflows-unverified, auto-stale-automated-checks, auto-stale-ci-release-pipeline, auto-stale-clean-consumer-install, auto-stale-critical-workflows, auto-stale-distribution-verified, auto-stale-documentation-accurate, auto-stale-no-release-blockers, auto-stale-package-archive-inspection, auto-stale-package-metadata-exports, auto-stale-public-docs-accurate, auto-stale-published-artifact-matches, auto-stale-release-provenance, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-supply-chain-review, auto-stale-upgrade-rollback-uninstall-docs, auto-stale-versioning-changelog"
         ],
         "candidate": {
           "pullRequest": 5,
           "ref": "main",
-          "sha": "b0ff54a436c90dc02b59cde3a1fca5e94334bc4f"
+          "sha": "03ab44a4f4be78e8298371eaabdb4d35cf1874a0"
         },
         "approval": {
-          "valid": false,
-          "bound": false,
-          "reason": "approval is pending"
+          "valid": true,
+          "bound": true,
+          "reason": null
         }
       },
       "releasePlan": {
-        "state": "blocked",
-        "candidateRevision": "b0ff54a436c90dc02b59cde3a1fca5e94334bc4f",
+        "state": "verification_required",
+        "candidateRevision": "03ab44a4f4be78e8298371eaabdb4d35cf1874a0",
         "candidateSource": "PR #5 (main)",
-        "applicableGates": 21,
+        "applicableGates": 17,
         "verifiedGates": 0,
         "readinessPercent": 0,
         "missingEvidence": [
           "scope-complete",
           "automated-checks",
           "security-privacy-review",
-          "wcag-22-aa",
-          "keyboard-screen-reader",
-          "responsive-layouts",
           "critical-workflows",
           "documentation-accurate",
           "no-release-blockers",
           "package-metadata-exports",
           "clean-consumer-install",
-          "runtime-compatibility",
           "package-archive-inspection",
           "supply-chain-review",
           "ci-release-pipeline",
@@ -121,40 +118,33 @@
           "published-artifact-matches"
         ],
         "activeBlockers": [
-          "codex-interactive-trust",
-          "copilot-gemini-runtime-untested",
-          "manual-screen-reader-review",
-          "manual-zoom-forced-colors-review",
-          "npm-ownership-access",
-          "release-authorization",
           "auto-critical-workflows-unverified",
-          "auto-missing-verification",
           "auto-stale-automated-checks",
           "auto-stale-ci-release-pipeline",
           "auto-stale-clean-consumer-install",
-          "auto-stale-keyboard-screen-reader",
+          "auto-stale-critical-workflows",
+          "auto-stale-distribution-verified",
+          "auto-stale-documentation-accurate",
+          "auto-stale-no-release-blockers",
           "auto-stale-package-archive-inspection",
+          "auto-stale-package-metadata-exports",
           "auto-stale-public-docs-accurate",
-          "auto-stale-responsive-layouts",
-          "auto-stale-runtime-compatibility",
+          "auto-stale-published-artifact-matches",
+          "auto-stale-release-provenance",
           "auto-stale-scope-complete",
+          "auto-stale-security-privacy-review",
           "auto-stale-supply-chain-review",
           "auto-stale-upgrade-rollback-uninstall-docs",
-          "auto-stale-versioning-changelog",
-          "auto-stale-wcag-22-aa"
+          "auto-stale-versioning-changelog"
         ],
         "dependencyReadiness": [],
         "manualTesting": [
           "scope-complete (human only)",
           "security-privacy-review",
-          "wcag-22-aa",
-          "keyboard-screen-reader (human only)",
-          "responsive-layouts",
           "critical-workflows",
           "documentation-accurate",
           "no-release-blockers (human only)",
           "clean-consumer-install",
-          "runtime-compatibility",
           "supply-chain-review",
           "ci-release-pipeline",
           "distribution-verified",
@@ -166,10 +156,10 @@
         "approvalsRequired": [
           "Joshua Small (release approval, recorded in the registry with evidence)"
         ],
-        "versionRecommendation": "2.0.0 (registry target; current 0.1.0)",
+        "versionRecommendation": "2.0.0 (registry target; current 2.0.0)",
         "preparation": [],
-        "preparationStatus": "not started: Blocked",
-        "rollback": "Deprecate the bad version (npm deprecate) and publish a fix; never unpublish. Consumers pin the previous version (0.1.0).",
+        "preparationStatus": "not started: Verification Required",
+        "rollback": "Deprecate the bad version (npm deprecate) and publish a fix; never unpublish. Consumers pin the previous version (2.0.0).",
         "ownerActions": [
           "merge: owner only",
           "publish: owner only",
@@ -177,38 +167,7 @@
           "tag: owner only"
         ]
       },
-      "blockers": [
-        {
-          "id": "codex-interactive-trust",
-          "severity": "unclassified",
-          "description": "Codex hook enforcement verified only with trust bypassed (0.159.3); interactive /hooks trust not confirmed (manual-acceptance row P1). No OpenAI credentials in the agent container on 2026-11-04."
-        },
-        {
-          "id": "copilot-gemini-runtime-untested",
-          "severity": "unclassified",
-          "description": "Copilot and Gemini CLI hook enforcement, custom agents and model use are NOT TESTED (discovery verified 2026-10-31 in Copilot CLI 1.0.105 and Gemini CLI 0.66.0; no credentials in the agent container on 2026-11-04). Owner decision: test (manual-acceptance rows P2, P3) or mark DEFERRED-BY-OWNER and ship as unverified."
-        },
-        {
-          "id": "manual-screen-reader-review",
-          "severity": "unclassified",
-          "description": "Screen reader review (NVDA or similar) of the generated documentation site is NOT TESTED."
-        },
-        {
-          "id": "manual-zoom-forced-colors-review",
-          "severity": "unclassified",
-          "description": "Real 200%/400% browser zoom, text spacing and Windows forced-colors review is NOT TESTED (only viewport-width and emulated checks)."
-        },
-        {
-          "id": "npm-ownership-access",
-          "severity": "unclassified",
-          "description": "npm account access for publishing one-small-modspack not confirmed by the owner; the name is still unpublished (npm view E404 on 2026-11-04, which is not a reservation). The npm-publish environment and a first-publication token are owner setup steps (release/README.md)."
-        },
-        {
-          "id": "release-authorization",
-          "severity": "unclassified",
-          "description": "No owner authorization yet for tag, npm publish, GitHub release or website deployment, and no owner sign-off in release/2.0.0/manual-acceptance.md (all 15 rows PENDING)."
-        }
-      ],
+      "blockers": [],
       "openPullRequests": 0,
       "sync": {
         "changes": [],
@@ -222,8 +181,8 @@
         "medium": 0,
         "low": 0
       },
-      "nextAction": "Resolve codex-interactive-trust in one-small-mods-pack.",
-      "queueItems": 25
+      "nextAction": "Fix release-packaging in one-small-mods-pack at 80cc269.",
+      "queueItems": 23
     },
     {
       "id": "one-small-ui",
@@ -1160,105 +1119,6 @@
         "one-small-mods-pack"
       ],
       "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
-      "rootCause": "Registry blocker codex-interactive-trust (workflow, blocks release).",
-      "complexity": "medium",
-      "validation": [
-        "the blocker is marked resolved in the registry with resolution evidence"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "registry:one-small-mods-pack:codex-interactive-trust"
-      ],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "one-small-mods-pack:blocker:codex-interactive-trust",
-      "project": "one-small-mods-pack",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
-      "priority": 3,
-      "severity": "medium",
-      "kind": "blocker",
-      "title": "Codex hook enforcement verified only with trust bypassed (0.159.3); interactive /hooks trust not confirmed (manual-acceptance row P1). No OpenAI credentials in the agent container on 2026-11-04.",
-      "impact": "Blocks release.",
-      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
-      "actionClass": "owner-decision",
-      "nextAction": "Resolve codex-interactive-trust in one-small-mods-pack.",
-      "priorityText": "Release-blocking defect",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 2,
-      "projects": [
-        "one-small-mods-pack"
-      ],
-      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
-      "rootCause": "Registry blocker copilot-gemini-runtime-untested (workflow, blocks release).",
-      "complexity": "medium",
-      "validation": [
-        "the blocker is marked resolved in the registry with resolution evidence"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "registry:one-small-mods-pack:copilot-gemini-runtime-untested"
-      ],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "one-small-mods-pack:blocker:copilot-gemini-runtime-untested",
-      "project": "one-small-mods-pack",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
-      "priority": 3,
-      "severity": "medium",
-      "kind": "blocker",
-      "title": "Copilot and Gemini CLI hook enforcement, custom agents and model use are NOT TESTED (discovery verified 2026-10-31 in Copilot CLI 1.0.105 and Gemini CLI 0.66.0; no credentials in the agent container on 2026-11-04). Owner decision: test (manual-acceptance rows P2, P3) or mark DEFERRED-BY-OWNER and ship as unverified.",
-      "impact": "Blocks release.",
-      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
-      "actionClass": "owner-decision",
-      "nextAction": "Resolve copilot-gemini-runtime-untested in one-small-mods-pack.",
-      "priorityText": "Release-blocking defect",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 3,
-      "projects": [
-        "one-small-mods-pack"
-      ],
-      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
-      "rootCause": "Registry blocker npm-ownership-access (distribution, blocks release).",
-      "complexity": "medium",
-      "validation": [
-        "the blocker is marked resolved in the registry with resolution evidence"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "registry:one-small-mods-pack:npm-ownership-access"
-      ],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "one-small-mods-pack:blocker:npm-ownership-access",
-      "project": "one-small-mods-pack",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
-      "priority": 3,
-      "severity": "medium",
-      "kind": "blocker",
-      "title": "npm account access for publishing one-small-modspack not confirmed by the owner; the name is still unpublished (npm view E404 on 2026-11-04, which is not a reservation). The npm-publish environment and a first-publication token are owner setup steps (release/README.md).",
-      "impact": "Blocks release.",
-      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
-      "actionClass": "owner-decision",
-      "nextAction": "Resolve npm-ownership-access in one-small-mods-pack.",
-      "priorityText": "Release-blocking defect",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 4,
-      "projects": [
-        "one-small-mods-pack"
-      ],
-      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
       "rootCause": "publish workflow: no workflow runs npm publish (1 workflow(s))",
       "complexity": "medium",
       "validation": [
@@ -1291,7 +1151,7 @@
       "isNew": false
     },
     {
-      "rank": 5,
+      "rank": 2,
       "projects": [
         "one-small-ui"
       ],
@@ -1328,7 +1188,7 @@
       "isNew": false
     },
     {
-      "rank": 6,
+      "rank": 3,
       "projects": [
         "taskforge"
       ],
@@ -1361,7 +1221,7 @@
       "isNew": false
     },
     {
-      "rank": 7,
+      "rank": 4,
       "projects": [
         "taskforge"
       ],
@@ -1394,7 +1254,7 @@
       "isNew": false
     },
     {
-      "rank": 8,
+      "rank": 5,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -1427,7 +1287,7 @@
       "isNew": false
     },
     {
-      "rank": 9,
+      "rank": 6,
       "projects": [
         "one-small-ui"
       ],
@@ -1466,7 +1326,7 @@
       "isNew": false
     },
     {
-      "rank": 10,
+      "rank": 7,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1499,7 +1359,7 @@
       "isNew": false
     },
     {
-      "rank": 11,
+      "rank": 8,
       "projects": [
         "one-small-ui"
       ],
@@ -1532,73 +1392,7 @@
       "isNew": false
     },
     {
-      "rank": 12,
-      "projects": [
-        "one-small-mods-pack"
-      ],
-      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
-      "rootCause": "Registry blocker manual-screen-reader-review (accessibility, blocks release).",
-      "complexity": "medium",
-      "validation": [
-        "the blocker is marked resolved in the registry with resolution evidence"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "registry:one-small-mods-pack:manual-screen-reader-review"
-      ],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "one-small-mods-pack:blocker:manual-screen-reader-review",
-      "project": "one-small-mods-pack",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
-      "priority": 6,
-      "severity": "medium",
-      "kind": "blocker",
-      "title": "Screen reader review (NVDA or similar) of the generated documentation site is NOT TESTED.",
-      "impact": "Blocks release.",
-      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
-      "actionClass": "owner-decision",
-      "nextAction": "Resolve manual-screen-reader-review in one-small-mods-pack.",
-      "priorityText": "Accessibility",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 13,
-      "projects": [
-        "one-small-mods-pack"
-      ],
-      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
-      "rootCause": "Registry blocker manual-zoom-forced-colors-review (accessibility, blocks release).",
-      "complexity": "medium",
-      "validation": [
-        "the blocker is marked resolved in the registry with resolution evidence"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "registry:one-small-mods-pack:manual-zoom-forced-colors-review"
-      ],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "one-small-mods-pack:blocker:manual-zoom-forced-colors-review",
-      "project": "one-small-mods-pack",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
-      "priority": 6,
-      "severity": "medium",
-      "kind": "blocker",
-      "title": "Real 200%/400% browser zoom, text spacing and Windows forced-colors review is NOT TESTED (only viewport-width and emulated checks).",
-      "impact": "Blocks release.",
-      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
-      "actionClass": "owner-decision",
-      "nextAction": "Resolve manual-zoom-forced-colors-review in one-small-mods-pack.",
-      "priorityText": "Accessibility",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 14,
+      "rank": 9,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1631,7 +1425,7 @@
       "isNew": false
     },
     {
-      "rank": 15,
+      "rank": 10,
       "projects": [
         "one-small-ui"
       ],
@@ -1664,7 +1458,7 @@
       "isNew": false
     },
     {
-      "rank": 16,
+      "rank": 11,
       "projects": [
         "personal-portfolio"
       ],
@@ -1697,7 +1491,7 @@
       "isNew": false
     },
     {
-      "rank": 17,
+      "rank": 12,
       "projects": [
         "one-small-studio"
       ],
@@ -1730,7 +1524,7 @@
       "isNew": false
     },
     {
-      "rank": 18,
+      "rank": 13,
       "projects": [
         "one-small-photography"
       ],
@@ -1763,7 +1557,7 @@
       "isNew": false
     },
     {
-      "rank": 19,
+      "rank": 14,
       "projects": [
         "taskforge"
       ],
@@ -1796,7 +1590,7 @@
       "isNew": false
     },
     {
-      "rank": 20,
+      "rank": 15,
       "projects": [
         "cortex"
       ],
@@ -1829,7 +1623,7 @@
       "isNew": false
     },
     {
-      "rank": 21,
+      "rank": 16,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1849,11 +1643,166 @@
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "automated-checks: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-b0ff54a is dated after the report time; current evidence: msp-release-dry-run is dated after the report time; current evidence: msp-ci-main-26b5ccd is dated after the report time; registry notes: CI green on candidate b0ff54a (all seven jobs) and on main 26b5ccd; release dry run passed on b0ff54a. Awaiting the verifier.",
+      "title": "automated-checks: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-03ab44a is dated after the report time; current evidence: msp-release-dry-run-03ab44a is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "automated-checks: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-b0ff54a is dated after the report time; current evidence: msp-release-dry-run is dated after the report time; current evidence: msp-ci-main-26b5ccd is dated after the report time; registry notes: CI green on candidate b0ff54a (all seven jobs) and on main 26b5ccd; release dry run passed on b0ff54a. Awaiting the verifier.",
+      "nextAction": "automated-checks: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-03ab44a is dated after the report time; current evidence: msp-release-dry-run-03ab44a is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 17,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-ci-release-pipeline",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "ci-release-pipeline: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-dry-run-03ab44a is dated after the report time; current evidence: msp-npm-2-0-0 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "ci-release-pipeline: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-dry-run-03ab44a is dated after the report time; current evidence: msp-npm-2-0-0 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 18,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-clean-consumer-install",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "clean-consumer-install: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-03ab44a is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "clean-consumer-install: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-03ab44a is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 19,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-critical-workflows",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "critical-workflows: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-03ab44a is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "critical-workflows: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-03ab44a is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 20,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-distribution-verified",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "distribution-verified: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-npm-2-0-0 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "distribution-verified: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-npm-2-0-0 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 21,
+      "projects": [
+        "one-small-mods-pack"
+      ],
+      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "one-small-mods-pack:blocker:auto-stale-documentation-accurate",
+      "project": "one-small-mods-pack",
+      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "documentation-accurate: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate 03ab44a; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "documentation-accurate: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate 03ab44a; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -1874,17 +1823,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-mods-pack:blocker:auto-stale-ci-release-pipeline",
+      "id": "one-small-mods-pack:blocker:auto-stale-no-release-blockers",
       "project": "one-small-mods-pack",
       "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "ci-release-pipeline: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate b0ff54a; registry notes: CI exists for checks (contents: read). There is no release or publish pipeline yet.",
+      "title": "no-release-blockers: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "ci-release-pipeline: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-ci-pr3-head is for 80cc269, not the release candidate b0ff54a; registry notes: CI exists for checks (contents: read). There is no release or publish pipeline yet.",
+      "nextAction": "no-release-blockers: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -1905,17 +1854,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-mods-pack:blocker:auto-stale-clean-consumer-install",
+      "id": "one-small-mods-pack:blocker:auto-stale-package-archive-inspection",
       "project": "one-small-mods-pack",
       "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "clean-consumer-install: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Builder reports an artifact test that packs, installs, validates and initializes every platform.",
+      "title": "package-archive-inspection: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-npm-2-0-0 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "clean-consumer-install: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Builder reports an artifact test that packs, installs, validates and initializes every platform.",
+      "nextAction": "package-archive-inspection: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-npm-2-0-0 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -1936,17 +1885,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-mods-pack:blocker:auto-stale-keyboard-screen-reader",
+      "id": "one-small-mods-pack:blocker:auto-stale-package-metadata-exports",
       "project": "one-small-mods-pack",
       "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED.",
+      "title": "package-metadata-exports: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-npm-2-0-0 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "keyboard-screen-reader: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED.",
+      "nextAction": "package-metadata-exports: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-npm-2-0-0 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -1967,17 +1916,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-mods-pack:blocker:auto-stale-package-archive-inspection",
+      "id": "one-small-mods-pack:blocker:auto-stale-public-docs-accurate",
       "project": "one-small-mods-pack",
       "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "package-archive-inspection: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Builder reports an 82-file tarball reviewed with an artifact regression test; not independently re-inspected.",
+      "title": "public-docs-accurate: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate 03ab44a; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "package-archive-inspection: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Builder reports an 82-file tarball reviewed with an artifact regression test; not independently re-inspected.",
+      "nextAction": "public-docs-accurate: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate 03ab44a; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -1998,17 +1947,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-mods-pack:blocker:auto-stale-public-docs-accurate",
+      "id": "one-small-mods-pack:blocker:auto-stale-published-artifact-matches",
       "project": "one-small-mods-pack",
       "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "public-docs-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate b0ff54a; registry notes: README, CHANGELOG and limitations reviewed by the builder; compatibility claims come from the catalog.",
+      "title": "published-artifact-matches: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-npm-2-0-0 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "public-docs-accurate: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate b0ff54a; registry notes: README, CHANGELOG and limitations reviewed by the builder; compatibility claims come from the catalog.",
+      "nextAction": "published-artifact-matches: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-npm-2-0-0 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -2029,17 +1978,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-mods-pack:blocker:auto-stale-responsive-layouts",
+      "id": "one-small-mods-pack:blocker:auto-stale-release-provenance",
       "project": "one-small-mods-pack",
       "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED.",
+      "title": "release-provenance: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-npm-2-0-0 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "responsive-layouts: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED.",
+      "nextAction": "release-provenance: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-npm-2-0-0 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -2060,17 +2009,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-mods-pack:blocker:auto-stale-runtime-compatibility",
+      "id": "one-small-mods-pack:blocker:auto-stale-scope-complete",
       "project": "one-small-mods-pack",
       "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "runtime-compatibility: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate b0ff54a; registry notes: Claude Code harness PASS; Codex discovery and trust-bypassed hook enforcement live; Copilot/Gemini runtime NOT TESTED; Node 20 partial, CI runs Node 22 only.",
+      "title": "scope-complete: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; current evidence: msp-pr-5-merged is dated after the report time; current evidence: msp-pr-8 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "runtime-compatibility: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; current evidence: msp-compatibility-catalog is for 80cc269, not the release candidate b0ff54a; registry notes: Claude Code harness PASS; Codex discovery and trust-bypassed hook enforcement live; Copilot/Gemini runtime NOT TESTED; Node 20 partial, CI runs Node 22 only.",
+      "nextAction": "scope-complete: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; current evidence: msp-pr-5-merged is dated after the report time; current evidence: msp-pr-8 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -2091,17 +2040,17 @@
       "evidence": [],
       "relatedPRs": [],
       "crossProject": [],
-      "id": "one-small-mods-pack:blocker:auto-stale-scope-complete",
+      "id": "one-small-mods-pack:blocker:auto-stale-security-privacy-review",
       "project": "one-small-mods-pack",
       "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "scope-complete: current evidence: msp-pr-5-merged is dated after the report time; current evidence: msp-pr-3-merged is dated after the report time; registry notes: Scope is the 2.0.0 package at b0ff54a (PR #3 functionality plus PR #5 release tooling) and release/2.0.0/manual-acceptance.md; manual rows remain PENDING.",
+      "title": "security-privacy-review: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate 03ab44a; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "scope-complete: current evidence: msp-pr-5-merged is dated after the report time; current evidence: msp-pr-3-merged is dated after the report time; registry notes: Scope is the 2.0.0 package at b0ff54a (PR #3 functionality plus PR #5 release tooling) and release/2.0.0/manual-acceptance.md; manual rows remain PENDING.",
+      "nextAction": "security-privacy-review: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate 03ab44a; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -2128,11 +2077,11 @@
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "supply-chain-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE.",
+      "title": "supply-chain-review: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate 03ab44a; current evidence: msp-npm-2-0-0 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "supply-chain-review: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE.",
+      "nextAction": "supply-chain-review: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate 03ab44a; current evidence: msp-npm-2-0-0 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -2159,11 +2108,11 @@
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "upgrade-rollback-uninstall-docs: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Install, update and modspack uninstall --yes documented in docs/getting-started.md (builder-reported).",
+      "title": "upgrade-rollback-uninstall-docs: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate 03ab44a; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "upgrade-rollback-uninstall-docs: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Install, update and modspack uninstall --yes documented in docs/getting-started.md (builder-reported).",
+      "nextAction": "upgrade-rollback-uninstall-docs: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate 03ab44a; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -2190,11 +2139,11 @@
       "priority": 7,
       "severity": "medium",
       "kind": "stale",
-      "title": "versioning-changelog: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: CHANGELOG 2.0.0 (unreleased) with mod version list and a consistency test (builder-reported).",
+      "title": "versioning-changelog: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-npm-2-0-0 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "impact": "Evidence no longer matches the candidate.",
       "proposedCorrection": "Record the current candidate in the registry and re-collect.",
       "actionClass": "owner-decision",
-      "nextAction": "versioning-changelog: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: CHANGELOG 2.0.0 (unreleased) with mod version list and a consistency test (builder-reported).",
+      "nextAction": "versioning-changelog: current evidence: msp-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-npm-2-0-0 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires owner decision",
       "firstSeen": "2026-10-28T21:07:08Z",
@@ -2202,37 +2151,6 @@
     },
     {
       "rank": 33,
-      "projects": [
-        "one-small-mods-pack"
-      ],
-      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
-      "rootCause": null,
-      "complexity": "small",
-      "validation": [
-        "evidence current for the candidate commit"
-      ],
-      "confidence": "high",
-      "evidence": [],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "one-small-mods-pack:blocker:auto-stale-wcag-22-aa",
-      "project": "one-small-mods-pack",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
-      "priority": 7,
-      "severity": "medium",
-      "kind": "stale",
-      "title": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding.",
-      "impact": "Evidence no longer matches the candidate.",
-      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
-      "actionClass": "owner-decision",
-      "nextAction": "wcag-22-aa: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: msp-release-verification is for 80cc269, not the release candidate b0ff54a; registry notes: Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding.",
-      "priorityText": "Missing verification or documentation",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-28T21:07:08Z",
-      "isNew": true
-    },
-    {
-      "rank": 34,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2252,7 +2170,7 @@
       "priority": 7,
       "severity": "medium",
       "kind": "verification",
-      "title": "21 applicable gate(s) without independent verification (0/21 verified)",
+      "title": "17 applicable gate(s) without independent verification (0/17 verified)",
       "impact": "Release readiness cannot rise above the verified share.",
       "proposedCorrection": "The assigned verifier re-checks current evidence and records each gate (npm run verify:record, outside CI).",
       "actionClass": "independent-verification",
@@ -2261,15 +2179,11 @@
         "scope-complete",
         "automated-checks",
         "security-privacy-review",
-        "wcag-22-aa",
-        "keyboard-screen-reader",
-        "responsive-layouts",
         "critical-workflows",
         "documentation-accurate",
         "no-release-blockers",
         "package-metadata-exports",
         "clean-consumer-install",
-        "runtime-compatibility",
         "package-archive-inspection",
         "supply-chain-review",
         "ci-release-pipeline",
@@ -2286,7 +2200,7 @@
       "isNew": false
     },
     {
-      "rank": 35,
+      "rank": 34,
       "projects": [
         "one-small-ui"
       ],
@@ -2323,7 +2237,7 @@
       "isNew": false
     },
     {
-      "rank": 36,
+      "rank": 35,
       "projects": [
         "one-small-ui"
       ],
@@ -2354,7 +2268,7 @@
       "isNew": true
     },
     {
-      "rank": 37,
+      "rank": 36,
       "projects": [
         "one-small-ui"
       ],
@@ -2385,7 +2299,7 @@
       "isNew": true
     },
     {
-      "rank": 38,
+      "rank": 37,
       "projects": [
         "one-small-ui"
       ],
@@ -2416,7 +2330,7 @@
       "isNew": true
     },
     {
-      "rank": 39,
+      "rank": 38,
       "projects": [
         "one-small-ui"
       ],
@@ -2447,7 +2361,7 @@
       "isNew": true
     },
     {
-      "rank": 40,
+      "rank": 39,
       "projects": [
         "one-small-ui"
       ],
@@ -2478,7 +2392,7 @@
       "isNew": true
     },
     {
-      "rank": 41,
+      "rank": 40,
       "projects": [
         "one-small-ui"
       ],
@@ -2509,7 +2423,7 @@
       "isNew": true
     },
     {
-      "rank": 42,
+      "rank": 41,
       "projects": [
         "one-small-ui"
       ],
@@ -2540,7 +2454,7 @@
       "isNew": true
     },
     {
-      "rank": 43,
+      "rank": 42,
       "projects": [
         "one-small-ui"
       ],
@@ -2571,7 +2485,7 @@
       "isNew": true
     },
     {
-      "rank": 44,
+      "rank": 43,
       "projects": [
         "one-small-ui"
       ],
@@ -2602,7 +2516,7 @@
       "isNew": true
     },
     {
-      "rank": 45,
+      "rank": 44,
       "projects": [
         "one-small-ui"
       ],
@@ -2633,7 +2547,7 @@
       "isNew": true
     },
     {
-      "rank": 46,
+      "rank": 45,
       "projects": [
         "one-small-ui"
       ],
@@ -2664,7 +2578,7 @@
       "isNew": true
     },
     {
-      "rank": 47,
+      "rank": 46,
       "projects": [
         "one-small-ui"
       ],
@@ -2695,7 +2609,7 @@
       "isNew": true
     },
     {
-      "rank": 48,
+      "rank": 47,
       "projects": [
         "one-small-ui"
       ],
@@ -2726,7 +2640,7 @@
       "isNew": true
     },
     {
-      "rank": 49,
+      "rank": 48,
       "projects": [
         "one-small-ui"
       ],
@@ -2757,7 +2671,7 @@
       "isNew": true
     },
     {
-      "rank": 50,
+      "rank": 49,
       "projects": [
         "one-small-ui"
       ],
@@ -2788,7 +2702,7 @@
       "isNew": true
     },
     {
-      "rank": 51,
+      "rank": 50,
       "projects": [
         "one-small-ui"
       ],
@@ -2819,7 +2733,7 @@
       "isNew": true
     },
     {
-      "rank": 52,
+      "rank": 51,
       "projects": [
         "one-small-ui"
       ],
@@ -2850,7 +2764,7 @@
       "isNew": true
     },
     {
-      "rank": 53,
+      "rank": 52,
       "projects": [
         "one-small-ui"
       ],
@@ -2881,7 +2795,7 @@
       "isNew": true
     },
     {
-      "rank": 54,
+      "rank": 53,
       "projects": [
         "one-small-ui"
       ],
@@ -2912,7 +2826,7 @@
       "isNew": true
     },
     {
-      "rank": 55,
+      "rank": 54,
       "projects": [
         "one-small-ui"
       ],
@@ -2943,7 +2857,7 @@
       "isNew": true
     },
     {
-      "rank": 56,
+      "rank": 55,
       "projects": [
         "one-small-ui"
       ],
@@ -2974,7 +2888,7 @@
       "isNew": true
     },
     {
-      "rank": 57,
+      "rank": 56,
       "projects": [
         "one-small-ui"
       ],
@@ -3028,7 +2942,7 @@
       "isNew": false
     },
     {
-      "rank": 58,
+      "rank": 57,
       "projects": [
         "personal-portfolio"
       ],
@@ -3065,7 +2979,7 @@
       "isNew": false
     },
     {
-      "rank": 59,
+      "rank": 58,
       "projects": [
         "personal-portfolio"
       ],
@@ -3096,7 +3010,7 @@
       "isNew": true
     },
     {
-      "rank": 60,
+      "rank": 59,
       "projects": [
         "personal-portfolio"
       ],
@@ -3127,7 +3041,7 @@
       "isNew": true
     },
     {
-      "rank": 61,
+      "rank": 60,
       "projects": [
         "personal-portfolio"
       ],
@@ -3158,7 +3072,7 @@
       "isNew": true
     },
     {
-      "rank": 62,
+      "rank": 61,
       "projects": [
         "personal-portfolio"
       ],
@@ -3189,7 +3103,7 @@
       "isNew": true
     },
     {
-      "rank": 63,
+      "rank": 62,
       "projects": [
         "personal-portfolio"
       ],
@@ -3220,7 +3134,7 @@
       "isNew": true
     },
     {
-      "rank": 64,
+      "rank": 63,
       "projects": [
         "personal-portfolio"
       ],
@@ -3251,7 +3165,7 @@
       "isNew": true
     },
     {
-      "rank": 65,
+      "rank": 64,
       "projects": [
         "personal-portfolio"
       ],
@@ -3282,7 +3196,7 @@
       "isNew": true
     },
     {
-      "rank": 66,
+      "rank": 65,
       "projects": [
         "personal-portfolio"
       ],
@@ -3313,7 +3227,7 @@
       "isNew": true
     },
     {
-      "rank": 67,
+      "rank": 66,
       "projects": [
         "personal-portfolio"
       ],
@@ -3344,7 +3258,7 @@
       "isNew": true
     },
     {
-      "rank": 68,
+      "rank": 67,
       "projects": [
         "personal-portfolio"
       ],
@@ -3375,7 +3289,7 @@
       "isNew": true
     },
     {
-      "rank": 69,
+      "rank": 68,
       "projects": [
         "personal-portfolio"
       ],
@@ -3418,7 +3332,7 @@
       "isNew": false
     },
     {
-      "rank": 70,
+      "rank": 69,
       "projects": [
         "one-small-studio"
       ],
@@ -3455,7 +3369,7 @@
       "isNew": false
     },
     {
-      "rank": 71,
+      "rank": 70,
       "projects": [
         "one-small-studio"
       ],
@@ -3486,7 +3400,7 @@
       "isNew": true
     },
     {
-      "rank": 72,
+      "rank": 71,
       "projects": [
         "one-small-studio"
       ],
@@ -3517,7 +3431,7 @@
       "isNew": true
     },
     {
-      "rank": 73,
+      "rank": 72,
       "projects": [
         "one-small-studio"
       ],
@@ -3548,7 +3462,7 @@
       "isNew": true
     },
     {
-      "rank": 74,
+      "rank": 73,
       "projects": [
         "one-small-studio"
       ],
@@ -3579,7 +3493,7 @@
       "isNew": true
     },
     {
-      "rank": 75,
+      "rank": 74,
       "projects": [
         "one-small-studio"
       ],
@@ -3610,7 +3524,7 @@
       "isNew": true
     },
     {
-      "rank": 76,
+      "rank": 75,
       "projects": [
         "one-small-studio"
       ],
@@ -3641,7 +3555,7 @@
       "isNew": true
     },
     {
-      "rank": 77,
+      "rank": 76,
       "projects": [
         "one-small-studio"
       ],
@@ -3672,7 +3586,7 @@
       "isNew": true
     },
     {
-      "rank": 78,
+      "rank": 77,
       "projects": [
         "one-small-studio"
       ],
@@ -3703,7 +3617,7 @@
       "isNew": true
     },
     {
-      "rank": 79,
+      "rank": 78,
       "projects": [
         "one-small-studio"
       ],
@@ -3734,7 +3648,7 @@
       "isNew": true
     },
     {
-      "rank": 80,
+      "rank": 79,
       "projects": [
         "one-small-studio"
       ],
@@ -3765,7 +3679,7 @@
       "isNew": true
     },
     {
-      "rank": 81,
+      "rank": 80,
       "projects": [
         "one-small-studio"
       ],
@@ -3808,7 +3722,7 @@
       "isNew": false
     },
     {
-      "rank": 82,
+      "rank": 81,
       "projects": [
         "one-small-photography"
       ],
@@ -3845,7 +3759,7 @@
       "isNew": false
     },
     {
-      "rank": 83,
+      "rank": 82,
       "projects": [
         "one-small-photography"
       ],
@@ -3876,7 +3790,7 @@
       "isNew": true
     },
     {
-      "rank": 84,
+      "rank": 83,
       "projects": [
         "one-small-photography"
       ],
@@ -3907,7 +3821,7 @@
       "isNew": true
     },
     {
-      "rank": 85,
+      "rank": 84,
       "projects": [
         "one-small-photography"
       ],
@@ -3938,7 +3852,7 @@
       "isNew": true
     },
     {
-      "rank": 86,
+      "rank": 85,
       "projects": [
         "one-small-photography"
       ],
@@ -3969,7 +3883,7 @@
       "isNew": true
     },
     {
-      "rank": 87,
+      "rank": 86,
       "projects": [
         "one-small-photography"
       ],
@@ -4000,7 +3914,7 @@
       "isNew": true
     },
     {
-      "rank": 88,
+      "rank": 87,
       "projects": [
         "one-small-photography"
       ],
@@ -4031,7 +3945,7 @@
       "isNew": true
     },
     {
-      "rank": 89,
+      "rank": 88,
       "projects": [
         "one-small-photography"
       ],
@@ -4062,7 +3976,7 @@
       "isNew": true
     },
     {
-      "rank": 90,
+      "rank": 89,
       "projects": [
         "one-small-photography"
       ],
@@ -4093,7 +4007,7 @@
       "isNew": true
     },
     {
-      "rank": 91,
+      "rank": 90,
       "projects": [
         "one-small-photography"
       ],
@@ -4124,7 +4038,7 @@
       "isNew": true
     },
     {
-      "rank": 92,
+      "rank": 91,
       "projects": [
         "one-small-photography"
       ],
@@ -4155,7 +4069,7 @@
       "isNew": true
     },
     {
-      "rank": 93,
+      "rank": 92,
       "projects": [
         "one-small-photography"
       ],
@@ -4198,7 +4112,7 @@
       "isNew": false
     },
     {
-      "rank": 94,
+      "rank": 93,
       "projects": [
         "taskforge"
       ],
@@ -4235,7 +4149,7 @@
       "isNew": false
     },
     {
-      "rank": 95,
+      "rank": 94,
       "projects": [
         "taskforge"
       ],
@@ -4266,7 +4180,7 @@
       "isNew": false
     },
     {
-      "rank": 96,
+      "rank": 95,
       "projects": [
         "taskforge"
       ],
@@ -4319,7 +4233,7 @@
       "isNew": false
     },
     {
-      "rank": 97,
+      "rank": 96,
       "projects": [
         "cortex"
       ],
@@ -4356,7 +4270,7 @@
       "isNew": false
     },
     {
-      "rank": 98,
+      "rank": 97,
       "projects": [
         "cortex"
       ],
@@ -4387,7 +4301,7 @@
       "isNew": true
     },
     {
-      "rank": 99,
+      "rank": 98,
       "projects": [
         "cortex"
       ],
@@ -4418,7 +4332,7 @@
       "isNew": true
     },
     {
-      "rank": 100,
+      "rank": 99,
       "projects": [
         "cortex"
       ],
@@ -4449,7 +4363,7 @@
       "isNew": true
     },
     {
-      "rank": 101,
+      "rank": 100,
       "projects": [
         "cortex"
       ],
@@ -4480,7 +4394,7 @@
       "isNew": true
     },
     {
-      "rank": 102,
+      "rank": 101,
       "projects": [
         "cortex"
       ],
@@ -4511,7 +4425,7 @@
       "isNew": true
     },
     {
-      "rank": 103,
+      "rank": 102,
       "projects": [
         "cortex"
       ],
@@ -4542,7 +4456,7 @@
       "isNew": true
     },
     {
-      "rank": 104,
+      "rank": 103,
       "projects": [
         "cortex"
       ],
@@ -4573,7 +4487,7 @@
       "isNew": true
     },
     {
-      "rank": 105,
+      "rank": 104,
       "projects": [
         "cortex"
       ],
@@ -4604,7 +4518,7 @@
       "isNew": true
     },
     {
-      "rank": 106,
+      "rank": 105,
       "projects": [
         "cortex"
       ],
@@ -4635,7 +4549,7 @@
       "isNew": true
     },
     {
-      "rank": 107,
+      "rank": 106,
       "projects": [
         "cortex"
       ],
@@ -4666,7 +4580,7 @@
       "isNew": true
     },
     {
-      "rank": 108,
+      "rank": 107,
       "projects": [
         "cortex"
       ],
@@ -4697,7 +4611,7 @@
       "isNew": true
     },
     {
-      "rank": 109,
+      "rank": 108,
       "projects": [
         "cortex"
       ],
@@ -4728,7 +4642,7 @@
       "isNew": true
     },
     {
-      "rank": 110,
+      "rank": 109,
       "projects": [
         "cortex"
       ],
@@ -4759,7 +4673,7 @@
       "isNew": true
     },
     {
-      "rank": 111,
+      "rank": 110,
       "projects": [
         "cortex"
       ],
@@ -4790,7 +4704,7 @@
       "isNew": true
     },
     {
-      "rank": 112,
+      "rank": 111,
       "projects": [
         "cortex"
       ],
@@ -4821,7 +4735,7 @@
       "isNew": true
     },
     {
-      "rank": 113,
+      "rank": 112,
       "projects": [
         "cortex"
       ],
@@ -4852,7 +4766,7 @@
       "isNew": true
     },
     {
-      "rank": 114,
+      "rank": 113,
       "projects": [
         "cortex"
       ],
@@ -4883,7 +4797,7 @@
       "isNew": true
     },
     {
-      "rank": 115,
+      "rank": 114,
       "projects": [
         "cortex"
       ],
@@ -4933,7 +4847,7 @@
       "isNew": false
     },
     {
-      "rank": 116,
+      "rank": 115,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -4982,7 +4896,7 @@
       "isNew": false
     },
     {
-      "rank": 117,
+      "rank": 116,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -5035,7 +4949,7 @@
       "isNew": false
     },
     {
-      "rank": 118,
+      "rank": 117,
       "projects": [
         "one-small-mods-pack",
         "one-small-ui",
@@ -5086,40 +5000,7 @@
       "isNew": false
     },
     {
-      "rank": 119,
-      "projects": [
-        "one-small-mods-pack"
-      ],
-      "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
-      "rootCause": "Registry blocker release-authorization (approval).",
-      "complexity": "trivial",
-      "validation": [
-        "approval recorded in the registry with evidence for the candidate commit"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "registry:one-small-mods-pack:release-authorization"
-      ],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "one-small-mods-pack:blocker:release-authorization",
-      "project": "one-small-mods-pack",
-      "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
-      "priority": 7,
-      "severity": "low",
-      "kind": "approval",
-      "title": "No owner authorization yet for tag, npm publish, GitHub release or website deployment, and no owner sign-off in release/2.0.0/manual-acceptance.md (all 15 rows PENDING).",
-      "impact": "The release cannot ship without the owner's authorization.",
-      "proposedCorrection": "The owner decides after verification is complete; automation never records approval.",
-      "actionClass": "owner-decision",
-      "nextAction": "Owner: decide on release-authorization once one-small-mods-pack is verified.",
-      "priorityText": "Missing verification or documentation",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 120,
+      "rank": 118,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -5154,7 +5035,7 @@
       "isNew": false
     },
     {
-      "rank": 121,
+      "rank": 119,
       "projects": [
         "one-small-ui"
       ],
@@ -5189,7 +5070,7 @@
       "isNew": false
     },
     {
-      "rank": 122,
+      "rank": 120,
       "projects": [
         "personal-portfolio"
       ],
@@ -5223,7 +5104,7 @@
       "isNew": false
     },
     {
-      "rank": 123,
+      "rank": 121,
       "projects": [
         "personal-portfolio"
       ],
@@ -5256,7 +5137,7 @@
       "isNew": false
     },
     {
-      "rank": 124,
+      "rank": 122,
       "projects": [
         "personal-portfolio"
       ],
@@ -5289,7 +5170,7 @@
       "isNew": false
     },
     {
-      "rank": 125,
+      "rank": 123,
       "projects": [
         "personal-portfolio"
       ],
@@ -5334,7 +5215,7 @@
       "isNew": false
     },
     {
-      "rank": 126,
+      "rank": 124,
       "projects": [
         "one-small-studio"
       ],
@@ -5368,7 +5249,7 @@
       "isNew": false
     },
     {
-      "rank": 127,
+      "rank": 125,
       "projects": [
         "one-small-studio"
       ],
@@ -5401,7 +5282,7 @@
       "isNew": false
     },
     {
-      "rank": 128,
+      "rank": 126,
       "projects": [
         "one-small-studio"
       ],
@@ -5434,7 +5315,7 @@
       "isNew": false
     },
     {
-      "rank": 129,
+      "rank": 127,
       "projects": [
         "one-small-studio"
       ],
@@ -5479,7 +5360,7 @@
       "isNew": false
     },
     {
-      "rank": 130,
+      "rank": 128,
       "projects": [
         "one-small-photography"
       ],
@@ -5513,7 +5394,7 @@
       "isNew": false
     },
     {
-      "rank": 131,
+      "rank": 129,
       "projects": [
         "one-small-photography"
       ],
@@ -5546,7 +5427,7 @@
       "isNew": false
     },
     {
-      "rank": 132,
+      "rank": 130,
       "projects": [
         "one-small-photography"
       ],
@@ -5579,7 +5460,7 @@
       "isNew": false
     },
     {
-      "rank": 133,
+      "rank": 131,
       "projects": [
         "one-small-photography"
       ],
@@ -5612,7 +5493,7 @@
       "isNew": false
     },
     {
-      "rank": 134,
+      "rank": 132,
       "projects": [
         "one-small-photography"
       ],
@@ -5657,7 +5538,7 @@
       "isNew": false
     },
     {
-      "rank": 135,
+      "rank": 133,
       "projects": [
         "taskforge"
       ],
@@ -5692,7 +5573,7 @@
       "isNew": false
     },
     {
-      "rank": 136,
+      "rank": 134,
       "projects": [
         "taskforge"
       ],
@@ -5725,7 +5606,7 @@
       "isNew": false
     },
     {
-      "rank": 137,
+      "rank": 135,
       "projects": [
         "taskforge"
       ],
@@ -5758,7 +5639,7 @@
       "isNew": false
     },
     {
-      "rank": 138,
+      "rank": 136,
       "projects": [
         "taskforge"
       ],
@@ -5792,7 +5673,7 @@
       "isNew": false
     },
     {
-      "rank": 139,
+      "rank": 137,
       "projects": [
         "taskforge"
       ],
@@ -5837,7 +5718,7 @@
       "isNew": false
     },
     {
-      "rank": 140,
+      "rank": 138,
       "projects": [
         "cortex"
       ],
@@ -5870,7 +5751,7 @@
       "isNew": false
     },
     {
-      "rank": 141,
+      "rank": 139,
       "projects": [
         "cortex"
       ],
@@ -5903,7 +5784,7 @@
       "isNew": false
     },
     {
-      "rank": 142,
+      "rank": 140,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -5937,7 +5818,7 @@
       "isNew": false
     },
     {
-      "rank": 143,
+      "rank": 141,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -5971,7 +5852,7 @@
       "isNew": false
     },
     {
-      "rank": 144,
+      "rank": 142,
       "projects": [
         "one-small-ui"
       ],
@@ -6007,7 +5888,7 @@
       "isNew": false
     },
     {
-      "rank": 145,
+      "rank": 143,
       "projects": [
         "personal-portfolio"
       ],
@@ -6040,7 +5921,7 @@
       "isNew": false
     },
     {
-      "rank": 146,
+      "rank": 144,
       "projects": [
         "one-small-studio"
       ],
@@ -6073,7 +5954,7 @@
       "isNew": false
     },
     {
-      "rank": 147,
+      "rank": 145,
       "projects": [
         "one-small-photography"
       ],
@@ -6106,7 +5987,7 @@
       "isNew": false
     },
     {
-      "rank": 148,
+      "rank": 146,
       "projects": [
         "cortex"
       ],
