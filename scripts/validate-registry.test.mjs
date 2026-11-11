@@ -139,7 +139,7 @@ test('a verified gate needs verifiedAt, and other gates must not carry one', () 
   const r1 = clone(); const p1 = project(r1, 'one-small-ui')
   Object.assign(p1.releaseGates.find(g => g.id === 'automated-checks'), { status: 'verified', verifiedAt: null })
   rejects(r1, 'needs verifiedAt')
-  const r2 = clone(); r2.projects[0].releaseGates[0].verifiedAt = '2026-10-22T16:00:00Z'
+  const r2 = clone(); r2.projects.flatMap(p => p.releaseGates).find(g => g.status !== 'verified').verifiedAt = '2026-10-22T16:00:00Z'
   rejects(r2, 'verifiedAt must be null unless the gate is verified')
 })
 

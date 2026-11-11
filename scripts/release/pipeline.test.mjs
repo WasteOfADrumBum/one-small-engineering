@@ -14,6 +14,7 @@ import { renderProjectReport, renderDashboard, toJson } from './render.mjs'
 import { prepareRelease, changelogSection } from './prepare.mjs'
 import { guardRegistryChange } from '../sync/guard.mjs'
 import { validateRegistry, parseDefinitionOfDone } from '../validate-registry.mjs'
+import { withModsPackPreRelease } from '../../fixtures/verify/helpers.mjs'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..')
 const read = p => readFileSync(resolve(ROOT, p), 'utf8')
@@ -72,7 +73,7 @@ test('the committed reports match the registry they were generated from (npm run
 
 test('the registry must validate first: invalid or malformed input produces no report', () => {
   const r = JSON.parse(registryText)
-  r.projects[0].releaseGates[0].status = 'verified'
+  Object.assign(r.projects[0].releaseGates[0], { status: 'verified', verifiedAt: null })
   assert.throws(() => gen({ registryText: JSON.stringify(r) }), e => e instanceof ReadinessInputError && /registry is invalid/.test(e.message))
   assert.throws(() => gen({ registryText: '{"projects": [' }), ReadinessInputError)
   assert.throws(() => gen({ only: 'nope' }), UsageError)
@@ -122,7 +123,9 @@ test('changelog snapshots: sha256 guarded, paths kept inside the repository, sec
 })
 
 test('release preparation never claims approval, publication or verification', () => {
-  const { files } = gen()
+  // ModsPack as it stood before its 2.0.0 closeout: an unreleased library with no verified gate.
+  const preText = JSON.stringify(withModsPackPreRelease(JSON.parse(registryText)))
+  const { files } = gen({ registryText: preText })
   const dir = 'releases/one-small-mods-pack/2.0.0/'
   const prep = files[`${dir}release-prep.md`]
   assert.match(prep, /Nothing was published, tagged, deployed, merged or approved/)
@@ -132,7 +135,7 @@ test('release preparation never claims approval, publication or verification', (
   const json = JSON.parse(files[`${dir}release-prep.json`])
   assert.equal(json.derived.ownerChecklist.find(c => /approves/.test(c.item)).done, false)
   // The changelog snapshot is pinned to the release candidate commit.
-  const candidate = JSON.parse(registryText).projects.find(p => p.id === 'one-small-mods-pack').release.candidate.headSha
+  const candidate = JSON.parse(preText).projects.find(p => p.id === 'one-small-mods-pack').release.candidate.headSha
   assert.equal(json.unverified.changelog.source.commitSha, candidate)
   assert.equal(json.unverified.changelog.stale, false)
   const notes = files[`${dir}release-notes.draft.md`]

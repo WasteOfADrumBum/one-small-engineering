@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-11T12:42:22Z",
+  "lastUpdatedAt": "2026-11-11T12:51:46Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -70,7 +70,7 @@
       "repository": "https://github.com/WasteOfADrumBum/one-small-mods-pack",
       "tier": "library",
       "visibility": "public",
-      "lifecycle": "active",
+      "lifecycle": "maintenance",
       "productionUrl": null,
       "repositorySnapshot": {
         "defaultBranch": "main",
@@ -88,24 +88,25 @@
       },
       "openPullRequests": [],
       "release": {
-        "currentVersion": "0.1.0",
-        "currentVersionSource": "Not an npm or tagged release. main holds package.json guardrail-mods 0.1.0 (private) and four 0.1.0 Claude Code mods installable from the repository as a plugin marketplace. No git tags or GitHub releases exist.",
+        "currentVersion": "2.0.0",
+        "currentVersionSource": "one-small-modspack 2.0.0 on npm (dist-tag latest, provenance) from one-small-mods-pack 03ab44a, approved by Joshua Small on 2026-11-11 (evidence msp-owner-final-verification-2026-11-11). No git tag or GitHub release yet.",
         "targetVersion": "2.0.0",
-        "releaseStatus": "in_progress",
-        "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/26b5ccdef6602a11b0970cee66b2b865c9f59b17/release/2.0.0/tracker.md",
+        "releaseStatus": "released",
+        "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-mods-pack/blob/03ab44a4f4be78e8298371eaabdb4d35cf1874a0/release/2.0.0/tracker.md",
         "candidate": {
           "pullRequest": 5,
           "ref": "main",
-          "headSha": "b0ff54a436c90dc02b59cde3a1fca5e94334bc4f",
-          "observedAt": "2026-11-04T16:25:23Z"
+          "headSha": "03ab44a4f4be78e8298371eaabdb4d35cf1874a0",
+          "observedAt": "2026-11-11T06:10:00Z"
         },
         "blockers": [
           {
             "id": "manual-screen-reader-review",
-            "description": "Screen reader review (NVDA or similar) of the generated documentation site is NOT TESTED.",
-            "status": "open",
+            "description": "Resolved by owner exception: deferred by Joshua Small on 2026-11-11 (not passed); recorded as an owner-accepted exception in his closeout attestation on hub PR #196. The check is still to be performed.",
+            "status": "resolved",
             "evidenceRefs": [
-              "msp-release-verification"
+              "msp-release-verification",
+              "msp-owner-final-verification-2026-11-11"
             ],
             "category": "accessibility",
             "blocks": "release",
@@ -116,10 +117,11 @@
           },
           {
             "id": "manual-zoom-forced-colors-review",
-            "description": "Real 200%/400% browser zoom, text spacing and Windows forced-colors review is NOT TESTED (only viewport-width and emulated checks).",
-            "status": "open",
+            "description": "Resolved by owner exception: deferred by Joshua Small on 2026-11-11 (not passed); recorded as an owner-accepted exception in his closeout attestation on hub PR #196. The check is still to be performed.",
+            "status": "resolved",
             "evidenceRefs": [
-              "msp-release-verification"
+              "msp-release-verification",
+              "msp-owner-final-verification-2026-11-11"
             ],
             "category": "accessibility",
             "blocks": "release",
@@ -130,11 +132,12 @@
           },
           {
             "id": "copilot-gemini-runtime-untested",
-            "description": "Copilot and Gemini CLI hook enforcement, custom agents and model use are NOT TESTED (discovery verified 2026-10-31 in Copilot CLI 1.0.105 and Gemini CLI 0.66.0; no credentials in the agent container on 2026-11-04). Owner decision: test (manual-acceptance rows P2, P3) or mark DEFERRED-BY-OWNER and ship as unverified.",
-            "status": "open",
+            "description": "Resolved by owner exception: Joshua Small deferred P2 and P3 on 2026-11-11 and 2.0.0 shipped with Copilot and Gemini runtime unverified (documented in README limitations and the compatibility catalog); accepted in his attestation on hub PR #196.",
+            "status": "resolved",
             "evidenceRefs": [
               "msp-release-verification",
-              "msp-compatibility-catalog"
+              "msp-compatibility-catalog",
+              "msp-owner-final-verification-2026-11-11"
             ],
             "category": "workflow",
             "blocks": "release",
@@ -145,10 +148,11 @@
           },
           {
             "id": "codex-interactive-trust",
-            "description": "Codex hook enforcement verified only with trust bypassed (0.159.3); interactive /hooks trust not confirmed (manual-acceptance row P1). No OpenAI credentials in the agent container on 2026-11-04.",
-            "status": "open",
+            "description": "Resolved by owner exception: Joshua Small deferred P1 on 2026-11-11; Codex interactive trust remains unconfirmed; accepted in his attestation on hub PR #196.",
+            "status": "resolved",
             "evidenceRefs": [
-              "msp-release-verification"
+              "msp-release-verification",
+              "msp-owner-final-verification-2026-11-11"
             ],
             "category": "workflow",
             "blocks": "release",
@@ -158,10 +162,12 @@
           },
           {
             "id": "npm-ownership-access",
-            "description": "npm account access for publishing one-small-modspack not confirmed by the owner; the name is still unpublished (npm view E404 on 2026-11-04, which is not a reservation). The npm-publish environment and a first-publication token are owner setup steps (release/README.md).",
-            "status": "open",
+            "description": "Resolved: Joshua Small set up the npm-publish environment and token, and one-small-modspack 2.0.0 was published from his account on 2026-11-11 (evidence msp-npm-2-0-0).",
+            "status": "resolved",
             "evidenceRefs": [
-              "msp-npm-name-check"
+              "msp-npm-name-check",
+              "msp-npm-2-0-0",
+              "msp-owner-final-verification-2026-11-11"
             ],
             "category": "distribution",
             "blocks": "release",
@@ -200,17 +206,18 @@
           },
           {
             "id": "release-authorization",
-            "description": "No owner authorization yet for tag, npm publish, GitHub release or website deployment, and no owner sign-off in release/2.0.0/manual-acceptance.md (all 15 rows PENDING).",
-            "status": "open",
+            "description": "Resolved: Joshua Small signed release/2.0.0/manual-acceptance.md (03ab44a), started the publish run with the authorization phrase for 03ab44a, and approved the release on hub PR #196.",
+            "status": "resolved",
             "evidenceRefs": [
-              "msp-pr-3"
+              "msp-pr-3",
+              "msp-owner-final-verification-2026-11-11"
             ],
             "category": "approval",
             "blocks": "release",
             "gates": []
           }
         ],
-        "nextAction": "Owner: complete release/2.0.0/manual-acceptance.md (12 website rows; P1-P3 tested or DEFERRED-BY-OWNER) using release/2.0.0/manual-a11y-quickstart.md and sign off; confirm npm access and do the one-time setup in release/README.md; then dry run, tag, publish with provenance, GitHub release and Pages deploy from the sign-off commit. Agent work is complete (PR #8 merged).",
+        "nextAction": "Owner, optional: GitHub release v2.0.0 and the documentation website deploy; delete the one-day npm token; set up npm trusted publishing at the next release. Deferred checks (manual accessibility rows and P1-P3) remain to be performed.",
         "enhancements": [
           "Plugin icon artwork and plugin-directory submission (not needed for npm or local use); ModsPack ROADMAP.md R1.",
           "Live Codex, Copilot and Gemini CLI enforcement evidence; ModsPack ROADMAP.md R2.",
@@ -223,12 +230,14 @@
         "approvalOwner": "Joshua Small"
       },
       "approval": {
-        "status": "pending",
-        "approvedBy": null,
-        "approvedAt": null,
-        "evidenceRefs": []
+        "status": "approved",
+        "approvedBy": "Joshua Small",
+        "approvedAt": "2026-11-11T12:50:43Z",
+        "evidenceRefs": [
+          "msp-owner-final-verification-2026-11-11"
+        ]
       },
-      "lastVerifiedAt": "2026-11-04T17:26:09Z",
+      "lastVerifiedAt": "2026-11-11T12:50:43Z",
       "evidence": [
         {
           "id": "msp-repo-metadata",
@@ -391,70 +400,120 @@
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
           "eventKey": "one-small-mods-pack:workflow_run:ci.yml/3ddcd72/jr8b4jy/1"
+        },
+        {
+          "id": "msp-ci-03ab44a",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/42969970860",
+          "commitSha": "03ab44a4f4be78e8298371eaabdb4d35cf1874a0",
+          "verifiedAt": "2026-11-11T06:10:00Z",
+          "result": "pass",
+          "description": "Push CI on 03ab44a (Joshua Small's sign-off commit): all jobs succeeded, including the packed-artifact smoke test on Linux, Windows and macOS.",
+          "recordedBy": "Claude Code (ModsPack 2.0.0 closeout 2026-11-11, read-only GitHub and npm inspection)"
+        },
+        {
+          "id": "msp-release-dry-run-03ab44a",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/42970116646",
+          "commitSha": "03ab44a4f4be78e8298371eaabdb4d35cf1874a0",
+          "verifiedAt": "2026-11-11T06:15:00Z",
+          "result": "pass",
+          "description": "Release (npm) workflow, mode dry-run, candidate_sha 03ab44a: every gate passed and npm publish --dry-run succeeded. Nothing uploaded.",
+          "recordedBy": "Claude Code (ModsPack 2.0.0 closeout 2026-11-11, read-only GitHub and npm inspection)"
+        },
+        {
+          "id": "msp-npm-2-0-0",
+          "type": "package",
+          "url": "https://www.npmjs.com/package/one-small-modspack/v/2.0.0",
+          "commitSha": "03ab44a4f4be78e8298371eaabdb4d35cf1874a0",
+          "verifiedAt": "2026-11-11T10:50:00Z",
+          "result": "pass",
+          "description": "one-small-modspack 2.0.0 published 2026-11-11T10:35:01Z by the Release (npm) workflow in publish mode, started by Joshua Small with the authorization phrase for 03ab44a (third attempt of the run). dist-tag latest = 2.0.0; SLSA v1 provenance attestation present; 82 files; dist.integrity equals the CI-built tarball. The run ended red only because its registry confirmation step gave up before the registry caught up (fixed in one-small-mods-pack PR #11).",
+          "recordedBy": "Claude Code (ModsPack 2.0.0 closeout 2026-11-11, read-only GitHub and npm inspection)"
+        },
+        {
+          "id": "msp-owner-final-verification-2026-11-11",
+          "type": "manual_test",
+          "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/196#issuecomment-6796287364",
+          "commitSha": "03ab44a4f4be78e8298371eaabdb4d35cf1874a0",
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "result": "pass",
+          "description": "Joshua Small commented \"Signed\" on hub PR #196, which presents the ModsPack 2.0.0 closeout package (docs/acceptance/modspack-2.0-closeout.md) and its proposed attestation. That comment is his verifier attestation and release approval: he accepts the evidence for the seventeen evidence gates, records wcag-22-aa, keyboard-screen-reader, responsive-layouts and runtime-compatibility as owner-accepted exceptions that are NOT met (checks deferred by him on 2026-11-11, to be performed later; he looked at the content for verification), and approves ModsPack 2.0.0. Transcribed by Claude Code at his direction; no test is represented as newly run.",
+          "recordedBy": "Joshua Small"
         }
       ],
       "releaseGates": [
         {
           "id": "scope-complete",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
             "msp-pr-5-merged",
-            "msp-pr-3-merged"
+            "msp-pr-8",
+            "msp-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Scope is the 2.0.0 package at b0ff54a (PR #3 functionality plus PR #5 release tooling) and release/2.0.0/manual-acceptance.md; manual rows remain PENDING."
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "automated-checks",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
-            "msp-ci-b0ff54a",
-            "msp-release-dry-run",
-            "msp-ci-main-26b5ccd"
+            "msp-ci-03ab44a",
+            "msp-release-dry-run-03ab44a",
+            "msp-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "CI green on candidate b0ff54a (all seven jobs) and on main 26b5ccd; release dry run passed on b0ff54a. Awaiting the verifier."
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "security-privacy-review",
-          "status": "not_verified",
-          "evidenceRefs": [],
-          "verifiedAt": null,
-          "notes": "Security test suite and dependency audit are builder-reported; no independent security review recorded yet."
+          "status": "verified",
+          "evidenceRefs": [
+            "msp-release-verification",
+            "msp-owner-final-verification-2026-11-11"
+          ],
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "wcag-22-aa",
-          "status": "in_progress",
+          "status": "not_applicable",
           "evidenceRefs": [
-            "msp-release-verification"
+            "msp-release-verification",
+            "msp-owner-final-verification-2026-11-11"
           ],
           "verifiedAt": null,
-          "notes": "Automated axe, contrast and reflow checks on the generated site are builder-reported PASS; manual review outstanding."
+          "notes": "Owner-accepted exception for 2.0.0 only, recorded in hub PR #196: the requirement was NOT met. Deferred by Joshua Small on 2026-11-11 (to be performed later; he looked at the content for verification): manual site review (manual-acceptance rows A1-A5); automated axe, contrast and reflow checks are builder-reported PASS. The manual-acceptance rows read DEFERRED-BY-OWNER, which is not a pass."
         },
         {
           "id": "keyboard-screen-reader",
-          "status": "in_progress",
+          "status": "not_applicable",
           "evidenceRefs": [
-            "msp-release-verification"
+            "msp-release-verification",
+            "msp-owner-final-verification-2026-11-11"
           ],
           "verifiedAt": null,
-          "notes": "Automated keyboard/focus checks PASS (builder-reported); screen reader NOT TESTED."
+          "notes": "Owner-accepted exception for 2.0.0 only, recorded in hub PR #196: the requirement was NOT met. Deferred by Joshua Small on 2026-11-11 (to be performed later; he looked at the content for verification): screen reader review (rows K1-K3, T1); automated keyboard and focus checks are builder-reported PASS. The manual-acceptance rows read DEFERRED-BY-OWNER, which is not a pass."
         },
         {
           "id": "responsive-layouts",
-          "status": "in_progress",
+          "status": "not_applicable",
           "evidenceRefs": [
-            "msp-release-verification"
+            "msp-release-verification",
+            "msp-owner-final-verification-2026-11-11"
           ],
           "verifiedAt": null,
-          "notes": "Viewport-width reflow checks PASS (builder-reported); real browser zoom NOT TESTED."
+          "notes": "Owner-accepted exception for 2.0.0 only, recorded in hub PR #196: the requirement was NOT met. Deferred by Joshua Small on 2026-11-11 (to be performed later; he looked at the content for verification): real 200%/400% zoom, text spacing and forced colors (rows Z1, Z2, H1); viewport-width reflow checks are builder-reported PASS. The manual-acceptance rows read DEFERRED-BY-OWNER, which is not a pass."
         },
         {
           "id": "critical-workflows",
-          "status": "not_verified",
-          "evidenceRefs": [],
-          "verifiedAt": null,
-          "notes": null
+          "status": "verified",
+          "evidenceRefs": [
+            "msp-ci-03ab44a",
+            "msp-owner-final-verification-2026-11-11"
+          ],
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "production-deployment",
@@ -465,121 +524,144 @@
         },
         {
           "id": "documentation-accurate",
-          "status": "not_verified",
-          "evidenceRefs": [],
-          "verifiedAt": null,
-          "notes": null
+          "status": "verified",
+          "evidenceRefs": [
+            "msp-compatibility-catalog",
+            "msp-owner-final-verification-2026-11-11"
+          ],
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "no-release-blockers",
-          "status": "blocked",
+          "status": "verified",
           "evidenceRefs": [
-            "msp-release-verification"
+            "msp-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Open blockers are listed under release.blockers."
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "package-metadata-exports",
-          "status": "not_verified",
-          "evidenceRefs": [],
-          "verifiedAt": null,
-          "notes": null
+          "status": "verified",
+          "evidenceRefs": [
+            "msp-npm-2-0-0",
+            "msp-owner-final-verification-2026-11-11"
+          ],
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "clean-consumer-install",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
-            "msp-release-verification"
+            "msp-ci-03ab44a",
+            "msp-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Builder reports an artifact test that packs, installs, validates and initializes every platform."
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "runtime-compatibility",
-          "status": "in_progress",
+          "status": "not_applicable",
           "evidenceRefs": [
             "msp-release-verification",
-            "msp-compatibility-catalog"
+            "msp-owner-final-verification-2026-11-11"
           ],
           "verifiedAt": null,
-          "notes": "Claude Code harness PASS; Codex discovery and trust-bypassed hook enforcement live; Copilot/Gemini runtime NOT TESTED; Node 20 partial, CI runs Node 22 only."
+          "notes": "Owner-accepted exception for 2.0.0 only, recorded in hub PR #196: the requirement was NOT met. Deferred by Joshua Small on 2026-11-11 (to be performed later; he looked at the content for verification): Codex interactive trust (P1) and Copilot and Gemini CLI runtime (P2, P3); Claude Code harness PASS, Codex hooks verified only with trust bypassed, Copilot and Gemini discovery only. The manual-acceptance rows read DEFERRED-BY-OWNER, which is not a pass."
         },
         {
           "id": "package-archive-inspection",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
-            "msp-release-verification"
+            "msp-npm-2-0-0",
+            "msp-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Builder reports an 82-file tarball reviewed with an artifact regression test; not independently re-inspected."
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "supply-chain-review",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
-            "msp-release-verification"
+            "msp-release-verification",
+            "msp-npm-2-0-0",
+            "msp-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Builder reports npm audit 0 vulnerabilities and audit signatures verified on 2026-10-22; zero runtime dependencies. PR description still says INCONCLUSIVE."
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "ci-release-pipeline",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
-            "msp-ci-pr3-head"
+            "msp-release-dry-run-03ab44a",
+            "msp-npm-2-0-0",
+            "msp-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "CI exists for checks (contents: read). There is no release or publish pipeline yet."
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "versioning-changelog",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
-            "msp-release-verification"
+            "msp-npm-2-0-0",
+            "msp-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "CHANGELOG 2.0.0 (unreleased) with mod version list and a consistency test (builder-reported)."
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "distribution-verified",
-          "status": "not_verified",
-          "evidenceRefs": [],
-          "verifiedAt": null,
-          "notes": "Not published. npm ownership and access unconfirmed."
+          "status": "verified",
+          "evidenceRefs": [
+            "msp-npm-2-0-0",
+            "msp-owner-final-verification-2026-11-11"
+          ],
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "release-provenance",
-          "status": "not_verified",
-          "evidenceRefs": [],
-          "verifiedAt": null,
-          "notes": "No publish workflow, so no npm provenance yet."
+          "status": "verified",
+          "evidenceRefs": [
+            "msp-npm-2-0-0",
+            "msp-owner-final-verification-2026-11-11"
+          ],
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "upgrade-rollback-uninstall-docs",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
-            "msp-release-verification"
+            "msp-release-verification",
+            "msp-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "Install, update and modspack uninstall --yes documented in docs/getting-started.md (builder-reported)."
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "public-docs-accurate",
-          "status": "in_progress",
+          "status": "verified",
           "evidenceRefs": [
-            "msp-release-verification",
-            "msp-compatibility-catalog"
+            "msp-compatibility-catalog",
+            "msp-owner-final-verification-2026-11-11"
           ],
-          "verifiedAt": null,
-          "notes": "README, CHANGELOG and limitations reviewed by the builder; compatibility claims come from the catalog."
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
         },
         {
           "id": "published-artifact-matches",
-          "status": "not_verified",
-          "evidenceRefs": [],
-          "verifiedAt": null,
-          "notes": "Nothing published yet."
+          "status": "verified",
+          "evidenceRefs": [
+            "msp-npm-2-0-0",
+            "msp-owner-final-verification-2026-11-11"
+          ],
+          "verifiedAt": "2026-11-11T12:50:43Z",
+          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the ModsPack 2.0.0 closeout attestation (hub PR #196). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
         }
       ],
       "modsPack": {
@@ -593,11 +675,8 @@
         ]
       },
       "missingEvidence": [
-        "Independent (non-builder) verification of the automated results on b0ff54a / the sign-off commit.",
-        "Manual screen reader, browser zoom, text spacing, Windows contrast theme and keyboard results (release/2.0.0/manual-acceptance.md).",
-        "Copilot and Gemini CLI runtime evidence and Codex interactive trust, or a recorded owner decision to ship them unverified (DEFERRED-BY-OWNER).",
-        "npm account access confirmation by the owner.",
-        "npm provenance exists only after publication; none yet."
+        "Manual screen reader, browser zoom, text spacing, Windows contrast theme and keyboard results (release/2.0.0/manual-acceptance.md rows deferred by owner on 2026-11-11).",
+        "Codex interactive trust and Copilot and Gemini CLI runtime evidence (rows P1-P3, deferred by owner on 2026-11-11)."
       ],
       "sync": {
         "enabled": true,

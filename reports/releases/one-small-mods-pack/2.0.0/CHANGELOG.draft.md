@@ -1,8 +1,8 @@
 # Changelog draft for One Small ModsPack 2.0.0
 
-> Draft generated 2026-11-11T05:47:35Z. Review it against verified evidence before copying it into the project repository. Status: Not eligible for release. 0 of 21 applicable gates independently verified (0%); 19 open blocker(s).
+> Draft generated 2026-11-11T12:51:53Z. Review it against verified evidence before copying it into the project repository. Status: Released and approved. 17 of 17 applicable gates independently verified (100%); 0 open blocker(s).
 
-_Source: CHANGELOG.md at b0ff54a. Builder-authored text, not independently verified._
+_Source: CHANGELOG.md at b0ff54a (older than the release candidate: re-read it). Builder-authored text, not independently verified._
 
 ## 2.0.0 (unreleased)
 
