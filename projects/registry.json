@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-11T03:33:45Z",
+  "lastUpdatedAt": "2026-11-11T04:18:40Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1177,9 +1177,9 @@
       "productionUrl": "https://onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "16c165da0fb7dff84464a584a6b631a84eb563f8",
+        "headSha": "a9f14960ba31c03a25816f471833cb4c6723c9ed",
         "archived": false,
-        "observedAt": "2026-11-11T02:23:27Z",
+        "observedAt": "2026-11-11T04:18:40Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1443,40 +1443,40 @@
           "recordedBy": "Joshua Small"
         },
         {
-          "id": "sync-personal-portfolio-run-ci-yml-16c165d-jq4q8vj-1",
+          "id": "sync-personal-portfolio-run-ci-yml-a9f1496-jqfuq1t-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/42938927983",
-          "commitSha": "16c165da0fb7dff84464a584a6b631a84eb563f8",
-          "verifiedAt": "2026-11-11T01:29:40Z",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/42957612641",
+          "commitSha": "a9f14960ba31c03a25816f471833cb4c6723c9ed",
+          "verifiedAt": "2026-11-11T04:14:37Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded failure on main at 16c165d (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at a9f1496 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "personal-portfolio:workflow_run:ci.yml/16c165d/jq4q8vj/1"
+          "eventKey": "personal-portfolio:workflow_run:ci.yml/a9f1496/jqfuq1t/1"
         },
         {
-          "id": "sync-personal-portfolio-run-codeql-yml-16c165d-jq4q8w0-1",
+          "id": "sync-personal-portfolio-run-codeql-yml-a9f1496-jqfupx3-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/42938928000",
-          "commitSha": "16c165da0fb7dff84464a584a6b631a84eb563f8",
-          "verifiedAt": "2026-11-11T01:27:08Z",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/42957612471",
+          "commitSha": "a9f14960ba31c03a25816f471833cb4c6723c9ed",
+          "verifiedAt": "2026-11-11T04:12:50Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow codeql.yml (\"CodeQL\") concluded success on main at 16c165d (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow codeql.yml (\"CodeQL\") concluded success on main at a9f1496 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "personal-portfolio:workflow_run:codeql.yml/16c165d/jq4q8w0/1"
+          "eventKey": "personal-portfolio:workflow_run:codeql.yml/a9f1496/jqfupx3/1"
         },
         {
-          "id": "sync-personal-portfolio-run-production-yml-16c165d-jq4qysl-1",
+          "id": "sync-personal-portfolio-run-production-yml-a9f1496-jqfvf2k-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/42938961573",
-          "commitSha": "16c165da0fb7dff84464a584a6b631a84eb563f8",
-          "verifiedAt": "2026-11-11T01:27:26Z",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/42957645068",
+          "commitSha": "a9f14960ba31c03a25816f471833cb4c6723c9ed",
+          "verifiedAt": "2026-11-11T04:12:49Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow production.yml (\"Production verification\") concluded success on main at 16c165d (deployment_status event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow production.yml (\"Production verification\") concluded success on main at a9f1496 (deployment_status event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "personal-portfolio:workflow_run:production.yml/16c165d/jq4qysl/1"
+          "eventKey": "personal-portfolio:workflow_run:production.yml/a9f1496/jqfvf2k/1"
         }
       ],
       "releaseGates": [
@@ -1607,8 +1607,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406067959,
-        "lastSyncedAt": "2026-11-11T02:23:27Z",
-        "lastSyncedHead": "16c165da0fb7dff84464a584a6b631a84eb563f8",
+        "lastSyncedAt": "2026-11-11T04:18:40Z",
+        "lastSyncedHead": "a9f14960ba31c03a25816f471833cb4c6723c9ed",
         "configSource": "defaults"
       }
     },
