@@ -1,6 +1,6 @@
 # Cortex 1.0.0 release notes (draft)
 
-> **Draft, not approved, not published.** Status: Released and approved. 17 of 17 applicable gates independently verified (100%); 0 open blocker(s). Generated 2026-11-11T12:51:53Z.
+> **Draft, not approved, not published.** Status: Released and approved. 17 of 17 applicable gates independently verified (100%); 0 open blocker(s). Generated 2026-11-11T13:12:05Z.
 
 ## Highlights
 
@@ -12,7 +12,6 @@ _Fill in from the approved scope document._
 
 ## Known limitations
 
-- Not yet verified: Automated accessibility scan (axe) for Cortex; 1.0 relies on the owner's manual checks.
 
 ## Upgrade, rollback and uninstall
 
