@@ -7,7 +7,7 @@
     "activeProjects": 8,
     "readyForRelease": 0,
     "candidateReady": 0,
-    "blocked": 3,
+    "blocked": 2,
     "failingCi": 0,
     "ciUnknown": 8,
     "security": {
@@ -18,7 +18,7 @@
     },
     "verificationCoverage": {
       "verified": 0,
-      "applicable": 132
+      "applicable": 129
     },
     "openRemediationPRs": 3,
     "unreviewedRemediationPRs": 0,
@@ -28,9 +28,9 @@
       "one-small-ai-workforce"
     ],
     "releaseStates": {
-      "not_ready": 3,
-      "blocked": 3,
-      "verification_required": 2,
+      "not_ready": 2,
+      "blocked": 2,
+      "verification_required": 4,
       "candidate_ready": 0,
       "awaiting_approval": 0,
       "approved": 0,
@@ -39,7 +39,7 @@
     "queue": {
       "automatic": 5,
       "independent-verification": 33,
-      "owner-decision": 84,
+      "owner-decision": 97,
       "blocked-credentials": 8,
       "informational": 5
     }
@@ -404,10 +404,12 @@
         "not_applicable": 0
       },
       "release": {
-        "state": "blocked",
-        "text": "Blocked",
+        "state": "verification_required",
+        "text": "Verification Required",
         "reasons": [
-          "1 open registry blocker(s): auto-ci-failed-sync-personal-portfolio-run-ci-yml-16c165d-jq4q8vj-1",
+          "9 of 9 pre-publication gate(s) not independently verified",
+          "no release candidate commit recorded",
+          "derived blockers: auto-critical-workflows-unverified, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa",
           "recorded approval is not bound to the candidate: no release candidate commit is recorded"
         ],
         "candidate": null,
@@ -418,7 +420,7 @@
         }
       },
       "releasePlan": {
-        "state": "blocked",
+        "state": "verification_required",
         "candidateRevision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
         "candidateSource": "live head of main",
         "applicableGates": 10,
@@ -437,7 +439,6 @@
           "no-release-blockers"
         ],
         "activeBlockers": [
-          "auto-ci-failed-sync-personal-portfolio-run-ci-yml-16c165d-jq4q8vj-1",
           "auto-critical-workflows-unverified",
           "auto-stale-automated-checks",
           "auto-stale-critical-workflows",
@@ -467,7 +468,7 @@
         ],
         "versionRecommendation": "1.0.0 (registry target; current 1.0.0)",
         "preparation": [],
-        "preparationStatus": "not started: Blocked",
+        "preparationStatus": "not started: Verification Required",
         "rollback": "Redeploy the previous production revision from the hosting provider, then revert the release commit on main through a PR.",
         "ownerActions": [
           "merge: owner only",
@@ -476,13 +477,7 @@
           "tag: owner only"
         ]
       },
-      "blockers": [
-        {
-          "id": "auto-ci-failed-sync-personal-portfolio-run-ci-yml-16c165d-jq4q8vj-1",
-          "severity": "unclassified",
-          "description": "CI did not pass on 16c165d (failure)."
-        }
-      ],
+      "blockers": [],
       "openPullRequests": 4,
       "sync": {
         "changes": [],
@@ -496,8 +491,8 @@
         "medium": 0,
         "low": 0
       },
-      "nextAction": "Fix ci-failed-sync-personal-portfolio-run-ci-yml-16c165d-jq4q8vj-1 in personal-portfolio.",
-      "queueItems": 20
+      "nextAction": "Review accessibility for personal-portfolio.",
+      "queueItems": 19
     },
     {
       "id": "one-small-studio",
@@ -894,37 +889,40 @@
       "readiness": {
         "percentage": 0,
         "previousPercentage": 0,
-        "applicableGates": 20,
+        "applicableGates": 17,
         "verifiedGates": 0,
-        "eligibility": "not-scoped",
+        "eligibility": "not-eligible",
         "ownershipValid": true
       },
       "gateStates": {
         "independently_verified": 0,
         "passed_by_builder": 4,
         "failed": 0,
-        "inconclusive": 5,
-        "not_tested": 11,
-        "not_applicable": 0
+        "inconclusive": 13,
+        "not_tested": 0,
+        "not_applicable": 3
       },
       "release": {
-        "state": "not_ready",
-        "text": "Not Ready",
+        "state": "verification_required",
+        "text": "Verification Required",
         "reasons": [
-          "no target version"
+          "16 of 16 pre-publication gate(s) not independently verified",
+          "no release candidate commit recorded",
+          "derived blockers: auto-critical-workflows-unverified, auto-stale-api-integration-security, auto-stale-authentication, auto-stale-authorization-boundaries, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-deployment-rollback, auto-stale-documentation-accurate, auto-stale-e2e-critical-workflows, auto-stale-integration-failure-handling, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-sensitive-data-handling, auto-stale-wcag-22-aa",
+          "recorded approval is not bound to the candidate: no release candidate commit is recorded"
         ],
         "candidate": null,
         "approval": {
-          "valid": false,
+          "valid": true,
           "bound": false,
-          "reason": "approval is pending"
+          "reason": "no release candidate commit is recorded"
         }
       },
       "releasePlan": {
-        "state": "not_ready",
+        "state": "verification_required",
         "candidateRevision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
         "candidateSource": "live head of main",
-        "applicableGates": 20,
+        "applicableGates": 17,
         "verifiedGates": 0,
         "readinessPercent": 0,
         "missingEvidence": [
@@ -943,19 +941,28 @@
           "sensitive-data-handling",
           "api-integration-security",
           "integration-failure-handling",
-          "backup-recovery",
-          "audit-logging",
           "deployment-rollback",
-          "e2e-critical-workflows",
-          "user-data-isolation"
+          "e2e-critical-workflows"
         ],
         "activeBlockers": [
-          "no-ci-workflow",
-          "spec-open-questions",
-          "v2-phases-incomplete",
           "auto-critical-workflows-unverified",
-          "auto-missing-verification",
-          "auto-owner-approval"
+          "auto-stale-api-integration-security",
+          "auto-stale-authentication",
+          "auto-stale-authorization-boundaries",
+          "auto-stale-automated-checks",
+          "auto-stale-critical-workflows",
+          "auto-stale-deployment-rollback",
+          "auto-stale-documentation-accurate",
+          "auto-stale-e2e-critical-workflows",
+          "auto-stale-integration-failure-handling",
+          "auto-stale-keyboard-screen-reader",
+          "auto-stale-no-release-blockers",
+          "auto-stale-production-deployment",
+          "auto-stale-responsive-layouts",
+          "auto-stale-scope-complete",
+          "auto-stale-security-privacy-review",
+          "auto-stale-sensitive-data-handling",
+          "auto-stale-wcag-22-aa"
         ],
         "dependencyReadiness": [
           "confirmed declared: integrates one-small-ui",
@@ -976,18 +983,15 @@
           "sensitive-data-handling",
           "api-integration-security",
           "integration-failure-handling",
-          "backup-recovery",
-          "audit-logging",
           "deployment-rollback",
-          "e2e-critical-workflows",
-          "user-data-isolation"
+          "e2e-critical-workflows"
         ],
         "approvalsRequired": [
           "Joshua Small (release approval, recorded in the registry with evidence)"
         ],
-        "versionRecommendation": "none: the owner sets release.targetVersion when a release is scoped",
+        "versionRecommendation": "1.0.0 (registry target; current 1.0.0)",
         "preparation": [],
-        "preparationStatus": "not started: Not Ready",
+        "preparationStatus": "not started: Verification Required",
         "rollback": "Redeploy the previous production revision from the hosting provider, then revert the release commit on main through a PR.",
         "ownerActions": [
           "merge: owner only",
@@ -996,23 +1000,7 @@
           "tag: owner only"
         ]
       },
-      "blockers": [
-        {
-          "id": "no-ci-workflow",
-          "severity": "unclassified",
-          "description": "No GitHub Actions workflow; npm test exists but is not enforced on PRs (only the Vercel status runs)."
-        },
-        {
-          "id": "spec-open-questions",
-          "severity": "unclassified",
-          "description": "The v2 spec lists five open questions for the owner (finance email hand-off, Muse check, Vault legend, news sources, briefing schedule)."
-        },
-        {
-          "id": "v2-phases-incomplete",
-          "severity": "unclassified",
-          "description": "README states Finances is a placeholder until phase 4 and News until phase 5, and Ops project cards arrive in phase 3; the v2 spec defines six phases."
-        }
-      ],
+      "blockers": [],
       "openPullRequests": 0,
       "sync": {
         "changes": [],
@@ -1026,8 +1014,8 @@
         "medium": 0,
         "low": 0
       },
-      "nextAction": "Resolve no-ci-workflow in cortex.",
-      "queueItems": 10
+      "nextAction": "Review accessibility for cortex.",
+      "queueItems": 24
     },
     {
       "id": "one-small-ai-workforce",
@@ -1169,70 +1157,6 @@
     {
       "rank": 1,
       "projects": [
-        "personal-portfolio"
-      ],
-      "revision": "56ea76e631008695d6b8c4cd6ee8fecd2ae5e302",
-      "rootCause": null,
-      "complexity": "medium",
-      "validation": [
-        "a passing re-run at the candidate commit"
-      ],
-      "confidence": "high",
-      "evidence": [],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "personal-portfolio:blocker:auto-ci-failed-sync-personal-portfolio-run-ci-yml-16c165d-jq4q8vj-1",
-      "project": "personal-portfolio",
-      "repository": "https://github.com/WasteOfADrumBum/joshsmall-site",
-      "priority": 2,
-      "severity": "high",
-      "kind": "blocker",
-      "title": "CI did not pass on 16c165d (failure).",
-      "impact": "Blocks merge.",
-      "proposedCorrection": "Fix the recorded failure; never skip or disable tests.",
-      "actionClass": "owner-decision",
-      "nextAction": "Fix ci-failed-sync-personal-portfolio-run-ci-yml-16c165d-jq4q8vj-1 in personal-portfolio.",
-      "priorityText": "Broken build or failing required CI",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-28T21:07:08Z",
-      "isNew": true
-    },
-    {
-      "rank": 2,
-      "projects": [
-        "cortex"
-      ],
-      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
-      "rootCause": "Registry blocker no-ci-workflow (ci, blocks release).",
-      "complexity": "medium",
-      "validation": [
-        "the blocker is marked resolved in the registry with resolution evidence"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "registry:cortex:no-ci-workflow"
-      ],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "cortex:blocker:no-ci-workflow",
-      "project": "cortex",
-      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
-      "priority": 2,
-      "severity": "medium",
-      "kind": "blocker",
-      "title": "No GitHub Actions workflow; npm test exists but is not enforced on PRs (only the Vercel status runs).",
-      "impact": "Blocks release.",
-      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
-      "actionClass": "owner-decision",
-      "nextAction": "Resolve no-ci-workflow in cortex.",
-      "priorityText": "Broken build or failing required CI",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 3,
-      "projects": [
         "one-small-mods-pack"
       ],
       "revision": "80cc269ebb7c20aca5f6ca03214954726fb494f7",
@@ -1264,7 +1188,7 @@
       "isNew": false
     },
     {
-      "rank": 4,
+      "rank": 2,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1297,7 +1221,7 @@
       "isNew": false
     },
     {
-      "rank": 5,
+      "rank": 3,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1330,7 +1254,7 @@
       "isNew": false
     },
     {
-      "rank": 6,
+      "rank": 4,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1367,7 +1291,7 @@
       "isNew": false
     },
     {
-      "rank": 7,
+      "rank": 5,
       "projects": [
         "one-small-ui"
       ],
@@ -1404,7 +1328,7 @@
       "isNew": false
     },
     {
-      "rank": 8,
+      "rank": 6,
       "projects": [
         "taskforge"
       ],
@@ -1437,7 +1361,7 @@
       "isNew": false
     },
     {
-      "rank": 9,
+      "rank": 7,
       "projects": [
         "taskforge"
       ],
@@ -1470,73 +1394,7 @@
       "isNew": false
     },
     {
-      "rank": 10,
-      "projects": [
-        "cortex"
-      ],
-      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
-      "rootCause": "Registry blocker spec-open-questions (scope, blocks release).",
-      "complexity": "large",
-      "validation": [
-        "the blocker is marked resolved in the registry with resolution evidence"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "registry:cortex:spec-open-questions"
-      ],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "cortex:blocker:spec-open-questions",
-      "project": "cortex",
-      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
-      "priority": 3,
-      "severity": "medium",
-      "kind": "blocker",
-      "title": "The v2 spec lists five open questions for the owner (finance email hand-off, Muse check, Vault legend, news sources, briefing schedule).",
-      "impact": "Blocks release.",
-      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
-      "actionClass": "owner-decision",
-      "nextAction": "Resolve spec-open-questions in cortex.",
-      "priorityText": "Release-blocking defect",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 11,
-      "projects": [
-        "cortex"
-      ],
-      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
-      "rootCause": "Registry blocker v2-phases-incomplete (scope, blocks release).",
-      "complexity": "large",
-      "validation": [
-        "the blocker is marked resolved in the registry with resolution evidence"
-      ],
-      "confidence": "high",
-      "evidence": [
-        "registry:cortex:v2-phases-incomplete"
-      ],
-      "relatedPRs": [],
-      "crossProject": [],
-      "id": "cortex:blocker:v2-phases-incomplete",
-      "project": "cortex",
-      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
-      "priority": 3,
-      "severity": "medium",
-      "kind": "blocker",
-      "title": "README states Finances is a placeholder until phase 4 and News until phase 5, and Ops project cards arrive in phase 3; the v2 spec defines six phases.",
-      "impact": "Blocks release.",
-      "proposedCorrection": "Resolve the cause, then record the resolution with evidence in a registry PR.",
-      "actionClass": "owner-decision",
-      "nextAction": "Resolve v2-phases-incomplete in cortex.",
-      "priorityText": "Release-blocking defect",
-      "actionText": "Requires owner decision",
-      "firstSeen": "2026-10-27T01:55:19Z",
-      "isNew": false
-    },
-    {
-      "rank": 12,
+      "rank": 8,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -1569,7 +1427,7 @@
       "isNew": false
     },
     {
-      "rank": 13,
+      "rank": 9,
       "projects": [
         "one-small-ui"
       ],
@@ -1608,7 +1466,7 @@
       "isNew": false
     },
     {
-      "rank": 14,
+      "rank": 10,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1641,7 +1499,7 @@
       "isNew": false
     },
     {
-      "rank": 15,
+      "rank": 11,
       "projects": [
         "one-small-ui"
       ],
@@ -1674,7 +1532,7 @@
       "isNew": false
     },
     {
-      "rank": 16,
+      "rank": 12,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1707,7 +1565,7 @@
       "isNew": false
     },
     {
-      "rank": 17,
+      "rank": 13,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1740,7 +1598,7 @@
       "isNew": false
     },
     {
-      "rank": 18,
+      "rank": 14,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -1773,7 +1631,7 @@
       "isNew": false
     },
     {
-      "rank": 19,
+      "rank": 15,
       "projects": [
         "one-small-ui"
       ],
@@ -1806,7 +1664,7 @@
       "isNew": false
     },
     {
-      "rank": 20,
+      "rank": 16,
       "projects": [
         "personal-portfolio"
       ],
@@ -1839,7 +1697,7 @@
       "isNew": false
     },
     {
-      "rank": 21,
+      "rank": 17,
       "projects": [
         "one-small-studio"
       ],
@@ -1872,7 +1730,7 @@
       "isNew": false
     },
     {
-      "rank": 22,
+      "rank": 18,
       "projects": [
         "one-small-photography"
       ],
@@ -1905,7 +1763,7 @@
       "isNew": false
     },
     {
-      "rank": 23,
+      "rank": 19,
       "projects": [
         "taskforge"
       ],
@@ -1938,7 +1796,7 @@
       "isNew": false
     },
     {
-      "rank": 24,
+      "rank": 20,
       "projects": [
         "cortex"
       ],
@@ -1971,7 +1829,7 @@
       "isNew": false
     },
     {
-      "rank": 25,
+      "rank": 21,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2002,7 +1860,7 @@
       "isNew": true
     },
     {
-      "rank": 26,
+      "rank": 22,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2033,7 +1891,7 @@
       "isNew": true
     },
     {
-      "rank": 27,
+      "rank": 23,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2064,7 +1922,7 @@
       "isNew": true
     },
     {
-      "rank": 28,
+      "rank": 24,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2095,7 +1953,7 @@
       "isNew": true
     },
     {
-      "rank": 29,
+      "rank": 25,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2126,7 +1984,7 @@
       "isNew": true
     },
     {
-      "rank": 30,
+      "rank": 26,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2157,7 +2015,7 @@
       "isNew": true
     },
     {
-      "rank": 31,
+      "rank": 27,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2188,7 +2046,7 @@
       "isNew": true
     },
     {
-      "rank": 32,
+      "rank": 28,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2219,7 +2077,7 @@
       "isNew": true
     },
     {
-      "rank": 33,
+      "rank": 29,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2250,7 +2108,7 @@
       "isNew": true
     },
     {
-      "rank": 34,
+      "rank": 30,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2281,7 +2139,7 @@
       "isNew": true
     },
     {
-      "rank": 35,
+      "rank": 31,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2312,7 +2170,7 @@
       "isNew": true
     },
     {
-      "rank": 36,
+      "rank": 32,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2343,7 +2201,7 @@
       "isNew": true
     },
     {
-      "rank": 37,
+      "rank": 33,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2374,7 +2232,7 @@
       "isNew": true
     },
     {
-      "rank": 38,
+      "rank": 34,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -2428,7 +2286,7 @@
       "isNew": false
     },
     {
-      "rank": 39,
+      "rank": 35,
       "projects": [
         "one-small-ui"
       ],
@@ -2465,7 +2323,7 @@
       "isNew": false
     },
     {
-      "rank": 40,
+      "rank": 36,
       "projects": [
         "one-small-ui"
       ],
@@ -2496,7 +2354,7 @@
       "isNew": true
     },
     {
-      "rank": 41,
+      "rank": 37,
       "projects": [
         "one-small-ui"
       ],
@@ -2527,7 +2385,7 @@
       "isNew": true
     },
     {
-      "rank": 42,
+      "rank": 38,
       "projects": [
         "one-small-ui"
       ],
@@ -2558,7 +2416,7 @@
       "isNew": true
     },
     {
-      "rank": 43,
+      "rank": 39,
       "projects": [
         "one-small-ui"
       ],
@@ -2589,7 +2447,7 @@
       "isNew": true
     },
     {
-      "rank": 44,
+      "rank": 40,
       "projects": [
         "one-small-ui"
       ],
@@ -2620,7 +2478,7 @@
       "isNew": true
     },
     {
-      "rank": 45,
+      "rank": 41,
       "projects": [
         "one-small-ui"
       ],
@@ -2651,7 +2509,7 @@
       "isNew": true
     },
     {
-      "rank": 46,
+      "rank": 42,
       "projects": [
         "one-small-ui"
       ],
@@ -2682,7 +2540,7 @@
       "isNew": true
     },
     {
-      "rank": 47,
+      "rank": 43,
       "projects": [
         "one-small-ui"
       ],
@@ -2713,7 +2571,7 @@
       "isNew": true
     },
     {
-      "rank": 48,
+      "rank": 44,
       "projects": [
         "one-small-ui"
       ],
@@ -2744,7 +2602,7 @@
       "isNew": true
     },
     {
-      "rank": 49,
+      "rank": 45,
       "projects": [
         "one-small-ui"
       ],
@@ -2775,7 +2633,7 @@
       "isNew": true
     },
     {
-      "rank": 50,
+      "rank": 46,
       "projects": [
         "one-small-ui"
       ],
@@ -2806,7 +2664,7 @@
       "isNew": true
     },
     {
-      "rank": 51,
+      "rank": 47,
       "projects": [
         "one-small-ui"
       ],
@@ -2837,7 +2695,7 @@
       "isNew": true
     },
     {
-      "rank": 52,
+      "rank": 48,
       "projects": [
         "one-small-ui"
       ],
@@ -2868,7 +2726,7 @@
       "isNew": true
     },
     {
-      "rank": 53,
+      "rank": 49,
       "projects": [
         "one-small-ui"
       ],
@@ -2899,7 +2757,7 @@
       "isNew": true
     },
     {
-      "rank": 54,
+      "rank": 50,
       "projects": [
         "one-small-ui"
       ],
@@ -2930,7 +2788,7 @@
       "isNew": true
     },
     {
-      "rank": 55,
+      "rank": 51,
       "projects": [
         "one-small-ui"
       ],
@@ -2961,7 +2819,7 @@
       "isNew": true
     },
     {
-      "rank": 56,
+      "rank": 52,
       "projects": [
         "one-small-ui"
       ],
@@ -2992,7 +2850,7 @@
       "isNew": true
     },
     {
-      "rank": 57,
+      "rank": 53,
       "projects": [
         "one-small-ui"
       ],
@@ -3023,7 +2881,7 @@
       "isNew": true
     },
     {
-      "rank": 58,
+      "rank": 54,
       "projects": [
         "one-small-ui"
       ],
@@ -3054,7 +2912,7 @@
       "isNew": true
     },
     {
-      "rank": 59,
+      "rank": 55,
       "projects": [
         "one-small-ui"
       ],
@@ -3085,7 +2943,7 @@
       "isNew": true
     },
     {
-      "rank": 60,
+      "rank": 56,
       "projects": [
         "one-small-ui"
       ],
@@ -3116,7 +2974,7 @@
       "isNew": true
     },
     {
-      "rank": 61,
+      "rank": 57,
       "projects": [
         "one-small-ui"
       ],
@@ -3170,7 +3028,7 @@
       "isNew": false
     },
     {
-      "rank": 62,
+      "rank": 58,
       "projects": [
         "personal-portfolio"
       ],
@@ -3207,7 +3065,7 @@
       "isNew": false
     },
     {
-      "rank": 63,
+      "rank": 59,
       "projects": [
         "personal-portfolio"
       ],
@@ -3238,7 +3096,7 @@
       "isNew": true
     },
     {
-      "rank": 64,
+      "rank": 60,
       "projects": [
         "personal-portfolio"
       ],
@@ -3269,7 +3127,7 @@
       "isNew": true
     },
     {
-      "rank": 65,
+      "rank": 61,
       "projects": [
         "personal-portfolio"
       ],
@@ -3300,7 +3158,7 @@
       "isNew": true
     },
     {
-      "rank": 66,
+      "rank": 62,
       "projects": [
         "personal-portfolio"
       ],
@@ -3331,7 +3189,7 @@
       "isNew": true
     },
     {
-      "rank": 67,
+      "rank": 63,
       "projects": [
         "personal-portfolio"
       ],
@@ -3362,7 +3220,7 @@
       "isNew": true
     },
     {
-      "rank": 68,
+      "rank": 64,
       "projects": [
         "personal-portfolio"
       ],
@@ -3393,7 +3251,7 @@
       "isNew": true
     },
     {
-      "rank": 69,
+      "rank": 65,
       "projects": [
         "personal-portfolio"
       ],
@@ -3424,7 +3282,7 @@
       "isNew": true
     },
     {
-      "rank": 70,
+      "rank": 66,
       "projects": [
         "personal-portfolio"
       ],
@@ -3455,7 +3313,7 @@
       "isNew": true
     },
     {
-      "rank": 71,
+      "rank": 67,
       "projects": [
         "personal-portfolio"
       ],
@@ -3486,7 +3344,7 @@
       "isNew": true
     },
     {
-      "rank": 72,
+      "rank": 68,
       "projects": [
         "personal-portfolio"
       ],
@@ -3517,7 +3375,7 @@
       "isNew": true
     },
     {
-      "rank": 73,
+      "rank": 69,
       "projects": [
         "personal-portfolio"
       ],
@@ -3560,7 +3418,7 @@
       "isNew": false
     },
     {
-      "rank": 74,
+      "rank": 70,
       "projects": [
         "one-small-studio"
       ],
@@ -3597,7 +3455,7 @@
       "isNew": false
     },
     {
-      "rank": 75,
+      "rank": 71,
       "projects": [
         "one-small-studio"
       ],
@@ -3628,7 +3486,7 @@
       "isNew": true
     },
     {
-      "rank": 76,
+      "rank": 72,
       "projects": [
         "one-small-studio"
       ],
@@ -3659,7 +3517,7 @@
       "isNew": true
     },
     {
-      "rank": 77,
+      "rank": 73,
       "projects": [
         "one-small-studio"
       ],
@@ -3690,7 +3548,7 @@
       "isNew": true
     },
     {
-      "rank": 78,
+      "rank": 74,
       "projects": [
         "one-small-studio"
       ],
@@ -3721,7 +3579,7 @@
       "isNew": true
     },
     {
-      "rank": 79,
+      "rank": 75,
       "projects": [
         "one-small-studio"
       ],
@@ -3752,7 +3610,7 @@
       "isNew": true
     },
     {
-      "rank": 80,
+      "rank": 76,
       "projects": [
         "one-small-studio"
       ],
@@ -3783,7 +3641,7 @@
       "isNew": true
     },
     {
-      "rank": 81,
+      "rank": 77,
       "projects": [
         "one-small-studio"
       ],
@@ -3814,7 +3672,7 @@
       "isNew": true
     },
     {
-      "rank": 82,
+      "rank": 78,
       "projects": [
         "one-small-studio"
       ],
@@ -3845,7 +3703,7 @@
       "isNew": true
     },
     {
-      "rank": 83,
+      "rank": 79,
       "projects": [
         "one-small-studio"
       ],
@@ -3876,7 +3734,7 @@
       "isNew": true
     },
     {
-      "rank": 84,
+      "rank": 80,
       "projects": [
         "one-small-studio"
       ],
@@ -3907,7 +3765,7 @@
       "isNew": true
     },
     {
-      "rank": 85,
+      "rank": 81,
       "projects": [
         "one-small-studio"
       ],
@@ -3950,7 +3808,7 @@
       "isNew": false
     },
     {
-      "rank": 86,
+      "rank": 82,
       "projects": [
         "one-small-photography"
       ],
@@ -3987,7 +3845,7 @@
       "isNew": false
     },
     {
-      "rank": 87,
+      "rank": 83,
       "projects": [
         "one-small-photography"
       ],
@@ -4018,7 +3876,7 @@
       "isNew": true
     },
     {
-      "rank": 88,
+      "rank": 84,
       "projects": [
         "one-small-photography"
       ],
@@ -4049,7 +3907,7 @@
       "isNew": true
     },
     {
-      "rank": 89,
+      "rank": 85,
       "projects": [
         "one-small-photography"
       ],
@@ -4080,7 +3938,7 @@
       "isNew": true
     },
     {
-      "rank": 90,
+      "rank": 86,
       "projects": [
         "one-small-photography"
       ],
@@ -4111,7 +3969,7 @@
       "isNew": true
     },
     {
-      "rank": 91,
+      "rank": 87,
       "projects": [
         "one-small-photography"
       ],
@@ -4142,7 +4000,7 @@
       "isNew": true
     },
     {
-      "rank": 92,
+      "rank": 88,
       "projects": [
         "one-small-photography"
       ],
@@ -4173,7 +4031,7 @@
       "isNew": true
     },
     {
-      "rank": 93,
+      "rank": 89,
       "projects": [
         "one-small-photography"
       ],
@@ -4204,7 +4062,7 @@
       "isNew": true
     },
     {
-      "rank": 94,
+      "rank": 90,
       "projects": [
         "one-small-photography"
       ],
@@ -4235,7 +4093,7 @@
       "isNew": true
     },
     {
-      "rank": 95,
+      "rank": 91,
       "projects": [
         "one-small-photography"
       ],
@@ -4266,7 +4124,7 @@
       "isNew": true
     },
     {
-      "rank": 96,
+      "rank": 92,
       "projects": [
         "one-small-photography"
       ],
@@ -4297,7 +4155,7 @@
       "isNew": true
     },
     {
-      "rank": 97,
+      "rank": 93,
       "projects": [
         "one-small-photography"
       ],
@@ -4340,7 +4198,7 @@
       "isNew": false
     },
     {
-      "rank": 98,
+      "rank": 94,
       "projects": [
         "taskforge"
       ],
@@ -4377,7 +4235,7 @@
       "isNew": false
     },
     {
-      "rank": 99,
+      "rank": 95,
       "projects": [
         "taskforge"
       ],
@@ -4408,7 +4266,7 @@
       "isNew": false
     },
     {
-      "rank": 100,
+      "rank": 96,
       "projects": [
         "taskforge"
       ],
@@ -4461,7 +4319,7 @@
       "isNew": false
     },
     {
-      "rank": 101,
+      "rank": 97,
       "projects": [
         "cortex"
       ],
@@ -4498,7 +4356,534 @@
       "isNew": false
     },
     {
+      "rank": 98,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:auto-stale-api-integration-security",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "api-integration-security: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "api-integration-security: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 99,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:auto-stale-authentication",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "authentication: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "authentication: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 100,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:auto-stale-authorization-boundaries",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "authorization-boundaries: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "authorization-boundaries: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 101,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:auto-stale-automated-checks",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "automated-checks: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: cortex-ci-pr-36 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "automated-checks: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: cortex-ci-pr-36 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
       "rank": 102,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:auto-stale-critical-workflows",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "critical-workflows: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, did the manual check for this gate listed in the Cortex 1.0 closeout package and attested that it passed (hub PR #187). No automated scan of this gate exists yet.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "critical-workflows: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, did the manual check for this gate listed in the Cortex 1.0 closeout package and attested that it passed (hub PR #187). No automated scan of this gate exists yet.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 103,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:auto-stale-deployment-rollback",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "deployment-rollback: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "deployment-rollback: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 104,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:auto-stale-documentation-accurate",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "documentation-accurate: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: cortex-1-0-scope-pr-37 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "documentation-accurate: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: cortex-1-0-scope-pr-37 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 105,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:auto-stale-e2e-critical-workflows",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "e2e-critical-workflows: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, did the manual check for this gate listed in the Cortex 1.0 closeout package and attested that it passed (hub PR #187). No automated scan of this gate exists yet.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "e2e-critical-workflows: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, did the manual check for this gate listed in the Cortex 1.0 closeout package and attested that it passed (hub PR #187). No automated scan of this gate exists yet.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 106,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:auto-stale-integration-failure-handling",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "integration-failure-handling: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "integration-failure-handling: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 107,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:auto-stale-keyboard-screen-reader",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "keyboard-screen-reader: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, did the manual check for this gate listed in the Cortex 1.0 closeout package and attested that it passed (hub PR #187). No automated scan of this gate exists yet.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "keyboard-screen-reader: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, did the manual check for this gate listed in the Cortex 1.0 closeout package and attested that it passed (hub PR #187). No automated scan of this gate exists yet.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 108,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:auto-stale-no-release-blockers",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "no-release-blockers: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: cortex-ci-pr-36 is dated after the report time; current evidence: cortex-1-0-scope-pr-37 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "no-release-blockers: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: cortex-ci-pr-36 is dated after the report time; current evidence: cortex-1-0-scope-pr-37 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 109,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:auto-stale-production-deployment",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "production-deployment: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "production-deployment: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 110,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:auto-stale-responsive-layouts",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "responsive-layouts: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, did the manual check for this gate listed in the Cortex 1.0 closeout package and attested that it passed (hub PR #187). No automated scan of this gate exists yet.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "responsive-layouts: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, did the manual check for this gate listed in the Cortex 1.0 closeout package and attested that it passed (hub PR #187). No automated scan of this gate exists yet.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 111,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:auto-stale-scope-complete",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "scope-complete: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: cortex-1-0-scope-pr-37 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "scope-complete: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: cortex-1-0-scope-pr-37 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 112,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:auto-stale-security-privacy-review",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "security-privacy-review: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "security-privacy-review: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 113,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:auto-stale-sensitive-data-handling",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "sensitive-data-handling: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "sensitive-data-handling: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 114,
+      "projects": [
+        "cortex"
+      ],
+      "revision": "ec49fd7907e9c901e6e4871732c7fe51881e5d3d",
+      "rootCause": null,
+      "complexity": "small",
+      "validation": [
+        "evidence current for the candidate commit"
+      ],
+      "confidence": "high",
+      "evidence": [],
+      "relatedPRs": [],
+      "crossProject": [],
+      "id": "cortex:blocker:auto-stale-wcag-22-aa",
+      "project": "cortex",
+      "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
+      "priority": 7,
+      "severity": "medium",
+      "kind": "stale",
+      "title": "wcag-22-aa: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, did the manual check for this gate listed in the Cortex 1.0 closeout package and attested that it passed (hub PR #187). No automated scan of this gate exists yet.",
+      "impact": "Evidence no longer matches the candidate.",
+      "proposedCorrection": "Record the current candidate in the registry and re-collect.",
+      "actionClass": "owner-decision",
+      "nextAction": "wcag-22-aa: current evidence: cortex-owner-final-verification-2026-11-11 is dated after the report time; registry notes: Joshua Small, assigned independent human verifier, did the manual check for this gate listed in the Cortex 1.0 closeout package and attested that it passed (hub PR #187). No automated scan of this gate exists yet.",
+      "priorityText": "Missing verification or documentation",
+      "actionText": "Requires owner decision",
+      "firstSeen": "2026-10-28T21:07:08Z",
+      "isNew": true
+    },
+    {
+      "rank": 115,
       "projects": [
         "cortex"
       ],
@@ -4518,7 +4903,7 @@
       "priority": 7,
       "severity": "medium",
       "kind": "verification",
-      "title": "20 applicable gate(s) without independent verification (0/20 verified)",
+      "title": "17 applicable gate(s) without independent verification (0/17 verified)",
       "impact": "Release readiness cannot rise above the verified share.",
       "proposedCorrection": "The assigned verifier re-checks current evidence and records each gate (npm run verify:record, outside CI).",
       "actionClass": "independent-verification",
@@ -4539,11 +4924,8 @@
         "sensitive-data-handling",
         "api-integration-security",
         "integration-failure-handling",
-        "backup-recovery",
-        "audit-logging",
         "deployment-rollback",
-        "e2e-critical-workflows",
-        "user-data-isolation"
+        "e2e-critical-workflows"
       ],
       "priorityText": "Missing verification or documentation",
       "actionText": "Requires independent verification",
@@ -4551,7 +4933,7 @@
       "isNew": false
     },
     {
-      "rank": 103,
+      "rank": 116,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -4600,7 +4982,7 @@
       "isNew": false
     },
     {
-      "rank": 104,
+      "rank": 117,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -4653,7 +5035,7 @@
       "isNew": false
     },
     {
-      "rank": 105,
+      "rank": 118,
       "projects": [
         "one-small-mods-pack",
         "one-small-ui",
@@ -4704,7 +5086,7 @@
       "isNew": false
     },
     {
-      "rank": 106,
+      "rank": 119,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -4737,7 +5119,7 @@
       "isNew": false
     },
     {
-      "rank": 107,
+      "rank": 120,
       "projects": [
         "one-small-mods-pack"
       ],
@@ -4772,7 +5154,7 @@
       "isNew": false
     },
     {
-      "rank": 108,
+      "rank": 121,
       "projects": [
         "one-small-ui"
       ],
@@ -4807,7 +5189,7 @@
       "isNew": false
     },
     {
-      "rank": 109,
+      "rank": 122,
       "projects": [
         "personal-portfolio"
       ],
@@ -4841,7 +5223,7 @@
       "isNew": false
     },
     {
-      "rank": 110,
+      "rank": 123,
       "projects": [
         "personal-portfolio"
       ],
@@ -4874,7 +5256,7 @@
       "isNew": false
     },
     {
-      "rank": 111,
+      "rank": 124,
       "projects": [
         "personal-portfolio"
       ],
@@ -4907,7 +5289,7 @@
       "isNew": false
     },
     {
-      "rank": 112,
+      "rank": 125,
       "projects": [
         "personal-portfolio"
       ],
@@ -4952,7 +5334,7 @@
       "isNew": false
     },
     {
-      "rank": 113,
+      "rank": 126,
       "projects": [
         "one-small-studio"
       ],
@@ -4986,7 +5368,7 @@
       "isNew": false
     },
     {
-      "rank": 114,
+      "rank": 127,
       "projects": [
         "one-small-studio"
       ],
@@ -5019,7 +5401,7 @@
       "isNew": false
     },
     {
-      "rank": 115,
+      "rank": 128,
       "projects": [
         "one-small-studio"
       ],
@@ -5052,7 +5434,7 @@
       "isNew": false
     },
     {
-      "rank": 116,
+      "rank": 129,
       "projects": [
         "one-small-studio"
       ],
@@ -5097,7 +5479,7 @@
       "isNew": false
     },
     {
-      "rank": 117,
+      "rank": 130,
       "projects": [
         "one-small-photography"
       ],
@@ -5131,7 +5513,7 @@
       "isNew": false
     },
     {
-      "rank": 118,
+      "rank": 131,
       "projects": [
         "one-small-photography"
       ],
@@ -5164,7 +5546,7 @@
       "isNew": false
     },
     {
-      "rank": 119,
+      "rank": 132,
       "projects": [
         "one-small-photography"
       ],
@@ -5197,7 +5579,7 @@
       "isNew": false
     },
     {
-      "rank": 120,
+      "rank": 133,
       "projects": [
         "one-small-photography"
       ],
@@ -5230,7 +5612,7 @@
       "isNew": false
     },
     {
-      "rank": 121,
+      "rank": 134,
       "projects": [
         "one-small-photography"
       ],
@@ -5275,7 +5657,7 @@
       "isNew": false
     },
     {
-      "rank": 122,
+      "rank": 135,
       "projects": [
         "taskforge"
       ],
@@ -5310,7 +5692,7 @@
       "isNew": false
     },
     {
-      "rank": 123,
+      "rank": 136,
       "projects": [
         "taskforge"
       ],
@@ -5343,7 +5725,7 @@
       "isNew": false
     },
     {
-      "rank": 124,
+      "rank": 137,
       "projects": [
         "taskforge"
       ],
@@ -5376,7 +5758,7 @@
       "isNew": false
     },
     {
-      "rank": 125,
+      "rank": 138,
       "projects": [
         "taskforge"
       ],
@@ -5410,7 +5792,7 @@
       "isNew": false
     },
     {
-      "rank": 126,
+      "rank": 139,
       "projects": [
         "taskforge"
       ],
@@ -5455,7 +5837,7 @@
       "isNew": false
     },
     {
-      "rank": 127,
+      "rank": 140,
       "projects": [
         "cortex"
       ],
@@ -5488,7 +5870,7 @@
       "isNew": false
     },
     {
-      "rank": 128,
+      "rank": 141,
       "projects": [
         "cortex"
       ],
@@ -5521,7 +5903,7 @@
       "isNew": false
     },
     {
-      "rank": 129,
+      "rank": 142,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -5555,7 +5937,7 @@
       "isNew": false
     },
     {
-      "rank": 130,
+      "rank": 143,
       "projects": [
         "one-small-ai-workforce"
       ],
@@ -5589,7 +5971,7 @@
       "isNew": false
     },
     {
-      "rank": 131,
+      "rank": 144,
       "projects": [
         "one-small-ui"
       ],
@@ -5625,7 +6007,7 @@
       "isNew": false
     },
     {
-      "rank": 132,
+      "rank": 145,
       "projects": [
         "personal-portfolio"
       ],
@@ -5658,7 +6040,7 @@
       "isNew": false
     },
     {
-      "rank": 133,
+      "rank": 146,
       "projects": [
         "one-small-studio"
       ],
@@ -5691,7 +6073,7 @@
       "isNew": false
     },
     {
-      "rank": 134,
+      "rank": 147,
       "projects": [
         "one-small-photography"
       ],
@@ -5724,7 +6106,7 @@
       "isNew": false
     },
     {
-      "rank": 135,
+      "rank": 148,
       "projects": [
         "cortex"
       ],

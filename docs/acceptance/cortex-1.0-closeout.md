@@ -1,6 +1,6 @@
 # Cortex 1.0: closeout package
 
-Prepared 2026-11-11 by Claude Code for Joshua Small's review. Status: **owner attestation pending**. Nothing here records approval or a verification pass until Joshua Small posts his own attestation on the pull request that adds this file.
+Prepared 2026-11-11 by Claude Code for Joshua Small's review. Status: **attested and approved**. Joshua Small signed the package on [PR #187](https://github.com/WasteOfADrumBum/one-small-engineering/pull/187#issuecomment-6788180030) on 2026-11-11; the registry records it as evidence `cortex-owner-final-verification-2026-11-11`.
 
 Joshua Small chose to ship the live Cortex as 1.0 on 2026-11-11 (project chat, "Ship as 1.0"). This follows [the showcase closeout](final-closeout-2026-11-03.md) and [the UI 0.6.0 closeout](ui-0.6.0-final-closeout.md): Joshua Small, the assigned human verifier, reviews the linked evidence, does the few manual checks listed below, and records one attestation. Builder evidence keeps its provenance; no test is represented as newly run.
 

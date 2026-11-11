@@ -10,11 +10,11 @@ States: Not Ready -> Blocked -> Verification Required -> Candidate Ready -> Awai
 | --- | --- | --- | --- | --- |
 | One Small ModsPack | Blocked | PR #5 at b0ff54a | 0/21 | 5 open registry blocker(s): codex-interactive-trust, copilot-gemini-runtime-untested, manual-screen-reader-review, manual-zoom-forced-colors-review, npm-ownership-access |
 | OneSmallUI | Blocked | PR #34 at 9a13c9e | 0/21 | 1 critical/high defect(s) at 94438ee: dependency-audit |
-| Personal Portfolio | Blocked | none | 0/10 | 1 open registry blocker(s): auto-ci-failed-sync-personal-portfolio-run-ci-yml-16c165d-jq4q8vj-1; recorded approval is not bound to the candidate: no release candidate commit is recorded |
+| Personal Portfolio | Verification Required | none | 0/10 | 9 of 9 pre-publication gate(s) not independently verified; no release candidate commit recorded; derived blockers: auto-critical-workflows-unverified, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa; recorded approval is not bound to the candidate: no release candidate commit is recorded |
 | One Small Studio | Verification Required | none | 0/10 | 9 of 9 pre-publication gate(s) not independently verified; no release candidate commit recorded; derived blockers: auto-critical-workflows-unverified, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa; recorded approval is not bound to the candidate: no release candidate commit is recorded |
 | One Small Photography | Verification Required | none | 0/10 | 9 of 9 pre-publication gate(s) not independently verified; no release candidate commit recorded; derived blockers: auto-critical-workflows-unverified, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa; recorded approval is not bound to the candidate: no release candidate commit is recorded |
 | TaskForge | Not Ready | none | 0/20 | no target version |
-| Cortex | Not Ready | none | 0/20 | no target version |
+| Cortex | Verification Required | none | 0/17 | 16 of 16 pre-publication gate(s) not independently verified; no release candidate commit recorded; derived blockers: auto-critical-workflows-unverified, auto-stale-api-integration-security, auto-stale-authentication, auto-stale-authorization-boundaries, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-deployment-rollback, auto-stale-documentation-accurate, auto-stale-e2e-critical-workflows, auto-stale-integration-failure-handling, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-sensitive-data-handling, auto-stale-wcag-22-aa; recorded approval is not bound to the candidate: no release candidate commit is recorded |
 | One Small AI Workforce | Not Ready | none | 0/20 | no target version |
 
 ## One Small ModsPack
@@ -43,14 +43,14 @@ States: Not Ready -> Blocked -> Verification Required -> Candidate Ready -> Awai
 
 ## Personal Portfolio
 
-- State: Blocked; candidate revision 56ea76e631008695d6b8c4cd6ee8fecd2ae5e302 (live head of main)
+- State: Verification Required; candidate revision 56ea76e631008695d6b8c4cd6ee8fecd2ae5e302 (live head of main)
 - Version: 1.0.0 (registry target; current 1.0.0)
 - Missing independent verification: scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers
-- Active blockers: auto-ci-failed-sync-personal-portfolio-run-ci-yml-16c165d-jq4q8vj-1, auto-critical-workflows-unverified, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa
+- Active blockers: auto-critical-workflows-unverified, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-documentation-accurate, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-wcag-22-aa
 - Dependency readiness: no declared or detected dependencies
 - Manual testing required: scope-complete (human only), security-privacy-review, wcag-22-aa, keyboard-screen-reader (human only), responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers (human only)
 - Approvals required: Joshua Small (release approval, recorded in the registry with evidence)
-- Preparation: not started: Blocked
+- Preparation: not started: Verification Required
 - Rollback: Redeploy the previous production revision from the hosting provider, then revert the release commit on main through a PR.
 
 ## One Small Studio
@@ -91,14 +91,14 @@ States: Not Ready -> Blocked -> Verification Required -> Candidate Ready -> Awai
 
 ## Cortex
 
-- State: Not Ready; candidate revision ec49fd7907e9c901e6e4871732c7fe51881e5d3d (live head of main)
-- Version: none: the owner sets release.targetVersion when a release is scoped
-- Missing independent verification: scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers, authentication, authorization-boundaries, sensitive-data-handling, api-integration-security, integration-failure-handling, backup-recovery, audit-logging, deployment-rollback, e2e-critical-workflows, user-data-isolation
-- Active blockers: no-ci-workflow, spec-open-questions, v2-phases-incomplete, auto-critical-workflows-unverified, auto-missing-verification, auto-owner-approval
+- State: Verification Required; candidate revision ec49fd7907e9c901e6e4871732c7fe51881e5d3d (live head of main)
+- Version: 1.0.0 (registry target; current 1.0.0)
+- Missing independent verification: scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers, authentication, authorization-boundaries, sensitive-data-handling, api-integration-security, integration-failure-handling, deployment-rollback, e2e-critical-workflows
+- Active blockers: auto-critical-workflows-unverified, auto-stale-api-integration-security, auto-stale-authentication, auto-stale-authorization-boundaries, auto-stale-automated-checks, auto-stale-critical-workflows, auto-stale-deployment-rollback, auto-stale-documentation-accurate, auto-stale-e2e-critical-workflows, auto-stale-integration-failure-handling, auto-stale-keyboard-screen-reader, auto-stale-no-release-blockers, auto-stale-production-deployment, auto-stale-responsive-layouts, auto-stale-scope-complete, auto-stale-security-privacy-review, auto-stale-sensitive-data-handling, auto-stale-wcag-22-aa
 - Dependency readiness: confirmed declared: integrates one-small-ui; confirmed declared: integrates personal-portfolio
-- Manual testing required: scope-complete (human only), security-privacy-review, wcag-22-aa, keyboard-screen-reader (human only), responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers (human only), authentication, authorization-boundaries, sensitive-data-handling, api-integration-security, integration-failure-handling, backup-recovery, audit-logging, deployment-rollback, e2e-critical-workflows, user-data-isolation
+- Manual testing required: scope-complete (human only), security-privacy-review, wcag-22-aa, keyboard-screen-reader (human only), responsive-layouts, critical-workflows, production-deployment, documentation-accurate, no-release-blockers (human only), authentication, authorization-boundaries, sensitive-data-handling, api-integration-security, integration-failure-handling, deployment-rollback, e2e-critical-workflows
 - Approvals required: Joshua Small (release approval, recorded in the registry with evidence)
-- Preparation: not started: Not Ready
+- Preparation: not started: Verification Required
 - Rollback: Redeploy the previous production revision from the hosting provider, then revert the release commit on main through a PR.
 
 ## One Small AI Workforce
