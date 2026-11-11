@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-11T13:27:20Z",
+  "lastUpdatedAt": "2026-11-11T13:30:01Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -2732,9 +2732,9 @@
       "productionUrl": "https://cortex-brain-nu.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "842d1e43e81a96dd787c7859c5b70b96e3441815",
+        "headSha": "184a0f27daad029c846ff137618e80686f419ac0",
         "archived": false,
-        "observedAt": "2026-11-11T06:27:37Z",
+        "observedAt": "2026-11-11T13:30:01Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -2880,18 +2880,6 @@
           "recordedBy": "Joshua Small"
         },
         {
-          "id": "sync-cortex-run-ci-yml-842d1e4-jqlmjx8-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/actions/runs/42967309148",
-          "commitSha": "842d1e43e81a96dd787c7859c5b70b96e3441815",
-          "verifiedAt": "2026-11-11T05:40:58Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 842d1e4 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "cortex:workflow_run:ci.yml/842d1e4/jqlmjx8/1"
-        },
-        {
           "id": "cortex-axe-ci-pr-38",
           "type": "workflow_run",
           "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/actions/runs/43026389134",
@@ -2900,6 +2888,18 @@
           "result": "pass",
           "description": "CI on cortex-brain-task PR #38 (merged): new Accessibility (axe) job ran axe-core with WCAG 2.0-2.2 A and AA rules on all six /demo tabs at 1280px and 390px wide, 0 violations; the job is part of CI gate on every change. Same PR made the /api dashboard key comparison constant time.",
           "recordedBy": "Claude Code (builder; not independently verified)"
+        },
+        {
+          "id": "sync-cortex-run-ci-yml-184a0f2-jrl4cj8-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/actions/runs/43026925940",
+          "commitSha": "184a0f27daad029c846ff137618e80686f419ac0",
+          "verifiedAt": "2026-11-11T13:12:38Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 184a0f2 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "cortex:workflow_run:ci.yml/184a0f2/jrl4cj8/1"
         }
       ],
       "releaseGates": [
@@ -3131,8 +3131,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1413298530,
-        "lastSyncedAt": "2026-11-11T06:27:37Z",
-        "lastSyncedHead": "842d1e43e81a96dd787c7859c5b70b96e3441815",
+        "lastSyncedAt": "2026-11-11T13:30:01Z",
+        "lastSyncedHead": "184a0f27daad029c846ff137618e80686f419ac0",
         "configSource": "defaults"
       }
     },
