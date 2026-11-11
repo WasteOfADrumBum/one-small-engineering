@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/dashboard",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-11T03:33:46Z",
+  "asOf": "2026-11-11T05:47:35Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "c4bda52ccea6531d725e45deee7a3a5690477945f08030dc4a06c37fdd50e85c",
+  "registrySha256": "18b97a54427d4470b597391d2f62f29ad6943c0271a5d16677570a551704592c",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "projects": [
     {
@@ -15,8 +15,8 @@
         "targetVersion": "2.0.0",
         "currentVersion": "0.1.0",
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-07T23:05:38Z",
-        "snapshotObservedAt": "2026-11-07T23:13:48Z"
+        "lastEvidenceAt": "2026-11-11T04:09:01Z",
+        "snapshotObservedAt": "2026-11-11T05:16:09Z"
       },
       "derived": {
         "percentage": 0,
@@ -59,18 +59,18 @@
         "targetVersion": "1.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-11T01:29:40Z",
-        "snapshotObservedAt": "2026-11-11T02:23:27Z"
+        "lastEvidenceAt": "2026-11-11T04:14:37Z",
+        "snapshotObservedAt": "2026-11-11T04:18:40Z"
       },
       "derived": {
         "percentage": 100,
         "verifiedGates": 10,
         "applicableGates": 10,
-        "blockingFindings": 1,
+        "blockingFindings": 0,
         "registryBlockers": 0,
-        "eligibility": "not-eligible",
-        "releaseReady": false,
-        "nextAction": "Fix the failing CI run on 16c165d and re-run it (never skip or disable tests)."
+        "eligibility": "released",
+        "releaseReady": true,
+        "nextAction": null
       }
     },
     {
@@ -144,21 +144,21 @@
       "name": "Cortex",
       "tier": "application",
       "facts": {
-        "targetVersion": null,
-        "currentVersion": null,
-        "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-10-22T16:33:00Z",
-        "snapshotObservedAt": "2026-10-31T03:34:50Z"
+        "targetVersion": "1.0.0",
+        "currentVersion": "1.0.0",
+        "releaseStatus": "released",
+        "lastEvidenceAt": "2026-11-11T05:46:33Z",
+        "snapshotObservedAt": "2026-11-11T04:20:44Z"
       },
       "derived": {
-        "percentage": 0,
-        "verifiedGates": 0,
-        "applicableGates": 20,
-        "blockingFindings": 6,
-        "registryBlockers": 3,
-        "eligibility": "not-scoped",
-        "releaseReady": false,
-        "nextAction": "Resolve blocker spec-open-questions: The v2 spec lists five open questions for the owner (finance email hand-off, Muse check, Vault legend, news sources, briefing schedule)."
+        "percentage": 100,
+        "verifiedGates": 17,
+        "applicableGates": 17,
+        "blockingFindings": 0,
+        "registryBlockers": 0,
+        "eligibility": "released",
+        "releaseReady": true,
+        "nextAction": null
       }
     },
     {

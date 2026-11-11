@@ -1,6 +1,6 @@
 {
   "kind": "one-small-engineering/verification-project",
-  "asOf": "2026-11-11T03:33:46Z",
+  "asOf": "2026-11-11T05:47:35Z",
   "id": "cortex",
   "name": "Cortex",
   "tier": "application",
@@ -12,26 +12,26 @@
     "drift": null
   },
   "readiness": {
-    "percentage": 0,
-    "previousPercentage": 0,
-    "applicableGates": 20,
-    "verifiedGates": 0,
-    "eligibility": "not-scoped",
+    "percentage": 100,
+    "previousPercentage": 100,
+    "applicableGates": 17,
+    "verifiedGates": 17,
+    "eligibility": "released",
     "ownershipValid": true
   },
   "gateStates": {
-    "independently_verified": 0,
-    "passed_by_builder": 4,
+    "independently_verified": 17,
+    "passed_by_builder": 0,
     "failed": 0,
-    "inconclusive": 5,
-    "not_tested": 11,
-    "not_applicable": 0
+    "inconclusive": 0,
+    "not_tested": 0,
+    "not_applicable": 3
   },
   "gates": [
     {
       "id": "scope-complete",
-      "state": "not_tested",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -39,16 +39,14 @@
       "collectorEvidence": [],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "automated-checks",
-      "state": "inconclusive",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "full",
       "manualReviewRequired": false,
@@ -78,16 +76,14 @@
       ],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "security-privacy-review",
-      "state": "passed_by_builder",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -112,16 +108,14 @@
         }
       ],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "wcag-22-aa",
-      "state": "inconclusive",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -137,16 +131,14 @@
       ],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "keyboard-screen-reader",
-      "state": "not_tested",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -154,16 +146,14 @@
       "collectorEvidence": [],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "responsive-layouts",
-      "state": "not_tested",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -171,16 +161,14 @@
       "collectorEvidence": [],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "critical-workflows",
-      "state": "passed_by_builder",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -196,16 +184,14 @@
       ],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "production-deployment",
-      "state": "inconclusive",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -221,16 +207,14 @@
       ],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "After the authorized publication or deployment, verify it and record evidence."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "documentation-accurate",
-      "state": "inconclusive",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -246,16 +230,14 @@
       ],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "no-release-blockers",
-      "state": "not_tested",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -263,16 +245,14 @@
       "collectorEvidence": [],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "authentication",
-      "state": "not_tested",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -280,16 +260,14 @@
       "collectorEvidence": [],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "authorization-boundaries",
-      "state": "not_tested",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -297,16 +275,14 @@
       "collectorEvidence": [],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "sensitive-data-handling",
-      "state": "passed_by_builder",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -322,17 +298,14 @@
       ],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate",
-        "registry notes: High priority: the planned Finances ingest handles personal financial summaries; the spec requires auth, an 8-digit account-number rule and rate limiting"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "api-integration-security",
-      "state": "not_tested",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -340,16 +313,14 @@
       "collectorEvidence": [],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "integration-failure-handling",
-      "state": "not_tested",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "none",
       "manualReviewRequired": true,
@@ -357,50 +328,44 @@
       "collectorEvidence": [],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "backup-recovery",
-      "state": "not_tested",
-      "engineState": "not_started",
-      "applicable": true,
+      "state": "not_applicable",
+      "engineState": "not_applicable",
+      "applicable": false,
       "automation": "none",
       "manualReviewRequired": true,
       "humanOnly": false,
       "collectorEvidence": [],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "audit-logging",
-      "state": "not_tested",
-      "engineState": "not_started",
-      "applicable": true,
+      "state": "not_applicable",
+      "engineState": "not_applicable",
+      "applicable": false,
       "automation": "none",
       "manualReviewRequired": true,
       "humanOnly": false,
       "collectorEvidence": [],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "deployment-rollback",
-      "state": "inconclusive",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -416,16 +381,14 @@
       ],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "e2e-critical-workflows",
-      "state": "passed_by_builder",
-      "engineState": "not_started",
+      "state": "independently_verified",
+      "engineState": "verified",
       "applicable": true,
       "automation": "partial",
       "manualReviewRequired": true,
@@ -441,52 +404,27 @@
       ],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     },
     {
       "id": "user-data-isolation",
-      "state": "not_tested",
-      "engineState": "not_started",
-      "applicable": true,
+      "state": "not_applicable",
+      "engineState": "not_applicable",
+      "applicable": false,
       "automation": "none",
       "manualReviewRequired": true,
       "humanOnly": false,
       "collectorEvidence": [],
       "staleEvidence": [],
       "verifications": [],
-      "missingVerification": true,
-      "missing": [
-        "evidence for this gate"
-      ],
-      "nextAction": "Produce evidence for this gate."
+      "missingVerification": false,
+      "missing": [],
+      "nextAction": null
     }
   ],
-  "missingVerification": [
-    "scope-complete",
-    "automated-checks",
-    "security-privacy-review",
-    "wcag-22-aa",
-    "keyboard-screen-reader",
-    "responsive-layouts",
-    "critical-workflows",
-    "production-deployment",
-    "documentation-accurate",
-    "no-release-blockers",
-    "authentication",
-    "authorization-boundaries",
-    "sensitive-data-handling",
-    "api-integration-security",
-    "integration-failure-handling",
-    "backup-recovery",
-    "audit-logging",
-    "deployment-rollback",
-    "e2e-critical-workflows",
-    "user-data-isolation"
-  ],
+  "missingVerification": [],
   "staleEvidence": [
     {
       "id": "ev-cortex-dependency-audit-ec49fd7-7cd263c6",
@@ -497,68 +435,19 @@
       "reason": "expired 2026-11-03"
     }
   ],
-  "blockers": [
-    {
-      "id": "no-ci-workflow",
-      "origin": "registry",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "ci",
-      "description": "No GitHub Actions workflow; npm test exists but is not enforced on PRs (only the Vercel status runs)."
-    },
-    {
-      "id": "spec-open-questions",
-      "origin": "registry",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "scope",
-      "description": "The v2 spec lists five open questions for the owner (finance email hand-off, Muse check, Vault legend, news sources, briefing schedule)."
-    },
-    {
-      "id": "v2-phases-incomplete",
-      "origin": "registry",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "scope",
-      "description": "README states Finances is a placeholder until phase 4 and News until phase 5, and Ops project cards arrive in phase 3; the v2 spec defines six phases."
-    },
-    {
-      "id": "auto-critical-workflows-unverified",
-      "origin": "derived",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "workflow",
-      "description": "Critical workflows are not independently verified (critical-workflows, e2e-critical-workflows)."
-    },
-    {
-      "id": "auto-missing-verification",
-      "origin": "derived",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "evidence",
-      "description": "18 applicable pre-publication gate(s) lack current independent verification."
-    },
-    {
-      "id": "auto-owner-approval",
-      "origin": "derived",
-      "severity": "unclassified",
-      "blocks": "release",
-      "category": "approval",
-      "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release."
-    }
-  ],
+  "blockers": [],
   "blockersBySeverity": {
     "critical": 0,
     "high": 0,
     "medium": 0,
     "low": 0,
-    "unclassified": 6
+    "unclassified": 0
   },
   "mergeEligible": false,
-  "releaseEligible": false,
+  "releaseEligible": true,
   "lastVerification": null,
   "lastCollection": "2026-10-28T21:07:06Z",
-  "nextAction": "Resolve blocker spec-open-questions.",
+  "nextAction": "None",
   "findings": [
     {
       "id": "cortex:accessibility:ec49fd7",
@@ -700,419 +589,5 @@
   "verifications": [],
   "relatedPullRequests": [],
   "remediation": [],
-  "verificationRequests": [
-    {
-      "gate": "scope-complete",
-      "automation": "none",
-      "humanOnly": true,
-      "evidence": [],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "manual verification only"
-    },
-    {
-      "gate": "automated-checks",
-      "automation": "full",
-      "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-cortex-build-test-ec49fd7-736062d9",
-          "digest": "17e8d27da4aa4a392f8bf73cf76e6b4945aa1d5509d322a64b5bf1673f08e0d8",
-          "collector": "build-test",
-          "result": "pass"
-        },
-        {
-          "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
-          "digest": "0f5e33663973ef9eb8655d52ea3daa966703e8ab953f0b5cd0cff182a00646ee",
-          "collector": "build-test",
-          "result": "pass"
-        },
-        {
-          "id": "ev-cortex-ci-results-ec49fd7-2872fbb1",
-          "digest": "1f9b42cff5464299fbbe07e50780049cab8ce447a55a84981f1609ce5d3bfdbf",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-cortex-ci-results-ec49fd7-330a5ec7",
-          "digest": "42d8708316e475425ce1860a075bc08ed13ad9fe10469129af8cf3eed9b37006",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-cortex-ci-results-ec49fd7-692a94aa",
-          "digest": "d107a86b75196c84af6c039c2ef7b60de52b8ac0397b80d9b75c9a2872f4129a",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-cortex-ci-results-ec49fd7-86e96770",
-          "digest": "8440071cf46191ce6b6a5d5240223e3047305684326c93d0f7605b3e99f504d3",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-cortex-ci-results-ec49fd7-bf09a281",
-          "digest": "d6cf78d3d5a26c3c8c0372643376d721bef969b33c1c93fe7cd612e0ef6c596e",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-cortex-ci-results-ec49fd7-cdd510f0",
-          "digest": "bc9d6e4bd8d870fb7c76849c8accde41e6333c36d4a9bc81c80e2a3c504b39f6",
-          "collector": "ci-results",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-cortex-lint-format-types-ec49fd7-4b9bec16",
-          "digest": "83740a385e330aa871486c48685b48a0169d9b344447d2d435e33f02c2f419a6",
-          "collector": "lint-format-types",
-          "result": "inconclusive"
-        },
-        {
-          "id": "ev-cortex-lint-format-types-ec49fd7-de308fcc",
-          "digest": "d83426c73e66ddcabf5e68d3aa9d449ac6c4f343544b035fd0476233c3befdf1",
-          "collector": "lint-format-types",
-          "result": "inconclusive"
-        }
-      ],
-      "missingCollectors": [],
-      "method": "re-executed",
-      "routedTo": "Joshua Small",
-      "status": "ready for verifier"
-    },
-    {
-      "gate": "security-privacy-review",
-      "automation": "partial",
-      "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-cortex-secret-scan-ec49fd7-59e05abc",
-          "digest": "f9c68fc0188d682d5ba5e637ac199bce55d51be3f3580d9d8062ea0fdcc80732",
-          "collector": "secret-scan",
-          "result": "pass"
-        },
-        {
-          "id": "ev-cortex-secret-scan-ec49fd7-b392d9b7",
-          "digest": "628c0acbcebbe7b042d144a17fdd4a20c9d9cc51870e2c4cd23dbe79564a98e5",
-          "collector": "secret-scan",
-          "result": "pass"
-        }
-      ],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "ready for verifier"
-    },
-    {
-      "gate": "wcag-22-aa",
-      "automation": "partial",
-      "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-cortex-accessibility-ec49fd7-27cfef71",
-          "digest": "7a092441118a8a008ee4d8f41a1631a9380defa45e171bcc333d4e4711b33eba",
-          "collector": "accessibility",
-          "result": "inconclusive"
-        },
-        {
-          "id": "ev-cortex-accessibility-ec49fd7-81ba90a1",
-          "digest": "2af18586db3562bad68ef8d1ab924a6309424ad8b310ee4ca34d07e0c260140b",
-          "collector": "accessibility",
-          "result": "inconclusive"
-        }
-      ],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "ready for verifier"
-    },
-    {
-      "gate": "keyboard-screen-reader",
-      "automation": "none",
-      "humanOnly": true,
-      "evidence": [],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "manual verification only"
-    },
-    {
-      "gate": "responsive-layouts",
-      "automation": "none",
-      "humanOnly": false,
-      "evidence": [],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "manual verification only"
-    },
-    {
-      "gate": "critical-workflows",
-      "automation": "partial",
-      "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-cortex-build-test-ec49fd7-736062d9",
-          "digest": "17e8d27da4aa4a392f8bf73cf76e6b4945aa1d5509d322a64b5bf1673f08e0d8",
-          "collector": "build-test",
-          "result": "pass"
-        },
-        {
-          "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
-          "digest": "0f5e33663973ef9eb8655d52ea3daa966703e8ab953f0b5cd0cff182a00646ee",
-          "collector": "build-test",
-          "result": "pass"
-        }
-      ],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "ready for verifier"
-    },
-    {
-      "gate": "production-deployment",
-      "automation": "partial",
-      "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-cortex-deployment-health-ec49fd7-46dff49b",
-          "digest": "1f6ca75001683e2f2887e07311d6de28e9da2cdbc1837682f74ffb5bae07c87a",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-cortex-deployment-health-ec49fd7-68a838a7",
-          "digest": "bb69fdfac1749eb55d82d0faf78db91221e6a72152270fb4d34c064f64dbb5fe",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-cortex-deployment-health-ec49fd7-805608a7",
-          "digest": "7d3f1d44e877772c50d8bc6aa2b07b35afb35176628987488e8dbdad8420a44f",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-cortex-deployment-health-ec49fd7-80f95d1a",
-          "digest": "30b3b0877eaa3f334de7bc6e567348eaa8fa81701daf5a1a3cd657c058b54b2e",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
-          "digest": "34c21a661061dc3fd3eb4067b239de349a3449c94c9f4592542dfba6bf7c50bc",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-cortex-deployment-health-ec49fd7-d9026ec3",
-          "digest": "4ae838646936caaeea3099a10f7823ebef08e655545b126a2d44a6d2a64fc7f5",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        }
-      ],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "ready for verifier"
-    },
-    {
-      "gate": "documentation-accurate",
-      "automation": "partial",
-      "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-cortex-documentation-ec49fd7-e08f6339",
-          "digest": "2ad1676b3977f9917415bbbfdfa40e3393dfc1bce457ae7eac0fd31576cb9240",
-          "collector": "documentation",
-          "result": "inconclusive"
-        },
-        {
-          "id": "ev-cortex-documentation-ec49fd7-f2ca9d57",
-          "digest": "4dbe7229540172cbe61bab1b14f3963e05c9de6975abbbc74511d0295f286660",
-          "collector": "documentation",
-          "result": "inconclusive"
-        }
-      ],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "ready for verifier"
-    },
-    {
-      "gate": "no-release-blockers",
-      "automation": "none",
-      "humanOnly": true,
-      "evidence": [],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "manual verification only"
-    },
-    {
-      "gate": "authentication",
-      "automation": "none",
-      "humanOnly": false,
-      "evidence": [],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "manual verification only"
-    },
-    {
-      "gate": "authorization-boundaries",
-      "automation": "none",
-      "humanOnly": false,
-      "evidence": [],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "manual verification only"
-    },
-    {
-      "gate": "sensitive-data-handling",
-      "automation": "partial",
-      "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-cortex-secret-scan-ec49fd7-59e05abc",
-          "digest": "f9c68fc0188d682d5ba5e637ac199bce55d51be3f3580d9d8062ea0fdcc80732",
-          "collector": "secret-scan",
-          "result": "pass"
-        },
-        {
-          "id": "ev-cortex-secret-scan-ec49fd7-b392d9b7",
-          "digest": "628c0acbcebbe7b042d144a17fdd4a20c9d9cc51870e2c4cd23dbe79564a98e5",
-          "collector": "secret-scan",
-          "result": "pass"
-        }
-      ],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "ready for verifier"
-    },
-    {
-      "gate": "api-integration-security",
-      "automation": "none",
-      "humanOnly": false,
-      "evidence": [],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "manual verification only"
-    },
-    {
-      "gate": "integration-failure-handling",
-      "automation": "none",
-      "humanOnly": false,
-      "evidence": [],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "manual verification only"
-    },
-    {
-      "gate": "backup-recovery",
-      "automation": "none",
-      "humanOnly": false,
-      "evidence": [],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "manual verification only"
-    },
-    {
-      "gate": "audit-logging",
-      "automation": "none",
-      "humanOnly": false,
-      "evidence": [],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "manual verification only"
-    },
-    {
-      "gate": "deployment-rollback",
-      "automation": "partial",
-      "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-cortex-deployment-health-ec49fd7-46dff49b",
-          "digest": "1f6ca75001683e2f2887e07311d6de28e9da2cdbc1837682f74ffb5bae07c87a",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-cortex-deployment-health-ec49fd7-68a838a7",
-          "digest": "bb69fdfac1749eb55d82d0faf78db91221e6a72152270fb4d34c064f64dbb5fe",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-cortex-deployment-health-ec49fd7-805608a7",
-          "digest": "7d3f1d44e877772c50d8bc6aa2b07b35afb35176628987488e8dbdad8420a44f",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-cortex-deployment-health-ec49fd7-80f95d1a",
-          "digest": "30b3b0877eaa3f334de7bc6e567348eaa8fa81701daf5a1a3cd657c058b54b2e",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-cortex-deployment-health-ec49fd7-a18cb9e8",
-          "digest": "34c21a661061dc3fd3eb4067b239de349a3449c94c9f4592542dfba6bf7c50bc",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        },
-        {
-          "id": "ev-cortex-deployment-health-ec49fd7-d9026ec3",
-          "digest": "4ae838646936caaeea3099a10f7823ebef08e655545b126a2d44a6d2a64fc7f5",
-          "collector": "deployment-health",
-          "result": "unavailable"
-        }
-      ],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "ready for verifier"
-    },
-    {
-      "gate": "e2e-critical-workflows",
-      "automation": "partial",
-      "humanOnly": false,
-      "evidence": [
-        {
-          "id": "ev-cortex-build-test-ec49fd7-736062d9",
-          "digest": "17e8d27da4aa4a392f8bf73cf76e6b4945aa1d5509d322a64b5bf1673f08e0d8",
-          "collector": "build-test",
-          "result": "pass"
-        },
-        {
-          "id": "ev-cortex-build-test-ec49fd7-7edbf4a5",
-          "digest": "0f5e33663973ef9eb8655d52ea3daa966703e8ab953f0b5cd0cff182a00646ee",
-          "collector": "build-test",
-          "result": "pass"
-        }
-      ],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "ready for verifier"
-    },
-    {
-      "gate": "user-data-isolation",
-      "automation": "none",
-      "humanOnly": false,
-      "evidence": [],
-      "missingCollectors": [],
-      "method": "manual-test",
-      "routedTo": "Joshua Small",
-      "status": "manual verification only"
-    }
-  ]
+  "verificationRequests": []
 }

@@ -1,6 +1,6 @@
 # Personal Portfolio 1.0.0 release notes (draft)
 
-> **Draft, not approved, not published.** Status: Not eligible for release. 10 of 10 applicable gates independently verified (100%); 1 open blocker(s). Generated 2026-11-11T03:33:46Z.
+> **Draft, not approved, not published.** Status: Released and approved. 10 of 10 applicable gates independently verified (100%); 0 open blocker(s). Generated 2026-11-11T05:47:35Z.
 
 ## Highlights
 

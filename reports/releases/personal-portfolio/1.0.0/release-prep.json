@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/release-preparation",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-11T03:33:46Z",
+  "asOf": "2026-11-11T05:47:35Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "c4bda52ccea6531d725e45deee7a3a5690477945f08030dc4a06c37fdd50e85c",
+  "registrySha256": "18b97a54427d4470b597391d2f62f29ad6943c0271a5d16677570a551704592c",
   "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
   "project": {
     "id": "personal-portfolio",
@@ -116,16 +116,16 @@
         "applicable": 9,
         "verified": 9
       },
-      "blockingFindings": 1,
+      "blockingFindings": 0,
       "registryBlockers": 0,
       "missingIndependentVerification": [],
       "candidateMoved": false,
       "ownershipValid": true,
       "approvalRecorded": true,
-      "eligibility": "not-eligible",
-      "releaseReady": false
+      "eligibility": "released",
+      "releaseReady": true
     },
-    "eligibility": "not-eligible",
+    "eligibility": "released",
     "security": [
       {
         "id": "security-privacy-review",
@@ -187,23 +187,7 @@
       }
     ],
     "blockers": {
-      "merge": [
-        {
-          "id": "auto-ci-failed-sync-personal-portfolio-run-ci-yml-16c165d-jq4q8vj-1",
-          "origin": "derived",
-          "status": "proposed",
-          "category": "ci",
-          "severity": null,
-          "blocks": "merge",
-          "gates": [],
-          "description": "CI did not pass on 16c165d (failure).",
-          "evidenceRefs": [
-            "sync-personal-portfolio-run-ci-yml-16c165d-jq4q8vj-1"
-          ],
-          "rule": "a failing workflow run on the head or candidate commit blocks merge",
-          "action": "Fix the failing CI run on 16c165d and re-run it (never skip or disable tests)."
-        }
-      ],
+      "merge": [],
       "release": [],
       "postRelease": [
         {
@@ -213,19 +197,7 @@
         }
       ]
     },
-    "nextActions": [
-      {
-        "rank": 1,
-        "priority": 4,
-        "bucket": "Failed or missing CI",
-        "source": "auto-ci-failed-sync-personal-portfolio-run-ci-yml-16c165d-jq4q8vj-1",
-        "origin": "derived",
-        "blocks": "merge",
-        "gates": [],
-        "text": "Fix the failing CI run on 16c165d and re-run it (never skip or disable tests).",
-        "summary": "Fix the failing CI run on 16c165d and re-run it (never skip or disable tests)."
-      }
-    ],
+    "nextActions": [],
     "rollback": {
       "guidance": "Promote the previous production deployment in the hosting provider (for Vercel, the previous deployment), then revert the merge on main. See standards/release.md#rollback-and-recovery.",
       "gates": []
@@ -249,7 +221,7 @@
       },
       {
         "item": "No open merge blockers",
-        "done": false
+        "done": true
       },
       {
         "item": "No open release blockers other than the approval itself",
