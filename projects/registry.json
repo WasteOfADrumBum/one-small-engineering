@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-11T05:47:24Z",
+  "lastUpdatedAt": "2026-11-11T06:25:10Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -74,9 +74,9 @@
       "productionUrl": null,
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "ad196c270bb47fc4f835d894d4314f87ae00d567",
+        "headSha": "03ab44a4f4be78e8298371eaabdb4d35cf1874a0",
         "archived": false,
-        "observedAt": "2026-11-11T05:16:09Z",
+        "observedAt": "2026-11-11T06:25:10Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -381,16 +381,28 @@
           "recordedBy": "Claude Code (2.0.0 release closure 2026-11-04, read-only GitHub inspection and local reruns)"
         },
         {
-          "id": "sync-one-small-mods-pack-run-ci-yml-ad196c2-jqfm55j-1",
+          "id": "sync-one-small-mods-pack-run-ci-yml-03ab44a-jqn7lpo-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/42957212311",
-          "commitSha": "ad196c270bb47fc4f835d894d4314f87ae00d567",
-          "verifiedAt": "2026-11-11T04:09:01Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/42969970860",
+          "commitSha": "03ab44a4f4be78e8298371eaabdb4d35cf1874a0",
+          "verifiedAt": "2026-11-11T06:06:24Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at ad196c2 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 03ab44a (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-mods-pack:workflow_run:ci.yml/ad196c2/jqfm55j/1"
+          "eventKey": "one-small-mods-pack:workflow_run:ci.yml/03ab44a/jqn7lpo/1"
+        },
+        {
+          "id": "sync-one-small-mods-pack-run-release-yml-03ab44a-jqnaq7a-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/42970116646",
+          "commitSha": "03ab44a4f4be78e8298371eaabdb4d35cf1874a0",
+          "verifiedAt": "2026-11-11T06:07:06Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow release.yml (\"Release (npm)\") concluded success on main at 03ab44a (workflow_dispatch event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-mods-pack:workflow_run:release.yml/03ab44a/jqnaq7a/1"
         }
       ],
       "releaseGates": [
@@ -603,8 +615,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1413933787,
-        "lastSyncedAt": "2026-11-11T05:16:09Z",
-        "lastSyncedHead": "ad196c270bb47fc4f835d894d4314f87ae00d567",
+        "lastSyncedAt": "2026-11-11T06:25:10Z",
+        "lastSyncedHead": "03ab44a4f4be78e8298371eaabdb4d35cf1874a0",
         "configSource": "defaults"
       }
     },
