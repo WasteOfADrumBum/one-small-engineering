@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-11T13:12:05Z",
+  "lastUpdatedAt": "2026-11-11T13:17:08Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -74,9 +74,9 @@
       "productionUrl": "https://one-small-mods-pack.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "3ddcd72d0ac1fa4e3236e11896ff3b8898856d0f",
+        "headSha": "0c04af033d40ffd7e72181fc8c6e392817dcf340",
         "archived": false,
-        "observedAt": "2026-11-11T11:14:46Z",
+        "observedAt": "2026-11-11T13:17:08Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -390,18 +390,6 @@
           "recordedBy": "Claude Code (2.0.0 release closure 2026-11-04, read-only GitHub inspection and local reruns)"
         },
         {
-          "id": "sync-one-small-mods-pack-run-ci-yml-3ddcd72-jr8b4jy-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/43005407182",
-          "commitSha": "3ddcd72d0ac1fa4e3236e11896ff3b8898856d0f",
-          "verifiedAt": "2026-11-11T10:40:18Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 3ddcd72 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-mods-pack:workflow_run:ci.yml/3ddcd72/jr8b4jy/1"
-        },
-        {
           "id": "msp-ci-03ab44a",
           "type": "workflow_run",
           "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/42969970860",
@@ -440,6 +428,18 @@
           "result": "pass",
           "description": "Joshua Small commented \"Signed\" on hub PR #196, which presents the ModsPack 2.0.0 closeout package (docs/acceptance/modspack-2.0-closeout.md) and its proposed attestation. That comment is his verifier attestation and release approval: he accepts the evidence for the seventeen evidence gates, records wcag-22-aa, keyboard-screen-reader, responsive-layouts and runtime-compatibility as owner-accepted exceptions that are NOT met (checks deferred by him on 2026-11-11, to be performed later; he looked at the content for verification), and approves ModsPack 2.0.0. Transcribed by Claude Code at his direction; no test is represented as newly run.",
           "recordedBy": "Joshua Small"
+        },
+        {
+          "id": "sync-one-small-mods-pack-run-ci-yml-0c04af0-jrl7wvr-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-mods-pack/actions/runs/43027092279",
+          "commitSha": "0c04af033d40ffd7e72181fc8c6e392817dcf340",
+          "verifiedAt": "2026-11-11T13:14:07Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 0c04af0 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-mods-pack:workflow_run:ci.yml/0c04af0/jrl7wvr/1"
         }
       ],
       "releaseGates": [
@@ -682,8 +682,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1413933787,
-        "lastSyncedAt": "2026-11-11T11:14:46Z",
-        "lastSyncedHead": "3ddcd72d0ac1fa4e3236e11896ff3b8898856d0f",
+        "lastSyncedAt": "2026-11-11T13:17:08Z",
+        "lastSyncedHead": "0c04af033d40ffd7e72181fc8c6e392817dcf340",
         "configSource": "defaults"
       }
     },
