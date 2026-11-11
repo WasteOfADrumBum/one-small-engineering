@@ -2,7 +2,7 @@
 // not trigger push workflows) are caught by the scheduled window scan.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { checkCommits, commitsInPush, windowScan, integrityProblems, loadAcknowledged, loadAcknowledgedActivity, MAX_WINDOW_COMMITS } from './main-integrity.mjs'
+import { checkCommits, commitsInPush, windowScan, integrityProblems, loadAcknowledged, loadAcknowledgedActivity, MAX_WINDOW_COMMITS, MAX_ACTIVITY } from './main-integrity.mjs'
 import { createClient } from './github.mjs'
 import { FakeGitHub, fakeSha } from '../../fixtures/sync/fake-github.mjs'
 
@@ -84,16 +84,64 @@ test('the initial commit and the creation of main are accepted, each by its own 
   assert.deepEqual(violations, [])
 })
 
-test('a truncated window or a full activity page is reported incomplete, never silently passed', async () => {
+test('a truncated commit window is reported incomplete, never silently passed', async () => {
   const many = Array.from({ length: MAX_WINDOW_COMMITS + 50 }, (_, i) => fakeSha(`c${i}`))
-  const full = Array.from({ length: 100 }, (_, i) => ({ id: i, after: merged[0], activity_type: 'pr_merge', actor: { login: 'WasteOfADrumBum' }, timestamp: '2026-10-23T01:00:00Z' }))
-  const { client } = repo({ commits: many, activity: full })
+  const { client } = repo({ commits: many, activity: [] })
   const scan = await windowScan({ client })
   assert.equal(scan.shas.length, MAX_WINDOW_COMMITS)
   const incomplete = scan.problems.filter(p => p.incomplete)
-  assert.equal(incomplete.length, 2)
+  assert.equal(incomplete.length, 1)
   assert.match(incomplete[0].reason, /only the newest 1000 were checked/)
-  assert.match(incomplete[1].reason, /full page of 100/)
+})
+
+// The activity log pages by cursor. Serve `entries` 100 at a time with Link: rel="next".
+const API = 'https://api.github.com/repos/WasteOfADrumBum/one-small-engineering/activity'
+function pagedActivity(entries, { nextUrl = (cursor, q) => `${API}?ref=${encodeURIComponent(q.get('ref'))}&time_period=week&per_page=100&after=${cursor}` } = {}) {
+  const { gh, client } = repo({ commits: [merged[0]] })
+  gh.routes.unshift({ method: 'GET', re: /\/one-small-engineering\/activity$/, handler: ({ q }) => {
+    const start = +(q.get('after') || 0)
+    const page = entries.slice(start, start + 100)
+    const headers = { 'content-type': 'application/json' }
+    if (start + 100 < entries.length) headers.link = `<${nextUrl(start + 100, q)}>; rel="next"`
+    return new Response(JSON.stringify(page), { status: 200, headers })
+  } })
+  return { gh, client }
+}
+const mergeEntry = i => ({ id: i, after: merged[0], activity_type: 'pr_merge', actor: { login: 'WasteOfADrumBum' }, timestamp: '2026-10-23T01:00:00Z' })
+
+test('a full page of 100 merges with no next page is a complete check (regression: Nov 2026 false failures)', async () => {
+  const { client } = pagedActivity(Array.from({ length: 100 }, (_, i) => mergeEntry(i)))
+  const scan = await windowScan({ client })
+  assert.deepEqual(scan.problems, [])
+})
+
+test('every activity page is read, so a direct push past the first 100 entries is still caught', async () => {
+  const entries = Array.from({ length: 250 }, (_, i) => mergeEntry(i))
+  entries[230] = { id: 230, after: direct, activity_type: 'push', actor: { login: 'github-actions[bot]' }, timestamp: '2026-10-23T02:00:00Z' }
+  const { gh, client } = pagedActivity(entries)
+  const scan = await windowScan({ client })
+  assert.equal(gh.calls.filter(c => c.path.includes('/activity')).length, 3)
+  assert.equal(scan.problems.length, 1)
+  assert.equal(scan.problems[0].sha, direct)
+  assert.match(scan.problems[0].reason, /push to main by github-actions\[bot\]/)
+})
+
+test('more activity than the cap is reported incomplete, never silently passed', async () => {
+  const { client } = pagedActivity(Array.from({ length: MAX_ACTIVITY + 50 }, (_, i) => mergeEntry(i)))
+  const scan = await windowScan({ client })
+  const incomplete = scan.problems.filter(p => p.incomplete)
+  assert.equal(incomplete.length, 1)
+  assert.match(incomplete[0].reason, /more than 1000 updates to main this week/)
+})
+
+test('a next link to another host or endpoint is refused, not followed', async () => {
+  for (const bad of ['https://evil.example/repos/WasteOfADrumBum/one-small-engineering/activity?after=100', 'https://api.github.com/repos/WasteOfADrumBum/other-repo/activity?after=100']) {
+    const { gh, client } = pagedActivity(Array.from({ length: 150 }, (_, i) => mergeEntry(i)), { nextUrl: () => bad })
+    const scan = await windowScan({ client })
+    assert.equal(gh.calls.filter(c => c.path.includes('/activity')).length, 1)
+    assert.equal(scan.problems.length, 1)
+    assert.match(scan.problems[0].reason, /activity log could not be read \(GET .*pagination link points outside the endpoint\)/)
+  }
 })
 
 // F-01: an acknowledged commit must never excuse a later change to main's history.
