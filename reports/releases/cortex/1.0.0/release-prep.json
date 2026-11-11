@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/release-preparation",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-11T12:51:53Z",
+  "asOf": "2026-11-11T13:12:05Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "0a298eb9b77fa82236eca820d433c0b235d1df67e1c8725acdd8fadbdf2acdc3",
+  "registrySha256": "156abc12a8c79ddc23854544e976e3d123efffb8bc5b002f8e6cb7c2b529bbe3",
   "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
   "project": {
     "id": "cortex",
@@ -37,6 +37,12 @@
         "evidence": [
           "cortex-v2-spec",
           "cortex-vercel-head"
+        ]
+      },
+      {
+        "commitSha": "f2da0423ff4451e1bfc13c0d35576a04410afbb5",
+        "evidence": [
+          "cortex-axe-ci-pr-38"
         ]
       }
     ],
@@ -149,6 +155,16 @@
     ],
     "testAndCiEvidence": [
       {
+        "id": "cortex-axe-ci-pr-38",
+        "type": "workflow_run",
+        "result": "pass",
+        "provenance": "pass-without-independent-verifier",
+        "commitSha": "f2da0423ff4451e1bfc13c0d35576a04410afbb5",
+        "verifiedAt": "2026-11-11T13:11:00Z",
+        "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/actions/runs/43026389134",
+        "stale": null
+      },
+      {
         "id": "cortex-ci-pr-36",
         "type": "pull_request",
         "result": "builder_reported",
@@ -257,6 +273,11 @@
         "provenance": "builder-reported"
       },
       {
+        "gate": "wcag-22-aa",
+        "evidence": "cortex-axe-ci-pr-38",
+        "provenance": "pass-without-independent-verifier"
+      },
+      {
         "gate": "production-deployment",
         "evidence": "cortex-vercel-head",
         "provenance": "pass-without-independent-verifier"
@@ -279,9 +300,7 @@
     ],
     "changelog": null,
     "limitations": {
-      "registryMissingEvidence": [
-        "Automated accessibility scan (axe) for Cortex; 1.0 relies on the owner's manual checks."
-      ],
+      "registryMissingEvidence": [],
       "unverifiedGateNotes": [],
       "changelogKnownLimitations": null
     }
