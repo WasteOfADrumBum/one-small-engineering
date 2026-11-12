@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-12T02:27:26Z",
+  "lastUpdatedAt": "2026-11-12T02:29:41Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -727,7 +727,7 @@
         "defaultBranch": "main",
         "headSha": "1d7a2eb1ee638ad7a27bf7b73beec4426c0b57ce",
         "archived": false,
-        "observedAt": "2026-11-12T02:20:26Z",
+        "observedAt": "2026-11-12T02:29:41Z",
         "visibility": "public",
         "latestTag": {
           "name": "v0.6.0",
@@ -949,42 +949,6 @@
           "recordedBy": "Joshua Small"
         },
         {
-          "id": "sync-one-small-ui-run-ci-yml-256887b-jrkjcws-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/43025946652",
-          "commitSha": "256887bcd63e1beda74303eacd9e2694441782f4",
-          "verifiedAt": "2026-11-11T13:15:12Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 256887b (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-ui:workflow_run:ci.yml/256887b/jrkjcws/1"
-        },
-        {
-          "id": "sync-one-small-ui-run-codeql-yml-256887b-jrkjcxh-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/43025946677",
-          "commitSha": "256887bcd63e1beda74303eacd9e2694441782f4",
-          "verifiedAt": "2026-11-11T13:07:51Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow codeql.yml (\"CodeQL\") concluded success on main at 256887b (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-ui:workflow_run:codeql.yml/256887b/jrkjcxh/1"
-        },
-        {
-          "id": "sync-one-small-ui-run-docs-smoke-yml-256887b-jrkohsy-1",
-          "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/43026186274",
-          "commitSha": "256887bcd63e1beda74303eacd9e2694441782f4",
-          "verifiedAt": "2026-11-11T13:07:41Z",
-          "result": "builder_reported",
-          "description": "Automated observation: workflow docs-smoke.yml (\"Docs smoke\") concluded success on main at 256887b (deployment_status event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
-          "recordedBy": "One Small Engineering Sync",
-          "origin": "sync",
-          "eventKey": "one-small-ui:workflow_run:docs-smoke.yml/256887b/jrkohsy/1"
-        },
-        {
           "id": "sync-one-small-ui-run-checkpoint-yml-1d7a2eb-jtgme0c-1",
           "type": "workflow_run",
           "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/43140301932",
@@ -1019,6 +983,18 @@
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
           "eventKey": "one-small-ui:workflow_run:docs-smoke.yml/1d7a2eb/jtgowm8/1"
+        },
+        {
+          "id": "sync-one-small-ui-run-ci-yml-1d7a2eb-jtgme2t-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-ui/actions/runs/43140302021",
+          "commitSha": "1d7a2eb1ee638ad7a27bf7b73beec4426c0b57ce",
+          "verifiedAt": "2026-11-12T02:22:52Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 1d7a2eb (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-ui:workflow_run:ci.yml/1d7a2eb/jtgme2t/1"
         }
       ],
       "releaseGates": [
@@ -1270,7 +1246,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1411378047,
-        "lastSyncedAt": "2026-11-12T02:20:26Z",
+        "lastSyncedAt": "2026-11-12T02:29:41Z",
         "lastSyncedHead": "1d7a2eb1ee638ad7a27bf7b73beec4426c0b57ce",
         "configSource": "defaults"
       }
