@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-12T14:20:48Z",
+  "lastUpdatedAt": "2026-11-12T18:19:21Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -2477,9 +2477,9 @@
       "productionUrl": "https://taskforge-alpha-six.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "2f76b33fe06af64617ae0e0b3cadf07d1922d067",
+        "headSha": "57d0b6fc3f6333e6f6ff737f8a24a558b9099843",
         "archived": false,
-        "observedAt": "2026-11-12T14:20:48Z",
+        "observedAt": "2026-11-12T18:19:21Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -2489,15 +2489,7 @@
           "private": true
         }
       },
-      "openPullRequests": [
-        {
-          "number": 48,
-          "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/48",
-          "title": "KAN-51 refresh project status and roadmap after KAN-48",
-          "headSha": "65d25dda32a5a810a730cce271602564406e8801",
-          "draft": false
-        }
-      ],
+      "openPullRequests": [],
       "release": {
         "currentVersion": null,
         "currentVersionSource": "No tags, releases or package version. Delivery is tracked by phase and KAN ticket in docs/roadmap.md and CHANGELOG.md (Unreleased).",
@@ -2582,16 +2574,16 @@
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
         },
         {
-          "id": "sync-taskforge-run-ci-yml-2f76b33-jux84ph-1",
+          "id": "sync-taskforge-run-ci-yml-57d0b6f-jvov79e-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/TaskForge/actions/runs/43228656341",
-          "commitSha": "2f76b33fe06af64617ae0e0b3cadf07d1922d067",
-          "verifiedAt": "2026-11-12T13:40:35Z",
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/actions/runs/43275082370",
+          "commitSha": "57d0b6fc3f6333e6f6ff737f8a24a558b9099843",
+          "verifiedAt": "2026-11-12T18:04:57Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 2f76b33 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 57d0b6f (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "taskforge:workflow_run:ci.yml/2f76b33/jux84ph/1"
+          "eventKey": "taskforge:workflow_run:ci.yml/57d0b6f/jvov79e/1"
         }
       ],
       "releaseGates": [
@@ -2762,8 +2754,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 962181990,
-        "lastSyncedAt": "2026-11-12T14:20:48Z",
-        "lastSyncedHead": "2f76b33fe06af64617ae0e0b3cadf07d1922d067",
+        "lastSyncedAt": "2026-11-12T18:19:21Z",
+        "lastSyncedHead": "57d0b6fc3f6333e6f6ff737f8a24a558b9099843",
         "configSource": "defaults"
       }
     },
