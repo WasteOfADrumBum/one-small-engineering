@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-12T12:33:44Z",
+  "lastUpdatedAt": "2026-11-12T13:16:39Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -2771,7 +2771,7 @@
         "defaultBranch": "main",
         "headSha": "87e77238ed18e7ca094f1aa5275bafe7cd495888",
         "archived": false,
-        "observedAt": "2026-11-12T03:20:11Z",
+        "observedAt": "2026-11-12T13:16:39Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -2781,7 +2781,15 @@
           "private": true
         }
       },
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 44,
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/pull/44",
+          "title": "Release prep: Cortex 2.0.0 (held for approval)",
+          "headSha": "8679f4c44a633aade86ddd9eb6f5e9eb3e333ffe",
+          "draft": true
+        }
+      ],
       "release": {
         "currentVersion": "1.0.0",
         "currentVersionSource": "Cortex 1.0 live on Vercel from cortex-brain-task main at 842d1e4 (package.json 1.0.0), approved by Joshua Small on 2026-11-11 (evidence cortex-owner-final-verification-2026-11-11). No git tag yet.",
@@ -3180,7 +3188,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1413298530,
-        "lastSyncedAt": "2026-11-12T03:20:11Z",
+        "lastSyncedAt": "2026-11-12T13:16:39Z",
         "lastSyncedHead": "87e77238ed18e7ca094f1aa5275bafe7cd495888",
         "configSource": "defaults"
       }
