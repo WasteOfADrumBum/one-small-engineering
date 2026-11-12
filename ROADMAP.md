@@ -39,7 +39,9 @@ The owner resumed ModsPack 2.0.0 release closure on 2026-11-04; hub roadmap item
 - **Acceptance criteria:** ledgers on main are never more than 7 days behind the latest scheduled run; no governance field can change through that PR (negative tests); `npm run check` green.
 - **Dependencies:** owner approval of the auto-merge path extension.
 
-### E4. Action runtime and pin refresh (P2)
+### E4. Action runtime and pin refresh (P2): done 2026-11-12
+
+- **Done:** PR #108 moved checkout, setup-node, cache and the artifact actions to current majors (SHA-pinned, permissions unchanged); a read-only `engineering.yml` observe run passed on the new versions.
 
 - **Purpose:** keep pinned actions on supported Node runtimes.
 - **Scope:** bump SHA-pinned `actions/checkout`, `setup-node`, `upload-artifact` in all hub workflows; keep `permissions: {}` defaults.
@@ -53,7 +55,9 @@ The owner resumed ModsPack 2.0.0 release closure on 2026-11-04; hub roadmap item
 - **Acceptance criteria:** no open PR loses its branch; next sync run COMPLETE.
 - **Dependencies:** none (contents write already granted to the sync job; deletion stays a manual or reviewed step).
 
-### E6. Zero-job `pull_request` runs on superseded sync heads (P3)
+### E6. Zero-job `pull_request` runs on superseded sync heads (P3): closed as platform behaviour 2026-11-12
+
+- **Outcome:** the cause is confirmed in [docs/ci-cd.md](docs/ci-cd.md#zero-job-runs): GitHub records a `pull_request` run for a PR opened with `GITHUB_TOKEN` but never starts it. A concurrency group or path filter can't remove a run GitHub never starts; it goes away only if sync PRs are opened by another identity, which is E1.
 
 - **Purpose:** `Validate registry` and `Verify projects` show a few `failure` runs with zero jobs on `sync/*` heads that were rebuilt before the run started (for example run 41340635517 on 5b27304; the PR head still had a green `validate` check and merged). They are noise but read as failures.
 - **Scope:** confirm the cause and add a `concurrency` group or path filter so a superseded head cancels instead of failing.
@@ -74,7 +78,9 @@ The owner resumed ModsPack 2.0.0 release closure on 2026-11-04; hub roadmap item
 - **Acceptance criteria:** `npm view <pkg> --json` shows provenance for the next release; workflow permissions reviewed.
 - **Dependencies:** owner configures trusted publishing on npmjs.com.
 
-### E9. Checkpoint contract check in project CI (P2)
+### E9. Checkpoint contract check in project CI (P2): done 2026-11-12
+
+- **Done:** a `Checkpoint contract` workflow in all six project repositories (Photo #45, Portfolio #45, UI #48, Studio #33, Cortex #43, ModsPack #14) validates `.engineering/state.json` with this repository's validator at a pinned commit, without a hub credential. Four checkpoints that failed the schema were repaired in the same PRs, recording the same facts.
 
 - **Purpose:** catch an invalid `.engineering/state.json` in the project PR that introduces it. On 2026-11-02, three hand-written checkpoints reached `main` and showed as `invalid` in the hub aggregate (closeout finding R18).
 - **Scope:** a small step in each project's CI that runs the hub's `scripts/state/cli.mjs validate` (or a vendored copy of the schema) against `.engineering/state.json`, and fails on an error.

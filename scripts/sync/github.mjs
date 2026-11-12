@@ -179,8 +179,19 @@ export function createClient({
     } catch {
       throw new MalformedResponse(`GET ${endpoint}: malformed pagination link`, 200, '')
     }
-    if (url.origin !== base.origin || url.pathname !== endpoint) throw new MalformedResponse(`GET ${endpoint}: pagination link points outside the endpoint`, 200, '')
+    if (url.origin !== base.origin || !sameEndpoint(url.pathname, endpoint, prefix)) throw new MalformedResponse(`GET ${endpoint}: pagination link points outside the endpoint`, 200, '')
     return url.pathname.slice(prefix.length) + url.search
+  }
+
+  // GitHub writes some rel="next" links with the repository's numeric id instead of owner/name
+  // (seen on /repos/{owner}/{repo}/activity from Nov 2026: <.../repositories/1429985443/activity?after=...>).
+  // That form is accepted only for the same API origin and the same path after the repository.
+  function sameEndpoint(pathname, endpoint, prefix) {
+    if (pathname === endpoint) return true
+    const root = prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    const repoPath = new RegExp(`^${root}/repos/[^/]+/[^/]+(/.*)$`).exec(endpoint)
+    const idPath = new RegExp(`^${root}/repositories/[0-9]+(/.*)$`).exec(pathname)
+    return !!(repoPath && idPath && repoPath[1] === idPath[1])
   }
 
   return {
