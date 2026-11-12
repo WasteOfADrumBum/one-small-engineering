@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-11T13:12:05Z",
+  "asOf": "2026-11-12T12:54:38Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "156abc12a8c79ddc23854544e976e3d123efffb8bc5b002f8e6cb7c2b529bbe3",
+  "registrySha256": "db516236e8a2d2f0c44bdf407669e3eafd0a0dd9e096165f86b503bc9bb559b8",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-ui",
@@ -24,46 +24,16 @@
       },
       "openPullRequests": [
         {
-          "number": 39,
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/39",
-          "headSha": "8577a27571390c353e74c18b962b5901141d85e9",
-          "draft": false
-        },
-        {
-          "number": 41,
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/41",
-          "headSha": "c44d063551b678e18e4577a8459d9524ff9f9fdc",
-          "draft": false
-        },
-        {
-          "number": 42,
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/42",
-          "headSha": "18ddcb76f645a7ed4b5a938662ace019457edbd8",
-          "draft": false
-        },
-        {
           "number": 43,
           "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/43",
-          "headSha": "4ce04549aab6dcbdbd232dfb7eb8f1c8b8cfc29e",
-          "draft": false
-        },
-        {
-          "number": 44,
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/44",
-          "headSha": "9b7a18afda01e99e0ca1df08e824820372205c9d",
-          "draft": false
-        },
-        {
-          "number": 47,
-          "url": "https://github.com/WasteOfADrumBum/one-small-ui/pull/47",
-          "headSha": "765e6bcaafa27ba39dfef9387a1cfd4ddab57f17",
+          "headSha": "db9fc02341dbf9d7b21b3f91c08921d7aacb2ad6",
           "draft": false
         }
       ],
-      "head": "28e811f0aa7c2c2ff66b0ecca78b0f0c3556ac33",
-      "snapshotObservedAt": "2026-11-11T01:16:08Z",
-      "lastSyncedAt": "2026-11-11T01:16:08Z",
-      "lastEvidenceAt": "2026-11-11T01:30:08Z",
+      "head": "1d7a2eb1ee638ad7a27bf7b73beec4426c0b57ce",
+      "snapshotObservedAt": "2026-11-12T02:29:41Z",
+      "lastSyncedAt": "2026-11-12T02:29:41Z",
+      "lastEvidenceAt": "2026-11-12T02:22:52Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",

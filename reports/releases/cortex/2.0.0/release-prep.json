@@ -1,0 +1,674 @@
+{
+  "kind": "one-small-engineering/release-preparation",
+  "generatedBy": "npm run release:reports",
+  "asOf": "2026-11-12T12:54:38Z",
+  "staleDays": 30,
+  "engineVersion": 1,
+  "registrySha256": "db516236e8a2d2f0c44bdf407669e3eafd0a0dd9e096165f86b503bc9bb559b8",
+  "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
+  "project": {
+    "id": "cortex",
+    "name": "Cortex",
+    "tier": "application"
+  },
+  "facts": {
+    "currentVersion": "1.0.0",
+    "targetVersion": "2.0.0",
+    "releaseStatus": "in_progress",
+    "scopeDocument": "https://github.com/WasteOfADrumBum/cortex-brain-task/blob/claude/release-2.0.0/CHANGELOG.md",
+    "candidate": null,
+    "openPullRequests": [],
+    "evidenceCommits": [
+      {
+        "commitSha": "305ad8622abb46b5811c1ecd11d454a9c136c83a",
+        "evidence": [
+          "cortex-finances-pr-40"
+        ]
+      },
+      {
+        "commitSha": "5ee4589d2e91706edc1a8165a760712b676224c8",
+        "evidence": [
+          "cortex-ops-pr-39"
+        ]
+      },
+      {
+        "commitSha": "5f219e4444cee1b644fa62792c4004db2f7a9536",
+        "evidence": [
+          "cortex-assistant-pr-42"
+        ]
+      },
+      {
+        "commitSha": "6da504b9f7b45762f3a32173c31027d91343c3e3",
+        "evidence": [
+          "cortex-news-pr-41"
+        ]
+      },
+      {
+        "commitSha": "842d1e43e81a96dd787c7859c5b70b96e3441815",
+        "evidence": [
+          "cortex-owner-final-verification-2026-11-11"
+        ]
+      },
+      {
+        "commitSha": "87e77238ed18e7ca094f1aa5275bafe7cd495888",
+        "evidence": [
+          "cortex-ci-main-87e7723",
+          "cortex-vercel-prod-87e7723"
+        ]
+      }
+    ],
+    "ownership": {
+      "builder": "Claude Code",
+      "verifier": "Joshua Small",
+      "approvalOwner": "Joshua Small"
+    },
+    "approval": {
+      "status": "pending",
+      "approvedBy": null,
+      "approvedAt": null,
+      "evidenceRefs": []
+    }
+  },
+  "derived": {
+    "readiness": {
+      "totalGates": 20,
+      "applicableGates": 19,
+      "verifiedGates": 0,
+      "remainingGates": 19,
+      "byState": {
+        "verified": 0,
+        "in_progress": 15,
+        "not_started": 0,
+        "blocked": 4,
+        "not_applicable": 1,
+        "unknown_stale": 0
+      },
+      "percentage": 0,
+      "prePublication": {
+        "applicable": 18,
+        "verified": 0
+      },
+      "blockingFindings": 4,
+      "registryBlockers": 1,
+      "missingIndependentVerification": [
+        "scope-complete",
+        "automated-checks",
+        "security-privacy-review",
+        "wcag-22-aa",
+        "keyboard-screen-reader",
+        "responsive-layouts",
+        "critical-workflows",
+        "production-deployment",
+        "documentation-accurate",
+        "no-release-blockers",
+        "authorization-boundaries",
+        "sensitive-data-handling",
+        "api-integration-security",
+        "integration-failure-handling",
+        "backup-recovery",
+        "audit-logging",
+        "deployment-rollback",
+        "e2e-critical-workflows"
+      ],
+      "candidateMoved": false,
+      "ownershipValid": true,
+      "approvalRecorded": false,
+      "eligibility": "not-eligible",
+      "releaseReady": false
+    },
+    "eligibility": "not-eligible",
+    "security": [
+      {
+        "id": "security-privacy-review",
+        "state": "in_progress",
+        "provenance": "builder-reported",
+        "missing": [
+          "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+          "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation"
+        ]
+      },
+      {
+        "id": "authentication",
+        "state": "in_progress",
+        "provenance": "none",
+        "missing": [
+          "evidence for this gate",
+          "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Evidence (cortex-brain-task #40 and #42: dashboard key on every new route, bearer token on ingest) is listed in the release package; refs are left off this gate because the generated report line trips the gitleaks generic-api-key rule"
+        ]
+      },
+      {
+        "id": "authorization-boundaries",
+        "state": "in_progress",
+        "provenance": "builder-reported",
+        "missing": [
+          "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+          "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation"
+        ]
+      },
+      {
+        "id": "sensitive-data-handling",
+        "state": "in_progress",
+        "provenance": "builder-reported",
+        "missing": [
+          "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+          "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation"
+        ]
+      },
+      {
+        "id": "api-integration-security",
+        "state": "in_progress",
+        "provenance": "builder-reported",
+        "missing": [
+          "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+          "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation"
+        ]
+      },
+      {
+        "id": "audit-logging",
+        "state": "blocked",
+        "provenance": "builder-reported",
+        "missing": [
+          "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+          "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending)"
+        ]
+      },
+      {
+        "id": "user-data-isolation",
+        "state": "not_applicable",
+        "provenance": "independent",
+        "missing": []
+      }
+    ],
+    "accessibility": [
+      {
+        "id": "wcag-22-aa",
+        "state": "in_progress",
+        "provenance": "builder-reported",
+        "missing": [
+          "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+          "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation"
+        ]
+      },
+      {
+        "id": "keyboard-screen-reader",
+        "state": "in_progress",
+        "provenance": "builder-reported",
+        "missing": [
+          "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+          "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation"
+        ]
+      },
+      {
+        "id": "responsive-layouts",
+        "state": "in_progress",
+        "provenance": "builder-reported",
+        "missing": [
+          "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+          "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation"
+        ]
+      }
+    ],
+    "testAndCiEvidence": [
+      {
+        "id": "cortex-ci-main-87e7723",
+        "type": "workflow_run",
+        "result": "builder_reported",
+        "provenance": "builder-reported",
+        "commitSha": "87e77238ed18e7ca094f1aa5275bafe7cd495888",
+        "verifiedAt": "2026-11-12T12:49:26Z",
+        "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/actions/runs/43140003846",
+        "stale": null
+      },
+      {
+        "id": "cortex-owner-final-verification-2026-11-11",
+        "type": "manual_test",
+        "result": "pass",
+        "provenance": "independent",
+        "commitSha": "842d1e43e81a96dd787c7859c5b70b96e3441815",
+        "verifiedAt": "2026-11-11T05:46:33Z",
+        "url": "https://github.com/WasteOfADrumBum/one-small-engineering/pull/187#issuecomment-6788180030",
+        "stale": null
+      }
+    ],
+    "blockers": {
+      "merge": [],
+      "release": [
+        {
+          "id": "live-config-pending",
+          "origin": "registry",
+          "status": "open",
+          "category": "manual",
+          "severity": null,
+          "blocks": "release",
+          "gates": [
+            "critical-workflows",
+            "audit-logging",
+            "backup-recovery"
+          ],
+          "description": "Open: Finances saving, approvals and live Ops data need GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET and GOOGLE_REFRESH_TOKEN (drive.file and calendar.events) and GITHUB_TOKEN set in Vercel by the owner before the live checks can run.",
+          "evidenceRefs": [
+            "cortex-assistant-pr-42",
+            "cortex-finances-pr-40"
+          ],
+          "rule": null
+        },
+        {
+          "id": "auto-critical-workflows-unverified",
+          "origin": "derived",
+          "status": "proposed",
+          "category": "workflow",
+          "severity": null,
+          "blocks": "release",
+          "gates": [
+            "critical-workflows",
+            "e2e-critical-workflows"
+          ],
+          "description": "Critical workflows are not independently verified (critical-workflows, e2e-critical-workflows).",
+          "evidenceRefs": [],
+          "rule": "critical workflow gates must be verified before release",
+          "action": "Test the critical workflows on the candidate commit (critical-workflows, e2e-critical-workflows) and have the verifier record the result."
+        },
+        {
+          "id": "auto-missing-verification",
+          "origin": "derived",
+          "status": "proposed",
+          "category": "evidence",
+          "severity": null,
+          "blocks": "release",
+          "gates": [
+            "scope-complete",
+            "automated-checks",
+            "security-privacy-review",
+            "wcag-22-aa",
+            "keyboard-screen-reader",
+            "responsive-layouts",
+            "critical-workflows",
+            "documentation-accurate",
+            "authentication",
+            "authorization-boundaries",
+            "sensitive-data-handling",
+            "api-integration-security",
+            "integration-failure-handling",
+            "backup-recovery",
+            "audit-logging",
+            "deployment-rollback",
+            "e2e-critical-workflows"
+          ],
+          "description": "17 applicable pre-publication gate(s) lack current independent verification.",
+          "evidenceRefs": [],
+          "rule": "every applicable gate needs independent pass evidence",
+          "action": null
+        },
+        {
+          "id": "auto-owner-approval",
+          "origin": "derived",
+          "status": "proposed",
+          "category": "approval",
+          "severity": null,
+          "blocks": "release",
+          "gates": [],
+          "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release.",
+          "evidenceRefs": [],
+          "rule": "approval.status approved with evidence, by the approval owner",
+          "action": "Ask Joshua Small to review the evidence and approve or decline the release."
+        }
+      ],
+      "postRelease": [
+        {
+          "id": "enhancement-1",
+          "origin": "registry",
+          "text": "Enterprise AI and Small Business & SaaS news categories wait for owner-chosen sources (ROADMAP.md)."
+        },
+        {
+          "id": "enhancement-2",
+          "origin": "registry",
+          "text": "Vault type legend waits for the owner's one-line meanings (ROADMAP.md)."
+        }
+      ]
+    },
+    "nextActions": [
+      {
+        "rank": 1,
+        "priority": 3,
+        "bucket": "Missing required verification",
+        "source": "auto-critical-workflows-unverified",
+        "origin": "derived",
+        "blocks": "release",
+        "gates": [
+          "critical-workflows",
+          "e2e-critical-workflows"
+        ],
+        "text": "Test the critical workflows on the candidate commit (critical-workflows, e2e-critical-workflows) and have the verifier record the result.",
+        "summary": "Test the critical workflows on the candidate commit (critical-workflows, e2e-critical-workflows) and have the verifier record the result."
+      },
+      {
+        "rank": 2,
+        "priority": 3,
+        "bucket": "Missing required verification",
+        "source": "auto-missing-verification",
+        "origin": "derived",
+        "blocks": "release",
+        "gates": [
+          "scope-complete",
+          "automated-checks",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader",
+          "responsive-layouts",
+          "critical-workflows",
+          "documentation-accurate",
+          "authentication",
+          "authorization-boundaries",
+          "sensitive-data-handling",
+          "api-integration-security",
+          "integration-failure-handling",
+          "backup-recovery",
+          "audit-logging",
+          "deployment-rollback",
+          "e2e-critical-workflows"
+        ],
+        "text": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate, authorization-boundaries, sensitive-data-handling, api-integration-security, integration-failure-handling, deployment-rollback; produce evidence for authentication; then verify critical-workflows, backup-recovery, audit-logging, e2e-critical-workflows once their blockers are resolved.",
+        "summary": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa..."
+      },
+      {
+        "rank": 3,
+        "priority": 7,
+        "bucket": "Documentation and lower priority",
+        "source": "live-config-pending",
+        "origin": "registry",
+        "blocks": "release",
+        "gates": [
+          "critical-workflows",
+          "audit-logging",
+          "backup-recovery"
+        ],
+        "text": "Resolve blocker live-config-pending: Open: Finances saving, approvals and live Ops data need GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET and GOOGLE_REFRESH_TOKEN (drive.file and calendar.events) and GITHUB_TOKEN set in Vercel by the owner before the live checks can run.",
+        "summary": "Resolve blocker live-config-pending."
+      }
+    ],
+    "rollback": {
+      "guidance": "Follow the verified deployment-rollback procedure for the application (previous deployment promotion and data restore where needed). See standards/release.md#rollback-and-recovery.",
+      "gates": [
+        {
+          "id": "deployment-rollback",
+          "state": "in_progress",
+          "provenance": "builder-reported",
+          "evidence": [
+            "https://github.com/WasteOfADrumBum/cortex-brain-task/deployments"
+          ]
+        }
+      ]
+    },
+    "ownerChecklist": [
+      {
+        "item": "Release scope frozen: targetVersion and scopeDocument recorded",
+        "done": true
+      },
+      {
+        "item": "Release candidate commit recorded and unchanged",
+        "done": false
+      },
+      {
+        "item": "Builder and a different, independent verifier assigned",
+        "done": true
+      },
+      {
+        "item": "Every applicable pre-publication gate independently verified on current evidence (0/18)",
+        "done": false
+      },
+      {
+        "item": "No open merge blockers",
+        "done": true
+      },
+      {
+        "item": "No open release blockers other than the approval itself",
+        "done": false
+      },
+      {
+        "item": "Changelog and release notes reviewed against verified evidence (drafts below are unverified)",
+        "done": false,
+        "manual": true
+      },
+      {
+        "item": "Joshua Small approves the release, linked as evidence in a registry PR",
+        "done": false,
+        "manual": true
+      },
+      {
+        "item": "After the authorized publication or deployment: post-publication gates verified (production-deployment)",
+        "done": false
+      },
+      {
+        "item": "Registry updated by PR: currentVersion, releaseStatus released, lifecycle maintenance",
+        "done": false
+      }
+    ]
+  },
+  "unverified": {
+    "evidence": [
+      {
+        "gate": "scope-complete",
+        "evidence": "cortex-ops-pr-39",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "scope-complete",
+        "evidence": "cortex-finances-pr-40",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "scope-complete",
+        "evidence": "cortex-news-pr-41",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "scope-complete",
+        "evidence": "cortex-assistant-pr-42",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "scope-complete",
+        "evidence": "cortex-release-prep-pr-44",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "cortex-ci-main-87e7723",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "security-privacy-review",
+        "evidence": "cortex-assistant-pr-42",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "security-privacy-review",
+        "evidence": "cortex-finances-pr-40",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "wcag-22-aa",
+        "evidence": "cortex-ci-main-87e7723",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "keyboard-screen-reader",
+        "evidence": "cortex-ci-main-87e7723",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "responsive-layouts",
+        "evidence": "cortex-ci-main-87e7723",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "critical-workflows",
+        "evidence": "cortex-assistant-pr-42",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "critical-workflows",
+        "evidence": "cortex-finances-pr-40",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "production-deployment",
+        "evidence": "cortex-vercel-prod-87e7723",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "documentation-accurate",
+        "evidence": "cortex-release-prep-pr-44",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "no-release-blockers",
+        "evidence": "cortex-release-prep-pr-44",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "authorization-boundaries",
+        "evidence": "cortex-assistant-pr-42",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "sensitive-data-handling",
+        "evidence": "cortex-finances-pr-40",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "sensitive-data-handling",
+        "evidence": "cortex-assistant-pr-42",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "api-integration-security",
+        "evidence": "cortex-assistant-pr-42",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "api-integration-security",
+        "evidence": "cortex-ops-pr-39",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "integration-failure-handling",
+        "evidence": "cortex-ops-pr-39",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "integration-failure-handling",
+        "evidence": "cortex-news-pr-41",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "integration-failure-handling",
+        "evidence": "cortex-assistant-pr-42",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "backup-recovery",
+        "evidence": "cortex-finances-pr-40",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "audit-logging",
+        "evidence": "cortex-assistant-pr-42",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "deployment-rollback",
+        "evidence": "cortex-vercel-prod-87e7723",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "e2e-critical-workflows",
+        "evidence": "cortex-ci-main-87e7723",
+        "provenance": "builder-reported"
+      }
+    ],
+    "changelog": null,
+    "limitations": {
+      "registryMissingEvidence": [],
+      "unverifiedGateNotes": [
+        {
+          "gate": "scope-complete",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
+        },
+        {
+          "gate": "automated-checks",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
+        },
+        {
+          "gate": "security-privacy-review",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
+        },
+        {
+          "gate": "wcag-22-aa",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
+        },
+        {
+          "gate": "keyboard-screen-reader",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
+        },
+        {
+          "gate": "responsive-layouts",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
+        },
+        {
+          "gate": "critical-workflows",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending)."
+        },
+        {
+          "gate": "production-deployment",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
+        },
+        {
+          "gate": "documentation-accurate",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
+        },
+        {
+          "gate": "no-release-blockers",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
+        },
+        {
+          "gate": "authentication",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Evidence (cortex-brain-task #40 and #42: dashboard key on every new route, bearer token on ingest) is listed in the release package; refs are left off this gate because the generated report line trips the gitleaks generic-api-key rule."
+        },
+        {
+          "gate": "authorization-boundaries",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
+        },
+        {
+          "gate": "sensitive-data-handling",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
+        },
+        {
+          "gate": "api-integration-security",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
+        },
+        {
+          "gate": "integration-failure-handling",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
+        },
+        {
+          "gate": "backup-recovery",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending)."
+        },
+        {
+          "gate": "audit-logging",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending)."
+        },
+        {
+          "gate": "deployment-rollback",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
+        },
+        {
+          "gate": "e2e-critical-workflows",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
+        }
+      ],
+      "changelogKnownLimitations": null
+    }
+  }
+}
