@@ -45,11 +45,11 @@ jobs:
       files: ${{ steps.classify.outputs.files }}
     steps:
       # Actions pinned to reviewed commit SHAs (v4.3.1 and v4.4.0); Dependabot proposes updates.
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
           fetch-depth: 0
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
           node-version: 22
       - id: classify
@@ -69,12 +69,12 @@ jobs:
       tests-passed: ${{ steps.check.outputs.tests-passed }}
       tests-failed: ${{ steps.check.outputs.tests-failed }}
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
           # Full history so the sync guard can diff against main.
           fetch-depth: 0
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
           node-version: 22
       # No dependencies to install: the hub uses only Node built-ins.
@@ -104,12 +104,12 @@ jobs:
     outputs:
       scanners: ${{ steps.scan.outputs.scanners }}
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
           # Full history: secrets are looked for in every commit, not only the tip.
           fetch-depth: 0
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
           node-version: 22
       - name: Install pinned scanners (checksums verified)
@@ -128,10 +128,10 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
           node-version: 22
       - name: Create the project-code sandbox user
@@ -151,10 +151,10 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
           node-version: 22
       - name: Every required job succeeded or was skipped as the policy allows
@@ -170,7 +170,7 @@ jobs:
         run: node scripts/ci/gate.mjs --out "$RUNNER_TEMP/gate"
       - name: Keep the gate decision for diagnosis
         if: failure()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: ci-gate-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/gate/
