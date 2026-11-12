@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-12T02:22:59Z",
+  "lastUpdatedAt": "2026-11-12T02:25:16Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1721,9 +1721,9 @@
       "productionUrl": "https://studio.onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "3dee76f30766f40703b369db74c21b3b308b1861",
+        "headSha": "a186007a41e0ecf4cdda371d2695808d8c3f6fa7",
         "archived": false,
-        "observedAt": "2026-11-12T00:46:08Z",
+        "observedAt": "2026-11-12T02:25:16Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1913,28 +1913,40 @@
           "recordedBy": "Joshua Small"
         },
         {
-          "id": "sync-one-small-studio-run-ci-yml-3dee76f-jrkia50-1",
+          "id": "sync-one-small-studio-run-checkpoint-yml-a186007-jtgodzw-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/43025896404",
-          "commitSha": "3dee76f30766f40703b369db74c21b3b308b1861",
-          "verifiedAt": "2026-11-11T13:08:01Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/43140395228",
+          "commitSha": "a186007a41e0ecf4cdda371d2695808d8c3f6fa7",
+          "verifiedAt": "2026-11-12T02:17:56Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 3dee76f (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow checkpoint.yml (\"Checkpoint contract\") concluded success on main at a186007 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-studio:workflow_run:ci.yml/3dee76f/jrkia50/1"
+          "eventKey": "one-small-studio:workflow_run:checkpoint.yml/a186007/jtgodzw/1"
         },
         {
-          "id": "sync-one-small-studio-run-smoke-yml-3dee76f-jt9w6ai-1",
+          "id": "sync-one-small-studio-run-ci-yml-a186007-jtgoe3i-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/43129001178",
-          "commitSha": "3dee76f30766f40703b369db74c21b3b308b1861",
-          "verifiedAt": "2026-11-12T00:41:41Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/43140395358",
+          "commitSha": "a186007a41e0ecf4cdda371d2695808d8c3f6fa7",
+          "verifiedAt": "2026-11-12T02:21:00Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow smoke.yml (\"Production smoke\") concluded success on main at 3dee76f (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at a186007 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-studio:workflow_run:smoke.yml/3dee76f/jt9w6ai/1"
+          "eventKey": "one-small-studio:workflow_run:ci.yml/a186007/jtgoe3i/1"
+        },
+        {
+          "id": "sync-one-small-studio-run-smoke-yml-a186007-jtgqcex-1",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/43140486489",
+          "commitSha": "a186007a41e0ecf4cdda371d2695808d8c3f6fa7",
+          "verifiedAt": "2026-11-12T02:19:36Z",
+          "result": "builder_reported",
+          "description": "Automated observation: workflow smoke.yml (\"Production smoke\") concluded success on main at a186007 (deployment_status event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "recordedBy": "One Small Engineering Sync",
+          "origin": "sync",
+          "eventKey": "one-small-studio:workflow_run:smoke.yml/a186007/jtgqcex/1"
         }
       ],
       "releaseGates": [
@@ -2063,8 +2075,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1410748339,
-        "lastSyncedAt": "2026-11-12T00:46:08Z",
-        "lastSyncedHead": "3dee76f30766f40703b369db74c21b3b308b1861",
+        "lastSyncedAt": "2026-11-12T02:25:16Z",
+        "lastSyncedHead": "a186007a41e0ecf4cdda371d2695808d8c3f6fa7",
         "configSource": "defaults"
       }
     },
