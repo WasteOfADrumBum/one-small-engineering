@@ -98,7 +98,7 @@ test('a truncated commit window is reported incomplete, never silently passed', 
 const API = 'https://api.github.com/repos/WasteOfADrumBum/one-small-engineering/activity'
 function pagedActivity(entries, { nextUrl = (cursor, q) => `${API}?ref=${encodeURIComponent(q.get('ref'))}&time_period=week&per_page=100&after=${cursor}` } = {}) {
   const { gh, client } = repo({ commits: [merged[0]] })
-  gh.routes.unshift({ method: 'GET', re: /\/one-small-engineering\/activity$/, handler: ({ q }) => {
+  gh.routes.unshift({ method: 'GET', re: /\/(one-small-engineering|repositories\/[0-9]+)\/activity$/, handler: ({ q }) => {
     const start = +(q.get('after') || 0)
     const page = entries.slice(start, start + 100)
     const headers = { 'content-type': 'application/json' }
@@ -134,8 +134,18 @@ test('more activity than the cap is reported incomplete, never silently passed',
   assert.match(incomplete[0].reason, /more than 1000 updates to main this week/)
 })
 
+test('a next link in GitHub\'s numeric repository form is followed (regression: Main integrity red, Nov 12 2026)', async () => {
+  const entries = Array.from({ length: 250 }, (_, i) => mergeEntry(i))
+  entries[230] = { id: 230, after: direct, activity_type: 'push', actor: { login: 'github-actions[bot]' }, timestamp: '2026-10-23T02:00:00Z' }
+  const { gh, client } = pagedActivity(entries, { nextUrl: cursor => `https://api.github.com/repositories/1429985443/activity?per_page=100&after=${cursor}` })
+  const scan = await windowScan({ client })
+  assert.equal(gh.calls.filter(c => c.path.includes('/activity')).length, 3)
+  assert.equal(scan.problems.length, 1)
+  assert.equal(scan.problems[0].sha, direct)
+})
+
 test('a next link to another host or endpoint is refused, not followed', async () => {
-  for (const bad of ['https://evil.example/repos/WasteOfADrumBum/one-small-engineering/activity?after=100', 'https://api.github.com/repos/WasteOfADrumBum/other-repo/activity?after=100']) {
+  for (const bad of ['https://evil.example/repos/WasteOfADrumBum/one-small-engineering/activity?after=100', 'https://api.github.com/repos/WasteOfADrumBum/other-repo/activity?after=100', 'https://api.github.com/repositories/1429985443/commits?after=100', 'https://evil.example/repositories/1429985443/activity?after=100']) {
     const { gh, client } = pagedActivity(Array.from({ length: 150 }, (_, i) => mergeEntry(i)), { nextUrl: () => bad })
     const scan = await windowScan({ client })
     assert.equal(gh.calls.filter(c => c.path.includes('/activity')).length, 1)
