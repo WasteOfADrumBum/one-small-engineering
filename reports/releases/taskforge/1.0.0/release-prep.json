@@ -1,0 +1,488 @@
+{
+  "kind": "one-small-engineering/release-preparation",
+  "generatedBy": "npm run release:reports",
+  "asOf": "2026-11-12T18:11:17Z",
+  "staleDays": 30,
+  "engineVersion": 1,
+  "registrySha256": "2ae821f3fea5fc0d11377363ce81a53e0d79d98d3674fccbeda0de5987434614",
+  "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
+  "project": {
+    "id": "taskforge",
+    "name": "TaskForge",
+    "tier": "application"
+  },
+  "facts": {
+    "currentVersion": null,
+    "targetVersion": "1.0.0",
+    "releaseStatus": "in_progress",
+    "scopeDocument": "https://github.com/WasteOfADrumBum/TaskForge/blob/57d0b6fc3f6333e6f6ff737f8a24a558b9099843/docs/phases/phase-3-knowledge.md",
+    "candidate": null,
+    "openPullRequests": [
+      {
+        "number": 48,
+        "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/48",
+        "headSha": "65d25dda32a5a810a730cce271602564406e8801",
+        "draft": false
+      }
+    ],
+    "evidenceCommits": [
+      {
+        "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+        "evidence": [
+          "tf-ci-main",
+          "tf-project-status"
+        ]
+      },
+      {
+        "commitSha": "4aae7ae7b35e5a2c52140b875446d6b1a77bf273",
+        "evidence": [
+          "tf-pr52-backup-drill"
+        ]
+      },
+      {
+        "commitSha": "57d0b6fc3f6333e6f6ff737f8a24a558b9099843",
+        "evidence": [
+          "tf-ci-main-57d0b6f",
+          "tf-phase3-acceptance-package"
+        ]
+      }
+    ],
+    "ownership": {
+      "builder": "Claude Code",
+      "verifier": "Joshua Small",
+      "approvalOwner": "Joshua Small"
+    },
+    "approval": {
+      "status": "pending",
+      "approvedBy": null,
+      "approvedAt": null,
+      "evidenceRefs": []
+    }
+  },
+  "derived": {
+    "readiness": {
+      "totalGates": 20,
+      "applicableGates": 20,
+      "verifiedGates": 0,
+      "remainingGates": 20,
+      "byState": {
+        "verified": 0,
+        "in_progress": 1,
+        "not_started": 18,
+        "blocked": 0,
+        "not_applicable": 0,
+        "unknown_stale": 1
+      },
+      "percentage": 0,
+      "prePublication": {
+        "applicable": 19,
+        "verified": 0
+      },
+      "blockingFindings": 5,
+      "registryBlockers": 1,
+      "missingIndependentVerification": [
+        "scope-complete",
+        "automated-checks",
+        "backup-recovery"
+      ],
+      "candidateMoved": false,
+      "ownershipValid": true,
+      "approvalRecorded": false,
+      "eligibility": "not-eligible",
+      "releaseReady": false
+    },
+    "eligibility": "not-eligible",
+    "security": [
+      {
+        "id": "security-privacy-review",
+        "state": "not_started",
+        "provenance": "none",
+        "missing": [
+          "evidence for this gate"
+        ]
+      },
+      {
+        "id": "authentication",
+        "state": "not_started",
+        "provenance": "none",
+        "missing": [
+          "evidence for this gate"
+        ]
+      },
+      {
+        "id": "authorization-boundaries",
+        "state": "not_started",
+        "provenance": "none",
+        "missing": [
+          "evidence for this gate"
+        ]
+      },
+      {
+        "id": "sensitive-data-handling",
+        "state": "not_started",
+        "provenance": "none",
+        "missing": [
+          "evidence for this gate"
+        ]
+      },
+      {
+        "id": "api-integration-security",
+        "state": "not_started",
+        "provenance": "none",
+        "missing": [
+          "evidence for this gate"
+        ]
+      },
+      {
+        "id": "audit-logging",
+        "state": "not_started",
+        "provenance": "none",
+        "missing": [
+          "evidence for this gate"
+        ]
+      },
+      {
+        "id": "user-data-isolation",
+        "state": "not_started",
+        "provenance": "none",
+        "missing": [
+          "evidence for this gate"
+        ]
+      }
+    ],
+    "accessibility": [
+      {
+        "id": "wcag-22-aa",
+        "state": "not_started",
+        "provenance": "none",
+        "missing": [
+          "evidence for this gate"
+        ]
+      },
+      {
+        "id": "keyboard-screen-reader",
+        "state": "not_started",
+        "provenance": "none",
+        "missing": [
+          "evidence for this gate"
+        ]
+      },
+      {
+        "id": "responsive-layouts",
+        "state": "not_started",
+        "provenance": "none",
+        "missing": [
+          "evidence for this gate"
+        ]
+      }
+    ],
+    "testAndCiEvidence": [
+      {
+        "id": "tf-ci-main",
+        "type": "workflow_run",
+        "result": "pass",
+        "provenance": "pass-without-independent-verifier",
+        "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
+        "verifiedAt": "2026-10-22T16:33:00Z",
+        "url": "https://github.com/WasteOfADrumBum/TaskForge/actions/runs/37977747687",
+        "stale": null
+      },
+      {
+        "id": "tf-ci-main-57d0b6f",
+        "type": "workflow_run",
+        "result": "builder_reported",
+        "provenance": "builder-reported",
+        "commitSha": "57d0b6fc3f6333e6f6ff737f8a24a558b9099843",
+        "verifiedAt": "2026-11-12T18:15:00Z",
+        "url": "https://github.com/WasteOfADrumBum/TaskForge/actions/runs/43275082370",
+        "stale": "tf-ci-main-57d0b6f is dated after the report time"
+      }
+    ],
+    "blockers": {
+      "merge": [],
+      "release": [
+        {
+          "id": "backup-restore-unverified",
+          "origin": "registry",
+          "status": "open",
+          "category": "workflow",
+          "severity": null,
+          "blocks": "release",
+          "gates": [
+            "backup-recovery"
+          ],
+          "description": "A real private backup of the production database and an isolated restore have not been run. The export and verify tooling and a synthetic CI drill shipped in KAN-53 (PR #52); the owner must run backup:export and backup:verify against Atlas.",
+          "evidenceRefs": [
+            "tf-project-status",
+            "tf-pr52-backup-drill"
+          ],
+          "rule": null
+        },
+        {
+          "id": "auto-critical-workflows-unverified",
+          "origin": "derived",
+          "status": "proposed",
+          "category": "workflow",
+          "severity": null,
+          "blocks": "release",
+          "gates": [
+            "critical-workflows",
+            "e2e-critical-workflows"
+          ],
+          "description": "Critical workflows are not independently verified (critical-workflows, e2e-critical-workflows).",
+          "evidenceRefs": [],
+          "rule": "critical workflow gates must be verified before release",
+          "action": "Test the critical workflows on the candidate commit (critical-workflows, e2e-critical-workflows) and have the verifier record the result."
+        },
+        {
+          "id": "auto-missing-verification",
+          "origin": "derived",
+          "status": "proposed",
+          "category": "evidence",
+          "severity": null,
+          "blocks": "release",
+          "gates": [
+            "automated-checks",
+            "security-privacy-review",
+            "wcag-22-aa",
+            "keyboard-screen-reader",
+            "responsive-layouts",
+            "critical-workflows",
+            "documentation-accurate",
+            "authentication",
+            "authorization-boundaries",
+            "sensitive-data-handling",
+            "api-integration-security",
+            "integration-failure-handling",
+            "backup-recovery",
+            "audit-logging",
+            "deployment-rollback",
+            "e2e-critical-workflows",
+            "user-data-isolation"
+          ],
+          "description": "17 applicable pre-publication gate(s) lack current independent verification.",
+          "evidenceRefs": [],
+          "rule": "every applicable gate needs independent pass evidence",
+          "action": null
+        },
+        {
+          "id": "auto-owner-approval",
+          "origin": "derived",
+          "status": "proposed",
+          "category": "approval",
+          "severity": null,
+          "blocks": "release",
+          "gates": [],
+          "description": "Joshua Small's approval is not recorded (approval is pending). Only the owner approves a release.",
+          "evidenceRefs": [],
+          "rule": "approval.status approved with evidence, by the approval owner",
+          "action": "Ask Joshua Small to review the evidence and approve or decline the release."
+        },
+        {
+          "id": "auto-stale-scope-complete",
+          "origin": "derived",
+          "status": "proposed",
+          "category": "stale-evidence",
+          "severity": null,
+          "blocks": "release",
+          "gates": [
+            "scope-complete"
+          ],
+          "description": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: tf-phase3-acceptance-package is dated after the report time; registry notes: Phase 3 engineering delivery complete (KAN-48 to KAN-50); owner acceptance in KAN-27 pending.",
+          "evidenceRefs": [
+            "tf-phase3-acceptance-package"
+          ],
+          "rule": "verified or in-progress gates need current evidence for the candidate",
+          "action": "Re-collect current evidence for scope-complete on the release candidate and have the verifier re-check it."
+        }
+      ],
+      "postRelease": [
+        {
+          "id": "enhancement-1",
+          "origin": "registry",
+          "text": "Phases 4-8 in docs/roadmap.md (not approved; not blockers for the Phase 3 milestone)."
+        }
+      ]
+    },
+    "nextActions": [
+      {
+        "rank": 1,
+        "priority": 3,
+        "bucket": "Missing required verification",
+        "source": "backup-restore-unverified",
+        "origin": "registry",
+        "blocks": "release",
+        "gates": [
+          "backup-recovery"
+        ],
+        "text": "Resolve blocker backup-restore-unverified: A real private backup of the production database and an isolated restore have not been run. The export and verify tooling and a synthetic CI drill shipped in KAN-53 (PR #52); the owner must run backup:export and backup:verify against Atlas.",
+        "summary": "Resolve blocker backup-restore-unverified."
+      },
+      {
+        "rank": 2,
+        "priority": 3,
+        "bucket": "Missing required verification",
+        "source": "auto-critical-workflows-unverified",
+        "origin": "derived",
+        "blocks": "release",
+        "gates": [
+          "critical-workflows",
+          "e2e-critical-workflows"
+        ],
+        "text": "Test the critical workflows on the candidate commit (critical-workflows, e2e-critical-workflows) and have the verifier record the result.",
+        "summary": "Test the critical workflows on the candidate commit (critical-workflows, e2e-critical-workflows) and have the verifier record the result."
+      },
+      {
+        "rank": 3,
+        "priority": 3,
+        "bucket": "Missing required verification",
+        "source": "auto-missing-verification",
+        "origin": "derived",
+        "blocks": "release",
+        "gates": [
+          "automated-checks",
+          "security-privacy-review",
+          "wcag-22-aa",
+          "keyboard-screen-reader",
+          "responsive-layouts",
+          "critical-workflows",
+          "documentation-accurate",
+          "authentication",
+          "authorization-boundaries",
+          "sensitive-data-handling",
+          "api-integration-security",
+          "integration-failure-handling",
+          "backup-recovery",
+          "audit-logging",
+          "deployment-rollback",
+          "e2e-critical-workflows",
+          "user-data-isolation"
+        ],
+        "text": "Independently re-check the builder evidence for automated-checks; produce evidence for security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate, authentication, authorization-boundaries, sensitive-data-handling, api-integration-security, integration-failure-handling, audit-logging, deployment-rollback, user-data-isolation; then verify critical-workflows, backup-recovery, e2e-critical-workflows once their blockers are resolved.",
+        "summary": "Independently re-check the builder evidence for automated-checks."
+      },
+      {
+        "rank": 4,
+        "priority": 3,
+        "bucket": "Missing required verification",
+        "source": "auto-stale-scope-complete",
+        "origin": "derived",
+        "blocks": "release",
+        "gates": [
+          "scope-complete"
+        ],
+        "text": "Re-collect current evidence for scope-complete on the release candidate and have the verifier re-check it.",
+        "summary": "Re-collect current evidence for scope-complete on the release candidate and have the verifier re-check it."
+      }
+    ],
+    "rollback": {
+      "guidance": "Follow the verified deployment-rollback procedure for the application (previous deployment promotion and data restore where needed). See standards/release.md#rollback-and-recovery.",
+      "gates": [
+        {
+          "id": "deployment-rollback",
+          "state": "not_started",
+          "provenance": "none",
+          "evidence": []
+        }
+      ]
+    },
+    "ownerChecklist": [
+      {
+        "item": "Release scope frozen: targetVersion and scopeDocument recorded",
+        "done": true
+      },
+      {
+        "item": "Release candidate commit recorded and unchanged",
+        "done": false
+      },
+      {
+        "item": "Builder and a different, independent verifier assigned",
+        "done": true
+      },
+      {
+        "item": "Every applicable pre-publication gate independently verified on current evidence (0/19)",
+        "done": false
+      },
+      {
+        "item": "No open merge blockers",
+        "done": true
+      },
+      {
+        "item": "No open release blockers other than the approval itself",
+        "done": false
+      },
+      {
+        "item": "Changelog and release notes reviewed against verified evidence (drafts below are unverified)",
+        "done": false,
+        "manual": true
+      },
+      {
+        "item": "Joshua Small approves the release, linked as evidence in a registry PR",
+        "done": false,
+        "manual": true
+      },
+      {
+        "item": "After the authorized publication or deployment: post-publication gates verified (production-deployment)",
+        "done": false
+      },
+      {
+        "item": "Registry updated by PR: currentVersion, releaseStatus released, lifecycle maintenance",
+        "done": false
+      }
+    ]
+  },
+  "unverified": {
+    "evidence": [
+      {
+        "gate": "scope-complete",
+        "evidence": "tf-phase3-acceptance-package",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "tf-ci-main",
+        "provenance": "pass-without-independent-verifier"
+      },
+      {
+        "gate": "automated-checks",
+        "evidence": "tf-ci-main-57d0b6f",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "backup-recovery",
+        "evidence": "tf-project-status",
+        "provenance": "builder-reported"
+      },
+      {
+        "gate": "backup-recovery",
+        "evidence": "tf-pr52-backup-drill",
+        "provenance": "builder-reported"
+      }
+    ],
+    "changelog": null,
+    "limitations": {
+      "registryMissingEvidence": [
+        "Owner run of the real local-model retrieval evaluation (KAN-50 command).",
+        "Owner Atlas backup export and isolated restore verification.",
+        "Owner acceptance of Phase 3 closure in KAN-27.",
+        "Independent verifier re-check of builder-reported CI, accessibility and security evidence for each release gate.",
+        "API /release identity check on Render for the release candidate."
+      ],
+      "unverifiedGateNotes": [
+        {
+          "gate": "scope-complete",
+          "notes": "Phase 3 engineering delivery complete (KAN-48 to KAN-50); owner acceptance in KAN-27 pending."
+        },
+        {
+          "gate": "automated-checks",
+          "notes": "Builder-reported: main CI passed at 57d0b6f, the proposed v1.0.0 candidate. Verifier must re-check on the tagged commit."
+        },
+        {
+          "gate": "backup-recovery",
+          "notes": "Tooling and synthetic drill shipped (KAN-53). A real Atlas backup and isolated restore is still not verified."
+        }
+      ],
+      "changelogKnownLimitations": null
+    }
+  }
+}

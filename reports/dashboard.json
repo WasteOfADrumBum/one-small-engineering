@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/dashboard",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-11T13:12:05Z",
+  "asOf": "2026-11-12T18:11:17Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "156abc12a8c79ddc23854544e976e3d123efffb8bc5b002f8e6cb7c2b529bbe3",
+  "registrySha256": "2ae821f3fea5fc0d11377363ce81a53e0d79d98d3674fccbeda0de5987434614",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "projects": [
     {
@@ -15,8 +15,8 @@
         "targetVersion": "2.0.0",
         "currentVersion": "2.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-11T12:50:43Z",
-        "snapshotObservedAt": "2026-11-11T11:14:46Z"
+        "lastEvidenceAt": "2026-11-12T02:16:03Z",
+        "snapshotObservedAt": "2026-11-12T02:22:59Z"
       },
       "derived": {
         "percentage": 100,
@@ -37,8 +37,8 @@
         "targetVersion": "0.6.0",
         "currentVersion": "0.6.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-11T01:30:08Z",
-        "snapshotObservedAt": "2026-11-11T01:16:08Z"
+        "lastEvidenceAt": "2026-11-12T02:22:52Z",
+        "snapshotObservedAt": "2026-11-12T02:29:41Z"
       },
       "derived": {
         "percentage": 100,
@@ -59,8 +59,8 @@
         "targetVersion": "1.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-11T12:25:52Z",
-        "snapshotObservedAt": "2026-11-11T12:42:22Z"
+        "lastEvidenceAt": "2026-11-12T12:26:35Z",
+        "snapshotObservedAt": "2026-11-12T12:30:33Z"
       },
       "derived": {
         "percentage": 100,
@@ -81,8 +81,8 @@
         "targetVersion": "1.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-11T12:27:19Z",
-        "snapshotObservedAt": "2026-11-11T12:29:46Z"
+        "lastEvidenceAt": "2026-11-12T12:28:35Z",
+        "snapshotObservedAt": "2026-11-12T12:33:44Z"
       },
       "derived": {
         "percentage": 100,
@@ -103,18 +103,18 @@
         "targetVersion": "1.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-11T01:17:07Z",
-        "snapshotObservedAt": "2026-11-11T01:20:50Z"
+        "lastEvidenceAt": "2026-11-12T13:20:24Z",
+        "snapshotObservedAt": "2026-11-12T14:17:55Z"
       },
       "derived": {
         "percentage": 100,
         "verifiedGates": 10,
         "applicableGates": 10,
-        "blockingFindings": 0,
+        "blockingFindings": 1,
         "registryBlockers": 0,
-        "eligibility": "released",
-        "releaseReady": true,
-        "nextAction": null
+        "eligibility": "not-eligible",
+        "releaseReady": false,
+        "nextAction": "Fix the failing CI run on f118807 and re-run it (never skip or disable tests)."
       }
     },
     {
@@ -122,21 +122,21 @@
       "name": "TaskForge",
       "tier": "application",
       "facts": {
-        "targetVersion": null,
+        "targetVersion": "1.0.0",
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-07T23:10:03Z",
-        "snapshotObservedAt": "2026-11-08T00:39:33Z"
+        "lastEvidenceAt": "2026-11-12T18:15:00Z",
+        "snapshotObservedAt": "2026-11-12T14:20:48Z"
       },
       "derived": {
         "percentage": 0,
         "verifiedGates": 0,
         "applicableGates": 20,
-        "blockingFindings": 6,
-        "registryBlockers": 2,
-        "eligibility": "not-scoped",
+        "blockingFindings": 5,
+        "registryBlockers": 1,
+        "eligibility": "not-eligible",
         "releaseReady": false,
-        "nextAction": "Choose the target version for the scoped release and record it as release.targetVersion in the registry."
+        "nextAction": "Resolve blocker backup-restore-unverified: A real private backup of the production database and an isolated restore have not been run. The export and verify tooling and a synthetic CI drill shipped in KAN-53 (PR #52); the owner must run backup:export and backup:verify against Atlas."
       }
     },
     {
@@ -147,8 +147,8 @@
         "targetVersion": "1.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-11T13:11:00Z",
-        "snapshotObservedAt": "2026-11-11T06:27:37Z"
+        "lastEvidenceAt": "2026-11-12T02:15:34Z",
+        "snapshotObservedAt": "2026-11-12T13:16:39Z"
       },
       "derived": {
         "percentage": 100,

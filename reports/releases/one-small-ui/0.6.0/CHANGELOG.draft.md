@@ -1,6 +1,6 @@
 # Changelog draft for OneSmallUI 0.6.0
 
-> Draft generated 2026-11-11T13:12:05Z. Review it against verified evidence before copying it into the project repository. Status: Released and approved. 21 of 21 applicable gates independently verified (100%); 0 open blocker(s).
+> Draft generated 2026-11-12T18:11:17Z. Review it against verified evidence before copying it into the project repository. Status: Released and approved. 21 of 21 applicable gates independently verified (100%); 0 open blocker(s).
 
 ## 0.6.0 (unreleased)
 

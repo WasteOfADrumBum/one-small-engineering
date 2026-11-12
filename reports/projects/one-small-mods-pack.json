@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-11T13:12:05Z",
+  "asOf": "2026-11-12T18:11:17Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "156abc12a8c79ddc23854544e976e3d123efffb8bc5b002f8e6cb7c2b529bbe3",
+  "registrySha256": "2ae821f3fea5fc0d11377363ce81a53e0d79d98d3674fccbeda0de5987434614",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-mods-pack",
@@ -23,10 +23,10 @@
         "observedAt": "2026-11-11T06:10:00Z"
       },
       "openPullRequests": [],
-      "head": "3ddcd72d0ac1fa4e3236e11896ff3b8898856d0f",
-      "snapshotObservedAt": "2026-11-11T11:14:46Z",
-      "lastSyncedAt": "2026-11-11T11:14:46Z",
-      "lastEvidenceAt": "2026-11-11T12:50:43Z",
+      "head": "065732f3d9b1810483224a4dbe09749e1f8ea1df",
+      "snapshotObservedAt": "2026-11-12T02:22:59Z",
+      "lastSyncedAt": "2026-11-12T02:22:59Z",
+      "lastEvidenceAt": "2026-11-12T02:16:03Z",
       "ownership": {
         "builder": "ChatGPT",
         "verifier": "Joshua Small",

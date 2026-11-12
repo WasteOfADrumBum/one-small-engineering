@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-12T14:20:48Z",
+  "lastUpdatedAt": "2026-11-12T18:15:00Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -2501,16 +2501,17 @@
       "release": {
         "currentVersion": null,
         "currentVersionSource": "No tags, releases or package version. Delivery is tracked by phase and KAN ticket in docs/roadmap.md and CHANGELOG.md (Unreleased).",
-        "targetVersion": null,
+        "targetVersion": "1.0.0",
         "releaseStatus": "in_progress",
-        "scopeDocument": "https://github.com/WasteOfADrumBum/TaskForge/blob/11975d0278c7f04db5033c0461295c734e3b4134/docs/phases/phase-3-knowledge.md",
+        "scopeDocument": "https://github.com/WasteOfADrumBum/TaskForge/blob/57d0b6fc3f6333e6f6ff737f8a24a558b9099843/docs/phases/phase-3-knowledge.md",
         "blockers": [
           {
             "id": "backup-restore-unverified",
-            "description": "docs/project-status.md records that an actual private backup and isolated MongoDB restore is not yet verified.",
+            "description": "A real private backup of the production database and an isolated restore have not been run. The export and verify tooling and a synthetic CI drill shipped in KAN-53 (PR #52); the owner must run backup:export and backup:verify against Atlas.",
             "status": "open",
             "evidenceRefs": [
-              "tf-project-status"
+              "tf-project-status",
+              "tf-pr52-backup-drill"
             ],
             "category": "workflow",
             "blocks": "release",
@@ -2521,10 +2522,11 @@
           {
             "id": "project-status-stale",
             "description": "docs/project-status.md (last updated 2026-10-09) lists KAN-48 as the current branch and next step, but KAN-48 is already merged on main as PR #42.",
-            "status": "open",
+            "status": "resolved",
             "evidenceRefs": [
               "tf-project-status",
-              "tf-repo-metadata"
+              "tf-pr48-status-refresh",
+              "tf-project-status-current"
             ],
             "category": "stale-evidence",
             "blocks": "release",
@@ -2533,7 +2535,7 @@
             ]
           }
         ],
-        "nextAction": "Update docs/project-status.md after KAN-48, define the bounded Phase 3 exit criteria as the release scope, and plan backup/restore verification.",
+        "nextAction": "Owner: run the real local-model evaluation (KAN-50) and the Atlas backup export and verify (docs/release-runbook.md), accept Phase 3 closure in KAN-27, then have the verifier re-check the release gates before tagging v1.0.0.",
         "enhancements": [
           "Phases 4-8 in docs/roadmap.md (not approved; not blockers for the Phase 3 milestone)."
         ]
@@ -2592,24 +2594,117 @@
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
           "eventKey": "taskforge:workflow_run:ci.yml/2f76b33/jux84ph/1"
+        },
+        {
+          "id": "tf-pr48-status-refresh",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/48",
+          "commitSha": "699dbaff4068f0300d807f2a25fcc486589161ad",
+          "verifiedAt": "2026-11-12T17:20:19Z",
+          "result": "builder_reported",
+          "description": "KAN-51: project status, roadmap and Phase 3 docs refreshed past KAN-48; independent review recorded on the PR; required CI quality passed before merge.",
+          "recordedBy": "Claude Code (TaskForge builder, Claude Duet thread)"
+        },
+        {
+          "id": "tf-project-status-current",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/blob/57d0b6fc3f6333e6f6ff737f8a24a558b9099843/docs/project-status.md",
+          "commitSha": "57d0b6fc3f6333e6f6ff737f8a24a558b9099843",
+          "verifiedAt": "2026-11-12T18:15:00Z",
+          "result": "informational",
+          "description": "docs/project-status.md at main 57d0b6f lists KAN-48 through KAN-53 as merged and no longer names KAN-48 as the current branch.",
+          "recordedBy": "Claude Code (TaskForge builder, Claude Duet thread)"
+        },
+        {
+          "id": "tf-pr49-mongoose",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/49",
+          "commitSha": "2f76b33fe06af64617ae0e0b3cadf07d1922d067",
+          "verifiedAt": "2026-11-12T13:34:48Z",
+          "result": "builder_reported",
+          "description": "KAN-52: mongoose 8.24.8 lockfile update clears the high npm audit advisories that failed CI.",
+          "recordedBy": "Claude Code (TaskForge builder, Claude Duet thread)"
+        },
+        {
+          "id": "tf-pr50-ask",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/50",
+          "commitSha": "736d334619a9daca7ec2d3b98a9bb4b9b752882b",
+          "verifiedAt": "2026-11-12T17:33:40Z",
+          "result": "builder_reported",
+          "description": "KAN-49: Ask TaskForge page (keyword and local grounded modes, verifiable citations, single live region, keyboard and screen reader labelling) with unit and Playwright tests; independent review recorded on the PR.",
+          "recordedBy": "Claude Code (TaskForge builder, Claude Duet thread)"
+        },
+        {
+          "id": "tf-pr52-backup-drill",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/52",
+          "commitSha": "4aae7ae7b35e5a2c52140b875446d6b1a77bf273",
+          "verifiedAt": "2026-11-12T17:52:08Z",
+          "result": "builder_reported",
+          "description": "KAN-53: backup:export and backup:verify (restore only into a fresh isolated MongoDB, counts, SHA-256 and ownership-link checks) plus a synthetic drill that runs in CI. No real Atlas export has been run.",
+          "recordedBy": "Claude Code (TaskForge builder, Claude Duet thread)"
+        },
+        {
+          "id": "tf-pr51-evaluation",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/51",
+          "commitSha": "57d0b6fc3f6333e6f6ff737f8a24a558b9099843",
+          "verifiedAt": "2026-11-12T17:59:01Z",
+          "result": "builder_reported",
+          "description": "KAN-50: frozen retrieval evaluation (corpus kan50-v1, 13 questions) run in CI against real MongoDB services; keyword hit@1 1.0, semantic fixture hit@3 0.8; cross-owner isolation and injection checks; Phase 3 engineering acceptance package. Real local-model run is an owner step.",
+          "recordedBy": "Claude Code (TaskForge builder, Claude Duet thread)"
+        },
+        {
+          "id": "tf-ci-main-57d0b6f",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/actions/runs/43275082370",
+          "commitSha": "57d0b6fc3f6333e6f6ff737f8a24a558b9099843",
+          "verifiedAt": "2026-11-12T18:15:00Z",
+          "result": "builder_reported",
+          "description": "CI job quality (format, lint, typecheck, unit, build, audit, QA safety, integration, backup drill, Playwright e2e) succeeded on main at 57d0b6f. Builder evidence; the verifier must re-check.",
+          "recordedBy": "Claude Code (TaskForge builder, Claude Duet thread)"
+        },
+        {
+          "id": "tf-live-release-57d0b6f",
+          "type": "deployment",
+          "url": "https://taskforge-alpha-six.vercel.app/release.json",
+          "commitSha": "57d0b6fc3f6333e6f6ff737f8a24a558b9099843",
+          "verifiedAt": "2026-11-12T18:15:00Z",
+          "result": "builder_reported",
+          "description": "Live Vercel client /release.json reports commit 57d0b6f. The Render API /release identity was not checked from the builder environment.",
+          "recordedBy": "Claude Code (TaskForge builder, Claude Duet thread)"
+        },
+        {
+          "id": "tf-phase3-acceptance-package",
+          "type": "document",
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/blob/57d0b6fc3f6333e6f6ff737f8a24a558b9099843/docs/phases/phase-3-knowledge.md",
+          "commitSha": "57d0b6fc3f6333e6f6ff737f8a24a558b9099843",
+          "verifiedAt": "2026-11-12T18:15:00Z",
+          "result": "builder_reported",
+          "description": "Proposed v1.0.0 scope: bounded Phase 3 exit criteria and the engineering acceptance package awaiting owner acceptance in Jira KAN-27.",
+          "recordedBy": "Claude Code (TaskForge builder, Claude Duet thread)"
         }
       ],
       "releaseGates": [
         {
           "id": "scope-complete",
-          "status": "not_verified",
-          "evidenceRefs": [],
+          "status": "in_progress",
+          "evidenceRefs": [
+            "tf-phase3-acceptance-package"
+          ],
           "verifiedAt": null,
-          "notes": null
+          "notes": "Phase 3 engineering delivery complete (KAN-48 to KAN-50); owner acceptance in KAN-27 pending."
         },
         {
           "id": "automated-checks",
           "status": "in_progress",
           "evidenceRefs": [
-            "tf-ci-main"
+            "tf-ci-main",
+            "tf-ci-main-57d0b6f"
           ],
           "verifiedAt": null,
-          "notes": "Latest default-branch CI passed at 11975d0. The target release scope is not frozen, so this does not verify the release; re-run on the release candidate."
+          "notes": "Builder-reported: main CI passed at 57d0b6f, the proposed v1.0.0 candidate. Verifier must re-check on the tagged commit."
         },
         {
           "id": "security-privacy-review",
@@ -2706,10 +2801,11 @@
           "id": "backup-recovery",
           "status": "not_verified",
           "evidenceRefs": [
-            "tf-project-status"
+            "tf-project-status",
+            "tf-pr52-backup-drill"
           ],
           "verifiedAt": null,
-          "notes": "Recovery is documented; an actual backup and isolated restore has not been verified."
+          "notes": "Tooling and synthetic drill shipped (KAN-53). A real Atlas backup and isolated restore is still not verified."
         },
         {
           "id": "audit-logging",
@@ -2753,10 +2849,11 @@
         ]
       },
       "missingEvidence": [
-        "Phase 3 exit criteria as a frozen release scope.",
-        "Independent verification of the builder-reported Phase 1/2 evidence.",
-        "Backup/restore verification.",
-        "Builder and independent verifier not assigned."
+        "Owner run of the real local-model retrieval evaluation (KAN-50 command).",
+        "Owner Atlas backup export and isolated restore verification.",
+        "Owner acceptance of Phase 3 closure in KAN-27.",
+        "Independent verifier re-check of builder-reported CI, accessibility and security evidence for each release gate.",
+        "API /release identity check on Render for the release candidate."
       ],
       "sync": {
         "enabled": true,
