@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-12T13:16:39Z",
+  "lastUpdatedAt": "2026-11-12T14:17:55Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -2060,7 +2060,7 @@
         "defaultBranch": "main",
         "headSha": "f11880769e20255eed44b043db6986bcff083927",
         "archived": false,
-        "observedAt": "2026-11-12T03:18:16Z",
+        "observedAt": "2026-11-12T14:17:55Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -2319,16 +2319,16 @@
           "eventKey": "one-small-photography:workflow_run:ci.yml/f118807/jtgeock/1"
         },
         {
-          "id": "sync-one-small-photography-run-production-smoke-yml-f118807-jtgfwbv-1",
+          "id": "sync-one-small-photography-run-production-smoke-yml-f118807-juvr9st-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/43139999083",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/43226190173",
           "commitSha": "f11880769e20255eed44b043db6986bcff083927",
-          "verifiedAt": "2026-11-12T02:15:23Z",
+          "verifiedAt": "2026-11-12T13:20:24Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke\") concluded success on main at f118807 (deployment_status event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke\") concluded failure on main at f118807 (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:production-smoke.yml/f118807/jtgfwbv/1"
+          "eventKey": "one-small-photography:workflow_run:production-smoke.yml/f118807/juvr9st/1"
         }
       ],
       "releaseGates": [
@@ -2462,7 +2462,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-11-12T03:18:16Z",
+        "lastSyncedAt": "2026-11-12T14:17:55Z",
         "lastSyncedHead": "f11880769e20255eed44b043db6986bcff083927",
         "configSource": "defaults"
       }
