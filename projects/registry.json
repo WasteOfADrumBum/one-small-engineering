@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-12T12:49:26Z",
+  "lastUpdatedAt": "2026-11-12T18:42:16Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -1261,9 +1261,9 @@
       "productionUrl": "https://onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "27cbeb5f3353506865dc44c54301135338bab2b9",
+        "headSha": "2c8cb2c98594f78cf7d1a068d883a93f7cdcdc49",
         "archived": false,
-        "observedAt": "2026-11-12T12:30:33Z",
+        "observedAt": "2026-11-12T18:42:16Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1498,52 +1498,52 @@
           "recordedBy": "Joshua Small"
         },
         {
-          "id": "sync-personal-portfolio-run-checkpoint-yml-27cbeb5-jtgo9d4-1",
+          "id": "sync-personal-portfolio-run-checkpoint-yml-2c8cb2c-jvnhh4g-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/43140389224",
-          "commitSha": "27cbeb5f3353506865dc44c54301135338bab2b9",
-          "verifiedAt": "2026-11-12T02:17:55Z",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/43272762352",
+          "commitSha": "2c8cb2c98594f78cf7d1a068d883a93f7cdcdc49",
+          "verifiedAt": "2026-11-12T17:45:35Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow checkpoint.yml (\"Checkpoint contract\") concluded success on main at 27cbeb5 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow checkpoint.yml (\"Checkpoint contract\") concluded success on main at 2c8cb2c (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "personal-portfolio:workflow_run:checkpoint.yml/27cbeb5/jtgo9d4/1"
+          "eventKey": "personal-portfolio:workflow_run:checkpoint.yml/2c8cb2c/jvnhh4g/1"
         },
         {
-          "id": "sync-personal-portfolio-run-ci-yml-27cbeb5-jtgo9cz-1",
+          "id": "sync-personal-portfolio-run-ci-yml-2c8cb2c-jvnhh9t-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/43140389219",
-          "commitSha": "27cbeb5f3353506865dc44c54301135338bab2b9",
-          "verifiedAt": "2026-11-12T02:21:29Z",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/43272762545",
+          "commitSha": "2c8cb2c98594f78cf7d1a068d883a93f7cdcdc49",
+          "verifiedAt": "2026-11-12T17:48:44Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 27cbeb5 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 2c8cb2c (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "personal-portfolio:workflow_run:ci.yml/27cbeb5/jtgo9cz/1"
+          "eventKey": "personal-portfolio:workflow_run:ci.yml/2c8cb2c/jvnhh9t/1"
         },
         {
-          "id": "sync-personal-portfolio-run-codeql-yml-27cbeb5-jtgo9b3-1",
+          "id": "sync-personal-portfolio-run-codeql-yml-2c8cb2c-jvnhh4y-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/43140389151",
-          "commitSha": "27cbeb5f3353506865dc44c54301135338bab2b9",
-          "verifiedAt": "2026-11-12T02:18:34Z",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/43272762370",
+          "commitSha": "2c8cb2c98594f78cf7d1a068d883a93f7cdcdc49",
+          "verifiedAt": "2026-11-12T17:46:34Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow codeql.yml (\"CodeQL\") concluded success on main at 27cbeb5 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow codeql.yml (\"CodeQL\") concluded success on main at 2c8cb2c (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "personal-portfolio:workflow_run:codeql.yml/27cbeb5/jtgo9b3/1"
+          "eventKey": "personal-portfolio:workflow_run:codeql.yml/2c8cb2c/jvnhh4y/1"
         },
         {
-          "id": "sync-personal-portfolio-run-production-yml-27cbeb5-juqrshh-1",
+          "id": "sync-personal-portfolio-run-production-yml-2c8cb2c-jvr7d2g-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/43217816309",
-          "commitSha": "27cbeb5f3353506865dc44c54301135338bab2b9",
-          "verifiedAt": "2026-11-12T12:26:35Z",
+          "url": "https://github.com/WasteOfADrumBum/joshsmall-site/actions/runs/43279009000",
+          "commitSha": "2c8cb2c98594f78cf7d1a068d883a93f7cdcdc49",
+          "verifiedAt": "2026-11-12T18:22:23Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow production.yml (\"Production verification\") concluded success on main at 27cbeb5 (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow production.yml (\"Production verification\") concluded success on main at 2c8cb2c (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "personal-portfolio:workflow_run:production.yml/27cbeb5/juqrshh/1"
+          "eventKey": "personal-portfolio:workflow_run:production.yml/2c8cb2c/jvr7d2g/1"
         }
       ],
       "releaseGates": [
@@ -1674,8 +1674,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406067959,
-        "lastSyncedAt": "2026-11-12T12:30:33Z",
-        "lastSyncedHead": "27cbeb5f3353506865dc44c54301135338bab2b9",
+        "lastSyncedAt": "2026-11-12T18:42:16Z",
+        "lastSyncedHead": "2c8cb2c98594f78cf7d1a068d883a93f7cdcdc49",
         "configSource": "defaults"
       }
     },
@@ -1691,7 +1691,7 @@
         "defaultBranch": "main",
         "headSha": "a186007a41e0ecf4cdda371d2695808d8c3f6fa7",
         "archived": false,
-        "observedAt": "2026-11-12T12:33:44Z",
+        "observedAt": "2026-11-12T18:26:33Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -1905,16 +1905,16 @@
           "eventKey": "one-small-studio:workflow_run:ci.yml/a186007/jtgoe3i/1"
         },
         {
-          "id": "sync-one-small-studio-run-smoke-yml-a186007-juqwb8x-1",
+          "id": "sync-one-small-studio-run-smoke-yml-a186007-jvrbzfi-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/43218027249",
+          "url": "https://github.com/WasteOfADrumBum/one-small-studio/actions/runs/43279224606",
           "commitSha": "a186007a41e0ecf4cdda371d2695808d8c3f6fa7",
-          "verifiedAt": "2026-11-12T12:28:35Z",
+          "verifiedAt": "2026-11-12T18:24:01Z",
           "result": "builder_reported",
           "description": "Automated observation: workflow smoke.yml (\"Production smoke\") concluded success on main at a186007 (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-studio:workflow_run:smoke.yml/a186007/juqwb8x/1"
+          "eventKey": "one-small-studio:workflow_run:smoke.yml/a186007/jvrbzfi/1"
         }
       ],
       "releaseGates": [
@@ -2043,7 +2043,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1410748339,
-        "lastSyncedAt": "2026-11-12T12:33:44Z",
+        "lastSyncedAt": "2026-11-12T18:26:33Z",
         "lastSyncedHead": "a186007a41e0ecf4cdda371d2695808d8c3f6fa7",
         "configSource": "defaults"
       }
@@ -2060,7 +2060,7 @@
         "defaultBranch": "main",
         "headSha": "f11880769e20255eed44b043db6986bcff083927",
         "archived": false,
-        "observedAt": "2026-11-12T03:18:16Z",
+        "observedAt": "2026-11-12T14:17:55Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -2319,16 +2319,16 @@
           "eventKey": "one-small-photography:workflow_run:ci.yml/f118807/jtgeock/1"
         },
         {
-          "id": "sync-one-small-photography-run-production-smoke-yml-f118807-jtgfwbv-1",
+          "id": "sync-one-small-photography-run-production-smoke-yml-f118807-juvr9st-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/43139999083",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/43226190173",
           "commitSha": "f11880769e20255eed44b043db6986bcff083927",
-          "verifiedAt": "2026-11-12T02:15:23Z",
+          "verifiedAt": "2026-11-12T13:20:24Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke\") concluded success on main at f118807 (deployment_status event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke\") concluded failure on main at f118807 (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:production-smoke.yml/f118807/jtgfwbv/1"
+          "eventKey": "one-small-photography:workflow_run:production-smoke.yml/f118807/juvr9st/1"
         }
       ],
       "releaseGates": [
@@ -2462,7 +2462,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-11-12T03:18:16Z",
+        "lastSyncedAt": "2026-11-12T14:17:55Z",
         "lastSyncedHead": "f11880769e20255eed44b043db6986bcff083927",
         "configSource": "defaults"
       }
@@ -2477,9 +2477,9 @@
       "productionUrl": "https://taskforge-alpha-six.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "9af915cc321bd78f4f6f2a903748b73b0f880aa3",
+        "headSha": "57d0b6fc3f6333e6f6ff737f8a24a558b9099843",
         "archived": false,
-        "observedAt": "2026-11-08T00:39:33Z",
+        "observedAt": "2026-11-12T18:19:21Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -2574,16 +2574,16 @@
           "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)"
         },
         {
-          "id": "sync-taskforge-run-ci-yml-9af915c-jhlxudq-1",
+          "id": "sync-taskforge-run-ci-yml-57d0b6f-jvov79e-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/TaskForge/actions/runs/42423640334",
-          "commitSha": "9af915cc321bd78f4f6f2a903748b73b0f880aa3",
-          "verifiedAt": "2026-11-07T23:10:03Z",
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/actions/runs/43275082370",
+          "commitSha": "57d0b6fc3f6333e6f6ff737f8a24a558b9099843",
+          "verifiedAt": "2026-11-12T18:04:57Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 9af915c (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 57d0b6f (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "taskforge:workflow_run:ci.yml/9af915c/jhlxudq/1"
+          "eventKey": "taskforge:workflow_run:ci.yml/57d0b6f/jvov79e/1"
         }
       ],
       "releaseGates": [
@@ -2754,8 +2754,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 962181990,
-        "lastSyncedAt": "2026-11-08T00:39:33Z",
-        "lastSyncedHead": "9af915cc321bd78f4f6f2a903748b73b0f880aa3",
+        "lastSyncedAt": "2026-11-12T18:19:21Z",
+        "lastSyncedHead": "57d0b6fc3f6333e6f6ff737f8a24a558b9099843",
         "configSource": "defaults"
       }
     },
@@ -2771,7 +2771,7 @@
         "defaultBranch": "main",
         "headSha": "87e77238ed18e7ca094f1aa5275bafe7cd495888",
         "archived": false,
-        "observedAt": "2026-11-12T03:20:11Z",
+        "observedAt": "2026-11-12T13:16:39Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -2781,7 +2781,15 @@
           "private": true
         }
       },
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 44,
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/pull/44",
+          "title": "Release prep: Cortex 2.0.0 (held for approval)",
+          "headSha": "8679f4c44a633aade86ddd9eb6f5e9eb3e333ffe",
+          "draft": true
+        }
+      ],
       "release": {
         "currentVersion": "1.0.0",
         "currentVersionSource": "Cortex 1.0 live on Vercel from cortex-brain-task main at 842d1e4 (package.json 1.0.0), approved by Joshua Small on 2026-11-11 (evidence cortex-owner-final-verification-2026-11-11). No git tag yet.",
@@ -3264,7 +3272,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1413298530,
-        "lastSyncedAt": "2026-11-12T03:20:11Z",
+        "lastSyncedAt": "2026-11-12T13:16:39Z",
         "lastSyncedHead": "87e77238ed18e7ca094f1aa5275bafe7cd495888",
         "configSource": "defaults"
       }

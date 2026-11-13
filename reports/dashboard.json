@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/dashboard",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-12T12:54:38Z",
+  "asOf": "2026-11-13T13:34:03Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "db516236e8a2d2f0c44bdf407669e3eafd0a0dd9e096165f86b503bc9bb559b8",
+  "registrySha256": "d7d41af88bae692c8fc2da9ba90849a6df65696bf0c7c6971e801f45941053f6",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "projects": [
     {
@@ -59,8 +59,8 @@
         "targetVersion": "1.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-12T12:26:35Z",
-        "snapshotObservedAt": "2026-11-12T12:30:33Z"
+        "lastEvidenceAt": "2026-11-12T18:22:23Z",
+        "snapshotObservedAt": "2026-11-12T18:42:16Z"
       },
       "derived": {
         "percentage": 100,
@@ -81,8 +81,8 @@
         "targetVersion": "1.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-12T12:28:35Z",
-        "snapshotObservedAt": "2026-11-12T12:33:44Z"
+        "lastEvidenceAt": "2026-11-12T18:24:01Z",
+        "snapshotObservedAt": "2026-11-12T18:26:33Z"
       },
       "derived": {
         "percentage": 100,
@@ -103,18 +103,18 @@
         "targetVersion": "1.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-12T02:16:00Z",
-        "snapshotObservedAt": "2026-11-12T03:18:16Z"
+        "lastEvidenceAt": "2026-11-12T13:20:24Z",
+        "snapshotObservedAt": "2026-11-12T14:17:55Z"
       },
       "derived": {
         "percentage": 100,
         "verifiedGates": 10,
         "applicableGates": 10,
-        "blockingFindings": 0,
+        "blockingFindings": 1,
         "registryBlockers": 0,
-        "eligibility": "released",
-        "releaseReady": true,
-        "nextAction": null
+        "eligibility": "not-eligible",
+        "releaseReady": false,
+        "nextAction": "Fix the failing CI run on f118807 and re-run it (never skip or disable tests)."
       }
     },
     {
@@ -125,8 +125,8 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-07T23:10:03Z",
-        "snapshotObservedAt": "2026-11-08T00:39:33Z"
+        "lastEvidenceAt": "2026-11-12T18:04:57Z",
+        "snapshotObservedAt": "2026-11-12T18:19:21Z"
       },
       "derived": {
         "percentage": 0,
@@ -148,7 +148,7 @@
         "currentVersion": "1.0.0",
         "releaseStatus": "in_progress",
         "lastEvidenceAt": "2026-11-12T12:49:26Z",
-        "snapshotObservedAt": "2026-11-12T03:20:11Z"
+        "snapshotObservedAt": "2026-11-12T13:16:39Z"
       },
       "derived": {
         "percentage": 0,

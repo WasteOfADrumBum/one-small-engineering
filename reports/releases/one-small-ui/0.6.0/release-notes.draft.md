@@ -1,6 +1,6 @@
 # OneSmallUI 0.6.0 release notes (draft)
 
-> **Draft, not approved, not published.** Status: Released and approved. 21 of 21 applicable gates independently verified (100%); 0 open blocker(s). Generated 2026-11-12T12:54:38Z.
+> **Draft, not approved, not published.** Status: Released and approved. 21 of 21 applicable gates independently verified (100%); 0 open blocker(s). Generated 2026-11-13T13:34:03Z.
 
 ## Highlights
 

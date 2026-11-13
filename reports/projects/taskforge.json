@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-12T12:54:38Z",
+  "asOf": "2026-11-13T13:34:03Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "db516236e8a2d2f0c44bdf407669e3eafd0a0dd9e096165f86b503bc9bb559b8",
+  "registrySha256": "d7d41af88bae692c8fc2da9ba90849a6df65696bf0c7c6971e801f45941053f6",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "taskforge",
@@ -18,10 +18,10 @@
       "scopeDocument": "https://github.com/WasteOfADrumBum/TaskForge/blob/11975d0278c7f04db5033c0461295c734e3b4134/docs/phases/phase-3-knowledge.md",
       "candidate": null,
       "openPullRequests": [],
-      "head": "9af915cc321bd78f4f6f2a903748b73b0f880aa3",
-      "snapshotObservedAt": "2026-11-08T00:39:33Z",
-      "lastSyncedAt": "2026-11-08T00:39:33Z",
-      "lastEvidenceAt": "2026-11-07T23:10:03Z",
+      "head": "57d0b6fc3f6333e6f6ff737f8a24a558b9099843",
+      "snapshotObservedAt": "2026-11-12T18:19:21Z",
+      "lastSyncedAt": "2026-11-12T18:19:21Z",
+      "lastEvidenceAt": "2026-11-12T18:04:57Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",

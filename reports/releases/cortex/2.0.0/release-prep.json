@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/release-preparation",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-12T12:54:38Z",
+  "asOf": "2026-11-13T13:34:03Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "db516236e8a2d2f0c44bdf407669e3eafd0a0dd9e096165f86b503bc9bb559b8",
+  "registrySha256": "d7d41af88bae692c8fc2da9ba90849a6df65696bf0c7c6971e801f45941053f6",
   "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
   "project": {
     "id": "cortex",
@@ -17,7 +17,14 @@
     "releaseStatus": "in_progress",
     "scopeDocument": "https://github.com/WasteOfADrumBum/cortex-brain-task/blob/claude/release-2.0.0/CHANGELOG.md",
     "candidate": null,
-    "openPullRequests": [],
+    "openPullRequests": [
+      {
+        "number": 44,
+        "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/pull/44",
+        "headSha": "8679f4c44a633aade86ddd9eb6f5e9eb3e333ffe",
+        "draft": true
+      }
+    ],
     "evidenceCommits": [
       {
         "commitSha": "305ad8622abb46b5811c1ecd11d454a9c136c83a",

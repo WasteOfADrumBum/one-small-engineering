@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-12T12:54:38Z",
+  "asOf": "2026-11-13T13:34:03Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "db516236e8a2d2f0c44bdf407669e3eafd0a0dd9e096165f86b503bc9bb559b8",
+  "registrySha256": "d7d41af88bae692c8fc2da9ba90849a6df65696bf0c7c6971e801f45941053f6",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-photography",
@@ -26,9 +26,9 @@
         }
       ],
       "head": "f11880769e20255eed44b043db6986bcff083927",
-      "snapshotObservedAt": "2026-11-12T03:18:16Z",
-      "lastSyncedAt": "2026-11-12T03:18:16Z",
-      "lastEvidenceAt": "2026-11-12T02:16:00Z",
+      "snapshotObservedAt": "2026-11-12T14:17:55Z",
+      "lastSyncedAt": "2026-11-12T14:17:55Z",
+      "lastEvidenceAt": "2026-11-12T13:20:24Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -64,14 +64,14 @@
           "applicable": 9,
           "verified": 9
         },
-        "blockingFindings": 0,
+        "blockingFindings": 1,
         "registryBlockers": 0,
         "missingIndependentVerification": [],
         "candidateMoved": false,
         "ownershipValid": true,
         "approvalRecorded": true,
-        "eligibility": "released",
-        "releaseReady": true
+        "eligibility": "not-eligible",
+        "releaseReady": false
       },
       "gates": [
         {
@@ -630,7 +630,23 @@
         }
       ],
       "blockers": {
-        "merge": [],
+        "merge": [
+          {
+            "id": "auto-ci-failed-sync-one-small-photography-run-production-smoke-yml-f118807-juvr9st-1",
+            "origin": "derived",
+            "status": "proposed",
+            "category": "ci",
+            "severity": null,
+            "blocks": "merge",
+            "gates": [],
+            "description": "CI did not pass on f118807 (failure).",
+            "evidenceRefs": [
+              "sync-one-small-photography-run-production-smoke-yml-f118807-juvr9st-1"
+            ],
+            "rule": "a failing workflow run on the head or candidate commit blocks merge",
+            "action": "Fix the failing CI run on f118807 and re-run it (never skip or disable tests)."
+          }
+        ],
         "release": [],
         "postRelease": [
           {
@@ -645,7 +661,19 @@
           }
         ]
       },
-      "nextActions": [],
+      "nextActions": [
+        {
+          "rank": 1,
+          "priority": 4,
+          "bucket": "Failed or missing CI",
+          "source": "auto-ci-failed-sync-one-small-photography-run-production-smoke-yml-f118807-juvr9st-1",
+          "origin": "derived",
+          "blocks": "merge",
+          "gates": [],
+          "text": "Fix the failing CI run on f118807 and re-run it (never skip or disable tests).",
+          "summary": "Fix the failing CI run on f118807 and re-run it (never skip or disable tests)."
+        }
+      ],
       "dependencies": [],
       "findings": [],
       "approval": {
