@@ -1,6 +1,6 @@
 # TaskForge 1.0.0 release notes (draft)
 
-> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 20 applicable gates independently verified (0%); 5 open blocker(s). Generated 2026-11-12T18:11:17Z.
+> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 20 applicable gates independently verified (0%); 4 open blocker(s). Generated 2026-11-13T13:33:34Z.
 
 ## Highlights
 

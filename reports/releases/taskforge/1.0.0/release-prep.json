@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/release-preparation",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-12T18:11:17Z",
+  "asOf": "2026-11-13T13:33:34Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "2ae821f3fea5fc0d11377363ce81a53e0d79d98d3674fccbeda0de5987434614",
+  "registrySha256": "d73f4761cad8eb4ed39ed21fa6f38792a1a298f46cd869a5c0447968956584bf",
   "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
   "project": {
     "id": "taskforge",
@@ -17,14 +17,7 @@
     "releaseStatus": "in_progress",
     "scopeDocument": "https://github.com/WasteOfADrumBum/TaskForge/blob/57d0b6fc3f6333e6f6ff737f8a24a558b9099843/docs/phases/phase-3-knowledge.md",
     "candidate": null,
-    "openPullRequests": [
-      {
-        "number": 48,
-        "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/48",
-        "headSha": "65d25dda32a5a810a730cce271602564406e8801",
-        "draft": false
-      }
-    ],
+    "openPullRequests": [],
     "evidenceCommits": [
       {
         "commitSha": "11975d0278c7f04db5033c0461295c734e3b4134",
@@ -67,18 +60,18 @@
       "remainingGates": 20,
       "byState": {
         "verified": 0,
-        "in_progress": 1,
+        "in_progress": 2,
         "not_started": 18,
         "blocked": 0,
         "not_applicable": 0,
-        "unknown_stale": 1
+        "unknown_stale": 0
       },
       "percentage": 0,
       "prePublication": {
         "applicable": 19,
         "verified": 0
       },
-      "blockingFindings": 5,
+      "blockingFindings": 4,
       "registryBlockers": 1,
       "missingIndependentVerification": [
         "scope-complete",
@@ -195,7 +188,7 @@
         "commitSha": "57d0b6fc3f6333e6f6ff737f8a24a558b9099843",
         "verifiedAt": "2026-11-12T18:15:00Z",
         "url": "https://github.com/WasteOfADrumBum/TaskForge/actions/runs/43275082370",
-        "stale": "tf-ci-main-57d0b6f is dated after the report time"
+        "stale": null
       }
     ],
     "blockers": {
@@ -242,6 +235,7 @@
           "severity": null,
           "blocks": "release",
           "gates": [
+            "scope-complete",
             "automated-checks",
             "security-privacy-review",
             "wcag-22-aa",
@@ -260,7 +254,7 @@
             "e2e-critical-workflows",
             "user-data-isolation"
           ],
-          "description": "17 applicable pre-publication gate(s) lack current independent verification.",
+          "description": "18 applicable pre-publication gate(s) lack current independent verification.",
           "evidenceRefs": [],
           "rule": "every applicable gate needs independent pass evidence",
           "action": null
@@ -277,23 +271,6 @@
           "evidenceRefs": [],
           "rule": "approval.status approved with evidence, by the approval owner",
           "action": "Ask Joshua Small to review the evidence and approve or decline the release."
-        },
-        {
-          "id": "auto-stale-scope-complete",
-          "origin": "derived",
-          "status": "proposed",
-          "category": "stale-evidence",
-          "severity": null,
-          "blocks": "release",
-          "gates": [
-            "scope-complete"
-          ],
-          "description": "scope-complete: independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence; current evidence: tf-phase3-acceptance-package is dated after the report time; registry notes: Phase 3 engineering delivery complete (KAN-48 to KAN-50); owner acceptance in KAN-27 pending.",
-          "evidenceRefs": [
-            "tf-phase3-acceptance-package"
-          ],
-          "rule": "verified or in-progress gates need current evidence for the candidate",
-          "action": "Re-collect current evidence for scope-complete on the release candidate and have the verifier re-check it."
         }
       ],
       "postRelease": [
@@ -340,6 +317,7 @@
         "origin": "derived",
         "blocks": "release",
         "gates": [
+          "scope-complete",
           "automated-checks",
           "security-privacy-review",
           "wcag-22-aa",
@@ -358,21 +336,8 @@
           "e2e-critical-workflows",
           "user-data-isolation"
         ],
-        "text": "Independently re-check the builder evidence for automated-checks; produce evidence for security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate, authentication, authorization-boundaries, sensitive-data-handling, api-integration-security, integration-failure-handling, audit-logging, deployment-rollback, user-data-isolation; then verify critical-workflows, backup-recovery, e2e-critical-workflows once their blockers are resolved.",
-        "summary": "Independently re-check the builder evidence for automated-checks."
-      },
-      {
-        "rank": 4,
-        "priority": 3,
-        "bucket": "Missing required verification",
-        "source": "auto-stale-scope-complete",
-        "origin": "derived",
-        "blocks": "release",
-        "gates": [
-          "scope-complete"
-        ],
-        "text": "Re-collect current evidence for scope-complete on the release candidate and have the verifier re-check it.",
-        "summary": "Re-collect current evidence for scope-complete on the release candidate and have the verifier re-check it."
+        "text": "Independently re-check the builder evidence for scope-complete, automated-checks; produce evidence for security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate, authentication, authorization-boundaries, sensitive-data-handling, api-integration-security, integration-failure-handling, audit-logging, deployment-rollback, user-data-isolation; then verify critical-workflows, backup-recovery, e2e-critical-workflows once their blockers are resolved.",
+        "summary": "Independently re-check the builder evidence for scope-complete, automated-checks."
       }
     ],
     "rollback": {

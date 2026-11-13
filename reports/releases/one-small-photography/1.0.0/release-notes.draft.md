@@ -1,6 +1,6 @@
 # One Small Photography 1.0.0 release notes (draft)
 
-> **Draft, not approved, not published.** Status: Not eligible for release. 10 of 10 applicable gates independently verified (100%); 1 open blocker(s). Generated 2026-11-12T18:11:17Z.
+> **Draft, not approved, not published.** Status: Not eligible for release. 10 of 10 applicable gates independently verified (100%); 1 open blocker(s). Generated 2026-11-13T13:33:34Z.
 
 ## Highlights
 
