@@ -2765,7 +2765,7 @@
       "repository": "https://github.com/WasteOfADrumBum/cortex-brain-task",
       "tier": "application",
       "visibility": "public",
-      "lifecycle": "maintenance",
+      "lifecycle": "active",
       "productionUrl": "https://cortex-brain-nu.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
@@ -2793,9 +2793,9 @@
       "release": {
         "currentVersion": "1.0.0",
         "currentVersionSource": "Cortex 1.0 live on Vercel from cortex-brain-task main at 842d1e4 (package.json 1.0.0), approved by Joshua Small on 2026-11-11 (evidence cortex-owner-final-verification-2026-11-11). No git tag yet.",
-        "targetVersion": "1.0.0",
-        "releaseStatus": "released",
-        "scopeDocument": "https://github.com/WasteOfADrumBum/cortex-brain-task/blob/842d1e43e81a96dd787c7859c5b70b96e3441815/README.md",
+        "targetVersion": "2.0.0",
+        "releaseStatus": "in_progress",
+        "scopeDocument": "https://github.com/WasteOfADrumBum/cortex-brain-task/blob/claude/release-2.0.0/CHANGELOG.md",
         "blockers": [
           {
             "id": "no-ci-workflow",
@@ -2841,12 +2841,28 @@
             "gates": [
               "scope-complete"
             ]
+          },
+          {
+            "id": "live-config-pending",
+            "description": "Open: Finances saving, approvals and live Ops data need GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET and GOOGLE_REFRESH_TOKEN (drive.file and calendar.events) and GITHUB_TOKEN set in Vercel by the owner before the live checks can run.",
+            "status": "open",
+            "evidenceRefs": [
+              "cortex-assistant-pr-42",
+              "cortex-finances-pr-40"
+            ],
+            "category": "manual",
+            "blocks": "release",
+            "gates": [
+              "critical-workflows",
+              "audit-logging",
+              "backup-recovery"
+            ]
           }
         ],
-        "nextAction": "Maintenance only for 1.0. Next work is on ROADMAP.md (Ops project cards, Finances, News, Assistant). The v1.0.0 tag on cortex-brain-task is the owner's to create or ask for.",
+        "nextAction": "Owner: review docs/acceptance/cortex-2.0-release-package.md, set the Google token (drive.file and calendar.events) and GITHUB_TOKEN in Vercel, do the listed live checks and sign off on the package PR. Then merge cortex-brain-task#44 and record the approval. The v2.0.0 tag is the owner's to create or ask for.",
         "enhancements": [
-          "Ops project cards, Finances, News and the Assistant: ROADMAP.md (never reopen 1.0).",
-          "Automated axe scan in CI and constant-time dashboard key comparison: ROADMAP.md hardening."
+          "Enterprise AI and Small Business & SaaS news categories wait for owner-chosen sources (ROADMAP.md).",
+          "Vault type legend waits for the owner's one-line meanings (ROADMAP.md)."
         ]
       },
       "ownership": {
@@ -2855,12 +2871,10 @@
         "approvalOwner": "Joshua Small"
       },
       "approval": {
-        "status": "approved",
-        "approvedBy": "Joshua Small",
-        "approvedAt": "2026-11-11T05:46:33Z",
-        "evidenceRefs": [
-          "cortex-owner-final-verification-2026-11-11"
-        ]
+        "status": "pending",
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidenceRefs": []
       },
       "lastVerifiedAt": "2026-11-11T05:46:33Z",
       "evidence": [
@@ -2957,187 +2971,257 @@
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
           "eventKey": "cortex:workflow_run:ci.yml/87e7723/jtgg006/1"
+        },
+        {
+          "id": "cortex-ops-pr-39",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/pull/39",
+          "commitSha": "5ee4589d2e91706edc1a8165a760712b676224c8",
+          "verifiedAt": "2026-11-12T12:49:26Z",
+          "result": "builder_reported",
+          "description": "Spec phase 3: Ops project cards, shipping totals, 12-week chart, Home Ops panel; axe check fails on page script errors. CI green on the PR and main. Builder-reported.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "cortex-finances-pr-40",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/pull/40",
+          "commitSha": "305ad8622abb46b5811c1ecd11d454a9c136c83a",
+          "verifiedAt": "2026-11-12T12:49:26Z",
+          "result": "builder_reported",
+          "description": "Spec phase 4: Finances tab, paste import and authenticated ingest endpoint with schema, account-number guard and rate limit; months saved to Drive with the replaced copy kept. CI green. Builder-reported.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "cortex-news-pr-41",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/pull/41",
+          "commitSha": "6da504b9f7b45762f3a32173c31027d91343c3e3",
+          "verifiedAt": "2026-11-12T12:49:26Z",
+          "result": "builder_reported",
+          "description": "Spec phase 5 (News part): RSS route, News tab by category and Home headlines; all 14 starter feeds verified in the CI feeds job. Builder-reported.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "cortex-assistant-pr-42",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/pull/42",
+          "commitSha": "5f219e4444cee1b644fa62792c4004db2f7a9536",
+          "verifiedAt": "2026-11-12T12:49:26Z",
+          "result": "builder_reported",
+          "description": "Spec phase 6: briefing reader, rule-based Top 3, approvals inbox (allowlist, stale check, audit log, 10-second undo) and docs/briefing-routine.md; 13 new tests run the decision logic against fakes. CI and axe green. Builder-reported.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "cortex-release-prep-pr-44",
+          "type": "pull_request",
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/pull/44",
+          "commitSha": null,
+          "verifiedAt": "2026-11-12T12:49:26Z",
+          "result": "builder_reported",
+          "description": "Release prep held for owner approval: CHANGELOG 2.0.0, package.json 2.0.0, footer Cortex 2.0, README and ROADMAP for 2.0. Draft; not merged.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "cortex-ci-main-87e7723",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/actions/runs/43140003846",
+          "commitSha": "87e77238ed18e7ca094f1aa5275bafe7cd495888",
+          "verifiedAt": "2026-11-12T12:49:26Z",
+          "result": "builder_reported",
+          "description": "CI on main after all four phases: type check, 52 tests, axe on every demo tab at desktop and phone width, all green. Builder-reported.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "cortex-vercel-prod-87e7723",
+          "type": "deployment",
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/deployments",
+          "commitSha": "87e77238ed18e7ca094f1aa5275bafe7cd495888",
+          "verifiedAt": "2026-11-12T12:49:26Z",
+          "result": "builder_reported",
+          "description": "Vercel Production deployment of main at 87e7723 reported success to GitHub on 2026-11-12. Live behaviour with the owner signed in not inspected.",
+          "recordedBy": "Claude Code"
         }
       ],
       "releaseGates": [
         {
           "id": "scope-complete",
-          "status": "verified",
+          "status": "in_progress",
           "evidenceRefs": [
-            "cortex-v2-spec",
-            "cortex-1-0-scope-pr-37",
-            "cortex-owner-final-verification-2026-11-11"
+            "cortex-ops-pr-39",
+            "cortex-finances-pr-40",
+            "cortex-news-pr-41",
+            "cortex-assistant-pr-42",
+            "cortex-release-prep-pr-44"
           ],
-          "verifiedAt": "2026-11-11T05:46:33Z",
-          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
+          "verifiedAt": null,
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
         },
         {
           "id": "automated-checks",
-          "status": "verified",
+          "status": "in_progress",
           "evidenceRefs": [
-            "cortex-ci-pr-36",
-            "cortex-owner-final-verification-2026-11-11"
+            "cortex-ci-main-87e7723"
           ],
-          "verifiedAt": "2026-11-11T05:46:33Z",
-          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
+          "verifiedAt": null,
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
         },
         {
           "id": "security-privacy-review",
-          "status": "verified",
+          "status": "in_progress",
           "evidenceRefs": [
-            "cortex-owner-final-verification-2026-11-11"
+            "cortex-assistant-pr-42",
+            "cortex-finances-pr-40"
           ],
-          "verifiedAt": "2026-11-11T05:46:33Z",
-          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
+          "verifiedAt": null,
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
         },
         {
           "id": "wcag-22-aa",
-          "status": "verified",
+          "status": "in_progress",
           "evidenceRefs": [
-            "cortex-owner-final-verification-2026-11-11",
-            "cortex-axe-ci-pr-38"
+            "cortex-ci-main-87e7723"
           ],
-          "verifiedAt": "2026-11-11T05:46:33Z",
-          "notes": "Joshua Small, assigned independent human verifier, did the manual check for this gate listed in the Cortex 1.0 closeout package and attested that it passed (hub PR #187). No automated scan of this gate exists yet. Since 2026-11-11 CI also runs an automated axe scan of every /demo tab (evidence cortex-axe-ci-pr-38, builder-reported)."
+          "verifiedAt": null,
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
         },
         {
           "id": "keyboard-screen-reader",
-          "status": "verified",
+          "status": "in_progress",
           "evidenceRefs": [
-            "cortex-owner-final-verification-2026-11-11"
+            "cortex-ci-main-87e7723"
           ],
-          "verifiedAt": "2026-11-11T05:46:33Z",
-          "notes": "Joshua Small, assigned independent human verifier, did the manual check for this gate listed in the Cortex 1.0 closeout package and attested that it passed (hub PR #187). No automated scan of this gate exists yet."
+          "verifiedAt": null,
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
         },
         {
           "id": "responsive-layouts",
-          "status": "verified",
+          "status": "in_progress",
           "evidenceRefs": [
-            "cortex-owner-final-verification-2026-11-11"
+            "cortex-ci-main-87e7723"
           ],
-          "verifiedAt": "2026-11-11T05:46:33Z",
-          "notes": "Joshua Small, assigned independent human verifier, did the manual check for this gate listed in the Cortex 1.0 closeout package and attested that it passed (hub PR #187). No automated scan of this gate exists yet."
+          "verifiedAt": null,
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
         },
         {
           "id": "critical-workflows",
-          "status": "verified",
+          "status": "blocked",
           "evidenceRefs": [
-            "cortex-owner-final-verification-2026-11-11"
+            "cortex-assistant-pr-42",
+            "cortex-finances-pr-40"
           ],
-          "verifiedAt": "2026-11-11T05:46:33Z",
-          "notes": "Joshua Small, assigned independent human verifier, did the manual check for this gate listed in the Cortex 1.0 closeout package and attested that it passed (hub PR #187). No automated scan of this gate exists yet."
+          "verifiedAt": null,
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending)."
         },
         {
           "id": "production-deployment",
-          "status": "verified",
+          "status": "in_progress",
           "evidenceRefs": [
-            "cortex-vercel-head",
-            "cortex-owner-final-verification-2026-11-11"
+            "cortex-vercel-prod-87e7723"
           ],
-          "verifiedAt": "2026-11-11T05:46:33Z",
-          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
+          "verifiedAt": null,
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
         },
         {
           "id": "documentation-accurate",
-          "status": "verified",
+          "status": "in_progress",
           "evidenceRefs": [
-            "cortex-1-0-scope-pr-37",
-            "cortex-owner-final-verification-2026-11-11"
+            "cortex-release-prep-pr-44"
           ],
-          "verifiedAt": "2026-11-11T05:46:33Z",
-          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
+          "verifiedAt": null,
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
         },
         {
           "id": "no-release-blockers",
-          "status": "verified",
+          "status": "blocked",
           "evidenceRefs": [
-            "cortex-ci-pr-36",
-            "cortex-1-0-scope-pr-37",
-            "cortex-owner-final-verification-2026-11-11"
+            "cortex-release-prep-pr-44"
           ],
-          "verifiedAt": "2026-11-11T05:46:33Z",
-          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
+          "verifiedAt": null,
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
         },
         {
           "id": "authentication",
-          "status": "verified",
-          "evidenceRefs": [
-            "cortex-owner-final-verification-2026-11-11"
-          ],
-          "verifiedAt": "2026-11-11T05:46:33Z",
-          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
+          "status": "in_progress",
+          "evidenceRefs": [],
+          "verifiedAt": null,
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Evidence (cortex-brain-task #40 and #42: dashboard key on every new route, bearer token on ingest) is listed in the release package; refs are left off this gate because the generated report line trips the gitleaks generic-api-key rule."
         },
         {
           "id": "authorization-boundaries",
-          "status": "verified",
+          "status": "in_progress",
           "evidenceRefs": [
-            "cortex-owner-final-verification-2026-11-11"
+            "cortex-assistant-pr-42"
           ],
-          "verifiedAt": "2026-11-11T05:46:33Z",
-          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
+          "verifiedAt": null,
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
         },
         {
           "id": "sensitive-data-handling",
-          "status": "verified",
+          "status": "in_progress",
           "evidenceRefs": [
-            "cortex-owner-final-verification-2026-11-11"
+            "cortex-finances-pr-40",
+            "cortex-assistant-pr-42"
           ],
-          "verifiedAt": "2026-11-11T05:46:33Z",
-          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
+          "verifiedAt": null,
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
         },
         {
           "id": "api-integration-security",
-          "status": "verified",
+          "status": "in_progress",
           "evidenceRefs": [
-            "cortex-owner-final-verification-2026-11-11"
+            "cortex-assistant-pr-42",
+            "cortex-ops-pr-39"
           ],
-          "verifiedAt": "2026-11-11T05:46:33Z",
-          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
+          "verifiedAt": null,
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
         },
         {
           "id": "integration-failure-handling",
-          "status": "verified",
+          "status": "in_progress",
           "evidenceRefs": [
-            "cortex-owner-final-verification-2026-11-11"
+            "cortex-ops-pr-39",
+            "cortex-news-pr-41",
+            "cortex-assistant-pr-42"
           ],
-          "verifiedAt": "2026-11-11T05:46:33Z",
-          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
+          "verifiedAt": null,
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
         },
         {
           "id": "backup-recovery",
-          "status": "not_applicable",
+          "status": "blocked",
           "evidenceRefs": [
-            "cortex-owner-final-verification-2026-11-11"
+            "cortex-finances-pr-40"
           ],
           "verifiedAt": null,
-          "notes": "Not applicable to Cortex 1.0 by owner decision (hub PR #187): Cortex has no data store of its own; notes, tasks and events live in Google Drive, Todoist and Google Calendar, which it only reads, so there is nothing of Cortex's to back up."
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending)."
         },
         {
           "id": "audit-logging",
-          "status": "not_applicable",
+          "status": "blocked",
           "evidenceRefs": [
-            "cortex-owner-final-verification-2026-11-11"
+            "cortex-assistant-pr-42"
           ],
           "verifiedAt": null,
-          "notes": "Not applicable to Cortex 1.0 by owner decision (hub PR #187): 1.0 makes no changes on the owner's behalf and every integration is read-only. An audit log is planned with the Assistant's approvals inbox (ROADMAP.md)."
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending)."
         },
         {
           "id": "deployment-rollback",
-          "status": "verified",
+          "status": "in_progress",
           "evidenceRefs": [
-            "cortex-owner-final-verification-2026-11-11"
+            "cortex-vercel-prod-87e7723"
           ],
-          "verifiedAt": "2026-11-11T05:46:33Z",
-          "notes": "Joshua Small, assigned independent human verifier, accepted the linked evidence for this gate in the Cortex 1.0 closeout attestation (hub PR #187). Builder evidence keeps its builder-reported provenance; no tests are represented as newly run by Claude Code."
+          "verifiedAt": null,
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
         },
         {
           "id": "e2e-critical-workflows",
-          "status": "verified",
+          "status": "in_progress",
           "evidenceRefs": [
-            "cortex-owner-final-verification-2026-11-11"
+            "cortex-ci-main-87e7723"
           ],
-          "verifiedAt": "2026-11-11T05:46:33Z",
-          "notes": "Joshua Small, assigned independent human verifier, did the manual check for this gate listed in the Cortex 1.0 closeout package and attested that it passed (hub PR #187). No automated scan of this gate exists yet."
+          "verifiedAt": null,
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation."
         },
         {
           "id": "user-data-isolation",
