@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/dashboard",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-13T13:33:34Z",
+  "asOf": "2026-11-14T12:57:41Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "d73f4761cad8eb4ed39ed21fa6f38792a1a298f46cd869a5c0447968956584bf",
+  "registrySha256": "fa5a736f19b44dc9d92ad22daa8bc399ea444cf7db1cd1af8f1122ea1f841c95",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "projects": [
     {
@@ -144,21 +144,21 @@
       "name": "Cortex",
       "tier": "application",
       "facts": {
-        "targetVersion": "1.0.0",
+        "targetVersion": "2.0.0",
         "currentVersion": "1.0.0",
-        "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-12T02:15:34Z",
+        "releaseStatus": "in_progress",
+        "lastEvidenceAt": "2026-11-12T12:49:26Z",
         "snapshotObservedAt": "2026-11-12T13:16:39Z"
       },
       "derived": {
-        "percentage": 100,
-        "verifiedGates": 17,
-        "applicableGates": 17,
-        "blockingFindings": 0,
-        "registryBlockers": 0,
-        "eligibility": "released",
-        "releaseReady": true,
-        "nextAction": null
+        "percentage": 0,
+        "verifiedGates": 0,
+        "applicableGates": 19,
+        "blockingFindings": 4,
+        "registryBlockers": 1,
+        "eligibility": "not-eligible",
+        "releaseReady": false,
+        "nextAction": "Test the critical workflows on the candidate commit (critical-workflows, e2e-critical-workflows) and have the verifier record the result."
       }
     },
     {

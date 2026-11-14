@@ -1,6 +1,6 @@
 # TaskForge 1.0.0 release notes (draft)
 
-> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 20 applicable gates independently verified (0%); 4 open blocker(s). Generated 2026-11-13T13:33:34Z.
+> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 20 applicable gates independently verified (0%); 4 open blocker(s). Generated 2026-11-14T12:57:41Z.
 
 ## Highlights
 
@@ -13,7 +13,6 @@ _Fill in from the approved scope document._
 
 ## Known limitations
 
-- Not yet verified: Owner run of the real local-model retrieval evaluation (KAN-50 command).
 - Not yet verified: Owner Atlas backup export and isolated restore verification.
 - Not yet verified: Owner acceptance of Phase 3 closure in KAN-27.
 - Not yet verified: Independent verifier re-check of builder-reported CI, accessibility and security evidence for each release gate.

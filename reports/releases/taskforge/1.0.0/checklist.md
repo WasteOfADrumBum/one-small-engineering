@@ -1,6 +1,6 @@
 # TaskForge 1.0.0: completion checklist
 
-Derived as of 2026-11-13T13:33:34Z. Status: Not eligible for release. 0 of 20 applicable gates independently verified (0%); 4 open blocker(s).
+Derived as of 2026-11-14T12:57:41Z. Status: Not eligible for release. 0 of 20 applicable gates independently verified (0%); 4 open blocker(s).
 
 1. [ ] Resolve blocker backup-restore-unverified: A real private backup of the production database and an isolated restore have not been run. The export and verify tooling and a synthetic CI drill shipped in KAN-53 (PR #52); the owner must run backup:export and backup:verify against Atlas.
 2. [ ] Test the critical workflows on the candidate commit (critical-workflows, e2e-critical-workflows) and have the verifier record the result.

@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-13T13:33:34Z",
+  "asOf": "2026-11-14T12:57:41Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "d73f4761cad8eb4ed39ed21fa6f38792a1a298f46cd869a5c0447968956584bf",
+  "registrySha256": "fa5a736f19b44dc9d92ad22daa8bc399ea444cf7db1cd1af8f1122ea1f841c95",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "taskforge",
@@ -33,9 +33,8 @@
         "approvedAt": null,
         "evidenceRefs": []
       },
-      "registryNextAction": "Owner: run the real local-model evaluation (KAN-50) and the Atlas backup export and verify (docs/release-runbook.md), accept Phase 3 closure in KAN-27, then have the verifier re-check the release gates before tagging v1.0.0.",
+      "registryNextAction": "Owner: run the Atlas backup export and verify (docs/release-runbook.md), accept Phase 3 closure in KAN-27, then have the verifier re-check the release gates before tagging v1.0.0. The local-model evaluation passed on 2026-11-12 (KAN-50, recorded in TaskForge PR #53).",
       "missingEvidence": [
-        "Owner run of the real local-model retrieval evaluation (KAN-50 command).",
         "Owner Atlas backup export and isolated restore verification.",
         "Owner acceptance of Phase 3 closure in KAN-27.",
         "Independent verifier re-check of builder-reported CI, accessibility and security evidence for each release gate.",
