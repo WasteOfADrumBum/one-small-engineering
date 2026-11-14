@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-12T18:42:16Z",
+  "lastUpdatedAt": "2026-11-13T14:16:55Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -2058,9 +2058,9 @@
       "productionUrl": "https://photo.onesmall.company",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "f11880769e20255eed44b043db6986bcff083927",
+        "headSha": "ff18157937ae5278f7d163639b309c2cc9938f71",
         "archived": false,
-        "observedAt": "2026-11-12T14:17:55Z",
+        "observedAt": "2026-11-13T14:16:55Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -2295,40 +2295,40 @@
           "recordedBy": "Joshua Small"
         },
         {
-          "id": "sync-one-small-photography-run-checkpoint-yml-f118807-jtgeo7e-1",
+          "id": "sync-one-small-photography-run-checkpoint-yml-ff18157-jy98lrc-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/43139941898",
-          "commitSha": "f11880769e20255eed44b043db6986bcff083927",
-          "verifiedAt": "2026-11-12T02:14:06Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/43430232360",
+          "commitSha": "ff18157937ae5278f7d163639b309c2cc9938f71",
+          "verifiedAt": "2026-11-13T13:02:50Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow checkpoint.yml (\"Checkpoint contract\") concluded success on main at f118807 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow checkpoint.yml (\"Checkpoint contract\") concluded success on main at ff18157 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:checkpoint.yml/f118807/jtgeo7e/1"
+          "eventKey": "one-small-photography:workflow_run:checkpoint.yml/ff18157/jy98lrc/1"
         },
         {
-          "id": "sync-one-small-photography-run-ci-yml-f118807-jtgeock-1",
+          "id": "sync-one-small-photography-run-ci-yml-ff18157-jy98lof-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/43139942084",
-          "commitSha": "f11880769e20255eed44b043db6986bcff083927",
-          "verifiedAt": "2026-11-12T02:16:00Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/43430232255",
+          "commitSha": "ff18157937ae5278f7d163639b309c2cc9938f71",
+          "verifiedAt": "2026-11-13T13:03:48Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at f118807 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at ff18157 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:ci.yml/f118807/jtgeock/1"
+          "eventKey": "one-small-photography:workflow_run:ci.yml/ff18157/jy98lof/1"
         },
         {
-          "id": "sync-one-small-photography-run-production-smoke-yml-f118807-juvr9st-1",
+          "id": "sync-one-small-photography-run-production-smoke-yml-ff18157-jyao5a6-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/43226190173",
-          "commitSha": "f11880769e20255eed44b043db6986bcff083927",
-          "verifiedAt": "2026-11-12T13:20:24Z",
+          "url": "https://github.com/WasteOfADrumBum/one-small-photography/actions/runs/43432637118",
+          "commitSha": "ff18157937ae5278f7d163639b309c2cc9938f71",
+          "verifiedAt": "2026-11-13T13:20:16Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke\") concluded failure on main at f118807 (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow production-smoke.yml (\"Production smoke\") concluded success on main at ff18157 (schedule event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "one-small-photography:workflow_run:production-smoke.yml/f118807/juvr9st/1"
+          "eventKey": "one-small-photography:workflow_run:production-smoke.yml/ff18157/jyao5a6/1"
         }
       ],
       "releaseGates": [
@@ -2462,8 +2462,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1406355122,
-        "lastSyncedAt": "2026-11-12T14:17:55Z",
-        "lastSyncedHead": "f11880769e20255eed44b043db6986bcff083927",
+        "lastSyncedAt": "2026-11-13T14:16:55Z",
+        "lastSyncedHead": "ff18157937ae5278f7d163639b309c2cc9938f71",
         "configSource": "defaults"
       }
     },
