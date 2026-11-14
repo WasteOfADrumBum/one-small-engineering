@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/release-preparation",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-13T13:34:03Z",
+  "asOf": "2026-11-14T18:13:38Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "d7d41af88bae692c8fc2da9ba90849a6df65696bf0c7c6971e801f45941053f6",
+  "registrySha256": "4c2c0af740ec17bd6ba4e76913686511fa6ef45e14c0bc498bfa9438bac48030",
   "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
   "project": {
     "id": "one-small-mods-pack",

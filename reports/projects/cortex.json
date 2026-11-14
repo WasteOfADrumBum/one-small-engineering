@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-13T13:34:03Z",
+  "asOf": "2026-11-14T18:13:38Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "d7d41af88bae692c8fc2da9ba90849a6df65696bf0c7c6971e801f45941053f6",
+  "registrySha256": "4c2c0af740ec17bd6ba4e76913686511fa6ef45e14c0bc498bfa9438bac48030",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "cortex",
@@ -17,18 +17,11 @@
       "releaseStatus": "in_progress",
       "scopeDocument": "https://github.com/WasteOfADrumBum/cortex-brain-task/blob/claude/release-2.0.0/CHANGELOG.md",
       "candidate": null,
-      "openPullRequests": [
-        {
-          "number": 44,
-          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/pull/44",
-          "headSha": "8679f4c44a633aade86ddd9eb6f5e9eb3e333ffe",
-          "draft": true
-        }
-      ],
-      "head": "87e77238ed18e7ca094f1aa5275bafe7cd495888",
-      "snapshotObservedAt": "2026-11-12T13:16:39Z",
-      "lastSyncedAt": "2026-11-12T13:16:39Z",
-      "lastEvidenceAt": "2026-11-12T12:49:26Z",
+      "openPullRequests": [],
+      "head": "7f411db0948db6181a50f13922b5cc40ac161418",
+      "snapshotObservedAt": "2026-11-14T13:13:57Z",
+      "lastSyncedAt": "2026-11-14T13:13:57Z",
+      "lastEvidenceAt": "2026-11-14T12:57:06Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
