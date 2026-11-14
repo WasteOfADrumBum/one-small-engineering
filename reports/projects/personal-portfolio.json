@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-14T12:57:41Z",
+  "asOf": "2026-11-14T18:13:38Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "fa5a736f19b44dc9d92ad22daa8bc399ea444cf7db1cd1af8f1122ea1f841c95",
+  "registrySha256": "4c2c0af740ec17bd6ba4e76913686511fa6ef45e14c0bc498bfa9438bac48030",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "personal-portfolio",
@@ -19,9 +19,9 @@
       "candidate": null,
       "openPullRequests": [],
       "head": "2c8cb2c98594f78cf7d1a068d883a93f7cdcdc49",
-      "snapshotObservedAt": "2026-11-12T18:42:16Z",
-      "lastSyncedAt": "2026-11-12T18:42:16Z",
-      "lastEvidenceAt": "2026-11-12T18:22:23Z",
+      "snapshotObservedAt": "2026-11-14T12:27:14Z",
+      "lastSyncedAt": "2026-11-14T12:27:14Z",
+      "lastEvidenceAt": "2026-11-14T12:22:37Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",

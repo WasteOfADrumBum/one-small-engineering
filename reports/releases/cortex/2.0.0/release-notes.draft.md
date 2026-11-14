@@ -1,6 +1,6 @@
 # Cortex 2.0.0 release notes (draft)
 
-> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 19 applicable gates independently verified (0%); 4 open blocker(s). Generated 2026-11-14T12:57:41Z.
+> **Draft, not approved, not published.** Status: Not eligible for release. 0 of 19 applicable gates independently verified (0%); 4 open blocker(s). Generated 2026-11-14T18:13:38Z.
 
 ## Highlights
 
