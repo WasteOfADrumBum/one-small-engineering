@@ -6,7 +6,7 @@ Routine registry sync PRs merge without the owner. Everything else still needs a
 
 ## What triggers it
 
-- The sync write job dispatches it right after opening or updating PRs; it then waits (up to six minutes) for each PR's validation. (A `workflow_run` trigger on `Validate registry` was removed on 2026-11-05: GitHub never fired it for runs that a `GITHUB_TOKEN` dispatch started, and zizmor flags it as a dangerous trigger.)
+- The sync write job dispatches it right after opening or updating PRs; it then waits (up to ten minutes) for each PR's validation (the `pull_request` run when the sync App opened the PR, [sync-setup.md](sync-setup.md#sync-app)). (A `workflow_run` trigger on `Validate registry` was removed on 2026-11-05: GitHub never fired it for runs that a `GITHUB_TOKEN` dispatch started, and zizmor flags it as a dangerous trigger.)
 - A fallback schedule every three hours (`41 */3 * * *`), so a missed event is picked up.
 - Manual run (dry run by default).
 
@@ -14,7 +14,7 @@ Routine registry sync PRs merge without the owner. Everything else still needs a
 
 A PR merges only if all of these hold, judged from API data (no PR code is checked out or run with the merge token):
 
-1. Branch `sync/<project-id>`, base `main`, head in this repository, author is the sync bot, no `hold` label, no requested changes.
+1. Branch `sync/<project-id>`, base `main`, head in this repository, author is a trusted sync bot (`trustedAuthors`: `github-actions[bot]`, or the sync App `one-small-registry-sync[bot]`), no `hold` label, no requested changes.
 2. Exactly one commit, authored by `One Small Engineering Sync`, whose parent is the **current** main.
 3. Exactly one changed file, `projects/registry.json`.
 4. `guardRegistryChange` (the field-ownership guard, same code the writer used) passes against main, and the full schema/rule validator passes on the new registry.

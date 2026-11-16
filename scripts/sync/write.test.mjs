@@ -5,6 +5,7 @@ import { writeSync, closeStale, restrictWrites, upsertStatusIssue, WriteRefused,
 import { collect } from './collect.mjs'
 import { plan } from './plan.mjs'
 import { serializeRegistry } from './lib.mjs'
+import { createClient } from './github.mjs'
 import { world, loadRegistry, NOW, fakeSha } from '../../fixtures/sync/scenario.mjs'
 
 const HUB = '/repos/WasteOfADrumBum/one-small-engineering'
@@ -180,4 +181,62 @@ test('a PR the owner closed for this exact commit is not reopened until the fact
   const fresh = await writeSync({ ...args, nextRegistry: next })
   assert.equal(fresh.action, 'created')
   assert.equal(hub.pulls.filter(p => p.state === 'open').length, 1)
+})
+
+// Issue #240: with the sync GitHub App, the App pushes the branch and opens the PR so the
+// pull_request gate starts unattended; the workflow token keeps everything else.
+const appClient = gh => createClient({ token: 'app-token', fetchImpl: gh.fetch, sleep: async () => {}, random: () => 0 })
+const byApp = c => c.auth === 'Bearer app-token'
+const PUSH_OR_PR = /\/git\/(blobs|trees|commits|refs)|\/pulls(\/\d+)?$/
+
+test('with the sync App: the App creates the commit, the branch and the PR, and nothing is dispatched', async () => {
+  const { args, hub, gh, mainSha } = await setup()
+  const r = await writeSync({ ...args, prClient: appClient(gh) })
+  assert.equal(r.action, 'created')
+  assert.equal(r.steps.validation, 'pull-request')
+  assert.deepEqual(hub.dispatches, [], 'the pull_request run is the gate; no workflow_dispatch')
+  assert.equal(hub.refs['heads/main'], mainSha, 'main is untouched')
+  const writes = gh.writes()
+  assert.ok(writes.length > 0)
+  for (const c of writes) assert.ok(PUSH_OR_PR.test(c.path.split('?')[0]) && byApp(c), `${c.method} ${c.path} should go through the App`)
+})
+
+test('with the sync App: an unchanged head whose pull_request run already started is left alone', async () => {
+  const { args, hub, gh } = await setup()
+  await writeSync({ ...args, prClient: appClient(gh) })
+  const head = hub.refs['heads/sync/taskforge']
+  hub.validateRuns.push({ branch: 'sync/taskforge', head_sha: head, event: 'pull_request', status: 'in_progress', conclusion: null })
+  const before = gh.writes().length
+  const again = await writeSync({ ...args, prClient: appClient(gh) })
+  assert.equal(again.action, 'unchanged')
+  assert.equal(hub.refs['heads/sync/taskforge'], head)
+  assert.equal(gh.writes().length, before)
+})
+
+test('with the sync App: a head left waiting at "Approve and run" is pushed again as the App, same content', async () => {
+  const { args, hub, gh, mainSha } = await setup()
+  await writeSync(args)  // the workflow token's PR, as before the App existed
+  const old = hub.refs['heads/sync/taskforge']
+  hub.validateRuns.push({ branch: 'sync/taskforge', head_sha: old, event: 'pull_request', status: 'completed', conclusion: 'action_required' })
+  const before = gh.writes().length
+  const r = await writeSync({ ...args, prClient: appClient(gh) })
+  assert.equal(r.action, 'repaired')
+  assert.equal(r.steps.branch, 'repushed')
+  const fresh = hub.refs['heads/sync/taskforge']
+  assert.notEqual(fresh, old)
+  assert.deepEqual(hub.commits[fresh].parents, [mainSha])
+  assert.equal(hub.commits[fresh].registryText, hub.commits[old].registryText)
+  assert.equal(hub.commits[fresh].author.name, 'One Small Engineering Sync')
+  assert.equal(hub.pulls.length, 1, 'the existing PR is reused')
+  assert.match(hub.pulls[0].body, new RegExp(`sync-head: ${fresh}`))
+  const added = gh.writes().slice(before)
+  assert.ok(added.every(byApp), 'the re-push and the PR edit are made by the App')
+  assert.deepEqual(hub.dispatches, ['sync/taskforge'], 'only the earlier workflow-token run dispatched')
+})
+
+test('without the App the writer still dispatches validation (fallback)', async () => {
+  const { args, hub, gh } = await setup()
+  await writeSync(args)
+  assert.deepEqual(hub.dispatches, ['sync/taskforge'])
+  assert.ok(gh.writes().every(c => !byApp(c)))
 })

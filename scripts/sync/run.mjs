@@ -103,7 +103,7 @@ export function reconcileCollected({ registry, only, collected }) {
 }
 
 // Plans every collected project and, in write mode, writes. Returns per-project results.
-export async function processAll({ registry, collected, mode, hubClient, mainSha, validate, outDir }) {
+export async function processAll({ registry, collected, mode, hubClient, prClient = null, mainSha, validate, outDir }) {
   const results = []
   for (const item of collected) {
     const r = { projectId: item.projectId, outcome: 'unchanged', changes: [], suggestions: [], notes: [], errors: [], pr: null, prAction: null, gaps: [], unavailable: [] }
@@ -140,7 +140,7 @@ export async function processAll({ registry, collected, mode, hubClient, mainSha
         r.notes.push('Dry run: no branch or PR was written.')
         continue
       }
-      const w = await writeSync({ client: hubClient, projectId: item.projectId, baseRegistry: registry, nextRegistry: planned.registry, mainSha, title, body, validate })
+      const w = await writeSync({ client: hubClient, prClient, projectId: item.projectId, baseRegistry: registry, nextRegistry: planned.registry, mainSha, title, body, validate })
       r.pr = w.pr || null
       r.prAction = w.action
       if (w.action === 'skipped' || w.action === 'declined') r.notes.push(w.reason)
@@ -207,10 +207,15 @@ async function main(argv) {
     if (!['dry-run', 'write'].includes(mode)) throw new Error(`unknown mode ${mode}`)
     const hubClient = mode === 'write' || statusIssue ? createClient({ token }) : null
     if (mode === 'write' && !token) throw new Error('write mode needs GITHUB_TOKEN')
+    // The sync GitHub App's installation token, when configured (docs/sync-setup.md#sync-app): it
+    // pushes sync/* branches and opens their PRs so the pull_request gate starts unattended.
+    const prToken = process.env.SYNC_PR_TOKEN || ''
+    const prClient = mode === 'write' && prToken ? createClient({ token: prToken }) : null
+    if (mode === 'write') console.log(annotation(prClient ? 'pushing sync branches and PRs as the sync GitHub App' : 'sync GitHub App not configured: pushing with GITHUB_TOKEN and dispatching validation (sync PRs need a manual approval to pass the ruleset)'))
     // Only write mode uses the hub commit, so a dry run also works outside a git checkout (for example an archive).
     const mainSha = mode === 'write' ? process.env.GITHUB_SHA || execFileSync('git', ['rev-parse', 'HEAD'], { cwd: ROOT, encoding: 'utf8' }).trim() : process.env.GITHUB_SHA || null
     const outDir = resolve(ROOT, opt(argv, '--out-dir', 'out/sync'))
-    const results = await processAll({ registry, collected, mode, hubClient, mainSha, validate: validator(), outDir })
+    const results = await processAll({ registry, collected, mode, hubClient, prClient, mainSha, validate: validator(), outDir })
 
     const runAt = isoSeconds(new Date())
     const trigger = process.env.GITHUB_EVENT_NAME || (cmd === 'preview' ? 'local preview' : 'manual')

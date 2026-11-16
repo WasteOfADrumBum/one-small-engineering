@@ -3,7 +3,8 @@
   "version": 1,
   "enabled": true,
   "mergeMethod": "squash",
-  "trustedAuthors": ["github-actions[bot]"],
+  "trustedAuthors": ["github-actions[bot]", "one-small-registry-sync[bot]"],
+  "$trustedAuthorsComment": "github-actions[bot] opened sync PRs before the sync GitHub App; one-small-registry-sync[bot] is that App (docs/sync-setup.md#sync-app, issue #240). If the App gets another name, its bot login replaces the second entry here, in a reviewed PR.",
   "requiredChecks": ["validate", "ci-gate"],
   "requiredCheckSource": {
     "$comment": "Required checks count only when created by this GitHub App (15368 = GitHub Actions) for the exact head, in a check suite of a run of this workflow file. A same-named check from any other app or workflow cannot satisfy them.",

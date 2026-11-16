@@ -10,6 +10,14 @@
 //   3. Before anything is sent, the new registry must pass the field-ownership guard and
 //      the full validator. main-integrity.yml then flags any commit on main that did not
 //      arrive through a merged PR.
+//
+// Two identities (issue #240). With only GITHUB_TOKEN, GitHub holds the pull_request run of a
+// bot-opened PR at "Approve and run", so the required ci-gate check never reports on the PR and
+// the Protect main ruleset refuses the merge. When the sync GitHub App is configured, its
+// installation token (prClient) creates the commit, moves the sync/* ref and opens or edits the
+// PR, so the pull_request run starts normally and reports ci-gate; no dispatch is needed. The
+// workflow token (client) keeps the status issue, comments and the fallback dispatch. Both go
+// through the same allowlist.
 
 import { createHash } from 'node:crypto'
 import { OWNER, HUB_REPO, HUB_DEFAULT_BRANCH, REGISTRY_PATH, SLUG, SYNC_RECORDER, serializeRegistry, cleanText } from './lib.mjs'
@@ -94,8 +102,11 @@ export function checkProposal({ baseRegistry, nextRegistry, projectId, validate 
 //      and its title and description describe the branch head (a hidden marker names it);
 //   3. Validate registry has run, or been dispatched, for the branch head.
 // Each step checks the current state before writing, so re-running is always safe.
-export async function writeSync({ client: raw, projectId, baseRegistry, nextRegistry, mainSha, title, body, validate }) {
+export async function writeSync({ client: raw, prClient: rawPr = null, projectId, baseRegistry, nextRegistry, mainSha, title, body, validate }) {
   const client = restrictWrites(raw)
+  // The identity that pushes the branch and opens the PR; the workflow token when no App is set.
+  const pusher = rawPr ? restrictWrites(rawPr) : client
+  const appMode = Boolean(rawPr)
   const branch = syncBranch(projectId)
   checkProposal({ baseRegistry, nextRegistry, projectId, validate })
 
@@ -133,16 +144,20 @@ export async function writeSync({ client: raw, projectId, baseRegistry, nextRegi
       }
     }
   }
-  if (!headSha) {
-    const baseCommit = await client.get(`${HUB}/git/commits/${mainSha}`)
-    const blob = await client.request('POST', `${HUB}/git/blobs`, { body: { content: text, encoding: 'utf-8' } })
-    const tree = await client.request('POST', `${HUB}/git/trees`, { body: { base_tree: baseCommit.tree.sha, tree: [{ path: REGISTRY_PATH, mode: '100644', type: 'blob', sha: blob.sha }] } })
-    const commit = await client.request('POST', `${HUB}/git/commits`, {
+  // Builds the proposal commit on main and points the branch at it, as the pushing identity.
+  const push = async () => {
+    const baseCommit = await pusher.get(`${HUB}/git/commits/${mainSha}`)
+    const blob = await pusher.request('POST', `${HUB}/git/blobs`, { body: { content: text, encoding: 'utf-8' } })
+    const tree = await pusher.request('POST', `${HUB}/git/trees`, { body: { base_tree: baseCommit.tree.sha, tree: [{ path: REGISTRY_PATH, mode: '100644', type: 'blob', sha: blob.sha }] } })
+    const commit = await pusher.request('POST', `${HUB}/git/commits`, {
       body: { message: `${title}\n\nAutomated registry sync. Changes only automation-owned fields; see sync/field-ownership.json.`, tree: tree.sha, parents: [mainSha], author: BOT_AUTHOR, committer: BOT_AUTHOR }
     })
-    if (existing) await client.request('PATCH', `${HUB}/git/refs/heads/${branch}`, { body: { sha: commit.sha, force: true } })
-    else await client.request('POST', `${HUB}/git/refs`, { body: { ref: `refs/heads/${branch}`, sha: commit.sha } })
-    headSha = commit.sha
+    if (existing) await pusher.request('PATCH', `${HUB}/git/refs/heads/${branch}`, { body: { sha: commit.sha, force: true } })
+    else await pusher.request('POST', `${HUB}/git/refs`, { body: { ref: `refs/heads/${branch}`, sha: commit.sha } })
+    return commit.sha
+  }
+  if (!headSha) {
+    headSha = await push()
     steps.branch = existing ? 'updated' : 'created'
   }
 
@@ -153,7 +168,7 @@ export async function writeSync({ client: raw, projectId, baseRegistry, nextRegi
   let pr = await findSyncPr(client, branch)
   if (pr) {
     if (pr.title !== title || !String(pr.body || '').includes(marker)) {
-      await client.request('PATCH', `${HUB}/pulls/${pr.number}`, { body: { title, body: fullBody } })
+      await pusher.request('PATCH', `${HUB}/pulls/${pr.number}`, { body: { title, body: fullBody } })
       steps.pr = 'updated'
     } else steps.pr = 'unchanged'
   } else {
@@ -164,20 +179,42 @@ export async function writeSync({ client: raw, projectId, baseRegistry, nextRegi
       steps.pr = 'declined'
       return { action: 'declined', reason: `PR #${declined.number} for ${headSha.slice(0, 7)} was closed without merging; waiting for new facts`, pr: { number: declined.number, url: declined.html_url }, steps }
     }
-    pr = await client.request('POST', `${HUB}/pulls`, { body: { title, head: branch, base: HUB_DEFAULT_BRANCH, body: fullBody, draft: true } })
+    pr = await pusher.request('POST', `${HUB}/pulls`, { body: { title, head: branch, base: HUB_DEFAULT_BRANCH, body: fullBody, draft: true } })
     steps.pr = 'created'
   }
 
-  // 3. Validation. PRs pushed with GITHUB_TOKEN do not trigger pull_request workflows; workflow_dispatch does.
-  const runs = expectObject(await client.get(`${HUB}/actions/workflows/validate.yml/runs?branch=${encodeURIComponent(branch)}&head_sha=${headSha}&per_page=1`), 'validation runs', ['total_count'])
-  if (!Number.isInteger(runs.total_count) || runs.total_count < 0) throw new MalformedResponse('validation runs: malformed response (total_count is not a count)', 200, '')
-  if (runs.total_count > 0) steps.validation = 'already-ran'
-  else {
-    await client.request('POST', `${HUB}/actions/workflows/validate.yml/dispatches`, { body: { ref: branch } })
-    steps.validation = 'dispatched'
+  // 3. Validation.
+  if (appMode) {
+    // The App's push or PR event starts the pull_request run, and its ci-gate is the check the
+    // ruleset requires. A head left by the workflow token (its pull_request run held at "Approve
+    // and run", or none at all) is pushed again as the App so a run starts without anyone acting.
+    // The new commit has the same tree, parent and author; only its timestamp differs.
+    const listed = expectObject(await client.get(`${HUB}/actions/workflows/validate.yml/runs?branch=${encodeURIComponent(branch)}&head_sha=${headSha}&event=pull_request&per_page=20`), 'validation runs', ['total_count', 'workflow_runs'])
+    if (!Array.isArray(listed.workflow_runs)) throw new MalformedResponse('validation runs: malformed response (workflow_runs is not a list)', 200, '')
+    const started = listed.workflow_runs.some(r => r && r.head_sha === headSha && r.conclusion !== 'action_required')
+    // Only a branch this run did not just write can be missing its run: a fresh push or a new PR starts one.
+    if (started || steps.branch !== 'unchanged' || steps.pr === 'created') steps.validation = 'pull-request'
+    else {
+      headSha = await push()
+      steps.branch = 'repushed'
+      const repushMarker = `<!-- sync-head: ${headSha} -->`
+      await pusher.request('PATCH', `${HUB}/pulls/${pr.number}`, { body: { title, body: `${body.trimEnd()}\n\n${repushMarker}\n` } })
+      steps.validation = 'pull-request'
+    }
+  } else {
+    // Without the App: GitHub holds the pull_request run of a GITHUB_TOKEN PR for approval, so
+    // dispatch the gate on the branch. (Its ci-gate does not satisfy the Protect main ruleset; see
+    // docs/sync-setup.md#sync-app.)
+    const runs = expectObject(await client.get(`${HUB}/actions/workflows/validate.yml/runs?branch=${encodeURIComponent(branch)}&head_sha=${headSha}&per_page=1`), 'validation runs', ['total_count'])
+    if (!Number.isInteger(runs.total_count) || runs.total_count < 0) throw new MalformedResponse('validation runs: malformed response (total_count is not a count)', 200, '')
+    if (runs.total_count > 0) steps.validation = 'already-ran'
+    else {
+      await client.request('POST', `${HUB}/actions/workflows/validate.yml/dispatches`, { body: { ref: branch } })
+      steps.validation = 'dispatched'
+    }
   }
 
-  const action = steps.branch !== 'unchanged' ? (steps.pr === 'created' ? 'created' : 'updated') : (steps.pr !== 'unchanged' || steps.validation === 'dispatched' ? 'repaired' : 'unchanged')
+  const action = steps.branch === 'repushed' ? 'repaired' : steps.branch !== 'unchanged' ? (steps.pr === 'created' ? 'created' : 'updated') : (steps.pr !== 'unchanged' || steps.validation === 'dispatched' ? 'repaired' : 'unchanged')
   return { action, commitSha: headSha, pr: { number: pr.number, url: pr.html_url }, steps }
 }
 

@@ -29,7 +29,7 @@ The write side was verified live at stage B on 2026-10-30: manual run [410584152
 | --- | --- | --- | --- | --- |
 | Registry sync / collect | `GITHUB_TOKEN` | `contents: read` | Reads public project repos: repo, branch, contents (config file, `package.json`), pulls, PR files, Actions runs, releases, tags, compare | **Verified** in Actions for all seven public projects (see above). |
 | Registry sync / report (stage A) | `GITHUB_TOKEN` | `contents: read` | Nothing: plans, guards and validates in the job, writes the job summary | Same code path **verified** in the probe run above. |
-| Registry sync / write (stages B, C) | `GITHUB_TOKEN` | `contents: write`, `pull-requests: write`, `issues: write`, `actions: write` | Hub only: the status issue, `sync/*` branches, draft PRs, a dispatch of Validate registry | **Verified** live at stage B (manual runs, 2026-10-30): branches, draft PRs, status issue, Validate registry dispatch, no duplicate on rerun. Scheduled writes (stage C) not yet observed. |
+| Registry sync / write (stages B, C) | `GITHUB_TOKEN`, plus the sync App token when configured (step 3a) | `GITHUB_TOKEN`: `contents: write`, `pull-requests: write`, `issues: write`, `actions: write`; App: contents and pull requests write, this repository only | Hub only. App: `sync/*` branches and draft PRs. `GITHUB_TOKEN`: the status issue, closing redundant PRs, dispatches (and branches, PRs and the Validate registry dispatch when there is no App) | **Verified** live at stage B (manual runs, 2026-10-30): branches, draft PRs, status issue, Validate registry dispatch, no duplicate on rerun. Scheduled writes (stage C) not yet observed. |
 | Main integrity | `GITHUB_TOKEN` | `contents: read`, `pull-requests: read` | Hub only: compare, commits, the PRs for a commit, repository activity log | **Verified** in Actions: `pull-requests: read` is required (403 without it). |
 | Validate registry | `GITHUB_TOKEN` | `contents: read` | Hub checkout only | Already running on PRs. |
 
@@ -37,7 +37,7 @@ Limits of `GITHUB_TOKEN` that this design relies on or works around:
 
 - It is scoped to this repository. It can read other repositories only where they are public, so a private project needs the reader credential in step 5.
 - Requests count against the token's hourly limit (5,000 observed in this repository's runs). A sync run uses a few dozen per project.
-- Pushes, PRs and issues it makes do not start other workflows (except `workflow_dispatch`), which is why sync dispatches Validate registry and why Main integrity also runs on a schedule.
+- Pushes, PRs and issues it makes do not start other workflows normally (only `workflow_dispatch` does; a PR it opens gets a `pull_request` run held at **Approve and run**), which is why sync without the App (step 3a) dispatches Validate registry and why Main integrity also runs on a schedule.
 - It cannot change files under `.github/workflows/` (no `workflows` permission is granted), and it has no admin rights, so it cannot change settings, secrets or protection.
 
 Actions minutes: about 12 short runs a day (sync, integrity, validation), well inside the GitHub Free allowance for private repositories.
@@ -47,6 +47,26 @@ Actions minutes: about 12 short runs a day (sync, integrity, validation), well i
 Settings → Secrets and variables → Actions → Variables → New repository variable: `SYNC_STAGE` = `B`. Manual runs with **Dry run** unticked then open or refresh one draft `sync/<project>` PR per changed project and update the **Registry sync status** issue; scheduled runs still do nothing. The first write run is a bootstrap: each public project gets one PR recording its visibility, tags, package metadata and config source. Run it a second time and confirm every project says `unchanged`.
 
 When that holds, set `SYNC_STAGE` = `C` to let the six-hour schedule write too. Set it back to `A` (or delete it) at any time to stop all writes. If `SYNC_WRITE_ENABLED=true` was set in Phase 1, delete it: it means stage C.
+
+<a id="sync-app"></a>
+
+## 3a. Sync App: sync PRs merge without an "Approve and run" tap
+
+Why (issue #240): a PR opened with `GITHUB_TOKEN` does start its `pull_request` "Validate registry" run, but GitHub holds it at **Approve and run**. The dispatched run's `ci-gate` is green, yet the **Protect main** ruleset still answers `Required status check "ci-gate" is expected` (seen on #238 and #239, 2026-11-16), so auto-merge stops and the stale PRs behind it (#234, #235) never get rebuilt. When a GitHub App pushes the branch and opens the PR, the `pull_request` run starts by itself and reports `ci-gate`; nothing about the ruleset changes. Until the App is set up, sync keeps working as before (GITHUB_TOKEN plus a dispatch) and those PRs still need the tap.
+
+Owner steps (free; nothing here is done by an AI tool):
+
+1. Create the App at [github.com/settings/apps/new](https://github.com/settings/apps/new): name **One Small Registry Sync** (its bot login becomes `one-small-registry-sync[bot]`, the name `sync/automerge.json` trusts), homepage `https://github.com/WasteOfADrumBum/one-small-engineering`, untick **Webhook → Active**. Repository permissions: **Contents: Read and write**, **Pull requests: Read and write** (Metadata read-only is added automatically); nothing else. **Only on this account**. Create.
+2. On the App's page: copy the **Client ID**, then **Private keys → Generate a private key** (a `.pem` downloads).
+3. **Install App** → your account → **Only select repositories** → `one-small-engineering` only.
+4. In [this repository's Actions variables](https://github.com/WasteOfADrumBum/one-small-engineering/settings/variables/actions) add `SYNC_APP_CLIENT_ID` = the Client ID; in [Actions secrets](https://github.com/WasteOfADrumBum/one-small-engineering/settings/secrets/actions) add `SYNC_APP_PRIVATE_KEY` = the whole `.pem` file contents. Delete the downloaded `.pem` afterwards.
+5. Actions → Registry sync → Run workflow with **Dry run** unticked. The write log says `pushing sync branches and PRs as the sync GitHub App`; open sync PRs whose run was waiting are pushed again as the App, their `pull_request` validation runs without a tap, and Auto-merge merges them.
+
+If GitHub says the name is taken, pick another; then the second entry of `trustedAuthors` in [`sync/automerge.json`](../sync/automerge.json) must become `<app-slug>[bot]` in a reviewed PR, or auto-merge rejects the App's PRs as an untrusted author.
+
+What the App token can do: it is minted per job by [`actions/create-github-app-token`](https://github.com/actions/create-github-app-token) (pinned to v3.3.0), limited to this repository and the two permissions above, masked in logs and revoked when the job ends. The writer sends it only the requests on its allowlist (`restrictWrites` in `scripts/sync/write.mjs`): blobs, a one-file tree, a one-parent commit, `sync/*` refs and draft PRs into `main`. It is never given to Validate registry or to any job a pull request can trigger. `main` stays protected by the unchanged **Protect main** ruleset (`ci-gate` required); merges are still made only by Auto-merge with the workflow token.
+
+Two sync PRs back to back: when Auto-merge merges the first, the second is stale (its parent is no longer `main`). Auto-merge then dispatches Registry sync, which rebuilds it on the new `main` as the App; its `pull_request` run passes and Registry sync dispatches Auto-merge again. No `registry.json` conflict reaches a merge.
 
 ## 4. TaskForge integration (after your go-ahead)
 

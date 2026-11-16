@@ -62,7 +62,7 @@ Conclusion: GitHub records a `pull_request` run for a PR opened with `GITHUB_TOK
 
 - Sync validation comes from the dispatched run, which auto-merge reads by exact head and workflow file.
 - Auto-merge waits (up to 10 minutes per invocation, then the 3-hour schedule) on **check runs**, never on pending workflow runs, so these never-started runs cannot deadlock it, and they have no check runs, so they cannot satisfy it either (test `zero-job pull_request runs ... neither block nor satisfy the merge`).
-- The noise is cosmetic: a red cross on an already-merged sync commit. It would disappear only if sync PRs were opened by a GitHub App or another identity, which needs a new credential; not adopted.
+- Update 2026-11-16 (issue #240): since the **Protect main** ruleset (2026-11-12) requires `ci-gate`, this is no longer cosmetic. These runs now sit in `action_required` (GitHub's **Approve and run**), and the ruleset refuses the merge (`Required status check "ci-gate" is expected`) even though the dispatched run's `ci-gate` on the same head is green (rule suites on #238 and #239). Fix: sync pushes its branches and opens its PRs with the sync GitHub App's installation token, so the `pull_request` run starts normally and is the gate; nothing is dispatched. Without the App configured, sync falls back to the dispatch and those PRs need the tap. Setup: [sync-setup.md](sync-setup.md#sync-app).
 
 ## Security validation
 
