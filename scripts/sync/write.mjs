@@ -73,6 +73,36 @@ export function syncBranch(projectId) {
   return `sync/${projectId}`
 }
 
+const parentSha = parent => (parent && typeof parent === 'object' ? parent.sha : parent)
+
+function isSyncOwned(commit) {
+  return Boolean(commit && commit.author && commit.author.name === BOT_AUTHOR.name && Array.isArray(commit.parents) && commit.parents.length === 1 && parentSha(commit.parents[0]))
+}
+
+// GitHub's "Update branch" button. It carries no edit of its own: the planner rebuilds
+// the registry from main. The subject is exactly what that button commits.
+function isUpdateMerge(commit, branch) {
+  if (!commit || !Array.isArray(commit.parents) || commit.parents.length !== 2) return false
+  return String(commit.message || '').split('\n')[0] === `Merge branch '${HUB_DEFAULT_BRANCH}' into ${branch}`
+}
+
+// keep: the tip is sync's own one-parent commit and may be reused.
+// rebuild: the tip is only Update-branch merges stacked on such a commit.
+// foreign: someone else's commit; the branch is left alone.
+async function inspectSyncTip(client, sha, branch) {
+  let current = sha
+  for (let depth = 0; depth < 6; depth++) {
+    const commit = await client.get(`${HUB}/git/commits/${current}`)
+    if (!commit || !Array.isArray(commit.parents)) throw new WriteRefused('sync branch commit: malformed response')
+    if (isSyncOwned(commit)) return depth === 0 ? { keep: commit } : { rebuild: true }
+    if (!isUpdateMerge(commit, branch)) return { foreign: true }
+    const next = parentSha(commit.parents[0])
+    if (typeof next !== 'string' || !next) return { foreign: true }
+    current = next
+  }
+  return { foreign: true }
+}
+
 async function findSyncPr(client, branch) {
   const prs = expectArray(await client.get(`${HUB}/pulls?state=open&head=${OWNER}:${encodeURIComponent(branch)}&per_page=10`), 'open sync pull requests')
   return prs.find(pr => pr.head && pr.head.ref === branch) || null
@@ -122,14 +152,16 @@ export async function writeSync({ client: raw, prClient: rawPr = null, projectId
   // 1. Branch.
   let headSha = null
   if (existing) {
-    const head = await client.get(`${HUB}/git/commits/${existing.object.sha}`)
-    // Never overwrite work someone else pushed to the bot branch.
-    if (!head.author || head.author.name !== BOT_AUTHOR.name || head.parents.length !== 1) {
+    const tip = await inspectSyncTip(client, existing.object.sha, branch)
+    // Never overwrite work someone else pushed to the bot branch. An Update-branch
+    // merge is not that work: it is replaced with one sync commit on the current main.
+    if (tip.foreign) {
       const pr = await findSyncPr(client, branch)
       return { action: 'skipped', reason: `${branch} has a commit not made by sync (${existing.object.sha.slice(0, 7)}); leaving it alone`, pr: pr && { number: pr.number, url: pr.html_url }, steps }
     }
+    const head = tip.keep
     // Same base and same material facts: the branch is already right.
-    if (head.parents[0].sha === mainSha) {
+    if (head && parentSha(head.parents[0]) === mainSha) {
       const file = await client.get(`${HUB}/contents/${REGISTRY_PATH}?ref=${encodeURIComponent(branch)}`)
       let same = file.sha === gitBlobSha(text)
       if (!same) {
@@ -173,11 +205,15 @@ export async function writeSync({ client: raw, prClient: rawPr = null, projectId
     } else steps.pr = 'unchanged'
   } else {
     // An owner who closed the PR for this exact commit has declined it; a new commit reopens the question.
-    const closed = expectArray(await client.get(`${HUB}/pulls?state=closed&head=${OWNER}:${encodeURIComponent(branch)}&per_page=10`), 'closed sync pull requests')
-    const declined = closed.find(c => c.head && c.head.ref === branch && c.head.sha === headSha && !c.merged_at)
-    if (declined) {
-      steps.pr = 'declined'
-      return { action: 'declined', reason: `PR #${declined.number} for ${headSha.slice(0, 7)} was closed without merging; waiting for new facts`, pr: { number: declined.number, url: declined.html_url }, steps }
+    // Checked only when the branch was not just rebuilt. GitHub reports a closed PR's head as the
+    // live branch tip, so a check after the force-push would treat the new commit as the closed one.
+    if (steps.branch === 'unchanged') {
+      const closed = expectArray(await client.get(`${HUB}/pulls?state=closed&head=${OWNER}:${encodeURIComponent(branch)}&per_page=10`), 'closed sync pull requests')
+      const declined = closed.find(c => c.head && c.head.ref === branch && c.head.sha === headSha && !c.merged_at)
+      if (declined) {
+        steps.pr = 'declined'
+        return { action: 'declined', reason: `PR #${declined.number} for ${headSha.slice(0, 7)} was closed without merging; waiting for new facts`, pr: { number: declined.number, url: declined.html_url }, steps }
+      }
     }
     pr = await pusher.request('POST', `${HUB}/pulls`, { body: { title, head: branch, base: HUB_DEFAULT_BRANCH, body: fullBody, draft: true } })
     steps.pr = 'created'

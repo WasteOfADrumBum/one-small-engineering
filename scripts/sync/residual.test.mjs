@@ -7,7 +7,7 @@ import { execFileSync } from 'node:child_process'
 import { mkdtempSync, writeFileSync, readFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { resolve } from 'node:path'
-import { collect, checkObservation } from './collect.mjs'
+import { collect, checkObservation, MAX_CLOSED_UPDATES } from './collect.mjs'
 import { plan } from './plan.mjs'
 import { renderStatus, parseState } from './status.mjs'
 import { listSyncPrs } from './write.mjs'
@@ -184,15 +184,36 @@ test('F-04: an observation claiming completeness it does not have is rejected, s
   assert.throws(() => plan(reg, obs), /collection\.unavailable lists sections but collection\.complete is true/)
 })
 
-test('F-04: a full page of recently closed pull requests marks the collection incomplete', async () => {
-  const closed = Array.from({ length: 50 }, (_, i) => ({ number: 100 + i, html_url: `https://github.com/WasteOfADrumBum/TaskForge/pull/${100 + i}`, state: 'closed', title: 't', merged_at: null, updated_at: '2026-10-22T00:00:00Z' }))
-  const obs = await observe(repoWith({}, [['GET', OPEN, ({ q }) => (q.get('state') === 'closed' ? closed : [])]]))
+const closedPr = (number, updatedAt, merged = false) => ({
+  number,
+  html_url: `https://github.com/WasteOfADrumBum/TaskForge/pull/${number}`,
+  state: 'closed',
+  title: 't',
+  merged_at: merged ? '2026-10-22T00:00:00Z' : null,
+  merge_commit_sha: merged ? fakeSha(`m${number}`) : null,
+  updated_at: updatedAt,
+  head: { sha: TF_HEAD }
+})
+
+test('F-04: closed pull requests are paged through the look-back, and only a window past the cap is incomplete', async () => {
+  const pages = ({ q }) => {
+    if (q.get('state') !== 'closed') return []
+    const page = +(q.get('page') || 1)
+    // Every page is full and still inside the window, so the read cannot catch up.
+    return Array.from({ length: 100 }, (_, i) => closedPr((page - 1) * 100 + i + 1, '2026-10-22T00:00:00Z', true))
+  }
+  const obs = await observe(repoWith({}, [['GET', OPEN, pages]]))
   assert.equal(obs.collection.complete, false)
-  assert.match(obs.collection.gaps[0], /more than 50 pull requests closed within the 14-day look-back/)
+  assert.equal(obs.mergedPullRequests.length, MAX_CLOSED_UPDATES)
+  assert.match(obs.collection.gaps[0], new RegExp(`more than ${MAX_CLOSED_UPDATES} pull requests were updated within the 14-day look-back`))
   assert.ok(!plan(loadRegistry(), obs).suggestions.some(s => s.startsWith('CI passed')))
-  // A full page whose oldest entry is outside the window is complete.
-  closed[49].updated_at = '2026-09-01T00:00:00Z'
-  assert.equal((await observe(repoWith({}, [['GET', OPEN, ({ q }) => (q.get('state') === 'closed' ? closed : [])]]))).collection.complete, true)
+  // A full page whose oldest entry is outside the window is the whole window, so it is complete.
+  const crossed = ({ q }) => {
+    if (q.get('state') !== 'closed') return []
+    if (+(q.get('page') || 1) > 1) return []
+    return Array.from({ length: 100 }, (_, i) => closedPr(100 + i, i === 99 ? '2026-09-01T00:00:00Z' : '2026-10-22T00:00:00Z'))
+  }
+  assert.equal((await observe(repoWith({}, [['GET', OPEN, crossed]]))).collection.complete, true)
 })
 
 test('F-04: a truncated pull request file list marks the collection incomplete', async () => {
@@ -225,12 +246,10 @@ test('F-04: keyed pagination checks the extra page in the same shape', async () 
   assert.equal(list.truncated, undefined)
 })
 
-test('F-04: more merged pull requests than the cap marks the collection incomplete', async () => {
+test('F-04: more than 30 merges inside a fully read window stay complete', async () => {
   const pulls = Array.from({ length: 31 }, (_, i) => ({ number: 200 + i, state: 'closed', title: 't', headSha: TF_HEAD, mergedAt: '2026-10-22T00:00:00Z', mergeCommitSha: fakeSha(`m${i}`) }))
   const obs = await observe(repoWith({ pulls }))
-  assert.equal(obs.mergedPullRequests.length, 30)
-  assert.equal(obs.collection.complete, false)
-  assert.match(obs.collection.gaps[0], /more than 30 pull requests merged within the 14-day look-back/)
-  pulls.pop()
-  assert.equal((await observe(repoWith({ pulls }))).collection.complete, true)
+  assert.equal(obs.mergedPullRequests.length, 31)
+  assert.equal(obs.collection.complete, true)
+  assert.deepEqual(obs.collection.gaps, [])
 })

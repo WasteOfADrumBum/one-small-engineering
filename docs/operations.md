@@ -153,7 +153,7 @@ Manual changes the suggestions point at (verifying a gate, resolving a blocker, 
 | `rate-limited`, `github-unavailable`, `network-error` | Transient | None: the next run catches up (level-triggered) |
 | `Unavailable: tags` / `package` / `head-comparison` | That call failed after retries | The previous value is kept; the next run retries |
 | A sync PR exists but its description is stale, or validation never ran | A run stopped half-way | Nothing: the next run repairs only what is missing |
-| `sync/<id>` has a commit not made by sync | Someone pushed to the bot branch | Sync leaves it alone. Close the PR and delete the branch to let sync rebuild it |
+| `sync/<id>` has a commit not made by sync | Someone pushed to the bot branch | A GitHub "Update branch" merge stacked on sync's own commit is rebuilt into one commit on main. Any other commit is left alone: close the PR and delete the branch to let sync rebuild it |
 | Main integrity red | Something reached main without a merged PR | Set `SYNC_STAGE=A` (or disable Registry sync) first, then review the reported commit |
 
 Three consecutive failures of a project are called out in the status issue.

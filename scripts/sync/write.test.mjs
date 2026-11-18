@@ -2,6 +2,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { writeSync, closeStale, restrictWrites, upsertStatusIssue, WriteRefused, gitBlobSha } from './write.mjs'
+import { formatSyncLine } from './run.mjs'
 import { collect } from './collect.mjs'
 import { plan } from './plan.mjs'
 import { serializeRegistry } from './lib.mjs'
@@ -61,11 +62,106 @@ test('new facts on top of an existing PR update it in place', async () => {
 test('refuses to overwrite a sync branch carrying someone else\'s commit', async () => {
   const { args, hub, mainSha } = await setup()
   const foreign = fakeSha('foreign')
-  hub.commits[foreign] = { tree: 't', parents: [mainSha], author: { name: 'Joshua Small' }, registryText: '{}' }
+  hub.commits[foreign] = { tree: 't', parents: [mainSha], author: { name: 'Joshua Small' }, message: 'hand edit', registryText: '{}' }
   hub.refs['heads/sync/taskforge'] = foreign
   const r = await writeSync(args)
   assert.equal(r.action, 'skipped')
+  assert.match(r.reason, /sync\/taskforge has a commit not made by sync/)
   assert.equal(hub.refs['heads/sync/taskforge'], foreign)
+})
+
+const UPDATE = "Merge branch 'main' into sync/taskforge"
+function putUpdateMerge(hub, { onto, mainSha, name = 'update-merge' }) {
+  const sha = fakeSha(name)
+  hub.commits[sha] = { tree: 't', parents: [onto, mainSha], author: { name: 'Joshua Small' }, message: UPDATE, registryText: hub.commits[onto].registryText }
+  hub.refs['heads/sync/taskforge'] = sha
+  return sha
+}
+
+test('an Update branch merge stacked on a sync commit is rebuilt as one commit on main', async () => {
+  const { args, hub, mainSha } = await setup()
+  await writeSync(args)
+  const syncCommit = hub.refs['heads/sync/taskforge']
+  const merge = putUpdateMerge(hub, { onto: syncCommit, mainSha })
+  const r = await writeSync(args)
+  assert.equal(r.action, 'updated')
+  const tip = hub.refs['heads/sync/taskforge']
+  assert.notEqual(tip, merge)
+  assert.deepEqual(hub.commits[tip].parents, [mainSha])
+  assert.equal(hub.commits[tip].author.name, 'One Small Engineering Sync')
+  assert.equal(hub.pulls.filter(p => p.state === 'open').length, 1)
+})
+
+test('a second Update branch merge on top of the first is still rebuilt', async () => {
+  const { args, hub, mainSha } = await setup()
+  await writeSync(args)
+  const first = putUpdateMerge(hub, { onto: hub.refs['heads/sync/taskforge'], mainSha, name: 'update-1' })
+  putUpdateMerge(hub, { onto: first, mainSha, name: 'update-2' })
+  const r = await writeSync(args)
+  assert.equal(r.action, 'updated')
+  assert.deepEqual(hub.commits[hub.refs['heads/sync/taskforge']].parents, [mainSha])
+})
+
+test('an Update branch merge on top of someone else\'s commit is left alone', async () => {
+  const { args, hub, mainSha } = await setup()
+  await writeSync(args)
+  const human = fakeSha('human')
+  hub.commits[human] = { tree: 't', parents: [mainSha], author: { name: 'Joshua Small' }, message: 'hand edit', registryText: '{}' }
+  const merge = putUpdateMerge(hub, { onto: human, mainSha, name: 'update-on-human' })
+  const r = await writeSync(args)
+  assert.equal(r.action, 'skipped')
+  assert.equal(hub.refs['heads/sync/taskforge'], merge)
+})
+
+test('a closed sync PR does not block a fresh single-commit PR after an Update branch merge', async () => {
+  const { args, hub, mainSha } = await setup()
+  await writeSync(args)
+  const merge = putUpdateMerge(hub, { onto: hub.refs['heads/sync/taskforge'], mainSha, name: 'closed-update' })
+  hub.pulls[0].state = 'closed'
+  hub.pulls[0].closedHeadSha = merge
+  const r = await writeSync(args)
+  assert.equal(r.action, 'created')
+  const tip = hub.refs['heads/sync/taskforge']
+  assert.notEqual(tip, merge)
+  assert.deepEqual(hub.commits[tip].parents, [mainSha])
+  assert.equal(hub.commits[tip].author.name, 'One Small Engineering Sync')
+  const open = hub.pulls.filter(p => p.state === 'open')
+  assert.equal(open.length, 1)
+  assert.notEqual(open[0].number, hub.pulls[0].number)
+})
+
+test('closing a PR does not let sync overwrite a commit that is not an Update branch merge', async () => {
+  const { args, hub, mainSha } = await setup()
+  await writeSync(args)
+  const foreign = fakeSha('foreign-closed')
+  hub.commits[foreign] = { tree: 't', parents: [mainSha], author: { name: 'Joshua Small' }, message: 'hand edit', registryText: '{}' }
+  hub.refs['heads/sync/taskforge'] = foreign
+  hub.pulls[0].state = 'closed'
+  hub.pulls[0].closedHeadSha = foreign
+  const r = await writeSync(args)
+  assert.equal(r.action, 'skipped')
+  assert.match(r.reason, /leaving it alone/)
+  assert.equal(hub.refs['heads/sync/taskforge'], foreign)
+  assert.equal(hub.pulls.filter(p => p.state === 'open').length, 0)
+})
+
+test('a skip reason is part of the project log line', () => {
+  const line = formatSyncLine({
+    projectId: 'one-small-photography',
+    outcome: 'changed',
+    prAction: 'skipped',
+    prReason: 'sync/one-small-photography has a commit not made by sync (9716ec0); leaving it alone',
+    errors: [],
+    gaps: []
+  })
+  assert.match(line, /^sync one-small-photography: changed \(skipped\) - sync\/one-small-photography has a commit not made by sync/)
+  const both = formatSyncLine({
+    projectId: 'taskforge', outcome: 'changed', prAction: 'skipped',
+    prReason: 'sync/taskforge has a commit not made by sync (1ce70b5); leaving it alone',
+    errors: [], gaps: ['more than 500 pull requests were updated within the 14-day look-back; older merges in the window were not read']
+  })
+  assert.match(both, /changed \(skipped\) - sync\/taskforge has a commit not made by sync/)
+  assert.match(both, /incomplete: more than 500 pull requests were updated/)
 })
 
 test('skips when main moved after the run started', async () => {

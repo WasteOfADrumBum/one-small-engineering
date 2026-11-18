@@ -18,11 +18,13 @@ export class SyncError extends Error {
 
 const observationSchema = readJson('schemas/observation.schema.json')
 const configSchema = readJson('schemas/project-config.schema.json')
-const MAX_MERGED = 30
 const MAX_RELEASES = 20
 const MAX_OPEN = 100
-
-const MAX_CLOSED = 50
+// Closed pull requests are read newest-update first until the page crosses out of the
+// look-back, so a busy repository (TaskForge merges many times a day) is fully read.
+// The cap is only the point at which a still-open window is reported incomplete.
+export const MAX_CLOSED_UPDATES = 500
+const CLOSED_PAGE = 100
 const MAX_FILES = 300
 const MAX_TAGS = 100
 const MAX_PACKAGE_BYTES = 256 * 1024
@@ -151,23 +153,33 @@ export async function collect({ project, client, now = new Date() }) {
     .sort((a, b) => a.number - b.number)
 
   const since = now.getTime() - config.lookbackDays * 86400_000
-  const closed = expectArray(await client.get(`${base}/pulls?state=closed&base=${enc(defaultBranch)}&sort=updated&direction=desc&per_page=${MAX_CLOSED}`), 'closed pull requests')
-  // Newest update first: a full page whose last entry is still inside the window may hide more merges.
-  if (closed.length >= MAX_CLOSED) {
-    const last = closed[closed.length - 1]
+  const closed = []
+  let closedTruncated = false
+  const closedPath = `${base}/pulls?state=closed&base=${enc(defaultBranch)}&sort=updated&direction=desc&per_page=${CLOSED_PAGE}`
+  for (let page = 1; page <= MAX_CLOSED_UPDATES / CLOSED_PAGE; page++) {
+    const batch = expectArray(await client.get(`${closedPath}&page=${page}`), 'closed pull requests')
+    closed.push(...batch)
+    if (batch.length < CLOSED_PAGE) break
+    const last = batch[batch.length - 1]
     if (!isObject(last) || !isTime(last.updated_at)) throw malformed('closed pull requests (updated_at)')
-    if (Date.parse(last.updated_at) >= since) gaps.push(`more than ${MAX_CLOSED} pull requests closed within the ${config.lookbackDays}-day look-back; older merges in the window were not read`)
+    // Newest update first: a page that crosses out of the window has every newer update on it.
+    if (Date.parse(last.updated_at) < since) break
+    if (closed.length >= MAX_CLOSED_UPDATES) {
+      // A list of exactly the cap is complete when nothing in the window follows it.
+      const more = expectArray(await client.get(`${closedPath}&page=${page + 1}`), 'closed pull requests')
+      const next = more[0]
+      if (more.length && (!isObject(next) || !isTime(next.updated_at))) throw malformed('closed pull requests (updated_at)')
+      if (more.length && Date.parse(next.updated_at) >= since) closedTruncated = true
+      break
+    }
   }
+  if (closedTruncated) gaps.push(`more than ${MAX_CLOSED_UPDATES} pull requests were updated within the ${config.lookbackDays}-day look-back; older merges in the window were not read`)
   const mergedPullRequests = []
   for (const pr of closed) {
     checkPr(pr, 'closed pull requests')
     if (!pr.merged_at) continue
     if (!isTime(pr.merged_at) || !SHA.test(pr.merge_commit_sha || '')) throw malformed(`pull request #${pr.number}`)
     if (Date.parse(pr.merged_at) < since) continue
-    if (mergedPullRequests.length >= MAX_MERGED) {
-      gaps.push(`more than ${MAX_MERGED} pull requests merged within the ${config.lookbackDays}-day look-back; only ${MAX_MERGED} were read`)
-      break
-    }
     if (pr.labels !== undefined && !Array.isArray(pr.labels)) throw malformed(`pull request #${pr.number} (labels)`)
     const labels = (pr.labels || []).map(l => {
       if (!isObject(l) || typeof l.name !== 'string') throw malformed(`pull request #${pr.number} (labels)`)
