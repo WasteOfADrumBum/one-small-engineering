@@ -383,5 +383,15 @@ test('the committed policy binds required checks to GitHub Actions and validate.
   assert.deepEqual(p.requiredChecks, ['validate', 'ci-gate'])
   assert.equal(p.requiredCheckSource.appId, 15368)
   assert.equal(p.requiredCheckSource.workflowPath, '.github/workflows/validate.yml')
-  assert.deepEqual(p.trustedAuthors, ['github-actions[bot]'])
+  assert.deepEqual(p.trustedAuthors, ['github-actions[bot]', 'one-small-registry-sync[bot]'])
+})
+
+test('a sync PR opened by the sync GitHub App, validated by its pull_request run, merges; any other bot is rejected', async () => {
+  for (const [login, decision] of [['one-small-registry-sync[bot]', 'merged'], ['some-other-app[bot]', 'reject']]) {
+    const w = world()
+    w.st.pr.user = { login, type: 'Bot' }
+    w.st.workflowRuns = [validateRun({ event: 'pull_request' })]
+    const out = await go(w)
+    assert.equal(out.results[0].decision, decision, login)
+  }
 })

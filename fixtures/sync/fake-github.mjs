@@ -37,7 +37,8 @@ export class FakeGitHub {
     const path = u.pathname + u.search
     const method = init.method || 'GET'
     const body = init.body ? JSON.parse(init.body) : undefined
-    this.calls.push({ method, path, body })
+    const headers = init.headers || {}
+    this.calls.push({ method, path, body, auth: headers.authorization || headers.Authorization || null })
     const f = this.failures.findIndex(x => x.match.test(path))
     if (f !== -1) {
       const [x] = this.failures.splice(f, 1)
@@ -221,7 +222,7 @@ export function hubRepo(gh, { registryText, mainSha = sha('main-0') }) {
     return json(204, undefined)
   })
   gh.on('GET', R('/actions/workflows/validate\\.yml/runs'), ({ q }) => {
-    const runs = hub.validateRuns.filter(r => r.branch === q.get('branch') && r.head_sha === q.get('head_sha'))
+    const runs = hub.validateRuns.filter(r => r.branch === q.get('branch') && r.head_sha === q.get('head_sha') && (!q.get('event') || (r.event || 'workflow_dispatch') === q.get('event')))
     return { total_count: runs.length, workflow_runs: runs }
   })
   return hub

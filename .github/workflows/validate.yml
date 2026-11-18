@@ -19,8 +19,12 @@ on:
   push:
     branches: [main]
   merge_group:
-  # Registry sync dispatches this on its sync/* branches, because PRs opened with
-  # GITHUB_TOKEN do not trigger pull_request workflows (docs/ci-cd.md#zero-job-runs).
+  # Fallback for registry sync without its GitHub App: a PR opened with GITHUB_TOKEN does start a
+  # pull_request run, but GitHub holds it at "Approve and run", so sync dispatches this on the
+  # sync/* branch instead. That run's ci-gate does not satisfy the Protect main ruleset, so those
+  # PRs still need the approval. With the App configured, sync PRs use the pull_request run and
+  # nothing is dispatched (docs/ci-cd.md#zero-job-runs, docs/sync-setup.md#sync-app). Also usable
+  # by hand.
   workflow_dispatch:
 
 # Read-only: no job here writes to the repository or to GitHub.
