@@ -24,8 +24,15 @@ import { writeSync, closeStale, listSyncPrs, upsertStatusIssue, readStatusIssueB
 import { renderStatus, renderPrBody, parseState } from './status.mjs'
 import { runVerdict } from './verdict.mjs'
 import { resolveRun } from './stage.mjs'
-export { runVerdict }
 import { ROOT, REGISTRY_PATH, SLUG, OWNER, HUB_REPO, readJson, serializeRegistry, isoSeconds, safeOutput, annotation } from './lib.mjs'
+
+export { runVerdict }
+
+// One log line per project. A skip or decline always names its reason; the reason used to
+// be stored on the status issue and omitted here, so a skipped project looked unexplained.
+export function formatSyncLine(r) {
+  return `sync ${r.projectId}: ${r.outcome}${r.prAction ? ` (${r.prAction})` : ''}${r.prReason ? ` - ${r.prReason}` : ''}${r.errors && r.errors.length ? ` - ${r.errors.join('; ')}` : ''}${r.gaps && r.gaps.length ? ` - incomplete: ${r.gaps.join('; ')}` : ''}`
+}
 
 function loadRegistry() {
   return JSON.parse(readFileSync(resolve(ROOT, REGISTRY_PATH), 'utf8'))
@@ -106,7 +113,7 @@ export function reconcileCollected({ registry, only, collected }) {
 export async function processAll({ registry, collected, mode, hubClient, prClient = null, mainSha, validate, outDir }) {
   const results = []
   for (const item of collected) {
-    const r = { projectId: item.projectId, outcome: 'unchanged', changes: [], suggestions: [], notes: [], errors: [], pr: null, prAction: null, gaps: [], unavailable: [] }
+    const r = { projectId: item.projectId, outcome: 'unchanged', changes: [], suggestions: [], notes: [], errors: [], pr: null, prAction: null, prReason: null, gaps: [], unavailable: [] }
     results.push(r)
     if (!item.ok) {
       r.outcome = 'error'
@@ -143,7 +150,10 @@ export async function processAll({ registry, collected, mode, hubClient, prClien
       const w = await writeSync({ client: hubClient, prClient, projectId: item.projectId, baseRegistry: registry, nextRegistry: planned.registry, mainSha, title, body, validate })
       r.pr = w.pr || null
       r.prAction = w.action
-      if (w.action === 'skipped' || w.action === 'declined') r.notes.push(w.reason)
+      if (w.action === 'skipped' || w.action === 'declined') {
+        r.notes.push(w.reason)
+        r.prReason = w.reason
+      }
     } catch (e) {
       r.outcome = 'error'
       r.errors.push(safeOutput(`${e instanceof WriteRefused ? 'refused' : e.code || 'plan-failed'}: ${e.message}`))
@@ -235,7 +245,7 @@ async function main(argv) {
       console.log(`status issue ${issue.action}: ${issue.url}`)
     }
     if (cmd === 'preview') console.log(markdown)
-    for (const r of results) console.log(annotation(`sync ${r.projectId}: ${r.outcome}${r.prAction ? ` (${r.prAction})` : ''}${r.errors.length ? ` - ${r.errors.join('; ')}` : ''}${r.gaps.length ? ` - incomplete: ${r.gaps.join('; ')}` : ''}`))
+    for (const r of results) console.log(annotation(formatSyncLine(r)))
     const verdict = runVerdict(results)
     console.log(`${verdict.result === 'complete' ? '' : verdict.result === 'incomplete' ? '::warning title=Registry sync incomplete::' : '::error title=Registry sync failed::'}${annotation(verdict.summary)}`)
     return verdict.exitCode

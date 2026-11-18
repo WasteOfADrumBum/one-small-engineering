@@ -100,8 +100,10 @@ export function projectRepo(gh, state) {
   gh.on('GET', R('/pulls'), ({ q }) => {
     const all = state.pulls || []
     const page = +(q.get('page') || 1)
+    const per = Math.min(+(q.get('per_page') || 30), 100)
     if (q.get('state') === 'open') return page === 1 ? all.filter(p => p.state === 'open').map(p => pr(p)) : []
-    return all.filter(p => p.state === 'closed').map(p => pr(p))
+    const closed = all.filter(p => p.state === 'closed').map(p => pr(p))
+    return closed.slice((page - 1) * per, page * per)
   })
   gh.on('GET', R('/pulls/(\\d+)/files'), ({ m, q }) => (+(q.get('page') || 1) === 1 ? ((state.prFiles || {})[m[1]] || []).map(filename => ({ filename })) : []))
   gh.on('GET', R('/actions/runs'), ({ q }) => {
@@ -120,7 +122,8 @@ export function projectRepo(gh, state) {
     return {
       number: p.number, html_url: `${html}/pull/${p.number}`, title: p.title, draft: Boolean(p.draft), state: p.state,
       head: { sha: p.headSha, ref: `feature-${p.number}` }, base: { ref: state.defaultBranch },
-      labels: (p.labels || []).map(name => ({ name })), merged_at: p.mergedAt || null, merge_commit_sha: p.mergeCommitSha || null
+      labels: (p.labels || []).map(name => ({ name })), merged_at: p.mergedAt || null, merge_commit_sha: p.mergeCommitSha || null,
+      updated_at: p.updatedAt || p.mergedAt || '2000-01-01T00:00:00Z'
     }
   }
   return state
@@ -181,7 +184,9 @@ export function hubRepo(gh, { registryText, mainSha = sha('main-0') }) {
     hub.refs[m[1]] = body.sha
     return { ref: `refs/${m[1]}` }
   })
-  const pull = p => ({ number: p.number, html_url: `${html}/pull/${p.number}`, title: p.title, body: p.body, draft: p.draft, state: p.state, head: { ref: p.head, sha: p.state === 'open' ? hub.refs[`heads/${p.head}`] : p.closedHeadSha }, base: { ref: p.base }, merged_at: p.mergedAt || null, updated_at: '2026-10-23T00:00:00Z' })
+  // A closed PR's head.sha follows the live branch tip while the branch exists, as GitHub's
+  // pulls API does. closedHeadSha is only the fallback after the branch is gone.
+  const pull = p => ({ number: p.number, html_url: `${html}/pull/${p.number}`, title: p.title, body: p.body, draft: p.draft, state: p.state, head: { ref: p.head, sha: hub.refs[`heads/${p.head}`] || p.closedHeadSha }, base: { ref: p.base }, merged_at: p.mergedAt || null, updated_at: '2026-10-23T00:00:00Z' })
   gh.on('GET', R('/pulls'), ({ q }) => {
     const head = q.get('head')
     const page = +(q.get('page') || 1)
