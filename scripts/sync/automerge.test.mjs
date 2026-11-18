@@ -245,6 +245,45 @@ test('after a merge, remaining stale sync PRs trigger a rebuild dispatch', async
   assert.deepEqual(w.st.dispatches, [{ ref: 'main', inputs: { dry_run: 'false' } }])
 })
 
+// Issue #240 follow-up: #247 merged in one pass of an invocation and #246, stale only afterwards,
+// waited for the 3-hour schedule because the rebuild decision looked at one pass at a time.
+function twoPrs({ number }) {
+  const w = world()
+  const other = structuredClone(w.st.pr); other.number = number; other.head = { ...other.head, sha: fakeSha('p2') }  // same project, older head without its checks yet
+  const orig = w.client.paginate
+  w.client.paginate = async (p, o) => /\/pulls\?/.test(p) ? [{ number: 31, head: w.st.pr.head }, { number, head: other.head }] : orig(p, o)
+  const o2 = w.client.request
+  const own = new RegExp(`/pulls/${number}$`)
+  w.client.request = async (m, p, o) => own.test(p.split('?')[0]) ? other : /commits\/.{40}$/.test(p) && p.includes(other.head.sha) ? { parents: [{ sha: MAIN }], commit: { author: { name: 'One Small Engineering Sync' } } } : o2(m, p, o)
+  return w
+}
+
+test('a PR left waiting before a later merge in the same pass triggers the rebuild dispatch', async () => {
+  const w = twoPrs({ number: 30 })  // judged first, still waiting on its checks, then #31 merges
+  const out = await go(w)
+  assert.equal(out.merges, 1)
+  assert.equal(out.results[0].number, 30)
+  assert.equal(out.results[0].decision, 'wait')
+  assert.match(out.results[0].reasons[0], /has not reported/)
+  assert.deepEqual(w.st.dispatches, [{ ref: 'main', inputs: { dry_run: 'false' } }])
+  assert.equal(out.dispatched, true)
+})
+
+test('a merge in an earlier pass of the same invocation makes a stale PR found later worth one rebuild', async () => {
+  for (const [reconciled, expected] of [[false, 1], [true, 0]]) {
+    const w = world({ mutate: { main: fakeSha('main-2') } })  // stale: built on the old main
+    const out = await go(w, { priorMerges: 1, reconciled })
+    assert.equal(out.merges, 0)
+    assert.equal(w.st.dispatches.length, expected, `reconciled=${reconciled}`)
+  }
+})
+
+test('without any merge in the invocation a chained run still never dispatches (no ping-pong)', async () => {
+  const w = world({ mutate: { main: fakeSha('main-2') } })
+  await go(w, { priorMerges: 0 })
+  assert.deepEqual(w.st.dispatches, [])
+})
+
 test('the write allowlist refuses everything outside auto-merge', () => {
   const calls = []
   const c = restrictAutomergeWrites({ request: async (m, p) => calls.push([m, p]), paginate: async () => [] })
