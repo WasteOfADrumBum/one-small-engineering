@@ -34,7 +34,7 @@ The guard allows automation to change only `repositorySnapshot`, `openPullReques
 | --- | --- |
 | CI failed | Rejected with the reason; sync's next run supersedes the PR |
 | Check pending or missing | Waits; next event or schedule re-evaluates |
-| Main moved (another PR merged) | Waits as stale; after a merge it dispatches Registry sync to rebuild remaining PRs from the new main |
+| Main moved (another PR merged) | Waits as stale; after a merge it dispatches Registry sync once per run to rebuild the remaining PRs from the new main, including PRs judged before the merge or in a later polling pass of the same run |
 | Head pushed mid-merge / conflict | Merge refused by GitHub; recorded as waiting |
 | Closed or duplicate PR | Ignored; sync keeps one PR per project |
 | API outage / rate limit | Client retries with backoff; a PR that still fails is an `error` row and the run exits red; next trigger retries |
