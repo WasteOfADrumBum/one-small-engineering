@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-18T20:54:58Z",
+  "lastUpdatedAt": "2026-11-18T21:15:14Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -2865,9 +2865,9 @@
       "productionUrl": "https://cortex-brain-nu.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "7f411db0948db6181a50f13922b5cc40ac161418",
+        "headSha": "05b6b7a0469f3121bf7fa62e99c36c054daa01ec",
         "archived": false,
-        "observedAt": "2026-11-14T13:13:57Z",
+        "observedAt": "2026-11-18T21:15:14Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -3107,28 +3107,28 @@
           "recordedBy": "Claude Code"
         },
         {
-          "id": "sync-cortex-run-checkpoint-yml-7f411db-k10nx18-1",
+          "id": "sync-cortex-run-checkpoint-yml-05b6b7a-kdou1cx-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/actions/runs/43597228796",
-          "commitSha": "7f411db0948db6181a50f13922b5cc40ac161418",
-          "verifiedAt": "2026-11-14T12:56:22Z",
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/actions/runs/44363419233",
+          "commitSha": "05b6b7a0469f3121bf7fa62e99c36c054daa01ec",
+          "verifiedAt": "2026-11-18T17:52:29Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow checkpoint.yml (\"Checkpoint contract\") concluded success on main at 7f411db (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow checkpoint.yml (\"Checkpoint contract\") concluded success on main at 05b6b7a (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "cortex:workflow_run:checkpoint.yml/7f411db/k10nx18/1"
+          "eventKey": "cortex:workflow_run:checkpoint.yml/05b6b7a/kdou1cx/1"
         },
         {
-          "id": "sync-cortex-run-ci-yml-7f411db-k10nwyw-1",
+          "id": "sync-cortex-run-ci-yml-05b6b7a-kdou1ad-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/actions/runs/43597228712",
-          "commitSha": "7f411db0948db6181a50f13922b5cc40ac161418",
-          "verifiedAt": "2026-11-14T12:57:06Z",
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/actions/runs/44363419141",
+          "commitSha": "05b6b7a0469f3121bf7fa62e99c36c054daa01ec",
+          "verifiedAt": "2026-11-18T17:57:47Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 7f411db (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 05b6b7a (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "cortex:workflow_run:ci.yml/7f411db/k10nwyw/1"
+          "eventKey": "cortex:workflow_run:ci.yml/05b6b7a/kdou1ad/1"
         }
       ],
       "releaseGates": [
@@ -3360,8 +3360,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1413298530,
-        "lastSyncedAt": "2026-11-14T13:13:57Z",
-        "lastSyncedHead": "7f411db0948db6181a50f13922b5cc40ac161418",
+        "lastSyncedAt": "2026-11-18T21:15:14Z",
+        "lastSyncedHead": "05b6b7a0469f3121bf7fa62e99c36c054daa01ec",
         "configSource": "defaults"
       }
     },
