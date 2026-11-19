@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-19T18:30:30Z",
+  "lastUpdatedAt": "2026-11-19T23:13:47Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -2851,7 +2851,7 @@
         "defaultBranch": "main",
         "headSha": "fc40f1d1265d38af76803895d37a9ad58bb04835",
         "archived": false,
-        "observedAt": "2026-11-19T15:16:56Z",
+        "observedAt": "2026-11-19T23:13:47Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -2861,7 +2861,15 @@
           "private": true
         }
       },
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 50,
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/pull/50",
+          "title": "Finances: read the P&L sheet honestly, with labelled estimates and gaps",
+          "headSha": "ec7cd32f32b40741ef8b4ed5232250efe245112b",
+          "draft": false
+        }
+      ],
       "release": {
         "currentVersion": "1.0.0",
         "currentVersionSource": "Cortex 1.0 live on Vercel from cortex-brain-task main at 842d1e4 (package.json 1.0.0), approved by Joshua Small on 2026-11-11 (evidence cortex-owner-final-verification-2026-11-11). No git tag yet.",
@@ -3344,7 +3352,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1413298530,
-        "lastSyncedAt": "2026-11-19T15:16:56Z",
+        "lastSyncedAt": "2026-11-19T23:13:47Z",
         "lastSyncedHead": "fc40f1d1265d38af76803895d37a9ad58bb04835",
         "configSource": "defaults"
       }
