@@ -76,13 +76,23 @@ Claude, ChatGPT, Codex, Copilot, Gemini and any other assistant:
 3. Propose status changes only through a pull request that links evidence, never by keeping a separate status record.
 4. Never record approval or mark a release `released` without Joshua Small's linked approval.
 5. Mark relayed results `builder_reported`; only re-run results are `pass`.
-6. To assess a project, follow [`agents/project-assessor.md`](agents/project-assessor.md); to onboard one, [`agents/onboard-project.md`](agents/onboard-project.md). Thin adapters exist for Claude (`.claude/skills/`), Codex (`AGENTS.md`), Copilot (`.github/copilot-instructions.md`, `.github/prompts/`) and Gemini (`GEMINI.md`).
+6. To assess a project, follow [`agents/project-assessor.md`](agents/project-assessor.md); to onboard one, [`agents/onboard-project.md`](agents/onboard-project.md). The shared AI engineering policies those agents follow in every project come from [`ai-standards/`](ai-standards/) ([docs/ai-standards.md](docs/ai-standards.md)). Thin adapters exist for Claude (`.claude/skills/`), Codex (`AGENTS.md`), Copilot (`.github/copilot-instructions.md`, `.github/prompts/`) and Gemini (`GEMINI.md`).
 
 Full rules: [Cross-AI governance](standards/release.md#cross-ai-governance).
 
 ## Automated sync
 
 All eight active projects have a `sync` block (observe mode: nothing is needed in their repositories) and are read by [Registry sync](.github/workflows/registry-sync.yml): head and history, visibility, open PRs, CI runs with run IDs and attempts, releases, tags and root `package.json`. It updates only the fields in [`sync/field-ownership.json`](sync/field-ownership.json) (repository snapshot, open PRs, its own evidence, and `currentVersion` from a published release) through one PR per project, which [Auto-merge](docs/automerge.md) merges when it passes the field-ownership guard, the validator and CI on its exact head. Gates, blockers, release status, ownership and approval stay manual. Activation is staged by the `SYNC_STAGE` variable: A read-only (default), B draft PRs on manual runs, C every six hours (live since 2026-10-30), plus an hourly read-only [change watch](.github/workflows/watch.yml) that triggers sync when a project head or PR list changes. Each run ends `COMPLETE`, `INCOMPLETE` or `FAILED`, never reporting success with evidence missing. Onboard a project with `npm run onboard -- <project-id>`. Details: [docs/sync.md](docs/sync.md); runbook: [docs/operations.md](docs/operations.md); owner setup: [docs/sync-setup.md](docs/sync-setup.md).
+
+## AI engineering standards
+
+[`ai-standards/`](ai-standards/) is the single source of the shared AI engineering policies (risk-based autonomy, security, testing, accessibility and more) for every One Small repository. `ose ai` ([docs/ai-standards.md](docs/ai-standards.md)) installs them into a repository as a versioned, checksummed copy in `.ai/` plus one marked block in `CLAUDE.md`, `AGENTS.md`, `.github/copilot-instructions.md` and `GEMINI.md`, and a portable ChatGPT Projects file. Project-specific rules stay in each repository. Change a policy here, then:
+
+```sh
+ose ai sync --all --dry-run   # what would change
+ose ai sync --all             # apply; conflicts are reported, never overwritten
+ose ai status                 # policy version per repository
+```
 
 ## Release readiness and completion
 
@@ -123,6 +133,7 @@ npm run release:check   # are the committed reports current?
 npm run engineering:check   # observe all projects: sync, collect, verify, evaluate, prioritize (read-only on GitHub)
 npm run engineering:report -- --check   # are the committed engineering reports current? (offline)
 npm run engineering:prepare  # candidate fixes as local proposal files; writes nothing to GitHub
+npm run ai -- status          # AI standards: applied policy version per repository (offline)
 ```
 
 CI ([`.github/workflows/validate.yml`](.github/workflows/validate.yml)) runs on every pull request, push to `main`, merge-queue group and sync branch, with read-only permissions: `npm run check`, the field-ownership guard on `sync/*` branches, security scans, a project-code isolation test, and a final `ci-gate` job that is the one result a merge depends on ([docs/ci-cd.md](docs/ci-cd.md)). [Main integrity](.github/workflows/main-integrity.yml) runs on push and every six hours and flags any change to `main` that did not come from a merged PR. These are detection and code-level controls, not branch protection, which GitHub Free does not enforce on this private repository.
@@ -152,6 +163,8 @@ release/                        inputs for release preparation (pinned changelog
 schemas/                        project config, observation and AI assessment schemas
 sync/field-ownership.json       the fields automation may change
 templates/project/              files onboarding generates for a project repository
+ai-standards/                   shared AI engineering policies, adapter templates, manifest and managed-repo registry
+scripts/ai/, scripts/ose.mjs    ose ai: discover, install, sync, status, validate, rollback (+ tests)
 agents/                         shared AI specs: project assessor, onboarding
 fixtures/sync/                  in-memory GitHub used by the tests
 docs/                           sync, readiness, verification and orchestrator docs; operations runbook; owner setup

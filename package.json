@@ -8,9 +8,12 @@
   "engines": {
     "node": ">=20"
   },
+  "bin": {
+    "ose": "scripts/ose.mjs"
+  },
   "scripts": {
     "validate": "node scripts/validate-registry.mjs",
-    "test": "node --test scripts/*.test.mjs scripts/ci/*.test.mjs scripts/sync/*.test.mjs scripts/release/*.test.mjs scripts/verify/*.test.mjs scripts/engineering/*.test.mjs scripts/state/*.test.mjs",
+    "test": "node --test scripts/*.test.mjs scripts/ci/*.test.mjs scripts/sync/*.test.mjs scripts/release/*.test.mjs scripts/verify/*.test.mjs scripts/engineering/*.test.mjs scripts/state/*.test.mjs scripts/ai/*.test.mjs",
     "check": "npm run validate && npm test",
     "security:policy": "node scripts/ci/workflow-policy.mjs",
     "onboard": "node scripts/sync/onboard.mjs",
@@ -33,6 +36,10 @@
     "engineering:prepare": "node scripts/engineering/cli.mjs prepare",
     "engineering:execute": "node scripts/engineering/cli.mjs execute",
     "state": "node scripts/state/cli.mjs",
-    "state:aggregate": "node scripts/state/cli.mjs aggregate"
+    "state:aggregate": "node scripts/state/cli.mjs aggregate",
+    "ai": "node scripts/ose.mjs ai",
+    "ai:validate": "node scripts/ose.mjs ai validate --source",
+    "ai:status": "node scripts/ose.mjs ai status",
+    "ai:sync": "node scripts/ose.mjs ai sync --all"
   }
 }

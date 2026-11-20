@@ -1,0 +1,162 @@
+{
+  "$schema": "./schemas/registry.schema.json",
+  "registryVersion": 1,
+  "discovery": {
+    "maxDepth": 3,
+    "exclude": ["archive", "_archive"]
+  },
+  "repositories": [
+    {
+      "id": "ai-hub",
+      "name": "AI Hub",
+      "repository": "WasteOfADrumBum/ai-hub",
+      "path": null,
+      "enabled": false,
+      "adapters": ["claude", "codex", "copilot", "gemini", "chatgpt"],
+      "notes": "Not managed: not on the owner's project list, no AI instruction files, last commit 2026-10-30. Enable to include it.",
+      "installation": {
+        "status": "not-installed",
+        "policyVersion": null,
+        "lastSyncAt": null,
+        "validation": "unknown",
+        "validatedAt": null
+      }
+    },
+    {
+      "id": "cortex",
+      "name": "Cortex",
+      "repository": "WasteOfADrumBum/cortex-brain-task",
+      "path": null,
+      "enabled": true,
+      "adapters": ["claude", "codex", "copilot", "gemini", "chatgpt"],
+      "installation": {
+        "status": "installed",
+        "policyVersion": "1.0.0",
+        "lastSyncAt": "2026-11-20T03:50:32Z",
+        "validation": "pass",
+        "validatedAt": "2026-11-20T03:50:32Z"
+      }
+    },
+    {
+      "id": "one-small-ai-workforce",
+      "name": "One Small AI Workforce",
+      "repository": "WasteOfADrumBum/one-small-ai-workforce",
+      "path": null,
+      "enabled": true,
+      "adapters": ["claude", "codex", "copilot", "gemini", "chatgpt"],
+      "installation": {
+        "status": "installed",
+        "policyVersion": "1.0.0",
+        "lastSyncAt": "2026-11-20T03:50:33Z",
+        "validation": "pass",
+        "validatedAt": "2026-11-20T03:50:33Z"
+      }
+    },
+    {
+      "id": "one-small-mods-pack",
+      "name": "One Small ModsPack",
+      "repository": "WasteOfADrumBum/one-small-mods-pack",
+      "path": null,
+      "enabled": true,
+      "adapters": ["claude", "codex", "copilot", "gemini", "chatgpt"],
+      "installation": {
+        "status": "installed",
+        "policyVersion": "1.0.0",
+        "lastSyncAt": "2026-11-20T03:50:33Z",
+        "validation": "pass",
+        "validatedAt": "2026-11-20T03:50:33Z"
+      }
+    },
+    {
+      "id": "one-small-photography",
+      "name": "One Small Photography",
+      "repository": "WasteOfADrumBum/one-small-photography",
+      "path": null,
+      "enabled": true,
+      "adapters": ["claude", "codex", "copilot", "gemini", "chatgpt"],
+      "installation": {
+        "status": "installed",
+        "policyVersion": "1.0.0",
+        "lastSyncAt": "2026-11-20T03:50:33Z",
+        "validation": "pass",
+        "validatedAt": "2026-11-20T03:50:33Z"
+      }
+    },
+    {
+      "id": "one-small-studio",
+      "name": "One Small Studio",
+      "repository": "WasteOfADrumBum/one-small-studio",
+      "path": null,
+      "enabled": true,
+      "adapters": ["claude", "codex", "copilot", "gemini", "chatgpt"],
+      "installation": {
+        "status": "installed",
+        "policyVersion": "1.0.0",
+        "lastSyncAt": "2026-11-20T03:50:33Z",
+        "validation": "pass",
+        "validatedAt": "2026-11-20T03:50:33Z"
+      }
+    },
+    {
+      "id": "one-small-ui",
+      "name": "OneSmallUI",
+      "repository": "WasteOfADrumBum/one-small-ui",
+      "path": null,
+      "enabled": true,
+      "adapters": ["claude", "codex", "copilot", "gemini", "chatgpt"],
+      "installation": {
+        "status": "installed",
+        "policyVersion": "1.0.0",
+        "lastSyncAt": "2026-11-20T03:50:33Z",
+        "validation": "pass",
+        "validatedAt": "2026-11-20T03:50:33Z"
+      }
+    },
+    {
+      "id": "personal-portfolio",
+      "name": "Personal Portfolio",
+      "repository": "WasteOfADrumBum/joshsmall-site",
+      "path": null,
+      "enabled": true,
+      "adapters": ["claude", "codex", "copilot", "gemini", "chatgpt"],
+      "installation": {
+        "status": "installed",
+        "policyVersion": "1.0.0",
+        "lastSyncAt": "2026-11-20T03:50:33Z",
+        "validation": "pass",
+        "validatedAt": "2026-11-20T03:50:33Z"
+      }
+    },
+    {
+      "id": "reflections-manga",
+      "name": "Reflections Manga",
+      "repository": "WasteOfADrumBum/reflections-manga",
+      "path": null,
+      "enabled": true,
+      "adapters": ["claude", "codex", "copilot", "gemini", "chatgpt"],
+      "notes": "Creative manga production repo. Its AGENTS.md workflow (commit and push after a story is approved) is the project's definition of authorization.",
+      "installation": {
+        "status": "installed",
+        "policyVersion": "1.0.0",
+        "lastSyncAt": "2026-11-20T03:50:33Z",
+        "validation": "pass",
+        "validatedAt": "2026-11-20T03:50:33Z"
+      }
+    },
+    {
+      "id": "taskforge",
+      "name": "TaskForge",
+      "repository": "WasteOfADrumBum/TaskForge",
+      "path": null,
+      "enabled": true,
+      "adapters": ["claude", "codex", "copilot", "gemini", "chatgpt"],
+      "installation": {
+        "status": "installed",
+        "policyVersion": "1.0.0",
+        "lastSyncAt": "2026-11-20T03:50:33Z",
+        "validation": "pass",
+        "validatedAt": "2026-11-20T03:50:33Z"
+      }
+    }
+  ]
+}
