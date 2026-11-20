@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-20T04:28:15Z",
+  "lastUpdatedAt": "2026-11-20T04:29:45Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -2461,9 +2461,9 @@
       "productionUrl": "https://taskforge-alpha-six.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "198a868c7f12a9689f1a3c84a8b5709727a85fd5",
+        "headSha": "bde52edc7aef87d18541b98e2b402c036e54c76b",
         "archived": false,
-        "observedAt": "2026-11-18T22:20:41Z",
+        "observedAt": "2026-11-20T04:29:45Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -2650,16 +2650,16 @@
           "recordedBy": "Claude Code (TaskForge builder, Claude Duet thread)"
         },
         {
-          "id": "sync-taskforge-run-ci-yml-198a868-kc0jg4x-1",
+          "id": "sync-taskforge-run-ci-yml-bde52ed-kiskctd-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/TaskForge/actions/runs/44262148209",
-          "commitSha": "198a868c7f12a9689f1a3c84a8b5709727a85fd5",
-          "verifiedAt": "2026-11-18T07:58:19Z",
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/actions/runs/44672016865",
+          "commitSha": "bde52edc7aef87d18541b98e2b402c036e54c76b",
+          "verifiedAt": "2026-11-20T04:12:34Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 198a868 (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at bde52ed (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "taskforge:workflow_run:ci.yml/198a868/kc0jg4x/1"
+          "eventKey": "taskforge:workflow_run:ci.yml/bde52ed/kiskctd/1"
         }
       ],
       "releaseGates": [
@@ -2834,8 +2834,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 962181990,
-        "lastSyncedAt": "2026-11-18T22:20:41Z",
-        "lastSyncedHead": "198a868c7f12a9689f1a3c84a8b5709727a85fd5",
+        "lastSyncedAt": "2026-11-20T04:29:45Z",
+        "lastSyncedHead": "bde52edc7aef87d18541b98e2b402c036e54c76b",
         "configSource": "defaults"
       }
     },
