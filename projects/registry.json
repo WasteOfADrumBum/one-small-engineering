@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-19T23:13:47Z",
+  "lastUpdatedAt": "2026-11-20T00:34:47Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -2849,9 +2849,9 @@
       "productionUrl": "https://cortex-brain-nu.vercel.app",
       "repositorySnapshot": {
         "defaultBranch": "main",
-        "headSha": "fc40f1d1265d38af76803895d37a9ad58bb04835",
+        "headSha": "8116bff9d59cc21a29e6c3d7ae73640d4d864d0c",
         "archived": false,
-        "observedAt": "2026-11-19T23:13:47Z",
+        "observedAt": "2026-11-20T00:34:47Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -2861,15 +2861,7 @@
           "private": true
         }
       },
-      "openPullRequests": [
-        {
-          "number": 50,
-          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/pull/50",
-          "title": "Finances: read the P&L sheet honestly, with labelled estimates and gaps",
-          "headSha": "ec7cd32f32b40741ef8b4ed5232250efe245112b",
-          "draft": false
-        }
-      ],
+      "openPullRequests": [],
       "release": {
         "currentVersion": "1.0.0",
         "currentVersionSource": "Cortex 1.0 live on Vercel from cortex-brain-task main at 842d1e4 (package.json 1.0.0), approved by Joshua Small on 2026-11-11 (evidence cortex-owner-final-verification-2026-11-11). No git tag yet.",
@@ -3099,28 +3091,28 @@
           "recordedBy": "Claude Code"
         },
         {
-          "id": "sync-cortex-run-checkpoint-yml-fc40f1d-kgmv9r2-1",
+          "id": "sync-cortex-run-checkpoint-yml-8116bff-ki8dnex-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/actions/runs/44541516062",
-          "commitSha": "fc40f1d1265d38af76803895d37a9ad58bb04835",
-          "verifiedAt": "2026-11-19T14:14:14Z",
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/actions/runs/44638111689",
+          "commitSha": "8116bff9d59cc21a29e6c3d7ae73640d4d864d0c",
+          "verifiedAt": "2026-11-19T23:29:54Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow checkpoint.yml (\"Checkpoint contract\") concluded success on main at fc40f1d (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow checkpoint.yml (\"Checkpoint contract\") concluded success on main at 8116bff (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "cortex:workflow_run:checkpoint.yml/fc40f1d/kgmv9r2/1"
+          "eventKey": "cortex:workflow_run:checkpoint.yml/8116bff/ki8dnex/1"
         },
         {
-          "id": "sync-cortex-run-ci-yml-fc40f1d-kgmv9rb-1",
+          "id": "sync-cortex-run-ci-yml-8116bff-ki8dnfw-1",
           "type": "workflow_run",
-          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/actions/runs/44541516071",
-          "commitSha": "fc40f1d1265d38af76803895d37a9ad58bb04835",
-          "verifiedAt": "2026-11-19T14:19:14Z",
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/actions/runs/44638111724",
+          "commitSha": "8116bff9d59cc21a29e6c3d7ae73640d4d864d0c",
+          "verifiedAt": "2026-11-19T23:30:34Z",
           "result": "builder_reported",
-          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at fc40f1d (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
+          "description": "Automated observation: workflow ci.yml (\"CI\") concluded success on main at 8116bff (push event, attempt 1). Project CI is builder evidence; a verifier must re-check before any gate is verified.",
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
-          "eventKey": "cortex:workflow_run:ci.yml/fc40f1d/kgmv9rb/1"
+          "eventKey": "cortex:workflow_run:ci.yml/8116bff/ki8dnfw/1"
         }
       ],
       "releaseGates": [
@@ -3352,8 +3344,8 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 1413298530,
-        "lastSyncedAt": "2026-11-19T23:13:47Z",
-        "lastSyncedHead": "fc40f1d1265d38af76803895d37a9ad58bb04835",
+        "lastSyncedAt": "2026-11-20T00:34:47Z",
+        "lastSyncedHead": "8116bff9d59cc21a29e6c3d7ae73640d4d864d0c",
         "configSource": "defaults"
       }
     },
