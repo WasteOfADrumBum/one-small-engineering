@@ -10,3 +10,4 @@ This repository is the One Small Engineering hub: the registry, standards and au
 - To assess a project: follow `agents/project-assessor.md` (assessor-spec: 1).
 - To onboard a project: follow `agents/onboard-project.md` (onboard-spec: 1).
 - Continuing or handing off work on any governed project: follow `standards/agent-continuity.md` (continuity contract v1) and `docs/agent-continuity.md`.
+- Shared AI engineering standards: this repository is their source (`ai-standards/`, [docs/ai-standards.md](../docs/ai-standards.md)). Agents working here follow `ai-standards/policies/` directly; the hub never gets an `.ai/` install. Change a policy only through a PR that runs `npm run ai -- bump`, then roll it out with `ose ai sync --all`.

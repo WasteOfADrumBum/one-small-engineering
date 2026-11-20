@@ -1,0 +1,152 @@
+{
+  "$schema": "./schemas/manifest.schema.json",
+  "manifestVersion": 1,
+  "id": "one-small-engineering/ai-standards",
+  "repository": "WasteOfADrumBum/one-small-engineering",
+  "policyVersion": "1.0.0",
+  "policies": [
+    {
+      "id": "autonomy",
+      "file": "policies/autonomy.md",
+      "sha256": "8397b8e01863ba75db1cfca843361bf436ab37033a1d1a9123eee64e34e5648b"
+    },
+    {
+      "id": "security",
+      "file": "policies/security.md",
+      "sha256": "a3678764aa6e330cd07e32a06c9588ebca1bee8354ed998190488a0a83050c61"
+    },
+    {
+      "id": "architecture",
+      "file": "policies/architecture.md",
+      "sha256": "f8f505b5c7fbcc9a65d8ad0ceb2521ec5285f4f51e2421b6d8a894476b8fcac2"
+    },
+    {
+      "id": "code-quality",
+      "file": "policies/code-quality.md",
+      "sha256": "ea1040c29c795ccbc95012e503c3e7624c4c0d2caa5f5084224b581516a1f44d"
+    },
+    {
+      "id": "testing",
+      "file": "policies/testing.md",
+      "sha256": "bba0764879ceaf362f3c2aeb6c030f547130bfa7c92917aa6209943c79b1ece6"
+    },
+    {
+      "id": "accessibility",
+      "file": "policies/accessibility.md",
+      "sha256": "4a3f14966f9dc8b5d499dd78009fa3d8ec0caf31a87ac6216e755414a736ca58"
+    },
+    {
+      "id": "documentation",
+      "file": "policies/documentation.md",
+      "sha256": "035efc1948b3ded304faa5658bc69f8899aeaabedc4e3439279860d330b81e2d"
+    },
+    {
+      "id": "completion",
+      "file": "policies/completion.md",
+      "sha256": "872a3c17566c746028884aaa206b82f264742ed8a1dca44c36bfe0d1f94b4fdf"
+    },
+    {
+      "id": "collaboration",
+      "file": "policies/collaboration.md",
+      "sha256": "55f039b858c70274410ae6a975e7daecdd18a662372aabd69e0424f306a6830d"
+    },
+    {
+      "id": "learning",
+      "file": "policies/learning.md",
+      "sha256": "ab967ae2d3f6da912980f4eb757159d30e1cc62936be590d9a194e6c9d5600b5"
+    }
+  ],
+  "templates": [
+    {
+      "id": "claude.block",
+      "file": "templates/claude.block.md.tmpl",
+      "sha256": "52864ee0d54d535cfa44c88eaed35d8d47c79a68aed6ba87ca6c37b5f3dbae45"
+    },
+    {
+      "id": "agents.block",
+      "file": "templates/agents.block.md.tmpl",
+      "sha256": "9ff2bd217fc140781465f940e765c24502d4e40c934d6191853b7f96d4ca7af9"
+    },
+    {
+      "id": "copilot.block",
+      "file": "templates/copilot.block.md.tmpl",
+      "sha256": "9081b84e7ce537c076ef97257ebe4e65b93f25ff22cedc491f9d996083a9040e"
+    },
+    {
+      "id": "gemini.block",
+      "file": "templates/gemini.block.md.tmpl",
+      "sha256": "9081b84e7ce537c076ef97257ebe4e65b93f25ff22cedc491f9d996083a9040e"
+    },
+    {
+      "id": "chatgpt",
+      "file": "templates/chatgpt.md.tmpl",
+      "sha256": "d82afe309a57cb26086d7e5eabf7d4792fc66641fd6521792e82f04f421d301c"
+    },
+    {
+      "id": "project",
+      "file": "templates/project.md.tmpl",
+      "sha256": "148f1952b8f08cf9fdcf0b1a63f64bb1d610c35c65045588da0fa00e8a1925b5"
+    }
+  ],
+  "adapters": [
+    {
+      "id": "claude",
+      "title": "Claude Code",
+      "kind": "block",
+      "path": "CLAUDE.md",
+      "template": "claude.block",
+      "createIfMissing": true,
+      "note": "Claude Code loads CLAUDE.md from the repository root automatically."
+    },
+    {
+      "id": "codex",
+      "title": "OpenAI Codex",
+      "kind": "block",
+      "path": "AGENTS.md",
+      "template": "agents.block",
+      "createIfMissing": true,
+      "note": "Codex (and other AGENTS.md readers, including the Copilot coding agent) load AGENTS.md automatically."
+    },
+    {
+      "id": "copilot",
+      "title": "GitHub Copilot",
+      "kind": "block",
+      "path": ".github/copilot-instructions.md",
+      "template": "copilot.block",
+      "createIfMissing": true,
+      "note": "Repository custom instructions for Copilot Chat and the Copilot coding agent."
+    },
+    {
+      "id": "gemini",
+      "title": "Gemini CLI",
+      "kind": "block",
+      "path": "GEMINI.md",
+      "template": "gemini.block",
+      "createIfMissing": false,
+      "note": "Only updated where GEMINI.md already exists."
+    },
+    {
+      "id": "chatgpt",
+      "title": "ChatGPT Projects",
+      "kind": "file",
+      "path": ".ai/chatgpt-project-instructions.md",
+      "template": "chatgpt",
+      "createIfMissing": true,
+      "note": "Portable file. ChatGPT does not read repositories; paste or upload it into a ChatGPT Project by hand."
+    }
+  ],
+  "defaultAdapters": [
+    "claude",
+    "codex",
+    "copilot",
+    "gemini",
+    "chatgpt"
+  ],
+  "projectTemplate": "project",
+  "history": {
+    "keep": 5
+  },
+  "limits": {
+    "chatgptMaxChars": 8000
+  }
+}

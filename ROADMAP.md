@@ -86,3 +86,15 @@ The owner resumed ModsPack 2.0.0 release closure on 2026-11-04; hub roadmap item
 - **Scope:** a small step in each project's CI that runs the hub's `scripts/state/cli.mjs validate` (or a vendored copy of the schema) against `.engineering/state.json`, and fails on an error.
 - **Acceptance criteria:** a PR with an invalid checkpoint fails CI in that project; a valid one passes; no hub credential in project repositories.
 - **Dependencies:** a small PR per project repository; the owner merges.
+
+### E10. AI standards check in project CI (P3)
+
+- **Purpose:** catch an edited `.ai/shared/` file or a broken managed block in the project PR that introduces it, instead of on the owner's next `ose ai validate --all`.
+- **Scope:** a step in each managed repository's existing CI that runs this hub's `scripts/ose.mjs ai validate --target .` at a pinned commit (same pattern as E9), with no hub credential.
+- **Acceptance criteria:** a PR that edits a managed file fails with the file named; an untouched install passes; no new dependency or credential.
+- **Dependencies:** GitHub Actions minutes on the project repositories; a small PR per repository; the owner merges.
+
+### E11. ModsPack front end for `ose ai` (P3, deferred)
+
+- **Purpose:** let `modspack` users trigger the hub's policy sync. Deferred on 2026-11-20 because ModsPack is a public npm package with its own installer; coupling it to this personal hub adds a dependency and no capability ([docs/ai-standards.md](docs/ai-standards.md#modspack-integration-deferred)).
+- **Revisit when:** ModsPack gains a plugin mechanism for third-party installers.
