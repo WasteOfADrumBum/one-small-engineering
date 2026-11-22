@@ -73,7 +73,7 @@ Joshua Small picked "Cortex 2.0 prep" on 2026-11-12 (project chat). This follows
 | responsive-layouts | Open Home, Finances, News, Ops and Briefing on the phone: nothing overflows sideways |
 | critical-workflows | Open Finances: the overview and Needs attention panel load from your P&L sheet, and each figure says Recorded plan, Estimate, Confirmed, Unknown or Conflict. Open Ops: the Connections panel shows three connections ready. Open News. Approve one proposal from a morning briefing and press Undo (needs one briefing in `/Cortex/briefings`) |
 | audit-logging | After the approval above, `/Cortex/logs/audit-YYYY-MM.jsonl` in Drive has one line for it and one for the Undo. Blocked until the Vercel settings exist |
-| backup-recovery | Proposed not applicable since #49: Cortex no longer stores finance data. The P&L sheet stays in your Drive with Drive's own version history, and approval state and the audit log are append-only Drive files. Write "backup-recovery not applicable" in your sign-off if you agree |
+| backup-recovery | Proposed not applicable since #49: Cortex no longer stores finance data. The P&L sheet stays in your Drive with Drive's own version history, Cortex's own files are the approval state (rewritten on each decision) and the audit log (only added to); Drive keeps recent earlier versions of both. Write "backup-recovery not applicable" in your sign-off if you agree |
 
 ### Not applicable (unchanged from 1.0)
 
