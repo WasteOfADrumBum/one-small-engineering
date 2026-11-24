@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-21T12:29:56Z",
+  "lastUpdatedAt": "2026-11-24T05:17:45Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -2463,7 +2463,7 @@
         "defaultBranch": "main",
         "headSha": "bde52edc7aef87d18541b98e2b402c036e54c76b",
         "archived": false,
-        "observedAt": "2026-11-20T04:29:45Z",
+        "observedAt": "2026-11-24T05:17:45Z",
         "visibility": "public",
         "latestTag": null,
         "package": {
@@ -2473,7 +2473,15 @@
           "private": true
         }
       },
-      "openPullRequests": [],
+      "openPullRequests": [
+        {
+          "number": 82,
+          "url": "https://github.com/WasteOfADrumBum/TaskForge/pull/82",
+          "title": "Move the client from Chakra UI to OneSmallUI (after v1.0.0)",
+          "headSha": "2a86da6996432d1cb7cd596195dfa2b572c7f86d",
+          "draft": true
+        }
+      ],
       "release": {
         "currentVersion": null,
         "currentVersionSource": "No tags, releases or package version. Delivery is tracked by phase and KAN ticket in docs/roadmap.md and CHANGELOG.md (Unreleased).",
@@ -2834,7 +2842,7 @@
         "enabled": true,
         "mode": "observe",
         "repositoryId": 962181990,
-        "lastSyncedAt": "2026-11-20T04:29:45Z",
+        "lastSyncedAt": "2026-11-24T05:17:45Z",
         "lastSyncedHead": "bde52edc7aef87d18541b98e2b402c036e54c76b",
         "configSource": "defaults"
       }
