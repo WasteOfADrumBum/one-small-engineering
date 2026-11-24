@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/ai-standards/schemas/installed-manifest.schema.json",
+  "title": "One Small AI Engineering Standards: installed manifest",
+  "description": ".ai/manifest.json in a managed repository: which policy version is applied, from which source, and the checksum of every managed file and block. Written only by ose ai. The files and blocks maps are checked by scripts/ai/validate.mjs.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["manifestVersion", "source", "policyVersion", "adapters", "projectFile", "files", "blocks", "installedAt", "updatedAt"],
+  "properties": {
+    "manifestVersion": { "const": 1 },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "repository"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+/[a-z0-9-]+$" },
+        "repository": { "type": "string", "pattern": "^[A-Za-z0-9-]+/[A-Za-z0-9._-]+$" }
+      }
+    },
+    "policyVersion": { "type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$" },
+    "adapters": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
+    "projectFile": { "const": ".ai/project.md" },
+    "files": { "type": "object" },
+    "blocks": { "type": "object" },
+    "installedAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  }
+}

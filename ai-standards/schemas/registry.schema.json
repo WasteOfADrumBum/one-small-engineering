@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/WasteOfADrumBum/one-small-engineering/blob/main/ai-standards/schemas/registry.schema.json",
+  "title": "One Small AI Engineering Standards: managed repository registry",
+  "description": "ai-standards/registry.json: the repositories ose ai sync --all manages. Repositories are matched to local folders by their git remote, so folder names do not matter. installation is the last result ose ai recorded; ose ai status always reads the live state.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["registryVersion", "discovery", "repositories"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "registryVersion": { "const": 1 },
+    "discovery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["maxDepth", "exclude"],
+      "properties": {
+        "maxDepth": { "type": "integer", "minimum": 1 },
+        "exclude": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "repositories": { "type": "array", "items": { "$ref": "#/$defs/entry" } }
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "repository", "enabled", "adapters", "installation"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+        "name": { "type": "string", "minLength": 1 },
+        "repository": { "type": "string", "pattern": "^[A-Za-z0-9-]+/[A-Za-z0-9._-]+$" },
+        "path": { "type": ["string", "null"] },
+        "enabled": { "type": "boolean" },
+        "adapters": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
+        "notes": { "type": "string" },
+        "installation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "policyVersion", "lastSyncAt", "validation", "validatedAt"],
+          "properties": {
+            "status": { "enum": ["not-installed", "installed", "conflict", "error"] },
+            "policyVersion": { "type": ["string", "null"] },
+            "lastSyncAt": { "type": ["string", "null"], "format": "date-time" },
+            "validation": { "enum": ["unknown", "pass", "warn", "fail"] },
+            "validatedAt": { "type": ["string", "null"], "format": "date-time" }
+          }
+        }
+      }
+    }
+  }
+}
