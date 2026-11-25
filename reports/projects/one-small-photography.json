@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-14T18:13:38Z",
+  "asOf": "2026-11-25T17:42:13Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "4c2c0af740ec17bd6ba4e76913686511fa6ef45e14c0bc498bfa9438bac48030",
+  "registrySha256": "b275d1d55255c448f8c38425a60cf87b7ff44610f7f0874140c06fa14a253f3a",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-photography",
@@ -17,18 +17,11 @@
       "releaseStatus": "released",
       "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-photography/blob/d70f75f04942f8026871c701a4b69460d088ae34/docs/RELEASE.md",
       "candidate": null,
-      "openPullRequests": [
-        {
-          "number": 37,
-          "url": "https://github.com/WasteOfADrumBum/one-small-photography/pull/37",
-          "headSha": "e1c97561abb71268084248d8c19adfc82f349090",
-          "draft": false
-        }
-      ],
-      "head": "f11880769e20255eed44b043db6986bcff083927",
-      "snapshotObservedAt": "2026-11-12T14:17:55Z",
-      "lastSyncedAt": "2026-11-12T14:17:55Z",
-      "lastEvidenceAt": "2026-11-12T13:20:24Z",
+      "openPullRequests": [],
+      "head": "336a192ec48da36eb60c71013f39bdd7554ce3c3",
+      "snapshotObservedAt": "2026-11-20T18:31:55Z",
+      "lastSyncedAt": "2026-11-20T18:31:55Z",
+      "lastEvidenceAt": "2026-11-20T13:20:56Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -64,14 +57,14 @@
           "applicable": 9,
           "verified": 9
         },
-        "blockingFindings": 1,
+        "blockingFindings": 0,
         "registryBlockers": 0,
         "missingIndependentVerification": [],
         "candidateMoved": false,
         "ownershipValid": true,
         "approvalRecorded": true,
-        "eligibility": "not-eligible",
-        "releaseReady": false
+        "eligibility": "released",
+        "releaseReady": true
       },
       "gates": [
         {
@@ -146,7 +139,7 @@
               "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
               "origin": "manual",
               "provenance": "pass-without-independent-verifier",
-              "stale": null
+              "stale": "photo-ci-main is 34 days old (window 30 days)"
             },
             {
               "id": "photo-ci-run-c850853",
@@ -630,23 +623,7 @@
         }
       ],
       "blockers": {
-        "merge": [
-          {
-            "id": "auto-ci-failed-sync-one-small-photography-run-production-smoke-yml-f118807-juvr9st-1",
-            "origin": "derived",
-            "status": "proposed",
-            "category": "ci",
-            "severity": null,
-            "blocks": "merge",
-            "gates": [],
-            "description": "CI did not pass on f118807 (failure).",
-            "evidenceRefs": [
-              "sync-one-small-photography-run-production-smoke-yml-f118807-juvr9st-1"
-            ],
-            "rule": "a failing workflow run on the head or candidate commit blocks merge",
-            "action": "Fix the failing CI run on f118807 and re-run it (never skip or disable tests)."
-          }
-        ],
+        "merge": [],
         "release": [],
         "postRelease": [
           {
@@ -661,19 +638,7 @@
           }
         ]
       },
-      "nextActions": [
-        {
-          "rank": 1,
-          "priority": 4,
-          "bucket": "Failed or missing CI",
-          "source": "auto-ci-failed-sync-one-small-photography-run-production-smoke-yml-f118807-juvr9st-1",
-          "origin": "derived",
-          "blocks": "merge",
-          "gates": [],
-          "text": "Fix the failing CI run on f118807 and re-run it (never skip or disable tests).",
-          "summary": "Fix the failing CI run on f118807 and re-run it (never skip or disable tests)."
-        }
-      ],
+      "nextActions": [],
       "dependencies": [],
       "findings": [],
       "approval": {

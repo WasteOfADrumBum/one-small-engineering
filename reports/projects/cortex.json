@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-14T18:13:38Z",
+  "asOf": "2026-11-25T17:42:13Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "4c2c0af740ec17bd6ba4e76913686511fa6ef45e14c0bc498bfa9438bac48030",
+  "registrySha256": "b275d1d55255c448f8c38425a60cf87b7ff44610f7f0874140c06fa14a253f3a",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "cortex",
@@ -18,10 +18,10 @@
       "scopeDocument": "https://github.com/WasteOfADrumBum/cortex-brain-task/blob/claude/release-2.0.0/CHANGELOG.md",
       "candidate": null,
       "openPullRequests": [],
-      "head": "7f411db0948db6181a50f13922b5cc40ac161418",
-      "snapshotObservedAt": "2026-11-14T13:13:57Z",
-      "lastSyncedAt": "2026-11-14T13:13:57Z",
-      "lastEvidenceAt": "2026-11-14T12:57:06Z",
+      "head": "42c8c7a7966509052f9ee7a27b577976775211ef",
+      "snapshotObservedAt": "2026-11-20T04:28:15Z",
+      "lastSyncedAt": "2026-11-20T04:28:15Z",
+      "lastEvidenceAt": "2026-11-25T17:42:13Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -33,7 +33,7 @@
         "approvedAt": null,
         "evidenceRefs": []
       },
-      "registryNextAction": "Owner: review docs/acceptance/cortex-2.0-release-package.md, set the Google token (drive.file and calendar.events) and GITHUB_TOKEN in Vercel, do the listed live checks and sign off on the package PR. Then merge cortex-brain-task#44 and record the approval. The v2.0.0 tag is the owner's to create or ask for.",
+      "registryNextAction": "Owner: review the refreshed docs/acceptance/cortex-2.0-release-package.md (main at 42c8c7a), do the listed checks and sign off on the package refresh PR. Then record the approval and fold the cortex-brain-task changelog's Unreleased section into 2.0.0. The v2.0.0 tag is the owner's to create or ask for.",
       "missingEvidence": []
     },
     "derived": {
@@ -55,8 +55,8 @@
           "applicable": 18,
           "verified": 0
         },
-        "blockingFindings": 4,
-        "registryBlockers": 1,
+        "blockingFindings": 3,
+        "registryBlockers": 0,
         "missingIndependentVerification": [
           "scope-complete",
           "automated-checks",
@@ -374,14 +374,13 @@
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending)"
+            "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. The owner's Vercel settings are in place (blocker live-config-pending resolved 2026-11-25); the live check waits on the owner's attestation"
           ],
-          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending).",
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. The owner's Vercel settings are in place (blocker live-config-pending resolved 2026-11-25); the live check waits on the owner's attestation.",
           "blockers": [
-            "live-config-pending",
             "auto-critical-workflows-unverified"
           ],
-          "nextAction": "Resolve live-config-pending, auto-critical-workflows-unverified, then verify."
+          "nextAction": "Resolve auto-critical-workflows-unverified, then verify."
         },
         {
           "id": "production-deployment",
@@ -476,10 +475,8 @@
             "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation"
           ],
           "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation.",
-          "blockers": [
-            "live-config-pending"
-          ],
-          "nextAction": "Resolve live-config-pending, then verify."
+          "blockers": [],
+          "nextAction": "Record why the gate is blocked, resolve it, then verify."
         },
         {
           "id": "authentication",
@@ -702,13 +699,11 @@
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending)"
+            "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. The owner's Vercel settings are in place (blocker live-config-pending resolved 2026-11-25); the live check waits on the owner's attestation"
           ],
-          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending).",
-          "blockers": [
-            "live-config-pending"
-          ],
-          "nextAction": "Resolve live-config-pending, then verify."
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. The owner's Vercel settings are in place (blocker live-config-pending resolved 2026-11-25); the live check waits on the owner's attestation.",
+          "blockers": [],
+          "nextAction": "Record why the gate is blocked, resolve it, then verify."
         },
         {
           "id": "audit-logging",
@@ -736,13 +731,11 @@
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-            "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending)"
+            "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. The owner's Vercel settings are in place (blocker live-config-pending resolved 2026-11-25); the live check waits on the owner's attestation"
           ],
-          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending).",
-          "blockers": [
-            "live-config-pending"
-          ],
-          "nextAction": "Resolve live-config-pending, then verify."
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. The owner's Vercel settings are in place (blocker live-config-pending resolved 2026-11-25); the live check waits on the owner's attestation.",
+          "blockers": [],
+          "nextAction": "Record why the gate is blocked, resolve it, then verify."
         },
         {
           "id": "deployment-rollback",
@@ -843,25 +836,6 @@
       "blockers": {
         "merge": [],
         "release": [
-          {
-            "id": "live-config-pending",
-            "origin": "registry",
-            "status": "open",
-            "category": "manual",
-            "severity": null,
-            "blocks": "release",
-            "gates": [
-              "critical-workflows",
-              "audit-logging",
-              "backup-recovery"
-            ],
-            "description": "Open: Finances saving, approvals and live Ops data need GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET and GOOGLE_REFRESH_TOKEN (drive.file and calendar.events) and GITHUB_TOKEN set in Vercel by the owner before the live checks can run.",
-            "evidenceRefs": [
-              "cortex-assistant-pr-42",
-              "cortex-finances-pr-40"
-            ],
-            "rule": null
-          },
           {
             "id": "auto-critical-workflows-unverified",
             "origin": "derived",
@@ -977,23 +951,8 @@
             "deployment-rollback",
             "e2e-critical-workflows"
           ],
-          "text": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate, authorization-boundaries, sensitive-data-handling, api-integration-security, integration-failure-handling, deployment-rollback; produce evidence for authentication; then verify critical-workflows, backup-recovery, audit-logging, e2e-critical-workflows once their blockers are resolved.",
+          "text": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate, authorization-boundaries, sensitive-data-handling, api-integration-security, integration-failure-handling, backup-recovery, audit-logging, deployment-rollback; produce evidence for authentication; then verify critical-workflows, e2e-critical-workflows once their blockers are resolved.",
           "summary": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa..."
-        },
-        {
-          "rank": 3,
-          "priority": 7,
-          "bucket": "Documentation and lower priority",
-          "source": "live-config-pending",
-          "origin": "registry",
-          "blocks": "release",
-          "gates": [
-            "critical-workflows",
-            "audit-logging",
-            "backup-recovery"
-          ],
-          "text": "Resolve blocker live-config-pending: Open: Finances saving, approvals and live Ops data need GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET and GOOGLE_REFRESH_TOKEN (drive.file and calendar.events) and GITHUB_TOKEN set in Vercel by the owner before the live checks can run.",
-          "summary": "Resolve blocker live-config-pending."
         }
       ],
       "dependencies": [
@@ -1008,6 +967,16 @@
           "rule": "only requiredForRelease dependencies block"
         },
         {
+          "project": "one-small-ui",
+          "relationship": "integrates",
+          "requiredForRelease": false,
+          "minVersion": null,
+          "kind": "stale",
+          "blocking": false,
+          "message": "Evidence for the dependency on one-small-ui is 34 days old (window 30 days); re-confirm the relationship.",
+          "rule": "dependency evidence must be inside the staleness window"
+        },
+        {
           "project": "personal-portfolio",
           "relationship": "integrates",
           "requiredForRelease": false,
@@ -1016,6 +985,16 @@
           "blocking": false,
           "message": "integrates personal-portfolio; not required for this release.",
           "rule": "only requiredForRelease dependencies block"
+        },
+        {
+          "project": "personal-portfolio",
+          "relationship": "integrates",
+          "requiredForRelease": false,
+          "minVersion": null,
+          "kind": "stale",
+          "blocking": false,
+          "message": "Evidence for the dependency on personal-portfolio is 34 days old (window 30 days); re-confirm the relationship.",
+          "rule": "dependency evidence must be inside the staleness window"
         }
       ],
       "findings": [],

@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-14T18:13:38Z",
+  "asOf": "2026-11-25T17:42:13Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "4c2c0af740ec17bd6ba4e76913686511fa6ef45e14c0bc498bfa9438bac48030",
+  "registrySha256": "b275d1d55255c448f8c38425a60cf87b7ff44610f7f0874140c06fa14a253f3a",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "taskforge",
@@ -18,10 +18,10 @@
       "scopeDocument": "https://github.com/WasteOfADrumBum/TaskForge/blob/57d0b6fc3f6333e6f6ff737f8a24a558b9099843/docs/phases/phase-3-knowledge.md",
       "candidate": null,
       "openPullRequests": [],
-      "head": "57d0b6fc3f6333e6f6ff737f8a24a558b9099843",
-      "snapshotObservedAt": "2026-11-12T18:19:21Z",
-      "lastSyncedAt": "2026-11-12T18:19:21Z",
-      "lastEvidenceAt": "2026-11-12T18:15:00Z",
+      "head": "bde52edc7aef87d18541b98e2b402c036e54c76b",
+      "snapshotObservedAt": "2026-11-20T04:29:45Z",
+      "lastSyncedAt": "2026-11-20T04:29:45Z",
+      "lastEvidenceAt": "2026-11-20T04:12:34Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -125,7 +125,7 @@
               "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
               "origin": "manual",
               "provenance": "pass-without-independent-verifier",
-              "stale": null
+              "stale": "tf-ci-main is 34 days old (window 30 days)"
             },
             {
               "id": "tf-ci-main-57d0b6f",
@@ -144,6 +144,7 @@
           "failed": false,
           "missing": [
             "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
+            "current evidence: tf-ci-main is 34 days old (window 30 days)",
             "registry notes: Builder-reported: main CI passed at 57d0b6f, the proposed v1.0.0 candidate. Verifier must re-check on the tagged commit"
           ],
           "notes": "Builder-reported: main CI passed at 57d0b6f, the proposed v1.0.0 candidate. Verifier must re-check on the tagged commit.",
@@ -407,7 +408,7 @@
               "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
               "origin": "manual",
               "provenance": "builder-reported",
-              "stale": null
+              "stale": "tf-project-status is 34 days old (window 30 days)"
             },
             {
               "id": "tf-pr52-backup-drill",

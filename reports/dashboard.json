@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/dashboard",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-14T18:13:38Z",
+  "asOf": "2026-11-25T17:42:13Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "4c2c0af740ec17bd6ba4e76913686511fa6ef45e14c0bc498bfa9438bac48030",
+  "registrySha256": "b275d1d55255c448f8c38425a60cf87b7ff44610f7f0874140c06fa14a253f3a",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "projects": [
     {
@@ -15,8 +15,8 @@
         "targetVersion": "2.0.0",
         "currentVersion": "2.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-12T02:16:03Z",
-        "snapshotObservedAt": "2026-11-12T02:22:59Z"
+        "lastEvidenceAt": "2026-11-20T04:07:03Z",
+        "snapshotObservedAt": "2026-11-20T04:18:43Z"
       },
       "derived": {
         "percentage": 100,
@@ -37,8 +37,8 @@
         "targetVersion": "0.6.0",
         "currentVersion": "0.6.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-14T14:42:38Z",
-        "snapshotObservedAt": "2026-11-14T15:42:13Z"
+        "lastEvidenceAt": "2026-11-20T04:17:31Z",
+        "snapshotObservedAt": "2026-11-20T04:20:33Z"
       },
       "derived": {
         "percentage": 100,
@@ -59,8 +59,8 @@
         "targetVersion": "1.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-14T12:22:37Z",
-        "snapshotObservedAt": "2026-11-14T12:27:14Z"
+        "lastEvidenceAt": "2026-11-21T12:23:34Z",
+        "snapshotObservedAt": "2026-11-21T12:28:00Z"
       },
       "derived": {
         "percentage": 100,
@@ -81,8 +81,8 @@
         "targetVersion": "1.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-14T12:24:45Z",
-        "snapshotObservedAt": "2026-11-14T12:27:14Z"
+        "lastEvidenceAt": "2026-11-21T12:25:21Z",
+        "snapshotObservedAt": "2026-11-21T12:29:56Z"
       },
       "derived": {
         "percentage": 100,
@@ -103,18 +103,18 @@
         "targetVersion": "1.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "released",
-        "lastEvidenceAt": "2026-11-12T13:20:24Z",
-        "snapshotObservedAt": "2026-11-12T14:17:55Z"
+        "lastEvidenceAt": "2026-11-20T13:20:56Z",
+        "snapshotObservedAt": "2026-11-20T18:31:55Z"
       },
       "derived": {
         "percentage": 100,
         "verifiedGates": 10,
         "applicableGates": 10,
-        "blockingFindings": 1,
+        "blockingFindings": 0,
         "registryBlockers": 0,
-        "eligibility": "not-eligible",
-        "releaseReady": false,
-        "nextAction": "Fix the failing CI run on f118807 and re-run it (never skip or disable tests)."
+        "eligibility": "released",
+        "releaseReady": true,
+        "nextAction": null
       }
     },
     {
@@ -125,8 +125,8 @@
         "targetVersion": "1.0.0",
         "currentVersion": null,
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-12T18:15:00Z",
-        "snapshotObservedAt": "2026-11-12T18:19:21Z"
+        "lastEvidenceAt": "2026-11-20T04:12:34Z",
+        "snapshotObservedAt": "2026-11-20T04:29:45Z"
       },
       "derived": {
         "percentage": 0,
@@ -147,15 +147,15 @@
         "targetVersion": "2.0.0",
         "currentVersion": "1.0.0",
         "releaseStatus": "in_progress",
-        "lastEvidenceAt": "2026-11-14T12:57:06Z",
-        "snapshotObservedAt": "2026-11-14T13:13:57Z"
+        "lastEvidenceAt": "2026-11-25T17:42:13Z",
+        "snapshotObservedAt": "2026-11-20T04:28:15Z"
       },
       "derived": {
         "percentage": 0,
         "verifiedGates": 0,
         "applicableGates": 19,
-        "blockingFindings": 4,
-        "registryBlockers": 1,
+        "blockingFindings": 3,
+        "registryBlockers": 0,
         "eligibility": "not-eligible",
         "releaseReady": false,
         "nextAction": "Test the critical workflows on the candidate commit (critical-workflows, e2e-critical-workflows) and have the verifier record the result."
@@ -169,8 +169,8 @@
         "targetVersion": null,
         "currentVersion": null,
         "releaseStatus": "not_started",
-        "lastEvidenceAt": "2026-11-07T23:06:51Z",
-        "snapshotObservedAt": "2026-11-11T02:19:00Z"
+        "lastEvidenceAt": "2026-11-20T04:04:34Z",
+        "snapshotObservedAt": "2026-11-20T04:31:44Z"
       },
       "derived": {
         "percentage": 0,

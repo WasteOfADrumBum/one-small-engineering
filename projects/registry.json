@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "schemaVersion": "1.3.0",
-  "lastUpdatedAt": "2026-11-21T12:29:56Z",
+  "lastUpdatedAt": "2026-11-25T17:42:13Z",
   "approvalOwner": "Joshua Small",
   "gateCatalog": {
     "showcase": [
@@ -2916,11 +2916,12 @@
           },
           {
             "id": "live-config-pending",
-            "description": "Open: Finances saving, approvals and live Ops data need GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET and GOOGLE_REFRESH_TOKEN (drive.file and calendar.events) and GITHUB_TOKEN set in Vercel by the owner before the live checks can run.",
-            "status": "open",
+            "description": "Resolved: GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN and GITHUB_TOKEN are set in Vercel production for cortex-brain since 2026-11-18 (names read from the Vercel API on 2026-11-25; values never read). The live checks themselves stay with the owner's attestation.",
+            "status": "resolved",
             "evidenceRefs": [
-              "cortex-assistant-pr-42",
-              "cortex-finances-pr-40"
+              "cortex-vercel-env-2026-11-25",
+              "cortex-finances-pr-40",
+              "cortex-assistant-pr-42"
             ],
             "category": "manual",
             "blocks": "release",
@@ -2931,7 +2932,7 @@
             ]
           }
         ],
-        "nextAction": "Owner: review docs/acceptance/cortex-2.0-release-package.md, set the Google token (drive.file and calendar.events) and GITHUB_TOKEN in Vercel, do the listed live checks and sign off on the package PR. Then merge cortex-brain-task#44 and record the approval. The v2.0.0 tag is the owner's to create or ask for.",
+        "nextAction": "Owner: review the refreshed docs/acceptance/cortex-2.0-release-package.md (main at 42c8c7a), do the listed checks and sign off on the package refresh PR. Then record the approval and fold the cortex-brain-task changelog's Unreleased section into 2.0.0. The v2.0.0 tag is the owner's to create or ask for.",
         "enhancements": [
           "Enterprise AI and Small Business & SaaS news categories wait for owner-chosen sources (ROADMAP.md).",
           "Vault type legend waits for the owner's one-line meanings (ROADMAP.md)."
@@ -3113,6 +3114,36 @@
           "recordedBy": "One Small Engineering Sync",
           "origin": "sync",
           "eventKey": "cortex:workflow_run:ci.yml/42c8c7a/kiseh5v/1"
+        },
+        {
+          "id": "cortex-vercel-env-2026-11-25",
+          "type": "audit",
+          "url": "https://vercel.com/task-forge3/cortex-brain/settings/environment-variables",
+          "commitSha": null,
+          "verifiedAt": "2026-11-25T17:42:13Z",
+          "result": "informational",
+          "description": "Vercel API listing of cortex-brain production environment variable names: GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET and GOOGLE_REFRESH_TOKEN (added 2026-11-18) and GITHUB_TOKEN (added 2026-11-18) are present. Names only; values were not read. Not a live behaviour check.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "cortex-ci-main-42c8c7a",
+          "type": "workflow_run",
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/actions/runs/44671742563",
+          "commitSha": "42c8c7a7966509052f9ee7a27b577976775211ef",
+          "verifiedAt": "2026-11-25T17:42:13Z",
+          "result": "builder_reported",
+          "description": "CI on main at 42c8c7a (after #45 to #51): type check, 95 tests, axe on every demo tab, checkpoint check, all green. Builder-reported.",
+          "recordedBy": "Claude Code"
+        },
+        {
+          "id": "cortex-vercel-prod-42c8c7a",
+          "type": "deployment",
+          "url": "https://github.com/WasteOfADrumBum/cortex-brain-task/deployments",
+          "commitSha": "42c8c7a7966509052f9ee7a27b577976775211ef",
+          "verifiedAt": "2026-11-25T17:42:13Z",
+          "result": "builder_reported",
+          "description": "Vercel Production deployment of main at 42c8c7a is READY and serves cortex.onesmall.company (read from the Vercel API on 2026-11-25). Live behaviour with the owner signed in not inspected.",
+          "recordedBy": "Claude Code"
         }
       ],
       "releaseGates": [
@@ -3183,7 +3214,7 @@
             "cortex-finances-pr-40"
           ],
           "verifiedAt": null,
-          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending)."
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. The owner's Vercel settings are in place (blocker live-config-pending resolved 2026-11-25); the live check waits on the owner's attestation."
         },
         {
           "id": "production-deployment",
@@ -3266,7 +3297,7 @@
             "cortex-finances-pr-40"
           ],
           "verifiedAt": null,
-          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending)."
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. The owner's Vercel settings are in place (blocker live-config-pending resolved 2026-11-25); the live check waits on the owner's attestation."
         },
         {
           "id": "audit-logging",
@@ -3275,7 +3306,7 @@
             "cortex-assistant-pr-42"
           ],
           "verifiedAt": null,
-          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending)."
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. The owner's Vercel settings are in place (blocker live-config-pending resolved 2026-11-25); the live check waits on the owner's attestation."
         },
         {
           "id": "deployment-rollback",
