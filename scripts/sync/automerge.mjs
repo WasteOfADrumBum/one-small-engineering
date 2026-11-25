@@ -187,8 +187,10 @@ async function merge({ client, pr, policy, mainSha }) {
 }
 
 // mergeBudget caps merges in this call; main() passes what is left of policy.maxMergesPerRun so
-// retries within one invocation never exceed the per-invocation limit.
-export async function run({ client: raw, policy, validate, dryRun = false, only = null, paused = false, healStale = false, mergeBudget = policy.maxMergesPerRun, log = () => {} }) {
+// retries within one invocation never exceed the per-invocation limit. priorMerges and reconciled
+// carry the earlier passes of the same invocation: a merge in pass 1 still makes a PR that is
+// stale in pass 2 worth rebuilding, but Registry sync is dispatched at most once per invocation.
+export async function run({ client: raw, policy, validate, dryRun = false, only = null, paused = false, healStale = false, mergeBudget = policy.maxMergesPerRun, priorMerges = 0, reconciled = false, log = () => {} }) {
   const client = restrictAutomergeWrites(raw)
   const results = []
   if (!policy.enabled || paused) {
@@ -199,6 +201,9 @@ export async function run({ client: raw, policy, validate, dryRun = false, only 
   const prs = listed.filter(p => p.head && /^sync\//.test(p.head.ref) && (only === null || p.number === only)).sort((a, b) => a.number - b.number)
   let merges = 0
   let stale = 0
+  // Index in results of the last PR merged in this pass: a PR left waiting before it was judged
+  // against the old main, so the merge made it stale too.
+  let lastMergeAt = -1
   for (const pr of prs) {
     const entry = { number: pr.number, branch: pr.head.ref, decision: null, reasons: [] }
     results.push(entry)
@@ -214,6 +219,7 @@ export async function run({ client: raw, policy, validate, dryRun = false, only 
       const m = await merge({ client, pr, policy, mainSha: ev.mainSha })
       if (!m.merged) { entry.decision = 'wait'; entry.reasons = [m.why]; continue }
       merges++
+      lastMergeAt = results.length - 1
       entry.decision = 'merged'
       entry.mergeSha = m.sha
       // The merge already happened: a failed audit comment is reported as a warning, never as an
@@ -231,17 +237,22 @@ export async function run({ client: raw, policy, validate, dryRun = false, only 
   // Merging moved main, so remaining sync PRs are stale. Ask sync to rebuild them from main.
   let reconcile = null
   const remaining = results.filter(r => r.decision === 'wait' && /sync must rebuild|re-evaluated/.test(r.reasons[0] || '')).length
+  const passedOver = results.slice(0, Math.max(lastMergeAt, 0)).filter(r => r.decision === 'wait').length
   // healStale (scheduled runs only) also rebuilds stale PRs when nothing merged in this run, e.g. after
   // concurrent runs merged them; event-chained runs never do, so sync and auto-merge cannot ping-pong.
-  if (!dryRun && policy.reconcileAfterMerge && (merges > 0 || healStale) && (stale > 0 || remaining > 0)) {
+  // Merges from earlier passes of this invocation count (issue #240 follow-up: #247 merged in one
+  // pass, #246 was found stale in the next and nothing rebuilt it until the schedule).
+  let dispatched = false
+  if (!dryRun && !reconciled && policy.reconcileAfterMerge && (merges > 0 || priorMerges > 0 || healStale) && (stale > 0 || remaining > 0 || passedOver > 0)) {
     try {
       await client.request('POST', `${HUB}/actions/workflows/registry-sync.yml/dispatches`, { body: { ref: HUB_DEFAULT_BRANCH, inputs: { dry_run: 'false' } } })
       reconcile = 'registry sync dispatched to rebuild remaining sync PRs from the new main'
+      dispatched = true
     } catch (e) {
       reconcile = `could not dispatch registry sync (${cleanText(e.message, 120)}); the next scheduled run rebuilds them`
     }
   }
-  return { results, merges, reconcile, dryRun }
+  return { results, merges, reconcile, dispatched, dryRun }
 }
 
 export function render({ results, merges, reconcile, dryRun }) {
@@ -265,15 +276,17 @@ async function main(argv) {
   // Policy and schema are read once per invocation; the merge limit applies to the whole invocation.
   const policy = loadPolicy()
   const validate = validator()
-  const go = merged => run({ client, policy, validate, dryRun, only, paused: process.env.AUTOMERGE_PAUSED === 'true', healStale: process.env.AUTOMERGE_HEAL === 'true', mergeBudget: policy.maxMergesPerRun - merged, log: t => console.log(safeOutput(t)) })
+  const go = (merged, reconciled = false) => run({ client, policy, validate, dryRun, only, paused: process.env.AUTOMERGE_PAUSED === 'true', healStale: process.env.AUTOMERGE_HEAL === 'true', mergeBudget: policy.maxMergesPerRun - merged, priorMerges: merged, reconciled, log: t => console.log(safeOutput(t)) })
   // A sync PR's validation may still be running when this is dispatched; wait for it (bounded).
   const waitingOnChecks = o => o.results.some(r => r.decision === 'wait' && /has not reported|is (queued|in_progress|waiting|pending|requested)|was cancelled/.test(r.reasons[0] || ''))
   let out = await go(0)
   // Up to 10 minutes: the gate's slowest job (security) takes about a minute and a half.
   for (let i = 0; i < 20 && !dryRun && waitingOnChecks(out) && out.merges < policy.maxMergesPerRun; i++) {
     await new Promise(r => setTimeout(r, 30_000))
-    const next = await go(out.merges)
+    const next = await go(out.merges, out.dispatched)
     next.merges += out.merges
+    // Keep an earlier pass's dispatch on the record; a later pass never dispatches again.
+    if (out.dispatched) { next.dispatched = true; next.reconcile = next.reconcile || out.reconcile }
     out = next
   }
   const md = render(out)
