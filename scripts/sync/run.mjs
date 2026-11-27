@@ -18,6 +18,7 @@ import { resolve, dirname } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { validateRegistry, parseDefinitionOfDone } from '../validate-registry.mjs'
 import { createClient, describeAccess } from './github.mjs'
+import { chooseTokens } from './watch.mjs'
 import { collect, SyncError } from './collect.mjs'
 import { plan } from './plan.mjs'
 import { writeSync, closeStale, listSyncPrs, upsertStatusIssue, readStatusIssueBody, checkProposal, WriteRefused } from './write.mjs'
@@ -30,6 +31,14 @@ export { runVerdict }
 
 // One log line per project. A skip or decline always names its reason; the reason used to
 // be stored on the status issue and omitted here, so a skipped project looked unexplained.
+// Public projects are read with the job's own token and only private ones with the reader
+// credential, as the change watch does (chooseTokens). The reader is a fine-grained token scoped
+// to the private project; when it expired on 2026-11-26 every public read failed with 401 too.
+export function readerClients({ token = '', readerToken = '', make = createClient } = {}) {
+  const { publicToken, privateToken } = chooseTokens({ token, reader: readerToken })
+  return { publicReader: make({ token: publicToken }), privateReader: privateToken ? make({ token: privateToken }) : null }
+}
+
 export function formatSyncLine(r) {
   return `sync ${r.projectId}: ${r.outcome}${r.prAction ? ` (${r.prAction})` : ''}${r.prReason ? ` - ${r.prReason}` : ''}${r.errors && r.errors.length ? ` - ${r.errors.join('; ')}` : ''}${r.gaps && r.gaps.length ? ` - incomplete: ${r.gaps.join('; ')}` : ''}`
 }
@@ -177,8 +186,7 @@ async function main(argv) {
   const registry = loadRegistry()
   const token = process.env.GITHUB_TOKEN || ''
   const readerToken = process.env.READER_TOKEN || ''
-  const publicReader = createClient({ token: readerToken || token })
-  const privateReader = readerToken ? createClient({ token: readerToken }) : null
+  const { publicReader, privateReader } = readerClients({ token, readerToken })
 
   if (cmd === 'collect') {
     const collected = await collectAll({ registry, only, clients: { publicReader, privateReader } })

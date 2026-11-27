@@ -12,7 +12,7 @@ import { plan } from './plan.mjs'
 import { renderStatus, renderPrBody, parseState } from './status.mjs'
 import { writeSync } from './write.mjs'
 import { createClient } from './github.mjs'
-import { loadObservations, reconcileCollected, collectAll, processAll } from './run.mjs'
+import { loadObservations, reconcileCollected, collectAll, processAll, readerClients } from './run.mjs'
 import { annotation, withholdValues, ROOT } from './lib.mjs'
 import { FakeGitHub, projectRepo } from '../../fixtures/sync/fake-github.mjs'
 import { world, loadRegistry, taskforgeState, NOW, TF_HEAD, fakeSha } from '../../fixtures/sync/scenario.mjs'
@@ -275,4 +275,11 @@ test('F-06: the write command exits non-zero without input, and when a project i
   const missing = run({}, ['--in', file])
   assert.equal(missing.code, 1)
   assert.match(missing.out, /sync taskforge: error - not-collected/)
+})
+
+test('sync reads public projects with the job token and only private ones with the reader (expired reader, 2026-11-26)', () => {
+  const make = ({ token }) => ({ token })
+  assert.deepEqual(readerClients({ token: 'job', readerToken: 'reader', make }), { publicReader: { token: 'job' }, privateReader: { token: 'reader' } })
+  assert.deepEqual(readerClients({ token: 'job', readerToken: '', make }), { publicReader: { token: 'job' }, privateReader: null })
+  assert.deepEqual(readerClients({ token: '', readerToken: 'reader', make }), { publicReader: { token: 'reader' }, privateReader: { token: 'reader' } })
 })
