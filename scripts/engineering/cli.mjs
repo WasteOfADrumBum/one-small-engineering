@@ -158,7 +158,7 @@ async function check(o, { root, env, now, log, fetchImpl }) {
     if (o.network && o.api) {
       const mk = token => readOnlyClient(createClient({ token: token || undefined, fetchImpl, maxRetries: 2, baseDelayMs: 1000 }))
       const reader = env.READER_TOKEN || env.SYNC_READER_TOKEN || ''
-      estate.sync = await syncDrift({ registry: vstate.registry, clients: { publicReader: mk(reader || env.GITHUB_TOKEN), privateReader: reader ? mk(reader) : null }, now: new Date(at) })
+      estate.sync = await syncDrift({ registry: vstate.registry, clients: { publicReader: mk(env.GITHUB_TOKEN || reader), privateReader: reader ? mk(reader) : null }, now: new Date(at) })
       const base = loadPullRequests(root, { pullRequests: [] })
       estate.pullRequests = (await pullRequestStatus({ client: mk(env.GITHUB_TOKEN), prs: base, now: at })).map(({ url, status, reviewed, observedAt, reason }) => ({ url, status, reviewed: reviewed ?? null, observedAt: observedAt || null, reason: reason || null }))
       const reachable = estate.pullRequests.some(p => !p.reason) || Object.values(estate.sync).some(s => s.status !== 'unavailable')
