@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-14T18:13:38Z",
+  "asOf": "2026-11-25T17:42:13Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "4c2c0af740ec17bd6ba4e76913686511fa6ef45e14c0bc498bfa9438bac48030",
+  "registrySha256": "b275d1d55255c448f8c38425a60cf87b7ff44610f7f0874140c06fa14a253f3a",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-studio",
@@ -18,10 +18,10 @@
       "scopeDocument": "https://github.com/WasteOfADrumBum/one-small-studio/blob/b017cfe9c40e2166799ed59187a12d61f76e1763/docs/release/studio-release-evidence.md",
       "candidate": null,
       "openPullRequests": [],
-      "head": "a186007a41e0ecf4cdda371d2695808d8c3f6fa7",
-      "snapshotObservedAt": "2026-11-14T12:27:14Z",
-      "lastSyncedAt": "2026-11-14T12:27:14Z",
-      "lastEvidenceAt": "2026-11-14T12:24:45Z",
+      "head": "fb092abec418c05bfc3ad6ee641e2b70ff0ec9a6",
+      "snapshotObservedAt": "2026-11-21T12:29:56Z",
+      "lastSyncedAt": "2026-11-21T12:29:56Z",
+      "lastEvidenceAt": "2026-11-21T12:25:21Z",
       "ownership": {
         "builder": "Claude Code",
         "verifier": "Joshua Small",
@@ -140,7 +140,7 @@
               "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
               "origin": "manual",
               "provenance": "pass-without-independent-verifier",
-              "stale": null
+              "stale": "studio-ci-main is 34 days old (window 30 days)"
             },
             {
               "id": "studio-ci-run-9310334",

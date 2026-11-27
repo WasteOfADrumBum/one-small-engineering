@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-14T18:13:38Z",
+  "asOf": "2026-11-25T17:42:13Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "4c2c0af740ec17bd6ba4e76913686511fa6ef45e14c0bc498bfa9438bac48030",
+  "registrySha256": "b275d1d55255c448f8c38425a60cf87b7ff44610f7f0874140c06fa14a253f3a",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-mods-pack",
@@ -23,10 +23,10 @@
         "observedAt": "2026-11-11T06:10:00Z"
       },
       "openPullRequests": [],
-      "head": "065732f3d9b1810483224a4dbe09749e1f8ea1df",
-      "snapshotObservedAt": "2026-11-12T02:22:59Z",
-      "lastSyncedAt": "2026-11-12T02:22:59Z",
-      "lastEvidenceAt": "2026-11-12T02:16:03Z",
+      "head": "734188e8eec3ab268c6b600c7aad663d36569de2",
+      "snapshotObservedAt": "2026-11-20T04:18:43Z",
+      "lastSyncedAt": "2026-11-20T04:18:43Z",
+      "lastEvidenceAt": "2026-11-20T04:07:03Z",
       "ownership": {
         "builder": "ChatGPT",
         "verifier": "Joshua Small",
@@ -200,7 +200,7 @@
               "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
               "origin": "manual",
               "provenance": "builder-reported",
-              "stale": "msp-release-verification is for 80cc269, not the release candidate 03ab44a"
+              "stale": "msp-release-verification is 34 days old (window 30 days)"
             },
             {
               "id": "msp-owner-final-verification-2026-11-11",
@@ -241,7 +241,7 @@
               "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
               "origin": "manual",
               "provenance": "builder-reported",
-              "stale": "msp-release-verification is for 80cc269, not the release candidate 03ab44a"
+              "stale": "msp-release-verification is 34 days old (window 30 days)"
             },
             {
               "id": "msp-owner-final-verification-2026-11-11",
@@ -282,7 +282,7 @@
               "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
               "origin": "manual",
               "provenance": "builder-reported",
-              "stale": "msp-release-verification is for 80cc269, not the release candidate 03ab44a"
+              "stale": "msp-release-verification is 34 days old (window 30 days)"
             },
             {
               "id": "msp-owner-final-verification-2026-11-11",
@@ -323,7 +323,7 @@
               "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
               "origin": "manual",
               "provenance": "builder-reported",
-              "stale": "msp-release-verification is for 80cc269, not the release candidate 03ab44a"
+              "stale": "msp-release-verification is 34 days old (window 30 days)"
             },
             {
               "id": "msp-owner-final-verification-2026-11-11",
@@ -421,7 +421,7 @@
               "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
               "origin": "manual",
               "provenance": "builder-reported",
-              "stale": "msp-compatibility-catalog is for 80cc269, not the release candidate 03ab44a"
+              "stale": "msp-compatibility-catalog is 34 days old (window 30 days)"
             },
             {
               "id": "msp-owner-final-verification-2026-11-11",
@@ -573,7 +573,7 @@
               "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
               "origin": "manual",
               "provenance": "builder-reported",
-              "stale": "msp-release-verification is for 80cc269, not the release candidate 03ab44a"
+              "stale": "msp-release-verification is 34 days old (window 30 days)"
             },
             {
               "id": "msp-owner-final-verification-2026-11-11",
@@ -655,7 +655,7 @@
               "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
               "origin": "manual",
               "provenance": "builder-reported",
-              "stale": "msp-release-verification is for 80cc269, not the release candidate 03ab44a"
+              "stale": "msp-release-verification is 34 days old (window 30 days)"
             },
             {
               "id": "msp-npm-2-0-0",
@@ -884,7 +884,7 @@
               "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
               "origin": "manual",
               "provenance": "builder-reported",
-              "stale": "msp-release-verification is for 80cc269, not the release candidate 03ab44a"
+              "stale": "msp-release-verification is 34 days old (window 30 days)"
             },
             {
               "id": "msp-owner-final-verification-2026-11-11",
@@ -925,7 +925,7 @@
               "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
               "origin": "manual",
               "provenance": "builder-reported",
-              "stale": "msp-compatibility-catalog is for 80cc269, not the release candidate 03ab44a"
+              "stale": "msp-compatibility-catalog is 34 days old (window 30 days)"
             },
             {
               "id": "msp-owner-final-verification-2026-11-11",

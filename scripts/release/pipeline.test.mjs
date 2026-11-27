@@ -29,6 +29,9 @@ const CLI = resolve(ROOT, 'scripts/release/cli.mjs')
 const inputs = () => loadInputs(inputsText, p => read(p))
 const gen = (over = {}) => generate({ registryText, schema, dodText, inputs: inputs(), asOf: AS_OF, ...over })
 const pilot = JSON.parse(read('fixtures/release/modspack-pilot-2026-10-26.json'))
+// The pilot is a frozen 2026-10-26 entry, so it is assessed at its own time. Following the live registry's
+// clock would age its evidence past the 30-day stale window and change the expected readiness.
+const PILOT_AS_OF = new Date('2026-10-27T03:40:00Z')
 const pilotRegistry = () => ({ approvalOwner: pilot.approvalOwner, gateCatalog: structuredClone(pilot.gateCatalog), projects: [structuredClone(pilot.project)] })
 const meta = { command: 'test', asOf: AS_OF, staleDays: 30, engineVersion: 1, registryHash: '0'.repeat(64) }
 
@@ -151,7 +154,7 @@ test('a changelog snapshot older than the release candidate is labelled stale', 
   const reg = pilotRegistry()
   reg.projects[0].release.candidate.headSha = 'c'.repeat(40)
   reg.projects[0].openPullRequests[0].headSha = 'c'.repeat(40)
-  const p = assessRegistry(reg, { dodText, asOf: new Date(AS_OF) }).projects[0]
+  const p = assessRegistry(reg, { dodText, asOf: PILOT_AS_OF }).projects[0]
   const c = inputs().get('one-small-mods-pack')
   const prep = prepareRelease(p, meta, { changelogText: c.text, changelogSource: c.source })
   assert.equal(prep.json.unverified.changelog.stale, true)
@@ -159,7 +162,7 @@ test('a changelog snapshot older than the release candidate is labelled stale', 
 })
 
 test('ModsPack pilot (frozen 2026-10-26 entry): accurate readiness, blockers and the minimum remaining work', () => {
-  const a = assessRegistry(pilotRegistry(), { dodText, asOf: new Date(AS_OF) }).projects[0]
+  const a = assessRegistry(pilotRegistry(), { dodText, asOf: PILOT_AS_OF }).projects[0]
   const r = a.derived.readiness
   assert.equal(a.id, 'one-small-mods-pack')
   assert.equal(r.percentage, 0)
@@ -190,7 +193,7 @@ test('ModsPack pilot (frozen 2026-10-26 entry): accurate readiness, blockers and
 test('ModsPack pilot: a moved PR head makes the candidate stale; a full verification reaches the owner decision only', () => {
   let reg = pilotRegistry()
   reg.projects[0].openPullRequests[0].headSha = 'd'.repeat(40)
-  let a = assessRegistry(reg, { dodText, asOf: new Date(AS_OF) }).projects[0]
+  let a = assessRegistry(reg, { dodText, asOf: PILOT_AS_OF }).projects[0]
   assert.equal(a.derived.readiness.candidateMoved, true)
   assert.ok(a.derived.blockers.release.some(b => b.id === 'auto-candidate-moved'))
 
@@ -201,7 +204,7 @@ test('ModsPack pilot: a moved PR head makes the candidate stale; a full verifica
   p.evidence.push({ id: 'msp-verifier', type: 'manual_test', url: `${p.repository}/pull/3`, commitSha: head, verifiedAt: '2026-10-26T01:50:00Z', result: 'pass', description: 'Fixture.', recordedBy: 'ChatGPT Codex' })
   for (const g of p.releaseGates) if (g.status !== 'not_applicable' && !['distribution-verified', 'release-provenance', 'published-artifact-matches'].includes(g.id)) Object.assign(g, { status: 'verified', evidenceRefs: ['msp-verifier'] })
   p.release.blockers = p.release.blockers.map(b => (b.category === 'approval' ? b : { ...b, status: 'resolved' }))
-  a = assessRegistry(reg, { dodText, asOf: new Date(AS_OF) }).projects[0]
+  a = assessRegistry(reg, { dodText, asOf: PILOT_AS_OF }).projects[0]
   assert.equal(a.derived.readiness.eligibility, 'awaiting-owner-decision')
   assert.equal(a.derived.readiness.prePublication.verified, 18)
   assert.equal(a.derived.readiness.percentage, 85.7)

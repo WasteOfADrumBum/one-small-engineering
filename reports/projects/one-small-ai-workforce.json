@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/project-readiness",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-14T18:13:38Z",
+  "asOf": "2026-11-25T17:42:13Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "4c2c0af740ec17bd6ba4e76913686511fa6ef45e14c0bc498bfa9438bac48030",
+  "registrySha256": "b275d1d55255c448f8c38425a60cf87b7ff44610f7f0874140c06fa14a253f3a",
   "notice": "Readiness percentages are progress indicators, not release authorization. Only Joshua Small approves a release.",
   "project": {
     "id": "one-small-ai-workforce",
@@ -18,10 +18,10 @@
       "scopeDocument": null,
       "candidate": null,
       "openPullRequests": [],
-      "head": "172e2da0cc81f4571e5ea38a82b4af34e3f2101e",
-      "snapshotObservedAt": "2026-11-11T02:19:00Z",
-      "lastSyncedAt": "2026-11-11T02:19:00Z",
-      "lastEvidenceAt": "2026-11-07T23:06:51Z",
+      "head": "f7610fdacabf17410b64c3008792a47354ac4c91",
+      "snapshotObservedAt": "2026-11-20T04:31:44Z",
+      "lastSyncedAt": "2026-11-20T04:31:44Z",
+      "lastEvidenceAt": "2026-11-20T04:04:34Z",
       "ownership": {
         "builder": "GitHub Copilot",
         "verifier": "Joshua Small",
@@ -110,7 +110,7 @@
               "recordedBy": "Claude Code (Phase 0 baseline, read-only GitHub inspection)",
               "origin": "manual",
               "provenance": "pass-without-independent-verifier",
-              "stale": null
+              "stale": "aiw-ci-main is 34 days old (window 30 days)"
             }
           ],
           "lastObservedAt": "2026-10-22T17:20:00Z",

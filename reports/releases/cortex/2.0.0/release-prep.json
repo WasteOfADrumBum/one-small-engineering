@@ -1,10 +1,10 @@
 {
   "kind": "one-small-engineering/release-preparation",
   "generatedBy": "npm run release:reports",
-  "asOf": "2026-11-14T18:13:38Z",
+  "asOf": "2026-11-25T17:42:13Z",
   "staleDays": 30,
   "engineVersion": 1,
-  "registrySha256": "4c2c0af740ec17bd6ba4e76913686511fa6ef45e14c0bc498bfa9438bac48030",
+  "registrySha256": "b275d1d55255c448f8c38425a60cf87b7ff44610f7f0874140c06fa14a253f3a",
   "notice": "Draft preparation only. Nothing was published, tagged, deployed, merged or approved. Release authorization is manual and belongs to Joshua Small.",
   "project": {
     "id": "cortex",
@@ -88,8 +88,8 @@
         "applicable": 18,
         "verified": 0
       },
-      "blockingFindings": 4,
-      "registryBlockers": 1,
+      "blockingFindings": 3,
+      "registryBlockers": 0,
       "missingIndependentVerification": [
         "scope-complete",
         "automated-checks",
@@ -169,7 +169,7 @@
         "provenance": "builder-reported",
         "missing": [
           "independent re-check of the builder-reported result, recorded by the verifier as its own pass evidence",
-          "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending)"
+          "registry notes: Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. The owner's Vercel settings are in place (blocker live-config-pending resolved 2026-11-25); the live check waits on the owner's attestation"
         ]
       },
       {
@@ -233,25 +233,6 @@
     "blockers": {
       "merge": [],
       "release": [
-        {
-          "id": "live-config-pending",
-          "origin": "registry",
-          "status": "open",
-          "category": "manual",
-          "severity": null,
-          "blocks": "release",
-          "gates": [
-            "critical-workflows",
-            "audit-logging",
-            "backup-recovery"
-          ],
-          "description": "Open: Finances saving, approvals and live Ops data need GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET and GOOGLE_REFRESH_TOKEN (drive.file and calendar.events) and GITHUB_TOKEN set in Vercel by the owner before the live checks can run.",
-          "evidenceRefs": [
-            "cortex-assistant-pr-42",
-            "cortex-finances-pr-40"
-          ],
-          "rule": null
-        },
         {
           "id": "auto-critical-workflows-unverified",
           "origin": "derived",
@@ -367,23 +348,8 @@
           "deployment-rollback",
           "e2e-critical-workflows"
         ],
-        "text": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate, authorization-boundaries, sensitive-data-handling, api-integration-security, integration-failure-handling, deployment-rollback; produce evidence for authentication; then verify critical-workflows, backup-recovery, audit-logging, e2e-critical-workflows once their blockers are resolved.",
+        "text": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa, keyboard-screen-reader, responsive-layouts, documentation-accurate, authorization-boundaries, sensitive-data-handling, api-integration-security, integration-failure-handling, backup-recovery, audit-logging, deployment-rollback; produce evidence for authentication; then verify critical-workflows, e2e-critical-workflows once their blockers are resolved.",
         "summary": "Independently re-check the builder evidence for scope-complete, automated-checks, security-privacy-review, wcag-22-aa..."
-      },
-      {
-        "rank": 3,
-        "priority": 7,
-        "bucket": "Documentation and lower priority",
-        "source": "live-config-pending",
-        "origin": "registry",
-        "blocks": "release",
-        "gates": [
-          "critical-workflows",
-          "audit-logging",
-          "backup-recovery"
-        ],
-        "text": "Resolve blocker live-config-pending: Open: Finances saving, approvals and live Ops data need GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET and GOOGLE_REFRESH_TOKEN (drive.file and calendar.events) and GITHUB_TOKEN set in Vercel by the owner before the live checks can run.",
-        "summary": "Resolve blocker live-config-pending."
       }
     ],
     "rollback": {
@@ -617,7 +583,7 @@
         },
         {
           "gate": "critical-workflows",
-          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending)."
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. The owner's Vercel settings are in place (blocker live-config-pending resolved 2026-11-25); the live check waits on the owner's attestation."
         },
         {
           "gate": "production-deployment",
@@ -653,11 +619,11 @@
         },
         {
           "gate": "backup-recovery",
-          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending)."
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. The owner's Vercel settings are in place (blocker live-config-pending resolved 2026-11-25); the live check waits on the owner's attestation."
         },
         {
           "gate": "audit-logging",
-          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. Live check waits on the owner's Vercel settings (blocker live-config-pending)."
+          "notes": "Cortex 2.0: builder evidence prepared for review in docs/acceptance/cortex-2.0-release-package.md; verified only by Joshua Small's attestation. The owner's Vercel settings are in place (blocker live-config-pending resolved 2026-11-25); the live check waits on the owner's attestation."
         },
         {
           "gate": "deployment-rollback",
